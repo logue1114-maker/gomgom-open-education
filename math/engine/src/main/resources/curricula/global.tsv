@@ -1,0 +1,654 @@
+# Partial calculation mappings. No term ordering is inferred. Sources and coverage are shown in the app.
+PACK	england-primary-2021-v1	GB	England · National Curriculum	 https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study	Years 1–6 · selected calculation skills
+MAP	england-primary-2021-v1	1	count,compare,join9,split9,add9,sub9,place50,place10,add20,sub20
+MAP	england-primary-2021-v1	2	add100,sub100,addThree9,mulIntro
+MAP	england-primary-2021-v1	3	place100,add1000,sub1000,mul2,fractionPart,fracCompare
+MAP	england-primary-2021-v1	4	place1000,tables,divide,mul3,fracAddLike,fracSubLike
+MAP	england-primary-2021-v1	5	largePlace,mul22,remainder,decimalAdd,decimalSub
+MAP	england-primary-2021-v1	6	divide2,mixed,reduce,fracAdd,fracSub,fracMul,fracDivInt,gcd,lcm
+PACK	za-caps-intermediate-2011-v1	ZA	South Africa · CAPS	 https://www.education.gov.za/LinkClick.aspx?fileticket=dr7zg3CFCr8%3D&mid=1568&portalid=0&tabid=572	Grades 4–6 · selected calculation skills · CAPS 2011 pp. 14–17
+MAP	za-caps-intermediate-2011-v1	4	place1000,add1000,sub1000,mul22,divide,remainder,tables
+MAP	za-caps-intermediate-2011-v1	5	largePlace,divide2,fractionPart,fracCompare,fracAddLike,fracSubLike
+MAP	za-caps-intermediate-2011-v1	6	mixed
+
+# United States: this is the Common Core option, never a blanket claim for all states.
+PACK	us-ccss-2010-v1	US	Common Core · K–12	https://corestandards.org/wp-content/uploads/2023/09/Math_Standards1.pdf	K–Grade 12 · mapped foundations · select the standard used by your school; not all state standards
+LEVEL	us-ccss-2010-v1	0	K
+LEVEL	us-ccss-2010-v1	1	Grade 1
+LEVEL	us-ccss-2010-v1	2	Grade 2
+LEVEL	us-ccss-2010-v1	3	Grade 3
+LEVEL	us-ccss-2010-v1	4	Grade 4
+LEVEL	us-ccss-2010-v1	5	Grade 5
+LEVEL	us-ccss-2010-v1	6	Grade 6
+LEVEL	us-ccss-2010-v1	7	Grade 7
+LEVEL	us-ccss-2010-v1	8	Grade 8
+LEVEL	us-ccss-2010-v1	9	Grade 9
+LEVEL	us-ccss-2010-v1	10	Grade 10
+LEVEL	us-ccss-2010-v1	11	Grade 11
+LEVEL	us-ccss-2010-v1	12	Grade 12
+MAP	us-ccss-2010-v1	0	count,compare	K.CC.4–7
+MAP	us-ccss-2010-v1	0	join9,split9,add9,sub9	K.OA.1–3
+MAP	us-ccss-2010-v1	0	earlyShapes,earlySolids,earlyClassify,earlyLength	K.G.1–3; K.MD.1–3
+MAP	us-ccss-2010-v1	1	place50,place10	1.NBT.1–2
+MAP	us-ccss-2010-v1	1	add20,sub20,addThree9,subThree9	1.OA.1–6
+MAP	us-ccss-2010-v1	1	earlyClock,el_clock_hour	1.MD.3
+MAP	us-ccss-2010-v1	2	place100,add100,sub100,add1000,sub1000,addThree100,subThree100,el_missing_add,el_missing_sub	2.NBT.1–7; 2.OA.1
+MAP	us-ccss-2010-v1	2	el_even_odd	2.OA.3
+MAP	us-ccss-2010-v1	2	el_clock_minute	2.MD.7
+MAP	us-ccss-2010-v1	2	el_picture_graph,el_bar_graph	2.MD.10
+MAP	us-ccss-2010-v1	2	el_shape_sides,el_shape_classify	2.G.1
+MAP	us-ccss-2010-v1	3	tables,mulIntro,divide	3.OA.1–7
+MAP	us-ccss-2010-v1	3	fractionPart,fracCompare	3.NF.1–3; denominator restriction: 2,3,4,6,8
+MAP	us-ccss-2010-v1	3	el_rectangle_area,el_square_area	3.MD.5–7
+MAP	us-ccss-2010-v1	3	el_rectangle_perimeter,el_triangle_perimeter,el_square_perimeter	3.MD.8
+MAP	us-ccss-2010-v1	3	el_time_add,el_time_difference	3.MD.1
+MAP	us-ccss-2010-v1	4	place1000,largePlace,el_compare_10000	4.NBT.1–3
+MAP	us-ccss-2010-v1	4	mul2,mul3,mul22,remainder	4.NBT.5–6
+MAP	us-ccss-2010-v1	4	el_divisor,el_multiple	4.OA.4
+MAP	us-ccss-2010-v1	4	el_number_pattern	4.OA.5
+MAP	us-ccss-2010-v1	4	fracAddLike,fracSubLike,el_fraction_of_number,el_fraction_compare,el_fraction_common_den,reduce	4.NF.1–4; denominator restriction: 2,3,4,5,6,8,10,12
+MAP	us-ccss-2010-v1	4	el_fraction_decimal,el_decimal_fraction,el_decimal_compare	4.NF.5–7
+MAP	us-ccss-2010-v1	4	el_length_mm_cm,el_length_m_cm,el_length_km_m,el_mass_kg_g,el_capacity_l_ml,el_hours_to_minutes,el_minutes_to_hours	4.MD.1–2
+MAP	us-ccss-2010-v1	4	angleKinds,linePairs,symmetryAxes	4.G.1–3
+MAP	us-ccss-2010-v1	5	el_mul_3x2,divide2,el_div_2x2_rem,el_div_3x2_rem	5.NBT.5–6
+MAP	us-ccss-2010-v1	5	el_decimal_place,el_decimal_round,decimalAdd,decimalSub,decimalMul,decimalDiv,decimalDivInt	5.NBT.1–4,7
+MAP	us-ccss-2010-v1	5	fracAdd,fracSub,fracMul,el_mixed_to_improper,el_improper_to_mixed	5.NF.1–6
+MAP	us-ccss-2010-v1	5	mixed	5.OA.1
+MAP	us-ccss-2010-v1	5	el_rect_prism_volume,el_cube_volume	5.MD.3–5
+MAP	us-ccss-2010-v1	5	el_correspondence_add,el_correspondence_mul	5.OA.3
+MAP	us-ccss-2010-v1	6	gcd,lcm,el_common_divisor,el_common_multiple	6.NS.4
+MAP	us-ccss-2010-v1	6	fracDiv,fracDivInt	6.NS.1
+MAP	us-ccss-2010-v1	6	el_ratio_terms,el_ratio_fraction,percent	6.RP.1–3
+MAP	us-ccss-2010-v1	6	substitute	6.EE.2c; nonnegative introductory expressions
+MAP	us-ccss-2010-v1	6	el_triangle_area,el_parallelogram_area,el_trapezoid_area,el_rect_prism_surface,el_cube_surface	6.G.1–4
+MAP	us-ccss-2010-v1	6	mean,median,sec_frequency,boxplotRead,boxplotCompare	6.SP.2–5
+MAP	us-ccss-2010-v1	7	signedAdd,signedMul,rational,sec_decimal_type,sec_absolute_distance	7.NS.1–3
+MAP	us-ccss-2010-v1	7	proportion,sec_direct_proportion,el_proportional_split	7.RP.1–3
+MAP	us-ccss-2010-v1	7	likeTerms,linear,linearFraction,linearInequality	7.EE.1–4
+MAP	us-ccss-2010-v1	7	el_circle_diameter,el_circle_radius,el_circle_circumference,el_circle_area	7.G.4
+MAP	us-ccss-2010-v1	7	angles,el_triangle_angle_sum,sec_vertical_angle	7.G.5
+MAP	us-ccss-2010-v1	7	probability,fractionChance,sec_probability_add,sec_probability_multiply	7.SP.5–8
+MAP	us-ccss-2010-v1	8	root,powerLaw,negativePower	8.EE.1–2
+MAP	us-ccss-2010-v1	8	linearSystem	8.EE.8
+MAP	us-ccss-2010-v1	8	linearValue,linearSlope,linearXIntercept,linearYIntercept,sec_line_equation,sec_graph_change	8.EE.5–6; 8.F.1–5
+MAP	us-ccss-2010-v1	8	sec_translation,sec_reflection,sec_coordinate_move,sec_similarity_length,sec_similarity_condition	8.G.1–5
+MAP	us-ccss-2010-v1	8	sec_parallel_angle,sec_isosceles_angle	8.G.5
+MAP	us-ccss-2010-v1	8	pythagoras,sec_point_distance	8.G.6–8
+MAP	us-ccss-2010-v1	8	sec_cylinder_volume,sec_cone_volume,sec_sphere_volume	8.G.9
+MAP	us-ccss-2010-v1	8	sec_scatter_direction	8.SP.1–3
+MAP	us-ccss-2010-v1	9-12	rationalExponent,nthRoot,rootSimplify,rootAddSub,rootProduct,rootQuotient,rootRationalize	HS N-RN.1–2
+MAP	us-ccss-2010-v1	9-12	complexAdd,complexSubtract,complexMultiply,imaginaryPower,quadraticComplex	HS N-CN.1–2,7
+MAP	us-ccss-2010-v1	9-12	polyAdd,monomialProduct,monomialQuotient,monomialPower,polynomialProduct,polynomialQuotient,expand,factor	HS A-SSE.1–3; A-APR.1
+MAP	us-ccss-2010-v1	9-12	remainderTheorem,sec_factor_theorem	HS A-APR.2–3
+MAP	us-ccss-2010-v1	9-12	quadratic,discriminant,sec_quadratic_inequality,sec_simultaneous_quadratic	HS A-REI.4,7; A-CED.1
+MAP	us-ccss-2010-v1	9-12	sec_quadratic_vertex,sec_quadratic_axis,sec_quadratic_opening,sec_quadratic_value,sec_quadratic_extremum,sec_quadratic_line_intersections	HS F-IF.4–8; A-REI.11
+MAP	us-ccss-2010-v1	9-12	function,sec_inverse_function,arithmeticSeq,geometricSeq	HS F-IF.1–3; F-BF.2,4a
+MAP	us-ccss-2010-v1	9-12	geometricSum	HS A-SSE.4
+MAP	us-ccss-2010-v1	9-12	radian,trigValue,trigPeriod,trigAmplitude	HS F-TF.1–2,5
+MAP	us-ccss-2010-v1	9-12	sec_triangle_congruence,sec_parallel_segment_ratio,sec_parallelogram_angle,sec_similarity_area,sec_similarity_volume	HS G-CO.8–11; G-SRT.1–5; G-GMD.3
+MAP	us-ccss-2010-v1	9-12	sec_trig_special,sec_trig_height	HS G-SRT.6–8
+MAP	us-ccss-2010-v1	9-12	sec_circle_chord,sec_circle_inscribed,sec_circle_tangent,sec_sector_arc,sec_sector_area	HS G-C.2–5
+MAP	us-ccss-2010-v1	9-12	sec_circle_equation,parabolaFocus,sec_internal_division,sec_line_relation	HS G-GPE.1–2,4–6
+MAP	us-ccss-2010-v1	9-12	sec_standard_deviation,sec_variance	HS S-ID.2
+MAP	us-ccss-2010-v1	9-12	conditionalProbability,independentProbability,unionProbability	HS S-CP.1–7
+RULE	us-ccss-2010-v1	add9,sub9	maxResult=10;nonnegative=true
+RULE	us-ccss-2010-v1	add100,add1000,sub1000	maxResult=1000;nonnegative=true
+RULE	us-ccss-2010-v1	fractionPart,fracCompare	denominators=2,3,4,6,8
+RULE	us-ccss-2010-v1	fracAddLike,fracSubLike,el_fraction_of_number,el_fraction_compare,el_fraction_common_den,reduce	denominators=2,3,4,5,6,8,10,12,100
+RULE	us-ccss-2010-v1	substitute	nonnegative=true
+
+# South Africa: foundations across all school grades, backed by the archived phase syllabuses.
+ARCHIVE	za-caps-intermediate-2011-v1
+PACK	za-caps-r12-2011-v2	ZA	South Africa · CAPS R–12	https://www.education.gov.za/Curriculum/CurriculumAssessmentPolicyStatements(CAPS).aspx	Grade R–12 · selected foundations from CAPS 2011; not every outcome or elective
+LEVEL	za-caps-r12-2011-v2	0	Grade R
+LEVEL	za-caps-r12-2011-v2	1	Grade 1
+LEVEL	za-caps-r12-2011-v2	2	Grade 2
+LEVEL	za-caps-r12-2011-v2	3	Grade 3
+LEVEL	za-caps-r12-2011-v2	4	Grade 4
+LEVEL	za-caps-r12-2011-v2	5	Grade 5
+LEVEL	za-caps-r12-2011-v2	6	Grade 6
+LEVEL	za-caps-r12-2011-v2	7	Grade 7
+LEVEL	za-caps-r12-2011-v2	8	Grade 8
+LEVEL	za-caps-r12-2011-v2	9	Grade 9
+LEVEL	za-caps-r12-2011-v2	10	Grade 10
+LEVEL	za-caps-r12-2011-v2	11	Grade 11
+LEVEL	za-caps-r12-2011-v2	12	Grade 12
+MAP	za-caps-r12-2011-v2	0	count,compare,join9,split9,add9,sub9	Foundation pp.18–22
+MAP	za-caps-r12-2011-v2	0	earlyShapes,earlyClassify,earlyLength	Foundation pp.24–30; concrete shapes and informal comparison
+MAP	za-caps-r12-2011-v2	1	place10,add20,sub20,mulIntro	Foundation pp.20–22; calculations within 20
+MAP	za-caps-r12-2011-v2	2	add100,sub100,tables,mulIntro	Foundation pp.21–22; within 99; 2,3,4,5 tables to 50
+MAP	za-caps-r12-2011-v2	2	fractionPart	Foundation p.23; unit fractions: halves, thirds, quarters, fifths
+MAP	za-caps-r12-2011-v2	2	earlySolids	Foundation p.26; cylinder first included in Grade 2
+MAP	za-caps-r12-2011-v2	3	place100,add1000,sub1000,tables,mulIntro,divide,remainder	Foundation pp.20–22; add/sub within 999; tables and division to 100
+MAP	za-caps-r12-2011-v2	3	fractionPart	Foundation p.23; unit and non-unit fractions
+MAP	za-caps-r12-2011-v2	4	place1000,add1000,sub1000,mul2,mul3,mul22,divide,remainder,tables	Intermediate p.14; foundations within whole-number operations
+MAP	za-caps-r12-2011-v2	4	el_compare_10000,el_even_odd	Intermediate p.14
+MAP	za-caps-r12-2011-v2	4	el_divisor,el_multiple	Intermediate p.15
+MAP	za-caps-r12-2011-v2	4	fractionPart,fracCompare,fracAddLike	Intermediate p.16; denominators 2–8; addition of like fractions
+MAP	za-caps-r12-2011-v2	5	largePlace,el_mul_3x2,divide2,el_div_2x2_rem,el_div_3x2_rem	Intermediate p.14
+MAP	za-caps-r12-2011-v2	5	fractionPart,fracCompare,fracAddLike,fracSubLike,el_fraction_of_number,el_improper_to_mixed,el_mixed_to_improper	Intermediate p.16
+MAP	za-caps-r12-2011-v2	6	mixed,sec_prime_factor	Intermediate pp.14–15; prime factors within 100
+MAP	za-caps-r12-2011-v2	6	fracAdd,fracSub,percent	Intermediate p.16; related denominators
+MAP	za-caps-r12-2011-v2	6	decimalAdd,decimalSub,el_decimal_compare,el_fraction_decimal,el_decimal_fraction	Intermediate p.17; two decimal places
+MAP	za-caps-r12-2011-v2	7	signedAdd	Senior p.16
+MAP	za-caps-r12-2011-v2	7	fracAdd,fracSub,fracMul	Senior p.17; multiplication with related denominators
+MAP	za-caps-r12-2011-v2	7	decimalMul,decimalDivInt	Senior p.19
+MAP	za-caps-r12-2011-v2	7	substitute	Senior p.25
+MAP	za-caps-r12-2011-v2	8	signedMul	Senior p.16
+MAP	za-caps-r12-2011-v2	8	fracMul,fracDiv,fracDivInt	Senior p.17
+MAP	za-caps-r12-2011-v2	8	decimalDiv	Senior p.19
+MAP	za-caps-r12-2011-v2	8	likeTerms,monomialProduct,monomialQuotient,monomialPower,polyAdd,polynomialProduct,polynomialQuotient	Senior pp.23–24
+MAP	za-caps-r12-2011-v2	8	linear,linearFraction	Senior p.25
+MAP	za-caps-r12-2011-v2	8	linearValue	Senior p.26; ordered pairs from linear equations
+MAP	za-caps-r12-2011-v2	9	expand,factor,quadratic	Senior pp.24–25; factorisation and product-zero equations
+MAP	za-caps-r12-2011-v2	9	linearSlope,linearXIntercept,linearYIntercept,sec_line_equation	Senior p.26
+MAP	za-caps-r12-2011-v2	10	quadratic	FET p.23; factorisable quadratic equations
+MAP	za-caps-r12-2011-v2	11	quadratic	FET p.30; quadratic formula
+MAP	za-caps-r12-2011-v2	10	negativePower,powerLaw,linearSystem,linearInequality	FET pp.12–13; integer exponents, linear equations and inequalities
+MAP	za-caps-r12-2011-v2	10	sec_quadratic_vertex,sec_quadratic_axis,sec_quadratic_opening,sec_quadratic_value,sec_quadratic_extremum,function,exponentialGraph	FET pp.12–13; functions
+MAP	za-caps-r12-2011-v2	10	sec_trig_special,sec_trig_height	FET p.14; special angles and right triangles
+MAP	za-caps-r12-2011-v2	10	sec_point_distance,linearSlope	FET p.14; distance and gradient
+MAP	za-caps-r12-2011-v2	10	sec_cone_volume,sec_cone_surface,sec_sphere_volume,sec_sphere_surface	FET p.15; measurement
+MAP	za-caps-r12-2011-v2	10	mean,median,boxplotRead,boxplotCompare	FET p.15; statistics
+MAP	za-caps-r12-2011-v2	10	setCount,sec_set_union,sec_set_intersection,complementProbability,unionProbability	FET p.15; probability
+MAP	za-caps-r12-2011-v2	11	rationalExponent,nthRoot,root,rootSimplify,rootAddSub,rootProduct,rootQuotient,rootRationalize	FET p.13; rational exponents and surds
+MAP	za-caps-r12-2011-v2	11	sec_simultaneous_quadratic,sec_quadratic_inequality	FET p.13
+MAP	za-caps-r12-2011-v2	11	sec_rational_function	FET p.12; horizontal translation
+MAP	za-caps-r12-2011-v2	11	sineLaw,cosineLaw,trigArea,sec_circle_chord,sec_circle_inscribed,sec_circle_tangent	FET p.14
+MAP	za-caps-r12-2011-v2	11	sec_line_equation,sec_line_relation	FET p.14; straight lines
+MAP	za-caps-r12-2011-v2	11	sec_variance,sec_standard_deviation,dependentProbability,independentProbability	FET p.15
+MAP	za-caps-r12-2011-v2	12	sec_inverse_function,log,logProduct,logBaseChange,logEquation	FET pp.12–13; inverse functions and logarithms
+MAP	za-caps-r12-2011-v2	12	arithmeticSeq,arithmeticSum,geometricSeq,geometricSum,geometricSeries	FET p.12; sequences and series
+MAP	za-caps-r12-2011-v2	12	remainderTheorem,sec_factor_theorem,sec_cubic_equation	FET p.13
+MAP	za-caps-r12-2011-v2	12	limit,derivative,averageRate,tangentIntercept,stationaryPoint,velocity	FET p.13; differential calculus; integration is not mapped
+MAP	za-caps-r12-2011-v2	12	sec_similarity_length,sec_similarity_condition,sec_parallel_segment_ratio,sec_circle_equation	FET p.14
+MAP	za-caps-r12-2011-v2	12	sec_scatter_direction,sec_count_addition,sec_count_multiplication,permutation	FET p.15
+RULE	za-caps-r12-2011-v2	1	place10	maxGiven=20
+RULE	za-caps-r12-2011-v2	2	place10	
+RULE	za-caps-r12-2011-v2	1	mulIntro	maxResult=20
+RULE	za-caps-r12-2011-v2	2	mulIntro	maxResult=50
+RULE	za-caps-r12-2011-v2	3	mulIntro	maxResult=100
+RULE	za-caps-r12-2011-v2	4	mulIntro	
+RULE	za-caps-r12-2011-v2	2	add100	maxResult=99
+RULE	za-caps-r12-2011-v2	3	add100	
+RULE	za-caps-r12-2011-v2	3	add1000	maxResult=999
+RULE	za-caps-r12-2011-v2	4	add1000	
+RULE	za-caps-r12-2011-v2	2	tables	timesTableMax=10;factors=2,3,4,5;maxResult=50;maxGiven=10;minGiven=1
+RULE	za-caps-r12-2011-v2	3	tables	timesTableMax=10;factors=2,3,4,5,10;maxResult=100;minGiven=1
+RULE	za-caps-r12-2011-v2	4	tables	timesTableMax=12;minGiven=1
+RULE	za-caps-r12-2011-v2	3	divide,remainder	timesTableMax=10;divisors=2,3,4,5,10;maxGiven=100
+RULE	za-caps-r12-2011-v2	4	divide,remainder	timesTableMax=12
+RULE	za-caps-r12-2011-v2	2	fractionPart	unitFractions=true;denominators=2,3,4,5
+RULE	za-caps-r12-2011-v2	3	fractionPart	denominators=2,3,4,5,6,8
+RULE	za-caps-r12-2011-v2	4	fractionPart,fracCompare,fracAddLike	denominators=2,3,4,5,6,7,8
+RULE	za-caps-r12-2011-v2	5	fractionPart,fracCompare,fracAddLike	
+RULE	za-caps-r12-2011-v2	6	fracAdd,fracSub	relatedDenominators=true
+RULE	za-caps-r12-2011-v2	7	fracAdd,fracSub	
+RULE	za-caps-r12-2011-v2	7	fracMul	relatedDenominators=true
+RULE	za-caps-r12-2011-v2	8	fracMul	
+RULE	za-caps-r12-2011-v2	6	sec_prime_factor	maxGiven=100
+RULE	za-caps-r12-2011-v2	7	sec_prime_factor	
+RULE	za-caps-r12-2011-v2	9	quadratic	answerDomain=integer
+RULE	za-caps-r12-2011-v2	10	quadratic	answerDomain=rational
+RULE	za-caps-r12-2011-v2	11	quadratic	
+RULE	us-ccss-2010-v1	3	fractionPart,fracCompare	denominators=2,3,4,6,8
+RULE	us-ccss-2010-v1	4	fractionPart,fracCompare	denominators=2,3,4,5,6,8,10,12,100
+RULE	us-ccss-2010-v1	5	fractionPart,fracCompare	
+RULE	us-ccss-2010-v1	2	add100,add1000,sub1000	maxResult=1000;nonnegative=true
+RULE	us-ccss-2010-v1	4	add100,add1000,sub1000	
+
+# Rwanda: official REB current-library references, core course distinct from subsidiary options.
+PACK	rw-cbc-core-2015-2022-v1	RW	Rwanda · CBC / Core Mathematics	https://elearning.reb.rw/?category=391&redirect=0	P1–P3 (2022), P4–S6 (2015) · mapped foundations; S4–S6 core course, not subsidiary mathematics
+LEVEL	rw-cbc-core-2015-2022-v1	1	P1
+LEVEL	rw-cbc-core-2015-2022-v1	2	P2
+LEVEL	rw-cbc-core-2015-2022-v1	3	P3
+LEVEL	rw-cbc-core-2015-2022-v1	4	P4
+LEVEL	rw-cbc-core-2015-2022-v1	5	P5
+LEVEL	rw-cbc-core-2015-2022-v1	6	P6
+LEVEL	rw-cbc-core-2015-2022-v1	7	S1
+LEVEL	rw-cbc-core-2015-2022-v1	8	S2
+LEVEL	rw-cbc-core-2015-2022-v1	9	S3
+LEVEL	rw-cbc-core-2015-2022-v1	10	S4
+LEVEL	rw-cbc-core-2015-2022-v1	11	S5
+LEVEL	rw-cbc-core-2015-2022-v1	12	S6
+MAP	rw-cbc-core-2015-2022-v1	1	count,compare,join9,split9,add9,sub9,add20,sub20,place50,place10,add100,sub100	Lower Primary 2022 P1 units 1–7 pp.19–32
+MAP	rw-cbc-core-2015-2022-v1	1	tables,divide,mulIntro	Lower Primary 2022 P1 unit 5 p.27; multiplication/division by 2 only, to 20
+MAP	rw-cbc-core-2015-2022-v1	1	fractionPart	Lower Primary 2022 P1 unit 8 p.33; halves and quarters only
+MAP	rw-cbc-core-2015-2022-v1	2	place100,add1000,sub1000,tables,divide	Lower Primary 2022 P2 units 1–3 pp.44–50
+MAP	rw-cbc-core-2015-2022-v1	2	fractionPart	Lower Primary 2022 P2 unit 4 p.51; halves, quarters, eighths
+MAP	rw-cbc-core-2015-2022-v1	2	el_length_m_cm	Lower Primary 2022 P2 unit 5 p.53
+MAP	rw-cbc-core-2015-2022-v1	2	el_missing_add,el_missing_sub	Lower Primary 2022 P2 unit 13 p.67
+MAP	rw-cbc-core-2015-2022-v1	2	el_picture_graph,el_bar_graph	Lower Primary 2022 P2 unit 14 p.68
+MAP	rw-cbc-core-2015-2022-v1	3	place1000,add1000,sub1000,mul2,mul3,mul22,el_mul_3x2,tables,divide,remainder	Lower Primary 2022 P3 units 1–3 pp.71–78; product up to 10000
+MAP	rw-cbc-core-2015-2022-v1	3	fractionPart,fracCompare,fracAddLike,fracSubLike,el_fraction_of_number	Lower Primary 2022 P3 unit 4 pp.79–80; denominator at most 10; sum at most 1
+MAP	rw-cbc-core-2015-2022-v1	3	el_length_mm_cm,el_length_km_m,el_mass_kg_g,el_capacity_l_ml	Lower Primary 2022 P3 units 5–7 pp.81–86
+MAP	rw-cbc-core-2015-2022-v1	4	largePlace,divide2,el_div_2x2_rem,el_div_3x2_rem	Upper Primary 2015 P4 unit 1 pp.18–19
+MAP	rw-cbc-core-2015-2022-v1	4	el_even_odd,el_divisor,el_multiple	Upper Primary 2015 P4 unit 3 pp.22–23
+MAP	rw-cbc-core-2015-2022-v1	4	fractionPart,fracCompare,fracAddLike,fracSubLike,el_improper_to_mixed,el_mixed_to_improper	Upper Primary 2015 P4 unit 4 pp.24–25
+MAP	rw-cbc-core-2015-2022-v1	4	decimalAdd,decimalSub,el_decimal_compare	Upper Primary 2015 P4 unit 5 pp.26–27
+MAP	rw-cbc-core-2015-2022-v1	4	el_rectangle_area,el_square_area,el_triangle_area	Upper Primary 2015 P4 unit 16 p.44
+MAP	rw-cbc-core-2015-2022-v1	5	signedAdd	Upper Primary 2015 P5 unit 2 pp.51–52
+MAP	rw-cbc-core-2015-2022-v1	5	sec_prime_factor	Upper Primary 2015 P5 unit 3 pp.53–54
+MAP	rw-cbc-core-2015-2022-v1	5	fracAdd,fracSub,reduce,el_fraction_common_den,el_fraction_compare,lcm	Upper Primary 2015 P5 unit 4 pp.55–56
+MAP	rw-cbc-core-2015-2022-v1	5	decimalMul,decimalDiv,decimalDivInt	Upper Primary 2015 P5 unit 5 pp.57–58
+MAP	rw-cbc-core-2015-2022-v1	5	proportion,sec_direct_proportion	Upper Primary 2015 P5 unit 6 pp.59–60
+MAP	rw-cbc-core-2015-2022-v1	5	el_time_add,el_time_difference	Upper Primary 2015 P5 unit 8 p.63
+MAP	rw-cbc-core-2015-2022-v1	5	el_circle_diameter,el_circle_radius,el_circle_circumference,el_rect_prism_volume,el_cube_volume	Upper Primary 2015 P5 unit 14 pp.72–73
+MAP	rw-cbc-core-2015-2022-v1	6	signedMul	Upper Primary 2015 P6 unit 2 p.79
+MAP	rw-cbc-core-2015-2022-v1	6	powerLaw,gcd,lcm,el_common_divisor,el_common_multiple	Upper Primary 2015 P6 unit 3 p.80
+MAP	rw-cbc-core-2015-2022-v1	6	fracMul,fracDiv,fracDivInt	Upper Primary 2015 P6 unit 4 p.81
+MAP	rw-cbc-core-2015-2022-v1	6	el_decimal_round,el_fraction_decimal,el_decimal_fraction	Upper Primary 2015 P6 unit 5 p.82
+MAP	rw-cbc-core-2015-2022-v1	6	el_ratio_terms,el_ratio_fraction,percent,proportion,el_proportional_split	Upper Primary 2015 P6 unit 6 pp.83–84
+MAP	rw-cbc-core-2015-2022-v1	6	el_circle_area,el_rect_prism_surface,el_cube_surface	Upper Primary 2015 P6 unit 14 pp.96–97
+MAP	rw-cbc-core-2015-2022-v1	7	setCount,sec_set_union,sec_set_intersection,sec_set_difference,sec_subset	Ordinary 2015 S1 unit 1 pp.17–18
+MAP	rw-cbc-core-2015-2022-v1	7	rational,sec_decimal_type	Ordinary 2015 S1 unit 2 p.19
+MAP	rw-cbc-core-2015-2022-v1	7	linear,linearFraction,linearInequality,linearValue,substitute,likeTerms	Ordinary 2015 S1 unit 3 pp.20–21
+MAP	rw-cbc-core-2015-2022-v1	7	mean,median,sec_mode	Ordinary 2015 S1 unit 8 pp.26–27
+MAP	rw-cbc-core-2015-2022-v1	7	probability,fractionChance	Ordinary 2015 S1 unit 9 pp.28–29
+MAP	rw-cbc-core-2015-2022-v1	8	negativePower,root,rootSimplify,rootAddSub,rootProduct,rootQuotient,rootRationalize	Ordinary 2015 S2 unit 1 p.31
+MAP	rw-cbc-core-2015-2022-v1	8	polyAdd,monomialProduct,monomialQuotient,monomialPower,polynomialProduct,polynomialQuotient,expand,factor	Ordinary 2015 S2 unit 2 p.32
+MAP	rw-cbc-core-2015-2022-v1	8	linearSystem,sec_linear_inequality_system	Ordinary 2015 S2 unit 3 p.33
+MAP	rw-cbc-core-2015-2022-v1	8	sec_parallel_segment_ratio,pythagoras	Ordinary 2015 S2 units 5–6 pp.35–36
+MAP	rw-cbc-core-2015-2022-v1	8	vectorOperation,vectorNorm,positionVector	Ordinary 2015 S2 unit 7 p.37
+MAP	rw-cbc-core-2015-2022-v1	8	sec_translation,sec_reflection	Ordinary 2015 S2 unit 9 p.39
+MAP	rw-cbc-core-2015-2022-v1	8	sec_frequency,sec_relative_frequency	Ordinary 2015 S2 unit 10 p.40
+MAP	rw-cbc-core-2015-2022-v1	9	quadratic	Ordinary 2015 S3 unit 5 p.47
+MAP	rw-cbc-core-2015-2022-v1	9	linearSlope,linearXIntercept,linearYIntercept,sec_line_equation,sec_quadratic_vertex,sec_quadratic_axis,sec_quadratic_opening,sec_quadratic_value	Ordinary 2015 S3 unit 6 p.48
+MAP	rw-cbc-core-2015-2022-v1	9	sec_trig_special,sec_trig_height	Ordinary 2015 S3 unit 8 p.50
+MAP	rw-cbc-core-2015-2022-v1	9	sec_circle_chord,sec_circle_inscribed,sec_circle_tangent	Ordinary 2015 S3 unit 9 p.51
+MAP	rw-cbc-core-2015-2022-v1	10	vectorDot	Core A-level 2015 S4 unit 10 p.34; scalar product
+MAP	rw-cbc-core-2015-2022-v1	9	sec_similarity_length,sec_similarity_condition,sec_similarity_area	Ordinary 2015 S3 unit 11 p.53
+MAP	rw-cbc-core-2015-2022-v1	9	sec_scatter_direction	Ordinary 2015 S3 unit 13 p.55
+MAP	rw-cbc-core-2015-2022-v1	10	radian,trigValue,sineLaw,cosineLaw,trigArea	Core A-level 2015 S4 unit 1 p.24
+MAP	rw-cbc-core-2015-2022-v1	10	sec_proposition_truth,sec_contrapositive,sec_sufficient_condition	Core A-level 2015 S4 unit 2 p.25
+MAP	rw-cbc-core-2015-2022-v1	10	sec_quadratic_inequality,sec_simultaneous_quadratic,discriminant	Core A-level 2015 S4 unit 6 p.29
+MAP	rw-cbc-core-2015-2022-v1	10	function,sec_rational_function,sec_radical_function	Core A-level 2015 S4 unit 7 p.30
+MAP	rw-cbc-core-2015-2022-v1	10	limit,factorLimit,continuityValue	Core A-level 2015 S4 unit 8 p.31
+MAP	rw-cbc-core-2015-2022-v1	10	derivative,productDerivative,quotientDerivative,chainDerivative,secondDerivative,averageRate,meanValuePoint,tangentIntercept,stationaryPoint,velocity	Core A-level 2015 S4 unit 9 pp.32–33
+MAP	rw-cbc-core-2015-2022-v1	10	sec_matrix_element,sec_matrix_add,sec_matrix_scalar,sec_matrix_product	Core A-level 2015 S4 unit 12 pp.36–37
+MAP	rw-cbc-core-2015-2022-v1	10	sec_point_distance,sec_internal_division,sec_line_relation,sec_circle_equation,sec_circle_line_intersections	Core A-level 2015 S4 unit 13 pp.38–39
+MAP	rw-cbc-core-2015-2022-v1	10	sec_variance,sec_standard_deviation	Core A-level 2015 S4 unit 14 p.40
+MAP	rw-cbc-core-2015-2022-v1	10	permutation,combination,sec_count_addition,sec_count_multiplication	Core A-level 2015 S4 unit 15 p.41
+MAP	rw-cbc-core-2015-2022-v1	11	trigAddition,trigPeriod,trigAmplitude	Core A-level 2015 S5 unit 1 pp.44–45
+MAP	rw-cbc-core-2015-2022-v1	11	arithmeticSeq,geometricSeq,arithmeticSum,geometricSum,geometricSeries,sequenceLimit,geometricConvergence,recurrence	Core A-level 2015 S5 unit 2 pp.46–47
+MAP	rw-cbc-core-2015-2022-v1	11	log,logProduct,logBaseChange,exponentialEquation,logEquation	Core A-level 2015 S5 unit 3 p.48
+MAP	rw-cbc-core-2015-2022-v1	11	trigLimit,trigDerivative	Core A-level 2015 S5 unit 5 pp.50–51
+MAP	rw-cbc-core-2015-2022-v1	11	spaceDistance,spaceSection,sphereEquation	Core A-level 2015 S5 unit 8 pp.56–57
+MAP	rw-cbc-core-2015-2022-v1	11	conditionalProbability,dependentProbability,independentProbability,complementProbability,unionProbability	Core A-level 2015 S5 unit 10 pp.60–61
+MAP	rw-cbc-core-2015-2022-v1	12	complexAdd,complexSubtract,complexMultiply,complexDivide,imaginaryPower,quadraticComplex	Core A-level 2015 S6 unit 1 pp.62–63
+MAP	rw-cbc-core-2015-2022-v1	12	exponentialGraph,expLogDerivative	Core A-level 2015 S6 unit 2 pp.64–65
+MAP	rw-cbc-core-2015-2022-v1	12	integral,antiderivativeConstant,integralArea,integralDistance,substitutionIntegral,partsIntegral,logIntegral,trigIntegral	Core A-level 2015 S6 unit 4 pp.68–69
+MAP	rw-cbc-core-2015-2022-v1	12	parabolaFocus,ellipseFocus,hyperbolaFocus,conicTangent	Core A-level 2015 S6 unit 8 pp.76–77
+MAP	rw-cbc-core-2015-2022-v1	12	distributionMissing,expectation,varianceRandom,binomial,binomialMoments	Core A-level 2015 S6 unit 9 p.78; normal distribution not explicitly specified
+RULE	rw-cbc-core-2015-2022-v1	1	add100	maxResult=99
+RULE	rw-cbc-core-2015-2022-v1	2	add100	
+RULE	rw-cbc-core-2015-2022-v1	2	add1000	maxResult=999
+RULE	rw-cbc-core-2015-2022-v1	3	add1000	
+RULE	rw-cbc-core-2015-2022-v1	1	tables,mulIntro	timesTableMax=10;factors=2;maxResult=20
+RULE	rw-cbc-core-2015-2022-v1	2	tables,mulIntro	timesTableMax=10;factors=2,3,4,5,6,10;maxResult=100
+RULE	rw-cbc-core-2015-2022-v1	3	tables,mulIntro	timesTableMax=10
+RULE	rw-cbc-core-2015-2022-v1	1	divide	timesTableMax=10;divisors=2;maxGiven=20
+RULE	rw-cbc-core-2015-2022-v1	2	divide	timesTableMax=10;divisors=2,3,4,5,6,10;maxGiven=100
+RULE	rw-cbc-core-2015-2022-v1	3	divide	timesTableMax=10;divisors=2,3,4,5,6,7,8,9
+RULE	rw-cbc-core-2015-2022-v1	4	divide	timesTableMax=10
+RULE	rw-cbc-core-2015-2022-v1	1	fractionPart	unitFractions=true;denominators=2,4
+RULE	rw-cbc-core-2015-2022-v1	2	fractionPart	unitFractions=true;denominators=2,4,8
+RULE	rw-cbc-core-2015-2022-v1	3	fractionPart,fracAddLike,fracSubLike	denominators=2,3,4,5,6,7,8,9,10;maxResult=1
+RULE	rw-cbc-core-2015-2022-v1	3	fracCompare	denominators=2,3,4,5,6,7,8,9,10
+RULE	rw-cbc-core-2015-2022-v1	4	fractionPart,fracCompare,fracAddLike,fracSubLike	
+RULE	rw-cbc-core-2015-2022-v1	3	el_mul_3x2	maxResult=10000
+RULE	rw-cbc-core-2015-2022-v1	4	el_mul_3x2	
+
+# Ghana: reviewed Ministry mirror editions; selected foundations, not all indicators or elective Additional Mathematics.
+PACK	gh-nacca-core-2019-2023-v1	GH	Ghana · NaCCA	 https://curriculumresources.edu.gh/	B1–B6 (2019), JHS1–3 CCP (2020), SHS1–3 Mathematics (2023) · selected foundations · Additional Mathematics excluded
+LEVEL	gh-nacca-core-2019-2023-v1	1	B1
+LEVEL	gh-nacca-core-2019-2023-v1	2	B2
+LEVEL	gh-nacca-core-2019-2023-v1	3	B3
+LEVEL	gh-nacca-core-2019-2023-v1	4	B4
+LEVEL	gh-nacca-core-2019-2023-v1	5	B5
+LEVEL	gh-nacca-core-2019-2023-v1	6	B6
+LEVEL	gh-nacca-core-2019-2023-v1	7	JHS1 (B7)
+LEVEL	gh-nacca-core-2019-2023-v1	8	JHS2 (B8)
+LEVEL	gh-nacca-core-2019-2023-v1	9	JHS3 (B9)
+LEVEL	gh-nacca-core-2019-2023-v1	10	SHS1
+LEVEL	gh-nacca-core-2019-2023-v1	11	SHS2
+LEVEL	gh-nacca-core-2019-2023-v1	12	SHS3
+MAP	gh-nacca-core-2019-2023-v1	1	count,compare,place50,place10	Primary 2019 B1.1.1.1 PDF21–24; selected range within 0–100
+MAP	gh-nacca-core-2019-2023-v1	1	join9,split9,add9,sub9,add20,sub20,el_missing_add,el_missing_sub	Primary 2019 B1.1.2.1–4 PDF25–29; within 20
+MAP	gh-nacca-core-2019-2023-v1	1	el_repeat_pattern	Primary 2019 B1.2.1.1 PDF33
+MAP	gh-nacca-core-2019-2023-v1	1	earlyShapes,earlySolids,el_shape_sides,el_shape_classify	Primary 2019 B1.3.1.1 PDF34–35
+MAP	gh-nacca-core-2019-2023-v1	1	earlyLength	Primary 2019 B1.3.3.1 PDF36
+MAP	gh-nacca-core-2019-2023-v1	2	place100	Primary 2019 B2.1.1.1 PDF39–42; selected three-digit reading
+MAP	gh-nacca-core-2019-2023-v1	2	add100,sub100,el_missing_add,el_missing_sub	Primary 2019 B2.1.2.1–4 PDF43–47; within 100
+MAP	gh-nacca-core-2019-2023-v1	2	el_number_pattern	Primary 2019 B2.2.1.1 PDF51
+MAP	gh-nacca-core-2019-2023-v1	2	el_days_week,el_days_to_weeks,el_clock_hour	Primary 2019 B2.3.3.3 PDF58
+MAP	gh-nacca-core-2019-2023-v1	2	el_picture_graph	Primary 2019 B2.4.1.2 PDF59
+MAP	gh-nacca-core-2019-2023-v1	3	place1000,el_compare_10000,el_sequence_10000	Primary 2019 B3.1.1.1 PDF61–64
+MAP	gh-nacca-core-2019-2023-v1	3	add1000,sub1000,el_missing_add,el_missing_sub	Primary 2019 B3.1.2.1–4 PDF67–72; within 1000
+MAP	gh-nacca-core-2019-2023-v1	3	mulIntro,tables,divide	Primary 2019 B3.1.2.5–6 PDF72–75; multiplication up to 5×5 and inverse sharing
+MAP	gh-nacca-core-2019-2023-v1	3	fractionPart,fracCompare	Primary 2019 B3.1.3.1 PDF76–79; fraction notation starts B3
+MAP	gh-nacca-core-2019-2023-v1	3	el_length_m_cm,el_mass_kg_g,el_capacity_l_ml	Primary 2019 B3.3.3.1–2 PDF86–88
+MAP	gh-nacca-core-2019-2023-v1	3	el_hours_to_minutes,el_minutes_to_hours,el_time_to_seconds	Primary 2019 B3.3.3.3.3 PDF91
+MAP	gh-nacca-core-2019-2023-v1	4	largePlace,el_round,el_round_up,el_round_down	Upper Primary 2019 B4.1.1.1 PDF20–25; place to 100000, rounding to 10000
+MAP	gh-nacca-core-2019-2023-v1	4	el_divisor,el_multiple,gcd,lcm	Upper Primary 2019 B4.1.1.3 PDF27–29; factors/HCF to 50, LCM inputs to 100
+MAP	gh-nacca-core-2019-2023-v1	4	tables,mul2,mul3,divide,remainder	Upper Primary 2019 B4.1.2.1–5 PDF32–36; tables to 12×12, division facts to 81
+MAP	gh-nacca-core-2019-2023-v1	4	reduce,el_fraction_common_den,el_improper_to_mixed,el_mixed_to_improper,fracAddLike,fracSubLike,fracAdd,fracSub	Upper Primary 2019 B4.1.3.1–2 PDF37–42; additions/subtractions with related denominators
+MAP	gh-nacca-core-2019-2023-v1	4	el_fraction_decimal,el_decimal_fraction,decimalAdd,decimalSub	Upper Primary 2019 B4.1.4.1 PDF43–45; tenths/hundredths
+MAP	gh-nacca-core-2019-2023-v1	4	symmetryAxes	Upper Primary 2019 B4.3.1.1 PDF54–55
+MAP	gh-nacca-core-2019-2023-v1	4	el_rectangle_perimeter,el_triangle_perimeter,el_square_perimeter,el_rectangle_area,el_square_area	Upper Primary 2019 B4.3.3.1–2 PDF57–60
+MAP	gh-nacca-core-2019-2023-v1	4	el_clock_minute,el_time_add,el_time_difference	Upper Primary 2019 B4.3.3.3 PDF61–64
+MAP	gh-nacca-core-2019-2023-v1	4	el_bar_graph	Upper Primary 2019 B4.4.1.1–2 PDF65–71
+MAP	gh-nacca-core-2019-2023-v1	5	largePlace	Upper Primary 2019 B5.1.1.1 PDF73–76; selected place values below 1000000
+MAP	gh-nacca-core-2019-2023-v1	5	mul22,el_mul_3x2,divide2,el_div_2x2_rem,el_div_3x2_rem	Upper Primary 2019 B5.1.2.2–4 PDF85–88
+MAP	gh-nacca-core-2019-2023-v1	5	signedAdd	Upper Primary 2019 B5.1.2.6 PDF89; selected integer addition/subtraction
+MAP	gh-nacca-core-2019-2023-v1	6	signedAdd	Upper Primary 2019 B6.1.2.6.2 PDF147; excludes subtraction of negative numbers
+MAP	gh-nacca-core-2019-2023-v1	5	fracAdd,fracSub,fracMul	Upper Primary 2019 B5.1.3.1 PDF90–93
+MAP	gh-nacca-core-2019-2023-v1	5	el_decimal_place,el_decimal_compare,el_decimal_round	Upper Primary 2019 B5.1.4.1 PDF94–98
+MAP	gh-nacca-core-2019-2023-v1	5	percent	Upper Primary 2019 B5.1.5.1 PDF99–101
+MAP	gh-nacca-core-2019-2023-v1	5	el_correspondence_add,el_correspondence_mul	Upper Primary 2019 B5.2.1.1 PDF102–107
+MAP	gh-nacca-core-2019-2023-v1	5	el_triangle_area,el_parallelogram_area	Upper Primary 2019 B5.3.2.1 PDF115–120
+MAP	gh-nacca-core-2019-2023-v1	5	angleKinds	Upper Primary 2019 B5.3.3.3 PDF121–122; classification, not polygon angle sums
+MAP	gh-nacca-core-2019-2023-v1	6	largePlace	Upper Primary 2019 B6.1.1.1 PDF132–136; selected place values below 1 billion
+MAP	gh-nacca-core-2019-2023-v1	6	tables,divide	Upper Primary 2019 B6.1.2.1,3 PDF141–144; facts to 144
+MAP	gh-nacca-core-2019-2023-v1	6	fracDiv,fracDivInt,decimalMul,decimalDiv,decimalDivInt	Upper Primary 2019 B6.1.3.1 PDF149–151
+MAP	gh-nacca-core-2019-2023-v1	6	el_ratio_terms,el_ratio_fraction,proportion	Upper Primary 2019 B6.1.4.1–2 PDF152–155
+MAP	gh-nacca-core-2019-2023-v1	6	substitute,likeTerms	Upper Primary 2019 B6.2.2.1 PDF159–160
+MAP	gh-nacca-core-2019-2023-v1	6	el_3d_elements	Upper Primary 2019 B6.3.1.1 PDF162–163; prism attributes only
+MAP	gh-nacca-core-2019-2023-v1	6	el_line_graph	Upper Primary 2019 B6.4.1.1 PDF169–171
+MAP	gh-nacca-core-2019-2023-v1	6	probability,fractionChance	Upper Primary 2019 B6.4.2.2 PDF176–180
+MAP	gh-nacca-core-2019-2023-v1	7	signedAdd,signedMul,mixed,decimalAdd,decimalSub,decimalMul,decimalDiv	CCP 2020 B7.1.2.1–2 PDF37–42
+MAP	gh-nacca-core-2019-2023-v1	7	powerLaw	CCP 2020 B7.1.2.3 PDF43–46; natural-number exponents
+MAP	gh-nacca-core-2019-2023-v1	7	reduce,fracAdd,fracSub,fracMul,fracDiv	CCP 2020 B7.1.3.1–3 PDF47–53
+MAP	gh-nacca-core-2019-2023-v1	7	el_ratio_terms,el_ratio_fraction,proportion	CCP 2020 B7.1.4.1 PDF54–56
+MAP	gh-nacca-core-2019-2023-v1	7	linearValue,el_correspondence_add,el_correspondence_mul	CCP 2020 B7.2.1.1 PDF57–64; values and linear relations
+MAP	gh-nacca-core-2019-2023-v1	7	substitute,likeTerms,polyAdd,monomialProduct,monomialQuotient	CCP 2020 B7.2.2.1 PDF65–70
+MAP	gh-nacca-core-2019-2023-v1	7	linear	CCP 2020 B7.2.3.1 PDF71–76
+MAP	gh-nacca-core-2019-2023-v1	7	sec_vertical_angle,el_shape_angle	CCP 2020 B7.3.1.1 PDF77–80; complementary, supplementary and vertical angles
+MAP	gh-nacca-core-2019-2023-v1	7	el_circle_diameter,el_circle_radius,el_circle_circumference,el_triangle_area	CCP 2020 B7.3.2.1–2 PDF89–96
+MAP	gh-nacca-core-2019-2023-v1	7	positionVector	CCP 2020 B7.3.2.3 PDF97–101
+MAP	gh-nacca-core-2019-2023-v1	7	sec_translation,sec_reflection	CCP 2020 B7.3.3.1 PDF102–106
+MAP	gh-nacca-core-2019-2023-v1	7	mean,median,sec_mode,sec_frequency	CCP 2020 B7.4.1.1–2 PDF107–115; selected ungrouped data
+MAP	gh-nacca-core-2019-2023-v1	7	probability,fractionChance	CCP 2020 B7.4.2.1 PDF116–117
+MAP	gh-nacca-core-2019-2023-v1	8	root	CCP 2020 B8.1.1.2 PDF122–123; perfect-square roots only
+MAP	gh-nacca-core-2019-2023-v1	8	powerLaw,negativePower	CCP 2020 B8.1.2.3 PDF130–131
+MAP	gh-nacca-core-2019-2023-v1	8	linearSlope,linearXIntercept,linearYIntercept,sec_line_equation	CCP 2020 B8.2.1.1 PDF142–147
+MAP	gh-nacca-core-2019-2023-v1	8	expand,factor,polynomialProduct,polynomialQuotient	CCP 2020 B8.2.2.1 PDF148–150
+MAP	gh-nacca-core-2019-2023-v1	8	linearInequality	CCP 2020 B8.2.3.1 PDF151–152
+MAP	gh-nacca-core-2019-2023-v1	8	sec_parallel_angle,angles,el_triangle_angle_sum,el_quadrilateral_angle_sum	CCP 2020 B8.3.1.1 PDF153–154; triangle and polygon angle sums
+MAP	gh-nacca-core-2019-2023-v1	8	pythagoras,sec_trig_special,sec_trig_height,el_circle_area	CCP 2020 B8.3.2.1 PDF171–178
+MAP	gh-nacca-core-2019-2023-v1	8	vectorOperation,vectorNorm	CCP 2020 B8.3.2.2 PDF179–180
+MAP	gh-nacca-core-2019-2023-v1	8	independentProbability,sec_probability_multiply	CCP 2020 B8.4.2.1 PDF191–193
+MAP	gh-nacca-core-2019-2023-v1	9	rational	CCP 2020 B9.1.1.2 PDF196–197
+MAP	gh-nacca-core-2019-2023-v1	9	rootSimplify,rootAddSub	CCP 2020 B9.1.2.4 PDF200–201; surd operations
+MAP	gh-nacca-core-2019-2023-v1	9	linearSystem	CCP 2020 B9.2.1.1 PDF210–212
+MAP	gh-nacca-core-2019-2023-v1	9	substitute,factor	CCP 2020 B9.2.2.1 PDF213–219
+MAP	gh-nacca-core-2019-2023-v1	9	linearInequality	CCP 2020 B9.2.3.1 PDF220–225
+MAP	gh-nacca-core-2019-2023-v1	9	el_rect_prism_surface,el_cube_surface	CCP 2020 B9.3.2.1 PDF235–236
+MAP	gh-nacca-core-2019-2023-v1	9	positionVector,vectorOperation	CCP 2020 B9.3.2.1.4, B9.3.2.2 PDF237–238
+MAP	gh-nacca-core-2019-2023-v1	9	sec_similarity_length,sec_similarity_area	CCP 2020 B9.3.3.1 PDF239–240; enlargement
+MAP	gh-nacca-core-2019-2023-v1	9	conditionalProbability,dependentProbability	CCP 2020 B9.4.2.1 PDF249–253
+MAP	gh-nacca-core-2019-2023-v1	10	sec_set_intersection,sec_set_union,sec_set_difference,sec_subset,setCount	SHS 2023 1.1.1.CS.2 PDF36–44
+MAP	gh-nacca-core-2019-2023-v1	10	rational,fracAdd,fracSub,fracMul,fracDiv,el_decimal_round	SHS 2023 1.1.2.CS.1 PDF47–49
+MAP	gh-nacca-core-2019-2023-v1	10	percent	SHS 2023 1.1.2.CS.2 PDF50–54
+MAP	gh-nacca-core-2019-2023-v1	10	substitute,likeTerms,polyAdd,expand,factor,monomialProduct,monomialQuotient	SHS 2023 1.2.1.CS.1 PDF57–63
+MAP	gh-nacca-core-2019-2023-v1	10	linear,linearFraction,linearInequality	SHS 2023 1.2.1.CS.2 PDF64–70
+MAP	gh-nacca-core-2019-2023-v1	10	function	SHS 2023 1.2.2.CS.1 PDF74–78
+MAP	gh-nacca-core-2019-2023-v1	10	linearSlope,linearXIntercept,linearYIntercept,sec_line_equation,sec_line_relation,sec_point_distance	SHS 2023 1.2.2.CS.2 PDF82–85
+MAP	gh-nacca-core-2019-2023-v1	10	angles,el_triangle_angle_sum,el_quadrilateral_angle_sum,sec_vertical_angle,sec_parallel_angle,sec_polygon_interior,sec_polygon_exterior	SHS 2023 1.3.1.CS.1 PDF90–105
+MAP	gh-nacca-core-2019-2023-v1	10	positionVector,vectorNorm	SHS 2023 1.3.2.CS.1 PDF112–114
+MAP	gh-nacca-core-2019-2023-v1	10	sec_trig_special,sec_trig_height	SHS 2023 1.3.2.CS.2 PDF116–119
+MAP	gh-nacca-core-2019-2023-v1	10	el_circle_area,el_circle_circumference,el_rectangle_area,el_triangle_area,el_parallelogram_area,el_trapezoid_area,sec_sector_area,sec_sector_arc	SHS 2023 1.3.2.CS.3 PDF121–132
+MAP	gh-nacca-core-2019-2023-v1	10	sec_frequency,sec_relative_frequency,mean,median,sec_mode	SHS 2023 1.4.1.CS.2 PDF138–145
+MAP	gh-nacca-core-2019-2023-v1	10	probability,independentProbability,sec_probability_multiply	SHS 2023 1.4.2.CS.1 PDF152–159
+MAP	gh-nacca-core-2019-2023-v1	11	root,rootSimplify,rootAddSub,rootProduct,rootQuotient,rootRationalize,powerLaw,negativePower,log,logProduct,logBaseChange,exponentialEquation,logEquation	SHS 2023 2.1.1.CS.1–2 PDF166–171
+MAP	gh-nacca-core-2019-2023-v1	11	proportion,sec_direct_proportion	SHS 2023 2.1.2.CS.1 PDF182–183
+MAP	gh-nacca-core-2019-2023-v1	11	linearSystem	SHS 2023 2.2.1.CS.1 PDF193–199
+MAP	gh-nacca-core-2019-2023-v1	11	arithmeticSeq,arithmeticSum,geometricSeq,geometricSum	SHS 2023 2.2.2.CS.1 PDF203–207; finite sequences/series
+MAP	gh-nacca-core-2019-2023-v1	11	sec_translation,sec_reflection	SHS 2023 2.3.1.CS.1 PDF213–231; selected transformations
+MAP	gh-nacca-core-2019-2023-v1	11	vectorOperation	SHS 2023 2.3.2.CS.1 PDF239–244
+MAP	gh-nacca-core-2019-2023-v1	11	sec_trig_height	SHS 2023 2.3.2.CS.2 PDF246–248
+MAP	gh-nacca-core-2019-2023-v1	11	el_rect_prism_surface,el_cube_surface,el_rect_prism_volume,el_cube_volume,sec_cylinder_surface,sec_cylinder_volume,sec_cone_surface,sec_cone_volume,sec_sphere_surface,sec_sphere_volume	SHS 2023 2.3.2.CS.3 PDF252–270
+MAP	gh-nacca-core-2019-2023-v1	11	boxplotRead,boxplotCompare,sec_variance,sec_standard_deviation	SHS 2023 2.4.1.CS.2 PDF277–287
+MAP	gh-nacca-core-2019-2023-v1	11	conditionalProbability,dependentProbability	SHS 2023 2.4.2.CS.1 PDF296–299
+MAP	gh-nacca-core-2019-2023-v1	12	sec_proposition_truth,sec_contrapositive,sec_sufficient_condition	SHS 2023 3.1.2.CS.1 PDF305–306; selected logic
+MAP	gh-nacca-core-2019-2023-v1	12	sec_direct_proportion,sec_inverse_proportion	SHS 2023 3.1.2.CS.2 PDF308–310
+MAP	gh-nacca-core-2019-2023-v1	12	quadratic,discriminant,sec_quadratic_vertex,sec_quadratic_axis,sec_quadratic_opening,sec_quadratic_value,sec_quadratic_extremum	SHS 2023 3.2.2.CS.1 PDF314–325
+MAP	gh-nacca-core-2019-2023-v1	12	sec_circle_chord,sec_circle_inscribed,sec_circle_tangent	SHS 2023 3.3.1.CS.1 PDF329–344
+MAP	gh-nacca-core-2019-2023-v1	12	radian,trigValue,trigPeriod,trigAmplitude	SHS 2023 3.3.2.CS.1 PDF358–367
+MAP	gh-nacca-core-2019-2023-v1	12	sec_scatter_direction	SHS 2023 3.4.1.CS.1 PDF371–373
+RULE	gh-nacca-core-2019-2023-v1	1	el_missing_add,el_missing_sub	maxGiven=20;maxResult=20
+RULE	gh-nacca-core-2019-2023-v1	2	el_missing_add,el_missing_sub	maxGiven=100;maxResult=100
+RULE	gh-nacca-core-2019-2023-v1	3	el_missing_add,el_missing_sub	maxGiven=1000;maxResult=1000
+RULE	gh-nacca-core-2019-2023-v1	2	add100	maxResult=100
+RULE	gh-nacca-core-2019-2023-v1	3	add1000	maxResult=1000
+RULE	gh-nacca-core-2019-2023-v1	2	el_number_pattern	maxGiven=1000
+RULE	gh-nacca-core-2019-2023-v1	3	tables,mulIntro	timesTableMax=5;maxResult=25
+RULE	gh-nacca-core-2019-2023-v1	4	tables,mulIntro	timesTableMax=12
+RULE	gh-nacca-core-2019-2023-v1	3	divide	timesTableMax=5;maxGiven=25
+RULE	gh-nacca-core-2019-2023-v1	4	divide	timesTableMax=9;maxGiven=81
+RULE	gh-nacca-core-2019-2023-v1	6	divide	timesTableMax=12;maxGiven=144
+RULE	gh-nacca-core-2019-2023-v1	4	largePlace	maxGiven=100000
+RULE	gh-nacca-core-2019-2023-v1	5	largePlace	maxGiven=1000000
+RULE	gh-nacca-core-2019-2023-v1	6	largePlace	maxGiven=1000000000
+RULE	gh-nacca-core-2019-2023-v1	4	el_round,el_round_up,el_round_down	maxGiven=10000;maxResult=10000
+RULE	gh-nacca-core-2019-2023-v1	4	gcd,el_divisor	maxGiven=50
+RULE	gh-nacca-core-2019-2023-v1	4	lcm	maxGiven=100
+RULE	gh-nacca-core-2019-2023-v1	4	fracAdd,fracSub	relatedDenominators=true
+RULE	gh-nacca-core-2019-2023-v1	5	fracAdd,fracSub	
+RULE	gh-nacca-core-2019-2023-v1	5	signedAdd	nonnegativeSubtrahend=true
+RULE	gh-nacca-core-2019-2023-v1	7	signedAdd	
+RULE	gh-nacca-core-2019-2023-v1	8	root	answerDomain=integer
+RULE	gh-nacca-core-2019-2023-v1	11	root	
+
+# KICD 2024 revised Mathematical Activities: selected foundations in Grades 1–3.
+# Public viewer text and table captures: evidence/sources/kenya-20261002.
+# Grades 9–12 and remaining outcomes are not yet mapped.
+PACK	ke-kicd-cbc-2024-v1	KE	Kenya CBC — Primary and Grade 7–9 foundations	https://kicd.ac.ke/cbc-materials/curriculum-designs/	Selected Grade 1–9 foundations from KICD Revised 2024; Grade9 currently covers selected integer, cube/root, index, ratio, matrix-entry/addition/subtraction and straight-line/inequality calculations. Other grades and remaining outcomes are not yet mapped.
+LEVEL	ke-kicd-cbc-2024-v1	1	Grade 1
+LEVEL	ke-kicd-cbc-2024-v1	2	Grade 2
+LEVEL	ke-kicd-cbc-2024-v1	3	Grade 3
+MAP	ke-kicd-cbc-2024-v1	1	count,compare,earlyPattern,earlyClassify	Revised 2024 1.1 PDF14–15; selected sorting, matching and shape patterns, small-count baseline
+MAP	ke-kicd-cbc-2024-v1	1	join9,split9,add9,add20,addThree9,add100	Revised 2024 1.3 PDF18–19; single-digit sums and 2-digit plus 1-digit without regrouping, result <=50
+MAP	ke-kicd-cbc-2024-v1	1	sub9,sub100	Revised 2024 1.4 PDF20–21; single-digit subtraction and 2-digit minus 1-digit without regrouping, within50
+MAP	ke-kicd-cbc-2024-v1	1	el_number_pattern	Revised 2024 1.2 PDF16–17; missing numbers in patterns within20
+MAP	ke-kicd-cbc-2024-v1	1	earlyLength	Revised 2024 2.1 PDF24–25; length comparison using arbitrary equal units
+MAP	ke-kicd-cbc-2024-v1	1	earlyShapes	Revised 2024 3.2 PDF38–39; identifying circle, triangle and rectangle, selected familiar shapes
+MAP	ke-kicd-cbc-2024-v1	2	place50,place10,el_number_pattern	Revised 2024 1.2 PDF49–50; ones and tens, selected numbers below100
+MAP	ke-kicd-cbc-2024-v1	2	add20,add100,el_missing_add	Revised 2024 1.3 PDF51–52; addition with and without regrouping, sum <=100
+MAP	ke-kicd-cbc-2024-v1	2	sub20,sub100,el_missing_sub	Revised 2024 1.4 PDF53–54; subtraction and missing numbers within100
+MAP	ke-kicd-cbc-2024-v1	2	mulIntro,tables	Revised 2024 1.5 PDF55–56; repeated addition and single digits multiplied by1–5 or10
+MAP	ke-kicd-cbc-2024-v1	2	divide	Revised 2024 1.6 PDF57–58; exact division by2–5, dividend <=25
+MAP	ke-kicd-cbc-2024-v1	2	fractionPart	Revised 2024 1.7 PDF59–60; identifying half and quarter of a whole only
+MAP	ke-kicd-cbc-2024-v1	2	earlyClock	Revised 2024 2.4 PDF70–71; whole hours on analogue/digital clocks only
+MAP	ke-kicd-cbc-2024-v1	3	place100,el_number_pattern	Revised 2024 1.2 PDF88–89; hundreds and patterns within1000
+MAP	ke-kicd-cbc-2024-v1	3	add1000,el_missing_add	Revised 2024 1.3 PDF90–91; selected 3-digit addition, at most one regrouping, sum <=1000
+MAP	ke-kicd-cbc-2024-v1	3	sub1000,el_missing_sub	Revised 2024 1.4 PDF92–93; selected subtraction, at most one regrouping
+MAP	ke-kicd-cbc-2024-v1	3	tables	Revised 2024 1.5 PDF94–95; single digits multiplied by single digits or10
+MAP	ke-kicd-cbc-2024-v1	3	divide	Revised 2024 1.6 PDF96–97; exact 2-digit dividend divided by single digit or10
+MAP	ke-kicd-cbc-2024-v1	3	fractionPart	Revised 2024 1.7 PDF98–99; halves, quarters and eighths as unit fractions only
+MAP	ke-kicd-cbc-2024-v1	3	el_clock_hour,el_clock_minute,el_time_add,el_time_difference	Revised 2024 2.4 PDF109–110; reading past/to the hour and adding/subtracting hours/minutes
+RULE	ke-kicd-cbc-2024-v1	1	add100	maxGiven=50;maxResult=50;maxSecondOperand=9;maxRegroups=0
+RULE	ke-kicd-cbc-2024-v1	2	add100	maxGiven=100;maxResult=100
+RULE	ke-kicd-cbc-2024-v1	1	sub100	maxGiven=50;maxSecondOperand=9;maxRegroups=0
+RULE	ke-kicd-cbc-2024-v1	2	sub100	maxGiven=100
+RULE	ke-kicd-cbc-2024-v1	1	el_number_pattern	maxGiven=20;maxResult=20
+RULE	ke-kicd-cbc-2024-v1	2	el_number_pattern	maxGiven=100;maxResult=100
+RULE	ke-kicd-cbc-2024-v1	3	el_number_pattern	maxGiven=1000;maxResult=1000
+RULE	ke-kicd-cbc-2024-v1	2	mulIntro	timesTableMax=3;maxResult=9
+RULE	ke-kicd-cbc-2024-v1	2	tables	timesTableMax=10;maxGiven=10;maxResult=90;factors=1,2,3,4,5,10
+RULE	ke-kicd-cbc-2024-v1	3	tables	timesTableMax=10;maxGiven=10;maxResult=90
+RULE	ke-kicd-cbc-2024-v1	2	divide	timesTableMax=12;divisors=2,3,4,5;maxGiven=25;dividendMaxima=2:20,3:25,4:25,5:25
+RULE	ke-kicd-cbc-2024-v1	3	divide	timesTableMax=12;maxGiven=99;divisors=2,3,4,5,6,7,8,9,10
+RULE	ke-kicd-cbc-2024-v1	2	fractionPart	denominators=2,4;unitFractions=true
+RULE	ke-kicd-cbc-2024-v1	3	fractionPart	denominators=2,4,8;unitFractions=true
+RULE	ke-kicd-cbc-2024-v1	2	el_missing_add,el_missing_sub	maxGiven=100;maxResult=100
+RULE	ke-kicd-cbc-2024-v1	3	el_missing_add,el_missing_sub	maxGiven=1000;maxResult=1000;maxRegroups=1
+RULE	ke-kicd-cbc-2024-v1	3	add1000,sub1000	maxGiven=1000;maxResult=1000;maxRegroups=1
+LEVEL	ke-kicd-cbc-2024-v1	4	Grade 4
+LEVEL	ke-kicd-cbc-2024-v1	5	Grade 5
+LEVEL	ke-kicd-cbc-2024-v1	6	Grade 6
+MAP	ke-kicd-cbc-2024-v1	4	place1000,largePlace,el_compare_10000,el_round,el_even_odd,el_divisor,el_multiple	Grade4 Revised2024 PDF15–16; selected place value, rounding to tens, factors<=50 and multiples/parity<=100
+MAP	ke-kicd-cbc-2024-v1	4	add1000,sub1000,el_missing_add,el_missing_sub,el_number_pattern	Grade4 PDF18–21; addition/subtraction up to4 digits; addition at most2 regroupings, sum<=10000; missing-number and pattern foundations remain smaller
+MAP	ke-kicd-cbc-2024-v1	4	mul2,mul22,divide,remainder	Grade4 PDF22–25; selected multiplication up to2x2 digits and division up to2x1 digits
+MAP	ke-kicd-cbc-2024-v1	4	fractionPart,el_mixed_to_improper,el_improper_to_mixed	Grade4 PDF26–27; numerator/denominator, fractions with denominators<=12 and improper/mixed conversions
+MAP	ke-kicd-cbc-2024-v1	4	el_decimal_place,el_decimal_compare	Grade4 PDF28–29; decimal notation/place/order through hundredths; no decimal arithmetic
+MAP	ke-kicd-cbc-2024-v1	4	el_length_m_cm,el_length_add_sub,el_rectangle_perimeter,el_square_perimeter,el_triangle_perimeter,el_rectangle_area,el_square_area	Grade4 PDF35–38; m/cm conversion, length operations, perimeter and row/column rectangle/square area
+MAP	ke-kicd-cbc-2024-v1	4	el_hours_to_minutes,el_minutes_to_hours,el_time_add,el_time_difference	Grade4 PDF46–47; selected hour/minute conversions and elapsed time; AM/PM notation remains
+MAP	ke-kicd-cbc-2024-v1	5	largePlace,el_compare_10000,el_round,gcd,lcm,el_common_divisor,el_common_multiple	Grade5 Revised2024 PDF13–14; selected place/order/rounding to hundreds/thousands and common factors/multiples
+MAP	ke-kicd-cbc-2024-v1	5	add1000,sub1000,addThree100,el_missing_add,el_missing_sub	Grade5 PDF15–18; two6-digit addends at most2 regroupings, three6-digit addends without regrouping, sum<=1000000; subtraction up to6 digits; matching whole-digit missing-number equations
+MAP	ke-kicd-cbc-2024-v1	5	mul22,el_mul_3x2,divide2,el_div_2x2_rem,el_div_3x2_rem,mixed	Grade5 PDF19–22; up to3x2 digit multiplication/division and combined whole-number operations
+MAP	ke-kicd-cbc-2024-v1	5	reduce,fracCompare,el_fraction_compare,fracAddLike,fracSubLike,fracAdd,fracSub	Grade5 PDF23–24; comparison/ordering<=12, like-denominator addition/subtraction and one denominator renaming
+MAP	ke-kicd-cbc-2024-v1	5	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	Grade5 PDF25–26; place/order/add/sub through thousandths
+MAP	ke-kicd-cbc-2024-v1	5	el_length_km_m,el_length_add_sub,el_rectangle_area,el_square_area,el_rect_prism_volume,el_cube_volume	Grade5 PDF32–37; km/m relation, area in cm2 and cube/cuboid volume in cm3
+MAP	ke-kicd-cbc-2024-v1	5	el_capacity_l_ml,el_capacity_add_sub,el_capacity_mixed,el_mass_kg_g,el_mass_add_sub	Grade5 PDF38–41; litre/millilitre and kilogram/gram conversions and basic operations
+MAP	ke-kicd-cbc-2024-v1	5	el_clock_second,el_time_to_seconds,el_time_second_add,el_time_second_difference	Grade5 PDF42–43; selected seconds, minute/second conversion and operations
+MAP	ke-kicd-cbc-2024-v1	6	largePlace,el_compare_10000,el_round	Grade6 Revised2024 PDF13–14; place values through millions; order<=100000; round<=100000 to nearest1000; squares/roots remain
+MAP	ke-kicd-cbc-2024-v1	6	el_mul_3x2,divide2,el_div_3x2_rem,mixed	Grade6 PDF15–18; up to4x2-digit multiplication and4x3-digit division; smaller combined-operation foundations
+MAP	ke-kicd-cbc-2024-v1	6	fracAdd,fracSub,el_fraction_common_den,el_mixed_to_improper,el_improper_to_mixed,percent	Grade6 PDF19–20; selected unlike-denominator addition/subtraction and fraction/percentage foundations; reciprocal and fraction squares remain
+MAP	ke-kicd-cbc-2024-v1	6	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub,el_decimal_fraction,el_fraction_decimal,el_decimal_round	Grade6 PDF21–22; decimal place through4 places, selected precision arithmetic/conversions, rounding up to3 places
+MAP	ke-kicd-cbc-2024-v1	6	el_length_mm_cm,el_length_add_sub,el_triangle_area,el_capacity_l_ml,el_mass_t_kg	Grade6 PDF27–34; mm/cm, triangle area, litre/millilitre and tonne/kilogram relations
+MAP	ke-kicd-cbc-2024-v1	6	angles,el_triangle_angle_sum,el_3d_elements	Grade6 PDF43–46; straight/triangle angles and cube/cuboid faces/edges/vertices; rectangle angles remain
+MAP	ke-kicd-cbc-2024-v1	6	el_picture_graph,el_bar_graph	Grade6 PDF49–50; reading pictographs and bar graphs; creating frequency tables remains
+RULE	ke-kicd-cbc-2024-v1	4	largePlace	wholeMaximum=99999;maxGiven=99999
+RULE	ke-kicd-cbc-2024-v1	5	largePlace	wholeMaximum=999999;maxGiven=999999
+RULE	ke-kicd-cbc-2024-v1	6	largePlace	wholeMaximum=9999999;maxGiven=9999999
+RULE	ke-kicd-cbc-2024-v1	4	el_compare_10000	maxGiven=1000
+RULE	ke-kicd-cbc-2024-v1	5	el_compare_10000	wholeMaximum=99999;maxGiven=99999
+RULE	ke-kicd-cbc-2024-v1	6	el_compare_10000	wholeMaximum=100000;maxGiven=100000
+RULE	ke-kicd-cbc-2024-v1	4	el_round	maxGiven=1000;roundingUnits=10
+RULE	ke-kicd-cbc-2024-v1	5	el_round	maxGiven=99999;roundingUnits=100,1000
+RULE	ke-kicd-cbc-2024-v1	6	el_round	wholeMaximum=100000;maxGiven=100000;roundingUnits=1000
+RULE	ke-kicd-cbc-2024-v1	4	el_even_odd,el_multiple	maxGiven=100;maxResult=100
+RULE	ke-kicd-cbc-2024-v1	4	el_divisor	maxGiven=50
+RULE	ke-kicd-cbc-2024-v1	4	add1000	wholeDigits=4;maxGiven=9999;maxResult=10000;maxRegroups=2
+RULE	ke-kicd-cbc-2024-v1	4	el_missing_add	wholeDigits=4;maxGiven=10000;maxResult=10000;maxRegroups=2
+RULE	ke-kicd-cbc-2024-v1	4	sub1000	wholeDigits=4;maxGiven=9999;maxResult=10000
+RULE	ke-kicd-cbc-2024-v1	4	el_missing_sub	wholeDigits=4;maxGiven=10000;maxResult=10000
+RULE	ke-kicd-cbc-2024-v1	5	add1000	wholeDigits=6;maxGiven=999999;maxResult=1000000;maxRegroups=2
+RULE	ke-kicd-cbc-2024-v1	5	addThree100	wholeDigits=6;maxGiven=999999;maxResult=1000000;maxRegroups=0
+RULE	ke-kicd-cbc-2024-v1	5	el_missing_add	wholeDigits=6;maxGiven=1000000;maxResult=1000000;maxRegroups=2
+RULE	ke-kicd-cbc-2024-v1	5	sub1000	wholeDigits=6;maxGiven=999999;maxResult=1000000
+RULE	ke-kicd-cbc-2024-v1	5	el_missing_sub	wholeDigits=6;maxGiven=1000000;maxResult=1000000
+RULE	ke-kicd-cbc-2024-v1	4	el_number_pattern	maxGiven=10000;maxResult=10000
+RULE	ke-kicd-cbc-2024-v1	4	divide	timesTableMax=12;maxGiven=99;divisors=1,2,3,4,5,6,7,8,9
+RULE	ke-kicd-cbc-2024-v1	4	fractionPart	denominators=2,3,4,5,6,7,8,9,10,11,12
+RULE	ke-kicd-cbc-2024-v1	4	el_decimal_place,el_decimal_compare	decimalPlaces=2
+RULE	ke-kicd-cbc-2024-v1	5	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=3
+RULE	ke-kicd-cbc-2024-v1	6	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=4
+RULE	ke-kicd-cbc-2024-v1	5	fracAdd,fracSub	denominators=2,3,4,5,6,7,8,9,10,11,12;relatedDenominators=true;nonnegative=true
+RULE	ke-kicd-cbc-2024-v1	6	fracAdd,fracSub	denominators=2,3,4,5,6,7,8,9,10,11,12;nonnegative=true
+RULE	ke-kicd-cbc-2024-v1	6	el_mul_3x2	wholeDigits=4;secondDigits=2
+RULE	ke-kicd-cbc-2024-v1	6	el_div_3x2_rem	wholeDigits=4;secondDigits=3
+RULE	ke-kicd-cbc-2024-v1	6	el_decimal_round	decimalPlaces=4
+MAP	ke-kicd-cbc-2024-v1	6	fracMixedAdd,fracMixedSub	Grade6 Revised2024 PDF19–20; add/subtract mixed numbers using improper fractions and common denominators
+RULE	ke-kicd-cbc-2024-v1	6	fracMixedAdd,fracMixedSub	nonnegative=true
+
+# Grade7 Revised2024 public viewer: evidence/sources/kenya-20261002/grade7-readable.txt
+LEVEL	ke-kicd-cbc-2024-v1	7	Grade 7
+MAP	ke-kicd-cbc-2024-v1	7	largePlace,el_compare_10000,el_round,el_even_odd,el_number_pattern,mixed	Grade7 Revised2024 PDF13–14 whole numbers: place/order/rounding through hundreds of millions; parity, smaller sequences and combined-operation foundations
+MAP	ke-kicd-cbc-2024-v1	7	gcd,lcm,sec_prime_factor,el_divisor,el_common_divisor,el_common_multiple	Grade7 Revised2024 PDF15–16 factors: prime factorisation, GCD/LCM; selected factor and multiple calculations; complete divisibility rules remain
+MAP	ke-kicd-cbc-2024-v1	7	fracCompare,el_fraction_compare,reduce,fracAddLike,fracSubLike,fracAdd,fracSub,fracMixedAdd,fracMixedSub,fracMul,fracDivInt,fracDiv	Grade7 Revised2024 PDF17–18 fractions: compare/add/sub/multiply/divide; selected proper/improper and mixed add/sub; reciprocals, mixed multiplication/division and fractional sequences remain
+MAP	ke-kicd-cbc-2024-v1	7	el_decimal_place,decimalMul,decimalDivInt,decimalDiv	Grade7 Revised2024 PDF19–20 decimals: place value and multiplication/division; selected precision<=4 places
+MAP	ke-kicd-cbc-2024-v1	7	root	Grade7 Revised2024 PDF21–22 perfect square roots: selected sum of two nonnegative whole-number perfect roots; squares and fraction/decimal roots remain
+MAP	ke-kicd-cbc-2024-v1	7	likeTerms	Grade7 Revised2024 PDF26–27 algebraic expressions: selected simplification of like terms; forming expressions from statements remains
+MAP	ke-kicd-cbc-2024-v1	7	linear,linearFraction	Grade7 Revised2024 PDF28–29 linear equations: selected one-unknown equations, integer and rational coefficients
+MAP	ke-kicd-cbc-2024-v1	7	pythagoras	Grade7 Revised2024 PDF33–34 Pythagorean relationship: selected right-triangle side calculations
+MAP	ke-kicd-cbc-2024-v1	7	el_length_km_m,el_length_m_cm,el_length_mm_cm,el_length_add_sub,el_rectangle_perimeter,el_square_perimeter,el_triangle_perimeter,el_parallelogram_perimeter,el_trapezoid_perimeter,el_rhombus_perimeter,el_circle_circumference	Grade7 Revised2024 PDF35–36 length: metric conversions, operations, perimeter and circumference
+MAP	ke-kicd-cbc-2024-v1	7	el_rectangle_area,el_parallelogram_area,el_rhombus_area,el_trapezoid_area,el_circle_area	Grade7 Revised2024 PDF37–38 area: selected shape areas; hectares, borders and combined areas remain
+MAP	ke-kicd-cbc-2024-v1	7	el_rect_prism_volume,el_cube_volume,sec_cylinder_volume,el_capacity_l_ml	Grade7 Revised2024 PDF39–40 volume/capacity: cubes, cuboids and cylinders; selected capacity relation; m3/cm3/litre relations remain
+MAP	ke-kicd-cbc-2024-v1	7	el_hours_to_minutes,el_minutes_to_hours,el_time_to_seconds	Grade7 Revised2024 PDF41–42 time/distance/speed: selected time conversions; speed and speed conversions remain
+MAP	ke-kicd-cbc-2024-v1	7	angles,sec_parallel_angle,sec_polygon_interior,sec_polygon_exterior	Grade7 Revised2024 PDF51–52 angles: straight lines, transversals, interior/exterior polygons restricted through hexagons; angle at point/parallelogram remain
+MAP	ke-kicd-cbc-2024-v1	7	el_picture_graph,el_bar_graph	Grade7 Revised2024 PDF57–58 data: selected pictograph/bar graph reading; collection, drawing and frequency tables remain
+RULE	ke-kicd-cbc-2024-v1	7	largePlace,el_compare_10000	wholeMaximum=999999999;maxGiven=999999999
+RULE	ke-kicd-cbc-2024-v1	7	el_round	wholeMaximum=999999999;maxGiven=999999999;roundingUnits=10,100,1000,10000,100000,1000000,10000000,100000000
+RULE	ke-kicd-cbc-2024-v1	7	sec_polygon_interior,sec_polygon_exterior	polygonSides=6
+RULE	ke-kicd-cbc-2024-v1	7	el_decimal_place,decimalMul,decimalDivInt,decimalDiv	decimalPlaces=4
+
+
+# Selected squares, roots, reciprocal and constant-difference fractions; not complete strands.
+MAP	ke-kicd-cbc-2024-v1	6	squareWhole,rootWhole	Grade6 Revised2024 PDF13–14 whole squares up to100 and perfect roots up to10000
+MAP	ke-kicd-cbc-2024-v1	6	squareFraction,fractionReciprocal	Grade6 Revised2024 PDF19–20 squares: one-digit numerator/two-digit denominator; selected proper-fraction reciprocals through99
+MAP	ke-kicd-cbc-2024-v1	7	squareWhole,squareFraction,squareDecimal,rootWhole,rootFraction,rootDecimal	Grade7 Revised2024 PDF21–22 squares and roots of whole numbers, fractions and decimals; selected nonnegative perfect roots only
+MAP	ke-kicd-cbc-2024-v1	7	fractionReciprocal,fractionSequence	Grade7 Revised2024 PDF17–18 selected proper-fraction reciprocals and increasing/decreasing constant-difference fraction sequences
+RULE	ke-kicd-cbc-2024-v1	6	squareWhole	maxGiven=100;maxResult=10000;nonnegative=true
+RULE	ke-kicd-cbc-2024-v1	6	rootWhole	maxGiven=10000;maxResult=100;nonnegative=true
+RULE	ke-kicd-cbc-2024-v1	6	squareFraction,fractionReciprocal	nonnegative=true
+RULE	ke-kicd-cbc-2024-v1	7	squareWhole	maxGiven=200;maxResult=40000
+RULE	ke-kicd-cbc-2024-v1	7	rootWhole	maxGiven=40000;maxResult=200
+# 2026-10-02: selected arithmetic practice; model/context outcomes remain separate.
+MAP	us-ccss-2010-v1	5	fracMulInt,fracMixedMul	CCSS 2010 p36 5.NF.4,6; multiplication of fractions and mixed numbers
+MAP	us-ccss-2010-v1	6	fracWholeDiv,fracMixedDiv	CCSS 2010 p42 6.NS.1; general fraction quotients, not Grade5 unit-fraction division
+MAP	ke-kicd-cbc-2024-v1	7	fracMulInt,fracMixedMul,fracWholeDiv,fracMixedDiv	KICD Grade7 Revised2024 PDF17–18 fractions d,f,g; mixed/whole/fraction products and quotients
+RULE	ke-kicd-cbc-2024-v1	7	fracMulInt,fracMixedMul,fracWholeDiv,fracMixedDiv	nonnegative=true
+
+# Grade8 July2024, Revised2024, 64-page public viewer. Selected supporting calculations only.
+# Source readback: evidence/sources/kenya-grade8-20261002/SOURCE_REVIEW.md
+LEVEL	ke-kicd-cbc-2024-v1	8	Grade 8
+MAP	ke-kicd-cbc-2024-v1	8	signedAdd	Grade8 Revised2024 PDF13–14 1.1; selected integer addition/subtraction; number-line representation remains
+MAP	ke-kicd-cbc-2024-v1	8	fractionReciprocal,fracAdd,fracSub,fracMul,fracDiv	Grade8 PDF15 1.2; selected reciprocal and single-operation foundations supporting combined fraction operations; combined expressions remain
+MAP	ke-kicd-cbc-2024-v1	8	el_fraction_decimal,el_decimal_round,decimalAdd,decimalSub,decimalMul,decimalDivInt,decimalDiv	Grade8 PDF16–17 1.3; selected terminating fraction conversion, rounding through3 decimal places and single-operation decimal foundations; recurring decimals, significant figures, standard form and combined expressions remain
+MAP	ke-kicd-cbc-2024-v1	8	squareWhole,squareFraction,squareDecimal,rootWhole,rootFraction,rootDecimal	Grade8 PDF18–19 1.4; selected exact square/perfect-root calculations supporting table/calculator study; tables, calculator skills and approximate roots remain
+MAP	ke-kicd-cbc-2024-v1	8	el_ratio_terms,el_ratio_fraction,proportion,el_proportional_split	Grade8 PDF20–22 1.5; selected ratio notation, ratio-as-fraction, direct proportion and sharing in ratios; ratio comparison, rates, ratio/percentage change and inverse proportion remain
+RULE	ke-kicd-cbc-2024-v1	8	fracAdd,fracSub	nonnegative=true
+RULE	ke-kicd-cbc-2024-v1	8	decimalAdd,decimalSub,decimalMul,decimalDivInt,decimalDiv	decimalPlaces=4
+RULE	ke-kicd-cbc-2024-v1	8	el_decimal_round	decimalPlaces=4
+# 2026-10-02 Numbers extension. Arithmetic practice, not all classroom activities.
+MAP	ke-kicd-cbc-2024-v1	8	generalReciprocal,fracCombined	Grade8 PDF15 1.2: whole/improper/mixed reciprocals and combined fraction arithmetic
+MAP	ke-kicd-cbc-2024-v1	8	decimalCombined,recurringFraction,significantRound,standardForm,el_decimal_fraction	Grade8 PDF16–17 1.3: combined decimal operations, recurring-to-fraction conversion, significant-figure rounding, positive standard form and terminating decimal-to-fraction conversion
+MAP	ke-kicd-cbc-2024-v1	8	ratioCompare,ratioChange,unitRate,sec_inverse_proportion	Grade8 PDF20–22 1.5: comparing positive ratios, quantities increased/decreased in a ratio, constant speed per hour and inverse proportion; percentage contexts and other rate units remain
+RULE	ke-kicd-cbc-2024-v1	8	el_fraction_decimal	decimalPlaces=4
+RULE	ke-kicd-cbc-2024-v1	6	el_fraction_decimal	decimalPlaces=2
+
+# 2026-10-03 Grade8 remaining strands, public viewer selected outcomes PDF26–55.
+MAP	ke-kicd-cbc-2024-v1	8	commonFactorFrame,algebraCancel,likeTerms,substitute,monomialQuotient,polynomialQuotient	Grade8 PDF26–27 2.1: common integer factors, selected one-variable fraction cancellation, like terms, substitution and polynomial/monomial quotients; general rational expressions and modelling remain
+MAP	ke-kicd-cbc-2024-v1	8	linearSystem	Grade8 PDF28–29 2.2: unique two-unknown linear systems with student-completed elimination; forming real-life equations and separate guided substitution remain
+MAP	ke-kicd-cbc-2024-v1	8	el_circle_circumference,sec_sector_arc	Grade8 PDF31–32 3.1: circumference with specified3.14 and exact pi coefficient of arc length; sector perimeter remains
+MAP	ke-kicd-cbc-2024-v1	8	el_circle_area,sec_sector_area,el_cube_surface,el_rect_prism_surface,sec_cylinder_surface	Grade8 PDF33–35 3.2: selected circle/sector areas and cube/cuboid/cylinder surface areas; triangular prisms and irregular-grid estimation remain
+MAP	ke-kicd-cbc-2024-v1	8	sec_polygon_interior,sec_polygon_exterior	Grade8 PDF41–42 4.1: selected angle sums and regular polygon exterior angles up to hexagons supporting construction; drawing/construction tools remain
+MAP	ke-kicd-cbc-2024-v1	8	linearValue,sec_graph_change	Grade8 PDF43–44 4.2: individual linear-equation values and reading increase/decrease from coordinates; complete tables, plotting/scales and graphical systems remain
+MAP	ke-kicd-cbc-2024-v1	8	el_bar_graph,el_line_graph,sec_mode,mean,median	Grade8 PDF52–53 5.1: selected graph reading and discrete mode/mean/median; data collection and drawing remain
+MAP	ke-kicd-cbc-2024-v1	8	experimentalProbability	Grade8 PDF54–55 5.2: observed coin-outcome frequency as fractions, terminating decimals and percentages; running/recording experiments remains
+RULE	ke-kicd-cbc-2024-v1	8	sec_polygon_interior,sec_polygon_exterior	polygonSides=6
+RULE	ke-kicd-cbc-2024-v1	7	el_circle_circumference,el_circle_area	wholeMaximum=20
+RULE	ke-kicd-cbc-2024-v1	8	el_circle_circumference,el_circle_area,el_cube_surface	wholeMaximum=120
+RULE	ke-kicd-cbc-2024-v1	8	sec_sector_arc,sec_sector_area	wholeMaximum=40
+RULE	ke-kicd-cbc-2024-v1	8	sec_cylinder_surface	wholeMaximum=20
+
+# 2026-10-03 Grade8 selected money, scale and triangular prism computations.
+MAP	ke-kicd-cbc-2024-v1	8	simpleInterest,annualCompound,annualValueChange,hirePurchase	Grade8 PDF36–37 3.3: simple interest, annual compound interest/appreciation/depreciation up to three years, deposits plus equal instalments and cash-price differences; calculators and spending activities remain
+MAP	ke-kicd-cbc-2024-v1	8	scaleLength,scaleNotation	Grade8 PDF45–46 4.3: drawing/actual lengths, statement/ratio scales and unit conversions; creating drawings and maps remains
+MAP	ke-kicd-cbc-2024-v1	8	triangularPrismSurface	Grade8 PDF33–35 3.2: surface areas of right triangular prisms with right-triangle bases; arbitrary triangles, actual net construction and irregular-grid estimation remain
+MAP	ke-kicd-cbc-2024-v1	8	sectorPerimeter	Grade8 PDF31–32 3.1: full sector perimeter including both radii, with specified pi approximation
+MAP	ke-kicd-cbc-2024-v1	8	cuboidNetArea,cuboidSurfacePath	Grade8 PDF47–48 4.4: cuboid net area and shortest surface distance between opposite vertices; arbitrary points, other solids and constructing nets/models remain
+
+# Grade9 July2024 Revised, official 69-page viewer; selected numbers/algebra only.
+# Current source: evidence/sources/kenya-grade9-20261003/source-readback.json
+LEVEL	ke-kicd-cbc-2024-v1	9	Grade 9
+MAP	ke-kicd-cbc-2024-v1	9	signedAdd,signedMul	Grade9 July2024 PDF13 1.1: single-operation integer addition/subtraction/multiplication/division; combined expressions and real-life modelling remain
+MAP	ke-kicd-cbc-2024-v1	9	powerLaw,negativePower	Grade9 July2024 PDF17 1.3: selected same-base products and negative integer powers; quotient/power-of-power and exact base-ten logarithms mapped below; real-number/table logarithms and broader contexts remain
+MAP	ke-kicd-cbc-2024-v1	9	el_ratio_terms,el_ratio_fraction,proportion,el_proportional_split	Grade9 July2024 PDF18 1.4: supporting ratio notation, ratio fractions, direct proportions and sharing; selected compound proportions/rates mapped below; broader contexts remain
+MAP	ke-kicd-cbc-2024-v1	9	sec_matrix_element,sec_matrix_add	Grade9 July2024 PDF22 2.1: selected 2x2 entries and addition entries; order/compatibility mapped below; complete-matrix/context tasks remain; no scalar or matrix multiplication
+MAP	ke-kicd-cbc-2024-v1	9	linearSlope,linearXIntercept,linearYIntercept,linearValue,sec_line_equation	Grade9 July2024 PDF24 2.2: gradients from two points, selected rational-gradient straight-line values and intercepts; equation formation and real-life modelling remain
+MAP	ke-kicd-cbc-2024-v1	9	linearInequality	Grade9 July2024 PDF26 2.3: one-unknown linear inequalities including reversed signs; number-line and two-variable graphs/context tasks remain
+MAP	ke-kicd-cbc-2024-v1	9	cubeWhole,cubeRootWhole	Grade9 July2024 PDF15 1.2: selected nonnegative whole-number cubes and exact cube roots through base200; prime-factor groups-of-three help included; approximate/table/calculator roots and broader contextual tasks remain
+MAP	ke-kicd-cbc-2024-v1	9	sec_matrix_sub	Grade9 July2024 PDF22 2.1: selected2x2 subtraction entries at all four positions; whole-matrix answers, order/compatibility mapped below; context tasks remain
+
+# Selected constant-rate and matrix order/compatibility calculations.
+MAP	ke-kicd-cbc-2024-v1	9	compoundProportion,combinedWorkTime	Grade9 July2024 PDF18 1.4: equal constant per-person rates, changing workers/time/amount, two constant rates for one job; broader contextual modelling remains
+MAP	ke-kicd-cbc-2024-v1	9	matrixOrder,matrixCompatibility	Grade9 July2024 PDF22 2.1: rows-by-columns order and equal-dimension addition/subtraction compatibility; 1-3 rows/1-4 columns, whole-matrix answers and broader contexts remain
+MAP	ke-kicd-cbc-2024-v1	9	powerQuotient,powerOfPower,tenPowerLog	Grade9 July2024 PDF17 1.3: same nonzero positive-base quotient exponents, power-of-power exponents, exact base-ten values/arguments and indexed products/quotients; tables/calculators, approximate logarithms and contextual modelling remain
+
+# Selected Grade9 area and volume calculations from the official viewer.
+MAP	ke-kicd-cbc-2024-v1	9	regularPolygonArea,sec_sector_area,sec_prism_surface,triangularPrismSurface,sec_cone_surface,sec_sphere_surface,pyramidSurface,circleSegmentArea	Grade9 July2024 PDF30 3.1: selected regular polygon areas; prism/cone/sphere surfaces; triangular/rectangular/square-base pyramid surfaces from face measurements; minor segments at60/90/120 degrees with published rounded chord/center distances and pi3.14; irregular polygons, arbitrary segment angles and net-construction activities remain
+MAP	ke-kicd-cbc-2024-v1	9	triangularPrismVolume,pyramidVolume,sec_prism_volume,sec_cone_volume,sec_sphere_volume,coneFrustumVolume,pyramidFrustumVolume	Grade9 July2024 PDF33 3.2: selected prism/pyramid/cone/sphere volumes; cone and triangular/rectangular/square-pyramid frustums from parallel cuts with similar whole/cut solids and supplied perpendicular heights; modelling, measuring and capacity activities remain
+RULE	ke-kicd-cbc-2024-v1	9	sec_sphere_surface,sec_sphere_volume	wholeMaximum=160
+RULE	ke-kicd-cbc-2024-v1	9	sec_cone_volume,sec_sector_area	wholeMaximum=40
+
+# Selected Grade9 mass, volume, weight and density calculations.
+MAP	ke-kicd-cbc-2024-v1	9	massUnitConvert,volumeUnitConvert,massWeight,densityValue,densityMass,densityVolume	Grade9 July2024 PDF35 3.3: selected mass and volume unit conversions; W=mg with explicit gravitational factor; density, mass and volume calculations with published unit relations; weighing instruments, hands-on measuring and broader contexts remain
+
+# Selected Grade9 time, distance, speed and local solar time calculations.
+MAP	ke-kicd-cbc-2024-v1	9	speedValue,speedUnitConvert,averageSpeed,motionVelocity,motionAcceleration,longitudeTime	Grade9 July2024 PDF37 3.4: selected km/h and m/s speed, speed conversion, average speed, signed straight-line velocity and acceleration, longitude-based local solar time with day offsets; civil time zones, globe identification, hands-on measurement and broader real-life activities remain
+
+# Selected Grade9 stated-rate currency and tax calculations.
+MAP	ke-kicd-cbc-2024-v1	9	currencyExchange,exportDuty,importDuty,exciseDuty,vatAmount,vatIncluded	Grade9 July2024 PDF39-40 3.5: stated practice rates, two-way currency conversion, export/import/excise duties on stated taxable values, VAT and totals, reverse VAT-inclusive prices; currency identification, current-rate research, broader import tax chains and real-life activities remain

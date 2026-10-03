@@ -1,0 +1,3 @@
+rootProject.name = 'GomGomOpenEducation'
+dependencyResolutionManagement { repositories { mavenCentral() } }
+include ':math:engine'
