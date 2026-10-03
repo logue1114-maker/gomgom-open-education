@@ -2,7 +2,18 @@
 
 Open-source learning components from GomGom, a South Korean education software business. Our goal is to help learners study mathematics, Hanja and languages regardless of their financial circumstances.
 
-## Current scope
+## Start here / 문서 안내
+
+| Area | Guide | Status |
+|---|---|---|
+| Repository organization | [Architecture / 저장소 구성](docs/ARCHITECTURE.md) | Current boundaries and future split criteria |
+| Mathematics | [Math engine guide / 수학 엔진](math/README.md) | Source, tests and runnable Java example |
+| Hanja | [Handwriting guide / 한자 필기](hanja/README.md) | Recognition module and input contract |
+| Languages and TTS | [Language roadmap / 언어교육 계획](languages/README.md) | Planned; no implementation yet |
+
+The detailed guides are currently written in Korean; code identifiers and examples retain their original spelling.
+
+## Included components
 
 - `math/engine`: the Java mathematics engine, including question generation, answer checking, learning state, curriculum mappings and its existing tests.
 - `hanja/writing.js`: the browser handwriting recognition and writing-pad module used by the Hanja service.
