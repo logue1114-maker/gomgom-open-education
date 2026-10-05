@@ -1,3 +1,9 @@
+## 2026-10-06 — Student-entered divisor and multiple calculations
+
+Existing GCD and LCM exercises now offer separate quotient, multiplication and remainder inputs. Students correct the marked stage and enter the final divisor or multiple themselves; the help never consults the answer key or transfers its result to the main answer. Private display separates both given numbers and uses curated English instructions. The remainder method is a calculation scaffold, not a claim that each curriculum mandates this algorithm.
+
+Local 688 and public engine 538 tests passed. Independent checks covered 1,750 generated questions and 19,024 entered stages, including 15 existing type/grade placements in six overseas country packs. No new curriculum mapping was added. Normal phone practice checked 20 problems and student-entered help, incorrect-stage correction, zero remainders, blank main answers after help and preserved saved sessions after cold restart. UI, translations, QA, APKs and learner records remain private. Full curricula, small phones, tablets, physical devices, student effectiveness, long study, advertising, purchase and release remain unfinished.
+
 ## 2026-10-06 — Resume the selected curriculum
 
 Home previously selected the latest unfinished session even when it belonged to another country or curriculum. Home now matches both country and curriculum, while language and practice grade remain independent. The private saved list retains all resumable sessions, including an active foreign session, and displays separate curriculum headings. Explicit saved resume restores the corresponding curriculum profile before opening its unchanged session, including when the chosen session was already active. Legacy Korean metadata is supported, and invalid combinations are rejected before changing state.

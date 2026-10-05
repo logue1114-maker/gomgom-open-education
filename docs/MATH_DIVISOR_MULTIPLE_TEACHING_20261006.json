@@ -1,0 +1,52 @@
+{
+  "scope": "Student-entered GCD and LCM calculation help on existing generated problems",
+  "types": [
+    "gcd",
+    "lcm"
+  ],
+  "quotientProductRemainderSeparate": true,
+  "readsAnswerKeyToConstructHelp": false,
+  "automaticMainAnswerTransfer": false,
+  "supply": {
+    "independentPublicQuestions": 1750,
+    "independentEnteredSteps": 19024,
+    "selectedTypeGradePlacements": 15,
+    "selectedCountryCodes": [
+      "GB",
+      "GH",
+      "JP",
+      "KE",
+      "RW",
+      "US"
+    ],
+    "distinctVisiblePrompts": {
+      "gcd": 762,
+      "lcm": 582
+    },
+    "answerMetadataUsedToSolve": false,
+    "mainAnswerTransfers": false,
+    "recent100Repeats": 0,
+    "freshOfficialCurriculumAudit": false,
+    "wholeCurriculumComplete": false
+  },
+  "localUnitTests": {
+    "engine": 538,
+    "app": 75,
+    "globalApp": 75
+  },
+  "totalLocalUnitTests": 688,
+  "nativeVerification": {
+    "actualKeyboardProblems": 20,
+    "studentEnteredHelpSteps": 19,
+    "wrongStageCorrectionTypes": 2,
+    "automaticMainAnswerTransfer": false,
+    "savedSessionsPreserved": true,
+    "localVisualInspection": true,
+    "physicalDeviceVerified": false,
+    "externalVisualReview": false
+  },
+  "newCurriculumMappings": 0,
+  "wholeCurriculumComplete": false,
+  "releaseReady": false,
+  "publicEngineTests": 538
+}
