@@ -14,6 +14,7 @@ public final class CurriculumLimits {
     private final Map<Integer,Integer> dividendMaxima=new HashMap<>();
     private int timesTableMax=9;
     private int minuteStep=5;
+    private int metricDecimals=0;
     private Integer maxSecondOperand,maxRegroups,decimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides;
     private final List<Integer> roundingUnits=new ArrayList<>();
     private String answerDomain="";
@@ -33,6 +34,7 @@ public final class CurriculumLimits {
                 case "factors":case "divisors":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<1)throw new IllegalArgumentException("Invalid factor/divisor");(pair[0].equals("factors")?factors:divisors).add(n);}break;
                 case "timesTableMax":timesTableMax=Integer.parseInt(pair[1]);if(timesTableMax<2||timesTableMax>20)throw new IllegalArgumentException("Invalid times table range");break;
                 case "minuteStep":minuteStep=Integer.parseInt(pair[1]);if(!Set.of(1,5).contains(minuteStep))throw new IllegalArgumentException("Invalid clock minute step");break;
+                case "metricDecimals":metricDecimals=Integer.parseInt(pair[1]);if(metricDecimals<0||metricDecimals>3)throw new IllegalArgumentException("Invalid metric decimal precision");break;
                 case "maxSecondOperand":maxSecondOperand=Integer.valueOf(pair[1]);if(maxSecondOperand<1)throw new IllegalArgumentException("Invalid second operand limit");break;
                 case "maxRegroups":maxRegroups=Integer.valueOf(pair[1]);if(maxRegroups<0||maxRegroups>9)throw new IllegalArgumentException("Invalid regrouping limit");break;
                 case "decimalPlaces":decimalPlaces=Integer.valueOf(pair[1]);if(decimalPlaces<1||decimalPlaces>4)throw new IllegalArgumentException("Invalid decimal places");break;
@@ -131,6 +133,7 @@ public final class CurriculumLimits {
     }
     public int timesTableMax(){return timesTableMax;}
     public int minuteStep(){return minuteStep;}
+    public int metricDecimals(){return metricDecimals;}
     boolean variedFacts(){return variedFacts;}
     boolean variedSums(){return variedSums;}
     int decimalPlaces(int defaultPlaces){return decimalPlaces==null?defaultPlaces:decimalPlaces;}

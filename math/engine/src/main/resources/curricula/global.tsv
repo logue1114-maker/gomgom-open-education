@@ -859,6 +859,8 @@ RULE	au-acara-v9-primary-v1	3	tables	timesTableMax=10;factors=3,4,5,10;variedFac
 RULE	au-acara-v9-primary-v1	3	divide	timesTableMax=10;divisors=3,4,5,10;variedFacts=true
 RULE	au-acara-v9-primary-v1	2	el_clock_hour	minuteStep=5
 RULE	au-acara-v9-primary-v1	3	el_clock_hour,el_clock_minute	minuteStep=1
+RULE	au-acara-v9-primary-v1	6	el_length_mm_cm,el_length_m_cm,el_length_km_m,el_mass_kg_g,el_capacity_l_ml	metricDecimals=3
+RULE	au-acara-v9-primary-v1	5	el_length_mm_cm,el_length_m_cm,el_length_km_m,el_mass_kg_g,el_capacity_l_ml	metricDecimals=0
 RULE	au-acara-v9-primary-v1	4	tables	timesTableMax=10;variedFacts=true
 RULE	au-acara-v9-primary-v1	4	divide	timesTableMax=10;variedFacts=true
 RULE	au-acara-v9-primary-v1	4	el_decimal_place,el_decimal_compare,el_decimal_fraction,el_fraction_decimal	decimalPlaces=2

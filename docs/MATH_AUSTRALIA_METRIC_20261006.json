@@ -1,0 +1,170 @@
+{
+  "date": "2026-10-06",
+  "change": "Selected Australian Year6 metric decimal conversions in five existing unit pairs, both directions, with two student-entered help frames",
+  "sourceCode": "AC9M6M01",
+  "independentSupply": {
+    "independentPublicUnitChecks": 5000,
+    "units": [
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_length_mm_cm",
+        "issued": 800,
+        "distinctPublicTasks": 800,
+        "targetUnits": [
+          "cm",
+          "mm"
+        ],
+        "decimalGivens": 669
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_length_m_cm",
+        "issued": 800,
+        "distinctPublicTasks": 800,
+        "targetUnits": [
+          "cm",
+          "m"
+        ],
+        "decimalGivens": 526
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_length_km_m",
+        "issued": 800,
+        "distinctPublicTasks": 800,
+        "targetUnits": [
+          "km",
+          "m"
+        ],
+        "decimalGivens": 389
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_mass_kg_g",
+        "issued": 800,
+        "distinctPublicTasks": 800,
+        "targetUnits": [
+          "g",
+          "kg"
+        ],
+        "decimalGivens": 376
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_capacity_l_ml",
+        "issued": 800,
+        "distinctPublicTasks": 800,
+        "targetUnits": [
+          "L",
+          "mL"
+        ],
+        "decimalGivens": 379
+      },
+      {
+        "system": "default",
+        "skill": "el_length_mm_cm",
+        "issued": 200,
+        "distinctPublicTasks": 196,
+        "targetUnits": [
+          "cm",
+          "mm"
+        ],
+        "decimalGivens": 0
+      },
+      {
+        "system": "default",
+        "skill": "el_length_m_cm",
+        "issued": 200,
+        "distinctPublicTasks": 40,
+        "targetUnits": [
+          "cm",
+          "m"
+        ],
+        "decimalGivens": 0
+      },
+      {
+        "system": "default",
+        "skill": "el_length_km_m",
+        "issued": 200,
+        "distinctPublicTasks": 40,
+        "targetUnits": [
+          "km",
+          "m"
+        ],
+        "decimalGivens": 0
+      },
+      {
+        "system": "default",
+        "skill": "el_mass_kg_g",
+        "issued": 200,
+        "distinctPublicTasks": 100,
+        "targetUnits": [
+          "g",
+          "kg"
+        ],
+        "decimalGivens": 0
+      },
+      {
+        "system": "default",
+        "skill": "el_capacity_l_ml",
+        "issued": 200,
+        "distinctPublicTasks": 40,
+        "targetUnits": [
+          "L",
+          "mL"
+        ],
+        "decimalGivens": 0
+      }
+    ],
+    "correctChoicePositions": {
+      "2": 1268,
+      "1": 1209,
+      "0": 1278,
+      "3": 1245
+    },
+    "australianAnswerMagnitudeRanks": {
+      "1": 1023,
+      "0": 987,
+      "2": 973,
+      "3": 1017
+    },
+    "fullDomainExhaustionProven": false
+  },
+  "tests": {
+    "engine": 468,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 468,
+  "answerMagnitudeRanksBeforeFix": [
+    2196,
+    781,
+    533,
+    490
+  ],
+  "answerMagnitudeRanksAfterFix": {
+    "1": 1023,
+    "0": 987,
+    "2": 973,
+    "3": 1017
+  },
+  "nativeInitialTyped": 30,
+  "nativeInitialChoices": 20,
+  "nativeNewBalancedChoices": 20,
+  "guideIncorrectEntryMarked": true,
+  "guideStudentCorrectionAccepted": true,
+  "guideNoAutomaticMainAnswer": true,
+  "normalLauncherAndSavedSwitchAndColdDraftPreserved": true,
+  "normalLauncherCheckQuestionsCompleted": 0,
+  "savedSessionLabelsAndPausedTimersPreserved": true,
+  "limitations": [
+    "Selected five unit pairs only; milligrams, tonnes, other capacity units and contextual representation choices remain",
+    "Generated large-unit quantities are positive, through20, with at most three decimal places; this is a practice range, not an official maximum",
+    "Initial native50 questions were on the pre-rank-fix APK; final20 choices and cold persistence were on the rank-fixed APK; typed/help logic did not change",
+    "Normal emulator phone only; small phones, tablets, physical devices and external review remain",
+    "Earlier standard-Activity QA round disappearance has no proven cause; normal launcher, saved-session switching and cold restart preserved the tested existing draft",
+    "Initial UI comparisons included changing ad nodes and stopped before reading a final scrolled viewport; corrected tests read public math fields and the last viewport",
+    "Student draft restoration initially used a modified snapshot; original visible draft was restored through the normal input field afterward",
+    "Full global curricula, localization, design, long sessions, ads/purchase and release remain unfinished"
+  ]
+}
