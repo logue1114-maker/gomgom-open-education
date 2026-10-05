@@ -11,9 +11,11 @@ final class SmallNumberFoundations {
         int maximum=limits.wholeMaximum(Set.of("count","compare").contains(skill.id)?9:skill.range);
         if(maximum>20)throw new IllegalArgumentException("Small-number collections support at most 20");
         if(skill.id.equals("count")){
-            for(int value=1;value<=maximum;value++){
+            int minimum=limits.includeZeroCount()?0:1;
+            for(int value=minimum;value<=maximum;value++){
                 StringBuilder dots=new StringBuilder();for(int i=0;i<value;i++){dots.append("● ");if(i%5==4)dots.append('\n');}
-                Question q=new Question(skill.id,"동그라미는 모두 몇 개인가요?\n\n"+dots,"",String.valueOf(value)).withInputs(value,maximum);q.stepSupport=false;
+                Question q=new Question(skill.id,"동그라미는 모두 몇 개인가요?\n\n"+dots,"",String.valueOf(value)).withInputs(value,maximum,minimum);q.stepSupport=false;
+                if(value==0)q.diagram=new StudyDiagram("dotCollection",new double[]{0});
                 include(candidates,q,limits);
             }
         }else if(skill.id.equals("compare")){

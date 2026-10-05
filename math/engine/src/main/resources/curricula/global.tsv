@@ -736,6 +736,7 @@ LEVEL	au-acara-v9-primary-v1	4	Year 4
 LEVEL	au-acara-v9-primary-v1	5	Year 5
 LEVEL	au-acara-v9-primary-v1	6	Year 6
 MAP	au-acara-v9-primary-v1	0	count	AC9MFN01,AC9MFN03; selected calculation component
+MAP	au-acara-v9-primary-v1	0	el_subitise	AC9MFN02; selected recognition component
 MAP	au-acara-v9-primary-v1	0	compare	AC9MFN01,AC9MFN03; selected calculation component
 MAP	au-acara-v9-primary-v1	0	join9	AC9MFN04; selected calculation component
 MAP	au-acara-v9-primary-v1	0	split9	AC9MFN04; selected calculation component
@@ -874,6 +875,6 @@ RULE	au-acara-v9-primary-v1	5	el_decimal_place,el_decimal_compare	decimalPlaces=
 RULE	au-acara-v9-primary-v1	5	el_fraction_compare,fracAdd,fracSub	relatedDenominators=true;nonnegative=true
 RULE	au-acara-v9-primary-v1	6	el_fraction_compare,fracAdd,fracSub	nonnegative=true
 RULE	au-acara-v9-primary-v1	6	decimalAdd,decimalSub	decimalPlaces=3;nonnegative=true
-RULE	au-acara-v9-primary-v1	0	count	wholeMaximum=20;maxGiven=20;maxResult=20
+RULE	au-acara-v9-primary-v1	0	count	wholeMaximum=20;maxGiven=20;maxResult=20;includeZeroCount=true
 RULE	au-acara-v9-primary-v1	0	compare	wholeMaximum=20;maxGiven=20
 RULE	au-acara-v9-primary-v1	0	join9,split9	wholeMaximum=10;maxGiven=10;maxResult=10

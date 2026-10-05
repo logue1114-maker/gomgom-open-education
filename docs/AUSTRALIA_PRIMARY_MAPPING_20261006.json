@@ -5,9 +5,9 @@
   "pack": "au-acara-v9-primary-v1",
   "officialF10ContentCodes": 240,
   "officialPrimaryContentCodes": 139,
-  "selectedComponentCodes": 48,
-  "uniqueSkillTypes": 71,
-  "gradePlacements": 113,
+  "selectedComponentCodes": 49,
+  "uniqueSkillTypes": 72,
+  "gradePlacements": 114,
   "stateSyllabusesMapped": false,
   "wholeCurriculumComplete": false,
   "codes": [
@@ -21,8 +21,10 @@
     },
     {
       "code": "AC9MFN02",
-      "status": "not mapped",
-      "skills": []
+      "status": "selected recognition component",
+      "skills": [
+        "el_subitise"
+      ]
     },
     {
       "code": "AC9MFN03",
@@ -873,8 +875,8 @@
     }
   ],
   "knownPartialRanges": [
-    "Foundation counting tasks1\u201320 and comparison0\u201320; subitising and empty-collection counting remain",
-    "Foundation part-part-whole values through10; subitising recognition remains",
+    "Foundation counting0\u201320 includes an outlined empty collection, with numeral comparison0\u201320. Small dot cards1\u20135 offer brief recognition and optional repeated viewing; physical activities, contextual naming and ordering remain.",
+    "Foundation part-part-whole values through10 and dot cards1\u20135 are covered as selected components; varied physical materials, verbal explanations and contextual use remain.",
     "Year1 numeric addition/subtraction relations through20 covered; contextual modelling and varied physical strategies remain",
     "Year3 analog clock hour/minute components now use every minute; combined hour-minute readings, digital-clock tasks and contextual relationships remain",
     "Year6 nine adjacent metric pairs cover both decimal conversion directions across mm/cm/m/km, mg/g/kg/t and mL/L/kL/ML. Cross-pair conversions, contexts and choosing suitable representations remain."

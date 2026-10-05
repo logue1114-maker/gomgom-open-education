@@ -20,7 +20,7 @@ public final class CurriculumLimits {
     private String answerDomain="";
     private Rational maxFractionValue;
     private Integer minimumWholeDigits;
-    private boolean integerSecondOperand,variedFacts,variedSums;
+    private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount;
     private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,nonnegativeSubtrahend;
     CurriculumLimits(String definition){
         if(definition.isBlank())return;
@@ -50,6 +50,7 @@ public final class CurriculumLimits {
                 case "unitFractions":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid unit fraction flag");unitFractions=true;break;
                 case "relatedDenominators":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid denominator relation flag");relatedDenominators=true;break;
                 case "variedFacts":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid fact forms");variedFacts=true;break;
+                case "includeZeroCount":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid empty collection flag");includeZeroCount=true;break;
                 case "variedSums":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid sum forms");variedSums=true;break;
                 case "nonnegative":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid sign limit");nonnegative=true;break;
                 case "nonnegativeSubtrahend":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid subtraction limit");nonnegativeSubtrahend=true;break;
@@ -144,6 +145,7 @@ public final class CurriculumLimits {
     boolean integerSecondOperand(){return integerSecondOperand;}
     int secondDigits(int defaults){return secondDigits==null?defaults:secondDigits;}
     boolean withoutRegrouping(){return Integer.valueOf(0).equals(maxRegroups);}
+    boolean includeZeroCount(){return includeZeroCount;}
     int wholeMaximum(int defaults){return givenMaximum(wholeMaximum==null?defaults:wholeMaximum);}
     int[] roundingUnits(){return roundingUnits.isEmpty()?new int[]{10,100,1000}:roundingUnits.stream().mapToInt(Integer::intValue).toArray();}
     int secondOperandMaximum(int defaultMaximum){return maxSecondOperand==null?defaultMaximum:Math.min(defaultMaximum,maxSecondOperand);}

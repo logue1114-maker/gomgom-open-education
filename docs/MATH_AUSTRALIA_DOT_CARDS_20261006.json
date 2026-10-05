@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-06",
+  "change": "Selected Foundation empty-collection counting and brief dot-card recognition1\u20135",
+  "sourceCodes": [
+    "AC9MFN01",
+    "AC9MFN02"
+  ],
+  "commonSkillTypes": 469,
+  "australianSkillTypes": 72,
+  "australianGradePlacements": 114,
+  "selectedPrimaryComponentCodes": 49,
+  "officialPrimaryCodes": 139,
+  "tests": {
+    "engine": 474,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 474,
+  "independentSupply": {
+    "independentPublicChecks": 1700,
+    "groups": {
+      "au-count": {
+        "issued": 300,
+        "distinctPublicTasks": 21,
+        "numericAnswers": 21
+      },
+      "default-count": {
+        "issued": 200,
+        "distinctPublicTasks": 9,
+        "numericAnswers": 9
+      },
+      "dot-cards": {
+        "issued": 800,
+        "distinctPublicTasks": 381,
+        "numericAnswers": 5
+      },
+      "dot-cards-rolling": {
+        "issued": 400,
+        "distinctPublicTasks": 286,
+        "numericAnswers": 5
+      }
+    },
+    "choicePositions": {
+      "1": 411,
+      "3": 441,
+      "2": 428,
+      "0": 420
+    },
+    "fullHistoryEnginePatternDomainExhausted": true,
+    "rollingWindow100NoRepeats": true,
+    "unboundedAppHistory": false,
+    "patternVariantsAreNotDistinctArithmeticFacts": true
+  },
+  "nativeTypedChecks": 40,
+  "nativeChoiceChecks": 10,
+  "emptyCollectionEntryAccepted": true,
+  "briefDisplayMillis": 1500,
+  "showAgainAvailable": true,
+  "answerTimeLimit": false,
+  "savedSessionsPreserved": true,
+  "wholeCurriculumComplete": false,
+  "limitations": [
+    "Dot cards have381 arrangements of five numeric quantities, not381 distinct arithmetic facts",
+    "Full381-domain exhaustion is an engine result when the full history is supplied; the app retains bounded recent histories. Rolling100-history checks verify no repetition within that window",
+    "Selected visual recognition and numeric naming only; full contextual, physical and verbal activities remain",
+    "Initial last-question screenshot preceded repaint after showing dots; QA waited for UI idle and resumed that same question without repeating completed questions",
+    "Normal1080x2400 emulator phone only; small phones, tablets, physical devices, TalkBack learning access, external visual review and student learning effectiveness remain",
+    "Full global curricula, localization, age/bear design, long sessions, advertising/purchase and release remain unfinished"
+  ],
+  "hostRenderingContract": {
+    "dotFlash": "values[0] is a reserved zero; subsequent pairs are normalized x,y coordinates within an outlined square. Render only those public dots; show briefly1500ms with a visible Show again action and no answer deadline. Do not announce a numeric answer in the view label.",
+    "dotCollection": "values[0] is a reserved zero; no subsequent coordinate pairs represents an empty outlined collection."
+  }
+}

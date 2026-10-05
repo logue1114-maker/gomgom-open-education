@@ -13,7 +13,7 @@ public class SmallNumberSupplyTest {
         return String.valueOf(Integer.parseInt(terms[0])-Integer.parseInt(terms[terms[1].equals("□")?2:1]));
     }
     @Test public void australianFoundationUsesItsActualTwentyAndTenDomains(){
-        Map<String,Integer> domains=Map.of("count",20,"compare",441,"join9",66,"split9",132);
+        Map<String,Integer> domains=Map.of("count",21,"compare",441,"join9",66,"split9",132);
         for(String id:domains.keySet()){
             Generator g=new Generator(new Random(20261006101L));List<String> recent=new ArrayList<>();
             CurriculumLimits limits=GlobalCurriculum.limits("au-acara-v9-primary-v1",id,0);int maximum=Set.of("count","compare").contains(id)?20:10;

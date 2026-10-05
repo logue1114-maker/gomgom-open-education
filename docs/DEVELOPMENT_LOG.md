@@ -1,3 +1,11 @@
+## 2026-10-06 — Foundation empty collections and quick dot cards
+
+Selected Australian Foundation counting now includes0–20. An empty outlined card represents an empty collection, while earlier/default counting remains1–9. Added a common quick-dot-card type for1–5 and mapped it to the selected Foundation recognition component. The card appears briefly for1.5 seconds and can be shown again; there is no answer deadline. The app never pre-fills the answer. The new unreviewed type is excluded from automatic Korean diagnosis.
+
+Independent checks covered1,700 public tasks, visible point counts, choice uniqueness/positions, and exact recurrence in the finite counting/pattern domains. The381 dot arrangements represent five numeric quantities, not381 arithmetic facts. Full-domain exhaustion is verified only in the engine with the full history supplied. The actual app keeps bounded recent histories; a400-task check with rolling100 history avoided repeats in that window. Local608/public engine474 tests passed.
+
+Normal Android practice completed30 counting tasks,10 typed dot cards and10 multiple-choice dot cards. Actual screenshot pixels or visible symbols supplied the answers; private answer metadata was not read. One last-question screenshot preceded repaint after showing dots. The QA capture was corrected to wait for UI idle, and only that unfinished question was resumed. Hidden and shown states stayed on the same problem. Cold restart preserved the original saved sessions and paused timers. Private UI/assets, device captures and learner records are excluded. Other contexts/materials, full global curricula, device/accessibility coverage, student effectiveness, design, long sessions and release remain unfinished.
+
 ## 2026-10-06 — Additional Year6 metric units
 
 Added mg/g, t/kg, kL/L and ML/kL decimal practice using the shared conversion and student-entered help frames. Three new common types bring the engine to468 types; the existing tonnes type is reused. The selected Australian primary mapping now has71 types and113 grade placements, still48 selected components from139 official primary codes. New unreviewed types are excluded from automatic Korean diagnosis. Earlier/default existing integer tasks remain.
