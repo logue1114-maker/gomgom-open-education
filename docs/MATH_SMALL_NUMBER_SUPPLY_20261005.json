@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-05",
+  "change": "Exhaust real small-number problem domains before revisiting least-recently practiced items",
+  "independentSupply": {
+    "date": "2026-10-05",
+    "independentPublicProblems": 800,
+    "units": {
+      "count": {
+        "issued": 200,
+        "distinctPublicProblems": 9,
+        "actualDomain": 9,
+        "recentWindow": 160,
+        "noRepeatWhileUnseenProblemFitsHistory": true
+      },
+      "compare": {
+        "issued": 200,
+        "distinctPublicProblems": 100,
+        "actualDomain": 100,
+        "recentWindow": 160,
+        "noRepeatWhileUnseenProblemFitsHistory": true
+      },
+      "join9": {
+        "issued": 200,
+        "distinctPublicProblems": 55,
+        "actualDomain": 55,
+        "recentWindow": 160,
+        "noRepeatWhileUnseenProblemFitsHistory": true
+      },
+      "split9": {
+        "issued": 200,
+        "distinctPublicProblems": 110,
+        "actualDomain": 110,
+        "recentWindow": 160,
+        "noRepeatWhileUnseenProblemFitsHistory": true
+      }
+    },
+    "correctChoicePositions": {
+      "0": 150,
+      "1": 132,
+      "2": 145,
+      "3": 151
+    },
+    "rangeExpanded": false,
+    "oneHundredDifferentCountingOrJoiningFactsClaimed": false
+  },
+  "localTests": {
+    "engine": 455,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 455,
+  "nativeTopics": {
+    "join9": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10
+    },
+    "split9": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10
+    },
+    "compare": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10
+    },
+    "count": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10
+    }
+  },
+  "nativeTypedQuestions": 30,
+  "nativeSymbolSelections": 10,
+  "changedNumberRange": false,
+  "wholeProductComplete": false,
+  "remainingUnverified": [
+    "full national curricula",
+    "small phone/tablet/physical devices for this slice",
+    "long study sessions",
+    "release readiness"
+  ]
+}

@@ -1,3 +1,7 @@
+## 2026-10-05 — Exhaust actual small-number domains before repeating
+
+Counting, comparison, combining and splitting now enumerate their original problem domains and choose fresh problems, then the least recent when exhausted. Real domains: 9 counting displays, 100 ordered comparisons, 55 whole-number bonds and 110 missing-part bonds. Small finite domains are repeated intentionally; neither larger numbers nor cosmetic variants inflate counts. Independently checked 800 public problems, bounds and repeat order; local 589 tests and public engine 455 tests passed. Actual Android menu/input verified 30 typed questions and 10 symbol selections. Full world curricula, device coverage and release remain incomplete.
+
 ## 2026-10-05 작은 수 덧셈·뺄셈 공급과 저학년 풀이 입력
 
 싱가포르 Primary1의 add9/sub9/add20/sub20에 기존 숫자 범위를 유지한 결과/두 빈칸 위치 연습을 추가했다. 네 항목 각각100개 식을 반복 없이 공급한다. 덧셈 도움은 아는 수부터 이어 세며, 뺄셈은 전체·뺀 수·남은 수의 관계를 확인한다. 정수 도움 키패드에서 분수/소수/비교 기호를 제거했다. 받아내림에서 처음 수를 묻는 빈칸은 보기 모두10~18로 맞춰 정답만 두 자리인 단서를 막았다. 400개 식/범위와 빈칸274개 유일성·풀이 틀을 독립 검산했고 전체587검사·공개453검사가 통과했다. 같은 관계에서 구하는 항을 달리한100개 식이며100개의 서로 다른 산술 사실이라는 뜻은 아니다.
