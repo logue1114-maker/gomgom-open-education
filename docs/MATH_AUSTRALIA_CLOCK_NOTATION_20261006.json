@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-06",
+  "change": "Two-way12/24-hour conversion with AM/PM input frames",
+  "sourceCodes": [
+    "AC9M5M03"
+  ],
+  "commonSkillTypes": 473,
+  "australianSkillTypes": 76,
+  "australianGradePlacements": 119,
+  "selectedPrimaryComponentCodes": 50,
+  "officialPrimaryCodes": 139,
+  "tests": {
+    "engine": 483,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 483,
+  "independentSupply": {
+    "independentPublicTimeChecks": 4680,
+    "directMinuteBoundaryCases": 2880,
+    "generatedPracticeChecks": 1800,
+    "recentWindow100NoRepeat": true,
+    "choiceMinutesAllEqual": true,
+    "choicePeriodsTwoEach": true,
+    "groups": [
+      {
+        "group": "boundary-domain",
+        "skill": "el_time_12_to_24",
+        "issued": 1440,
+        "distinctPublicTimes": 1440
+      },
+      {
+        "group": "boundary-domain",
+        "skill": "el_time_24_to_12",
+        "issued": 1440,
+        "distinctPublicTimes": 1440
+      },
+      {
+        "group": "default",
+        "skill": "el_time_12_to_24",
+        "issued": 300,
+        "distinctPublicTimes": 222
+      },
+      {
+        "group": "default",
+        "skill": "el_time_24_to_12",
+        "issued": 300,
+        "distinctPublicTimes": 229
+      },
+      {
+        "group": "au5",
+        "skill": "el_time_12_to_24",
+        "issued": 600,
+        "distinctPublicTimes": 525
+      },
+      {
+        "group": "au5",
+        "skill": "el_time_24_to_12",
+        "issued": 600,
+        "distinctPublicTimes": 517
+      }
+    ],
+    "choicePositions": {
+      "1": 205,
+      "2": 245,
+      "3": 245,
+      "0": 205
+    },
+    "answerMetadataUsedToSolve": false
+  },
+  "nativeTypedChecks": 10,
+  "nativeChoiceChecks": 20,
+  "initialNativeChecks": 20,
+  "finalBalancedChoiceNativeChecks": 10,
+  "helpTransfersMainAnswer": false,
+  "periodChoicesAcceptOnlyAuthoredKeys": true,
+  "savedSessionsPreserved": true,
+  "wholeCurriculumComplete": false,
+  "limitations": [
+    "AU Year5 each direction has1440 time readings; default uses five-minute increments and288 readings",
+    "Initial reverse choices allowed a minute-matching cue; final choices use equal minutes and two AM/two PM alternatives",
+    "Engine boundary-domain checks and independently generated practice samples are distinct; full-domain exhaustion is not claimed for bounded app history",
+    "Native30 checks span20 before distractor revision and10 final choice checks; final cold readback preserves the prior profile and saved rounds",
+    "Practical timetables, trip planning, digital-to-analog representations and contextual time relationships remain",
+    "Normal1080x2400 emulator phone only; small phones, tablets, physical devices, TalkBack learning access, external review and student effectiveness remain",
+    "Global curricula, full localization, age/bear design, long sessions, advertising/purchase and release remain unfinished"
+  ],
+  "hostRenderingContract": {
+    "forwardAnswerFields": [
+      "hours",
+      "minutes"
+    ],
+    "reverseChoices": "HH:MM AM/PM",
+    "forwardPhoneFieldsSideBySide": true,
+    "guideChoiceDropsPreviousNumericField": true
+  }
+}

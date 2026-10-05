@@ -35,6 +35,7 @@ public final class Generator {
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(signature,position++);
         int oldest=Integer.MAX_VALUE;
         if(FractionSupply.supports(skillId,limits))q=FractionSupply.next(s,random,limits,previous);
+        if(ClockNotation.supports(skillId))q=ClockNotation.next(s,random,limits,previous);
         if(ClockReadings.supports(skillId))q=ClockReadings.next(s,random,limits,previous);
         if(DotCollections.supports(skillId))q=DotCollections.next(s,random,limits,previous);
         if(SmallNumberFoundations.supports(skillId))q=SmallNumberFoundations.next(s,random,limits,previous);
@@ -62,6 +63,7 @@ public final class Generator {
         return create(s,CurriculumLimits.NONE);
     }
     private Question create(Catalog.Skill s,CurriculumLimits limits){
+        if(ClockNotation.supports(s.id))return ClockNotation.next(s,random,limits,Map.of());
         if(ClockReadings.supports(s.id))return ClockReadings.next(s,random,limits,Map.of());
         if(DotCollections.supports(s.id))return DotCollections.next(s,random,limits,Map.of());
         if(MetricConversions.added(s.id)||limits.metricDecimals()>0&&MetricConversions.supports(s.id))return MetricConversions.create(s,random,limits);

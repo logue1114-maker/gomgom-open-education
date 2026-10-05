@@ -6,7 +6,7 @@ public class AustraliaCurriculumTest {
     static final String PACK="au-acara-v9-primary-v1";
     @Test public void nationalPrimaryLevelsAndPastLearningKeepCountryAndLanguageIndependent(){
         Learning.Profile p=new Learning.Profile();p.languageTag="fr";GlobalCurriculum.chooseCountry(p,"AU");GlobalCurriculum.choosePack(p,PACK);p.grade=3;
-        GlobalCurriculum.Pack pack=GlobalCurriculum.pack(p);assertEquals("fr",p.languageTag);assertEquals(List.of(0,1,2,3,4,5,6),pack.levels());assertEquals("Foundation",pack.level(0));assertEquals("Year 3",pack.level(3));assertTrue(pack.coverage.contains("state syllabuses"));assertEquals(74,pack.grades.size());
+        GlobalCurriculum.Pack pack=GlobalCurriculum.pack(p);assertEquals("fr",p.languageTag);assertEquals(List.of(0,1,2,3,4,5,6),pack.levels());assertEquals("Foundation",pack.level(0));assertEquals("Year 3",pack.level(3));assertTrue(pack.coverage.contains("state syllabuses"));assertEquals(76,pack.grades.size());
         assertTrue(GlobalCurriculum.scope(p).stream().anyMatch(s->s.id.equals("tables")));assertFalse(GlobalCurriculum.scope(p).stream().anyMatch(s->s.id.equals("decimalAdd")));assertFalse(pack.inGrade("signedAdd",6));assertEquals("120까지 수",GlobalCurriculum.title(PACK,"place1000",1));
     }
     @Test public void gradeSpecificFactsFractionsAndDecimalPrecisionFollowOfficialSelectedComponents(){
@@ -24,6 +24,6 @@ public class AustraliaCurriculumTest {
         for(int grade:pack.levels())for(String id:pack.grades.keySet())if(pack.inGrade(id,grade)){
             Question q=g.next(id,List.of(),false,GlobalCurriculum.limits(PACK,id,grade));assertEquals(id,q.skillId);assertTrue(GlobalCurriculum.limits(PACK,id,grade).allows(q));count++;
         }
-        assertEquals(117,count);
+        assertEquals(119,count);
     }
 }

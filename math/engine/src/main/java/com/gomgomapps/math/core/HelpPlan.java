@@ -27,6 +27,7 @@ public final class HelpPlan {
         Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=-1;extra=denominator=0;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);}
         public boolean accepts(String value){
             if(value==null||value.trim().isEmpty()||value.length()>120)return false;
+            if(!options.isEmpty())return options.containsKey(value.trim())&&value.trim().equals(expected);
             if(requiredFormat.equals("fraction")&&!value.contains("/"))return false;
             if(requiredFormat.equals("decimal")&&(!value.contains(".")||value.contains("/")))return false;
             if(!general)return value.matches("[0-9]{1,4}")&&Integer.parseInt(value)==Integer.parseInt(expected);

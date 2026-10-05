@@ -5,9 +5,9 @@
   "pack": "au-acara-v9-primary-v1",
   "officialF10ContentCodes": 240,
   "officialPrimaryContentCodes": 139,
-  "selectedComponentCodes": 49,
-  "uniqueSkillTypes": 74,
-  "gradePlacements": 117,
+  "selectedComponentCodes": 50,
+  "uniqueSkillTypes": 76,
+  "gradePlacements": 119,
   "stateSyllabusesMapped": false,
   "wholeCurriculumComplete": false,
   "codes": [
@@ -679,8 +679,11 @@
     },
     {
       "code": "AC9M5M03",
-      "status": "not mapped",
-      "skills": []
+      "status": "selected conversion component",
+      "skills": [
+        "el_time_12_to_24",
+        "el_time_24_to_12"
+      ]
     },
     {
       "code": "AC9M5M04",
@@ -882,7 +885,8 @@
     "Foundation part-part-whole values through10 and dot cards1\u20135 are covered as selected components; varied physical materials, verbal explanations and contextual use remain.",
     "Year1 numeric addition/subtraction relations through20 covered; contextual modelling and varied physical strategies remain",
     "Year2 combined analog hours and quarter-hours; Year3 combined analog hours and individual minutes and analog-to-digital matching. AM/PM, 24-hour notation, digital-to-analog tasks and contextual time relationships remain.",
-    "Year6 nine adjacent metric pairs cover both decimal conversion directions across mm/cm/m/km, mg/g/kg/t and mL/L/kL/ML. Cross-pair conversions, contexts and choosing suitable representations remain."
+    "Year6 nine adjacent metric pairs cover both decimal conversion directions across mm/cm/m/km, mg/g/kg/t and mL/L/kL/ML. Cross-pair conversions, contexts and choosing suitable representations remain.",
+    "Year5 selected two-way12/24-hour conversion covers all1440 minute readings including midnight and noon. Practical timetables, trip planning and setting analog clocks remain."
   ],
   "remaining": [
     "state-specific curricula",
