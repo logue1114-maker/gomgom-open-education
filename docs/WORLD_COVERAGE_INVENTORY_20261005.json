@@ -2,13 +2,14 @@
   "date": "2026-10-05",
   "inventoryScope": "ISO country/territory codes exposed by the runtime; not a list of sovereign states or all regional systems",
   "countryOrTerritoryCodes": 249,
-  "codesWithSelectedMapping": 7,
-  "codesWithoutOfficialMapping": 242,
-  "registeredSystemRows": 8,
+  "codesWithSelectedMapping": 8,
+  "codesWithoutOfficialMapping": 241,
+  "registeredSystemRows": 9,
   "completeCurriculaConfirmed": 0,
   "mappedCodes": [
     "GB",
     "GH",
+    "JP",
     "KE",
     "KR",
     "RW",
@@ -127,7 +128,6 @@
     "JE",
     "JM",
     "JO",
-    "JP",
     "KG",
     "KH",
     "KI",
@@ -264,6 +264,5 @@
     "The source registry does not enumerate every regional curriculum.",
     "Terms, official requirement-level gaps, language review, supply and actual country/grade flows still need separate work.",
     "This is a runtime/source inventory; no curriculum contents were fetched or newly validated in this script."
-  ],
-  "sources": []
+  ]
 }

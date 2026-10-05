@@ -165,5 +165,28 @@
     "Write the denominator",
     "Read handwriting",
     "Use buttons"
-  ]
+  ],
+  "nativeFollowup20261005ChoiceRestoration": {
+    "completedQuestionsTotal": 70,
+    "previousApkCompleted": 50,
+    "englishCopyApkCompleted": 20,
+    "wrongChoiceColdRestore": {
+      "samePublicProblemRestored": true,
+      "wrongSelectedBeforeAndAfterCold": "-5",
+      "independentCorrectAnswer": "3",
+      "wrongRejected": true,
+      "stateInjection": false
+    },
+    "finalHistory": 1707,
+    "savedSessions": 6,
+    "remainingMinutesSeconds": [
+      "27:59",
+      "55:09"
+    ],
+    "remaining": [
+      "Small-phone noninteger fraction representative",
+      "Tablet notebook stroke/recognition beyond common evidence",
+      "Physical devices and long-duration study"
+    ]
+  }
 }

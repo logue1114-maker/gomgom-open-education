@@ -1,0 +1,167 @@
+{
+  "date": "2026-10-05",
+  "pack": "jp-mext-primary-2017-v1",
+  "source": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
+  "officialSourceSha256": "5eebb7f4ddc516aa47451999659596523a888eb68d49ed7dadeb489c2cd27129",
+  "officialSection": "Appendix 3, primary arithmetic; PDF pages 357-376; 2017 revision, excluding old-revision comparison appendix",
+  "selectedTypes": 56,
+  "placements": 63,
+  "grades": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "androidUnitTests": {
+    "engine": {
+      "tests": 434,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "supply": {
+    "issued": 6300,
+    "rows": 63,
+    "rowsWith100Distinct": 51,
+    "below100": [
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "count",
+        "issued": "100",
+        "distinct_questions": "9",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "compare",
+        "issued": "100",
+        "distinct_questions": "99",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "join9",
+        "issued": "100",
+        "distinct_questions": "55",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "add9",
+        "issued": "100",
+        "distinct_questions": "55",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "sub9",
+        "issued": "100",
+        "distinct_questions": "55",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "add20",
+        "issued": "100",
+        "distinct_questions": "45",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "sub20",
+        "issued": "100",
+        "distinct_questions": "45",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "2",
+        "skill": "tables",
+        "issued": "100",
+        "distinct_questions": "99",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "2",
+        "skill": "fractionPart",
+        "issued": "100",
+        "distinct_questions": "2",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "3",
+        "skill": "fractionPart",
+        "issued": "100",
+        "distinct_questions": "39",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "3",
+        "skill": "divide",
+        "issued": "100",
+        "distinct_questions": "72",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "5",
+        "skill": "el_even_odd",
+        "issued": "100",
+        "distinct_questions": "20",
+        "adjacent_repeats": "0"
+      }
+    ],
+    "adjacentRepeats": 0,
+    "distinctDefinition": "Question.signature; does not imply 100 pedagogically distinct concepts"
+  },
+  "apkSha256": "7dc7485e5c2ed86fb31b10f4c26c3388318bbdcefac60206012a53454daad0c4",
+  "nativeJapanFlowVerified": false,
+  "completeCurriculum": false,
+  "remaining": [
+    "Other Numbers/Calculation requirements and official per-requirement reconciliation",
+    "Geometry, measurement, relationships and data",
+    "Lower/upper secondary education",
+    "Japanese learner-facing language verification",
+    "Actual country/pack/grade selection and study flow",
+    "Supply expansion without out-of-grade numbers"
+  ],
+  "sources": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/CurriculumLimits.java",
+      "sha256": "ae1853b6617ee34d695a8074e051d57fcc0ecae383ce821c17c6db570b87c57b"
+    },
+    {
+      "path": "engine/src/main/resources/curricula/global.tsv",
+      "sha256": "c577cb93664d92ca342e68313e054e3b124bdd02bae471f06a19c15864a041a3"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/JapanCurriculumTest.java",
+      "sha256": "02aa9597b4b3675767bd6d177766a352ab42896a9f9020804fb6753b0f80a818"
+    }
+  ]
+}

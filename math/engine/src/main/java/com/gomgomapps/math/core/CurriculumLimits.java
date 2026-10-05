@@ -16,12 +16,14 @@ public final class CurriculumLimits {
     private Integer maxSecondOperand,maxRegroups,decimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides;
     private final List<Integer> roundingUnits=new ArrayList<>();
     private String answerDomain="";
+    private Rational maxFractionValue;
     private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,nonnegativeSubtrahend;
     CurriculumLimits(String definition){
         if(definition.isBlank())return;
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "maxFractionValue":maxFractionValue=Expression.number(pair[1]);if(maxFractionValue.compareTo(Rational.ZERO)<=0)throw new IllegalArgumentException("Invalid fraction magnitude");break;
                 case "denominators":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<2)throw new IllegalArgumentException("Invalid denominator");denominators.add(n);}break;
                 case "factors":case "divisors":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<1)throw new IllegalArgumentException("Invalid factor/divisor");(pair[0].equals("factors")?factors:divisors).add(n);}break;
                 case "timesTableMax":timesTableMax=Integer.parseInt(pair[1]);if(timesTableMax<2||timesTableMax>20)throw new IllegalArgumentException("Invalid times table range");break;
@@ -80,6 +82,15 @@ public final class CurriculumLimits {
         }
         if(polygonSides!=null){Matcher polygon=Pattern.compile("(\\d+)각형").matcher(q.prompt);if(!polygon.find()||Integer.parseInt(polygon.group(1))>polygonSides)return false;}
         if(!allowsDenominators(givens))return false;
+        if(maxFractionValue!=null){
+            // choiceInputs also contains operator/denominator metadata; use the public operands.
+            Matcher fractionOperands=Pattern.compile("^\\(([-0-9/]+)\\)\\s*[+−-]\\s*\\(([-0-9/]+)\\)$").matcher(q.expression);
+            if(!fractionOperands.matches())return false;
+            for(int index=1;index<=2;index++){
+                Rational input=Expression.number(fractionOperands.group(index));
+                if(input.compareTo(maxFractionValue)>0||input.compareTo(maxFractionValue.neg())<0)return false;
+            }
+        }
         if(decimalPlaces!=null){Matcher decimals=Pattern.compile("\\d+\\.(\\d+)").matcher(givens);while(decimals.find())if(decimals.group(1).length()>decimalPlaces)return false;}
         if(!roundingUnits.isEmpty()){Matcher place=Pattern.compile("(\\d+)의 자리까지").matcher(q.prompt);if(!place.find()||!roundingUnits.contains(Integer.parseInt(place.group(1))))return false;}
         if(unitFractions){Matcher m=Pattern.compile("(\\d+)\\s*/\\s*\\d+").matcher(q.expression);boolean found=false;while(m.find()){found=true;if(!m.group(1).equals("1"))return false;}if(!found)return false;}
