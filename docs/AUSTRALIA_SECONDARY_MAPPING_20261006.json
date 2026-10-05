@@ -6,7 +6,7 @@
   "officialSecondaryCodes": 101,
   "selectedSecondaryComponentCodes": 52,
   "secondaryUniqueSkills": 97,
-  "secondaryGradePlacements": 126,
+  "secondaryGradePlacements": 125,
   "grades": {
     "7": [
       "squareWhole",
@@ -63,7 +63,6 @@
       "signedMul",
       "rational",
       "likeTerms",
-      "polyAdd",
       "commonFactorFrame",
       "linear",
       "linearFraction",
@@ -435,7 +434,6 @@
       "status": "selected calculation component",
       "skills": [
         "likeTerms",
-        "polyAdd",
         "commonFactorFrame"
       ]
     },
@@ -946,7 +944,8 @@
     "Quadratic exercises include coefficient-one factorisation and other algebraic forms; plotting/numerical solution investigations remain",
     "Probability calculations are selected equal-likelihood/independence/conditional forms; full sample-space diagrams and live experiments remain",
     "Log practice uses exact powers of ten, not arbitrary logarithmic scales",
-    "Right-angle height practice currently uses45 degrees; broader trig modelling remains"
+    "Right-angle height practice currently uses45 degrees; broader trig modelling remains",
+    "Correction: Year8 AC9M8A01 excludes polyAdd because the actual generator includes degree-two terms; likeTerms and commonFactorFrame remain selected linear components. Year9/10 polyAdd mappings remain."
   ],
   "remaining": [
     "unmapped secondary codes",
@@ -955,5 +954,15 @@
     "senior secondary Years11\u201312",
     "global curriculum and localization",
     "design, devices, long study, advertising/purchase and release"
-  ]
+  ],
+  "correction": {
+    "date": "2026-10-06",
+    "removedGrade": 8,
+    "removedSkill": "polyAdd",
+    "reason": "actual polynomial generator includes quadratic terms; official selected component is linear",
+    "previousSecondaryPlacements": 126,
+    "currentSecondaryPlacements": 125,
+    "currentCombinedPlacements": 246,
+    "previousSupplyAuditRemainsHistorical": true
+  }
 }

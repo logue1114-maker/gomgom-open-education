@@ -16,7 +16,7 @@ public class AustraliaSecondaryCurriculumTest {
    for(int i=0;i<20;i++){Question q=g.next(id,recent,i%2==0,limits);assertTrue(id,limits.allows(q));assertTrue(id,new Checker().check(q,List.of(),List.of(q.answers)).correct());assertFalse(id,Catalog.get(id).concept.isBlank());HelpPlan plan=HelpPlan.forQuestion(q);if(q.studyGuide!=null)for(int stage=0;stage<q.studyGuide.frames.size();stage++){String entered=q.studyGuide.frames.get(stage).expected;try{entered=Expression.number(entered).toString();}catch(RuntimeException symbolic){}if(stage==plan.size()-1&&plan.canTransfer()){if("decimal".equals(q.answerFormat)){entered=Expression.number(entered).decimalText();if(!entered.contains("."))entered+=".0";}if("fraction".equals(q.answerFormat)&&!entered.contains("/"))entered+="/1";}assertTrue(id,plan.step(stage).accepts(entered));}recent.add(q.signature());if(recent.size()>10)recent.remove(0);}
    placements++;
   }
-  assertEquals(126,placements);
+  assertEquals(125,placements);
  }
  @Test public void year7EquationsYear8ExponentsAndYear9QuadraticsHonorDomains(){
   Generator g=new Generator(new Random(20261006782L));boolean signed=false,negativeExponent=false,nonMonic=false;
@@ -29,5 +29,8 @@ public class AustraliaSecondaryCurriculumTest {
    Question laterQuadratic=g.next("quadratic",List.of(),false,GlobalCurriculum.limits(PACK,"quadratic",10));nonMonic|=!Expression.parse(laterQuadratic.expression.split("=")[0]).coefficient(2).equals(Rational.ONE);
   }
   assertTrue(signed);assertTrue(negativeExponent);assertTrue(nonMonic);
+ }
+ @Test public void linearExpressionComponentDoesNotIssueQuadraticPolynomialTasks(){
+  Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"AU");GlobalCurriculum.choosePack(p,PACK);GlobalCurriculum.Pack pack=GlobalCurriculum.pack(p);assertFalse(pack.inGrade("polyAdd",8));assertTrue(pack.inGrade("polyAdd",9));Generator g=new Generator(new Random(20261006811L));for(int i=0;i<100;i++){Question q=g.next("likeTerms",List.of(),false,GlobalCurriculum.limits(PACK,"likeTerms",8));assertTrue(Expression.parse(q.expression).degree()<=1);}
  }
 }

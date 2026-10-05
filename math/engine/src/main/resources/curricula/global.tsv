@@ -949,7 +949,6 @@ MAP	au-acara-v9-primary-v1	8	signedAdd	AC9M8N04; selected calculation component 
 MAP	au-acara-v9-primary-v1	8	signedMul	AC9M8N04; selected calculation component only
 MAP	au-acara-v9-primary-v1	8	rational	AC9M8N04; selected calculation component only
 MAP	au-acara-v9-primary-v1	8	likeTerms	AC9M8A01; selected calculation component only
-MAP	au-acara-v9-primary-v1	8	polyAdd	AC9M8A01; selected calculation component only
 MAP	au-acara-v9-primary-v1	8	commonFactorFrame	AC9M8A01; selected calculation component only
 MAP	au-acara-v9-primary-v1	8	linear	AC9M8A02; selected calculation component only
 MAP	au-acara-v9-primary-v1	8	linearFraction	AC9M8A02; selected calculation component only

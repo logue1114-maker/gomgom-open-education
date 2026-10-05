@@ -1,0 +1,52 @@
+{
+  "date": "2026-10-06",
+  "scope": "Student-entered scaffolds for existing reduce, signedAdd and signedMul types",
+  "types": [
+    "reduce",
+    "signedAdd",
+    "signedMul"
+  ],
+  "newQuestionTypes": 0,
+  "mainAnswerTransfers": false,
+  "commonTypes": 475,
+  "selectedAustralianUniqueTypes": 161,
+  "selectedAustralianGradePlacements": 246,
+  "selectedSecondaryGradePlacements": 125,
+  "selectedSecondaryContentComponents": 52,
+  "officialSecondaryContentCodes": 101,
+  "localUnitTests": 633,
+  "publicEngineUnitTests": 499,
+  "independentPublicQuestions": 1500,
+  "independentEnteredSteps": 5746,
+  "normalAndroidQuestions": 30,
+  "androidHelpStepsIndependentlyChecked": 15,
+  "wrongHelpStageCorrected": true,
+  "actualAppKeypadTaps": true,
+  "repeatedDigitsMainAndHelpVerified": true,
+  "coldRestartPreservedPriorSavedSessions": true,
+  "wholeCurriculumComplete": false,
+  "correction": "Year8 AC9M8A01 no longer maps polyAdd, whose actual generator includes quadratic terms; current mapping ledger corrected. Previous 126-placement supply report remains historical.",
+  "qaCorrections": [
+    "Wait for the actual help input before reading stage progress",
+    "Treat empty English answer hints as hints",
+    "Use visible backspace when early-primary controls omit erase",
+    "Constrain keypad selectors to Button: an entered digit can otherwise match the answer field",
+    "Continue only unfinished questions; completed multiplication/division round not repeated"
+  ],
+  "privateDisplayFixes": [
+    "Simplify the fraction instruction now preserves the visible operands and uses a fixed English phrase",
+    "Zero-result help avoids assigning a positive or negative sign to zero"
+  ],
+  "remaining": [
+    "Fraction operations and equation scaffolds",
+    "Other missing entered-step help",
+    "Varied supply and unmapped official curriculum components",
+    "Global and state curriculum coverage, localization and bear design",
+    "Broader devices, accessibility, physical/student and long-study checks",
+    "Advertising, purchase and release"
+  ],
+  "externalVisualReviewComplete": false,
+  "physicalDeviceVerified": false,
+  "releaseComplete": false,
+  "privateDataExcluded": true
+}
