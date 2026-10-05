@@ -36,5 +36,37 @@
   "candidateApkSha256": "55b0ecb093dc02a5ec0b5822b3c430539333feb3ddf6de0df37cd9b9ef85fe27",
   "candidateInstalled": false,
   "nativeFollowupRequired": true,
-  "wholeProductComplete": false
+  "wholeProductComplete": false,
+  "nativeFollowup": {
+    "nativeQuestions": 10,
+    "independentPublicIntegerAndNextScreenChecks": true,
+    "relationsObserved": [
+      "Even",
+      "Odd"
+    ],
+    "firstProblem": 7551,
+    "guideInputs": [
+      3775,
+      1,
+      "Odd"
+    ],
+    "guideDraftColdRestored": true,
+    "automaticAnswerTransfer": false,
+    "englishPromptFixed": true,
+    "viewport": "normal phone 1080x2400 / 420dpi",
+    "smallPhoneTabletNotTestedInThisLane": true,
+    "historyBefore": 1807,
+    "historyAfter": 1817,
+    "savedSessions": 7,
+    "allSevenSavedLabelsPreserved": true,
+    "timersPreserved": [
+      "27:59",
+      "55:09"
+    ],
+    "currentGrade": 5,
+    "installedApkSha256": "53268639bc4f0a439c5388ffd97f9988d526e1d4d8e9bef161900c02c6f67f0c",
+    "relatedUnitTests": 134,
+    "review": "local actual screenshots, not external review",
+    "goalComplete": false
+  }
 }
