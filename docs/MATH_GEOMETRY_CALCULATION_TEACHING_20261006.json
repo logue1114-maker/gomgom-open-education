@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-06",
+  "types": [
+    "el_triangle_area",
+    "el_rhombus_area",
+    "el_trapezoid_area",
+    "el_triangle_angle_sum",
+    "el_quadrilateral_angle_sum"
+  ],
+  "newQuestionTypes": 0,
+  "localUnitTests": 665,
+  "publicEngineUnitTests": 519,
+  "independentPublicQuestions": 3350,
+  "independentEnteredSteps": 7350,
+  "selectedCountryCodes": [
+    "AU",
+    "GH",
+    "KE",
+    "RW",
+    "US"
+  ],
+  "selectedTypeGradePlacements": 17,
+  "normalAndroidQuestions": 20,
+  "androidHelpStepsIndependentlyChecked": 4,
+  "nativeTypes": [
+    "el_triangle_area"
+  ],
+  "otherFourTypesNativeVerified": false,
+  "actualAppKeypadTaps": true,
+  "mainAnswerTransfers": false,
+  "coldRestartPreservedPriorSavedSessions": true,
+  "privateDataExcluded": true,
+  "freshOfficialCurriculumAudit": false,
+  "wholeCurriculumComplete": false,
+  "externalVisualReviewComplete": false,
+  "physicalDeviceVerified": false,
+  "releaseComplete": false,
+  "notes": [
+    "Split existing compound geometry help into separately entered addition, multiplication, division and subtraction stages",
+    "No change to question generation or curriculum mappings",
+    "Offer optional fraction input for triangle, trapezoid and rhombus areas without inspecting hidden answers",
+    "Normal Australian Year7 triangle area practice used visible Fraction controls and retained prior saved sessions",
+    "Other four types have independent engine checks but no native menu verification in this packet",
+    "Private UI, translations, QA, APKs, device and learner originals excluded"
+  ],
+  "remaining": [
+    "Native menus and input for the other four types in relevant selected countries",
+    "Other entered-step support and varied supply",
+    "Global/state/senior curricula and unmapped components",
+    "Broader localization, typography, bear design and early-primary controls",
+    "Physical/student/accessibility and long-study checks",
+    "Advertising, purchase and release"
+  ]
+}

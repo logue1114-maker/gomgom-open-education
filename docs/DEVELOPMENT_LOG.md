@@ -1,3 +1,9 @@
+## 2026-10-06 — Separate compound geometry operations
+
+Replaced compound help calculations with individual operations for triangle, rhombus and trapezoid areas and triangle/quadrilateral angle sums. Addition, multiplication, division and subtraction are checked separately without filling the main answer. Optional fraction input is now available for the three area families. Number generation and curriculum mappings remain unchanged.
+
+Local 665 and public engine 519 tests passed. Independently solved 3,350 public questions and 7,350 stages, including existing numerical limits in five selected countries and 17 type/grade placements. This is not a fresh official-curriculum audit. Normal Australian Year7 triangle area menus completed 20 questions and four help stages using actual keypad and Fraction controls. After the initial ten, private label and prompt fixes corrected a mistranslated base and joined prose; ten fresh tasks checked the updated display. Cold restart preserved prior saved sessions. The other four types were checked in the engine but their native menus remain unverified in this packet. UI, localization, QA and device/learner originals are excluded. Whole curricula, devices, design, long study, advertising, purchase and release remain unfinished.
+
 ## 2026-10-06 — Mean, median and triangle angle stages
 
 Added learner-entered sum, count and division for means; ordered values and the middle value for medians; and sum/subtraction for triangle angles. Guides use public givens, mark wrong stages and do not fill main answers. Question generation and curriculum mappings remain unchanged.
