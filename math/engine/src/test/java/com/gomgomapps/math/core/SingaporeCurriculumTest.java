@@ -14,8 +14,8 @@ public class SingaporeCurriculumTest {
   Generator g=new Generator(new Random(20261005104L));
   for(int i=0;i<100;i++){
    for(int grade:List.of(2,3)){
-    Question q=g.next("tables",List.of(),false,GlobalCurriculum.limits(PACK,"tables",grade));String[] parts=q.prompt.split(" × ");int a=Integer.parseInt(parts[0]),b=Integer.parseInt(parts[1]);Set<Integer> allowed=grade==2?Set.of(2,3,4,5,10):Set.of(6,7,8,9);assertTrue(allowed.contains(a)||allowed.contains(b));assertEquals(String.valueOf(a*b),q.answers[0]);
-    Question d=g.next("divide",List.of(),false,GlobalCurriculum.limits(PACK,"divide",grade));String[] operands=d.prompt.split(" ÷ ");int left=Integer.parseInt(operands[0]),right=Integer.parseInt(operands[1]);assertTrue(allowed.contains(right));assertEquals(0,left%right);assertEquals(String.valueOf(left/right),d.answers[0]);
+    Question q=g.next("tables",List.of(),false,GlobalCurriculum.limits(PACK,"tables",grade));int expected=FactFormsTest.solve(q.prompt);String[] parts=q.prompt.replace("□",String.valueOf(expected)).split(" = ",2)[0].split(" × ");int a=Integer.parseInt(parts[0]),b=Integer.parseInt(parts[1]);Set<Integer> allowed=grade==2?Set.of(2,3,4,5,10):Set.of(6,7,8,9);assertTrue(allowed.contains(a)||allowed.contains(b));assertEquals(String.valueOf(expected),q.answers[0]);
+    Question d=g.next("divide",List.of(),false,GlobalCurriculum.limits(PACK,"divide",grade));int divisionExpected=FactFormsTest.solve(d.prompt);String[] operands=d.prompt.replace("□",String.valueOf(divisionExpected)).split(" = ",2)[0].split(" ÷ ");int left=Integer.parseInt(operands[0]),right=Integer.parseInt(operands[1]);assertTrue(allowed.contains(right));assertEquals(0,left%right);assertEquals(String.valueOf(divisionExpected),d.answers[0]);
    }
    Question q=g.next("add1000",List.of(),false,GlobalCurriculum.limits(PACK,"add1000",2));String[] operands=q.prompt.split(" \\+ ");assertTrue(Integer.parseInt(operands[0])<=999);assertTrue(Integer.parseInt(operands[1])<=999);
   }

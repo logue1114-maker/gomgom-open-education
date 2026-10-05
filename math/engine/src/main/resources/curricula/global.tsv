@@ -706,10 +706,10 @@ RULE	sg-moe-primary-2021-v1	1	add100,sub100	maxGiven=100;maxResult=100;nonnegati
 RULE	sg-moe-primary-2021-v1	1	mulIntro	maxResult=40
 RULE	sg-moe-primary-2021-v1	2	place1000,el_compare_10000,el_even_odd	wholeMaximum=1000
 RULE	sg-moe-primary-2021-v1	2	add1000,sub1000	wholeDigits=3;nonnegative=true
-RULE	sg-moe-primary-2021-v1	2	tables	timesTableMax=10;factors=2,3,4,5,10
-RULE	sg-moe-primary-2021-v1	2	divide	timesTableMax=10;divisors=2,3,4,5,10
-RULE	sg-moe-primary-2021-v1	3	tables	timesTableMax=9;factors=6,7,8,9
-RULE	sg-moe-primary-2021-v1	3	divide	timesTableMax=9;divisors=6,7,8,9
+RULE	sg-moe-primary-2021-v1	2	tables	timesTableMax=10;factors=2,3,4,5,10;variedFacts=true
+RULE	sg-moe-primary-2021-v1	2	divide	timesTableMax=10;divisors=2,3,4,5,10;variedFacts=true
+RULE	sg-moe-primary-2021-v1	3	tables	timesTableMax=9;factors=6,7,8,9;variedFacts=true
+RULE	sg-moe-primary-2021-v1	3	divide	timesTableMax=9;divisors=6,7,8,9;variedFacts=true
 RULE	sg-moe-primary-2021-v1	2	fracAddLike,fracSubLike	maxFractionValue=1;maxResult=1;nonnegative=true
 RULE	sg-moe-primary-2021-v1	3	largePlace,el_compare_10000	wholeMaximum=10000
 RULE	sg-moe-primary-2021-v1	3	add1000,sub1000	wholeDigits=4;nonnegative=true

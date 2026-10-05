@@ -34,6 +34,7 @@ public final class Generator {
         Catalog.Skill s=Catalog.get(skillId);Question q=null;
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(signature,position++);
         int oldest=Integer.MAX_VALUE;
+        if(limits.variedFacts()&&Set.of("tables","divide").contains(skillId))q=FactFoundations.next(s,random,limits,previous);
         if(skillId.equals("squareWhole")||skillId.equals("rootWhole"))q=SquareFractionFoundations.nextWhole(s,random,limits,previous);
         if(CubeFoundations.supports(skillId))q=CubeFoundations.nextWhole(s,random,limits,previous);
         if(skillId.equals("combinedWorkTime"))q=RateFoundations.nextWork(s,random,limits,previous);
@@ -56,6 +57,7 @@ public final class Generator {
         return create(s,CurriculumLimits.NONE);
     }
     private Question create(Catalog.Skill s,CurriculumLimits limits){
+        if(limits.variedFacts()&&Set.of("tables","divide").contains(s.id))return FactFoundations.create(s,random,limits);
         if(LargePlaceFoundations.supports(s.id))return LargePlaceFoundations.create(s,random);
         if(MassDensity.supports(s.id))return MassDensity.create(s,random);
         if(MotionFoundations.supports(s.id))return MotionFoundations.create(s,random);

@@ -18,7 +18,7 @@ public final class CurriculumLimits {
     private String answerDomain="";
     private Rational maxFractionValue;
     private Integer minimumWholeDigits;
-    private boolean integerSecondOperand;
+    private boolean integerSecondOperand,variedFacts;
     private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,nonnegativeSubtrahend;
     CurriculumLimits(String definition){
         if(definition.isBlank())return;
@@ -45,6 +45,7 @@ public final class CurriculumLimits {
                 case "minGiven":minGiven=Double.valueOf(pair[1]);if(!Double.isFinite(minGiven)||minGiven<0)throw new IllegalArgumentException("Invalid minimum input");break;
                 case "unitFractions":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid unit fraction flag");unitFractions=true;break;
                 case "relatedDenominators":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid denominator relation flag");relatedDenominators=true;break;
+                case "variedFacts":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid fact forms");variedFacts=true;break;
                 case "nonnegative":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid sign limit");nonnegative=true;break;
                 case "nonnegativeSubtrahend":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid subtraction limit");nonnegativeSubtrahend=true;break;
                 default:throw new IllegalArgumentException("Unknown curriculum limit: "+pair[0]);
@@ -55,6 +56,7 @@ public final class CurriculumLimits {
     public boolean allows(Question q){
         String givens=q.prompt+"\n"+q.expression;
         String operation=q.expression.isBlank()?q.prompt.trim():q.expression;
+        if(FactFoundations.blank(q))operation=q.prompt.replace("□",q.answers[0]).split(" = ",2)[0];
         boolean repeated=Catalog.get(q.skillId).family.equals("repeat");
         int[] grouping=repeated?grouping(q.prompt):null;
         if(repeated&&grouping==null)return false;
@@ -125,6 +127,7 @@ public final class CurriculumLimits {
         return new int[]{each,terms.length};
     }
     public int timesTableMax(){return timesTableMax;}
+    boolean variedFacts(){return variedFacts;}
     int decimalPlaces(int defaultPlaces){return decimalPlaces==null?defaultPlaces:decimalPlaces;}
     boolean hasDecimalPlaces(){return decimalPlaces!=null;}
     boolean hasWholeDigits(){return wholeDigits!=null;}
