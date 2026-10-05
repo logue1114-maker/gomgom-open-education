@@ -1,0 +1,161 @@
+{
+  "pack": "sg-moe-primary-2021-v1",
+  "source": "https://www.moe.gov.sg/api/media/92bff26d-b2b4-4535-b868-b8415c744b91/2021-Primary-Mathematics-Syllabus-P1-to-P6-Updated-October-2025.pdf",
+  "sourcePages": [
+    30,
+    31,
+    33,
+    35,
+    37,
+    38,
+    41,
+    43
+  ],
+  "sourceSha256": "e8f77fe10d768e2ad5266dfc39a8821674be7eb1c81bc545ba4b841b12ae70e1",
+  "levels": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "track": "Standard, selected calculation skills; Foundation not mapped",
+  "skillTypes": 61,
+  "placements": 70,
+  "generatedPublicRows": 7000,
+  "independentArithmeticRowsChecked": 4844,
+  "otherRowsNotIndependentlySolved": 2156,
+  "supplyBelow100": [
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "1",
+      "skill": "count",
+      "issued": "100",
+      "distinct_questions": "9",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "1",
+      "skill": "compare",
+      "issued": "100",
+      "distinct_questions": "99",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "1",
+      "skill": "join9",
+      "issued": "100",
+      "distinct_questions": "55",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "1",
+      "skill": "add9",
+      "issued": "100",
+      "distinct_questions": "55",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "1",
+      "skill": "sub9",
+      "issued": "100",
+      "distinct_questions": "55",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "1",
+      "skill": "add20",
+      "issued": "100",
+      "distinct_questions": "45",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "1",
+      "skill": "sub20",
+      "issued": "100",
+      "distinct_questions": "45",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "2",
+      "skill": "tables",
+      "issued": "100",
+      "distinct_questions": "85",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "2",
+      "skill": "divide",
+      "issued": "100",
+      "distinct_questions": "50",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "2",
+      "skill": "fractionPart",
+      "issued": "100",
+      "distinct_questions": "66",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "3",
+      "skill": "tables",
+      "issued": "100",
+      "distinct_questions": "64",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "3",
+      "skill": "divide",
+      "issued": "100",
+      "distinct_questions": "36",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "3",
+      "skill": "fracAdd",
+      "issued": "100",
+      "distinct_questions": "79",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "3",
+      "skill": "fracSub",
+      "issued": "100",
+      "distinct_questions": "80",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "4",
+      "skill": "el_fraction_decimal",
+      "issued": "100",
+      "distinct_questions": "99",
+      "adjacent_repeats": "0"
+    }
+  ],
+  "tests": {
+    "engine": 445,
+    "app": 67,
+    "globalApp": 67
+  },
+  "candidateApkSha256": "93e8cde1b0485022f7ef68e7db69264d4357d137ecf1dc0c15de8e1af53e13e2",
+  "candidateInstalled": false,
+  "nativeRequired": true,
+  "nationalCurriculumComplete": false,
+  "wholeProductComplete": false
+}
