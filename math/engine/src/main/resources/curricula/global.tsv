@@ -1028,3 +1028,35 @@ RULE	au-acara-v9-primary-v1	8	powerLaw,powerQuotient,powerOfPower	nonnegative=tr
 RULE	au-acara-v9-primary-v1	9	powerLaw,powerQuotient,powerOfPower	answerDomain=integer
 RULE	au-acara-v9-primary-v1	9	quadratic	monicQuadratic=true;answerDomain=integer
 RULE	au-acara-v9-primary-v1	10	quadratic	monicQuadratic=false
+
+# Brazil BNCC: selected calculation components only; no regional/term sequence inferred.
+PACK	br-bncc-fundamental-2017-v1	BR	Brasil · BNCC	https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf	1º–3º ano · selected number and calculation components; other skills and later grades remain unmapped
+LEVEL	br-bncc-fundamental-2017-v1	1	1º ano
+LEVEL	br-bncc-fundamental-2017-v1	2	2º ano
+LEVEL	br-bncc-fundamental-2017-v1	3	3º ano
+MAP	br-bncc-fundamental-2017-v1	1	count	EF01MA01,EF01MA04; selected calculation component only; BNCC printed p.279
+MAP	br-bncc-fundamental-2017-v1	1	compare	EF01MA03,EF01MA05; selected calculation component only; BNCC printed p.279
+MAP	br-bncc-fundamental-2017-v1	1	join9,split9	EF01MA07,EF01MA08; selected calculation component only; BNCC printed p.279
+MAP	br-bncc-fundamental-2017-v1	1	place50,place10	EF01MA05,EF01MA07; selected calculation component only; BNCC printed p.279
+MAP	br-bncc-fundamental-2017-v1	1	add9,sub9,add20,sub20	EF01MA06,EF01MA08; selected calculation component only; BNCC printed p.279
+MAP	br-bncc-fundamental-2017-v1	1	add100,sub100	EF01MA08; selected calculation component only; BNCC printed p.279
+MAP	br-bncc-fundamental-2017-v1	2	place100	EF02MA01,EF02MA04; selected calculation component only; BNCC printed p.283
+MAP	br-bncc-fundamental-2017-v1	2	add100,sub100	EF02MA05,EF02MA06; selected calculation component only; BNCC printed p.283
+MAP	br-bncc-fundamental-2017-v1	2	add1000,sub1000	EF02MA06; selected calculation component only; BNCC printed p.283
+MAP	br-bncc-fundamental-2017-v1	2	mulIntro,tables	EF02MA07; selected calculation component only; BNCC printed p.283
+MAP	br-bncc-fundamental-2017-v1	3	place1000,el_compare_10000	EF03MA01,EF03MA02; selected calculation component only; BNCC printed p.287
+MAP	br-bncc-fundamental-2017-v1	3	add1000,sub1000	EF03MA05,EF03MA06; selected calculation component only; BNCC printed p.287
+MAP	br-bncc-fundamental-2017-v1	3	mulIntro,tables	EF03MA03,EF03MA07; selected calculation component only; BNCC printed p.287
+MAP	br-bncc-fundamental-2017-v1	3	divide,remainder	EF03MA08; selected calculation component only; BNCC printed p.287
+RULE	br-bncc-fundamental-2017-v1	1	add9,sub9,add20,sub20	variedSums=true
+RULE	br-bncc-fundamental-2017-v1	1	add100	maxResult=99
+RULE	br-bncc-fundamental-2017-v1	2	add100	maxResult=999
+RULE	br-bncc-fundamental-2017-v1	2	add1000,sub1000	wholeDigits=3;minimumWholeDigits=1;maxGiven=999;maxResult=999
+RULE	br-bncc-fundamental-2017-v1	3	add1000,sub1000	wholeDigits=4;minimumWholeDigits=1;maxGiven=9999;maxResult=9999
+RULE	br-bncc-fundamental-2017-v1	2	mulIntro	timesTableMax=10;factors=2,3,4,5;maxResult=50
+RULE	br-bncc-fundamental-2017-v1	3	mulIntro	timesTableMax=10;factors=2,3,4,5,10;maxResult=100
+RULE	br-bncc-fundamental-2017-v1	2	tables	variedFacts=true;timesTableMax=10;factors=2,3,4,5;maxResult=50
+RULE	br-bncc-fundamental-2017-v1	3	tables	variedFacts=true;timesTableMax=10;factors=2,3,4,5,10;maxResult=100
+RULE	br-bncc-fundamental-2017-v1	3	divide	variedFacts=true;timesTableMax=10;divisors=2,3,4,5,6,7,8,9,10;maxGiven=100
+RULE	br-bncc-fundamental-2017-v1	3	remainder	divisors=2,3,4,5,6,7,8,9;maxGiven=99
+RULE	br-bncc-fundamental-2017-v1	3	el_compare_10000	maxGiven=9999

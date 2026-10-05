@@ -1,0 +1,49 @@
+{
+  "pack": "br-bncc-fundamental-2017-v1",
+  "officialURL": "https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf",
+  "selectedGrades": [
+    1,
+    2,
+    3
+  ],
+  "selectedSkillCount": 21,
+  "placementCount": 27,
+  "primary1to3Requirements": 73,
+  "partialRequirements": 19,
+  "completeRequirements": 0,
+  "unmappedRequirements": 54,
+  "nativeVerified": true,
+  "PortugueseFlowVerified": false,
+  "regionalTermSequenceVerified": false,
+  "remaining": "All other primary 1\u20133 outcomes, primary 4\u20139, high-school applicability and coverage, Portuguese UI and normal device flow.",
+  "sourceTablePDFPages": [
+    281,
+    285,
+    289
+  ],
+  "selectedMappingVerifiedAgainstOriginalTables": true,
+  "normalGeneratorSamples": 2700,
+  "independentAdditionSubtractionFactsAndRemainderChecks": true,
+  "distinct100EquationSets": [
+    "grade2 multiplication",
+    "grade3 multiplication",
+    "grade3 division"
+  ],
+  "targetedTestsPassed": 4,
+  "releaseReady": false,
+  "wholeCurriculumComplete": false,
+  "nativeLanguage": "en",
+  "normalKeyboardProblems": 30,
+  "wrongAnswersCorrected": 3,
+  "localUnitTests": {
+    "engine": 548,
+    "app": 77,
+    "globalApp": 77
+  },
+  "publicUnitTests": 548,
+  "localPhoneVisualInspection": true,
+  "countryCodes": 249,
+  "countriesWithSelectedCurriculum": 11,
+  "countriesWithoutSelectedCurriculum": 238,
+  "completeCountryCurricula": 0
+}
