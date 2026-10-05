@@ -53,6 +53,7 @@ public final class Generator {
             if(q==null||age<oldest){q=candidate;oldest=age;}
         }
         if(q==null)throw new IllegalStateException("No question matches the curriculum limits: "+skillId);
+        if(q.studyGuide==null)FractionEquationTeaching.attach(q);
         if(q.choiceDiagrams!=null&&!q.choiceDiagrams.isEmpty()){q.choices=new ArrayList<>(q.choiceDiagrams.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
         else if(q.choiceLabels!=null&&!q.choiceLabels.isEmpty()){q.choices=new ArrayList<>(q.choiceLabels.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
         else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number"))Choices.build(q,s,random);
@@ -65,7 +66,7 @@ public final class Generator {
         return create(s,CurriculumLimits.NONE);
     }
     private Question create(Catalog.Skill s,CurriculumLimits limits){
-        Question q=createQuestion(s,limits);ArithmeticTeaching.attach(q);return q;
+        Question q=createQuestion(s,limits);ArithmeticTeaching.attach(q);FractionEquationTeaching.attach(q);return q;
     }
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
         if(TimetableQuestions.supports(s.id)&&(TimetableQuestions.added(s.id)||limits.timetables()))return TimetableQuestions.create(s,random,limits);

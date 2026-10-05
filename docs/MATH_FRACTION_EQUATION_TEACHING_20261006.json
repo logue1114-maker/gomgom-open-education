@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-06",
+  "scope": "Student-entered help for existing fraction operations and integral linear equations",
+  "types": [
+    "fracAdd",
+    "fracSub",
+    "fracMul",
+    "fracDiv",
+    "linear"
+  ],
+  "newQuestionTypes": 0,
+  "commonTypes": 475,
+  "selectedAustralianUniqueTypes": 161,
+  "selectedAustralianGradePlacements": 246,
+  "selectedSecondaryGradePlacements": 125,
+  "localUnitTests": 637,
+  "publicEngineUnitTests": 503,
+  "independentPublicQuestions": 2500,
+  "independentEnteredSteps": 14500,
+  "normalAndroidQuestions": 50,
+  "androidHelpStepsIndependentlyChecked": 29,
+  "actualAppKeypadTaps": true,
+  "mainAnswerTransfers": false,
+  "studentEnteredFractionCompletionVerified": 4,
+  "coldRestartPreservedPriorSavedSessions": true,
+  "wholeCurriculumComplete": false,
+  "externalVisualReviewComplete": false,
+  "physicalDeviceVerified": false,
+  "releaseComplete": false,
+  "privateDataExcluded": true,
+  "corrections": [
+    "Normal fraction supply bypassed generic creation: attached help to the actual selected-question route",
+    "Fraction completion combines student-entered numerator and denominator, with numeric canonicalization",
+    "Nullable fraction result indices preserve old serialized guide behavior",
+    "Shared native QA targets actual Button keys, not answer fields with matching digits"
+  ],
+  "remaining": [
+    "Other missing entered-step help, decimal operations and fractional equations",
+    "Varied supply and unmapped official curriculum elements",
+    "Global and state curriculum coverage, localization and bear design",
+    "Broader devices, accessibility, physical/student and long-study checks",
+    "Advertising, purchase and release"
+  ]
+}

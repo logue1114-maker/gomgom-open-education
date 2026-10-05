@@ -1,3 +1,9 @@
+## 2026-10-06 — Student-entered fraction and equation help
+
+Added entered-step help to existing fraction addition/subtraction/multiplication/division and integral linear equations. Students supply common denominators, converted numerators, reciprocal parts, products, common divisors and reduced fractions; equation help checks the same operation on both sides. Wrong stages are marked without filling the main answer. Fraction completion assembles the two student entries; numeric canonicalization and nullable result indices preserve accepted alternative inputs and older saved guides.
+
+Fixed the production fraction-supply route, which bypassed the generic creation wrapper. Local637/public engine503 tests passed;2,500 visible tasks and14,500 entered stages independently checked. Normal Android menus completed50 tasks using actual keypad buttons, with29 help stages, deliberate wrong-stage correction and no answer transfer. Cold restart preserved prior saved sessions. Shared QA constrains digit selectors to Button and waits for visible input updates. Selected curriculum counts remain unchanged. These five types and the previous three address eight of the earlier missing-help types; the remaining types were not all re-audited. Private UI/language/QA/device records and APKs are excluded. Full curriculum, supply, design, localization, devices, long study and release remain unfinished.
+
 ## 2026-10-06 — Student-entered basic arithmetic help and mapping correction
 
 Added entered-step help for simplifying fractions and signed integer addition/subtraction/multiplication/division. Students supply the common divisor, divided numerator/denominator, absolute values and signed result. Wrong stages are identified without filling the main answer. Zero-result wording does not assign a positive or negative sign to zero. Independently checked1,500 visible tasks and5,746 entered steps. Local633/public engine499 tests passed.
