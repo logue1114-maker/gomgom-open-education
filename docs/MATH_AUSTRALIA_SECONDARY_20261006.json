@@ -1,0 +1,749 @@
+{
+  "date": "2026-10-06",
+  "change": "Extend the existing Australian national option to selected Year7\u201310 calculation components",
+  "commonSkillTypes": 475,
+  "australianUniqueSkillTypes": 161,
+  "australianGradePlacements": 247,
+  "selectedF10ComponentCodes": 102,
+  "officialF10ContentCodes": 240,
+  "secondarySelectedComponentCodes": 52,
+  "officialSecondaryContentCodes": 101,
+  "secondaryUniqueSkillTypes": 97,
+  "secondaryGradePlacements": 126,
+  "tests": {
+    "engine": 495,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 495,
+  "issuedTasks": 12600,
+  "independentPublicTasks": 3200,
+  "independentTypes": {
+    "reduce": 100,
+    "el_fraction_decimal": 100,
+    "el_decimal_fraction": 100,
+    "fracAdd": 100,
+    "fracSub": 100,
+    "squareWhole": 100,
+    "decimalAdd": 100,
+    "decimalSub": 100,
+    "rootWhole": 100,
+    "fracMul": 100,
+    "fracDiv": 100,
+    "decimalMul": 100,
+    "decimalDiv": 100,
+    "signedAdd": 200,
+    "linear": 200,
+    "mean": 100,
+    "median": 100,
+    "powerLaw": 300,
+    "powerQuotient": 300,
+    "powerOfPower": 300,
+    "signedMul": 100,
+    "rational": 100,
+    "quadratic": 100,
+    "linearSystem": 100
+  },
+  "placements": {
+    "7/reduce": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/el_fraction_decimal": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/el_decimal_fraction": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/percent": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/fracAdd": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/fracSub": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/squareWhole": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/decimalAdd": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/decimalSub": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/el_fraction_of_number": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/rootWhole": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/sec_prime_factor": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 24
+    },
+    "7/el_decimal_round": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/fracMul": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/fracDiv": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/decimalMul": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/decimalDiv": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/signedAdd": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/sec_absolute_distance": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/el_ratio_terms": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/el_ratio_fraction": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/proportion": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/el_proportional_split": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/substitute": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/linear": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/linearValue": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/sec_direct_proportion": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/el_triangle_area": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/el_parallelogram_area": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/sec_prism_volume": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/el_circle_diameter": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 19
+    },
+    "7/el_circle_radius": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 19
+    },
+    "7/el_circle_circumference": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 19
+    },
+    "7/sec_parallel_angle": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 29
+    },
+    "7/angles": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/sec_polygon_interior": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 8
+    },
+    "7/sec_polygon_exterior": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 8
+    },
+    "7/sec_coordinate_move": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/mean": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/median": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "7/sec_mode": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/probability": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "7/experimentalProbability": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "8/el_time_add": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "8/el_time_difference": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "8/el_time_12_to_24": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "8/el_time_24_to_12": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "8/signedAdd": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/linear": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/linearValue": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/sec_prism_volume": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "8/el_circle_circumference": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 19
+    },
+    "8/experimentalProbability": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "8/rootSimplify": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/powerLaw": {
+      "issued": 100,
+      "staticConceptQuestions": 33,
+      "distinctPublicPrompts": 100
+    },
+    "8/powerQuotient": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "8/powerOfPower": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "8/sec_decimal_type": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 87
+    },
+    "8/signedMul": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/rational": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/likeTerms": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/polyAdd": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/commonFactorFrame": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "8/linearFraction": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/linearInequality": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/linearXIntercept": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/linearYIntercept": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "8/el_circle_area": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 19
+    },
+    "8/pythagoras": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 60
+    },
+    "8/sec_triangle_congruence": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 8
+    },
+    "8/sec_similarity_condition": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 24
+    },
+    "8/sec_similarity_length": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 36
+    },
+    "8/sec_parallelogram_angle": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 29
+    },
+    "8/complementProbability": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 24
+    },
+    "8/sec_probability_multiply": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/sec_prism_volume": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/experimentalProbability": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/rootSimplify": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/powerLaw": {
+      "issued": 100,
+      "staticConceptQuestions": 33,
+      "distinctPublicPrompts": 100
+    },
+    "9/powerQuotient": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/powerOfPower": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/polyAdd": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/pythagoras": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 60
+    },
+    "9/sec_similarity_length": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 36
+    },
+    "9/sec_probability_multiply": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/rootAddSub": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/rootProduct": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/rootQuotient": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/negativePower": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/monomialProduct": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/monomialQuotient": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/monomialPower": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/expand": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/factor": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/linearSlope": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/quadratic": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "9/sec_quadratic_value": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/sec_quadratic_vertex": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/sec_quadratic_axis": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/sec_quadratic_opening": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/sec_prism_surface": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/sec_cylinder_volume": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 88
+    },
+    "9/sec_cylinder_surface": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 98
+    },
+    "9/sec_trig_height": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 18
+    },
+    "9/absoluteMeasurementError": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/percentageMeasurementError": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "9/sec_trig_special": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 3
+    },
+    "9/dependentProbability": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 24
+    },
+    "10/powerLaw": {
+      "issued": 100,
+      "staticConceptQuestions": 34,
+      "distinctPublicPrompts": 100
+    },
+    "10/powerQuotient": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "10/powerOfPower": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "10/polyAdd": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "10/linearInequality": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "10/pythagoras": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 60
+    },
+    "10/monomialProduct": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "10/monomialQuotient": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "10/monomialPower": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "10/expand": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "10/factor": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "10/quadratic": {
+      "issued": 100,
+      "staticConceptQuestions": 100,
+      "distinctPublicPrompts": 100
+    },
+    "10/sec_trig_height": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 18
+    },
+    "10/linearSystem": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "10/exponentialEquation": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "10/exponentialGraph": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 36
+    },
+    "10/tenPowerLog": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    },
+    "10/conditionalProbability": {
+      "issued": 100,
+      "staticConceptQuestions": 0,
+      "distinctPublicPrompts": 100
+    }
+  },
+  "typesWithSomeStaticConceptOnly": [
+    "reduce",
+    "percent",
+    "fracAdd",
+    "fracSub",
+    "decimalAdd",
+    "decimalSub",
+    "fracMul",
+    "fracDiv",
+    "decimalMul",
+    "decimalDiv",
+    "signedAdd",
+    "proportion",
+    "substitute",
+    "linear",
+    "linearValue",
+    "angles",
+    "mean",
+    "median",
+    "rootSimplify",
+    "powerLaw",
+    "signedMul",
+    "rational",
+    "likeTerms",
+    "polyAdd",
+    "linearFraction",
+    "linearInequality",
+    "linearXIntercept",
+    "linearYIntercept",
+    "rootAddSub",
+    "rootProduct",
+    "rootQuotient",
+    "monomialProduct",
+    "monomialQuotient",
+    "monomialPower",
+    "expand",
+    "factor",
+    "linearSlope",
+    "quadratic"
+  ],
+  "nativeQuestions": 50,
+  "nativeBeforeEnglishFix": 40,
+  "nativeAfterEnglishFix": 10,
+  "savedSessionsPreserved": true,
+  "answerMetadataUsedToSolve": false,
+  "wholeCurriculumComplete": false,
+  "allIssuedIndependentlySolved": false,
+  "fullDomainExhaustionProven": false,
+  "limitations": [
+    "One-variable Year7 equations have natural-number solutions; Year8 permits signed/rational equations",
+    "Year8 index practice rejects negative displayed/result exponents; Year9 removes that restriction",
+    "Four-operation fraction/decimal drills do not cover every rational-number modelling context",
+    "Coordinate practice covers translations only, not reflections and rotations",
+    "Right-prism practice covers cuboids only, not triangular prisms",
+    "Circle calculations use stated3.14 approximation, not the full pi/representation investigation",
+    "Time practice covers one June journey and12/24 notation; multiple time zones remain",
+    "Statistics practice covers mean, median and mode only; range and data investigations remain",
+    "Quadratic exercises include coefficient-one factorisation and other algebraic forms; plotting/numerical solution investigations remain",
+    "Probability calculations are selected equal-likelihood/independence/conditional forms; full sample-space diagrams and live experiments remain",
+    "Log practice uses exact powers of ten, not arbitrary logarithmic scales",
+    "Right-angle height practice currently uses45 degrees; broader trig modelling remains",
+    "Normal1080x2400 emulator phone; small phones, tablets, physical devices and TalkBack learning access remain",
+    "Only four representative algebra types exercised natively, not all126 grade placements",
+    "Initial40 used pre-correction English captions; only the additional10 verify authored root captions",
+    "38 mapped types have some static concept descriptions without entered step scaffolds",
+    "No full curriculum, student-effectiveness or external visual-review completion",
+    "Each secondary placement issued100 tasks;26 samples had fewer than100 distinct visible prompts, with a smallest categorical domain of3",
+    "Existing saved pack id is retained; adding national levels is not a claim for state syllabuses or Years11\u201312",
+    "Global curricula, localization, age/bear design, long sessions, advertising/purchase and release remain unfinished"
+  ]
+}

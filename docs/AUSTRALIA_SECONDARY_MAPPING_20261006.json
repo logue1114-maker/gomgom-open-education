@@ -1,0 +1,959 @@
+{
+  "date": "2026-10-06",
+  "pack": "au-acara-v9-primary-v1",
+  "source": "https://www.australiancurriculum.edu.au/content/dam/en/curriculum/ac-version-9/downloads/curriculum-workbook.xlsx",
+  "sourceSha256": "db446882d2c00cf7c085a03e250e2442fda6c44011fc114680c46c1dc7a822c3",
+  "officialSecondaryCodes": 101,
+  "selectedSecondaryComponentCodes": 52,
+  "secondaryUniqueSkills": 97,
+  "secondaryGradePlacements": 126,
+  "grades": {
+    "7": [
+      "squareWhole",
+      "rootWhole",
+      "sec_prime_factor",
+      "reduce",
+      "el_fraction_decimal",
+      "el_decimal_fraction",
+      "percent",
+      "el_decimal_round",
+      "fracAdd",
+      "fracSub",
+      "fracMul",
+      "fracDiv",
+      "decimalAdd",
+      "decimalSub",
+      "decimalMul",
+      "decimalDiv",
+      "el_fraction_of_number",
+      "signedAdd",
+      "sec_absolute_distance",
+      "el_ratio_terms",
+      "el_ratio_fraction",
+      "proportion",
+      "el_proportional_split",
+      "substitute",
+      "linear",
+      "linearValue",
+      "sec_direct_proportion",
+      "el_triangle_area",
+      "el_parallelogram_area",
+      "sec_prism_volume",
+      "el_circle_diameter",
+      "el_circle_radius",
+      "el_circle_circumference",
+      "sec_parallel_angle",
+      "angles",
+      "sec_polygon_interior",
+      "sec_polygon_exterior",
+      "sec_coordinate_move",
+      "mean",
+      "median",
+      "sec_mode",
+      "probability",
+      "experimentalProbability"
+    ],
+    "8": [
+      "rootSimplify",
+      "powerLaw",
+      "powerQuotient",
+      "powerOfPower",
+      "sec_decimal_type",
+      "signedAdd",
+      "signedMul",
+      "rational",
+      "likeTerms",
+      "polyAdd",
+      "commonFactorFrame",
+      "linear",
+      "linearFraction",
+      "linearInequality",
+      "linearValue",
+      "linearXIntercept",
+      "linearYIntercept",
+      "sec_prism_volume",
+      "el_circle_circumference",
+      "el_circle_area",
+      "el_time_add",
+      "el_time_difference",
+      "el_time_12_to_24",
+      "el_time_24_to_12",
+      "pythagoras",
+      "sec_triangle_congruence",
+      "sec_similarity_condition",
+      "sec_similarity_length",
+      "sec_parallelogram_angle",
+      "complementProbability",
+      "sec_probability_multiply",
+      "experimentalProbability"
+    ],
+    "9": [
+      "rootSimplify",
+      "rootAddSub",
+      "rootProduct",
+      "rootQuotient",
+      "powerLaw",
+      "powerQuotient",
+      "powerOfPower",
+      "negativePower",
+      "monomialProduct",
+      "monomialQuotient",
+      "monomialPower",
+      "polyAdd",
+      "expand",
+      "factor",
+      "linearSlope",
+      "quadratic",
+      "sec_quadratic_value",
+      "sec_quadratic_vertex",
+      "sec_quadratic_axis",
+      "sec_quadratic_opening",
+      "sec_prism_surface",
+      "sec_prism_volume",
+      "sec_cylinder_volume",
+      "sec_cylinder_surface",
+      "pythagoras",
+      "sec_similarity_length",
+      "sec_trig_height",
+      "absoluteMeasurementError",
+      "percentageMeasurementError",
+      "sec_trig_special",
+      "sec_probability_multiply",
+      "dependentProbability",
+      "experimentalProbability"
+    ],
+    "10": [
+      "polyAdd",
+      "expand",
+      "factor",
+      "quadratic",
+      "monomialProduct",
+      "monomialQuotient",
+      "monomialPower",
+      "powerLaw",
+      "powerQuotient",
+      "powerOfPower",
+      "linearInequality",
+      "linearSystem",
+      "exponentialEquation",
+      "exponentialGraph",
+      "tenPowerLog",
+      "pythagoras",
+      "sec_trig_height",
+      "conditionalProbability"
+    ]
+  },
+  "codes": [
+    {
+      "code": "AC9M7N01",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "squareWhole",
+        "rootWhole"
+      ]
+    },
+    {
+      "code": "AC9M7N02",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_prime_factor"
+      ]
+    },
+    {
+      "code": "AC9M7N03",
+      "grade": 7,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M7N04",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "reduce",
+        "el_fraction_decimal",
+        "el_decimal_fraction",
+        "percent"
+      ]
+    },
+    {
+      "code": "AC9M7N05",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "el_decimal_round"
+      ]
+    },
+    {
+      "code": "AC9M7N06",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "fracAdd",
+        "fracSub",
+        "fracMul",
+        "fracDiv",
+        "decimalAdd",
+        "decimalSub",
+        "decimalMul",
+        "decimalDiv",
+        "percent",
+        "el_fraction_of_number"
+      ]
+    },
+    {
+      "code": "AC9M7N07",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "signedAdd",
+        "sec_absolute_distance"
+      ]
+    },
+    {
+      "code": "AC9M7N08",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "el_ratio_terms",
+        "el_ratio_fraction",
+        "proportion",
+        "el_proportional_split"
+      ]
+    },
+    {
+      "code": "AC9M7N09",
+      "grade": 7,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M7A01",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "substitute"
+      ]
+    },
+    {
+      "code": "AC9M7A02",
+      "grade": 7,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M7A03",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "linear"
+      ]
+    },
+    {
+      "code": "AC9M7A04",
+      "grade": 7,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M7A05",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "linearValue",
+        "sec_direct_proportion"
+      ]
+    },
+    {
+      "code": "AC9M7A06",
+      "grade": 7,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M7M01",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "el_triangle_area",
+        "el_parallelogram_area"
+      ]
+    },
+    {
+      "code": "AC9M7M02",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_prism_volume"
+      ]
+    },
+    {
+      "code": "AC9M7M03",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "el_circle_diameter",
+        "el_circle_radius",
+        "el_circle_circumference"
+      ]
+    },
+    {
+      "code": "AC9M7M04",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_parallel_angle"
+      ]
+    },
+    {
+      "code": "AC9M7M05",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "angles",
+        "sec_polygon_interior",
+        "sec_polygon_exterior"
+      ]
+    },
+    {
+      "code": "AC9M7M06",
+      "grade": 7,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M7SP01",
+      "grade": 7,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M7SP02",
+      "grade": 7,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M7SP03",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_coordinate_move"
+      ]
+    },
+    {
+      "code": "AC9M7SP04",
+      "grade": 7,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M7ST01",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "mean",
+        "median",
+        "sec_mode"
+      ]
+    },
+    {
+      "code": "AC9M7ST02",
+      "grade": 7,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M7ST03",
+      "grade": 7,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M7P01",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "probability"
+      ]
+    },
+    {
+      "code": "AC9M7P02",
+      "grade": 7,
+      "status": "selected calculation component",
+      "skills": [
+        "experimentalProbability"
+      ]
+    },
+    {
+      "code": "AC9M8N01",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "rootSimplify"
+      ]
+    },
+    {
+      "code": "AC9M8N02",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "powerLaw",
+        "powerQuotient",
+        "powerOfPower"
+      ]
+    },
+    {
+      "code": "AC9M8N03",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_decimal_type"
+      ]
+    },
+    {
+      "code": "AC9M8N04",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "signedAdd",
+        "signedMul",
+        "rational"
+      ]
+    },
+    {
+      "code": "AC9M8N05",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8A01",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "likeTerms",
+        "polyAdd",
+        "commonFactorFrame"
+      ]
+    },
+    {
+      "code": "AC9M8A02",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "linear",
+        "linearFraction",
+        "linearInequality",
+        "linearValue",
+        "linearXIntercept",
+        "linearYIntercept"
+      ]
+    },
+    {
+      "code": "AC9M8A03",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8A04",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8M01",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8M02",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_prism_volume"
+      ]
+    },
+    {
+      "code": "AC9M8M03",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "el_circle_circumference",
+        "el_circle_area"
+      ]
+    },
+    {
+      "code": "AC9M8M04",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "el_time_add",
+        "el_time_difference",
+        "el_time_12_to_24",
+        "el_time_24_to_12"
+      ]
+    },
+    {
+      "code": "AC9M8M05",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8M06",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "pythagoras"
+      ]
+    },
+    {
+      "code": "AC9M8M07",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8SP01",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_triangle_congruence",
+        "sec_similarity_condition",
+        "sec_similarity_length"
+      ]
+    },
+    {
+      "code": "AC9M8SP02",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_parallelogram_angle"
+      ]
+    },
+    {
+      "code": "AC9M8SP03",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8SP04",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8ST01",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8ST02",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8ST03",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8ST04",
+      "grade": 8,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M8P01",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "complementProbability"
+      ]
+    },
+    {
+      "code": "AC9M8P02",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_probability_multiply"
+      ]
+    },
+    {
+      "code": "AC9M8P03",
+      "grade": 8,
+      "status": "selected calculation component",
+      "skills": [
+        "experimentalProbability"
+      ]
+    },
+    {
+      "code": "AC9M9N01",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "rootSimplify",
+        "rootAddSub",
+        "rootProduct",
+        "rootQuotient"
+      ]
+    },
+    {
+      "code": "AC9M9A01",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "powerLaw",
+        "powerQuotient",
+        "powerOfPower",
+        "negativePower",
+        "monomialProduct",
+        "monomialQuotient",
+        "monomialPower"
+      ]
+    },
+    {
+      "code": "AC9M9A02",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "polyAdd",
+        "expand",
+        "factor"
+      ]
+    },
+    {
+      "code": "AC9M9A03",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "linearSlope"
+      ]
+    },
+    {
+      "code": "AC9M9A04",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "quadratic",
+        "sec_quadratic_value",
+        "sec_quadratic_vertex",
+        "sec_quadratic_axis",
+        "sec_quadratic_opening"
+      ]
+    },
+    {
+      "code": "AC9M9A05",
+      "grade": 9,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M9A06",
+      "grade": 9,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M9M01",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_prism_surface",
+        "sec_prism_volume",
+        "sec_cylinder_volume",
+        "sec_cylinder_surface"
+      ]
+    },
+    {
+      "code": "AC9M9M02",
+      "grade": 9,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M9M03",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "pythagoras",
+        "sec_similarity_length",
+        "sec_trig_height"
+      ]
+    },
+    {
+      "code": "AC9M9M04",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "absoluteMeasurementError",
+        "percentageMeasurementError"
+      ]
+    },
+    {
+      "code": "AC9M9M05",
+      "grade": 9,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M9SP01",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_trig_special"
+      ]
+    },
+    {
+      "code": "AC9M9SP02",
+      "grade": 9,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M9SP03",
+      "grade": 9,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M9ST01",
+      "grade": 9,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M9ST02",
+      "grade": 9,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M9ST03",
+      "grade": 9,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M9ST04",
+      "grade": 9,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M9ST05",
+      "grade": 9,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M9P01",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "sec_probability_multiply",
+        "dependentProbability"
+      ]
+    },
+    {
+      "code": "AC9M9P02",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "experimentalProbability"
+      ]
+    },
+    {
+      "code": "AC9M9P03",
+      "grade": 9,
+      "status": "selected calculation component",
+      "skills": [
+        "experimentalProbability"
+      ]
+    },
+    {
+      "code": "AC9M10N01",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10A01",
+      "grade": 10,
+      "status": "selected calculation component",
+      "skills": [
+        "polyAdd",
+        "expand",
+        "factor",
+        "quadratic",
+        "monomialProduct",
+        "monomialQuotient",
+        "monomialPower",
+        "powerLaw",
+        "powerQuotient",
+        "powerOfPower"
+      ]
+    },
+    {
+      "code": "AC9M10A02",
+      "grade": 10,
+      "status": "selected calculation component",
+      "skills": [
+        "linearInequality",
+        "linearSystem"
+      ]
+    },
+    {
+      "code": "AC9M10A03",
+      "grade": 10,
+      "status": "selected calculation component",
+      "skills": [
+        "exponentialEquation",
+        "exponentialGraph"
+      ]
+    },
+    {
+      "code": "AC9M10A04",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10A05",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10M01",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10M02",
+      "grade": 10,
+      "status": "selected calculation component",
+      "skills": [
+        "tenPowerLog"
+      ]
+    },
+    {
+      "code": "AC9M10M03",
+      "grade": 10,
+      "status": "selected calculation component",
+      "skills": [
+        "pythagoras",
+        "sec_trig_height"
+      ]
+    },
+    {
+      "code": "AC9M10M04",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10M05",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10SP01",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10SP02",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10SP03",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10ST01",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10ST02",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10ST03",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10ST04",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10ST05",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M10P01",
+      "grade": 10,
+      "status": "selected calculation component",
+      "skills": [
+        "conditionalProbability"
+      ]
+    },
+    {
+      "code": "AC9M10P02",
+      "grade": 10,
+      "status": "not mapped",
+      "skills": []
+    }
+  ],
+  "wholeCurriculumComplete": false,
+  "stateSyllabusesMapped": false,
+  "seniorSecondaryMapped": false,
+  "knownPartialRanges": [
+    "One-variable Year7 equations have natural-number solutions; Year8 permits signed/rational equations",
+    "Year8 index practice rejects negative displayed/result exponents; Year9 removes that restriction",
+    "Four-operation fraction/decimal drills do not cover every rational-number modelling context",
+    "Coordinate practice covers translations only, not reflections and rotations",
+    "Right-prism practice covers cuboids only, not triangular prisms",
+    "Circle calculations use stated3.14 approximation, not the full pi/representation investigation",
+    "Time practice covers one June journey and12/24 notation; multiple time zones remain",
+    "Statistics practice covers mean, median and mode only; range and data investigations remain",
+    "Quadratic exercises include coefficient-one factorisation and other algebraic forms; plotting/numerical solution investigations remain",
+    "Probability calculations are selected equal-likelihood/independence/conditional forms; full sample-space diagrams and live experiments remain",
+    "Log practice uses exact powers of ten, not arbitrary logarithmic scales",
+    "Right-angle height practice currently uses45 degrees; broader trig modelling remains"
+  ],
+  "remaining": [
+    "unmapped secondary codes",
+    "uncovered elements within every selected code",
+    "state-specific syllabuses",
+    "senior secondary Years11\u201312",
+    "global curriculum and localization",
+    "design, devices, long study, advertising/purchase and release"
+  ]
+}

@@ -20,7 +20,7 @@ public final class CurriculumLimits {
     private String answerDomain="";
     private Rational maxFractionValue;
     private Integer minimumWholeDigits;
-    private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables;
+    private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables,monicQuadratic;
     private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,nonnegativeSubtrahend;
     CurriculumLimits(String definition){
         if(definition.isBlank())return;
@@ -52,6 +52,7 @@ public final class CurriculumLimits {
                 case "variedFacts":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid fact forms");variedFacts=true;break;
                 case "includeZeroCount":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid empty collection flag");includeZeroCount=true;break;
                 case "timetables":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid timetable flag");timetables=true;break;
+                case "monicQuadratic":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid monic quadratic flag");monicQuadratic=Boolean.parseBoolean(pair[1]);break;
                 case "variedSums":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid sum forms");variedSums=true;break;
                 case "nonnegative":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid sign limit");nonnegative=true;break;
                 case "nonnegativeSubtrahend":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid subtraction limit");nonnegativeSubtrahend=true;break;
@@ -61,6 +62,11 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(monicQuadratic){
+            if(!q.kind.equals("roots"))return false;
+            try{String[] sides=q.expression.split("=",-1);if(sides.length!=2)return false;Expression.Poly polynomial=Expression.parse(sides[0]).sub(Expression.parse(sides[1]));if(polynomial.degree()!=2||!polynomial.coefficient(2).equals(Rational.ONE))return false;}
+            catch(RuntimeException error){return false;}
+        }
         String givens=q.prompt+"\n"+q.expression;
         String operation=q.expression.isBlank()?q.prompt.trim():q.expression;
         if(FactFoundations.blank(q))operation=q.prompt.replace("□",q.answers[0]).split(" = ",2)[0];

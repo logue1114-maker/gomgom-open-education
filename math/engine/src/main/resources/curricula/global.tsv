@@ -727,7 +727,7 @@ RULE	sg-moe-primary-2021-v1	4	decimalDivInt	decimalPlaces=2;nonnegative=true
 RULE	sg-moe-primary-2021-v1	5	el_fraction_decimal	decimalPlaces=2
 
 # Australia: selected national Version 9 calculation foundations; state syllabuses and other strands remain.
-PACK	au-acara-v9-primary-v1	AU	Australia · Australian Curriculum v9	https://www.australiancurriculum.edu.au/downloads/learning-areas	Foundation–Year 6 · selected calculation skills · national v9; state syllabuses and full curriculum not included
+PACK	au-acara-v9-primary-v1	AU	Australia · Australian Curriculum v9	https://www.australiancurriculum.edu.au/downloads/learning-areas	Foundation–Year 10 · selected calculation skills · national v9; state syllabuses, senior secondary and full curriculum not included
 LEVEL	au-acara-v9-primary-v1	0	Foundation
 LEVEL	au-acara-v9-primary-v1	1	Year 1
 LEVEL	au-acara-v9-primary-v1	2	Year 2
@@ -891,3 +891,141 @@ RULE	au-acara-v9-primary-v1	3	el_digital_to_analog	minuteStep=1
 MAP	au-acara-v9-primary-v1	6	el_trip_departure	AC9M6M03; selected single-journey departure from arrival and duration; broader itinerary planning remains
 RULE	au-acara-v9-primary-v1	0	el_time_add,el_time_difference	minuteStep=5
 RULE	au-acara-v9-primary-v1	6	el_time_add,el_time_difference,el_trip_departure	timetables=true;minuteStep=1
+
+# Selected secondary calculation components; retain the existing pack id for saved sessions.
+LEVEL	au-acara-v9-primary-v1	7	Year 7
+LEVEL	au-acara-v9-primary-v1	8	Year 8
+LEVEL	au-acara-v9-primary-v1	9	Year 9
+LEVEL	au-acara-v9-primary-v1	10	Year 10
+MAP	au-acara-v9-primary-v1	7	squareWhole	AC9M7N01; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	rootWhole	AC9M7N01; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	sec_prime_factor	AC9M7N02; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	reduce	AC9M7N04; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_fraction_decimal	AC9M7N04; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_decimal_fraction	AC9M7N04; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	percent	AC9M7N04,AC9M7N06; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_decimal_round	AC9M7N05; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	fracAdd	AC9M7N06; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	fracSub	AC9M7N06; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	fracMul	AC9M7N06; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	fracDiv	AC9M7N06; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	decimalAdd	AC9M7N06; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	decimalSub	AC9M7N06; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	decimalMul	AC9M7N06; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	decimalDiv	AC9M7N06; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_fraction_of_number	AC9M7N06; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	signedAdd	AC9M7N07; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	sec_absolute_distance	AC9M7N07; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_ratio_terms	AC9M7N08; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_ratio_fraction	AC9M7N08; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	proportion	AC9M7N08; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_proportional_split	AC9M7N08; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	substitute	AC9M7A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	linear	AC9M7A03; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	linearValue	AC9M7A05; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	sec_direct_proportion	AC9M7A05; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_triangle_area	AC9M7M01; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_parallelogram_area	AC9M7M01; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	sec_prism_volume	AC9M7M02; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_circle_diameter	AC9M7M03; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_circle_radius	AC9M7M03; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	el_circle_circumference	AC9M7M03; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	sec_parallel_angle	AC9M7M04; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	angles	AC9M7M05; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	sec_polygon_interior	AC9M7M05; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	sec_polygon_exterior	AC9M7M05; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	sec_coordinate_move	AC9M7SP03; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	mean	AC9M7ST01; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	median	AC9M7ST01; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	sec_mode	AC9M7ST01; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	probability	AC9M7P01; selected calculation component only
+MAP	au-acara-v9-primary-v1	7	experimentalProbability	AC9M7P02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	rootSimplify	AC9M8N01; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	powerLaw	AC9M8N02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	powerQuotient	AC9M8N02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	powerOfPower	AC9M8N02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	sec_decimal_type	AC9M8N03; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	signedAdd	AC9M8N04; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	signedMul	AC9M8N04; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	rational	AC9M8N04; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	likeTerms	AC9M8A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	polyAdd	AC9M8A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	commonFactorFrame	AC9M8A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	linear	AC9M8A02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	linearFraction	AC9M8A02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	linearInequality	AC9M8A02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	linearValue	AC9M8A02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	linearXIntercept	AC9M8A02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	linearYIntercept	AC9M8A02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	sec_prism_volume	AC9M8M02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	el_circle_circumference	AC9M8M03; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	el_circle_area	AC9M8M03; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	el_time_add	AC9M8M04; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	el_time_difference	AC9M8M04; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	el_time_12_to_24	AC9M8M04; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	el_time_24_to_12	AC9M8M04; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	pythagoras	AC9M8M06; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	sec_triangle_congruence	AC9M8SP01; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	sec_similarity_condition	AC9M8SP01; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	sec_similarity_length	AC9M8SP01; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	sec_parallelogram_angle	AC9M8SP02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	complementProbability	AC9M8P01; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	sec_probability_multiply	AC9M8P02; selected calculation component only
+MAP	au-acara-v9-primary-v1	8	experimentalProbability	AC9M8P03; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	rootSimplify	AC9M9N01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	rootAddSub	AC9M9N01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	rootProduct	AC9M9N01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	rootQuotient	AC9M9N01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	powerLaw	AC9M9A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	powerQuotient	AC9M9A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	powerOfPower	AC9M9A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	negativePower	AC9M9A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	monomialProduct	AC9M9A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	monomialQuotient	AC9M9A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	monomialPower	AC9M9A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	polyAdd	AC9M9A02; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	expand	AC9M9A02; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	factor	AC9M9A02; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	linearSlope	AC9M9A03; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	quadratic	AC9M9A04; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_quadratic_value	AC9M9A04; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_quadratic_vertex	AC9M9A04; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_quadratic_axis	AC9M9A04; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_quadratic_opening	AC9M9A04; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_prism_surface	AC9M9M01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_prism_volume	AC9M9M01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_cylinder_volume	AC9M9M01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_cylinder_surface	AC9M9M01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	pythagoras	AC9M9M03; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_similarity_length	AC9M9M03; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_trig_height	AC9M9M03; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	absoluteMeasurementError	AC9M9M04; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	percentageMeasurementError	AC9M9M04; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_trig_special	AC9M9SP01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	sec_probability_multiply	AC9M9P01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	dependentProbability	AC9M9P01; selected calculation component only
+MAP	au-acara-v9-primary-v1	9	experimentalProbability	AC9M9P02,AC9M9P03; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	polyAdd	AC9M10A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	expand	AC9M10A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	factor	AC9M10A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	quadratic	AC9M10A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	monomialProduct	AC9M10A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	monomialQuotient	AC9M10A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	monomialPower	AC9M10A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	powerLaw	AC9M10A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	powerQuotient	AC9M10A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	powerOfPower	AC9M10A01; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	linearInequality	AC9M10A02; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	linearSystem	AC9M10A02; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	exponentialEquation	AC9M10A03; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	exponentialGraph	AC9M10A03; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	tenPowerLog	AC9M10M02; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	pythagoras	AC9M10M03; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	sec_trig_height	AC9M10M03; selected calculation component only
+MAP	au-acara-v9-primary-v1	10	conditionalProbability	AC9M10P01; selected calculation component only
+RULE	au-acara-v9-primary-v1	7	linear	answerDomain=integer;nonnegative=true
+RULE	au-acara-v9-primary-v1	8	linear	answerDomain=rational
+RULE	au-acara-v9-primary-v1	8	powerLaw,powerQuotient,powerOfPower	nonnegative=true
+RULE	au-acara-v9-primary-v1	9	powerLaw,powerQuotient,powerOfPower	answerDomain=integer
+RULE	au-acara-v9-primary-v1	9	quadratic	monicQuadratic=true;answerDomain=integer
+RULE	au-acara-v9-primary-v1	10	quadratic	monicQuadratic=false
