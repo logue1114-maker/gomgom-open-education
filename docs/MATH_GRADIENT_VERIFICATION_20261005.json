@@ -1,5 +1,5 @@
 {
-  "status": "selected-native-core-verified-layout-and-additional-restoration-pending",
+  "status": "selected-native-sixty-verified-additional-restoration-and-world-work-remain",
   "tests": {
     "engine": {
       "tests": 432,
@@ -60,7 +60,7 @@
     3
   ],
   "answersAndAllGuideStepsMatched": true,
-  "apkSha256": "0ea42e4162f9b2368c503a32db7f8cd308509c0863af5e77db992a903399ae3f",
+  "apkSha256": "391395140f71af5773f3b35b8a941dca7bf424318d75f8ee414bc5f37a523fb6",
   "deviceVerified": true,
   "date": "2026-10-05",
   "types": [
@@ -71,18 +71,31 @@
   "kenyaTypes": 235,
   "kenyaPlacements": 359,
   "kenyaGrade9Placements": 63,
-  "nativeCompleted": 40,
+  "nativeCompleted": 60,
   "scope": "Finite nonzero first gradient, distinct intercepts; no vertical-line or full plotting implementation. Existing coefficient-based sec_line_relation is preserved.",
   "nativeGroups": {
-    "gradient-choice": 10,
-    "gradient-typed": 10,
-    "relation-choice": 10,
-    "relation-typed": 10
+    "gradient-choice-core": 10,
+    "gradient-typed-core": 10,
+    "gradient-typed-layout": 10,
+    "gradient-typed-restore": 10,
+    "relation-choice-core": 10,
+    "relation-typed-core": 10
   },
   "nativeGuideEvidence": [
     {
       "kind": "gradient",
       "format": "typed",
+      "lane": "layout",
+      "stepsVerified": 2,
+      "wrongRejected": true,
+      "sameProblemColdRestored": true,
+      "draftColdRestored": true,
+      "automaticAnswerTransfer": false
+    },
+    {
+      "kind": "gradient",
+      "format": "typed",
+      "lane": "core",
       "stepsVerified": 3,
       "wrongRejected": true,
       "sameProblemColdRestored": true,
@@ -92,6 +105,7 @@
     {
       "kind": "relation",
       "format": "typed",
+      "lane": "core",
       "stepsVerified": 2,
       "wrongRejected": true,
       "sameProblemColdRestored": true,
@@ -110,7 +124,7 @@
   ],
   "installedBaseMatches": true,
   "finalReadback": {
-    "learningHistory": 1677,
+    "learningHistory": 1697,
     "savedSessions": 6,
     "remainingTimers": [
       "27:59",
@@ -119,12 +133,37 @@
     "coldReadback": true,
     "stateInjection": false
   },
-  "layoutScope": "normal phone1080x2400/420dpi only in this core pass",
+  "layoutScope": "Same actual parallel question with correct keypad draft4/1 and guide draft4 on small1080x1920/480,tablet1600x2560/240,normal1080x2400/420. It is not a noninteger fraction problem.",
   "baselineEvidenceScope": "Before-install home XML and distinct passing before/after instrumentation logs; same-name baseline device captures were overwritten by the after-install readback. Do not treat after-install XML as a separately frozen before-install capture.",
   "pending": [
-    "representative small phone and tablet",
-    "parallel-only guide actual input",
-    "main draft and choice-wrong cold restoration",
-    "full world curriculum gaps and other product requirements"
+    "noninteger fraction representative on small phone",
+    "wrong numeric choice cold restoration",
+    "global official requirement-level gaps",
+    "language/design/physical-device/long-study/ads/purchase/release"
+  ],
+  "apkVersions": {
+    "0ea42e4162f9b2368c503a32db7f8cd308509c0863af5e77db992a903399ae3f": 50,
+    "391395140f71af5773f3b35b8a941dca7bf424318d75f8ee414bc5f37a523fb6": 10
+  },
+  "targetedEnglishRepairTests": {
+    "app": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 3,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "tabletScope": "Numerator/denominator handwriting dialogs opened and copy corrected. The earlier Write control opens the answer handwriting grid, not the separate Notebook; do not claim notebook stroke/recognition verification from that frame.",
+  "visibleCopyRepair": [
+    "Write the numerator",
+    "Write the denominator",
+    "Read handwriting",
+    "Use buttons"
   ]
 }
