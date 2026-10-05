@@ -21,6 +21,11 @@ public final class Choices {
             int rank=random.nextInt(4);
             if(lower.size()>=rank&&higher.size()>=3-rank){options.clear();options.addAll(lower.subList(0,rank));options.addAll(higher.subList(0,3-rank));}
         }
+        if(skill.family.equals("decimalMul")&&options.stream().noneMatch(v->v.isInteger()==pool.answer.isInteger())){
+            List<Rational> sameForm=new ArrayList<>();for(Rational value:candidates)if(value.isInteger()==pool.answer.isInteger())sameForm.add(value);
+            if(sameForm.isEmpty()){Rational nearby=pool.answer.add(Rational.ONE);pool.add(nearby,"곱셈 계산 오류");sameForm.add(nearby);}
+            options.set(random.nextInt(options.size()),sameForm.get(random.nextInt(sameForm.size())));
+        }
         options.add(pool.answer);Collections.shuffle(options,random);
         for(Rational v:options){
             if(v.equals(pool.answer)){q.correctChoice=q.choices.size();q.distractorReasons.add("정답");}

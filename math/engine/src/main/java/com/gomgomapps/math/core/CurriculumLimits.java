@@ -17,12 +17,16 @@ public final class CurriculumLimits {
     private final List<Integer> roundingUnits=new ArrayList<>();
     private String answerDomain="";
     private Rational maxFractionValue;
+    private Integer minimumWholeDigits;
+    private boolean integerSecondOperand;
     private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,nonnegativeSubtrahend;
     CurriculumLimits(String definition){
         if(definition.isBlank())return;
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "minimumWholeDigits":minimumWholeDigits=Integer.valueOf(pair[1]);if(minimumWholeDigits<1||minimumWholeDigits>6)throw new IllegalArgumentException("Invalid minimum operand digits");break;
+                case "integerSecondOperand":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid integer second operand flag");integerSecondOperand=true;break;
                 case "maxFractionValue":maxFractionValue=Expression.number(pair[1]);if(maxFractionValue.compareTo(Rational.ZERO)<=0)throw new IllegalArgumentException("Invalid fraction magnitude");break;
                 case "denominators":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<2)throw new IllegalArgumentException("Invalid denominator");denominators.add(n);}break;
                 case "factors":case "divisors":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<1)throw new IllegalArgumentException("Invalid factor/divisor");(pair[0].equals("factors")?factors:divisors).add(n);}break;
@@ -46,6 +50,7 @@ public final class CurriculumLimits {
                 default:throw new IllegalArgumentException("Unknown curriculum limit: "+pair[0]);
             }
         }
+        if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
         String givens=q.prompt+"\n"+q.expression;
@@ -76,12 +81,17 @@ public final class CurriculumLimits {
             String displayed=q.prompt.contains("□")?q.prompt.replace("□",q.answers[0]).split("\\n",2)[0].split(" = ",2)[0]:q.prompt;
             Matcher operands=Pattern.compile("^(\\d+)\\s*[+×÷-]\\s*(\\d+)").matcher(displayed);
             if(!operands.find())return false;
+            if(minimumWholeDigits!=null&&(operands.group(1).length()<minimumWholeDigits||operands.group(2).length()<minimumWholeDigits))return false;
             if(wholeDigits!=null&&operands.group(1).length()>wholeDigits)return false;
             if(operands.group(2).length()>(secondDigits==null?wholeDigits:secondDigits))return false;
             if(displayed.matches("\\d+ \\+ \\d+ \\+ \\d+")&&wholeDigits!=null&&displayed.substring(displayed.lastIndexOf(' ')+1).length()>wholeDigits)return false;
         }
         if(polygonSides!=null){Matcher polygon=Pattern.compile("(\\d+)각형").matcher(q.prompt);if(!polygon.find()||Integer.parseInt(polygon.group(1))>polygonSides)return false;}
         if(!allowsDenominators(givens))return false;
+        if(integerSecondOperand){
+            Matcher operands=Pattern.compile("^-?\\d+(?:\\.\\d+)?\\s*[+*/×÷−-]\\s*(-?\\d+(?:\\.\\d+)?)$").matcher(q.expression);
+            if(!operands.matches()||!Expression.number(operands.group(1)).d.equals(java.math.BigInteger.ONE))return false;
+        }
         if(maxFractionValue!=null){
             // choiceInputs also contains operator/denominator metadata; use the public operands.
             Matcher fractionOperands=Pattern.compile("^\\(([-0-9/]+)\\)\\s*[+−-]\\s*\\(([-0-9/]+)\\)$").matcher(q.expression);
@@ -119,6 +129,8 @@ public final class CurriculumLimits {
     boolean hasDecimalPlaces(){return decimalPlaces!=null;}
     boolean hasWholeDigits(){return wholeDigits!=null;}
     int wholeDigits(int defaults){return wholeDigits==null?defaults:wholeDigits;}
+    int minimumWholeDigits(int defaults){return minimumWholeDigits==null?defaults:minimumWholeDigits;}
+    boolean integerSecondOperand(){return integerSecondOperand;}
     int secondDigits(int defaults){return secondDigits==null?defaults:secondDigits;}
     boolean withoutRegrouping(){return Integer.valueOf(0).equals(maxRegroups);}
     int wholeMaximum(int defaults){return givenMaximum(wholeMaximum==null?defaults:wholeMaximum);}

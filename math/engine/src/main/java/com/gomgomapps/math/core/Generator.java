@@ -8,7 +8,7 @@ public final class Generator {
     public Generator(){this(new SecureRandom());}
     public Generator(Random random){this.random=random;}
     private int n(int lo,int hi){return lo+random.nextInt(hi-lo+1);}
-    private int operand(CurriculumLimits limits,int digits){return n((int)Math.pow(10,digits-1),limits.givenMaximum((int)Math.pow(10,digits)-1));}
+    private int operand(CurriculumLimits limits,int digits){return n((int)Math.pow(10,limits.minimumWholeDigits(digits)-1),limits.givenMaximum((int)Math.pow(10,digits)-1));}
     private int[] threeWithoutCarry(int digits){
         int[] values=new int[3];int power=1;
         for(int column=0;column<digits;column++,power*=10){
@@ -137,8 +137,18 @@ public final class Generator {
                 Rational x=Rational.of(n(11,10*scale-1),scale),y=limits.hasDecimalPlaces()?Rational.of(n(1,10*scale-1),scale):Rational.of(n(11,99),10);String op=s.family.equals("decimalSub")?"-":s.family.equals("decimalMul")?"*":s.family.contains("Div")?"/":"+";
                 if(op.equals("-")&&x.compareTo(y)<0){Rational t=x;x=y;y=t;}
                 if(s.family.equals("decimalDivInt"))y=Rational.of(n(2,9));
+                if(limits.integerSecondOperand())y=Rational.of(n(2,9));
                 if(op.equals("/"))x=y.mul(Rational.of(n(1,99),10));
-                e=x.decimalText()+" "+op+" "+y.decimalText();q=numeric(s,e,e,Expression.number(e));q.decimal=true;return q.withInputs(x,y);
+                e=x.decimalText()+" "+op+" "+y.decimalText();q=numeric(s,e,e,Expression.number(e));q.decimal=true;
+                if(s.family.equals("decimalMul")&&limits.integerSecondOperand()){
+                    String decimal=x.decimalText();int point=decimal.indexOf('.'),places=point<0?0:decimal.length()-point-1;
+                    int unit=(int)Math.pow(10,places);Rational whole=x.mul(Rational.of(unit)),product=whole.mul(y);
+                    q.studyGuide=new StudyGuide()
+                        .step("소수점을 뺀 수를 쓰세요.",decimal+" → ","",whole.toString())
+                        .step("자연수끼리 곱하세요.",whole+" × "+y+" = ","",product.toString())
+                        .step("원래 소수 자릿수를 맞추세요.",product+" ÷ "+unit+" = ","",x.mul(y).toString()).transfer(false);
+                }
+                return q.withInputs(x,y);
             }
             case "mixed": {
                 int variant=random.nextInt(12);a=n(0,s.range);b=n(1,9);c=n(2,9);

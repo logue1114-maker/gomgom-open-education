@@ -1,0 +1,252 @@
+{
+  "date": "2026-10-05",
+  "pack": "jp-mext-primary-2017-v1",
+  "source": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
+  "officialPages": [
+    362,
+    366
+  ],
+  "types": 56,
+  "placements": 64,
+  "tests": {
+    "engine": {
+      "tests": 435,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "independentArithmetic": {
+    "3-add1000": {
+      "questions": 1000,
+      "expressions": 1000,
+      "operandDigits": [
+        3,
+        4
+      ],
+      "fractionalRight": 0,
+      "integerAnswerCue": 0,
+      "choiceRows": 1000,
+      "positions": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "3-sub1000": {
+      "questions": 1000,
+      "expressions": 1000,
+      "operandDigits": [
+        3,
+        4
+      ],
+      "fractionalRight": 0,
+      "integerAnswerCue": 0,
+      "choiceRows": 1000,
+      "positions": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "4-decimalMul": {
+      "questions": 1000,
+      "expressions": 935,
+      "operandDigits": [],
+      "fractionalRight": 0,
+      "integerAnswerCue": 0,
+      "choiceRows": 1000,
+      "positions": [
+        0,
+        1,
+        2,
+        3
+      ]
+    },
+    "5-decimalMul": {
+      "questions": 1000,
+      "expressions": 992,
+      "operandDigits": [],
+      "fractionalRight": 919,
+      "integerAnswerCue": 0,
+      "choiceRows": 1000,
+      "positions": [
+        0,
+        1,
+        2,
+        3
+      ]
+    }
+  },
+  "supply": {
+    "issued": 6400,
+    "rows": 64,
+    "below100": [
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "count",
+        "issued": "100",
+        "distinct_questions": "9",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "compare",
+        "issued": "100",
+        "distinct_questions": "99",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "join9",
+        "issued": "100",
+        "distinct_questions": "55",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "add9",
+        "issued": "100",
+        "distinct_questions": "55",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "sub9",
+        "issued": "100",
+        "distinct_questions": "55",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "add20",
+        "issued": "100",
+        "distinct_questions": "45",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "1",
+        "skill": "sub20",
+        "issued": "100",
+        "distinct_questions": "45",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "2",
+        "skill": "tables",
+        "issued": "100",
+        "distinct_questions": "99",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "2",
+        "skill": "fractionPart",
+        "issued": "100",
+        "distinct_questions": "2",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "3",
+        "skill": "fractionPart",
+        "issued": "100",
+        "distinct_questions": "39",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "3",
+        "skill": "divide",
+        "issued": "100",
+        "distinct_questions": "72",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "5",
+        "skill": "el_even_odd",
+        "issued": "100",
+        "distinct_questions": "20",
+        "adjacent_repeats": "0"
+      },
+      {
+        "curriculum": "jp-mext-primary-2017-v1",
+        "grade": "5",
+        "skill": "el_fraction_decimal",
+        "issued": "100",
+        "distinct_questions": "99",
+        "adjacent_repeats": "0"
+      }
+    ],
+    "adjacentRepeats": 0
+  },
+  "apkSha256": "73023addad19dbb4ab30dac1978460405a1e79490cfff7958ac236f21d035174",
+  "newApkInstalled": false,
+  "nativeNewRangesVerified": false,
+  "sources": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/CurriculumLimits.java",
+      "sha256": "cf53b7c635fb5fec106e3ac394a821c65acddc81b6960ed5e1594129a3c09c6e"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/Generator.java",
+      "sha256": "be0e87a52f480e1713117204592ec4e827c642563ae367b05ba177ba2cecaf67"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/Choices.java",
+      "sha256": "c54876f4e6b6ce75306f4fc35d9842578f6520f8fee6a721201742c977eb657d"
+    },
+    {
+      "path": "engine/src/main/resources/curricula/global.tsv",
+      "sha256": "f9dd211af4642be949c9b00cf4d065e314c99f3e03e839f61c26089e460d1303"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/JapanCurriculumTest.java",
+      "sha256": "c9f2a0736bbda936b53980c6f549b7c7071b40bc0a0710730abdbe048affac5d"
+    },
+    {
+      "path": "app/src/main/assets/i18n/en.tsv",
+      "sha256": "3ec9f8ba1a836aa648026743f7b8607ef32eabfc677687198742c813e8b96668"
+    }
+  ],
+  "remaining": [
+    "Native updated range and three guide steps",
+    "Written column arithmetic, billion/trillion place values, modelling and abacus",
+    "All other Japanese curriculum areas and secondary levels",
+    "Japanese language, physical devices, long-duration study, ads/purchase/release",
+    "Global country/system requirement mapping and supply shortages"
+  ],
+  "choiceFormReadback": {
+    "decimalChoiceRows": 2000,
+    "correctOnlyIntegerOrFractional": 0
+  },
+  "publicEngineTests": {
+    "tests": 435,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}
