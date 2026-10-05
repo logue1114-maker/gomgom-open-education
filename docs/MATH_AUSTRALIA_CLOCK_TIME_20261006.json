@@ -1,0 +1,89 @@
+{
+  "date": "2026-10-06",
+  "change": "Combined analog hour-minute readings and analog-to-digital matching",
+  "sourceCodes": [
+    "AC9M2M04",
+    "AC9M3M04"
+  ],
+  "commonSkillTypes": 471,
+  "australianSkillTypes": 74,
+  "australianGradePlacements": 117,
+  "selectedPrimaryComponentCodes": 49,
+  "officialPrimaryCodes": 139,
+  "tests": {
+    "engine": 478,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 478,
+  "independentSupply": {
+    "independentPublicHandGeometryChecks": 2200,
+    "groups": [
+      {
+        "group": "default",
+        "skill": "el_clock_time",
+        "issued": 200,
+        "distinctPublicTimes": 144,
+        "minuteValues": 12
+      },
+      {
+        "group": "default",
+        "skill": "el_clock_digital_match",
+        "issued": 200,
+        "distinctPublicTimes": 144,
+        "minuteValues": 12
+      },
+      {
+        "group": "au2",
+        "skill": "el_clock_time",
+        "issued": 200,
+        "distinctPublicTimes": 48,
+        "minuteValues": 4
+      },
+      {
+        "group": "au3",
+        "skill": "el_clock_time",
+        "issued": 800,
+        "distinctPublicTimes": 720,
+        "minuteValues": 60
+      },
+      {
+        "group": "au3",
+        "skill": "el_clock_digital_match",
+        "issued": 800,
+        "distinctPublicTimes": 720,
+        "minuteValues": 60
+      }
+    ],
+    "digitalChoicePositions": {
+      "3": 276,
+      "1": 240,
+      "0": 263,
+      "2": 221
+    },
+    "answerMetadataUsedToSolve": false
+  },
+  "nativeTypedChecks": 30,
+  "nativeChoiceChecks": 10,
+  "helpFrames": 2,
+  "helpTransfersMainAnswer": false,
+  "savedSessionsPreserved": true,
+  "wholeCurriculumComplete": false,
+  "limitations": [
+    "Year2 time domain has48 readings, not100 unique times; Year3 has720 readings per task type",
+    "Full-domain exhaustion requires full supplied engine history; app history is bounded",
+    "Only selected reading and matching elements; AM/PM,24-hour notation, digital-to-analog and contextual relationships remain",
+    "Native40 checks used three APK cohorts:25 before hand-layer/layout changes,5 after those changes,10 after placeholder fix",
+    "Normal1080x2400 emulator phone only; small phones, tablets, physical devices, TalkBack learning access, external review and student effectiveness remain",
+    "Global curricula, full localization, age/bear design, long sessions, advertising/purchase and release remain unfinished"
+  ],
+  "hostRenderingContract": {
+    "analogAnswerFields": [
+      "hours",
+      "minutes"
+    ],
+    "digitalChoices": "HH:MM",
+    "minuteHandDrawnBeforeHourHand": true,
+    "phoneHourMinuteFieldsSideBySide": true
+  }
+}

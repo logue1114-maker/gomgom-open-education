@@ -878,3 +878,9 @@ RULE	au-acara-v9-primary-v1	6	decimalAdd,decimalSub	decimalPlaces=3;nonnegative=
 RULE	au-acara-v9-primary-v1	0	count	wholeMaximum=20;maxGiven=20;maxResult=20;includeZeroCount=true
 RULE	au-acara-v9-primary-v1	0	compare	wholeMaximum=20;maxGiven=20
 RULE	au-acara-v9-primary-v1	0	join9,split9	wholeMaximum=10;maxGiven=10;maxResult=10
+
+MAP	au-acara-v9-primary-v1	2	el_clock_time	AC9M2M04; selected reading component
+MAP	au-acara-v9-primary-v1	3	el_clock_time	AC9M3M04; selected reading component
+MAP	au-acara-v9-primary-v1	3	el_clock_digital_match	AC9M3M04; selected analog/digital relationship
+RULE	au-acara-v9-primary-v1	2	el_clock_time,el_clock_digital_match	minuteStep=15
+RULE	au-acara-v9-primary-v1	3	el_clock_time,el_clock_digital_match	minuteStep=1

@@ -205,3 +205,7 @@ QA가 검색 입력과 목록 항목을 혼동하거나 화면 전환 전에 객
 태블릿 분자 필기 창의 잘못된 영어 번역을 발견해 분자/분모 쓰기·글씨 읽기·버튼 입력 네 문구를 고치고 실제 두 창에서 확인했습니다. 수정 관련69검사를 통과했습니다. 형식 팝업의 오래된 객체를 잡던 QA 조작도 실제 ListView 항목 선택으로 고쳤으며 실패 로그를 보존했습니다. 최종 cold 누적1697/보관6·27:59/55:09와 설치본 해시를 확인했습니다. 작은 폰 비정수 분수와 오답 숫자 보기 복원은 남습니다.
 
 현재 런타임에 노출되는 ISO 국가·지역249개 코드의 [작업 목록](COUNTRY_SYSTEM_BACKLOG_20261005.tsv)을 만들었습니다. 일부 배정이 있는7개 코드와 공식 배정이 등록되지 않은242개 코드를 구분합니다. 한국 두 개정판을 포함한 등록 체계는8행이며, 공식 기초 계산 성취기준 전체를 확인해 완료로 판정한 교육체계는0개입니다. 이는 국가별 완료율이나 모든 지역 교육체계 목록이 아닙니다. [수집 범위와 소스](WORLD_COVERAGE_INVENTORY_20261005.json).
+
+## 2026-10-06 — combined clock readings
+
+Added independent hour/minute entry and analog-to-digital HH:MM matching. Selected Australian Year2 uses quarter-hours; Year3 uses individual minutes. Added two concept-input frames without transferring the main answer. Common471 types; Australian74 types/117 placements,49 of139 primary codes partially represented. Engine478 and app67/globalApp67 checks passed. Public hand-geometry checks2,200; native typed30/choice10 and cold saved-session readback passed. Native checks span25 before hand-layer/layout changes,5 after those changes,10 after the final placeholder fix. UI fixes expose both hands at12:00, place phone fields side by side, and preserve grade labels for new saved clock rounds. Private UI/translation/device evidence is excluded. AM/PM,24-hour notation, digital-to-analog and contextual relationships remain; this is not full curriculum or release completion. See MATH_AUSTRALIA_CLOCK_TIME_20261006.json.

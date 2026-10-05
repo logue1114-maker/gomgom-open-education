@@ -6,8 +6,8 @@
   "officialF10ContentCodes": 240,
   "officialPrimaryContentCodes": 139,
   "selectedComponentCodes": 49,
-  "uniqueSkillTypes": 72,
-  "gradePlacements": 114,
+  "uniqueSkillTypes": 74,
+  "gradePlacements": 117,
   "stateSyllabusesMapped": false,
   "wholeCurriculumComplete": false,
   "codes": [
@@ -258,7 +258,8 @@
       "code": "AC9M2M04",
       "status": "selected calculation component",
       "skills": [
-        "el_clock_hour"
+        "el_clock_hour",
+        "el_clock_time"
       ]
     },
     {
@@ -381,7 +382,9 @@
       "status": "selected calculation component",
       "skills": [
         "el_clock_hour",
-        "el_clock_minute"
+        "el_clock_minute",
+        "el_clock_time",
+        "el_clock_digital_match"
       ]
     },
     {
@@ -878,7 +881,7 @@
     "Foundation counting0\u201320 includes an outlined empty collection, with numeral comparison0\u201320. Small dot cards1\u20135 offer brief recognition and optional repeated viewing; physical activities, contextual naming and ordering remain.",
     "Foundation part-part-whole values through10 and dot cards1\u20135 are covered as selected components; varied physical materials, verbal explanations and contextual use remain.",
     "Year1 numeric addition/subtraction relations through20 covered; contextual modelling and varied physical strategies remain",
-    "Year3 analog clock hour/minute components now use every minute; combined hour-minute readings, digital-clock tasks and contextual relationships remain",
+    "Year2 combined analog hours and quarter-hours; Year3 combined analog hours and individual minutes and analog-to-digital matching. AM/PM, 24-hour notation, digital-to-analog tasks and contextual time relationships remain.",
     "Year6 nine adjacent metric pairs cover both decimal conversion directions across mm/cm/m/km, mg/g/kg/t and mL/L/kL/ML. Cross-pair conversions, contexts and choosing suitable representations remain."
   ],
   "remaining": [
