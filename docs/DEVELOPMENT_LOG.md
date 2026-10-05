@@ -1,3 +1,11 @@
+## 2026-10-06 — Additional Year6 metric units
+
+Added mg/g, t/kg, kL/L and ML/kL decimal practice using the shared conversion and student-entered help frames. Three new common types bring the engine to468 types; the existing tonnes type is reused. The selected Australian primary mapping now has71 types and113 grade placements, still48 selected components from139 official primary codes. New unreviewed types are excluded from automatic Korean diagnosis. Earlier/default existing integer tasks remain.
+
+Independently checked4,200 public unit relations and choices:3,200 new-pair tasks and1,000 existing-pair regressions. Each new-pair sample contained800 distinct public tasks. Correct-answer positions and magnitude ranks were balanced in the sample; full domain exhaustion is not proven. Local605 and public engine471 tests passed. An initial decimal-option notation failure was fixed by using consistent decimal option notation, including integer values.
+
+Normal Android menu practice completed40 typed questions, then10 new questions after fixing ML/mL distinction text that had not appeared in the active help flow. A transition-time screenshot was replaced with a settled help capture. Final cold restart preserved the original saved-session labels and paused timers. Private UI/language assets, captures, learner/device records and APKs are excluded. Cross-pair/contextual tasks, full global curriculum coverage, broader devices, design, long sessions, advertising/purchase and release remain unfinished.
+
 ## 2026-10-06 — Australian Year6 decimal metric practice and normal-launch draft preservation
 
 Reused five existing unit-pair types for mm/cm, m/cm, km/m, kg/g and L/mL. The selected Year6 exercises use exact decimal quantities in both directions and two student-entered help frames: unit relation, then multiplication/division. Earlier grades and default integer generators remain unchanged. Fixed an initial integer-result decimal-format requirement. Public unit relations independently verified5,000 tasks:4,000 Australian and1,000 default, with800 distinct Australian tasks per pair. This is sampled practice, not a guarantee of complete domain exhaustion or the full metric curriculum.

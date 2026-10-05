@@ -1,0 +1,147 @@
+{
+  "date": "2026-10-06",
+  "change": "Four further Australian Year6 metric pairs: mg/g, t/kg, kL/L and ML/kL, with explicit case-sensitive ML/mL help",
+  "sourceCode": "AC9M6M01",
+  "commonSkillTypes": 468,
+  "australianSkillTypes": 71,
+  "australianGradePlacements": 113,
+  "tests": {
+    "engine": 471,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 471,
+  "independentSupply": {
+    "independentPublicUnitChecks": 4200,
+    "units": [
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_length_mm_cm",
+        "issued": 200,
+        "distinctPublicTasks": 200,
+        "targetUnits": [
+          "cm",
+          "mm"
+        ],
+        "decimalGivens": 162
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_length_m_cm",
+        "issued": 200,
+        "distinctPublicTasks": 200,
+        "targetUnits": [
+          "cm",
+          "m"
+        ],
+        "decimalGivens": 127
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_length_km_m",
+        "issued": 200,
+        "distinctPublicTasks": 200,
+        "targetUnits": [
+          "km",
+          "m"
+        ],
+        "decimalGivens": 91
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_mass_kg_g",
+        "issued": 200,
+        "distinctPublicTasks": 200,
+        "targetUnits": [
+          "g",
+          "kg"
+        ],
+        "decimalGivens": 102
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_capacity_l_ml",
+        "issued": 200,
+        "distinctPublicTasks": 200,
+        "targetUnits": [
+          "L",
+          "mL"
+        ],
+        "decimalGivens": 110
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_mass_g_mg",
+        "issued": 800,
+        "distinctPublicTasks": 800,
+        "targetUnits": [
+          "g",
+          "mg"
+        ],
+        "decimalGivens": 393
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_mass_t_kg",
+        "issued": 800,
+        "distinctPublicTasks": 800,
+        "targetUnits": [
+          "kg",
+          "t"
+        ],
+        "decimalGivens": 372
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_capacity_kl_l",
+        "issued": 800,
+        "distinctPublicTasks": 800,
+        "targetUnits": [
+          "L",
+          "kL"
+        ],
+        "decimalGivens": 384
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_capacity_ml_kl",
+        "issued": 800,
+        "distinctPublicTasks": 800,
+        "targetUnits": [
+          "ML",
+          "kL"
+        ],
+        "decimalGivens": 392
+      }
+    ],
+    "correctChoicePositions": {
+      "1": 1020,
+      "2": 1046,
+      "0": 1015,
+      "3": 1119
+    },
+    "australianAnswerMagnitudeRanks": {
+      "1": 1066,
+      "0": 1061,
+      "3": 1016,
+      "2": 1057
+    },
+    "fullDomainExhaustionProven": false
+  },
+  "nativeTypedChecks": 50,
+  "nativeBeforeHelpCopy": 40,
+  "nativeAfterHelpCopy": 10,
+  "savedSessionsPreserved": true,
+  "pausedTimersPreserved": true,
+  "caseSensitiveUnitHelpVisible": true,
+  "wholeCurriculumComplete": false,
+  "limitations": [
+    "Nine adjacent pairs only; cross-pair conversions, contexts and suitable representation choices remain",
+    "Positive quantities through20 in the larger unit, up to three decimal places, are a practice range, not an official maximum",
+    "Supply checks precede the help-text-only change; numerical generation is unchanged",
+    "First40 native questions precede the help-text correction; final10 and cold readback use the final APK",
+    "Initial help capture was during dialog transition and omitted the case distinction; final help wait and instruction were corrected",
+    "New common skills are not automatically part of unreviewed Korean diagnosis",
+    "Small phones, tablets, physical devices, external review, full global curricula, localization, design, long sessions, ads/purchase and release remain unfinished"
+  ]
+}

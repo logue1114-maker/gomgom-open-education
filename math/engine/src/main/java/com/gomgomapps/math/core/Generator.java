@@ -60,7 +60,7 @@ public final class Generator {
         return create(s,CurriculumLimits.NONE);
     }
     private Question create(Catalog.Skill s,CurriculumLimits limits){
-        if(limits.metricDecimals()>0&&MetricConversions.supports(s.id))return MetricConversions.create(s,random,limits);
+        if(MetricConversions.added(s.id)||limits.metricDecimals()>0&&MetricConversions.supports(s.id))return MetricConversions.create(s,random,limits);
         if(limits.variedFacts()&&Set.of("tables","divide").contains(s.id))return FactFoundations.create(s,random,limits);
         if(LargePlaceFoundations.supports(s.id))return LargePlaceFoundations.create(s,random);
         if(MassDensity.supports(s.id))return MassDensity.create(s,random);

@@ -149,6 +149,7 @@ public final class Catalog {
         ALL.addAll(NumberExtensions.SKILLS);
         ALL.addAll(StrandFoundations.SKILLS);
         ALL.addAll(MeasurementFoundations.SKILLS);
+        ALL.addAll(MetricConversions.SKILLS);
         ALL.addAll(SurfaceGeometry.SKILLS);
         ALL.addAll(AdvancedBasics.skills());
         ALL.addAll(SecondaryBasics.skills());

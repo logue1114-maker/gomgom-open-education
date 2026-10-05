@@ -6,8 +6,8 @@
   "officialF10ContentCodes": 240,
   "officialPrimaryContentCodes": 139,
   "selectedComponentCodes": 48,
-  "uniqueSkillTypes": 67,
-  "gradePlacements": 109,
+  "uniqueSkillTypes": 71,
+  "gradePlacements": 113,
   "stateSyllabusesMapped": false,
   "wholeCurriculumComplete": false,
   "codes": [
@@ -806,7 +806,11 @@
         "el_length_m_cm",
         "el_length_km_m",
         "el_mass_kg_g",
-        "el_capacity_l_ml"
+        "el_capacity_l_ml",
+        "el_mass_g_mg",
+        "el_mass_t_kg",
+        "el_capacity_kl_l",
+        "el_capacity_ml_kl"
       ]
     },
     {
@@ -869,15 +873,15 @@
     }
   ],
   "knownPartialRanges": [
-    "Foundation counting tasks1–20 and comparison0–20; subitising and empty-collection counting remain",
+    "Foundation counting tasks1\u201320 and comparison0\u201320; subitising and empty-collection counting remain",
     "Foundation part-part-whole values through10; subitising recognition remains",
     "Year1 numeric addition/subtraction relations through20 covered; contextual modelling and varied physical strategies remain",
     "Year3 analog clock hour/minute components now use every minute; combined hour-minute readings, digital-clock tasks and contextual relationships remain",
-    "Year6 selected mm/cm, m/cm, km/m, kg/g and L/mL decimal conversions covered in both directions; other common metric units, contexts and choosing suitable representations remain"
+    "Year6 nine adjacent metric pairs cover both decimal conversion directions across mm/cm/m/km, mg/g/kg/t and mL/L/kL/ML. Cross-pair conversions, contexts and choosing suitable representations remain."
   ],
   "remaining": [
     "state-specific curricula",
-    "Years7–12",
+    "Years7\u201312",
     "mathematical modelling, algorithms, money contexts",
     "unmapped space, measurement, statistics, probability and algebra concepts"
   ]

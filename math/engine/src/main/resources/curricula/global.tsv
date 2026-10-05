@@ -842,6 +842,10 @@ MAP	au-acara-v9-primary-v1	6	el_length_m_cm	AC9M6M01; selected calculation compo
 MAP	au-acara-v9-primary-v1	6	el_length_km_m	AC9M6M01; selected calculation component
 MAP	au-acara-v9-primary-v1	6	el_mass_kg_g	AC9M6M01; selected calculation component
 MAP	au-acara-v9-primary-v1	6	el_capacity_l_ml	AC9M6M01; selected calculation component
+MAP	au-acara-v9-primary-v1	6	el_mass_g_mg	AC9M6M01; selected calculation component
+MAP	au-acara-v9-primary-v1	6	el_mass_t_kg	AC9M6M01; selected calculation component
+MAP	au-acara-v9-primary-v1	6	el_capacity_kl_l	AC9M6M01; selected calculation component
+MAP	au-acara-v9-primary-v1	6	el_capacity_ml_kl	AC9M6M01; selected calculation component
 MAP	au-acara-v9-primary-v1	6	el_time_add	AC9M6M03; selected calculation component
 MAP	au-acara-v9-primary-v1	6	el_time_difference	AC9M6M03; selected calculation component
 RULE	au-acara-v9-primary-v1	1	place1000	wholeMaximum=120
@@ -861,6 +865,8 @@ RULE	au-acara-v9-primary-v1	2	el_clock_hour	minuteStep=5
 RULE	au-acara-v9-primary-v1	3	el_clock_hour,el_clock_minute	minuteStep=1
 RULE	au-acara-v9-primary-v1	6	el_length_mm_cm,el_length_m_cm,el_length_km_m,el_mass_kg_g,el_capacity_l_ml	metricDecimals=3
 RULE	au-acara-v9-primary-v1	5	el_length_mm_cm,el_length_m_cm,el_length_km_m,el_mass_kg_g,el_capacity_l_ml	metricDecimals=0
+RULE	au-acara-v9-primary-v1	5	el_mass_g_mg,el_mass_t_kg,el_capacity_kl_l,el_capacity_ml_kl	metricDecimals=0
+RULE	au-acara-v9-primary-v1	6	el_mass_g_mg,el_mass_t_kg,el_capacity_kl_l,el_capacity_ml_kl	metricDecimals=3
 RULE	au-acara-v9-primary-v1	4	tables	timesTableMax=10;variedFacts=true
 RULE	au-acara-v9-primary-v1	4	divide	timesTableMax=10;variedFacts=true
 RULE	au-acara-v9-primary-v1	4	el_decimal_place,el_decimal_compare,el_decimal_fraction,el_fraction_decimal	decimalPlaces=2
