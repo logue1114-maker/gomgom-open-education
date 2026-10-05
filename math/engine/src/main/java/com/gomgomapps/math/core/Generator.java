@@ -56,6 +56,7 @@ public final class Generator {
         return create(s,CurriculumLimits.NONE);
     }
     private Question create(Catalog.Skill s,CurriculumLimits limits){
+        if(LargePlaceFoundations.supports(s.id))return LargePlaceFoundations.create(s,random);
         if(MassDensity.supports(s.id))return MassDensity.create(s,random);
         if(MotionFoundations.supports(s.id))return MotionFoundations.create(s,random);
         if(MoneyFoundations.supports(s.id))return MoneyFoundations.create(s,random);

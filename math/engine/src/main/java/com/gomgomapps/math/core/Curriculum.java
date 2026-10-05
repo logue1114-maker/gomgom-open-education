@@ -24,7 +24,7 @@ public final class Curriculum {
     public static boolean inCurriculum(Catalog.Skill skill,int version){
         // Common recommended grades are not a reviewed Korean placement.
         // Keep these Kenya additions available for explicitly chosen practice.
-        if(MassDensity.supports(skill.id)||MotionFoundations.supports(skill.id)||MoneyFoundations.supports(skill.id)||ErrorFoundations.supports(skill.id)||GradientFoundations.supports(skill.id))return false;
+        if(LargePlaceFoundations.supports(skill.id)||MassDensity.supports(skill.id)||MotionFoundations.supports(skill.id)||MoneyFoundations.supports(skill.id)||ErrorFoundations.supports(skill.id)||GradientFoundations.supports(skill.id))return false;
         if(version==2015)return !(skill.id.startsWith("sec_matrix_")||Set.of("vectorPlane","vectorLine","sampleProportion","boxplotRead","boxplotCompare").contains(skill.id));
         return !Set.of("circularPermutation","spaceExternalSection").contains(skill.id);
     }

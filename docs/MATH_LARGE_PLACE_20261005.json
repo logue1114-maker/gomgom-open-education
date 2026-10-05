@@ -1,0 +1,175 @@
+{
+  "sourceUrl": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
+  "sourcePage": 365,
+  "sourceScope": "Appendix3 Grade4 A(1): hundred-million and trillion units and decimal place notation; full application/comparison not claimed",
+  "commonTypes": 464,
+  "japanTypes": 57,
+  "japanPlacements": 65,
+  "independentQuestions": 1000,
+  "distinctPrompts": 1000,
+  "modes": {
+    "digit": 320,
+    "compose": 334,
+    "value": 346
+  },
+  "answerPositions": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "zeroAnswers": 46,
+  "guideExpectedChecked": true,
+  "guideAutomaticTransfer": false,
+  "unitTests": {
+    "engine": {
+      "tests": 437,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "newSkillSupply": [
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "4",
+      "skill": "largePlaceTrillion",
+      "issued": "100",
+      "distinct_questions": "100",
+      "adjacent_repeats": "0"
+    }
+  ],
+  "japanSupplyRows": 65,
+  "supplyBelow100": [
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "count",
+      "issued": "100",
+      "distinct_questions": "9",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "compare",
+      "issued": "100",
+      "distinct_questions": "99",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "join9",
+      "issued": "100",
+      "distinct_questions": "55",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "add9",
+      "issued": "100",
+      "distinct_questions": "55",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "sub9",
+      "issued": "100",
+      "distinct_questions": "55",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "add20",
+      "issued": "100",
+      "distinct_questions": "45",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "sub20",
+      "issued": "100",
+      "distinct_questions": "45",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "2",
+      "skill": "tables",
+      "issued": "100",
+      "distinct_questions": "99",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "2",
+      "skill": "fractionPart",
+      "issued": "100",
+      "distinct_questions": "2",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "3",
+      "skill": "fractionPart",
+      "issued": "100",
+      "distinct_questions": "39",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "3",
+      "skill": "divide",
+      "issued": "100",
+      "distinct_questions": "72",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "5",
+      "skill": "el_even_odd",
+      "issued": "100",
+      "distinct_questions": "20",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "5",
+      "skill": "el_fraction_decimal",
+      "issued": "100",
+      "distinct_questions": "98",
+      "adjacent_repeats": "0"
+    }
+  ],
+  "apkSha256": "781801ca7f822519b2713890ce65aba7badb22e29554c1f7795fb4ec3e93c464",
+  "installed": false,
+  "nativeNewSkillVerified": false,
+  "remaining": [
+    "Native menu/input, small-phone long integer rendering and language review remain.",
+    "Real-life comparison/modelling, written algorithms, abacus, other areas and secondary curriculum remain.",
+    "Global curriculum, unique problem shortages, physical devices, long duration and release remain."
+  ],
+  "publicEngineTests": {
+    "tests": 437,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}

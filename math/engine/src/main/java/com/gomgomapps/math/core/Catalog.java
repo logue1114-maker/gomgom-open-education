@@ -50,6 +50,7 @@ public final class Catalog {
         add("remainder","몫과 나머지",3,2,2,"remainder",99,"divide,mul2,sub100","나누어지는 수 = 나누는 수 × 몫 + 나머지이며 나머지는 나누는 수보다 작다.");
         add("fracCompare","분수의 크기 비교",3,2,4,"fracCompare",9,"fractionPart","분모가 같으면 분자가 큰 분수가 더 크다.");
         add("largePlace","큰 수의 자릿값",4,1,1,"place",99999,"place1000","각 자리의 수는 왼쪽으로 한 칸 갈 때마다 10배가 된다.");
+        add("largePlaceTrillion","억·조의 자릿값",4,1,1,"largePlaceExact",9,"largePlace","억과 조 단위에서 자리 숫자와 자릿값을 구분한다.");
         add("mul22","두 자리 수끼리의 곱",4,1,3,"mul22",99,"mul2,add1000","곱하는 수의 각 자리로 나누어 곱하고 자릿값을 맞추어 더한다.");
         add("divide2","두 자리 수로 나누기",4,1,3,"div2",99,"remainder,mul22,sub1000","몫을 곱해 원래 수와 비교하고 남은 수를 확인한다.");
         add("fracAddLike","분모가 같은 분수의 덧셈",4,2,1,"fracAddLike",9,"fractionPart,add20","분모를 유지하고 분자끼리 더한다.");

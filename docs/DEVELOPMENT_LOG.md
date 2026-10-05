@@ -1,5 +1,14 @@
 # 제작 기록
 
+## 2026-10-05 — Japanese Grade 4 hundred-million and trillion places
+
+Added exact large-integer place reading, digit value, and composing grouped hundred-millions/trillions, with guided input and no automatic answer transfer. The official basis is MEXT2017 Appendix3 Grade4 A(1), PDF365; this is selected numeric practice, not completion of real-life comparison/modelling. The legacy int-based place domains stay unchanged. The new type is explicitly mapped to Japan Grade4 and excluded from unreviewed Korean automatic diagnosis. A regression exposed that placement leak before the final correction; all 571 local checks then passed (437 engine / 67 app / 67 global app).
+
+Independently parsed public prompts from 1,000 generated questions using Python integer arithmetic; all answers, four unique choices, correct positions and guide expected values matched. All three modes and four answer positions occurred, and the 1,000 prompts were distinct. The new 100-question registered supply sample was 100 distinct with zero adjacent repeat; existing low-supply rows remain listed. Common types are now 464, Japan selected types 57 / placements 65. [Scope and evidence](MATH_LARGE_PLACE_20261005.json), [supply](JAPAN_PRIMARY_SUPPLY_LARGE_PLACE_20261005.tsv).
+
+English exact-number prompt handling and guide labels were added locally. The new APK is built and frozen, but not yet installed: native menu/input, long-integer phone rendering, Japanese learner-facing language, full written algorithms/modelling/abacus, other curriculum areas and global completion remain. Previously verified installed history is 1,757 records / seven sessions; that runtime evidence belongs to the previous APK. Device/learner artifacts and Android UI code remain outside this public engine repository.
+
+
 ## 2026-10-05 — Phone and tablet arithmetic input follow-up
 
 Used normal topic controls to open a fresh Grade 4 decimal-by-integer practice. The same visible 2.87 × 4 problem and unsubmitted guide draft 287 survived cold transitions between small phone (1080×1920/480 dpi), tablet (1600×2560/240 dpi), and normal phone (1080×2400/420 dpi). Phones expose formula working; the tablet exposes a notebook. A real touch stroke was drawn and observed again after cold reopening. This does not verify recognition accuracy.
