@@ -1,5 +1,16 @@
 # 제작 기록
 
+## 2026-10-05 — Native large-place input and small-phone layout correction
+
+Installed the large-place build without resetting learner data. Normal Japan Grade4 topic controls opened typed practice; all three public problem forms appeared across 20 actual questions (10 intermediate UI build and 10 final compact build). Independently checked actual public XML, typed values (up to 16 digits) and following progress with Python integers. Both actual composition guide steps matched the public coefficients; wrong-input marking, cold drafts and no automatic answer transfer were checked.
+
+Actual small-phone captures exposed a clipped first problem line. Reducing the first layout alone did not fix it; the final layout also moves secondary actions into the existing study menu. The full representative problem, answer field and buttons are visible after the second correction. Large-place help uses a stacked full-width input and integer-only keys. Local app/global unit suites each passed 67 checks. Screens and hashes remain private; this is local inspection, not external visual review.
+
+Cold readback is 1,777 learning records / seven saved sessions, every prior saved problem/progress label preserved, timers 27:59 / 55:09. Final installed APK hash matches the frozen compact candidate; the normal phone viewport is restored. [Scope, versions and remaining checks](MATH_LARGE_PLACE_20261005.json).
+
+A capture taken immediately after setText retained the preceding 123 draft, while the fresh entered XML and following progress proved the full integer input. Full-length answer rendering therefore remains a visual check; the old frame is not presented as proof. Typed controls, representative small-phone problem and composition help are covered; new-type choice controls, tablet, Japanese learner-facing language, physical-device/long-duration checks and the global product remain incomplete. Engine code is unchanged in this documentation follow-up.
+
+
 ## 2026-10-05 — Japanese Grade 4 hundred-million and trillion places
 
 Added exact large-integer place reading, digit value, and composing grouped hundred-millions/trillions, with guided input and no automatic answer transfer. The official basis is MEXT2017 Appendix3 Grade4 A(1), PDF365; this is selected numeric practice, not completion of real-life comparison/modelling. The legacy int-based place domains stay unchanged. The new type is explicitly mapped to Japan Grade4 and excluded from unreviewed Korean automatic diagnosis. A regression exposed that placement leak before the final correction; all 571 local checks then passed (437 engine / 67 app / 67 global app).

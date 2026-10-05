@@ -159,8 +159,6 @@
     }
   ],
   "apkSha256": "781801ca7f822519b2713890ce65aba7badb22e29554c1f7795fb4ec3e93c464",
-  "installed": false,
-  "nativeNewSkillVerified": false,
   "remaining": [
     "Native menu/input, small-phone long integer rendering and language review remain.",
     "Real-life comparison/modelling, written algorithms, abacus, other areas and secondary curriculum remain.",
@@ -171,5 +169,71 @@
     "failures": 0,
     "errors": 0,
     "skipped": 0
+  },
+  "installedAtBuild": false,
+  "nativeNewSkillVerifiedAtBuild": false,
+  "nativeFollowup": {
+    "actualQuestions": 20,
+    "groups": {
+      "intermediate-complete": {
+        "actualQuestions": 10,
+        "modes": {
+          "compose": 2,
+          "value": 6,
+          "digit": 2
+        },
+        "maxEnteredDigits": 16
+      },
+      "compact-final": {
+        "actualQuestions": 10,
+        "modes": {
+          "compose": 4,
+          "digit": 1,
+          "value": 5
+        },
+        "maxEnteredDigits": 16
+      }
+    },
+    "independentSolver": "Python integer from actual public XML, entered field and subsequent screen",
+    "initialApkAnsweredQuestions": 0,
+    "intermediateUiFixQuestions": 10,
+    "finalCompactApkQuestions": 10,
+    "coldHistory": 1777,
+    "savedSessions": 7,
+    "allSevenSavedLabelsPreserved": true,
+    "timers": [
+      "27:59",
+      "55:09"
+    ],
+    "guideWrongMarked": true,
+    "draftColdRestored": true,
+    "mainDraftPreservedAfterHelp": true,
+    "automaticAnswerTransfer": false,
+    "smallPhoneRepresentativeAllProblemGivensVisibleAfterSecondFix": true,
+    "wideStackedGuideInput": true,
+    "smallPhoneViewport": [
+      1080,
+      1920,
+      480
+    ],
+    "finalNormalViewportRestored": [
+      1080,
+      2400,
+      420
+    ],
+    "apkSha256": "9061620723d0d5e74fbeb82113eb578300555be2914a0ccdaea49db399922ec6",
+    "installedBaseMatches": true,
+    "appTests": 67,
+    "globalAppTests": 67,
+    "engineCodeChanged": false,
+    "stateInjection": false,
+    "externalVisualReview": false,
+    "remaining": [
+      "Screenshot immediately after setText retained the previous 123 draft while actual entered XML and following progress matched the full integer. Full-length answer screenshot rendering still needs settled-frame capture.",
+      "Actual selected range is typed answers only; choice controls and Japanese learner-facing language remain unverified.",
+      "Tablet new type, physical devices, long-duration study, full curriculum and release remain incomplete.",
+      "Small-phone column input, untranslated column selector and noninteger gradient residuals remain."
+    ],
+    "twoActualComposeGuideInputsIndependentlyChecked": true
   }
 }
