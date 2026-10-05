@@ -1,3 +1,9 @@
+## 2026-10-06 — Mean, median and triangle angle stages
+
+Added learner-entered sum, count and division for means; ordered values and the middle value for medians; and sum/subtraction for triangle angles. Guides use public givens, mark wrong stages and do not fill main answers. Question generation and curriculum mappings remain unchanged.
+
+Local 657 and public engine 515 tests passed. Independently solved 2,500 public questions and 9,250 stages, including existing numerical limits in six selected countries and 20 type/grade placements. This is not a fresh official-curriculum audit. Native menus completed 30 questions and 11 help stages. Joined English data prompts and awkward ordinal labels were then corrected; 20 fresh mean/median questions and nine help stages checked the updated display. Total 50 questions and 20 stages used actual keypad input. Essential fraction entry for higher-grade practice in early-primary profiles and cold-restart preservation of prior saved sessions were verified. Completed rounds were not replayed. UI, localization, QA and device/learner originals are excluded. Whole curricula, devices, design, long study, advertising, purchase and release remain unfinished.
+
 ## 2026-10-06 — Ratio and value scaffolds; essential fraction input
 
 Added student-entered percentage rates, proportion scale factors, substitution and function value steps. Proportions use visible terms rather than an internal expression containing the answer. Wrong stages are marked without filling the main answer. Existing number generation and curriculum mappings remain unchanged.

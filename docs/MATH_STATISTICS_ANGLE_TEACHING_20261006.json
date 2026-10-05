@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-06",
+  "types": [
+    "mean",
+    "median",
+    "angles"
+  ],
+  "newQuestionTypes": 0,
+  "localUnitTests": 657,
+  "publicEngineUnitTests": 515,
+  "independentPublicQuestions": 2500,
+  "independentEnteredSteps": 9250,
+  "selectedCountryCodes": [
+    "AU",
+    "GH",
+    "KE",
+    "RW",
+    "US",
+    "ZA"
+  ],
+  "selectedTypeGradePlacements": 20,
+  "normalAndroidQuestions": 50,
+  "androidHelpStepsIndependentlyChecked": 20,
+  "actualAppKeypadTaps": true,
+  "mainAnswerTransfers": false,
+  "coldRestartPreservedPriorSavedSessions": true,
+  "privateDataExcluded": true,
+  "freshOfficialCurriculumAudit": false,
+  "wholeCurriculumComplete": false,
+  "externalVisualReviewComplete": false,
+  "physicalDeviceVerified": false,
+  "releaseComplete": false,
+  "notes": [
+    "Mean checks the sum, number of values and exact division",
+    "Median checks five ordered values and their middle value without rendering sorted answers",
+    "Triangle angles check the sum of given angles then subtract from 180 degrees",
+    "Initial30 native tasks checked calculation; after fixing joined English data prompts and ordinal labels,20 fresh tasks checked the corrected display",
+    "Private UI exposes available fraction entry for questions at grade4 or above in an early-primary profile",
+    "Private UI, translations, QA, APKs, device and learner originals excluded"
+  ],
+  "remaining": [
+    "Other entered-step support and varied supply",
+    "Global/state/senior curricula and unmapped components",
+    "Broader localization, typography, bear design and early-primary controls",
+    "Physical/student/accessibility and long-study checks",
+    "Advertising, purchase and release"
+  ]
+}
