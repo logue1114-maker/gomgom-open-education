@@ -1,0 +1,31 @@
+{
+  "scope": "Editorial Portuguese controls and selected Brazil primary calculation titles",
+  "bundledSetupLanguages": [
+    "en",
+    "ko",
+    "fr",
+    "es",
+    "pt",
+    "sw",
+    "ar",
+    "ja"
+  ],
+  "nativeSetupLanguageVerified": "pt",
+  "brazilTitlesWithEditorialPortuguese": 21,
+  "gradePlacementsCoveredByTitleCheck": 27,
+  "localTests": {
+    "engine": 548,
+    "app": 82,
+    "globalApp": 82
+  },
+  "engineTestsReusedFromUnchangedSource": true,
+  "newKeyboardProblems": 10,
+  "wrongAnswersCorrected": 1,
+  "existingSavedSessionsPreserved": true,
+  "PortugueseNativeScope": "normal country/language controls, Brazil 3\u00ba ano, selected addition practice, static concept explanation, error/correction, cold restart and return to Australia English",
+  "PortugueseWholeAppVerified": false,
+  "threeFourDigitInteractiveAdditionSubtractionHelp": "still missing; next implementation",
+  "newCurriculumMappings": 0,
+  "wholeCurriculumComplete": false,
+  "releaseReady": false
+}
