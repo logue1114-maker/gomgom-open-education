@@ -1,5 +1,5 @@
 {
-  "status": "registered-built-selected-supply-and-independent-arithmetic-passed-native-pending",
+  "status": "selected-native-core-verified-layout-and-additional-restoration-pending",
   "tests": {
     "engine": {
       "tests": 432,
@@ -61,7 +61,7 @@
   ],
   "answersAndAllGuideStepsMatched": true,
   "apkSha256": "0ea42e4162f9b2368c503a32db7f8cd308509c0863af5e77db992a903399ae3f",
-  "deviceVerified": false,
+  "deviceVerified": true,
   "date": "2026-10-05",
   "types": [
     "parallelPerpendicularGradient",
@@ -71,6 +71,60 @@
   "kenyaTypes": 235,
   "kenyaPlacements": 359,
   "kenyaGrade9Placements": 63,
-  "nativeCompleted": 0,
-  "scope": "Finite nonzero first gradient, distinct intercepts; no vertical-line or full plotting implementation. Existing coefficient-based sec_line_relation is preserved."
+  "nativeCompleted": 40,
+  "scope": "Finite nonzero first gradient, distinct intercepts; no vertical-line or full plotting implementation. Existing coefficient-based sec_line_relation is preserved.",
+  "nativeGroups": {
+    "gradient-choice": 10,
+    "gradient-typed": 10,
+    "relation-choice": 10,
+    "relation-typed": 10
+  },
+  "nativeGuideEvidence": [
+    {
+      "kind": "gradient",
+      "format": "typed",
+      "stepsVerified": 3,
+      "wrongRejected": true,
+      "sameProblemColdRestored": true,
+      "draftColdRestored": true,
+      "automaticAnswerTransfer": false
+    },
+    {
+      "kind": "relation",
+      "format": "typed",
+      "stepsVerified": 2,
+      "wrongRejected": true,
+      "sameProblemColdRestored": true,
+      "draftColdRestored": true,
+      "automaticAnswerTransfer": false
+    }
+  ],
+  "nativeGradientGoals": [
+    "parallel",
+    "perpendicular"
+  ],
+  "nativeRelationResults": [
+    -1,
+    0,
+    1
+  ],
+  "installedBaseMatches": true,
+  "finalReadback": {
+    "learningHistory": 1677,
+    "savedSessions": 6,
+    "remainingTimers": [
+      "27:59",
+      "55:09"
+    ],
+    "coldReadback": true,
+    "stateInjection": false
+  },
+  "layoutScope": "normal phone1080x2400/420dpi only in this core pass",
+  "baselineEvidenceScope": "Before-install home XML and distinct passing before/after instrumentation logs; same-name baseline device captures were overwritten by the after-install readback. Do not treat after-install XML as a separately frozen before-install capture.",
+  "pending": [
+    "representative small phone and tablet",
+    "parallel-only guide actual input",
+    "main draft and choice-wrong cold restoration",
+    "full world curriculum gaps and other product requirements"
+  ]
 }
