@@ -140,7 +140,6 @@
     "distinctDefinition": "Question.signature; does not imply 100 pedagogically distinct concepts"
   },
   "apkSha256": "7dc7485e5c2ed86fb31b10f4c26c3388318bbdcefac60206012a53454daad0c4",
-  "nativeJapanFlowVerified": false,
   "completeCurriculum": false,
   "remaining": [
     "Other Numbers/Calculation requirements and official per-requirement reconciliation",
@@ -163,5 +162,39 @@
       "path": "engine/src/test/java/com/gomgomapps/math/core/JapanCurriculumTest.java",
       "sha256": "02aa9597b4b3675767bd6d177766a352ab42896a9f9020804fb6753b0f80a818"
     }
-  ]
+  ],
+  "nativeJapanFlowVerifiedAtBuild": false,
+  "nativeSelectedGradeFollowup": {
+    "actualQuestions": 10,
+    "grade": 3,
+    "country": "JP",
+    "pack": "jp-mext-primary-2017-v1",
+    "language": "en",
+    "solver": "Independent Python Fraction from public question XML; actual EditText and next-screen readback",
+    "tenthsOperandsVerified": true,
+    "assessmentStartedButNotCompleted": true,
+    "stateInjection": false,
+    "allGradesVerified": false,
+    "japaneseLanguageVerified": false,
+    "actualCountryCurriculumGradeControlsVerified": true,
+    "coldCountryGradeRestored": true,
+    "finalHistory": 1717,
+    "previousSavedSessionsPreserved": 6,
+    "currentSavedSessions": 7,
+    "newSavedAssessmentUnanswered": true,
+    "remainingMinutesSeconds": [
+      "27:59",
+      "55:09"
+    ],
+    "installedBaseMatches": true,
+    "apkSha256": "7dc7485e5c2ed86fb31b10f4c26c3388318bbdcefac60206012a53454daad0c4",
+    "emulatorRestartedAfterProcessEnded": true,
+    "scopeLimits": [
+      "Only Grade3 decimal addition actual input is verified in this packet.",
+      "Initial assessment was opened and saved, not completed.",
+      "Country Japan with English language; Japanese language remains unverified.",
+      "Emulator evidence, not physical device or long-duration study.",
+      "Whole Japanese curriculum and global product remain incomplete."
+    ]
+  }
 }
