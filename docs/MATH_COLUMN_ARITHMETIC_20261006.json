@@ -1,0 +1,31 @@
+{
+  "scope": "Student-entered place-value calculation for natural addition/subtraction with at least one three-digit operand",
+  "types": [
+    "add1000",
+    "sub1000"
+  ],
+  "maximumOperandDigits": 6,
+  "usesPublicPromptOnly": true,
+  "automaticMainAnswerTransfer": false,
+  "existingStudyGuidesPreserved": true,
+  "legacyQuestionsCanGainHelpOnNormalOpen": true,
+  "localUnitTests": {
+    "engine": 551,
+    "app": 83,
+    "globalApp": 83
+  },
+  "nativeVerification": {
+    "normalKeyboardFlowPassed": true,
+    "wrongStepCorrectionCases": 2,
+    "newMainAnswers": 2,
+    "enteredHelpSteps": 31,
+    "coldRestartPassed": true,
+    "originalSessionsPreserved": true,
+    "language": "English",
+    "PortugueseNewHelpVerified": false
+  },
+  "newCurriculumMappings": 0,
+  "wholeCurriculumComplete": false,
+  "releaseReady": false,
+  "publicEngineTests": 551
+}

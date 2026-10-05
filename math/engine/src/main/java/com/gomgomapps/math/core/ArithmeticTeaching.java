@@ -4,6 +4,7 @@ import java.util.regex.*;
 final class ArithmeticTeaching {
  private ArithmeticTeaching(){}
  static void attach(Question q){
+  ColumnArithmeticTeaching.attach(q);
   if(q.skillId.equals("reduce")){
    Matcher fraction=Pattern.compile("^(\\d+)/(\\d+)").matcher(q.prompt);if(!fraction.find())return;
    int numerator=Integer.parseInt(fraction.group(1)),denominator=Integer.parseInt(fraction.group(2)),common=gcd(numerator,denominator);
