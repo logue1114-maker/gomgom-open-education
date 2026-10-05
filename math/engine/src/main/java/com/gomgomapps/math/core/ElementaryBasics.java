@@ -153,8 +153,8 @@ public final class ElementaryBasics {
             case "el_range_at_most": return range(skill,random,1);
             case "el_range_over": return range(skill,random,2);
             case "el_range_under": return range(skill,random,3);
-            case "el_clock_hour": return clock(skill,random,true);
-            case "el_clock_minute": return clock(skill,random,false);
+            case "el_clock_hour": return clock(skill,random,true,limits);
+            case "el_clock_minute": return clock(skill,random,false,limits);
             case "el_hours_to_minutes": return hoursToMinutes(skill,random);
             case "el_minutes_to_hours": return minutesToHours(skill,random);
             case "el_time_add": return timeAdd(skill,random);
@@ -456,15 +456,17 @@ public final class ElementaryBasics {
                 guide(step("기준 수를 포함하는지 확인합니다.",wording+" = ","",expression)),null);
     }
 
-    private static Question clock(Catalog.Skill skill,Random random,boolean hourQuestion){
-        int hour=n(random,1,12),minute=n(random,0,11)*5;
+    private static Question clock(Catalog.Skill skill,Random random,boolean hourQuestion,CurriculumLimits limits){
+        int hour=n(random,1,12),minute=n(random,0,60/limits.minuteStep()-1)*limits.minuteStep();
         int answer=hourQuestion?hour:minute;
         Question question=number(skill,"시계를 보고 "+(hourQuestion?"몇 시인지":"몇 분인지")+" 읽으세요.","",Rational.of(answer),
-                guide(step(hourQuestion?"짧은바늘이 가리키는 시를 읽습니다.":"긴바늘이 가리키는 분을 읽습니다.",
+                guide(step(hourQuestion?"짧은바늘이 가리키는 시를 읽습니다.":limits.minuteStep()==1?"작은 눈금 한 칸은 1분입니다. 긴바늘까지 눈금을 세세요.":"긴바늘이 가리키는 분을 읽습니다.",
                         "시각에서 읽은 값 = ","",w(answer)+"+0")),
                 diagram("clock",new double[]{hour,minute},"시침","분침"));
         question.expression="";
         question.stepSupport=false;
+        question.withInputs(limits.minuteStep());
+        if(limits.minuteStep()==1)question.studyGuide.transfer(false);
         return question;
     }
 

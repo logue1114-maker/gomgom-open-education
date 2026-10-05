@@ -30,6 +30,7 @@ final class FoundationChoices {
             if(skill.id.equals("earlyClassify")&&value.compareTo(Rational.of(q.diagram.values.length))>0)continue;
             if(skill.id.equals("earlyStacks")&&value.compareTo(Rational.of(9))>0)continue;
             if(skill.id.equals("el_clock_minute")&&(value.compareTo(Rational.ZERO)<0||value.compareTo(Rational.of(59))>0))continue;
+            if(skill.id.equals("el_clock_minute")&&q.choiceInputs.length==1&&q.choiceInputs[0].equals(Rational.ONE)&&value.toString().length()!=answer.toString().length())continue;
             pool.put(value,probability?"기준이 되는 전체와 해당 경우의 수 확인":spread?"평균·편차 제곱·자료 개수 확인":"식과 계산 순서 확인");
         }
         if(pool.size()<3)return;

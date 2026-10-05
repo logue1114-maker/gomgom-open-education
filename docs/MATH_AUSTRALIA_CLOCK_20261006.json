@@ -1,0 +1,67 @@
+{
+  "date": "2026-10-06",
+  "change": "Australian Year3 analog-clock hour and minute components use one-minute resolution; Year2 hour reading retains five-minute givens",
+  "sourceCode": "AC9M3M04",
+  "independentSupply": {
+    "independentPublicHandGeometryChecks": 2600,
+    "units": [
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_clock_minute",
+        "issued": 1000,
+        "distinctPublicClocks": 720,
+        "firstHundredDistinct": true,
+        "minuteValues": 60
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "el_clock_hour",
+        "issued": 1000,
+        "distinctPublicClocks": 720,
+        "firstHundredDistinct": true,
+        "minuteValues": 60
+      },
+      {
+        "system": "default",
+        "skill": "el_clock_minute",
+        "issued": 300,
+        "distinctPublicClocks": 144,
+        "firstHundredDistinct": true,
+        "minuteValues": 12
+      },
+      {
+        "system": "default",
+        "skill": "el_clock_hour",
+        "issued": 300,
+        "distinctPublicClocks": 144,
+        "firstHundredDistinct": true,
+        "minuteValues": 12
+      }
+    ],
+    "correctChoicePositions": {
+      "0": 622,
+      "3": 649,
+      "1": 683,
+      "2": 646
+    },
+    "source": "Public clock hand directions, not answer metadata",
+    "exhaustiveClockDomainProven": false
+  },
+  "localTests": 599,
+  "publicEngineTests": 465,
+  "nativeCompletedQuestions": 20,
+  "guideIncorrectStudentEntryMarked": true,
+  "guideStudentCorrectionAccepted": true,
+  "guideNoAutomaticMainAnswer": true,
+  "savedSessionsPreserved": true,
+  "pausedTimersPreserved": true,
+  "limitations": [
+    "Selected hour/minute components only; combined time, digital clocks and contextual relationships remain",
+    "Initial minute round was absent from the saved list after QA standard activity launches; fresh normal topic round completed after launcher behavior was corrected in QA",
+    "First saved hour question was generated before Year2 rule correction; subsequent nine questions retained five-minute givens",
+    "Pixel solver misread the second hour question before stronger blue-color separation; student correction completed the same question",
+    "Normal emulator phone only; small phones, tablets, physical devices and external visual review remain",
+    "Final English prefix-only APK change cold-checked; help screenshot is from the preceding APK",
+    "Global curriculum, localization, product design and release remain unfinished"
+  ]
+}

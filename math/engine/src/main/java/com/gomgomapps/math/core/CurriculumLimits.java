@@ -13,6 +13,7 @@ public final class CurriculumLimits {
     private final Set<Integer> factors=new HashSet<>(),divisors=new HashSet<>();
     private final Map<Integer,Integer> dividendMaxima=new HashMap<>();
     private int timesTableMax=9;
+    private int minuteStep=5;
     private Integer maxSecondOperand,maxRegroups,decimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides;
     private final List<Integer> roundingUnits=new ArrayList<>();
     private String answerDomain="";
@@ -31,6 +32,7 @@ public final class CurriculumLimits {
                 case "denominators":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<2)throw new IllegalArgumentException("Invalid denominator");denominators.add(n);}break;
                 case "factors":case "divisors":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<1)throw new IllegalArgumentException("Invalid factor/divisor");(pair[0].equals("factors")?factors:divisors).add(n);}break;
                 case "timesTableMax":timesTableMax=Integer.parseInt(pair[1]);if(timesTableMax<2||timesTableMax>20)throw new IllegalArgumentException("Invalid times table range");break;
+                case "minuteStep":minuteStep=Integer.parseInt(pair[1]);if(!Set.of(1,5).contains(minuteStep))throw new IllegalArgumentException("Invalid clock minute step");break;
                 case "maxSecondOperand":maxSecondOperand=Integer.valueOf(pair[1]);if(maxSecondOperand<1)throw new IllegalArgumentException("Invalid second operand limit");break;
                 case "maxRegroups":maxRegroups=Integer.valueOf(pair[1]);if(maxRegroups<0||maxRegroups>9)throw new IllegalArgumentException("Invalid regrouping limit");break;
                 case "decimalPlaces":decimalPlaces=Integer.valueOf(pair[1]);if(decimalPlaces<1||decimalPlaces>4)throw new IllegalArgumentException("Invalid decimal places");break;
@@ -128,6 +130,7 @@ public final class CurriculumLimits {
         return new int[]{each,terms.length};
     }
     public int timesTableMax(){return timesTableMax;}
+    public int minuteStep(){return minuteStep;}
     boolean variedFacts(){return variedFacts;}
     boolean variedSums(){return variedSums;}
     int decimalPlaces(int defaultPlaces){return decimalPlaces==null?defaultPlaces:decimalPlaces;}
