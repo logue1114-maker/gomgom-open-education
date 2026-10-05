@@ -157,5 +157,40 @@
   "candidateInstalled": false,
   "nativeRequired": true,
   "nationalCurriculumComplete": false,
-  "wholeProductComplete": false
+  "wholeProductComplete": false,
+  "nativeFollowup": {
+    "country": "SG",
+    "curriculum": "sg-moe-primary-2021-v1",
+    "grade": 2,
+    "language": "en",
+    "nativeQuestions": 10,
+    "actualTopicTitle": "Multiplication facts",
+    "independentPublicProductInputAndNextChecks": true,
+    "allowedTables": [
+      2,
+      3,
+      4,
+      5,
+      10
+    ],
+    "firstDiagnosisPrompt": "1 + 4",
+    "firstDiagnosisTopic": "Adding numbers up to 9",
+    "diagnosisOnlyFirstQuestionObserved": true,
+    "diagnosisCompleted": false,
+    "historyBefore": 1817,
+    "historyAfter": 1827,
+    "savedBefore": 7,
+    "savedAfter": 8,
+    "oldSevenLabelsPreserved": true,
+    "additionalSavedSession": "new Singapore assessment paused at 0/4",
+    "timersPreserved": [
+      "27:59",
+      "55:09"
+    ],
+    "installedApkSha256": "93e8cde1b0485022f7ef68e7db69264d4357d137ecf1dc0c15de8e1af53e13e2",
+    "viewport": "normal phone1080x2400/420dpi",
+    "review": "local actual screens; no external review",
+    "primary3TablesAndPrimary4DecimalsNotYetNativeVerified": true,
+    "wholeProductComplete": false
+  }
 }
