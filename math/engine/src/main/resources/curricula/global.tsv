@@ -686,3 +686,4 @@ RULE	jp-mext-primary-2017-v1	4	fracAddLike,fracSubLike	maxFractionValue=2;maxRes
 RULE	jp-mext-primary-2017-v1	5	fracAdd,fracSub	nonnegative=true
 RULE	jp-mext-primary-2017-v1	5	decimalMul	nonnegative=true
 RULE	jp-mext-primary-2017-v1	6	substitute	nonnegative=true
+RULE	jp-mext-primary-2017-v1	5	el_even_odd	wholeMaximum=9999

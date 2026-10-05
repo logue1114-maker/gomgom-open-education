@@ -140,7 +140,7 @@ public final class ElementaryBasics {
         switch(skill.id){
             case "el_compare_10000": return compare(skill,random,limits);
             case "el_sequence_10000": return sequence(skill,random);
-            case "el_even_odd": return parity(skill,random);
+            case "el_even_odd": return parity(skill,random,limits);
             case "el_missing_add": return missingAdd(skill,random,limits);
             case "el_missing_sub": return missingSub(skill,random,limits);
             case "el_number_pattern": return numberPattern(skill,random,limits);
@@ -331,10 +331,12 @@ public final class ElementaryBasics {
                         step("같은 간격을 한 번 더 적용합니다.",(start+delta)+" + "+w(delta)+" = ","",w(start+delta)+"+"+w(delta))),null);
     }
 
-    private static Question parity(Catalog.Skill skill,Random random){
-        int value=n(random,1,20),remainder=value%2;
+    private static Question parity(Catalog.Skill skill,Random random,CurriculumLimits limits){
+        int value=n(random,1,limits.wholeMaximum(20)),remainder=value%2;
         Question question=number(skill,value+"은 짝수인가요, 홀수인가요?","",Rational.of(remainder),
-                guide(step("2씩 묶었을 때 남는 수를 살핍니다.",value+" - "+(value/2*2)+" = ","",w(value)+"-"+(value/2*2))),null);
+                new StudyGuide().step("둘씩 묶으면 몇 묶음인지 쓰세요.","묶음 수 = ","",String.valueOf(value/2))
+                        .step("둘씩 묶고 남는 수를 쓰세요.",value+" - 2 × "+(value/2)+" = ","",String.valueOf(remainder))
+                        .choice("남는 수가 0이면 짝수, 1이면 홀수입니다.",Map.of("0","짝수","1","홀수"),String.valueOf(remainder)).transfer(false),null);
         question.choiceLabels.put("0","짝수");
         question.choiceLabels.put("1","홀수");
         question.stepSupport=false;

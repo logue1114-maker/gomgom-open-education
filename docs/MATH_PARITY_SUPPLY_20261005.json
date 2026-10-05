@@ -1,0 +1,40 @@
+{
+  "source": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
+  "sourcePage": 369,
+  "scope": "Grade5 A(1): classify integers as even or odd; pairing via multiplication/division",
+  "appPracticeRange": "1..9999 (app choice, not a mandated curriculum ceiling)",
+  "otherEarlyRange": "unchanged 1..20",
+  "independentIntegerChecks": 1000,
+  "first100DistinctPrompts": 100,
+  "overallDistinctPrompts": 972,
+  "classificationCounts": {
+    "0": 510,
+    "1": 490
+  },
+  "choicePositions": [
+    0,
+    1
+  ],
+  "supply": {
+    "curriculum": "jp-mext-primary-2017-v1",
+    "grade": "5",
+    "skill": "el_even_odd",
+    "issued": "100",
+    "distinct_questions": "100",
+    "adjacent_repeats": "0"
+  },
+  "guideStages": 3,
+  "automaticTransfer": false,
+  "tests": {
+    "engine": 442,
+    "app": 67,
+    "globalApp": 67
+  },
+  "commonTypes": 465,
+  "japanTypes": 58,
+  "japanPlacements": 66,
+  "candidateApkSha256": "55b0ecb093dc02a5ec0b5822b3c430539333feb3ddf6de0df37cd9b9ef85fe27",
+  "candidateInstalled": false,
+  "nativeFollowupRequired": true,
+  "wholeProductComplete": false
+}

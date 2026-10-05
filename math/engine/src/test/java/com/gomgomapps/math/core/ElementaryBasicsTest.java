@@ -110,7 +110,8 @@ public class ElementaryBasicsTest {
             assertNotNull(skill.id,frame.instruction);
             assertFalse(skill.id,frame.instruction.trim().isEmpty());
             assertNotNull(skill.id,frame.before);
-            assertTrue(skill.id+" guide must leave a calculation blank",frame.before.trim().endsWith("="));
+            if(frame.options.isEmpty())assertTrue(skill.id+" guide must leave a calculation blank",frame.before.trim().endsWith("="));
+            else{assertTrue(skill.id+" guide option must contain the expected code",frame.options.containsKey(frame.expected));assertTrue(skill.id+" guide must offer a real choice",frame.options.size()>1);}
             assertNotNull(skill.id,frame.after);
             assertNotNull(skill.id,frame.expected);
             assertFalse(skill.id,frame.expected.trim().isEmpty());
