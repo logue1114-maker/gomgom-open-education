@@ -1,3 +1,11 @@
+## 2026-10-06 — Ratio and value scaffolds; essential fraction input
+
+Added student-entered percentage rates, proportion scale factors, substitution and function value steps. Proportions use visible terms rather than an internal expression containing the answer. Wrong stages are marked without filling the main answer. Existing number generation and curriculum mappings remain unchanged.
+
+Local649/public engine511 tests passed. Independently checked4,750 public tasks and12,250 stages, including45 existing type/grade placements in eight selected countries. This checks existing numerical limits, not a fresh official-curriculum audit. Normal Android menus completed34 tasks before a QA redraw timing failure. After fixing the wait and separating formula lines, six unfinished questions resumed and20 fresh tasks exposed a remaining Unicode-sign display defect. Completed rounds were not replayed. Total80 tasks and22 help stages used actual keypad input and wrong-stage correction. Fixed a private UI defect that hid fraction input in higher-grade practice for an early-primary profile; rational function answers were entered through the visible Fraction button. Cold restart preserved prior saved sessions. General function native practice remains unverified here. UI/language/QA/device and learner originals are excluded. Full curricula, supply, localization, typography, design, devices, long study and release remain unfinished.
+
+The intermediate prompt fix still missed displayed Unicode minus signs. Normalized the display sign, added both sign forms to regression cases, then verified20 fresh signed prompt tasks on the final APK. The intermediate20 are preserved separately.
+
 ## 2026-10-06 — Decimal place values and signed rational help
 
 Added student-entered scaffolds to decimal addition/subtraction/multiplication/division, decimal-by-integer division, signed rational arithmetic and fractional-coefficient linear equations. Scaling and decimal restoration use exact visible operands. Signed fractions keep a positive final denominator; fractional equations apply the same operations on both sides. Wrong stages are marked without filling the main answer. Existing restricted decimal-times-integer help is retained.

@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-06",
+  "scope": "Student-entered percentage, proportion, substitution and function value help",
+  "types": [
+    "percent",
+    "proportion",
+    "substitute",
+    "function",
+    "linearValue"
+  ],
+  "newQuestionTypes": 0,
+  "commonTypes": 475,
+  "selectedAustralianUniqueTypes": 161,
+  "selectedAustralianGradePlacements": 246,
+  "selectedSecondaryGradePlacements": 125,
+  "localUnitTests": 649,
+  "publicEngineUnitTests": 511,
+  "independentPublicQuestions": 4750,
+  "independentEnteredSteps": 12250,
+  "selectedCountryCodesVerified": [
+    "AU",
+    "GH",
+    "JP",
+    "KE",
+    "RW",
+    "SG",
+    "US",
+    "ZA"
+  ],
+  "selectedTypeGradePlacementsVerified": 45,
+  "normalAndroidQuestions": 80,
+  "androidHelpStepsIndependentlyChecked": 22,
+  "actualAppKeypadTaps": true,
+  "mainAnswerTransfers": false,
+  "coldRestartPreservedPriorSavedSessions": true,
+  "generalFunctionNativeVerified": false,
+  "wholeCurriculumComplete": false,
+  "externalVisualReviewComplete": false,
+  "physicalDeviceVerified": false,
+  "releaseComplete": false,
+  "privateDataExcluded": true,
+  "notes": [
+    "Proportion help uses the three visible terms, never the answer-containing internal expression",
+    "Percentages convert to a decimal rate before multiplication",
+    "Substitution checks the given x, multiplication and constant addition",
+    "Private UI fix exposes essential fraction input for higher-grade questions even in an early-primary profile",
+    "Private translation composes complete formula and given-value lines separately",
+    "Initial34 questions use the first APK; six unfinished questions and20 fresh checks use the intermediate language APK; final20 use the Unicode-minus correction",
+    "QA initially read zero answer fields during fraction-toggle redraw; corrected the wait and resumed only the unfinished function round"
+  ],
+  "remaining": [
+    "Other entered-step help and varied supply",
+    "General function native flow and broader language/device coverage",
+    "Symbolic fraction typography",
+    "Global/state/senior curricula and unmapped components",
+    "Bear design, early-primary controls and accessibility",
+    "Physical/student and long-study checks",
+    "Advertising, purchase and release"
+  ]
+}
