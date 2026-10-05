@@ -17,6 +17,16 @@ public final class Learning {
         public Set<String> learnedSkills=new LinkedHashSet<>();
         public Set<String> excluded=new HashSet<>(),learnedCourses=new HashSet<>();
         public boolean ready,diagnosed;
+        /** Remember each curriculum's chosen scope without moving shared study records. */
+        public Map<String,CurriculumSelection> curriculumSelections=new LinkedHashMap<>();
+        public Map<String,String> countryEducationSystems=new LinkedHashMap<>();
+    }
+    public static final class CurriculumSelection implements Serializable {
+        private static final long serialVersionUID=1L;
+        public int grade,term,schoolYear,curriculum;
+        public String currentSkill="";
+        public Set<String> learnedSkills=new LinkedHashSet<>(),excluded=new LinkedHashSet<>(),learnedCourses=new LinkedHashSet<>();
+        public boolean ready,diagnosed;
     }
     public static int defaultTerm(LocalDate date){return date.getMonthValue()>=8||date.getMonthValue()<=2?2:1;}
     public static final class Progress implements Serializable {

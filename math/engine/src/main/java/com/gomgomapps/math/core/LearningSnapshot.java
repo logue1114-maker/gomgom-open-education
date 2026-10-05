@@ -62,6 +62,7 @@ public final class LearningSnapshot {
     private static Object empty(Object source){
         if(source instanceof Learning.State)return new Learning.State();
         if(source instanceof Learning.Profile)return new Learning.Profile();
+        if(source instanceof Learning.CurriculumSelection)return new Learning.CurriculumSelection();
         if(source instanceof Learning.Progress)return new Learning.Progress();
         if(source instanceof Learning.Session)return new Learning.Session();
         if(source instanceof Learning.Summary)return new Learning.Summary();

@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-06",
+  "scope": "Remember curriculum selections and verify remaining geometry menus",
+  "newQuestionTypes": 0,
+  "localUnitTests": 669,
+  "publicEngineUnitTests": 523,
+  "normalAndroidQuestions": 40,
+  "androidHelpStepsIndependentlyChecked": 9,
+  "nativeTypes": [
+    "el_rhombus_area",
+    "el_trapezoid_area",
+    "el_triangle_angle_sum",
+    "el_quadrilateral_angle_sum"
+  ],
+  "nativeCurricula": [
+    "ke-kicd-cbc-2024-v1",
+    "gh-nacca-core-2019-2023-v1"
+  ],
+  "actualAppKeypadTaps": true,
+  "mainAnswerTransfers": false,
+  "coldRestartPreservedPriorSavedSessions": true,
+  "restoredPriorCurriculumThroughCountrySettings": true,
+  "privateDataExcluded": true,
+  "freshOfficialCurriculumAudit": false,
+  "wholeCurriculumComplete": false,
+  "externalVisualReviewComplete": false,
+  "physicalDeviceVerified": false,
+  "releaseComplete": false,
+  "notes": [
+    "Country changes remember the previous curriculum instead of deleting learned and excluded scope",
+    "Returning to a saved country restores its last curriculum and selected grade/readiness",
+    "Language and daily-study preferences remain independent of curriculum selection",
+    "Existing serialized profiles initialize missing memory maps without losing the current selection",
+    "Background save snapshots detach remembered selections",
+    "Private same-grade selection no longer clears learned topics and was checked through normal settings",
+    "A visible phone keypad clipping issue in triangle-angle practice was fixed by pinning geometry keypads; the completed area rounds were not replayed",
+    "Native questions span the initial 20 area questions and 20 remaining angle questions on the fixed build",
+    "Four remaining geometry types were solved from visible prompts in normal Kenyan/Ghanaian menus",
+    "First configuration of a new country started untouched diagnostic sessions; prior saved sessions remain intact",
+    "Private UI, QA, APKs, device and learner originals excluded"
+  ],
+  "remaining": [
+    "Quadrilateral angle diagram currently uses a regular polygon and an incorrect English Square label; a general quadrilateral illustration and curated label still need correction",
+    "Other entered-step support and varied supply",
+    "Global/state/senior curricula and unmapped components",
+    "Broader localization, typography, bear design and early-primary controls",
+    "Physical/student/accessibility and long-study checks",
+    "Advertising, purchase and release"
+  ]
+}

@@ -110,18 +110,37 @@ public final class GlobalCurriculum {
         if(p.languageTag==null||p.languageTag.isBlank())p.languageTag="ko";
         if(p.educationSystem==null||p.educationSystem.isBlank())p.educationSystem=p.countryCode.equals("KR")?"kr-national":COMMON;
         if(p.learnedSkills==null)p.learnedSkills=new LinkedHashSet<>();
+        if(p.excluded==null)p.excluded=new LinkedHashSet<>();
+        if(p.learnedCourses==null)p.learnedCourses=new LinkedHashSet<>();
+        if(p.curriculumSelections==null)p.curriculumSelections=new LinkedHashMap<>();
+        if(p.countryEducationSystems==null)p.countryEducationSystems=new LinkedHashMap<>();
+    }
+    private static String selectionKey(Learning.Profile p){return p.countryCode+"|"+p.educationSystem;}
+    private static void rememberSelection(Learning.Profile p){
+        Learning.CurriculumSelection s=new Learning.CurriculumSelection();
+        s.grade=p.grade;s.term=p.term;s.schoolYear=p.schoolYear;s.curriculum=p.curriculum;s.currentSkill=p.currentSkill;s.ready=p.ready;s.diagnosed=p.diagnosed;
+        s.learnedSkills.addAll(p.learnedSkills);s.excluded.addAll(p.excluded);s.learnedCourses.addAll(p.learnedCourses);
+        p.curriculumSelections.put(selectionKey(p),s);p.countryEducationSystems.put(p.countryCode,p.educationSystem);
+    }
+    private static void recallSelection(Learning.Profile p){
+        Learning.CurriculumSelection s=p.curriculumSelections.get(selectionKey(p));
+        if(s==null){p.currentSkill="";p.learnedSkills.clear();p.learnedCourses.clear();p.excluded.clear();p.diagnosed=false;p.ready=false;return;}
+        p.grade=s.grade;p.term=s.term;p.schoolYear=s.schoolYear;p.curriculum=s.curriculum;p.currentSkill=s.currentSkill;p.ready=s.ready;p.diagnosed=s.diagnosed;
+        p.learnedSkills=new LinkedHashSet<>(s.learnedSkills);p.excluded=new LinkedHashSet<>(s.excluded);p.learnedCourses=new LinkedHashSet<>(s.learnedCourses);
     }
     public static void chooseCountry(Learning.Profile p,String country){
         if(!Arrays.asList(Locale.getISOCountries()).contains(country))throw new IllegalArgumentException("Unknown country");
         restore(p);
         if(p.countryCode.equals(country))return;
-        p.countryCode=country;p.educationSystem=country.equals("KR")?"kr-national":COMMON;
-        p.currentSkill="";p.learnedSkills.clear();p.learnedCourses.clear();p.excluded.clear();p.diagnosed=false;p.ready=false;
+        rememberSelection(p);
+        p.countryCode=country;String previous=p.countryEducationSystems.get(country);Pack saved=previous==null?null:PACKS.get(previous);
+        p.educationSystem=previous!=null&&(previous.equals(COMMON)||previous.equals("kr-national")&&country.equals("KR")||saved!=null&&saved.country.equals(country))?previous:country.equals("KR")?"kr-national":COMMON;
+        recallSelection(p);
     }
     public static void choosePack(Learning.Profile p,String id){
         restore(p);Pack pack=PACKS.get(id);
         if(!id.equals(COMMON)&&!(id.equals("kr-national")&&p.countryCode.equals("KR"))&&(pack==null||!pack.country.equals(p.countryCode)))throw new IllegalArgumentException("Curriculum does not belong to this country");
-        if(!p.educationSystem.equals(id)){p.educationSystem=id;p.currentSkill="";p.learnedSkills.clear();p.learnedCourses.clear();p.excluded.clear();p.diagnosed=false;}
+        if(!p.educationSystem.equals(id)){rememberSelection(p);p.educationSystem=id;recallSelection(p);p.countryEducationSystems.put(p.countryCode,id);}
     }
     public static List<Catalog.Skill> available(Learning.Profile p){
         Pack pack=pack(p);List<Catalog.Skill> result=new ArrayList<>();
