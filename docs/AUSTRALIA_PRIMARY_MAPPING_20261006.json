@@ -1,0 +1,884 @@
+{
+  "date": "2026-10-05",
+  "source": "https://www.australiancurriculum.edu.au/content/dam/en/curriculum/ac-version-9/downloads/curriculum-workbook.xlsx",
+  "sourceSha256": "db446882d2c00cf7c085a03e250e2442fda6c44011fc114680c46c1dc7a822c3",
+  "pack": "au-acara-v9-primary-v1",
+  "officialF10ContentCodes": 240,
+  "officialPrimaryContentCodes": 139,
+  "selectedComponentCodes": 48,
+  "uniqueSkillTypes": 67,
+  "gradePlacements": 109,
+  "stateSyllabusesMapped": false,
+  "wholeCurriculumComplete": false,
+  "codes": [
+    {
+      "code": "AC9MFN01",
+      "status": "selected calculation component",
+      "skills": [
+        "count",
+        "compare"
+      ]
+    },
+    {
+      "code": "AC9MFN02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9MFN03",
+      "status": "selected calculation component",
+      "skills": [
+        "count",
+        "compare"
+      ]
+    },
+    {
+      "code": "AC9MFN04",
+      "status": "selected calculation component",
+      "skills": [
+        "join9",
+        "split9"
+      ]
+    },
+    {
+      "code": "AC9MFN05",
+      "status": "selected calculation component",
+      "skills": [
+        "add9",
+        "sub9"
+      ]
+    },
+    {
+      "code": "AC9MFN06",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9MFA01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9MFM01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9MFM02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9MFSP01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9MFSP02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9MFST01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1N01",
+      "status": "selected calculation component",
+      "skills": [
+        "place50",
+        "place10",
+        "place1000"
+      ]
+    },
+    {
+      "code": "AC9M1N02",
+      "status": "selected calculation component",
+      "skills": [
+        "place10",
+        "join9",
+        "split9"
+      ]
+    },
+    {
+      "code": "AC9M1N03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1N04",
+      "status": "selected calculation component",
+      "skills": [
+        "add9",
+        "sub9",
+        "add20",
+        "sub20"
+      ]
+    },
+    {
+      "code": "AC9M1N05",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1N06",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1A01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1A02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1M01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1M02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1M03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1SP01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1SP02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1ST01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M1ST02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M2N01",
+      "status": "selected calculation component",
+      "skills": [
+        "place1000",
+        "el_compare_10000"
+      ]
+    },
+    {
+      "code": "AC9M2N02",
+      "status": "selected calculation component",
+      "skills": [
+        "place100",
+        "place1000"
+      ]
+    },
+    {
+      "code": "AC9M2N03",
+      "status": "selected calculation component",
+      "skills": [
+        "fractionPart"
+      ]
+    },
+    {
+      "code": "AC9M2N04",
+      "status": "selected calculation component",
+      "skills": [
+        "add100",
+        "sub100"
+      ]
+    },
+    {
+      "code": "AC9M2N05",
+      "status": "selected calculation component",
+      "skills": [
+        "mulIntro"
+      ]
+    },
+    {
+      "code": "AC9M2N06",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M2A01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M2A02",
+      "status": "selected calculation component",
+      "skills": [
+        "add9",
+        "sub9",
+        "add20",
+        "sub20"
+      ]
+    },
+    {
+      "code": "AC9M2A03",
+      "status": "selected calculation component",
+      "skills": [
+        "tables",
+        "divide"
+      ]
+    },
+    {
+      "code": "AC9M2M01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M2M02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M2M03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M2M04",
+      "status": "selected calculation component",
+      "skills": [
+        "el_clock_hour"
+      ]
+    },
+    {
+      "code": "AC9M2M05",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M2SP01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M2SP02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M2ST01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M2ST02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3N01",
+      "status": "selected calculation component",
+      "skills": [
+        "largePlace",
+        "el_compare_10000"
+      ]
+    },
+    {
+      "code": "AC9M3N02",
+      "status": "selected calculation component",
+      "skills": [
+        "fractionPart",
+        "fracAddLike"
+      ]
+    },
+    {
+      "code": "AC9M3N03",
+      "status": "selected calculation component",
+      "skills": [
+        "add100",
+        "sub100",
+        "add1000",
+        "sub1000"
+      ]
+    },
+    {
+      "code": "AC9M3N04",
+      "status": "selected calculation component",
+      "skills": [
+        "mul2"
+      ]
+    },
+    {
+      "code": "AC9M3N05",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3N06",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3N07",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3A01",
+      "status": "selected calculation component",
+      "skills": [
+        "el_missing_add",
+        "el_missing_sub"
+      ]
+    },
+    {
+      "code": "AC9M3A02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3A03",
+      "status": "selected calculation component",
+      "skills": [
+        "tables",
+        "divide"
+      ]
+    },
+    {
+      "code": "AC9M3M01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3M02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3M03",
+      "status": "selected calculation component",
+      "skills": [
+        "el_hours_to_minutes",
+        "el_minutes_to_hours",
+        "el_time_to_seconds",
+        "el_days_week",
+        "el_days_to_weeks"
+      ]
+    },
+    {
+      "code": "AC9M3M04",
+      "status": "selected calculation component",
+      "skills": [
+        "el_clock_hour",
+        "el_clock_minute"
+      ]
+    },
+    {
+      "code": "AC9M3M05",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3M06",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3SP01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3SP02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3ST01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3ST02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3ST03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3P01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M3P02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4N01",
+      "status": "selected calculation component",
+      "skills": [
+        "el_decimal_place",
+        "el_decimal_compare"
+      ]
+    },
+    {
+      "code": "AC9M4N02",
+      "status": "selected calculation component",
+      "skills": [
+        "el_even_odd"
+      ]
+    },
+    {
+      "code": "AC9M4N03",
+      "status": "selected calculation component",
+      "skills": [
+        "reduce",
+        "el_fraction_decimal",
+        "el_decimal_fraction"
+      ]
+    },
+    {
+      "code": "AC9M4N04",
+      "status": "selected calculation component",
+      "skills": [
+        "el_mixed_to_improper",
+        "el_improper_to_mixed"
+      ]
+    },
+    {
+      "code": "AC9M4N05",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4N06",
+      "status": "selected calculation component",
+      "skills": [
+        "add1000",
+        "sub1000",
+        "mul2",
+        "mul3",
+        "mul22",
+        "divide2"
+      ]
+    },
+    {
+      "code": "AC9M4N07",
+      "status": "selected calculation component",
+      "skills": [
+        "el_round",
+        "el_estimate_ops"
+      ]
+    },
+    {
+      "code": "AC9M4N08",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4N09",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4A01",
+      "status": "selected calculation component",
+      "skills": [
+        "el_missing_add",
+        "el_missing_sub"
+      ]
+    },
+    {
+      "code": "AC9M4A02",
+      "status": "selected calculation component",
+      "skills": [
+        "tables",
+        "divide"
+      ]
+    },
+    {
+      "code": "AC9M4M01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4M02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4M03",
+      "status": "selected calculation component",
+      "skills": [
+        "el_time_add",
+        "el_time_difference"
+      ]
+    },
+    {
+      "code": "AC9M4M04",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4SP01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4SP02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4SP03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4ST01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4ST02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4ST03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4P01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M4P02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5N01",
+      "status": "selected calculation component",
+      "skills": [
+        "el_decimal_place",
+        "el_decimal_compare"
+      ]
+    },
+    {
+      "code": "AC9M5N02",
+      "status": "selected calculation component",
+      "skills": [
+        "el_divisor",
+        "el_multiple"
+      ]
+    },
+    {
+      "code": "AC9M5N03",
+      "status": "selected calculation component",
+      "skills": [
+        "fracCompare",
+        "el_fraction_compare"
+      ]
+    },
+    {
+      "code": "AC9M5N04",
+      "status": "selected calculation component",
+      "skills": [
+        "percent"
+      ]
+    },
+    {
+      "code": "AC9M5N05",
+      "status": "selected calculation component",
+      "skills": [
+        "fracAddLike",
+        "fracSubLike",
+        "fracAdd",
+        "fracSub"
+      ]
+    },
+    {
+      "code": "AC9M5N06",
+      "status": "selected calculation component",
+      "skills": [
+        "mul3",
+        "mul22",
+        "el_mul_3x2"
+      ]
+    },
+    {
+      "code": "AC9M5N07",
+      "status": "selected calculation component",
+      "skills": [
+        "divide2",
+        "remainder"
+      ]
+    },
+    {
+      "code": "AC9M5N08",
+      "status": "selected calculation component",
+      "skills": [
+        "el_round",
+        "el_estimate_ops"
+      ]
+    },
+    {
+      "code": "AC9M5N09",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5N10",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5A01",
+      "status": "selected calculation component",
+      "skills": [
+        "tables",
+        "divide"
+      ]
+    },
+    {
+      "code": "AC9M5A02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5M01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5M02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5M03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5M04",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5SP01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5SP02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5SP03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5ST01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5ST02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5ST03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5P01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M5P02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6N01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6N02",
+      "status": "selected calculation component",
+      "skills": [
+        "squareWhole"
+      ]
+    },
+    {
+      "code": "AC9M6N03",
+      "status": "selected calculation component",
+      "skills": [
+        "fracCompare",
+        "el_fraction_compare"
+      ]
+    },
+    {
+      "code": "AC9M6N04",
+      "status": "selected calculation component",
+      "skills": [
+        "decimalAdd",
+        "decimalSub"
+      ]
+    },
+    {
+      "code": "AC9M6N05",
+      "status": "selected calculation component",
+      "skills": [
+        "fracAddLike",
+        "fracSubLike",
+        "fracAdd",
+        "fracSub"
+      ]
+    },
+    {
+      "code": "AC9M6N06",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6N07",
+      "status": "selected calculation component",
+      "skills": [
+        "el_fraction_of_number",
+        "percent"
+      ]
+    },
+    {
+      "code": "AC9M6N08",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6N09",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6A01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6A02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6A03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6M01",
+      "status": "selected calculation component",
+      "skills": [
+        "el_length_mm_cm",
+        "el_length_m_cm",
+        "el_length_km_m",
+        "el_mass_kg_g",
+        "el_capacity_l_ml"
+      ]
+    },
+    {
+      "code": "AC9M6M02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6M03",
+      "status": "selected calculation component",
+      "skills": [
+        "el_time_add",
+        "el_time_difference"
+      ]
+    },
+    {
+      "code": "AC9M6M04",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6SP01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6SP02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6SP03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6ST01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6ST02",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6ST03",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6P01",
+      "status": "not mapped",
+      "skills": []
+    },
+    {
+      "code": "AC9M6P02",
+      "status": "not mapped",
+      "skills": []
+    }
+  ],
+  "knownPartialRanges": [
+    "Foundation counting/comparison only 1–9/0–9; collections to20 and subitising remain",
+    "Foundation whole/parts only through9, not10",
+    "Year1 addition/subtraction foundations do not exhaust all facts through20",
+    "Year3 clock-minute questions use five-minute marks; nearest-minute reading remains",
+    "Year6 common metric conversions are selected integer forms; decimal measurements remain"
+  ],
+  "remaining": [
+    "state-specific curricula",
+    "Years7–12",
+    "mathematical modelling, algorithms, money contexts",
+    "unmapped space, measurement, statistics, probability and algebra concepts"
+  ]
+}

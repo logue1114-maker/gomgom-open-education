@@ -1,0 +1,692 @@
+{
+  "date": "2026-10-06",
+  "pack": "au-acara-v9-primary-v1",
+  "levels": "Foundation–Year 6",
+  "uniqueSkillTypes": 67,
+  "gradePlacements": 109,
+  "supply": {
+    "date": "2026-10-05",
+    "issued": 10900,
+    "placements": 109,
+    "independentPublicScalarChecks": 6500,
+    "outsideIndependentSubset": 4400,
+    "units": [
+      {
+        "grade": 0,
+        "skill": "count",
+        "issued": 100,
+        "distinctPublicProblems": 9
+      },
+      {
+        "grade": 0,
+        "skill": "compare",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 0,
+        "skill": "join9",
+        "issued": 100,
+        "distinctPublicProblems": 55
+      },
+      {
+        "grade": 0,
+        "skill": "split9",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 0,
+        "skill": "add9",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 0,
+        "skill": "sub9",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 1,
+        "skill": "join9",
+        "issued": 100,
+        "distinctPublicProblems": 55
+      },
+      {
+        "grade": 1,
+        "skill": "split9",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 1,
+        "skill": "add9",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 1,
+        "skill": "sub9",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 1,
+        "skill": "place50",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 1,
+        "skill": "place10",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 1,
+        "skill": "place1000",
+        "issued": 100,
+        "distinctPublicProblems": 63
+      },
+      {
+        "grade": 1,
+        "skill": "add20",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 1,
+        "skill": "sub20",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 2,
+        "skill": "add9",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 2,
+        "skill": "sub9",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 2,
+        "skill": "place1000",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 2,
+        "skill": "add20",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 2,
+        "skill": "sub20",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 2,
+        "skill": "el_compare_10000",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 2,
+        "skill": "place100",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 2,
+        "skill": "fractionPart",
+        "issued": 100,
+        "distinctPublicProblems": 3
+      },
+      {
+        "grade": 2,
+        "skill": "add100",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 2,
+        "skill": "sub100",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 2,
+        "skill": "mulIntro",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 2,
+        "skill": "tables",
+        "issued": 100,
+        "distinctPublicProblems": 59
+      },
+      {
+        "grade": 2,
+        "skill": "divide",
+        "issued": 100,
+        "distinctPublicProblems": 30
+      },
+      {
+        "grade": 2,
+        "skill": "el_clock_hour",
+        "issued": 100,
+        "distinctPublicProblems": 1
+      },
+      {
+        "grade": 3,
+        "skill": "el_compare_10000",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "fractionPart",
+        "issued": 100,
+        "distinctPublicProblems": 19
+      },
+      {
+        "grade": 3,
+        "skill": "add100",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "sub100",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "tables",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "divide",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "el_clock_hour",
+        "issued": 100,
+        "distinctPublicProblems": 1
+      },
+      {
+        "grade": 3,
+        "skill": "largePlace",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "fracAddLike",
+        "issued": 100,
+        "distinctPublicProblems": 65
+      },
+      {
+        "grade": 3,
+        "skill": "add1000",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "sub1000",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "mul2",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "el_missing_add",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "el_missing_sub",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "el_hours_to_minutes",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "el_minutes_to_hours",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "el_time_to_seconds",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "el_days_week",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "el_days_to_weeks",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 3,
+        "skill": "el_clock_minute",
+        "issued": 100,
+        "distinctPublicProblems": 1
+      },
+      {
+        "grade": 4,
+        "skill": "tables",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "divide",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "add1000",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "sub1000",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "mul2",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_missing_add",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_missing_sub",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_decimal_place",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_decimal_compare",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_even_odd",
+        "issued": 100,
+        "distinctPublicProblems": 20
+      },
+      {
+        "grade": 4,
+        "skill": "reduce",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_fraction_decimal",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_decimal_fraction",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_mixed_to_improper",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_improper_to_mixed",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "mul3",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "mul22",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "divide2",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_round",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_estimate_ops",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_time_add",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 4,
+        "skill": "el_time_difference",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "tables",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "divide",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "fracAddLike",
+        "issued": 100,
+        "distinctPublicProblems": 65
+      },
+      {
+        "grade": 5,
+        "skill": "el_decimal_place",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "el_decimal_compare",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "mul3",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "mul22",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "divide2",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "el_round",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "el_estimate_ops",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "el_divisor",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "el_multiple",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "fracCompare",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "el_fraction_compare",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "percent",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "fracSubLike",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "fracAdd",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "fracSub",
+        "issued": 100,
+        "distinctPublicProblems": 80
+      },
+      {
+        "grade": 5,
+        "skill": "el_mul_3x2",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 5,
+        "skill": "remainder",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "fracAddLike",
+        "issued": 100,
+        "distinctPublicProblems": 65
+      },
+      {
+        "grade": 6,
+        "skill": "el_time_add",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "el_time_difference",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "fracCompare",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "el_fraction_compare",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "percent",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "fracSubLike",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "fracAdd",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "fracSub",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "squareWhole",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "decimalAdd",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "decimalSub",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "el_fraction_of_number",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "el_length_mm_cm",
+        "issued": 100,
+        "distinctPublicProblems": 100
+      },
+      {
+        "grade": 6,
+        "skill": "el_length_m_cm",
+        "issued": 100,
+        "distinctPublicProblems": 40
+      },
+      {
+        "grade": 6,
+        "skill": "el_length_km_m",
+        "issued": 100,
+        "distinctPublicProblems": 40
+      },
+      {
+        "grade": 6,
+        "skill": "el_mass_kg_g",
+        "issued": 100,
+        "distinctPublicProblems": 98
+      },
+      {
+        "grade": 6,
+        "skill": "el_capacity_l_ml",
+        "issued": 100,
+        "distinctPublicProblems": 40
+      }
+    ],
+    "wholeCurriculumComplete": false
+  },
+  "localTests": {
+    "engine": 460,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 460,
+  "nativeTypedQuestions": 10,
+  "independentPublicInputAndNextChecks": 10,
+  "allEightPriorSavedLabelsPreserved": true,
+  "diagnosticScope": "first public question only; paused 0/4, not completed",
+  "layoutFix": "single-line auto-sizing grade labels; equal button alignment without text-baseline displacement",
+  "stateInjection": false,
+  "wholeCurriculumComplete": false,
+  "wholeProductComplete": false,
+  "remaining": [
+    "AU Years 7–12 and state syllabuses",
+    "unmapped official requirements and partial numeric ranges",
+    "small phones, tablets, physical devices and long sessions",
+    "language and bear design review",
+    "release readiness"
+  ]
+}
