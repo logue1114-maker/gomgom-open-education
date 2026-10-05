@@ -204,8 +204,6 @@
     "adjacentRepeats": 0
   },
   "apkSha256": "73023addad19dbb4ab30dac1978460405a1e79490cfff7958ac236f21d035174",
-  "newApkInstalled": false,
-  "nativeNewRangesVerified": false,
   "sources": [
     {
       "path": "engine/src/main/java/com/gomgomapps/math/core/CurriculumLimits.java",
@@ -248,5 +246,66 @@
     "failures": 0,
     "errors": 0,
     "skipped": 0
+  },
+  "newApkInstalledAtBuild": false,
+  "nativeNewRangesVerifiedAtBuild": false,
+  "nativeSelectedRangeFollowup": {
+    "actualQuestions": 30,
+    "groups": {
+      "add": {
+        "actualQuestions": 10,
+        "operandDigits": [
+          3,
+          4
+        ],
+        "format": "typed"
+      },
+      "sub": {
+        "actualQuestions": 10,
+        "operandDigits": [
+          4
+        ],
+        "format": "choice"
+      },
+      "mul": {
+        "actualQuestions": 10,
+        "operandDigits": [],
+        "format": "typed"
+      }
+    },
+    "guide": {
+      "steps": 3,
+      "wrongRejected": true,
+      "samePublicProblemColdRestored": true,
+      "draftColdRestored": true,
+      "automaticAnswerTransfer": false
+    },
+    "solver": "Independent Python Fraction from actual public XML, entered field/visible chosen option and next-screen readback",
+    "stateInjection": false,
+    "physicalDeviceVerified": false,
+    "allJapaneseCurriculumVerified": false,
+    "apkSha256": "73023addad19dbb4ab30dac1978460405a1e79490cfff7958ac236f21d035174",
+    "installedBaseMatches": true,
+    "actualGrades": [
+      3,
+      4
+    ],
+    "language": "en",
+    "coldFinalHistory": 1747,
+    "coldSavedSessions": 7,
+    "allPriorSavedProblemAndProgressLabelsPreserved": true,
+    "remainingMinutesSeconds": [
+      "27:59",
+      "55:09"
+    ],
+    "nativeChoiceIntegerMultiplicationVerified": false,
+    "smallPhoneTabletNewRangeVerified": false,
+    "scopeLimits": [
+      "Normal phone emulator only; no physical device or long-duration study.",
+      "Subtraction actual sample has four-digit operands; three-digit subtraction is generated/unit tested, not observed in this sample.",
+      "Japanese learner-facing language not verified.",
+      "Other grades/types, full written algorithms, billion/trillion places, modelling/abacus and full national/global curricula remain incomplete.",
+      "The previously saved initial assessment remains unanswered."
+    ]
   }
 }
