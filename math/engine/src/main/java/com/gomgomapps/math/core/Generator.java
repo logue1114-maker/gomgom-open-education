@@ -65,6 +65,7 @@ public final class Generator {
         return create(s,CurriculumLimits.NONE);
     }
     private Question create(Catalog.Skill s,CurriculumLimits limits){
+        if(TimetableQuestions.supports(s.id)&&(TimetableQuestions.added(s.id)||limits.timetables()))return TimetableQuestions.create(s,random,limits);
         if(ClockFaces.supports(s.id))return ClockFaces.next(s,random,limits,Map.of());
         if(ClockNotation.supports(s.id))return ClockNotation.next(s,random,limits,Map.of());
         if(ClockReadings.supports(s.id))return ClockReadings.next(s,random,limits,Map.of());

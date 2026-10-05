@@ -6,8 +6,8 @@
   "officialF10ContentCodes": 240,
   "officialPrimaryContentCodes": 139,
   "selectedComponentCodes": 50,
-  "uniqueSkillTypes": 77,
-  "gradePlacements": 120,
+  "uniqueSkillTypes": 78,
+  "gradePlacements": 121,
   "stateSyllabusesMapped": false,
   "wholeCurriculumComplete": false,
   "codes": [
@@ -832,7 +832,8 @@
       "status": "selected calculation component",
       "skills": [
         "el_time_add",
-        "el_time_difference"
+        "el_time_difference",
+        "el_trip_departure"
       ]
     },
     {
@@ -887,7 +888,8 @@
     "Year1 numeric addition/subtraction relations through20 covered; contextual modelling and varied physical strategies remain",
     "Year2 combined analog hours and quarter-hours; Year3 combined analog hours and individual minutes and two-way analog/digital matching. Clock-hand setting, contextual relationships and choosing appropriate representations remain.",
     "Year6 nine adjacent metric pairs cover both decimal conversion directions across mm/cm/m/km, mg/g/kg/t and mL/L/kL/ML. Cross-pair conversions, contexts and choosing suitable representations remain.",
-    "Year5 selected two-way12/24-hour conversion covers all1440 minute readings including midnight and noon. Practical timetables, trip planning and setting analog clocks remain."
+    "Year5 selected two-way12/24-hour conversion covers all1440 minute readings including midnight and noon. Practical timetables, trip planning and setting analog clocks remain.",
+    "Year6 selected one-journey timetable calculation covers duration, arrival and departure, with explicit June dates,24-hour minute readings and journeys lasting1\u2013240 minutes. Multi-leg itinerary planning, month boundaries, time zones, DST and broader contexts remain."
   ],
   "remaining": [
     "state-specific curricula",

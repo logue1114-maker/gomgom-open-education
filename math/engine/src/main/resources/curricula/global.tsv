@@ -888,3 +888,6 @@ MAP	au-acara-v9-primary-v1	5	el_time_12_to_24,el_time_24_to_12	AC9M5M03; selecte
 RULE	au-acara-v9-primary-v1	5	el_time_12_to_24,el_time_24_to_12	minuteStep=1
 MAP	au-acara-v9-primary-v1	3	el_digital_to_analog	AC9M3M04; selected digital-to-analog matching
 RULE	au-acara-v9-primary-v1	3	el_digital_to_analog	minuteStep=1
+MAP	au-acara-v9-primary-v1	6	el_trip_departure	AC9M6M03; selected single-journey departure from arrival and duration; broader itinerary planning remains
+RULE	au-acara-v9-primary-v1	0	el_time_add,el_time_difference	minuteStep=5
+RULE	au-acara-v9-primary-v1	6	el_time_add,el_time_difference,el_trip_departure	timetables=true;minuteStep=1

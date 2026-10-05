@@ -20,7 +20,7 @@ public final class CurriculumLimits {
     private String answerDomain="";
     private Rational maxFractionValue;
     private Integer minimumWholeDigits;
-    private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount;
+    private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables;
     private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,nonnegativeSubtrahend;
     CurriculumLimits(String definition){
         if(definition.isBlank())return;
@@ -51,6 +51,7 @@ public final class CurriculumLimits {
                 case "relatedDenominators":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid denominator relation flag");relatedDenominators=true;break;
                 case "variedFacts":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid fact forms");variedFacts=true;break;
                 case "includeZeroCount":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid empty collection flag");includeZeroCount=true;break;
+                case "timetables":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid timetable flag");timetables=true;break;
                 case "variedSums":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid sum forms");variedSums=true;break;
                 case "nonnegative":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid sign limit");nonnegative=true;break;
                 case "nonnegativeSubtrahend":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid subtraction limit");nonnegativeSubtrahend=true;break;
@@ -134,6 +135,7 @@ public final class CurriculumLimits {
     }
     public int timesTableMax(){return timesTableMax;}
     public int minuteStep(){return minuteStep;}
+    public boolean timetables(){return timetables;}
     public int metricDecimals(){return metricDecimals;}
     boolean variedFacts(){return variedFacts;}
     boolean variedSums(){return variedSums;}

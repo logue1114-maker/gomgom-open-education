@@ -1,3 +1,9 @@
+## 2026-10-06 — Single-journey timetable calculations
+
+Reused arrival-time and elapsed-time types for selected Australian Year6 timetable practice and added departure-time calculation. Dates,24-hour times and travel duration are explicit. Students enter duration hours/minutes or the missing day/hour/minute; help checks their steps without filling the main answer. Earlier/default existing time formats and saved old problem titles remain. Common475 types; selected Australian78 types/121 placements, still50 partial components from139 primary codes.
+
+Local626/public engine492 tests passed. Independently checked2,400 generated tasks and180 boundary cases, including cross-midnight calculations. Normal Android practice completed30 questions, including two midnight crossings, wrong-step/date correction and no automatic main-answer entry. Cold restart preserved prior saved rounds. Private UI/language assets, device captures, APKs and learner records are excluded. One fictional June journey lasting1–240 minutes is a practice scope, not an official curriculum bound. Multi-leg planning, month boundaries, time zones/DST, broader devices, accessibility, student effectiveness, full global curricula, design, long sessions and release remain unfinished.
+
 ## 2026-10-06 — Foundation empty collections and quick dot cards
 
 Selected Australian Foundation counting now includes0–20. An empty outlined card represents an empty collection, while earlier/default counting remains1–9. Added a common quick-dot-card type for1–5 and mapped it to the selected Foundation recognition component. The card appears briefly for1.5 seconds and can be shown again; there is no answer deadline. The app never pre-fills the answer. The new unreviewed type is excluded from automatic Korean diagnosis.

@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-06",
+  "change": "Single-journey timetable calculations with explicit dates",
+  "sourceCodes": [
+    "AC9M6M03"
+  ],
+  "commonSkillTypes": 475,
+  "australianSkillTypes": 78,
+  "australianGradePlacements": 121,
+  "selectedPrimaryComponentCodes": 50,
+  "officialPrimaryCodes": 139,
+  "tests": {
+    "engine": 492,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 492,
+  "independentSupply": {
+    "independentPublicTasks": 2580,
+    "generatedPractice": 2400,
+    "directBoundaryCases": 180,
+    "groups": {
+      "default": 600,
+      "au6": 1800,
+      "boundary": 180
+    },
+    "crossMidnightCases": {
+      "default": 17,
+      "au6": 184,
+      "boundary": 48
+    },
+    "tests": {
+      "engine": 492,
+      "app": 67,
+      "globalApp": 67
+    },
+    "answerMetadataUsedToSolve": false,
+    "recentWindow100NoRepeat": "generator audit asserted every issued task"
+  },
+  "nativeQuestions": 30,
+  "nativeCrossMidnightQuestions": 2,
+  "guideMainAnswerTransfer": false,
+  "wrongDateThenCorrection": true,
+  "savedSessionsPreserved": true,
+  "wholeCurriculumComplete": false,
+  "limitations": [
+    "Normal1080x2400 emulator phone only; small phones, tablets, physical devices and TalkBack learning access remain",
+    "One fictional June journey lasting1\u2013240 minutes; multi-leg planning, month boundaries, time zones and DST remain",
+    "No external visual review or student-effectiveness evidence",
+    "Earlier/default existing arrival and time-difference formats remain unchanged",
+    "Selected practice covers explicit June dates and one journey only; it does not complete timetable/itinerary curriculum",
+    "Global curricula, localization, bear/age design, long sessions, advertising/purchase and release remain unfinished"
+  ]
+}

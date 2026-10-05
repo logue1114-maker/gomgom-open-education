@@ -83,6 +83,7 @@ public final class GlobalCurriculum {
     /** Display the actual selected number range, without changing the catalog or question. */
     public static String title(String system,String id,int grade){
         Catalog.Skill skill=Catalog.get(id);
+        if(limits(system,id,grade).timetables()){if(id.equals("el_time_add"))return "시간표 — 도착 시각";if(id.equals("el_time_difference"))return "시간표 — 걸린 시간";}
         if((id.equals("add20")||id.equals("sub20"))&&limits(system,id,grade).wholeMaximum(18)!=18){
             int maximum=limits(system,id,grade).wholeMaximum(18);
             return maximum+"까지의 "+(id.equals("add20")?"덧셈":"뺄셈");
@@ -99,6 +100,7 @@ public final class GlobalCurriculum {
         int grade=session.selectedGrades==null?session.curriculumGrade:session.selectedGrades.getOrDefault(id,session.curriculumGrade);
         if(session.diagnosticRun!=null&&session.diagnosticRun.plan!=null&&session.diagnosticRun.plan.placements!=null)grade=session.diagnosticRun.plan.placements.getOrDefault(id,grade);
         if(session.diagnosticRun!=null&&session.diagnosticRun.current!=null&&id.equals(session.diagnosticRun.current.skillId))grade=session.diagnosticRun.current.reviewGrade;
+        if(session.question!=null&&id.equals(session.question.skillId)&&TimetableQuestions.supports(id)&&!TimetableQuestions.added(id)&&limits(session.educationSystem,id,grade).timetables()&&!session.question.prompt.startsWith("시간표 ·"))return Catalog.get(id).title;
         return title(session.educationSystem,id,grade);
     }
     public static Pack pack(Learning.Profile p){restore(p);return PACKS.get(p.educationSystem);}

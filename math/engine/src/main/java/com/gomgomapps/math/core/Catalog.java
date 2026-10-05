@@ -153,6 +153,7 @@ public final class Catalog {
         ALL.addAll(DotCollections.SKILLS);
         ALL.addAll(ClockReadings.SKILLS);
         ALL.addAll(ClockFaces.SKILLS);
+        ALL.addAll(TimetableQuestions.SKILLS);
         ALL.addAll(ClockNotation.SKILLS);
         ALL.addAll(SurfaceGeometry.SKILLS);
         ALL.addAll(AdvancedBasics.skills());
