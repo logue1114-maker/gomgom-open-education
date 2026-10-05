@@ -1,0 +1,64 @@
+{
+  "status": "selected-types-implemented-and-emulator-verified-not-global-complete",
+  "date": "2026-10-05",
+  "types": [
+    "absoluteMeasurementError",
+    "percentageMeasurementError"
+  ],
+  "commonTypes": 461,
+  "kenyaTypes": 233,
+  "kenyaPlacements": 357,
+  "tests": {
+    "engine": {
+      "tests": 430,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 65,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 65,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "freshSupplyRows": 4,
+  "freshDistinctEach": 100,
+  "nativeCompleted": 50,
+  "nativeGroups": {
+    "absolute-typed": 10,
+    "absolute-choice": 10,
+    "percentage-typed": 10,
+    "percentage-choice": 10,
+    "percentage-layout-typed": 10
+  },
+  "capturedZeroAnswers": 7,
+  "capturedNegativeDifferences": 16,
+  "finalReadback": {
+    "learningHistory": 1637,
+    "savedSessions": 6,
+    "remainingTimers": [
+      "27:59",
+      "55:09"
+    ],
+    "coldReadback": true,
+    "stateInjection": false
+  },
+  "apkSha256": "6cc18293585d20b7e85e1bed085540e76e8640f599ddc056a26a1b7ba70a4c84",
+  "layoutScope": "Representative percentage-error frame on small phone, normal phone and tablet; same public problem and drafts. Not all device/font/language combinations.",
+  "qaVersionScope": "Final test APK/source snapshot covers layout completion and final readback. Earlier instrumentation APKs were not frozen separately; their public-condition/input/advance XMLs and logs are retained, not reconstructed.",
+  "remaining": [
+    "global official curriculum gaps",
+    "problem supply gaps",
+    "language review",
+    "bear and age-specific design",
+    "physical devices and actual 30/60-minute sessions",
+    "real ads/purchase and release"
+  ]
+}
