@@ -847,6 +847,9 @@ public final class ElementaryBasics {
 
     private static Question fractionDecimal(Catalog.Skill skill,Random random,CurriculumLimits limits){
         int denominator=(int)Math.pow(10,n(random,1,limits.decimalPlaces(2))),numerator=n(random,1,denominator-1);
+        return fractionDecimal(skill,numerator,denominator);
+    }
+    static Question fractionDecimal(Catalog.Skill skill,int numerator,int denominator){
         Rational answer=r(numerator,denominator);
         Question question=numberText(skill,numerator+"/"+denominator+"의 값을 소수로 나타내세요.",numerator+"/"+denominator,answer,
                 answer.decimalText(),true,

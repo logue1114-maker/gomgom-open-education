@@ -1,3 +1,7 @@
+## 2026-10-05 — Cover original fraction domains before repeats
+
+Enumerated fraction representation, unlike-denominator addition/subtraction and decimal conversion using existing ranges and teaching frames. Singapore Primary 3 related-denominator operations each have 80 actual expressions; representation has 66. These finite domains repeat only after exhaustion. Decimal conversion supplied 100 distinct tasks. Independently checked 400 public tasks, range and repeat order; local 591 tests and public engine 457 tests passed. Normal Android menu and fraction numerator/denominator or decimal input completed 40 questions. Full world curricula, device coverage and release remain incomplete.
+
 ## 2026-10-05 — Exhaust actual small-number domains before repeating
 
 Counting, comparison, combining and splitting now enumerate their original problem domains and choose fresh problems, then the least recent when exhausted. Real domains: 9 counting displays, 100 ordered comparisons, 55 whole-number bonds and 110 missing-part bonds. Small finite domains are repeated intentionally; neither larger numbers nor cosmetic variants inflate counts. Independently checked 800 public problems, bounds and repeat order; local 589 tests and public engine 455 tests passed. Actual Android menu/input verified 30 typed questions and 10 symbol selections. Full world curricula, device coverage and release remain incomplete.

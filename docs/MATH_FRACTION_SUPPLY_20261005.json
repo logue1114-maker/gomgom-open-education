@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-05",
+  "change": "Enumerate original fraction domains and choose fresh then least-recent questions",
+  "independentSupply": {
+    "independentPublicProblems": 400,
+    "units": {
+      "fractionPart": {
+        "issued": 100,
+        "distinctPublicProblems": 66
+      },
+      "fracAdd": {
+        "issued": 100,
+        "distinctPublicProblems": 80
+      },
+      "fracSub": {
+        "issued": 100,
+        "distinctPublicProblems": 80
+      },
+      "el_fraction_decimal": {
+        "issued": 100,
+        "distinctPublicProblems": 100
+      }
+    },
+    "choiceCounts": {
+      "4": 382,
+      "3": 17
+    },
+    "correctChoicePositions": {
+      "3": 92,
+      "0": 118,
+      "1": 105,
+      "2": 84
+    },
+    "rangeExpanded": false,
+    "fractionPartDomain": 66
+  },
+  "localTests": {
+    "engine": 457,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 457,
+  "nativeTopics": {
+    "fractionPart": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10
+    },
+    "fracAdd": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10
+    },
+    "fracSub": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10
+    },
+    "el_fraction_decimal": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10
+    }
+  },
+  "nativeTypedQuestions": 40,
+  "wholeProductComplete": false,
+  "remainingUnverified": [
+    "full national curricula",
+    "small phone/tablet/physical devices for this slice",
+    "long study sessions",
+    "release readiness"
+  ]
+}
