@@ -13,7 +13,7 @@ public final class Choices {
         if(pool.wrong.size()<3)return;
         List<Rational> candidates=new ArrayList<>(pool.wrong.keySet());Collections.shuffle(candidates,random);
         List<Rational> options=new ArrayList<>(candidates.subList(0,3));
-        if(MoneyFoundations.supports(skill.id)||MotionFoundations.supports(skill.id)||MassDensity.supports(skill.id)||CompoundGeometry.supports(skill.id)||SolidFoundations.supports(skill.id)||QuadraticRelations.SKILLS.contains(skill.id)||MeasurementFoundations.supports(skill.id)||SurfaceGeometry.supports(skill.id)||CubeFoundations.supports(skill.id)||RateFoundations.supports(skill.id)||IndexLaws.supports(skill.id)){
+        if(ErrorFoundations.supports(skill.id)||MoneyFoundations.supports(skill.id)||MotionFoundations.supports(skill.id)||MassDensity.supports(skill.id)||CompoundGeometry.supports(skill.id)||SolidFoundations.supports(skill.id)||QuadraticRelations.SKILLS.contains(skill.id)||MeasurementFoundations.supports(skill.id)||SurfaceGeometry.supports(skill.id)||CubeFoundations.supports(skill.id)||RateFoundations.supports(skill.id)||IndexLaws.supports(skill.id)){
             List<Rational> lower=new ArrayList<>(),higher=new ArrayList<>();
             for(Rational value:candidates)(value.compareTo(pool.answer)<0?lower:higher).add(value);
             // Independent random rank per question: neighboring-error choices must
@@ -43,12 +43,13 @@ public final class Choices {
             if((MassDensity.supports(skill.id)||CompoundGeometry.supports(skill.id)||SolidFoundations.supports(skill.id))&&value.isInteger()!=answer.isInteger())return;
             // Do not let the answer alone land on a round unit-conversion value.
             if(MassDensity.supports(skill.id)&&!value.div(MassDensity.choiceUnit(answer)).isInteger())return;
-            if((MoneyFoundations.supports(skill.id)||MotionFoundations.supports(skill.id))&&(value.isInteger()!=answer.isInteger()||!value.div(MassDensity.choiceUnit(answer)).isInteger()))return;
+            if((ErrorFoundations.supports(skill.id)||MoneyFoundations.supports(skill.id)||MotionFoundations.supports(skill.id))&&(value.isInteger()!=answer.isInteger()||!value.div(MassDensity.choiceUnit(answer)).isInteger()))return;
             if(q.decimal&&value.decimalText().contains("/"))return;
             wrong.putIfAbsent(value,reason);
         }
         boolean between(Rational v,long min,long max){return v.compareTo(Rational.of(min))>=0&&v.compareTo(Rational.of(max))<=0;}
         boolean allowed(Rational v){
+            if(ErrorFoundations.supports(skill.id)&&v.compareTo(Rational.ZERO)<0)return false;
             if(MoneyFoundations.supports(skill.id)&&v.compareTo(Rational.ZERO)<=0)return false;
             if(MotionFoundations.supports(skill.id)&&!MotionFoundations.signed(skill.id)&&v.compareTo(Rational.ZERO)<=0)return false;
             if((MassDensity.supports(skill.id)||CompoundGeometry.supports(skill.id)||SolidFoundations.supports(skill.id))&&v.compareTo(Rational.ZERO)<=0)return false;
@@ -96,6 +97,7 @@ public final class Choices {
         }
         void placeErrors(Rational step,String reason){for(int sign:new int[]{-1,1})add(answer.add(step.mul(Rational.of(sign))),reason);}
         void collect(){
+            if(ErrorFoundations.supports(skill.id)){ErrorFoundations.errors(q).forEach(this::add);return;}
             if(MoneyFoundations.supports(skill.id)){MoneyFoundations.errors(q).forEach(this::add);return;}
             if(MotionFoundations.supports(skill.id)){MotionFoundations.errors(q).forEach(this::add);return;}
             if(MassDensity.supports(skill.id)){MassDensity.errors(q).forEach(this::add);return;}

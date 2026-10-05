@@ -159,6 +159,7 @@ public final class Catalog {
         ALL.addAll(MassDensity.SKILLS);
         ALL.addAll(MotionFoundations.SKILLS);
         ALL.addAll(MoneyFoundations.SKILLS);
+        ALL.addAll(ErrorFoundations.SKILLS);
         ALL.addAll(MatrixDimensions.SKILLS);
     }
     public static Skill get(String id){for(Skill s:ALL)if(s.id.equals(id))return s;throw new IllegalArgumentException("학습 유형을 찾을 수 없음: "+id);}

@@ -652,3 +652,6 @@ MAP	ke-kicd-cbc-2024-v1	9	speedValue,speedUnitConvert,averageSpeed,motionVelocit
 
 # Selected Grade9 stated-rate currency and tax calculations.
 MAP	ke-kicd-cbc-2024-v1	9	currencyExchange,exportDuty,importDuty,exciseDuty,vatAmount,vatIncluded	Grade9 July2024 PDF39-40 3.5: stated practice rates, two-way currency conversion, export/import/excise duties on stated taxable values, VAT and totals, reverse VAT-inclusive prices; currency identification, current-rate research, broader import tax chains and real-life activities remain
+
+# Selected Grade9 errors from estimated and actual measurements.
+MAP	ke-kicd-cbc-2024-v1	9	absoluteMeasurementError,percentageMeasurementError	Grade9 July2024 PDF41-42 3.6: same-unit estimated and positive actual values; absolute difference and percentage error using actual value as denominator; measuring instruments, hands-on estimates and consumer activities remain

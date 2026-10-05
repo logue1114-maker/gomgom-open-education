@@ -8,6 +8,7 @@ Open-source learning components from GomGom, a South Korean education software b
 |---|---|---|
 | Repository organization | [Architecture / 저장소 구성](docs/ARCHITECTURE.md) | Current boundaries and future split criteria |
 | Mathematics | [Math engine guide / 수학 엔진](math/README.md) | Source, tests and runnable Java example |
+| Math development | [Production plan / 제작 계획](docs/MATH_PRODUCTION_PLAN.md), [Development log / 제작 기록](docs/DEVELOPMENT_LOG.md) | Current process, validation scope and remaining work |
 | Hanja | [Handwriting guide / 한자 필기](hanja/README.md) | Recognition module and input contract |
 | Languages and TTS | [Language roadmap / 언어교육 계획](languages/README.md) | Planned; no implementation yet |
 
