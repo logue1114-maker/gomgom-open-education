@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-05",
+  "change": "Curriculum-aware number topic titles and English search",
+  "selectedRanges": {
+    "Singapore Primary 2": "Numbers up to 1,000",
+    "Singapore Primary 3": "Numbers up to 10,000",
+    "Singapore Primary 4": "Numbers up to 100,000"
+  },
+  "localTests": {
+    "engine": 448,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 448,
+  "nativePickerFlowPassed": true,
+  "nativeViewport": "1080x2400 / 420 dpi",
+  "historyBefore": 1827,
+  "historyAfter": 1827,
+  "savedSessionsBefore": 8,
+  "savedSessionsAfter": 8,
+  "allEightSavedLabelsPreserved": true,
+  "timersPreserved": [
+    "27:59",
+    "55:09"
+  ],
+  "newQuestionsCompleted": 0,
+  "diagnosisPlacementAndSavedCurriculumRegressionPassed": true,
+  "installedApkSha256": "53ff785ea4cce8ba0d2bc83d4b21f25ed940e672d65bed77fbb16e46e73aea32",
+  "review": "local actual topic picker screenshots; no external review",
+  "notVerified": [
+    "native diagnostic/result topic titles",
+    "small phone/tablet/physical device",
+    "all national curricula",
+    "release readiness"
+  ],
+  "wholeProductComplete": false
+}

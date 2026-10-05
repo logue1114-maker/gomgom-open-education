@@ -80,6 +80,23 @@ public final class GlobalCurriculum {
     public static List<Pack> packs(String country){return PACKS.values().stream().filter(p->p.country.equals(country)&&!p.archived).toList();}
     public static CurriculumLimits limits(String system,String skill){return limits(system,skill,0);}
     public static CurriculumLimits limits(String system,String skill,int grade){Pack pack=PACKS.get(system);if(pack==null)return CurriculumLimits.NONE;NavigableMap<Integer,CurriculumLimits> byLevel=pack.levelLimits.get(skill);if(byLevel!=null){Map.Entry<Integer,CurriculumLimits> entry=byLevel.floorEntry(grade);return (entry==null?byLevel.firstEntry():entry).getValue();}return pack.limits.getOrDefault(skill,CurriculumLimits.NONE);}
+    /** Display the actual selected number range, without changing the catalog or question. */
+    public static String title(String system,String id,int grade){
+        Catalog.Skill skill=Catalog.get(id);
+        if(id.equals("place1000")||id.equals("largePlace")){
+            int maximum=limits(system,id,grade).wholeMaximum(skill.range);
+            if(maximum!=skill.range)return String.format(Locale.ROOT,"%,d까지 수",maximum);
+        }
+        return skill.title;
+    }
+    public static String title(Learning.Profile profile,String id){return title(profile.educationSystem,id,profile.grade);}
+    /** Saved sessions retain their own curriculum; diagnosis uses the actual review placement. */
+    public static String title(Learning.Session session,String id){
+        int grade=session.selectedGrades==null?session.curriculumGrade:session.selectedGrades.getOrDefault(id,session.curriculumGrade);
+        if(session.diagnosticRun!=null&&session.diagnosticRun.plan!=null&&session.diagnosticRun.plan.placements!=null)grade=session.diagnosticRun.plan.placements.getOrDefault(id,grade);
+        if(session.diagnosticRun!=null&&session.diagnosticRun.current!=null&&id.equals(session.diagnosticRun.current.skillId))grade=session.diagnosticRun.current.reviewGrade;
+        return title(session.educationSystem,id,grade);
+    }
     public static Pack pack(Learning.Profile p){restore(p);return PACKS.get(p.educationSystem);}
     public static boolean foreign(Learning.Profile p){restore(p);return !p.educationSystem.equals("kr-national");}
     public static void restore(Learning.Profile p){
