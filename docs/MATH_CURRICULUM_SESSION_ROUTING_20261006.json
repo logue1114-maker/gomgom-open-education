@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-06",
+  "scope": "Resume learning in the selected curriculum and restore explicitly selected saved curricula",
+  "newQuestionTypes": 0,
+  "localUnitTests": 680,
+  "publicEngineUnitTests": 534,
+  "normalHomeCurriculumFiltering": true,
+  "normalExplicitSavedResumeRestoredCurriculum": true,
+  "originalSavedSessionsPreserved": true,
+  "newAnswersEntered": 0,
+  "newQuestionsCompleted": 0,
+  "privateDataExcluded": true,
+  "wholeCurriculumComplete": false,
+  "physicalDeviceVerified": false,
+  "externalVisualReviewComplete": false,
+  "releaseComplete": false,
+  "notes": [
+    "Home resume candidates match both country and curriculum; common-foundation packs still distinguish countries",
+    "Language and practice grade are not resume-eligibility restrictions",
+    "The saved list retains foreign active sessions as well as parked sessions and adds separate curriculum headings",
+    "Explicit saved resume restores that curriculum profile before reopening the session, including the already-active foreign session case",
+    "Previously unstamped Korean sessions and known packs missing only country metadata remain compatible",
+    "Invalid country/curriculum combinations are rejected before profile or session mutations",
+    "Normal Australian home excluded the Ghanaian hero; explicit saved selection reopened its unchanged unanswered question and restored Ghana settings; returning to Australia restored Year2",
+    "No new answers or completed questions; cold restart retained prior labels and timers",
+    "Private UI, QA, APKs, device and learner originals excluded"
+  ],
+  "remaining": [
+    "Entered-step support, repeated varied supply and unmapped curriculum components",
+    "Global/state/senior curricula, localization, typography, bear design and early-primary controls",
+    "Broader phone/tablet/physical/student/accessibility and long-study checks",
+    "Advertising, purchase and release"
+  ]
+}

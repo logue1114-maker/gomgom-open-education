@@ -167,7 +167,7 @@ public final class Learning {
         while(s.queue.size()<6)s.queue.add(selectedAt(s.selected,state,random));
     }
     public static void parkSession(State state){Deferred.sync(state.session);if(Deferred.resumable(state.session)){state.savedSessions.remove(state.session.id);state.savedSessions.put(state.session.id,state.session);}}
-    public static void resume(State state,String id){if(state.session!=null&&state.session.id.equals(id))return;Session target=state.savedSessions.get(id);if(target==null)throw new IllegalArgumentException("저장한 공부를 찾을 수 없음");parkSession(state);state.savedSessions.remove(id);state.session=target;}
+    public static void resume(State state,String id){Session target=state.session!=null&&state.session.id.equals(id)?state.session:state.savedSessions.get(id);if(target==null)throw new IllegalArgumentException("저장한 공부를 찾을 수 없음");GlobalCurriculum.chooseSession(state.profile,target);if(target==state.session)return;parkSession(state);state.savedSessions.remove(id);state.session=target;}
     private static String selectedAt(List<String> ids,State state,Random random){
         List<String> weighted=new ArrayList<>();long day=LocalDate.now().toEpochDay();
         for(String id:ids){weighted.add(id);Progress p=state.progress.get(id);if(p!=null&&(p.weak()||Review.track(p).pending)){weighted.add(id);weighted.add(id);}else if(p!=null&&Review.track(p).dueDay>0&&Review.track(p).dueDay<=day)weighted.add(id);}

@@ -82,7 +82,7 @@ public final class Deferred {
         s.advancePending=true;
     }
     public static Learning.Session resumeCandidate(Learning.State state){
-        if(resumable(state.session))return state.session;
-        Learning.Session latest=null;for(Learning.Session s:state.savedSessions.values())if(resumable(s))latest=s;return latest;
+        if(resumable(state.session)&&GlobalCurriculum.matches(state.profile,state.session))return state.session;
+        Learning.Session latest=null;for(Learning.Session s:state.savedSessions.values())if(resumable(s)&&GlobalCurriculum.matches(state.profile,s))latest=s;return latest;
     }
 }

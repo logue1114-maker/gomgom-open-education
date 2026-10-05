@@ -1,3 +1,9 @@
+## 2026-10-06 — Resume the selected curriculum
+
+Home previously selected the latest unfinished session even when it belonged to another country or curriculum. Home now matches both country and curriculum, while language and practice grade remain independent. The private saved list retains all resumable sessions, including an active foreign session, and displays separate curriculum headings. Explicit saved resume restores the corresponding curriculum profile before opening its unchanged session, including when the chosen session was already active. Legacy Korean metadata is supported, and invalid combinations are rejected before changing state.
+
+Local 680 and public engine 534 tests passed. Normal Australian home excluded the Ghanaian session; choosing it through the saved list restored Ghana settings and the same unanswered question, then country settings returned to Australian Year2. No answers were entered or questions completed. Cold restart retained all 12 saved labels/timers and the existing history total. UI, QA, APKs and device/learner originals remain private. Global curricula, devices, design, long study, advertising, purchase and release remain unfinished.
+
 ## 2026-10-06 — Match angle diagrams to their public givens
 
 Triangle and quadrilateral interior-angle exercises used regular polygons, and an English quadrilateral label appeared as Square. The engine now supplies the known angles. A geometry helper constructs matching vertices from those givens, supports convex and reflex quadrilaterals, and never reads the answer key. Private rendering labels only the supplied angles and a question mark at the remaining vertex, with curated English names. New quadrilateral exercises exclude a straight vertex; old saved exercises adapt without changing their stored answer or diagram, and historical straight-angle cases show only the givens.

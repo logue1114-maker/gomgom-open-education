@@ -162,5 +162,18 @@ public final class GlobalCurriculum {
     private static int depth(Catalog.Skill skill,Set<String> visited){if(!visited.add(skill.id))return 0;int depth=0;for(String id:skill.prerequisites)depth=Math.max(depth,1+depth(Catalog.get(id),new HashSet<>(visited)));return depth;}
     public static String name(Learning.Profile p){Pack pack=pack(p);return pack==null?(foreign(p)?"공통 기초 계산":"한국 교육과정"):pack.name;}
     public static String identity(Learning.Profile p){restore(p);return p.countryCode+"|"+p.educationSystem;}
+    public static String system(Learning.Session s){return s.educationSystem==null||s.educationSystem.isBlank()?"kr-national":s.educationSystem;}
+    public static String country(Learning.Session s){
+        if(s.countryCode!=null&&!s.countryCode.isBlank())return s.countryCode;
+        Pack pack=PACKS.get(system(s));return pack==null?"KR":pack.country;
+    }
+    public static boolean matches(Learning.Profile p,Learning.Session s){return s!=null&&identity(p).equals(country(s)+"|"+system(s));}
+    public static String name(Learning.Session s){Pack pack=PACKS.get(system(s));return pack!=null?pack.name:system(s).equals("kr-national")?"한국 교육과정":"공통 기초 계산";}
+    /** Explicitly resuming another curriculum restores its profile, preserving shared language and records. */
+    public static void chooseSession(Learning.Profile p,Learning.Session s){
+        String country=country(s),system=system(s);Pack pack=PACKS.get(system);
+        if(!Arrays.asList(Locale.getISOCountries()).contains(country)||!system.equals(COMMON)&&!(system.equals("kr-national")&&country.equals("KR"))&&(pack==null||!pack.country.equals(country)))throw new IllegalArgumentException("Saved study has an invalid curriculum");
+        chooseCountry(p,country);choosePack(p,system);
+    }
     public static void stamp(Learning.Session s,Learning.Profile p){restore(p);s.countryCode=p.countryCode;s.educationSystem=p.educationSystem;s.languageTag=p.languageTag;s.plannedCurrentSkill=p.currentSkill;s.curriculumGrade=p.grade;}
 }
