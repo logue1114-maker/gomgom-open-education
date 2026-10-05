@@ -34,6 +34,7 @@ public final class Generator {
         Catalog.Skill s=Catalog.get(skillId);Question q=null;
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(signature,position++);
         int oldest=Integer.MAX_VALUE;
+        if(limits.variedSums()&&SumFoundations.supports(skillId))q=SumFoundations.next(s,random,limits,previous);
         if(limits.variedFacts()&&Set.of("tables","divide").contains(skillId))q=FactFoundations.next(s,random,limits,previous);
         if(skillId.equals("squareWhole")||skillId.equals("rootWhole"))q=SquareFractionFoundations.nextWhole(s,random,limits,previous);
         if(CubeFoundations.supports(skillId))q=CubeFoundations.nextWhole(s,random,limits,previous);

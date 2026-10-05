@@ -11,6 +11,9 @@ final class FactFoundations {
         for(int a=multiply?0:1;a<=maximum;a++)for(int b=multiply?0:2;b<=maximum;b++)for(int form=0;form<3;form++){
             Question q=make(skill,a,b,form,limits);if(limits.allows(q))candidates.putIfAbsent(q.signature(),q);
         }
+        return choose(candidates,random,recent);
+    }
+    static Question choose(Map<String,Question> candidates,Random random,Map<String,Integer> recent){
         List<Question> fresh=candidates.values().stream().filter(q->!recent.containsKey(q.signature())).toList();
         if(!fresh.isEmpty())return fresh.get(random.nextInt(fresh.size()));
         int oldest=candidates.keySet().stream().mapToInt(key->recent.getOrDefault(key,-1)).min().orElseThrow(()->new IllegalStateException("No fact matches curriculum limits"));

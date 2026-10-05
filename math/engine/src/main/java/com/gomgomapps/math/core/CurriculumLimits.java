@@ -18,7 +18,7 @@ public final class CurriculumLimits {
     private String answerDomain="";
     private Rational maxFractionValue;
     private Integer minimumWholeDigits;
-    private boolean integerSecondOperand,variedFacts;
+    private boolean integerSecondOperand,variedFacts,variedSums;
     private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,nonnegativeSubtrahend;
     CurriculumLimits(String definition){
         if(definition.isBlank())return;
@@ -46,6 +46,7 @@ public final class CurriculumLimits {
                 case "unitFractions":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid unit fraction flag");unitFractions=true;break;
                 case "relatedDenominators":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid denominator relation flag");relatedDenominators=true;break;
                 case "variedFacts":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid fact forms");variedFacts=true;break;
+                case "variedSums":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid sum forms");variedSums=true;break;
                 case "nonnegative":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid sign limit");nonnegative=true;break;
                 case "nonnegativeSubtrahend":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid subtraction limit");nonnegativeSubtrahend=true;break;
                 default:throw new IllegalArgumentException("Unknown curriculum limit: "+pair[0]);
@@ -128,6 +129,7 @@ public final class CurriculumLimits {
     }
     public int timesTableMax(){return timesTableMax;}
     boolean variedFacts(){return variedFacts;}
+    boolean variedSums(){return variedSums;}
     int decimalPlaces(int defaultPlaces){return decimalPlaces==null?defaultPlaces:decimalPlaces;}
     boolean hasDecimalPlaces(){return decimalPlaces!=null;}
     boolean hasWholeDigits(){return wholeDigits!=null;}

@@ -8,6 +8,7 @@ public final class Choices {
     public static void build(Question q,Catalog.Skill skill,Random random){
         if(!q.choices.isEmpty()||q.answers.length!=1||!q.kind.equals("number"))return;
         if(FactFoundations.blank(q)){FactFoundations.choices(q,random);return;}
+        if(SumFoundations.blank(q)){SumFoundations.choices(q,random);return;}
         if(q.choiceInputs==null||q.choiceInputs.length==0)return;
         if(LargePlaceFoundations.supports(skill.id)){LargePlaceFoundations.choices(q,random);return;}
         Pool pool=new Pool(q,skill);pool.collect();

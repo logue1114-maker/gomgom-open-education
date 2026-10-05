@@ -704,6 +704,7 @@ MAP	sg-moe-primary-2021-v1	5	mixed,fracMixedAdd,fracMixedSub,fracMul,fracMulInt,
 MAP	sg-moe-primary-2021-v1	6	fracDivInt,fracDiv,fracWholeDiv,el_ratio_terms,el_ratio_fraction,el_proportional_split,proportion	PDF43: selected proper-fraction division and whole-number ratio; algebra not mapped
 RULE	sg-moe-primary-2021-v1	1	add100,sub100	maxGiven=100;maxResult=100;nonnegative=true
 RULE	sg-moe-primary-2021-v1	1	mulIntro	maxResult=40
+RULE	sg-moe-primary-2021-v1	1	add9,sub9,add20,sub20	variedSums=true
 RULE	sg-moe-primary-2021-v1	2	place1000,el_compare_10000,el_even_odd	wholeMaximum=1000
 RULE	sg-moe-primary-2021-v1	2	add1000,sub1000	wholeDigits=3;nonnegative=true
 RULE	sg-moe-primary-2021-v1	2	tables	timesTableMax=10;factors=2,3,4,5,10;variedFacts=true

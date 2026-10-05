@@ -1,0 +1,182 @@
+{
+  "date": "2026-10-05",
+  "change": "Varied small-number addition/subtraction practice and simpler integer help keypad",
+  "selectedPack": "sg-moe-primary-2021-v1",
+  "practicePlacement": "Primary 1",
+  "commonSkillTypes": 465,
+  "independentSupply": {
+    "rows": 400,
+    "independentPublicEquationAndRangeChecks": 400,
+    "blankGuideAndUniqueAnswerChecks": 274,
+    "units": {
+      "add9": {
+        "issued": 100,
+        "blanks": 68,
+        "distinctPublicEquations": 100
+      },
+      "sub9": {
+        "issued": 100,
+        "blanks": 70,
+        "distinctPublicEquations": 100
+      },
+      "add20": {
+        "issued": 100,
+        "blanks": 67,
+        "distinctPublicEquations": 100
+      },
+      "sub20": {
+        "issued": 100,
+        "blanks": 69,
+        "distinctPublicEquations": 100
+      }
+    },
+    "multipleChoiceRows": 400,
+    "ordinaryQuestionsWithoutChoices": 0,
+    "correctChoicePositionCounts": {
+      "2": 103,
+      "0": 100,
+      "1": 106,
+      "3": 91
+    },
+    "allFourPositionsObserved": true,
+    "additionGuidesUseCountingOnRatherThanPrerequisiteSubtraction": true,
+    "variedFormsNotOneHundredDifferentArithmeticFacts": true
+  },
+  "localTests": {
+    "engine": 453,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 453,
+  "nativeTopics": {
+    "add9": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "blankEquations": 5
+    },
+    "sub9": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "blankEquations": 8
+    },
+    "add20": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "blankEquations": 5
+    },
+    "sub20": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "blankEquations": 7
+    },
+    "sub20-choices": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "blankEquations": 5
+    }
+  },
+  "nativeTypedQuestions": 40,
+  "nativeChoiceQuestions": 10,
+  "twoDigitMinuendChoicesObserved": 3,
+  "nativeEvidenceByApk": {
+    "bab27ffd492bc57e60ada4dacb3deeec70ea5f41e6e24badce87be5ada0ad8c8": {
+      "typedQuestions": 30,
+      "topics": [
+        "add9",
+        "sub9",
+        "add20"
+      ],
+      "note": "before final choice-domain correction; equation generation and integer help unchanged"
+    },
+    "483f0f9fcf36f63be2d02bac67120216cd56c58906dedf577e2bbcf2a4b4cd03": {
+      "typedQuestions": 10,
+      "choiceQuestions": 10,
+      "topics": [
+        "sub20",
+        "sub20-choices"
+      ],
+      "coldReadback": true
+    }
+  },
+  "installedApkSha256": "483f0f9fcf36f63be2d02bac67120216cd56c58906dedf577e2bbcf2a4b4cd03",
+  "historyBefore": 1867,
+  "historyAfter": 1917,
+  "savedSessionsBefore": 8,
+  "savedSessionsAfter": 8,
+  "allEightSavedLabelsPreserved": true,
+  "timersPreserved": [
+    "27:59",
+    "55:09"
+  ],
+  "wrongAndCorrectGuidesCheckedForAllFourUnits": true,
+  "guideDoesNotAutoEnterAnswer": true,
+  "subtractionHelpDraftRestoredAfterColdRestartAndUpdate": true,
+  "integerOnlyHelpKeysNativeVerified": true,
+  "profileRemains": "Singapore Primary 2 / English; Primary 1 selected via normal topic picker",
+  "localVisualReview": "actual normal phone 1080x2400 / 420dpi",
+  "previousUnresolvedSupplyRowsNotReaudited": [
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "1",
+      "skill": "count",
+      "issued": "100",
+      "distinct_questions": "9",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "1",
+      "skill": "compare",
+      "issued": "100",
+      "distinct_questions": "99",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "1",
+      "skill": "join9",
+      "issued": "100",
+      "distinct_questions": "55",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "2",
+      "skill": "fractionPart",
+      "issued": "100",
+      "distinct_questions": "66",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "3",
+      "skill": "fracAdd",
+      "issued": "100",
+      "distinct_questions": "79",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "3",
+      "skill": "fracSub",
+      "issued": "100",
+      "distinct_questions": "80",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "sg-moe-primary-2021-v1",
+      "grade": "4",
+      "skill": "el_fraction_decimal",
+      "issued": "100",
+      "distinct_questions": "99",
+      "adjacent_repeats": "0"
+    }
+  ],
+  "remainingUnverified": [
+    "small phone/tablet/physical devices for these forms",
+    "full national curricula",
+    "long study sessions",
+    "release readiness"
+  ],
+  "wholeProductComplete": false
+}
