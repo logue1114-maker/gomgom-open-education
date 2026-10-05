@@ -57,6 +57,7 @@ public final class Choices {
         }
         boolean between(Rational v,long min,long max){return v.compareTo(Rational.of(min))>=0&&v.compareTo(Rational.of(max))<=0;}
         boolean allowed(Rational v){
+            if(SumFoundations.supports(skill.id)&&in.length==4&&i(3)==1&&v.toString().length()!=answer.toString().length())return false;
             if(ErrorFoundations.supports(skill.id)&&v.compareTo(Rational.ZERO)<0)return false;
             if(MoneyFoundations.supports(skill.id)&&v.compareTo(Rational.ZERO)<=0)return false;
             if(MotionFoundations.supports(skill.id)&&!MotionFoundations.signed(skill.id)&&v.compareTo(Rational.ZERO)<=0)return false;
@@ -72,7 +73,7 @@ public final class Choices {
                 case "place" -> v.isInteger()&&between(v,0,in.length>2&&i(2)==1?skill.range:in.length>2&&i(2)==3?50:9)&&(in.length<=2||i(2)!=3||v.intValue()%10==0);
                 case "join" -> v.isInteger()&&between(v,0,in.length>4?i(4):skill.range);
                 case "split" -> v.isInteger()&&between(v,0,i(0));
-                case "add" -> v.isInteger()&&between(v,0,skill.range<=19?skill.range:2L*Math.max(skill.range,Math.max(i(0),i(1))));
+                case "add" -> v.isInteger()&&between(v,0,SumFoundations.supports(skill.id)&&in.length==4&&i(3)==1?i(2):skill.range<=19?skill.range:2L*Math.max(skill.range,Math.max(i(0),i(1))));
                 case "sub" -> v.isInteger()&&between(v,0,Math.max(skill.range,i(0)));
                 case "addThree" -> v.isInteger()&&between(v,0,Math.max(i(0),Math.max(i(1),i(2)))>skill.range?3L*Math.max(i(0),Math.max(i(1),i(2))):skill.range);
                 case "subThree" -> v.isInteger()&&between(v,0,skill.range);

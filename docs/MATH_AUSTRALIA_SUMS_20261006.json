@@ -1,0 +1,136 @@
+{
+  "date": "2026-10-06",
+  "change": "AU Year1 arithmetic relations within20 include zero,19,20 and both operand blanks; selected title and choices follow the range",
+  "independentSupply": {
+    "independentPublicChecks": 4000,
+    "blankEquations": 2680,
+    "correctChoicePositions": {
+      "2": 998,
+      "1": 988,
+      "3": 1004,
+      "0": 1010
+    },
+    "units": [
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "add9",
+        "issued": 800,
+        "distinct": 165,
+        "equationDomain": 165,
+        "arithmeticRelations": 55,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "sub9",
+        "issued": 800,
+        "distinct": 165,
+        "equationDomain": 165,
+        "arithmeticRelations": 55,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "add20",
+        "issued": 800,
+        "distinct": 528,
+        "equationDomain": 528,
+        "arithmeticRelations": 176,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "sub20",
+        "issued": 800,
+        "distinct": 528,
+        "equationDomain": 528,
+        "arithmeticRelations": 176,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "sg-moe-primary-2021-v1",
+        "skill": "add9",
+        "issued": 200,
+        "distinct": 165,
+        "equationDomain": 165,
+        "arithmeticRelations": 55,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "sg-moe-primary-2021-v1",
+        "skill": "sub9",
+        "issued": 200,
+        "distinct": 165,
+        "equationDomain": 165,
+        "arithmeticRelations": 55,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "sg-moe-primary-2021-v1",
+        "skill": "add20",
+        "issued": 200,
+        "distinct": 135,
+        "equationDomain": 135,
+        "arithmeticRelations": 45,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "sg-moe-primary-2021-v1",
+        "skill": "sub20",
+        "issued": 200,
+        "distinct": 135,
+        "equationDomain": 135,
+        "arithmeticRelations": 45,
+        "repeatAfterExhaustion": true
+      }
+    ]
+  },
+  "choiceDigitCueBefore": 120,
+  "choiceDigitCueAfter": 0,
+  "choiceCueSample": 1600,
+  "localTests": {
+    "engine": 462,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 462,
+  "nativeTopics": {
+    "add20": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "largestVisibleQuantity": 20,
+      "basis": "before choice digit fix"
+    },
+    "sub20": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "largestVisibleQuantity": 20,
+      "basis": "before choice digit fix"
+    },
+    "sub20-choices": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "largestVisibleQuantity": 20,
+      "basis": "before choice digit fix"
+    },
+    "sub20-choices-balanced": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "largestVisibleQuantity": 20,
+      "basis": "final"
+    }
+  },
+  "nativeQuestions": 40,
+  "blankHelpWrongCorrectAndNoAutoAnswer": true,
+  "allNineSavedLabelsPreserved": true,
+  "stateInjection": false,
+  "wholeProductComplete": false,
+  "remainingUnverified": [
+    "contextual modelling and physical/subitising strategies",
+    "Year3 nearest-minute clocks",
+    "Year6 decimal metric conversions",
+    "all national/regional curricula",
+    "small phone/tablet/physical devices and long sessions",
+    "release readiness"
+  ]
+}

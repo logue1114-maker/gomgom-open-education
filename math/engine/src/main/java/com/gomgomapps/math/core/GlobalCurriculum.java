@@ -83,6 +83,10 @@ public final class GlobalCurriculum {
     /** Display the actual selected number range, without changing the catalog or question. */
     public static String title(String system,String id,int grade){
         Catalog.Skill skill=Catalog.get(id);
+        if((id.equals("add20")||id.equals("sub20"))&&limits(system,id,grade).wholeMaximum(18)!=18){
+            int maximum=limits(system,id,grade).wholeMaximum(18);
+            return maximum+"까지의 "+(id.equals("add20")?"덧셈":"뺄셈");
+        }
         if(id.equals("place1000")||id.equals("largePlace")){
             int maximum=limits(system,id,grade).wholeMaximum(skill.range);
             if(maximum!=skill.range)return String.format(Locale.ROOT,"%,d까지 수",maximum);

@@ -845,7 +845,8 @@ MAP	au-acara-v9-primary-v1	6	el_capacity_l_ml	AC9M6M01; selected calculation com
 MAP	au-acara-v9-primary-v1	6	el_time_add	AC9M6M03; selected calculation component
 MAP	au-acara-v9-primary-v1	6	el_time_difference	AC9M6M03; selected calculation component
 RULE	au-acara-v9-primary-v1	1	place1000	wholeMaximum=120
-RULE	au-acara-v9-primary-v1	1	add9,sub9,add20,sub20	variedSums=true
+RULE	au-acara-v9-primary-v1	1	add9,sub9	variedSums=true
+RULE	au-acara-v9-primary-v1	1	add20,sub20	variedSums=true;wholeMaximum=20;maxGiven=20;maxResult=20
 RULE	au-acara-v9-primary-v1	2	place1000,el_compare_10000	wholeMaximum=1000
 RULE	au-acara-v9-primary-v1	2	fractionPart	denominators=2,4,8;unitFractions=true
 RULE	au-acara-v9-primary-v1	2	tables	timesTableMax=10;factors=2;variedFacts=true

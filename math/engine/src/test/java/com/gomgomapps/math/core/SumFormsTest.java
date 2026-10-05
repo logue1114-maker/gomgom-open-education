@@ -5,6 +5,25 @@ import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class SumFormsTest {
+    @Test public void australianYearOneCoversAllRelationsThroughTwentyIncludingZeroAndBothBlankPositions(){
+        for(String id:List.of("add20","sub20")){
+            Generator g=new Generator(new Random(20261006131L));List<String> recent=new ArrayList<>();Set<String> facts=new HashSet<>();
+            CurriculumLimits limits=GlobalCurriculum.limits("au-acara-v9-primary-v1",id,1);
+            for(int i=0;i<528;i++){
+                Question q=g.next(id,recent,true,limits);assertFalse(recent.contains(q.signature()));recent.add(q.signature());int expected=solve(q.prompt);assertEquals(String.valueOf(expected),q.answers[0]);
+                String fact=q.prompt.replace("□",String.valueOf(expected)).split(" = ")[0];facts.add(fact);String[] terms=fact.split(" [+-] ");int a=Integer.parseInt(terms[0]),b=Integer.parseInt(terms[1]);
+                if(id.equals("add20"))assertTrue(a>=0&&b>=0&&a+b>=10&&a+b<=20);else assertTrue(a>=10&&a<=20&&b>=0&&b<=a);
+                assertEquals(4,q.choices.size());assertEquals(q.answers[0],q.choices.get(q.correctChoice));assertEquals(4,new HashSet<>(q.choices).size());
+                for(String option:q.choices)assertTrue(Integer.parseInt(option)>=0&&Integer.parseInt(option)<=20);
+                assertTrue(q.choices.stream().allMatch(option->option.length()==q.answers[0].length()));
+                if(q.prompt.startsWith("□")&&id.equals("sub20"))assertTrue(q.choices.stream().allMatch(v->Integer.parseInt(v)>=10));
+                if(q.prompt.contains("□")){HelpPlan plan=HelpPlan.forQuestion(q);assertNotNull(plan);assertFalse(plan.canTransfer());assertTrue(plan.step(0).accepts(String.valueOf(expected)));}
+            }
+            assertEquals(176,facts.size());assertEquals(recent.get(0),g.next(id,recent,false,limits).signature());
+            assertTrue(facts.contains(id.equals("add20")?"20 + 0":"20 - 20"));assertTrue(facts.contains(id.equals("add20")?"0 + 19":"19 - 0"));
+            assertEquals(id.equals("add20")?"20까지의 덧셈":"20까지의 뺄셈",GlobalCurriculum.title("au-acara-v9-primary-v1",id,1));
+        }
+    }
     static int solve(String prompt){
         String[] sides=prompt.split(" = ");boolean add=sides[0].contains(" + ");String[] terms=sides[0].split(add?" \\+ ":" - ");
         if(sides.length==1){int a=Integer.parseInt(terms[0]),b=Integer.parseInt(terms[1]);return add?a+b:a-b;}
