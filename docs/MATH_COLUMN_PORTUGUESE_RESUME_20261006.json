@@ -1,0 +1,17 @@
+{
+  "scope": "Portuguese multi-digit calculation help and preserved partial draft on cold restart",
+  "tests": {
+    "engine": 551,
+    "app": 83,
+    "globalApp": 83
+  },
+  "engineUnchanged": true,
+  "nativeLanguage": "Portuguese",
+  "newAnswers": 2,
+  "helpSteps": 29,
+  "coldPartialHelpStageAndEntryPreserved": true,
+  "mainAnswerAutomaticallyTransferred": false,
+  "newCurriculumMappings": 0,
+  "wholeCurriculumComplete": false,
+  "releaseReady": false
+}

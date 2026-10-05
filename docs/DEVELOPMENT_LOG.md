@@ -315,3 +315,7 @@ Corrected the restaurant-menu translation, mixed English history and core Portug
 ## 2026-10-06 — Multi-digit addition and subtraction help
 
 Added learner-entered place-value, carry and borrowing steps using public operands only. Existing guides are preserved; older questions without a guide receive one on normal open. No automatic transfer to the main answer. Local checks: engine551/app83/global83; public engine551. Normal Android emulator keyboard flow: two new answers, 31 entered help steps, two corrected wrong steps; cold restart preserves original sessions. New help verified in English; Portuguese copy added but new native help not yet verified. No new curriculum mappings or release readiness claim.
+
+## 2026-10-06 — Portuguese column help and cold draft preservation
+
+Curated the actual return control and composed help titles from the selected-language label. Normal Portuguese saved-session flow verifies two new answers and 29 entered help steps, including borrowing across a zero. A wrong value and second help stage survive cold restart and APK update. Main answer stays blank until learner input; original sessions preserved. App83/global83 pass; unchanged engine551 evidence reused. Private UI/translation/QA/device evidence excluded. No new curriculum mappings or release claim.
