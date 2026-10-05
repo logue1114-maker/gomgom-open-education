@@ -13,7 +13,7 @@ public final class Choices {
         if(pool.wrong.size()<3)return;
         List<Rational> candidates=new ArrayList<>(pool.wrong.keySet());Collections.shuffle(candidates,random);
         List<Rational> options=new ArrayList<>(candidates.subList(0,3));
-        if(ErrorFoundations.supports(skill.id)||MoneyFoundations.supports(skill.id)||MotionFoundations.supports(skill.id)||MassDensity.supports(skill.id)||CompoundGeometry.supports(skill.id)||SolidFoundations.supports(skill.id)||QuadraticRelations.SKILLS.contains(skill.id)||MeasurementFoundations.supports(skill.id)||SurfaceGeometry.supports(skill.id)||CubeFoundations.supports(skill.id)||RateFoundations.supports(skill.id)||IndexLaws.supports(skill.id)){
+        if(GradientFoundations.supports(skill.id)||ErrorFoundations.supports(skill.id)||MoneyFoundations.supports(skill.id)||MotionFoundations.supports(skill.id)||MassDensity.supports(skill.id)||CompoundGeometry.supports(skill.id)||SolidFoundations.supports(skill.id)||QuadraticRelations.SKILLS.contains(skill.id)||MeasurementFoundations.supports(skill.id)||SurfaceGeometry.supports(skill.id)||CubeFoundations.supports(skill.id)||RateFoundations.supports(skill.id)||IndexLaws.supports(skill.id)){
             List<Rational> lower=new ArrayList<>(),higher=new ArrayList<>();
             for(Rational value:candidates)(value.compareTo(pool.answer)<0?lower:higher).add(value);
             // Independent random rank per question: neighboring-error choices must
@@ -97,6 +97,7 @@ public final class Choices {
         }
         void placeErrors(Rational step,String reason){for(int sign:new int[]{-1,1})add(answer.add(step.mul(Rational.of(sign))),reason);}
         void collect(){
+            if(GradientFoundations.supports(skill.id)){GradientFoundations.errors(q).forEach(this::add);return;}
             if(ErrorFoundations.supports(skill.id)){ErrorFoundations.errors(q).forEach(this::add);return;}
             if(MoneyFoundations.supports(skill.id)){MoneyFoundations.errors(q).forEach(this::add);return;}
             if(MotionFoundations.supports(skill.id)){MotionFoundations.errors(q).forEach(this::add);return;}

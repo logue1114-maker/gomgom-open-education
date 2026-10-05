@@ -60,6 +60,7 @@ public final class Generator {
         if(MotionFoundations.supports(s.id))return MotionFoundations.create(s,random);
         if(MoneyFoundations.supports(s.id))return MoneyFoundations.create(s,random);
         if(ErrorFoundations.supports(s.id))return ErrorFoundations.create(s,random);
+        if(GradientFoundations.supports(s.id))return GradientFoundations.create(s,random);
         if(CompoundGeometry.supports(s.id))return CompoundGeometry.create(s,random);
         if(SolidFoundations.supports(s.id))return SolidFoundations.create(s,random);
         if(IndexLaws.supports(s.id))return IndexLaws.create(s,random);

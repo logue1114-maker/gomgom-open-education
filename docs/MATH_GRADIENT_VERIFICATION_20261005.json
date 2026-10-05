@@ -1,0 +1,76 @@
+{
+  "status": "registered-built-selected-supply-and-independent-arithmetic-passed-native-pending",
+  "tests": {
+    "engine": {
+      "tests": 432,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "freshSampleRows": 4,
+  "freshDistinctEach": 100,
+  "freshAdjacentRepeats": 0,
+  "mergedKenyaRows": 359,
+  "mergedBelow100": 51,
+  "mergedScope": "357 historical rows plus two fresh Kenya rows; not a fresh world audit",
+  "publicEquationsIndependentlySolved": 4000,
+  "distinctPrompts": {
+    "parallelPerpendicularGradient": 1990,
+    "gradientLineRelation": 1995
+  },
+  "goals": [
+    "parallel",
+    "perpendicular"
+  ],
+  "relations": [
+    -1,
+    0,
+    1
+  ],
+  "choicePositions": {
+    "parallelPerpendicularGradient": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "gradientLineRelation": [
+      0,
+      1,
+      2
+    ]
+  },
+  "numericAnswerRanks": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "answersAndAllGuideStepsMatched": true,
+  "apkSha256": "0ea42e4162f9b2368c503a32db7f8cd308509c0863af5e77db992a903399ae3f",
+  "deviceVerified": false,
+  "date": "2026-10-05",
+  "types": [
+    "parallelPerpendicularGradient",
+    "gradientLineRelation"
+  ],
+  "commonTypes": 463,
+  "kenyaTypes": 235,
+  "kenyaPlacements": 359,
+  "kenyaGrade9Placements": 63,
+  "nativeCompleted": 0,
+  "scope": "Finite nonzero first gradient, distinct intercepts; no vertical-line or full plotting implementation. Existing coefficient-based sec_line_relation is preserved."
+}

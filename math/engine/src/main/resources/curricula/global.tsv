@@ -655,3 +655,6 @@ MAP	ke-kicd-cbc-2024-v1	9	currencyExchange,exportDuty,importDuty,exciseDuty,vatA
 
 # Selected Grade9 errors from estimated and actual measurements.
 MAP	ke-kicd-cbc-2024-v1	9	absoluteMeasurementError,percentageMeasurementError	Grade9 July2024 PDF41-42 3.6: same-unit estimated and positive actual values; absolute difference and percentage error using actual value as denominator; measuring instruments, hands-on estimates and consumer activities remain
+
+# Finite-gradient calculations; plotting and graph activities are separate.
+MAP	ke-kicd-cbc-2024-v1	9	parallelPerpendicularGradient,gradientLineRelation	Grade9 July2024 PDF46-47 4.1: relate gradients of distinct parallel and perpendicular lines; nonzero first slope; undefined vertical slopes and actual plotting remain outside this calculation subset
