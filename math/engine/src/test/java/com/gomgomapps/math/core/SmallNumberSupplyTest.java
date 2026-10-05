@@ -12,6 +12,26 @@ public class SmallNumberSupplyTest {
         if(terms[0].equals("□"))return String.valueOf(Integer.parseInt(terms[1])+Integer.parseInt(terms[2]));
         return String.valueOf(Integer.parseInt(terms[0])-Integer.parseInt(terms[terms[1].equals("□")?2:1]));
     }
+    @Test public void australianFoundationUsesItsActualTwentyAndTenDomains(){
+        Map<String,Integer> domains=Map.of("count",20,"compare",441,"join9",66,"split9",132);
+        for(String id:domains.keySet()){
+            Generator g=new Generator(new Random(20261006101L));List<String> recent=new ArrayList<>();
+            CurriculumLimits limits=GlobalCurriculum.limits("au-acara-v9-primary-v1",id,0);int maximum=Set.of("count","compare").contains(id)?20:10;
+            Set<String> answers=new HashSet<>();
+            for(int i=0;i<domains.get(id);i++){
+                Question q=g.next(id,recent,true,limits);assertFalse(recent.contains(q.signature()));recent.add(q.signature());
+                assertEquals(solve(q),q.answers[0]);answers.add(q.answers[0]);assertTrue(limits.allows(q));
+                if(q.skillId.equals("count"))for(String line:q.prompt.split("\\n"))assertTrue(line.chars().filter(c->c=='●').count()<=5);
+                if(q.numberBond!=null)for(String value:new String[]{q.numberBond.whole,q.numberBond.left,q.numberBond.right})if(!value.isEmpty())assertTrue(Integer.parseInt(value)<=10);
+                if(!q.choices.isEmpty()){
+                    assertEquals(solve(q),q.choices.get(q.correctChoice));assertEquals(q.choices.size(),new HashSet<>(q.choices).size());
+                    if(!id.equals("compare"))for(String choice:q.choices){assertTrue(Integer.parseInt(choice)>=0);assertTrue(Integer.parseInt(choice)<=maximum);}
+                }
+            }
+            assertEquals(recent.get(0),g.next(id,recent,false,limits).signature());
+            if(!id.equals("compare"))assertTrue(answers.contains(String.valueOf(maximum)));
+        }
+    }
     @Test public void allActualProblemsAreUsedBeforeAnyRepeatAndOldestIsRevisited(){
         Map<String,Integer> domains=Map.of("count",9,"compare",100,"join9",55,"split9",110);
         for(String id:domains.keySet()){

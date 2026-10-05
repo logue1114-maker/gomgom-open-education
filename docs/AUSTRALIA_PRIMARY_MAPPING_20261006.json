@@ -1,5 +1,5 @@
 {
-  "date": "2026-10-05",
+  "date": "2026-10-06",
   "source": "https://www.australiancurriculum.edu.au/content/dam/en/curriculum/ac-version-9/downloads/curriculum-workbook.xlsx",
   "sourceSha256": "db446882d2c00cf7c085a03e250e2442fda6c44011fc114680c46c1dc7a822c3",
   "pack": "au-acara-v9-primary-v1",
@@ -869,8 +869,8 @@
     }
   ],
   "knownPartialRanges": [
-    "Foundation counting/comparison only 1–9/0–9; collections to20 and subitising remain",
-    "Foundation whole/parts only through9, not10",
+    "Foundation counting tasks1–20 and comparison0–20; subitising and empty-collection counting remain",
+    "Foundation part-part-whole values through10; subitising recognition remains",
     "Year1 addition/subtraction foundations do not exhaust all facts through20",
     "Year3 clock-minute questions use five-minute marks; nearest-minute reading remains",
     "Year6 common metric conversions are selected integer forms; decimal measurements remain"

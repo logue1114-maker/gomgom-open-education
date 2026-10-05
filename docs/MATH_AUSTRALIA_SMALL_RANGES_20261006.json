@@ -1,0 +1,121 @@
+{
+  "date": "2026-10-06",
+  "change": "Use selected curriculum limits for counting/comparison through20 and number bonds through10; default ranges unchanged",
+  "independentSupply": {
+    "independentPublicChecks": 3200,
+    "units": [
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "count",
+        "issued": 600,
+        "distinct": 20,
+        "domain": 20,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "compare",
+        "issued": 600,
+        "distinct": 441,
+        "domain": 441,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "join9",
+        "issued": 600,
+        "distinct": 66,
+        "domain": 66,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "au-acara-v9-primary-v1",
+        "skill": "split9",
+        "issued": 600,
+        "distinct": 132,
+        "domain": 132,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "default",
+        "skill": "count",
+        "issued": 200,
+        "distinct": 9,
+        "domain": 9,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "default",
+        "skill": "compare",
+        "issued": 200,
+        "distinct": 100,
+        "domain": 100,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "default",
+        "skill": "join9",
+        "issued": 200,
+        "distinct": 55,
+        "domain": 55,
+        "repeatAfterExhaustion": true
+      },
+      {
+        "system": "default",
+        "skill": "split9",
+        "issued": 200,
+        "distinct": 110,
+        "domain": 110,
+        "repeatAfterExhaustion": true
+      }
+    ],
+    "correctChoicePositions": {
+      "2": 614,
+      "0": 611,
+      "3": 533,
+      "1": 566
+    },
+    "stateInjection": false
+  },
+  "localTests": {
+    "engine": 461,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 461,
+  "nativeTopics": {
+    "count": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "largestVisibleQuantity": 20
+    },
+    "compare": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "largestVisibleQuantity": 20
+    },
+    "join9": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "largestVisibleQuantity": 10
+    },
+    "split9": {
+      "questions": 10,
+      "independentPublicInputAndNextChecks": 10,
+      "largestVisibleQuantity": 10
+    }
+  },
+  "nativeQuestions": 40,
+  "allNineSavedLabelsPreserved": true,
+  "stateInjection": false,
+  "wholeProductComplete": false,
+  "remainingUnverified": [
+    "subitising and zero empty-collection tasks",
+    "Year1 arithmetic through20",
+    "Year3 nearest-minute clocks",
+    "Year6 decimal metric conversions",
+    "all national/regional curricula",
+    "small phone/tablet/physical devices and long sessions",
+    "release readiness"
+  ]
+}

@@ -68,9 +68,9 @@ public final class Choices {
             if(NumberExtensions.supports(skill.id)&&v.compareTo(Rational.ZERO)<0)return false;
             if(skill.grade<=6&&v.compareTo(Rational.ZERO)<0)return false;
             return switch(skill.family){
-                case "count" -> v.isInteger()&&between(v,1,9);
+                case "count" -> v.isInteger()&&between(v,1,in.length>1?i(1):9);
                 case "place" -> v.isInteger()&&between(v,0,in.length>2&&i(2)==1?skill.range:in.length>2&&i(2)==3?50:9)&&(in.length<=2||i(2)!=3||v.intValue()%10==0);
-                case "join" -> v.isInteger()&&between(v,0,skill.range);
+                case "join" -> v.isInteger()&&between(v,0,in.length>4?i(4):skill.range);
                 case "split" -> v.isInteger()&&between(v,0,i(0));
                 case "add" -> v.isInteger()&&between(v,0,skill.range<=19?skill.range:2L*Math.max(skill.range,Math.max(i(0),i(1))));
                 case "sub" -> v.isInteger()&&between(v,0,Math.max(skill.range,i(0)));
