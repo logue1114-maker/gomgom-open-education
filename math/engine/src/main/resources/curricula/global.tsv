@@ -886,3 +886,5 @@ RULE	au-acara-v9-primary-v1	2	el_clock_time,el_clock_digital_match	minuteStep=15
 RULE	au-acara-v9-primary-v1	3	el_clock_time,el_clock_digital_match	minuteStep=1
 MAP	au-acara-v9-primary-v1	5	el_time_12_to_24,el_time_24_to_12	AC9M5M03; selected two-way 12/24-hour conversion; practical timetables remain
 RULE	au-acara-v9-primary-v1	5	el_time_12_to_24,el_time_24_to_12	minuteStep=1
+MAP	au-acara-v9-primary-v1	3	el_digital_to_analog	AC9M3M04; selected digital-to-analog matching
+RULE	au-acara-v9-primary-v1	3	el_digital_to_analog	minuteStep=1

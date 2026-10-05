@@ -20,6 +20,11 @@ public class ChoiceQualityTest {
         Generator g=new Generator(new Random(799));
         for(Catalog.Skill skill:Catalog.ALL)for(int run=0;run<100;run++){
             Question q=g.next(skill.id,List.of(),true);if(q.choices.isEmpty())continue;
+            if(q.choiceDiagrams!=null&&!q.choiceDiagrams.isEmpty()){
+                assertEquals(4,q.choices.size());assertEquals(q.choiceDiagrams.keySet(),new HashSet<>(q.choices));Set<String> pictures=new HashSet<>();
+                for(String key:q.choices){StudyDiagram picture=q.choiceDiagrams.get(key);assertNotNull(picture);assertTrue(pictures.add(picture.type+Arrays.toString(picture.values)+Arrays.toString(picture.labels)));}
+                assertEquals(q.answers[0],q.choices.get(q.correctChoice));continue;
+            }
             if(q.choiceLabels!=null&&!q.choiceLabels.isEmpty()){
                 assertEquals(q.choiceLabels.keySet(),new HashSet<>(q.choices));assertEquals(q.choices.size(),new HashSet<>(q.choiceLabels.values()).size());
                 assertEquals(q.answers[0],q.choices.get(q.correctChoice));continue;

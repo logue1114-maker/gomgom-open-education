@@ -12,6 +12,8 @@ public final class Question implements Serializable {
     public List<String> choices=new ArrayList<>();
     /** Optional natural-language labels; stored answer values remain stable across display shuffles. */
     public Map<String,String> choiceLabels=new LinkedHashMap<>();
+    /** Optional public pictures keyed by stable answer values; absent in older saved questions. */
+    public Map<String,StudyDiagram> choiceDiagrams=new LinkedHashMap<>();
     public List<String> distractorReasons=new ArrayList<>();
     public int correctChoice=-1;
     public boolean decimal,stepSupport=true;

@@ -1,0 +1,78 @@
+{
+  "date": "2026-10-06",
+  "change": "Digital-to-analog clock picture choices",
+  "sourceCodes": [
+    "AC9M3M04"
+  ],
+  "commonSkillTypes": 474,
+  "australianSkillTypes": 77,
+  "australianGradePlacements": 120,
+  "selectedPrimaryComponentCodes": 50,
+  "officialPrimaryCodes": 139,
+  "tests": {
+    "engine": 487,
+    "app": 67,
+    "globalApp": 67
+  },
+  "publicEngineTests": 487,
+  "independentSupply": {
+    "independentPublicTasks": 1540,
+    "independentPublicClockGeometries": 6160,
+    "groups": [
+      {
+        "group": "default-full",
+        "issued": 200,
+        "distinctPublicTimes": 144
+      },
+      {
+        "group": "au3-full",
+        "issued": 740,
+        "distinctPublicTimes": 720
+      },
+      {
+        "group": "au3-recent100",
+        "issued": 600,
+        "distinctPublicTimes": 435
+      }
+    ],
+    "choicePositions": {
+      "3": 387,
+      "2": 384,
+      "0": 385,
+      "1": 384
+    },
+    "sameHourOptions": 2,
+    "sameMinuteOptions": 2,
+    "exactMatchesPerTask": 1,
+    "fullProvidedHistoryDomainExhaustion": true,
+    "recentWindow100NoRepeat": true,
+    "unboundedAppHistory": false,
+    "answerMetadataUsedToSolve": false
+  },
+  "nativeChoiceChecks": 20,
+  "nativeClockPicturesIndependentlyChecked": 80,
+  "initialNativeChecks": 10,
+  "finalCardBorderNativeChecks": 10,
+  "wrongPictureOnlyMarked": true,
+  "savedPictureOrderPreserved": true,
+  "helpTransfersMainAnswer": false,
+  "savedSessionsPreserved": true,
+  "wholeCurriculumComplete": false,
+  "limitations": [
+    "AU Year3 matches72012-hour readings, default matches144 at five-minute steps; these are time readings, not new arithmetic facts",
+    "Every task has four distinct clock pictures with two matching hours/two matching minutes and only one exact match",
+    "Full144/720-domain exhaustion is an engine result using full provided history; the app retains bounded recent histories. Recent100-history supply is checked separately",
+    "First native saved-return check confused the blue selection border with the minute hand; bounded face-pixel reading resolved it without resetting the saved question",
+    "Native20 questions span10 before a card-bottom-border layout fix and10 after the fix; final cold readback preserves prior saved rounds",
+    "No24-hour or AM/PM inference from analog hands; contextual timetables, clock-hand setting and practical time tasks remain",
+    "Normal1080x2400 emulator phone only; small phones, tablets, physical devices, TalkBack learning access, external review and student effectiveness remain",
+    "Global curricula, full localization, age/bear design, long sessions, advertising/purchase and release remain unfinished"
+  ],
+  "hostRenderingContract": {
+    "publicChoiceDiagrams": "stable answer keys map to supplied diagrams",
+    "choiceOrderShuffled": true,
+    "choiceAccessibilityLabels": "Clock choice1\u20134, no answer values",
+    "phonePictureGrid": "two by two",
+    "previousSavedQuestionWithoutChoiceDiagrams": "existing text input/choice path"
+  }
+}

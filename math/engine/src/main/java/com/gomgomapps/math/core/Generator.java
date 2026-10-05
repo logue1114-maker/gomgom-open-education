@@ -35,6 +35,7 @@ public final class Generator {
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(signature,position++);
         int oldest=Integer.MAX_VALUE;
         if(FractionSupply.supports(skillId,limits))q=FractionSupply.next(s,random,limits,previous);
+        if(ClockFaces.supports(skillId))q=ClockFaces.next(s,random,limits,previous);
         if(ClockNotation.supports(skillId))q=ClockNotation.next(s,random,limits,previous);
         if(ClockReadings.supports(skillId))q=ClockReadings.next(s,random,limits,previous);
         if(DotCollections.supports(skillId))q=DotCollections.next(s,random,limits,previous);
@@ -52,7 +53,8 @@ public final class Generator {
             if(q==null||age<oldest){q=candidate;oldest=age;}
         }
         if(q==null)throw new IllegalStateException("No question matches the curriculum limits: "+skillId);
-        if(q.choiceLabels!=null&&!q.choiceLabels.isEmpty()){q.choices=new ArrayList<>(q.choiceLabels.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
+        if(q.choiceDiagrams!=null&&!q.choiceDiagrams.isEmpty()){q.choices=new ArrayList<>(q.choiceDiagrams.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
+        else if(q.choiceLabels!=null&&!q.choiceLabels.isEmpty()){q.choices=new ArrayList<>(q.choiceLabels.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
         else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number"))Choices.build(q,s,random);
         if(multipleChoice&&q.choices.isEmpty()&&(s.id.startsWith("el_")||s.id.startsWith("sec_")||s.family.startsWith("adv_")||s.family.startsWith("early_")))FoundationChoices.build(q,s,random);
         if(multipleChoice&&q.kind.equals("radical"))RadicalQuestions.choices(q,random);
@@ -63,6 +65,7 @@ public final class Generator {
         return create(s,CurriculumLimits.NONE);
     }
     private Question create(Catalog.Skill s,CurriculumLimits limits){
+        if(ClockFaces.supports(s.id))return ClockFaces.next(s,random,limits,Map.of());
         if(ClockNotation.supports(s.id))return ClockNotation.next(s,random,limits,Map.of());
         if(ClockReadings.supports(s.id))return ClockReadings.next(s,random,limits,Map.of());
         if(DotCollections.supports(s.id))return DotCollections.next(s,random,limits,Map.of());
