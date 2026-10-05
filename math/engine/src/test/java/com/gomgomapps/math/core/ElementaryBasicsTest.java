@@ -144,6 +144,15 @@ public class ElementaryBasicsTest {
         for(double value:diagram.values)assertTrue(skill.id,Double.isFinite(value));
 
         switch(diagram.type){
+            case "triangleAngles": case "quadrilateralAngles":
+                assertEquals(skill.id,diagram.type.equals("triangleAngles")?2:3,diagram.values.length);
+                for(double value:diagram.values)assertTrue(skill.id,value>0&&value<180);
+                double total=Arrays.stream(diagram.values).sum();
+                assertTrue(skill.id,total<(diagram.type.equals("triangleAngles")?180:360));
+                if(diagram.type.equals("quadrilateralAngles"))assertNotEquals(skill.id,180.0,total,0);
+                assertEquals(skill.id,diagram.values.length+1,InteriorAngleDiagram.vertices(diagram.values).length);
+                assertEquals(skill.id,diagram.type.equals("triangleAngles")?"삼각형 내각":"사각형 내각",diagram.labels[0]);
+                break;
             case "clock":
                 assertTrue(skill.id,diagram.values.length==2||diagram.values.length==3);
                 assertEquals(skill.id,Math.rint(diagram.values[0]),diagram.values[0],0);

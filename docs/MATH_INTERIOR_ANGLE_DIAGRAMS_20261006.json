@@ -1,0 +1,39 @@
+{
+  "date": "2026-10-06",
+  "scope": "Render interior angle problems from the public given angles",
+  "newQuestionTypes": 0,
+  "localUnitTests": 674,
+  "publicEngineUnitTests": 528,
+  "normalAndroidQuestions": 35,
+  "androidHelpStepsIndependentlyChecked": 4,
+  "actualAppKeypadTaps": true,
+  "mainAnswerTransfers": false,
+  "coldRestartPreservedPriorSavedSessions": true,
+  "wholeCurriculumComplete": false,
+  "externalVisualReviewComplete": false,
+  "physicalDeviceVerified": false,
+  "releaseComplete": false,
+  "notes": [
+    "Triangle and quadrilateral angle questions no longer use a regular polygon surrogate",
+    "Diagram vertices are derived from public givens without reading the answer key",
+    "Only supplied angles are labelled; the remaining vertex is labelled with a question mark",
+    "Convex and reflex quadrilaterals are supported; positive edge lengths are solved before sampling a readable shape",
+    "New quadrilateral questions exclude a straight 180-degree vertex",
+    "Old saved questions adapt at rendering without changing their answer or stored diagram; historical straight-angle items show givens without a misleading figure",
+    "English diagram names use curated interior-angle terminology rather than Square",
+    "Interior arcs identify the intended angle; the reflex question mark is positioned inside its larger interior angle",
+    "Native counts span the initial and arc-refined builds; the final shared-help build also checked concept-help rendering and unchanged blank answers, and completed rounds were not replayed",
+    "Private UI, translation, QA, APKs, device and learner originals excluded"
+  ],
+  "remaining": [
+    "Home can feature an unfinished diagnostic from another country after returning to the previous profile; curriculum/session routing still needs correction",
+    "Global/state/senior curricula and unmapped components",
+    "Entered-step support, varied supply, localization, typography, bear design and early-primary controls",
+    "Broader phone/tablet/physical/student/accessibility and long-study checks",
+    "Advertising, purchase and release"
+  ],
+  "nativeReflexQuadrilaterals": 2,
+  "additionalQuestionsInUnfinished100QuestionRound": 15,
+  "finalArcBuildQuestions": 7,
+  "finalArcReflexQuadrilaterals": 1
+}

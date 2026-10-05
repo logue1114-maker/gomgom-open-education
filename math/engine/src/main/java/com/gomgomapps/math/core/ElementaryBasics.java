@@ -1120,17 +1120,17 @@ public final class ElementaryBasics {
         return number(skill,"삼각형의 두 내각이 "+first+"도, "+second+"도일 때 나머지 한 각은 몇 도인가요?",
                 expression,Rational.of(180-first-second),
                 guide(step("삼각형의 세 각의 합은 180도입니다.","180 - "+first+" - "+second+" = ","도",expression)),
-                diagram("polygon",new double[]{3},"삼각형"));
+                diagram("triangleAngles",new double[]{first,second},"삼각형 내각"));
     }
 
     private static Question quadrilateralAngleSum(Catalog.Skill skill,Random random){
         int first,second,third;
-        do{first=n(random,40,110);second=n(random,40,110);third=n(random,40,110);}while(first+second+third>=330);
+        do{first=n(random,40,110);second=n(random,40,110);third=n(random,40,110);}while(first+second+third>=330||first+second+third==180);
         String expression="360-"+first+"-"+second+"-"+third;
         return number(skill,"사각형의 세 내각이 "+first+"도, "+second+"도, "+third+"도일 때 나머지 한 각은 몇 도인가요?",
                 expression,Rational.of(360-first-second-third),
                 guide(step("사각형의 네 각의 합은 360도입니다.","360 - "+first+" - "+second+" - "+third+" = ","도",expression)),
-                diagram("polygon",new double[]{4},"사각형"));
+                diagram("quadrilateralAngles",new double[]{first,second,third},"사각형 내각"));
     }
 
     private static Question circleDiameter(Catalog.Skill skill,Random random){
