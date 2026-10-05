@@ -1,5 +1,14 @@
 # 제작 기록
 
+## 2026-10-05 — Settled large-integer keypad capture and comparison foundations
+
+Closed the representative small-phone 16-digit answer rendering gap through normal visible keypad taps, an exact field-value condition, idle and display-frame capture. Two fresh ten-question practices were completed without replaying prior completed sessions. All 20 public prompts, entered XML and next-screen progress were independently checked with Python integers; the inspected screenshot shows all digits of 1400308000000000. Cold readback preserves the prior seven saved labels, timers 27:59 / 55:09, and 1,797 learning records. The installed build is still the previously verified compact large-place build; the new comparison candidate was not installed. [Native scope](MATH_LARGE_PLACE_20261005.json).
+
+Added Japanese Grade4 large-number comparison: digit counts differ, long shared prefixes differ, or numbers match. A three-stage guide checks both digit counts and the relation without automatic answer transfer. Exact public prompts from 1,000 generated questions were independently compared with Python integers; 1,000 distinct pairs, all three relations, different digit counts and shared-prefix cases occurred. The new registered 100-question sample is 100 distinct with no adjacent repeats. The official basis is MEXT2017 Appendix3 PDF365 A(1); daily-life modelling is still incomplete. The new type stays out of unreviewed Korean automatic diagnosis.
+
+Local tests passed 573 (439 engine / 67 app / 67 global). Common types are 465, Japan selected types 58 / placements 66. [Scope and candidate](MATH_LARGE_COMPARISON_20261005.json), [supply](JAPAN_PRIMARY_SUPPLY_COMPARISON_20261005.tsv). Comparison native symbol controls/help and phone/tablet rendering are the next verification; the new APK is frozen but not installed. Curriculum/supply gaps, Japanese learner-facing language, physical devices, duration, ads/purchase and release remain. Raw learner/device files and Android UI are not copied to this public engine repository.
+
+
 ## 2026-10-05 — Native large-place input and small-phone layout correction
 
 Installed the large-place build without resetting learner data. Normal Japan Grade4 topic controls opened typed practice; all three public problem forms appeared across 20 actual questions (10 intermediate UI build and 10 final compact build). Independently checked actual public XML, typed values (up to 16 digits) and following progress with Python integers. Both actual composition guide steps matched the public coefficients; wrong-input marking, cold drafts and no automatic answer transfer were checked.

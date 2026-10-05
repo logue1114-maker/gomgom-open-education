@@ -172,7 +172,7 @@
   },
   "installedAtBuild": false,
   "nativeNewSkillVerifiedAtBuild": false,
-  "nativeFollowup": {
+  "nativeFollowupBeforeKeypad": {
     "actualQuestions": 20,
     "groups": {
       "intermediate-complete": {
@@ -235,5 +235,55 @@
       "Small-phone column input, untranslated column selector and noninteger gradient residuals remain."
     ],
     "twoActualComposeGuideInputsIndependentlyChecked": true
+  },
+  "settledKeypadFollowup": {
+    "actualAdditionalQuestions": 20,
+    "input": "Visible numeric keypad taps, field equality wait, idle and display-frame capture",
+    "modes": {
+      "digit": 9,
+      "value": 6,
+      "compose": 5
+    },
+    "sixteenDigitAnswerRows": [
+      {
+        "index": 3,
+        "answer": "1400308000000000",
+        "image": "question-3-entered.png"
+      },
+      {
+        "index": 7,
+        "answer": "6038663800000000",
+        "image": "question-7-entered.png"
+      },
+      {
+        "index": 8,
+        "answer": "4049472900000000",
+        "image": "question-8-entered.png"
+      },
+      {
+        "index": 10,
+        "answer": "6651262000000000",
+        "image": "question-10-entered.png"
+      }
+    ],
+    "representativeSixteenDigitImageLocallyInspected": "question-3-entered.png",
+    "representativeFullAnswerVisible": "1400308000000000",
+    "coldHistory": 1797,
+    "savedSessions": 7,
+    "previousSevenSavedLabelsPreserved": true,
+    "timers": [
+      "27:59",
+      "55:09"
+    ],
+    "installedVersion": "9061620723d0d5e74fbeb82113eb578300555be2914a0ccdaea49db399922ec6",
+    "newComparisonApkInstalled": false,
+    "normalViewportRestored": true,
+    "stateInjection": false,
+    "externalVisualReview": false,
+    "remaining": [
+      "Comparison type new APK not yet installed/verified.",
+      "Choice controls, tablet new-type input, Japanese learner-facing language, physical device and long duration remain.",
+      "Curriculum and supply gaps, purchases and release remain."
+    ]
   }
 }

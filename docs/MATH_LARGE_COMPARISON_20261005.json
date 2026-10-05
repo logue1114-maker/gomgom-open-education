@@ -1,0 +1,167 @@
+{
+  "sourceUrl": "https://www.mext.go.jp/content/20211102-mxt_kyoiku02-100002607_04.pdf",
+  "sourcePage": 365,
+  "sourceScope": "Grade4 A(1): compare large numbers by place-value groups; full daily-life modelling remains",
+  "commonTypes": 465,
+  "japanTypes": 58,
+  "japanPlacements": 66,
+  "independentQuestions": 1000,
+  "distinctPrompts": 1000,
+  "relations": {
+    "=": 365,
+    ">": 336,
+    "<": 299
+  },
+  "differentDigitCounts": 218,
+  "sameFourDigitPrefixButDifferentNumbers": 315,
+  "threeGuideInputsChecked": true,
+  "automaticAnswerTransfer": false,
+  "newSkillSupply": {
+    "curriculum": "jp-mext-primary-2017-v1",
+    "grade": "4",
+    "skill": "largeCompareTrillion",
+    "issued": "100",
+    "distinct_questions": "100",
+    "adjacent_repeats": "0"
+  },
+  "supplyBelow100": [
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "count",
+      "issued": "100",
+      "distinct_questions": "9",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "compare",
+      "issued": "100",
+      "distinct_questions": "99",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "join9",
+      "issued": "100",
+      "distinct_questions": "55",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "add9",
+      "issued": "100",
+      "distinct_questions": "55",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "sub9",
+      "issued": "100",
+      "distinct_questions": "55",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "add20",
+      "issued": "100",
+      "distinct_questions": "45",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "1",
+      "skill": "sub20",
+      "issued": "100",
+      "distinct_questions": "45",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "2",
+      "skill": "tables",
+      "issued": "100",
+      "distinct_questions": "99",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "2",
+      "skill": "fractionPart",
+      "issued": "100",
+      "distinct_questions": "2",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "3",
+      "skill": "fractionPart",
+      "issued": "100",
+      "distinct_questions": "39",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "3",
+      "skill": "divide",
+      "issued": "100",
+      "distinct_questions": "72",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "5",
+      "skill": "el_even_odd",
+      "issued": "100",
+      "distinct_questions": "20",
+      "adjacent_repeats": "0"
+    },
+    {
+      "curriculum": "jp-mext-primary-2017-v1",
+      "grade": "5",
+      "skill": "el_fraction_decimal",
+      "issued": "100",
+      "distinct_questions": "99",
+      "adjacent_repeats": "0"
+    }
+  ],
+  "unitTests": {
+    "engine": {
+      "tests": 439,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 67,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "apkSha256": "188c34ac97220c6182052d1f437c44f7e1acebb2e240a147add314fd2dc98ec6",
+  "installed": false,
+  "nativeNewSkillVerified": false,
+  "remaining": [
+    "Comparison native symbol controls, help and phone/tablet rendering not yet verified.",
+    "Japanese learner-facing language, daily-life modelling, written algorithms and other curriculum domains remain.",
+    "Full global curriculum, unique-supply gaps, devices, duration, ads/purchase and release remain."
+  ],
+  "publicEngineTests": {
+    "tests": 439,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  }
+}
