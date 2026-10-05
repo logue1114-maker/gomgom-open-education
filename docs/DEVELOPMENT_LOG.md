@@ -1,3 +1,11 @@
+## 2026-10-06 — Decimal place values and signed rational help
+
+Added student-entered scaffolds to decimal addition/subtraction/multiplication/division, decimal-by-integer division, signed rational arithmetic and fractional-coefficient linear equations. Scaling and decimal restoration use exact visible operands. Signed fractions keep a positive final denominator; fractional equations apply the same operations on both sides. Wrong stages are marked without filling the main answer. Existing restricted decimal-times-integer help is retained.
+
+Local641/public engine507 tests passed. Independently checked3,500 public tasks and16,252 entered stages; recent100 signatures did not repeat. Normal selected Australian menus completed60 questions across six types with29 help stages, actual decimal/minus keypad taps and wrong-stage correction. Decimal-by-integer division has engine evidence only in this slice because it is not mapped in the selected Australian menu. Cold restart preserved prior saved sessions. QA now clears punctuation and quotes literal input prefixes. Private UI/language/QA/device and learner records are excluded. Curriculum counts are unchanged; full curricula, varied supply, other help, localization, design, devices, long study and release remain unfinished.
+
+Negative-denominator normalization has independent arithmetic evidence; its specific help screen was not separately exercised in this native cohort. Symbolic fractions still display inline as x/denominator; stacked symbolic fraction typography remains.
+
 ## 2026-10-06 — Student-entered fraction and equation help
 
 Added entered-step help to existing fraction addition/subtraction/multiplication/division and integral linear equations. Students supply common denominators, converted numerators, reciprocal parts, products, common divisors and reduced fractions; equation help checks the same operation on both sides. Wrong stages are marked without filling the main answer. Fraction completion assembles the two student entries; numeric canonicalization and nullable result indices preserve accepted alternative inputs and older saved guides.

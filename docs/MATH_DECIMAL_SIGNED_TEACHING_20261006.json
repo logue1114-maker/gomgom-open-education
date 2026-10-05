@@ -1,0 +1,50 @@
+{
+  "date": "2026-10-06",
+  "scope": "Student-entered decimal arithmetic, signed rational arithmetic and fractional-coefficient equation help",
+  "types": [
+    "decimalAdd",
+    "decimalSub",
+    "decimalMul",
+    "decimalDiv",
+    "decimalDivInt",
+    "linearFraction",
+    "rational"
+  ],
+  "newQuestionTypes": 0,
+  "commonTypes": 475,
+  "selectedAustralianUniqueTypes": 161,
+  "selectedAustralianGradePlacements": 246,
+  "selectedSecondaryGradePlacements": 125,
+  "localUnitTests": 641,
+  "publicEngineUnitTests": 507,
+  "independentPublicQuestions": 3500,
+  "independentEnteredSteps": 16252,
+  "normalAndroidQuestions": 60,
+  "androidHelpStepsIndependentlyChecked": 29,
+  "actualAppKeypadTaps": true,
+  "mainAnswerTransfers": false,
+  "coldRestartPreservedPriorSavedSessions": true,
+  "decimalDivIntNativeVerified": false,
+  "wholeCurriculumComplete": false,
+  "externalVisualReviewComplete": false,
+  "physicalDeviceVerified": false,
+  "releaseComplete": false,
+  "privateDataExcluded": true,
+  "notes": [
+    "Visible decimal operands determine integer scaling and exact restored place values",
+    "Signed fractions normalize negative denominators using the same divisor on both parts",
+    "Fractional-coefficient equations apply the same operation to both sides",
+    "Existing restricted decimal-times-integer scaffold is retained",
+    "Shared native QA clears decimal/fraction punctuation and quotes literal prefixes"
+  ],
+  "remaining": [
+    "Other missing entered-step help and varied supply",
+    "Decimal-by-integer native menu flow outside the selected Australian mapping",
+    "Unmapped official elements and global/state/senior curricula",
+    "Localization, bear design, early-primary controls and broader devices",
+    "Accessibility, physical/student and long-study checks",
+    "Advertising, purchase and release",
+    "Symbolic fraction typography: x/denominator is currently displayed inline"
+  ],
+  "negativeDenominatorGuideNativeVerified": false
+}
