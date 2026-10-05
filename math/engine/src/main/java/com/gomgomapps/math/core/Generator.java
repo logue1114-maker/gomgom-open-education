@@ -35,6 +35,7 @@ public final class Generator {
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(signature,position++);
         int oldest=Integer.MAX_VALUE;
         if(FractionSupply.supports(skillId,limits))q=FractionSupply.next(s,random,limits,previous);
+        if(skillId.equals("el_common_divisor"))q=CommonFactorSupply.next(random,limits,previous);
         if(ClockFaces.supports(skillId))q=ClockFaces.next(s,random,limits,previous);
         if(ClockNotation.supports(skillId))q=ClockNotation.next(s,random,limits,previous);
         if(ClockReadings.supports(skillId))q=ClockReadings.next(s,random,limits,previous);

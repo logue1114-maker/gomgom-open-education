@@ -192,10 +192,10 @@ public final class ElementaryBasics {
             case "el_decimal_fraction": return decimalFraction(skill,random);
             case "el_fraction_of_number": return fractionOfNumber(skill,random);
             case "el_decimal_round": return decimalRounding(skill,random,limits);
-            case "el_divisor": return divisor(skill,random);
-            case "el_multiple": return multiple(skill,random);
-            case "el_common_divisor": return commonDivisor(skill,random);
-            case "el_common_multiple": return commonMultiple(skill,random);
+            case "el_divisor": return factorGuide(divisor(skill,random));
+            case "el_multiple": return factorGuide(multiple(skill,random));
+            case "el_common_divisor": return factorGuide(commonDivisor(skill,random));
+            case "el_common_multiple": return factorGuide(commonMultiple(skill,random));
             case "el_ratio_terms": return ratioTerms(skill,random);
             case "el_ratio_fraction": return ratioFraction(skill,random);
             case "el_correspondence_add": return correspondenceAdd(skill,random);
@@ -897,6 +897,7 @@ public final class ElementaryBasics {
                 guide(step("다음 자리 숫자를 살핍니다.",value+"의 반올림값 = ","",expression)),null);
     }
 
+    private static Question factorGuide(Question question){FactorMultipleTeaching.attach(question);return question;}
     private static Question divisor(Catalog.Skill skill,Random random){
         int value=n(random,12,60);List<Integer> values=divisors(value);
         int index=n(random,0,values.size()-1),selected=values.get(index);

@@ -1,0 +1,62 @@
+{
+  "scope": "Student-entered factor and multiple searches on existing problems",
+  "types": [
+    "el_divisor",
+    "el_multiple",
+    "el_common_divisor",
+    "el_common_multiple"
+  ],
+  "reverseAnswerHelpRemoved": true,
+  "commonFactorDomainPrompts": 110,
+  "usesUnseenAllowedCommonFactorFirst": true,
+  "automaticMainAnswerTransfer": false,
+  "supply": {
+    "independentPublicQuestions": 3150,
+    "independentEnteredSteps": 46704,
+    "distinctVisiblePrompts": {
+      "el_divisor": 228,
+      "el_multiple": 133,
+      "el_common_divisor": 110,
+      "el_common_multiple": 331
+    },
+    "recent100Repeats": {},
+    "selectedTypeGradePlacements": 23,
+    "selectedCountryCodes": [
+      "AU",
+      "GH",
+      "JP",
+      "KE",
+      "RW",
+      "US",
+      "ZA"
+    ],
+    "answerMetadataUsedToSolve": false,
+    "mainAnswerTransfers": false,
+    "freshOfficialCurriculumAudit": false,
+    "wholeCurriculumComplete": false
+  },
+  "localUnitTests": {
+    "engine": 544,
+    "app": 77,
+    "globalApp": 77
+  },
+  "totalLocalUnitTests": 698,
+  "nativeVerification": {
+    "actualKeyboardProblems": 44,
+    "initialProblems": 40,
+    "finalFixedPhoneProblems": 4,
+    "studentEnteredHelpSteps": 77,
+    "wrongStageCorrectionTypes": 4,
+    "automaticMainAnswerTransfer": false,
+    "savedSessionsPreserved": true,
+    "initialKeypadClipped": true,
+    "finalKeypadBoundsPassed": true,
+    "localVisualInspection": true,
+    "physicalDeviceVerified": false,
+    "externalVisualReview": false
+  },
+  "newCurriculumMappings": 0,
+  "wholeCurriculumComplete": false,
+  "releaseReady": false,
+  "publicEngineTests": 544
+}
