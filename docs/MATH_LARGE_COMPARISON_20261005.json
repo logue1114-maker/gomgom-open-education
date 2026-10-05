@@ -163,5 +163,40 @@
     "failures": 0,
     "errors": 0,
     "skipped": 0
+  },
+  "nativeFollowup": {
+    "nativeQuestions": 10,
+    "independentPublicIntegerCheck": true,
+    "guideInputs": [
+      16,
+      16,
+      ">"
+    ],
+    "automaticAnswerTransfer": false,
+    "smallPhoneClippingFixed": true,
+    "baselineViewports": [
+      "normal phone",
+      "small phone",
+      "tablet with notebook"
+    ],
+    "fixedRuntimeViewport": "1080x1920 / 480dpi",
+    "tabletAfterFixNotRecaptured": true,
+    "notebookRecognitionNotTested": true,
+    "historyBefore": 1797,
+    "historyAfter": 1807,
+    "savedSessions": 7,
+    "allSevenSavedLabelsUnchanged": true,
+    "timerLabelsPreserved": [
+      "27:59",
+      "55:09"
+    ],
+    "installedApkSha256": "9b699ae4c278a415173e951ab879e6575ec9d063d75a6d2a0fba85e0daaf26e1",
+    "normalViewportRestored": true,
+    "review": "local actual screen review; no external review",
+    "failuresPreserved": [
+      "initial test compile Files.readString",
+      "third guide button selector desc vs actual text"
+    ],
+    "goalComplete": false
   }
 }
