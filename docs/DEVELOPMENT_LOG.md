@@ -1,5 +1,16 @@
 # 제작 기록
 
+## 2026-10-05 — Phone and tablet arithmetic input follow-up
+
+Used normal topic controls to open a fresh Grade 4 decimal-by-integer practice. The same visible 2.87 × 4 problem and unsubmitted guide draft 287 survived cold transitions between small phone (1080×1920/480 dpi), tablet (1600×2560/240 dpi), and normal phone (1080×2400/420 dpi). Phones expose formula working; the tablet exposes a notebook. A real touch stroke was drawn and observed again after cold reopening. This does not verify recognition accuracy.
+
+Actual screenshots exposed small-phone progress/pause header clipping. Fixed the progress header for compact numeric input and added the English decimal-point key label. Recaptured all three sizes on the installed updated APK. Both Android app unit suites passed (66 each). The UI helper now searches the actual home scroll surface incrementally instead of assuming one swipe reaches Resume; the failed first attempt is retained privately.
+
+Completed only this fresh 10-question practice through real answer controls and independently checked public XML, entered values and following screens with Python Fraction. Three guided inputs were checked and did not automatically fill the main answer. Cold readback is 1,757 learning records, seven saved sessions, all previous saved problem/progress labels preserved, and timers 27:59 / 55:09. Engine code was unchanged; screenshots, APK and learner/device artifacts remain outside the public repository. [Scope and limits](MATH_PHONE_TABLET_LAYOUT_20261005.json).
+
+Local visual inspection is separate from external review. Residual work includes scrolling and input of the full small-phone column grid, a Korean row-selector label, small-phone noninteger gradient input, recognition accuracy, physical devices, curriculum and unique-problem supply gaps, localization, and release work. The full global app is not complete.
+
+
 ## 2026-10-05 — 일본 확장 범위 실제30문항
 
 동결한 APK를 기존 기록을 유지해 설치하고 정상 단원 메뉴에서3학년 덧셈 직접 입력10문항·뺄셈 객관식10문항, 정상 설정에서4학년으로 변경한 뒤 소수×자연수 직접 입력10문항을 완료했습니다. 총30문항의 공개 식·입력/선택 가능한 버튼·다음 화면 XML을 별도 Python Fraction으로 대조했습니다. 덧셈에는 세·네 자리 피연산자가 모두 나타났고,뺄셈 실제 표본은 네 자리였습니다. 세 자리 뺄셈은 생성/단위 검사 근거와 구분합니다.

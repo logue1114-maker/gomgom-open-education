@@ -1,0 +1,67 @@
+{
+  "actualNewQuestions": 10,
+  "independentSolver": "Python Fraction from actual public XML and entered/next-screen evidence",
+  "actualGrade": 4,
+  "language": "en",
+  "viewportPixelsDpi": [
+    [
+      1080,
+      1920,
+      480
+    ],
+    [
+      1600,
+      2560,
+      240
+    ],
+    [
+      1080,
+      2400,
+      420
+    ]
+  ],
+  "samePublicExpression": "2.87 \u00d7 4",
+  "guideDraftAcrossViewports": "287",
+  "threeGuideInputsChecked": true,
+  "automaticAnswerTransfer": false,
+  "phoneNotebookAbsent": true,
+  "tabletTouchStrokeObserved": true,
+  "tabletPriorStrokeColdRestoredObserved": true,
+  "localScreensInspected": true,
+  "externalVisualReview": false,
+  "smallPhoneProgressHeaderClippingFixed": true,
+  "decimalPointEnglishFixed": true,
+  "coldHistory": 1757,
+  "savedSessions": 7,
+  "priorSevenSavedLabelsPreserved": true,
+  "remainingTimers": [
+    "27:59",
+    "55:09"
+  ],
+  "apkSha256": "b64b130209afda4e31f95536feb6bab69c08d33780cb541d3c7e9e3c7793149e",
+  "installedBaseMatches": true,
+  "unitTests": {
+    "app": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 66,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "engineCodeChanged": false,
+  "stateInjection": false,
+  "remaining": [
+    "Small phone work grid scrolls; full answer row interaction not exercised here.",
+    "Question topic subtitle may scroll away when answer focused; numeric problem and fixed progress remain visible.",
+    "Multiplication row selector text has residual untranslated Korean; needs localization.",
+    "Ink recognition accuracy, physical devices and long-duration study not verified.",
+    "Small-phone noninteger gradient, Japanese language, curriculum gaps and insufficient unique supply remain.",
+    "Full global product, ads purchase and release remain incomplete."
+  ]
+}
