@@ -188,6 +188,7 @@ public final class CurriculumLimits {
         catch(RuntimeException e){return maxResult==null&&answerDomain.isEmpty();}
     }
     private boolean allowsDenominators(String text){if(!denominators.isEmpty()){Matcher m=FRACTION.matcher(text);while(m.find())if(!denominators.contains(Integer.parseInt(m.group(1))))return false;}return true;}
+    boolean allowsChoice(String value){return allowsAnswer(value)&&allowsDenominators(value);}
     public void constrainChoices(Question q){
         if(q.choices.isEmpty()||(maxResult==null&&!nonnegative&&denominators.isEmpty()&&answerDomain.isEmpty()))return;
         String correct=q.correctChoice>=0&&q.correctChoice<q.choices.size()?q.choices.get(q.correctChoice):q.answers[0];

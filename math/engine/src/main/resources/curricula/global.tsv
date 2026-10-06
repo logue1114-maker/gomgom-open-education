@@ -1114,3 +1114,14 @@ RULE	br-bncc-fundamental-2017-v1	6	el_fraction_decimal	decimalPlaces=2
 RULE	br-bncc-fundamental-2017-v1	4	el_fraction_of_number	denominators=2,3,4,5,10,100;unitFractions=true;answerDomain=integer;maxGiven=5000;maxResult=50
 RULE	br-bncc-fundamental-2017-v1	6	el_fraction_of_number	answerDomain=integer;maxResult=108
 RULE	br-bncc-fundamental-2017-v1	6	fracAddLike,fracSubLike,fracAdd,fracSub	nonnegative=true;maxResult=2
+
+MAP	br-bncc-fundamental-2017-v1	4	el_missing_add,el_missing_sub,el_missing_mul,el_missing_div	EF04MA04,EF04MA13,EF04MA15; selected inverse/equality drills only; investigation, contexts and student-created problems remain incomplete; BNCC printed p.291
+MAP	br-bncc-fundamental-2017-v1	4	el_equality_add_sub	EF04MA14; selected inverse/equality drills only; investigation, contexts and student-created problems remain incomplete; BNCC printed p.291
+RULE	br-bncc-fundamental-2017-v1	4	el_missing_add,el_missing_sub	wholeDigits=2;minimumWholeDigits=1;maxGiven=200;maxResult=99
+RULE	br-bncc-fundamental-2017-v1	4	el_missing_mul,el_missing_div	answerDomain=integer;nonnegative=true;maxGiven=240;maxResult=240
+RULE	br-bncc-fundamental-2017-v1	4	el_equality_add_sub	answerDomain=integer;nonnegative=true;maxGiven=2000;maxResult=30
+MAP	br-bncc-fundamental-2017-v1	5	el_missing_add,el_missing_sub,el_missing_mul,el_missing_div	EF05MA11; selected inverse/equality drills only; investigation, contexts and student-created problems remain incomplete; BNCC printed p.295
+MAP	br-bncc-fundamental-2017-v1	5	el_equality_add_sub,el_equality_mul_div	EF05MA10; selected inverse/equality drills only; investigation, contexts and student-created problems remain incomplete; BNCC printed p.295
+RULE	br-bncc-fundamental-2017-v1	5	el_missing_add,el_missing_sub	wholeDigits=3;minimumWholeDigits=1;maxGiven=2000;maxResult=999
+RULE	br-bncc-fundamental-2017-v1	5	el_missing_mul,el_missing_div	answerDomain=integer;nonnegative=true;maxGiven=240;maxResult=240
+RULE	br-bncc-fundamental-2017-v1	5	el_equality_add_sub,el_equality_mul_div	answerDomain=integer;nonnegative=true;maxGiven=2000;maxResult=30

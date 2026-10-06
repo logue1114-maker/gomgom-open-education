@@ -58,7 +58,7 @@ public final class Generator {
         if(q.studyGuide==null)FractionEquationTeaching.attach(q);
         if(q.choiceDiagrams!=null&&!q.choiceDiagrams.isEmpty()){q.choices=new ArrayList<>(q.choiceDiagrams.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
         else if(q.choiceLabels!=null&&!q.choiceLabels.isEmpty()){q.choices=new ArrayList<>(q.choiceLabels.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
-        else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number"))Choices.build(q,s,random);
+        else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number")){if(EqualityFoundations.selected(s.id))EqualityFoundations.choices(q,random,limits);else Choices.build(q,s,random);}
         if(multipleChoice&&q.choices.isEmpty()&&(s.id.startsWith("el_")||s.id.startsWith("sec_")||s.family.startsWith("adv_")||s.family.startsWith("early_")))FoundationChoices.build(q,s,random);
         if(multipleChoice&&q.kind.equals("radical"))RadicalQuestions.choices(q,random);
         limits.constrainChoices(q);
@@ -71,6 +71,7 @@ public final class Generator {
         Question q=createQuestion(s,limits);ArithmeticTeaching.attach(q);FractionEquationTeaching.attach(q);DecimalTeaching.attach(q);RatioValueTeaching.attach(q);StatisticsAngleTeaching.attach(q);GeometryCalculationTeaching.attach(q);DivisorMultipleTeaching.attach(q);return q;
     }
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
+        if(EqualityFoundations.supports(s.id))return EqualityFoundations.create(s,random);
         if(TimetableQuestions.supports(s.id)&&(TimetableQuestions.added(s.id)||limits.timetables()))return TimetableQuestions.create(s,random,limits);
         if(ClockFaces.supports(s.id))return ClockFaces.next(s,random,limits,Map.of());
         if(ClockNotation.supports(s.id))return ClockNotation.next(s,random,limits,Map.of());

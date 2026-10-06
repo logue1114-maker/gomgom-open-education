@@ -1,0 +1,26 @@
+{
+  "tests": {
+    "engine": 563,
+    "app": 93,
+    "globalApp": 93
+  },
+  "commonSkills": 481,
+  "brazilSelectedSkills": 54,
+  "brazilPlacements": 99,
+  "newSkills": 4,
+  "newPlacements": 11,
+  "mappedQuestionsIndependentlyChecked": 1100,
+  "equalityBothSidesChecked": true,
+  "missingTermsBothPositionsChecked": true,
+  "choiceCountAndPositionChecked": true,
+  "helpTransferDisabled": true,
+  "requirementsGrades1To6": 160,
+  "partial": 51,
+  "unmapped": 109,
+  "complete": 0,
+  "newNativeFlowVerified": false,
+  "installed": false,
+  "physicalDeviceVerified": false,
+  "releaseReady": false,
+  "wholeCurriculumComplete": false
+}
