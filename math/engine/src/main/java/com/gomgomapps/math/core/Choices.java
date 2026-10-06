@@ -60,6 +60,7 @@ public final class Choices {
         }
         boolean between(Rational v,long min,long max){return v.compareTo(Rational.of(min))>=0&&v.compareTo(Rational.of(max))<=0;}
         boolean allowed(Rational v){
+            if(q.diagram!=null&&q.diagram.type.equals("rightTriangleLength"))return v.compareTo(Rational.ZERO)>0&&v.compareTo(Rational.of(50))<=0;
             if(PopulationDensity.supports(skill.id)&&(v.compareTo(Rational.ZERO)<=0||v.isInteger()!=answer.isInteger()||!v.mul(Rational.of(10)).isInteger()))return false;
             if(SumFoundations.supports(skill.id)&&in.length==4&&i(3)==1&&v.toString().length()!=answer.toString().length())return false;
             if(ErrorFoundations.supports(skill.id)&&v.compareTo(Rational.ZERO)<0)return false;
@@ -161,6 +162,11 @@ public final class Choices {
             if(f.startsWith("frac")||f.equals("rational")){fractions(f,x,y);return;}
             if(f.startsWith("decimal")){decimals(f,x,y);return;}
             if(FunctionWork.SKILLS.contains(f)){functions(f,x,y);return;}
+            if(q.diagram!=null&&q.diagram.type.equals("rightTriangleLength")){
+                add(x.add(y),"두 변의 길이를 그대로 더함");add(x.compareTo(y)>=0?x.sub(y):y.sub(x),"두 변의 길이를 그대로 뺌");
+                add(q.diagram.values[0]==1?x.pow(2).sub(y.pow(2)):x.pow(2).add(y.pow(2)),"제곱근을 구하지 않음");
+                for(int offset=1;offset<=4;offset++)placeErrors(Rational.of(offset,4),"제곱근 계산 오류");return;
+            }
             long a=i(0),b=in.length>1?i(1):0,c=in.length>2?i(2):0;
             switch(f){
                 case "count": for(int offset=1;offset<=3;offset++)placeErrors(Rational.of(offset),"동그라미를 빠뜨리거나 중복해서 셈");break;

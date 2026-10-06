@@ -24,19 +24,13 @@ public class GeometryDrillDiversityTest {
         }
     }
     private static int exactRoot(int square){int root=(int)Math.sqrt(square);assertEquals(square,root*root);return root;}
-    @Test public void trianglePracticeMixesHypotenuseAndBothLegsWithBoundedExactLengths(){
-        Generator generator=new Generator(new Random(3917));LinkedList<String> recent=new LinkedList<>();
-        Set<String> shapes=new HashSet<>(),prompts=new HashSet<>();boolean leg=false,hypotenuse=false;
+    @Test public void trianglePracticeMixesHypotenuseAndLegsWithBoundedExactLengths(){
+        Generator generator=new Generator(new Random(3917));LinkedList<String> recent=new LinkedList<>();Set<String> prompts=new HashSet<>();boolean leg=false,hypotenuse=false;
         for(int i=0;i<200;i++){
-            Question q=generator.next("pythagoras",recent,true);List<Integer> n=numbers(q.prompt);
-            assertEquals(2,n.size());int a=n.get(0),b=n.get(1);boolean missingLeg=q.prompt.startsWith("빗변");
-            int answer=exactRoot(a*a+(missingLeg?-1:1)*b*b);answerAndHelp(q,answer);
-            assertTrue(a<=50&&b<=50&&answer<=50);assertNotEquals(recent.peekLast(),q.signature());
-            assertTrue(HelpPlan.forQuestion(q).step(0).accepts(String.valueOf(answer*answer)));
-            int[] sides={a,b,answer};Arrays.sort(sides);shapes.add(Arrays.toString(sides));prompts.add(q.prompt);
-            leg|=missingLeg;hypotenuse|=!missingLeg;recent.remove(q.signature());recent.add(q.signature());
+            Question q=generator.next("pythagoras",recent,true);java.math.BigDecimal answer=RightTriangleLengthTest.answer(q.prompt);String value=answer.stripTrailingZeros().toPlainString();assertTrue(new Checker().check(q,List.of(),List.of(value)).correct());assertTrue(HelpPlan.forQuestion(q).step(0).accepts(RightTriangleLengthTest.squaredAnswer(q.prompt).toPlainString()));assertTrue(HelpPlan.forQuestion(q).step(1).accepts(value));
+            assertTrue(answer.compareTo(java.math.BigDecimal.valueOf(50))<=0);assertNotEquals(recent.peekLast(),q.signature());prompts.add(q.prompt);leg|=q.prompt.contains("AB의 길이는");hypotenuse|=q.prompt.contains("BC의 길이는");recent.remove(q.signature());recent.add(q.signature());
         }
-        assertTrue(leg&&hypotenuse);assertEquals(20,shapes.size());assertEquals(60,prompts.size());
+        assertTrue(leg&&hypotenuse);assertTrue(prompts.size()>=100);
     }
     @Test public void vectorsVaryComponentsAndSignsInsteadOfAlwaysUsingThreeFourFive(){
         Generator generator=new Generator(new Random(4917));List<String> recent=new ArrayList<>();

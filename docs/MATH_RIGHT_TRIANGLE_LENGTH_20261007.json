@@ -1,0 +1,40 @@
+{
+  "topic": "pythagoras",
+  "publishedDistinctQuestionsIndependentlySolved": 100,
+  "actualRightTriangleCoordinateCases": 6000,
+  "inputLengths": "small integers and terminating halves/quarters; <=50",
+  "requestedSides": [
+    "hypotenuse",
+    "leg"
+  ],
+  "helperSteps": 2,
+  "mainAnswerTransfer": false,
+  "shuffledChoicePositions": 4,
+  "languagesForThisSlice": [
+    "ko",
+    "en",
+    "pt"
+  ],
+  "curriculumMapping": "BR9 selected calculation part of EF09MA13/14; partial",
+  "engineTests": 659,
+  "appTests": 135,
+  "globalAppTests": 135,
+  "nativeEvidence": {
+    "main": "default phone corrected decimal hypotenuse answer submitted",
+    "help": "following square calculation corrected; final helper and main inputs left blank",
+    "coldRestore": true,
+    "shortPhone": "360x640 dp; supplied givens, diagram, input, decimal keys and helper controls fully visible",
+    "tablet": "1600x2560px / 240dpi; main/help controls visible",
+    "versions": "main/help/cold v1; short/tablet v5"
+  },
+  "remaining": [
+    "native missing-leg entry",
+    "Pythagoras proof through similarity and full metric relationships",
+    "contextual and student-created problems",
+    "physical devices, accessibility and student comprehension",
+    "world curricula and languages",
+    "actual 30/60-minute studies",
+    "real ads removal/payment and release"
+  ],
+  "publicScope": "engine and anonymous development summary only; UI, translations, QA, learner records, screenshots, APKs and official prose excluded"
+}
