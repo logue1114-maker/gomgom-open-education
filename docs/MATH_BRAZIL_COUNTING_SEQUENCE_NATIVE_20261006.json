@@ -1,0 +1,20 @@
+{
+  "tests": {
+    "app": 107,
+    "globalApp": 107
+  },
+  "engineTestsReused": 579,
+  "newMainQuestionsAnswered": 3,
+  "newAnswerFieldsEntered": 3,
+  "newHelpInputs": 0,
+  "savedBefore": 49,
+  "savedAfter": 52,
+  "old49LabelsUnchanged": true,
+  "learningHistoryBefore": 2982,
+  "learningHistoryAfter": 2985,
+  "threeColdNextQuestionsBlank": true,
+  "termIndicesRenderedAsSubscripts": true,
+  "physicalDeviceVerified": false,
+  "externalVisualReview": false,
+  "releaseReady": false
+}
