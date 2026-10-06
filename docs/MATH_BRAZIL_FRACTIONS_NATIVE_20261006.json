@@ -1,0 +1,22 @@
+{
+  "newMainAnswers": 23,
+  "helpInputs": 12,
+  "originalLabelsAndTimersPreserved": true,
+  "tests": {
+    "engineReused": 560,
+    "app": 93,
+    "globalApp": 93
+  },
+  "normalHundredthSupply": true,
+  "hundredthGrid10by10": true,
+  "helpMainAnswerBlank": true,
+  "unansweredDraftColdPreserved": true,
+  "fractionFieldsPortuguese": true,
+  "physicalDeviceVerified": false,
+  "releaseReady": false,
+  "newCurriculumMappings": 0,
+  "stateInjection": false,
+  "answerMetadataRead": false,
+  "flagAppealAlreadySubmittedByUser": true,
+  "officialFlagClearanceVerified": false
+}
