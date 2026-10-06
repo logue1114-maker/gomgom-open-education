@@ -1185,3 +1185,7 @@ MAP	br-bncc-fundamental-2017-v1	9	regularPolygonConstruction	EF09MA15; selected 
 MAP	br-bncc-fundamental-2017-v1	9	coordinateGridMidpoint	EF09MA16; selected equal-grid midpoint walking and axis distance or comparison with a supplied 3/4/5 reference segment without formula substitution; arbitrary diagonal distances, perimeter and area applications remain incomplete; BNCC printed p.319
 
 MAP	br-bncc-fundamental-2017-v1	9	coordinateGridDistance	EF09MA16; selected equal-grid midpoint walking and axis distance or comparison with a supplied 3/4/5 reference segment without formula substitution; arbitrary diagonal distances, perimeter and area applications remain incomplete; BNCC printed p.319
+
+MAP	br-bncc-fundamental-2017-v1	9	coordinateGridPerimeter	EF09MA16; selected axis-aligned rectangle perimeter and unit-square area applications from public Cartesian coordinates and equal grid intervals; arbitrary diagonal distances and general polygon applications remain incomplete; BNCC printed p.319
+
+MAP	br-bncc-fundamental-2017-v1	9	coordinateGridArea	EF09MA16; selected axis-aligned rectangle perimeter and unit-square area applications from public Cartesian coordinates and equal grid intervals; arbitrary diagonal distances and general polygon applications remain incomplete; BNCC printed p.319

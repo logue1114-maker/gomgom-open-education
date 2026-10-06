@@ -8,7 +8,7 @@ public final class CoordinateGrid {
  public static final List<Catalog.Skill> SKILLS=List.of(
   new Catalog.Skill(MID,"격자에서 중점 찾기",9,2,2,"",MID,16,"sec_coordinate_move","두 끝에서 같은 만큼 이동해 선분의 가운데 점을 찾는다."),
   new Catalog.Skill(DIST,"격자에서 두 점 사이의 거리",9,2,2,"",DIST,16,"sec_coordinate_move,proportion","같은 간격을 세거나 길이가 주어진 기준 선분과 비교한다."));
- public static boolean supports(String id){return id.equals(MID)||id.equals(DIST);}
+ public static boolean supports(String id){return id.equals(MID)||id.equals(DIST)||CoordinateRegion.supports(id);}
  public static void choices(Question q,Random r){
   int answer=Integer.parseInt(q.answers[0]);
   int dx=(int)Math.abs(q.diagram.values[2]-q.diagram.values[0]),dy=(int)Math.abs(q.diagram.values[3]-q.diagram.values[1]);
@@ -25,6 +25,7 @@ public final class CoordinateGrid {
  private static int between(Random r,int lo,int hi){return lo+r.nextInt(hi-lo+1);}
  private static int start(Random r,int delta){return between(r,-8-Math.min(0,delta),8-Math.max(0,delta));}
  public static Question create(Catalog.Skill s,Random r){
+  if(CoordinateRegion.supports(s.id))return CoordinateRegion.create(s,r);
   boolean midpoint=s.id.equals(MID);int dx,dy,mode=r.nextInt(3),multiple=1+r.nextInt(2);
   if(midpoint){dx=2*between(r,-6,6);dy=2*between(r,-6,6);if(dx==0&&dy==0)dx=2;}
   else if(mode<2){int length=between(r,1,12)*(r.nextBoolean()?1:-1);dx=mode==0?length:0;dy=mode==1?length:0;}

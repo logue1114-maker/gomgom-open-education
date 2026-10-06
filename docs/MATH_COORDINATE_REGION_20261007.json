@@ -1,0 +1,40 @@
+{
+  "topic": [
+    "coordinateGridPerimeter",
+    "coordinateGridArea"
+  ],
+  "problemsChecked": {
+    "uniquePerSkill": 100,
+    "independentPublicRectangles": 6000
+  },
+  "teaching": "Count the four boundary sides before addition; count cells in one row and the number of rows before multiplication. Check each entered field; no automatic main-answer transfer.",
+  "diagram": "Four public corners and an equal unit grid; no calculated dimensions or answer rendered.",
+  "mapping": "BR9 EF09MA16 selected/partial: axis-aligned rectangles only",
+  "tests": {
+    "engine": 670,
+    "app": 139,
+    "globalApp": 139,
+    "publicEngine": 670
+  },
+  "actualNormalFlow": [
+    "Normal BR9 menu, 100-question typed practice for each skill",
+    "Wrong first teaching entry corrected, each following field blank, all 5 perimeter and 3 area stages checked",
+    "Main answer remains blank after help; wrong typed result corrected and submitted",
+    "Following public problems retained at 2/100 with blank answers and first help stages",
+    "Cold restart, normal saved menu, following blank problems and blank first teaching stages restored on a 360x640dp phone; complete help inputs and 12 keypad controls visible after layout correction"
+  ],
+  "remaining": [
+    "Native boundary-label recapture and physical-device/accessibility/student comprehension evidence",
+    "Arbitrary diagonal distances and general polygon perimeter/area",
+    "World curricula and languages; actual 30/60-minute study; advertising/payment/release"
+  ],
+  "publicScope": "Engine and anonymous summaries only; no UI, translations, QA, learner records, images, APKs or official prose",
+  "flagAppealAlreadySubmittedByUser": true,
+  "officialFlagClearanceVerified": false,
+  "nativeSeconds": {
+    "perimeter": 53.016,
+    "area": 48.513,
+    "smallPhoneRestore": 54.038
+  },
+  "uiRepair": "Allow scroll content to wrap and re-position the current calculation after translated layout changes; preserve the 220dp grid."
+}
