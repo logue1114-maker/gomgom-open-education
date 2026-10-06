@@ -287,8 +287,7 @@ public final class SecondaryBasics {
                 return TriangleSimilarity.create(s,random);
             }
             case "sec_parallel_segment_ratio":{
-                int m=n(random,1,5),nn=n(random,1,5);k=n(random,2,7);a=m*k;answer=nn*k;guide=two("평행선 때문에 두 변이 같은 비로 나뉩니다.","AD:DB = AE:EC = "+m+":"+nn,"",m,"한 비의 크기를 찾아 EC를 구하세요.",a+" ÷ "+m+" × "+nn+" = ","",answer);
-                return q(s,"삼각형 ABC에서 D는 AB 위, E는 AC 위에 있고 DE∥BC입니다. AD:DB="+m+":"+nn+", AE="+a+"일 때 EC는?",Rational.of(answer),guide,null,"m",m,"n",nn,"ae",a);
+                return ParallelSegments.create(s,random);
             }
             case "sec_similarity_area":{
                 k=n(random,2,5);a=n(random,2,12);answer=a*k*k;guide=two("닮음비를 제곱하세요.",k+"² = ","",k*k,"작은 넓이에 넓이비를 곱하세요.",a+" × "+(k*k)+" = ","",answer);

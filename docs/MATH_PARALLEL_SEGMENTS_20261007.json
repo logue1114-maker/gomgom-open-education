@@ -1,0 +1,42 @@
+{
+  "topic": "sec_parallel_segment_ratio",
+  "publicDistinctFormsSolved": 100,
+  "coordinateCases": 3000,
+  "requestedSegments": [
+    "AD",
+    "DB",
+    "AE",
+    "EC"
+  ],
+  "smallLengthsMax": 35,
+  "helperSteps": 2,
+  "mainAnswerTransfer": false,
+  "shuffledChoicePositions": 4,
+  "languagesForThisSlice": [
+    "ko",
+    "en",
+    "pt"
+  ],
+  "mapping": "BR9 EF09MA14 selected/partial",
+  "tests": {
+    "engine": 661,
+    "app": 136,
+    "globalApp": 136
+  },
+  "actualNormalFlow": [
+    "unit practice menu and 100-question input mode",
+    "incorrect main value corrected and submitted",
+    "following helper first field corrected; final field and main remain blank",
+    "cold restore",
+    "small phone and tablet main/helper display"
+  ],
+  "remaining": [
+    "all four forms not individually exercised on device",
+    "contextual applications and student-created problems",
+    "world curricula and languages",
+    "physical devices, accessibility and student comprehension",
+    "actual 30/60-minute studies",
+    "real advertising/payment and release"
+  ],
+  "publicScope": "engine and anonymous development summaries; UI, translations, QA, learner records, screenshots, APKs and official prose excluded"
+}

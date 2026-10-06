@@ -25,10 +25,10 @@
     "coldRestore": true,
     "shortPhone": "360x640 dp; supplied givens, diagram, input, decimal keys and helper controls fully visible",
     "tablet": "1600x2560px / 240dpi; main/help controls visible",
-    "versions": "main/help/cold v1; short/tablet v5"
+    "versions": "main/help/cold v1; short/tablet v5",
+    "missingLeg": "corrected and submitted using normal decimal/numeric keys; following blank main/helper restored after cold start"
   },
   "remaining": [
-    "native missing-leg entry",
     "Pythagoras proof through similarity and full metric relationships",
     "contextual and student-created problems",
     "physical devices, accessibility and student comprehension",

@@ -7,7 +7,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 public class SecondaryBasicsTest {
-    private static final Set<String> DIAGRAMS=Set.of("triangleSimilarity","parallelAngleRelation","circleAngleRelation","clock","polygon","rectangle","triangle","triangleSides","circle","sector","bars","line","fraction","coordinate","polyline","scatter");
+    private static final Set<String> DIAGRAMS=Set.of("parallelSegments","triangleSimilarity","parallelAngleRelation","circleAngleRelation","clock","polygon","rectangle","triangle","triangleSides","circle","sector","bars","line","fraction","coordinate","polyline","scatter");
 
     private static int i(Question q,String key){return Integer.parseInt(q.givenNumbers.get(key));}
     private static Rational r(long value){return Rational.of(value);}
@@ -89,7 +89,7 @@ public class SecondaryBasicsTest {
             case "sec_parallelogram_angle":return List.of(r(180-i(q,"angle")));
             case "sec_similarity_length":return List.of(r((long)i(q,"small")*i(q,"ratio")));
             case "sec_similarity_condition":return List.of(r(TriangleSimilarityTest.solvePublic(q)));
-            case "sec_parallel_segment_ratio":return List.of(Rational.of((long)i(q,"ae")*i(q,"n"),i(q,"m")));
+            case "sec_parallel_segment_ratio":return List.of(Rational.of(ParallelSegmentsTest.publicCalculation(q.prompt)[1]));
             case "sec_similarity_area":return List.of(r((long)i(q,"smallArea")*i(q,"ratio")*i(q,"ratio")));
             case "sec_similarity_volume":return List.of(r((long)i(q,"smallVolume")*i(q,"ratio")*i(q,"ratio")*i(q,"ratio")));
             case "sec_probability_add":return List.of(Rational.of(i(q,"a")+i(q,"b"),i(q,"total")));

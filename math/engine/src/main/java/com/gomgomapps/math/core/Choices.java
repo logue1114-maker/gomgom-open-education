@@ -60,6 +60,7 @@ public final class Choices {
         }
         boolean between(Rational v,long min,long max){return v.compareTo(Rational.of(min))>=0&&v.compareTo(Rational.of(max))<=0;}
         boolean allowed(Rational v){
+            if(q.diagram!=null&&q.diagram.type.equals("parallelSegments"))return v.isInteger()&&between(v,1,35);
             if(q.diagram!=null&&q.diagram.type.equals("rightTriangleLength"))return v.compareTo(Rational.ZERO)>0&&v.compareTo(Rational.of(50))<=0;
             if(PopulationDensity.supports(skill.id)&&(v.compareTo(Rational.ZERO)<=0||v.isInteger()!=answer.isInteger()||!v.mul(Rational.of(10)).isInteger()))return false;
             if(SumFoundations.supports(skill.id)&&in.length==4&&i(3)==1&&v.toString().length()!=answer.toString().length())return false;
@@ -130,6 +131,10 @@ public final class Choices {
             if(SurfaceGeometry.supports(skill.id)){SurfaceGeometry.errors(q).forEach(this::add);return;}
             if(MeasurementFoundations.supports(skill.id)){MeasurementFoundations.errors(q).forEach(this::add);return;}
             String f=skill.family;Rational x=in[0],y=in.length>1?in[1]:Rational.ZERO;
+            if(f.equals("sec_parallel_segment_ratio")){
+                add(x,"주어진 길이를 다시 씀");add(x.mul(in[2]),"비의 한 부분 크기를 구하지 않고 곱함");add(x.div(y),"대응하는 비의 수를 곱하지 않음");
+                add(x.mul(y).div(in[2]),"대응하는 비의 앞뒤를 바꿈");for(int offset=1;offset<=4;offset++)placeErrors(Rational.of(offset),"선분비 계산 오류");return;
+            }
             if(CubeFoundations.supports(f)){
                 if(f.equals("cubeWhole")){add(x.mul(x),"두 번만 곱함");add(x.mul(Rational.of(3)),"세 번 곱하지 않고 세 배 함");add(x,"세제곱하지 않고 주어진 수를 씀");}
                 else{add(x,"세제곱근을 구하지 않고 주어진 수를 씀");add(x.div(Rational.of(3)),"세제곱근 대신 3으로 나눔");add(answer.mul(answer),"세제곱근의 제곱을 씀");}
