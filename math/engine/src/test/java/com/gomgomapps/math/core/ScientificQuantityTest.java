@@ -30,6 +30,20 @@ public class ScientificQuantityTest {
   }
   assertEquals(100,seen.size());assertTrue(shifts.contains(0));assertTrue(shifts.contains(product?1:-1));assertTrue(signs.contains(-1));assertTrue(signs.contains(1));
  }
+ @Test public void hundredMassSumsUseMatchingPowersAndUniquePublicGivens(){verifyAdditive("scientificMassSum",true);}
+ @Test public void hundredRemainingLengthsUsePositiveDifferencesAndUniquePublicGivens(){verifyAdditive("scientificLengthDifference",false);}
+ private void verifyAdditive(String id,boolean sum){
+  Generator g=new Generator(new Random(sum?20261006921L:20261006922L));Set<String> seen=new HashSet<>();Set<Integer> gaps=new HashSet<>(),signs=new HashSet<>();
+  for(int i=0;i<100;i++){
+   Question q=g.next(id,seen,i%2==0,GlobalCurriculum.limits(PACK,id,9));assertTrue(seen.add(q.signature()));
+   Matcher m=Pattern.compile("([0-9.]+) × 10\\^\\((-?\\d+)\\)").matcher(q.prompt);assertTrue(m.find());BigDecimal a=new BigDecimal(m.group(1));int u=Integer.parseInt(m.group(2));assertTrue(m.find());BigDecimal b=new BigDecimal(m.group(1));int v=Integer.parseInt(m.group(2));assertFalse(m.find());
+   BigDecimal left=a.scaleByPowerOfTen(u),right=b.scaleByPowerOfTen(v);if(!sum)assertTrue(left.compareTo(right)>0);BigDecimal total=sum?left.add(right):left.subtract(right);BigDecimal stripped=total.stripTrailingZeros();int n=stripped.precision()-stripped.scale()-1;String coefficient=total.scaleByPowerOfTen(-n).stripTrailingZeros().toPlainString();
+   assertArrayEquals(new String[]{coefficient,String.valueOf(n)},q.answers);assertTrue(q.choices.isEmpty());Checker c=new Checker();assertTrue(c.check(q,List.of(),List.of(coefficient,String.valueOf(n))).correct());assertEquals(0,c.check(q,List.of(),List.of(new BigDecimal(coefficient).add(BigDecimal.ONE).toPlainString(),String.valueOf(n))).index);assertEquals(1,c.check(q,List.of(),List.of(coefficient,String.valueOf(n+1))).index);
+   int common=Math.min(u,v);BigDecimal alignedA=left.scaleByPowerOfTen(-common),alignedB=right.scaleByPowerOfTen(-common),raw=sum?alignedA.add(alignedB):alignedA.subtract(alignedB);
+   assertEquals(5,q.studyGuide.frames.size());assertFalse(q.studyGuide.transfer);assertFalse(HelpPlan.forQuestion(q).canTransfer());String[] expected={alignedA.stripTrailingZeros().toPlainString(),alignedB.stripTrailingZeros().toPlainString(),raw.stripTrailingZeros().toPlainString(),coefficient,String.valueOf(n)};for(int k=0;k<5;k++)assertEquals(expected[k],q.studyGuide.frames.get(k).expected);
+   assertTrue(new BigDecimal(coefficient).compareTo(BigDecimal.ONE)>=0&&new BigDecimal(coefficient).compareTo(BigDecimal.TEN)<0);gaps.add(Math.abs(u-v));signs.add(Integer.signum(n));
+  }assertEquals(Set.of(0,1,2),gaps);assertTrue(signs.contains(-1));assertTrue(signs.contains(1));assertEquals(100,seen.size());
+ }
  @Test public void currentGradeUnitsAreExcludedFromInitialDiagnosis(){
   Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"BR");GlobalCurriculum.choosePack(p,PACK);p.grade=9;
   for(var s:ScientificQuantity.SKILLS){assertTrue(GlobalCurriculum.pack(p).inGrade(s.id,9));assertFalse(GlobalCurriculum.scope(p).stream().anyMatch(x->x.id.equals(s.id)));}

@@ -1161,3 +1161,5 @@ MAP	br-bncc-fundamental-2017-v1	9	squareDiagonalRoot,equilateralHeightRoot	EF09M
 MAP	br-bncc-fundamental-2017-v1	9	rootSimplify,rootAddSub,rootProduct,rootQuotient,rootRationalize	EF09MA03; selected exact square-root simplification/arithmetic and rationalisation with numeric input scaffolds; other real calculations, problem construction and the full outcome incomplete; BNCC printed p.317
 
 MAP	br-bncc-fundamental-2017-v1	9	scientificMassProduct,scientificSpeedQuotient	EF09MA04; selected scientific-notation mass products and constant-speed quotients only; other operations, general real-number contexts and problem construction incomplete; BNCC printed p.317
+
+MAP	br-bncc-fundamental-2017-v1	9	scientificMassSum,scientificLengthDifference	EF09MA04; selected positive scientific-notation mass sums and remaining-length differences; full real-number contexts and problem construction incomplete; BNCC printed p.317
