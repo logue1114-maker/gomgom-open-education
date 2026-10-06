@@ -1,0 +1,33 @@
+{
+  "tests": {
+    "engine": 628,
+    "app": 118,
+    "globalApp": 118
+  },
+  "nativeVerified": true,
+  "wholeCurriculumComplete": false,
+  "savedBefore": 72,
+  "savedAfter": 74,
+  "old72LabelsUnchanged": true,
+  "learningBefore": 3005,
+  "learningAfter": 3007,
+  "newQuestionsAnswered": 2,
+  "mainFieldsEntered": 3,
+  "helpFieldsEntered": 9,
+  "lastHelpBlankRestored": true,
+  "mainBlankAfterHelp": true,
+  "installedBaseMatches": true,
+  "physicalDeviceVerified": false,
+  "externalReview": false,
+  "releaseReady": false,
+  "commonSkills": 504,
+  "brazilSelectedSkills": 93,
+  "brazilPlacements": 141,
+  "partial": 73,
+  "unmapped": 174,
+  "complete": 0,
+  "requirementsGrades1To9": 247,
+  "beforeSeconds": 47.182,
+  "nativeSeconds": 124.926,
+  "coldSeconds": 150.182
+}
