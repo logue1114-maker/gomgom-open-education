@@ -1,3 +1,9 @@
+## 2026-10-07 — Non-right triangle area using an altitude
+
+Added a distinct topic for axis-base non-right triangles with an interior altitude foot. The public altitude splits the triangle into two right triangles. Teaching diagrams complete two rectangles; seven checked learner entries count their base parts/height, calculate and combine rectangle areas, then divide by2. Fraction fields remain blank after help. Rotations/reflections cover eight orientations and both acute/obtuse apex angles; exterior altitude feet, all-oblique bases and full EF09MA16 remain incomplete.
+
+Local969 checks and public engine683 checks passed.100 unique prompts were independently solved and6000 public geometries checked altitude perpendicularity, interior foot, bounds, orientations and shoelace area. The normal small-phone topic menu produced base parts5/1, height10, rectangles50/10 and area60/2. A wrong helper entry and main61/2 were corrected before actual submission in69.817seconds; the next input and first helper stayed blank. Android UI, translations, QA, records, source prose, screenshots and APKs remain private. No deployment or Play release occurred. See MATH_COORDINATE_ALTITUDE_20261007.json.
+
 ## 2026-10-07 — Irrational perimeter input and boundary labels
 
 Continued the existing second grid right-triangle problem with legs2 and7. Nine learner-entered steps checked square areas4/49, hypotenuse square53, and leg sum9. A wrong helper entry and a separately entered main answer were corrected, then exact perimeter9+sqrt53 submitted in52.419 seconds. Completed problems were not replayed. The next answer and first helper remained blank.

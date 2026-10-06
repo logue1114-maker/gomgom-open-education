@@ -1,0 +1,73 @@
+{
+  "date": "2026-10-07",
+  "topic": "coordinateAltitudeArea",
+  "coverage": "Selected axis-base non-right triangles whose altitude foot is inside the base; full general triangles and EF09MA16 remain incomplete.",
+  "generation": {
+    "base": [
+      4,
+      12
+    ],
+    "height": [
+      2,
+      12
+    ],
+    "interior_base_parts": "positive integers",
+    "orientations": 8,
+    "coordinate_bounds": [
+      -8,
+      8
+    ],
+    "acute_and_obtuse_apex": true,
+    "right_triangles_excluded": true
+  },
+  "teaching": {
+    "steps": 7,
+    "public_points": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "derived_rectangle_points": [
+      "E=A+C-D",
+      "F=B+C-D"
+    ],
+    "operations": [
+      "Count AD",
+      "Count DB",
+      "Count altitude CD",
+      "AD×CD",
+      "DB×CD",
+      "Add rectangle areas",
+      "Divide their combined area by2"
+    ],
+    "main_answer_auto_filled": false,
+    "input": "blank numerator/denominator; exact integer/fraction values"
+  },
+  "validation": {
+    "unique_problems": 100,
+    "geometries": 6000,
+    "local_engine_tests": 683,
+    "local_app_tests": 286,
+    "public_engine_tests": 683,
+    "failures": 0,
+    "native": "Normal Android menu, public coordinates,7 help entries and wrong entry correction, separately typed61/2wrong→60/2correct; next answer/help blank.69.817seconds."
+  },
+  "private_exclusions": [
+    "Android UI",
+    "translations",
+    "instrumentation",
+    "learner records",
+    "source curriculum prose",
+    "screenshots",
+    "APK"
+  ],
+  "remaining": [
+    "Exterior altitude feet",
+    "All-oblique bases",
+    "Full curricula/languages",
+    "Physical devices, student comprehension and accessibility",
+    "Long study sessions",
+    "Advertising/payment/release verification"
+  ]
+}
