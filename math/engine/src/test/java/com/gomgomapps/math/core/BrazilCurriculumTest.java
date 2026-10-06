@@ -10,7 +10,7 @@ public class BrazilCurriculumTest {
     @Test public void brazilIsSelectableWithoutChangingLanguageOrClaimingUnmappedLevels(){
         Learning.Profile p=profile(3);GlobalCurriculum.Pack pack=GlobalCurriculum.pack(p);
         assertEquals("pt",p.languageTag);assertEquals("BR",pack.country);assertEquals(List.of(1,2,3),pack.levels());assertEquals("3º ano",pack.level(3));
-        assertEquals(21,pack.grades.size());assertTrue(pack.coverage.contains("remain unmapped"));
+        assertEquals(23,pack.grades.size());assertTrue(pack.coverage.contains("remain unmapped"));
         assertFalse(pack.inGrade("divide",2));assertTrue(pack.inGrade("divide",3));assertFalse(pack.grades.containsKey("fractionPart"));
         assertEquals("9,999까지의 덧셈",GlobalCurriculum.title(PACK,"add1000",3));assertEquals(Catalog.get("add1000").title,GlobalCurriculum.title(PACK,"add1000",2));
     }
@@ -41,7 +41,7 @@ public class BrazilCurriculumTest {
                 if(!q.choices.isEmpty())assertEquals(q.answers[0],q.choices.get(q.correctChoice));recent.add(q.signature());
             }
         }
-        assertEquals(27,placements);assertTrue(fourDigit>100);
+        assertEquals(29,placements);assertTrue(fourDigit>100);
     }
     @Test public void eachMultiplicationGradeAndDivisionSuppliesOneHundredDistinctEquations(){
         Generator generator=new Generator(new Random(20261006032L));

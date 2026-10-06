@@ -1030,10 +1030,14 @@ RULE	au-acara-v9-primary-v1	9	quadratic	monicQuadratic=true;answerDomain=integer
 RULE	au-acara-v9-primary-v1	10	quadratic	monicQuadratic=false
 
 # Brazil BNCC: selected calculation components only; no regional/term sequence inferred.
-PACK	br-bncc-fundamental-2017-v1	BR	Brasil · BNCC	https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf	1º–3º ano · selected number and calculation components; other skills and later grades remain unmapped
+PACK	br-bncc-fundamental-2017-v1	BR	Brasil · BNCC	https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf	1º–3º ano · selected counting, additive-pattern and calculation components; other skills and later grades remain unmapped
 LEVEL	br-bncc-fundamental-2017-v1	1	1º ano
 LEVEL	br-bncc-fundamental-2017-v1	2	2º ano
 LEVEL	br-bncc-fundamental-2017-v1	3	3º ano
+MAP	br-bncc-fundamental-2017-v1	1	groupedCount	EF01MA02,EF01MA04; exact grouped collections up to 50 only; approximation and broader contexts remain incomplete; BNCC printed p.279
+MAP	br-bncc-fundamental-2017-v1	1	numberSteps	EF01MA10; missing natural numbers in additive patterns only; describing rules and object patterns remain incomplete; BNCC printed p.279
+RULE	br-bncc-fundamental-2017-v1	1	groupedCount	maxResult=50
+RULE	br-bncc-fundamental-2017-v1	1	numberSteps	maxGiven=99;maxResult=99
 MAP	br-bncc-fundamental-2017-v1	1	count	EF01MA01,EF01MA04; selected calculation component only; BNCC printed p.279
 MAP	br-bncc-fundamental-2017-v1	1	compare	EF01MA03,EF01MA05; selected calculation component only; BNCC printed p.279
 MAP	br-bncc-fundamental-2017-v1	1	join9,split9	EF01MA07,EF01MA08; selected calculation component only; BNCC printed p.279

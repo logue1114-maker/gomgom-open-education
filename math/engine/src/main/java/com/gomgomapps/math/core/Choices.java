@@ -8,6 +8,7 @@ public final class Choices {
     public static void build(Question q,Catalog.Skill skill,Random random){
         if(!q.choices.isEmpty()||q.answers.length!=1||!q.kind.equals("number"))return;
         if(DotCollections.supports(skill.id)){DotCollections.choices(q,random);return;}
+        if(CountingPatterns.supports(skill.id)){CountingPatterns.choices(q,random);return;}
         if(MetricConversions.selected(q)){MetricConversions.choices(q,random);return;}
         if(FactFoundations.blank(q)){FactFoundations.choices(q,random);return;}
         if(SumFoundations.blank(q)){SumFoundations.choices(q,random);return;}

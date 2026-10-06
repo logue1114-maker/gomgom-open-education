@@ -1,0 +1,29 @@
+{
+  "localTests": {
+    "engine": 554,
+    "app": 88,
+    "globalApp": 88
+  },
+  "publicEngineTests": 554,
+  "commonSkills": 477,
+  "brazilSelectedSkills": 23,
+  "brazilPlacements": 29,
+  "primary1to3Requirements": 73,
+  "partialRequirements": 21,
+  "unmappedRequirements": 52,
+  "completeRequirements": 0,
+  "distinct100PerNewUnitVerified": true,
+  "newNativeAnswers": 4,
+  "enteredHelpSteps": 7,
+  "wrongHelpCorrected": 1,
+  "original19LabelsAndTimersPreserved": true,
+  "nativeLanguage": "en",
+  "PortugueseNewUnitsNativeVerified": false,
+  "normalKeyboardAndMenuFlow": true,
+  "mainAnswerNotAutofilled": true,
+  "answerMetadataRead": false,
+  "stateInjection": false,
+  "physicalDeviceVerified": false,
+  "releaseReady": false,
+  "wholeCurriculumComplete": false
+}
