@@ -1,0 +1,19 @@
+{
+  "tests": {
+    "engineReused": 563,
+    "app": 93,
+    "globalApp": 93
+  },
+  "newMainAnswers": 6,
+  "helpInputs": 12,
+  "wrongHelpMarkedAndCorrected": true,
+  "mainAnswerNotAutofilled": true,
+  "equalityRowsFitWidth": true,
+  "originalLabelsAndTimersPreserved": true,
+  "coldBlankMainAndFirstHelpFramesPreserved": true,
+  "newNativeFlowVerified": true,
+  "physicalDeviceVerified": false,
+  "releaseReady": false,
+  "wholeCurriculumComplete": false,
+  "newCurriculumMappings": 0
+}
