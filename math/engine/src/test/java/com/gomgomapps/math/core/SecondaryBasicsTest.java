@@ -7,7 +7,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 public class SecondaryBasicsTest {
-    private static final Set<String> DIAGRAMS=Set.of("clock","polygon","rectangle","triangle","triangleSides","circle","sector","bars","line","fraction","coordinate","polyline","scatter");
+    private static final Set<String> DIAGRAMS=Set.of("parallelAngleRelation","circleAngleRelation","clock","polygon","rectangle","triangle","triangleSides","circle","sector","bars","line","fraction","coordinate","polyline","scatter");
 
     private static int i(Question q,String key){return Integer.parseInt(q.givenNumbers.get(key));}
     private static Rational r(long value){return Rational.of(value);}
@@ -64,7 +64,7 @@ public class SecondaryBasicsTest {
             case "sec_inverse_proportion":return List.of(Rational.of(i(q,"constant"),i(q,"x2")));
             case "sec_graph_change":return List.of(r(Integer.signum(i(q,"y2")-i(q,"y1"))));
             case "sec_vertical_angle":return List.of(r(i(q,"angle")));
-            case "sec_parallel_angle":return List.of(r(i(q,"angle")));
+            case "sec_parallel_angle":{int a=Integer.parseInt(q.givenNumbers.get("given"));return List.of(r(q.prompt.contains("같은 쪽 내각")?180-a:a));}
             case "sec_triangle_congruence":return List.of(r(i(q,"a1")==i(q,"b1")&&i(q,"a2")==i(q,"b2")&&i(q,"a3")==i(q,"b3")?1:0));
             case "sec_polygon_interior":return List.of(r((i(q,"sides")-2L)*180));
             case "sec_polygon_exterior":return List.of(Rational.of(360,i(q,"sides")));
@@ -101,7 +101,7 @@ public class SecondaryBasicsTest {
             case "sec_trig_special":return List.of(i(q,"type")==2?Rational.ONE:Rational.of(1,2));
             case "sec_trig_height":return List.of(r(i(q,"distance")));
             case "sec_circle_chord":return List.of(r(2L*i(q,"halfChord")));
-            case "sec_circle_inscribed":return List.of(Rational.of(i(q,"central"),2));
+            case "sec_circle_inscribed":{int a=Integer.parseInt(q.givenNumbers.get("given"));return List.of(r(q.prompt.contains("∠ACB = ")?a*2:a/2));}
             case "sec_circle_tangent":return List.of(r(squareRoot(i(q,"distance")*i(q,"distance")-i(q,"radius")*i(q,"radius"))));
             case "sec_variance":case "sec_standard_deviation":{
                 if(q.prompt.startsWith("분산이 "))return List.of(Expression.number(q.prompt.substring(4,q.prompt.indexOf("인 자료"))).sqrt());

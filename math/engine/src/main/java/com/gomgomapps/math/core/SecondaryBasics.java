@@ -180,10 +180,7 @@ public final class SecondaryBasics {
                 a=n(random,4,32)*5;guide=one("서로 마주 보는 맞꼭지각의 크기는 같습니다.",a+"°와 마주 보는 각 = ","°",a);
                 return q(s,"두 직선이 한 점에서 만날 때 한 각이 "+a+"°입니다. 그 각의 맞꼭지각은 몇 도인가요?",Rational.of(a),guide,null,"angle",a);
             }
-            case "sec_parallel_angle":{
-                a=n(random,4,32)*5;guide=one("평행선의 동위각 또는 엇각은 크기가 같습니다.",a+"°와 같은 각 = ","°",a);
-                return q(s,"두 평행선을 한 직선이 가로지를 때 한 각이 "+a+"°입니다. 그 각과 엇각인 각의 크기는?",Rational.of(a),guide,null,"angle",a);
-            }
+            case "sec_parallel_angle":return AngleRelations.create(s,random);
             case "sec_triangle_congruence":{
                 int[][] triples={{3,4,5},{5,5,6},{5,6,7},{6,7,8}};int[] sides=triples[random.nextInt(triples.length)];boolean congruent=random.nextBoolean();int otherC=sides[2]+(congruent?0:1);answer=congruent?1:0;
                 guide=two("첫째 대응변부터 차례로 비교하세요.",sides[0]+"-"+sides[0]+" = ","",0,"셋째 대응변의 차도 확인하세요.",sides[2]+" - "+otherC+" = ","",sides[2]-otherC).transfer(false);
@@ -339,10 +336,7 @@ public final class SecondaryBasics {
                 a=n(random,2,15);answer=2*a;guide=one("중심에서 현에 내린 수선은 현을 이등분합니다.",a+" × 2 = ","",answer);
                 return q(s,"원의 중심 O에서 현 AB에 내린 수선의 발을 M이라 할 때 AM="+a+"입니다. 현 AB의 길이는?",Rational.of(answer),guide,null,"halfChord",a);
             }
-            case "sec_circle_inscribed":{
-                a=n(random,2,17)*10;answer=a/2;guide=one("같은 호에 대한 원주각은 중심각의 절반입니다.",a+" ÷ 2 = ","°",answer);
-                return q(s,"한 호에 대한 중심각이 "+a+"°일 때 같은 호에 대한 원주각은?",Rational.of(answer),guide,new StudyDiagram("circle",new double[]{1},"같은 호"),"central",a);
-            }
+            case "sec_circle_inscribed":return AngleRelations.create(s,random);
             case "sec_circle_tangent":{
                 int[] t=IntegerRightTriangles.next(random);int radiusIndex=random.nextInt(2);r=t[radiusIndex];answer=t[1-radiusIndex];d=t[2];guide=two("접점에서 반지름과 접선은 수직입니다. 접선 길이의 제곱을 구하세요.",d+"² - "+r+"² = ","",d*d-r*r,"양의 제곱근을 구하세요.","접선 = √"+(d*d-r*r)+" = ","",answer);
                 return q(s,"원의 반지름이 "+r+", 중심에서 원 밖의 점까지 거리가 "+d+"일 때 그 점에서 그은 접선의 길이는?",Rational.of(answer),guide,null,"radius",r,"distance",d);

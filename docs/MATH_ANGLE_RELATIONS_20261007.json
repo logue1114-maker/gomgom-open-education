@@ -1,0 +1,43 @@
+{
+  "tests": {
+    "engine": 653,
+    "app": 131,
+    "globalApp": 131
+  },
+  "nativeVerified": true,
+  "savedBefore": 96,
+  "savedAfter": 98,
+  "old96LabelsUnchanged": true,
+  "learningBefore": 3029,
+  "learningAfter": 3031,
+  "newQuestionsAnswered": 2,
+  "mainFieldsEntered": 2,
+  "helpFieldsEntered": 2,
+  "lastHelpBlanksRestored": 2,
+  "mainBlankAfterHelp": true,
+  "tabletViewportVerified": true,
+  "shortPhoneViewportVerified": true,
+  "installedBaseMatches": true,
+  "physicalDeviceVerified": false,
+  "externalReview": false,
+  "releaseReady": false,
+  "wholeCurriculumComplete": false,
+  "partial": 79,
+  "unmapped": 168,
+  "complete": 0,
+  "commonSkills": 514,
+  "brazilSelectedSkills": 115,
+  "brazilPlacements": 165,
+  "nativeVersions": {
+    "primary": "v1",
+    "cold": "v2",
+    "tablet": "v2",
+    "short-phone": "v4",
+    "v3v4ChangeScope": "short viewport layout only"
+  },
+  "beforeSeconds": 65.715,
+  "primarySeconds": 133.886,
+  "coldSeconds": 95.927,
+  "tabletSeconds": 32.162,
+  "short-phoneSeconds": 30.214
+}
