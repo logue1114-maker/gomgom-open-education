@@ -188,6 +188,7 @@ public final class Catalog {
         ALL.addAll(PolygonConstruction.SKILLS);
         ALL.addAll(CoordinateGrid.SKILLS);
         ALL.addAll(CoordinateRegion.SKILLS);
+        ALL.addAll(CoordinateDiagonal.SKILLS);
     }
     public static Skill get(String id){for(Skill s:ALL)if(s.id.equals(id))return s;throw new IllegalArgumentException("학습 유형을 찾을 수 없음: "+id);}
     /** Related calculation foundations, deepest first. These are recommendations, never unlock gates. */

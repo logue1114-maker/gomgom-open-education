@@ -40,6 +40,7 @@ public final class HelpPlan {
     private final int answerDenominator;
     private boolean transfer=true;
     private Integer resultNumeratorFrame,resultDenominatorFrame;
+    private Integer resultCoefficientFrame,resultRadicandFrame;
     private HelpPlan(int denominator){answerDenominator=denominator;}
     public int size(){return steps.size();}
     public Step step(int index){return steps.get(index);}
@@ -50,6 +51,11 @@ public final class HelpPlan {
         String value=draft.entries.get(size()-1);
         if(!step(size()-1).accepts(value))throw new IllegalStateException("마지막 입력 확인 필요");
         if(resultNumeratorFrame!=null&&resultDenominatorFrame!=null){String numerator=draft.entries.get(resultNumeratorFrame),denominator=draft.entries.get(resultDenominatorFrame);if(!step(resultNumeratorFrame).accepts(numerator)||!step(resultDenominatorFrame).accepts(denominator))throw new IllegalStateException("분수 입력 확인 필요");return Expression.number(numerator)+"/"+Expression.number(denominator);}
+        if(resultCoefficientFrame!=null&&resultRadicandFrame!=null){
+            String coefficient=draft.entries.get(resultCoefficientFrame),radicand=draft.entries.get(resultRadicandFrame);
+            if(!step(resultCoefficientFrame).accepts(coefficient)||!step(resultRadicandFrame).accepts(radicand))throw new IllegalStateException("근호 입력 확인 필요");
+            return Radical.parse(Expression.number(coefficient)+"*sqrt("+Expression.number(radicand)+")").toString();
+        }
         return answerDenominator==0?value:value+"/"+answerDenominator;
     }
     private void add(String instruction,String before,String after,int expected,int filled,int extra,int denominator){
@@ -62,7 +68,7 @@ public final class HelpPlan {
         if(q!=null&&q.studyGuide!=null&&!q.studyGuide.frames.isEmpty()){
             HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:q.studyGuide.frames)plan.steps.add(new Step(frame));
             plan.transfer=q.studyGuide.transfer&&q.answers.length==1&&(q.kind.equals("number")||q.kind.equals("symbol"));
-            plan.resultNumeratorFrame=q.studyGuide.resultNumeratorFrame;plan.resultDenominatorFrame=q.studyGuide.resultDenominatorFrame;
+            plan.resultNumeratorFrame=q.studyGuide.resultNumeratorFrame;plan.resultDenominatorFrame=q.studyGuide.resultDenominatorFrame;plan.resultCoefficientFrame=q.studyGuide.resultCoefficientFrame;plan.resultRadicandFrame=q.studyGuide.resultRadicandFrame;
             if(plan.transfer&&q.answerFormat!=null)plan.steps.get(plan.steps.size()-1).requiredFormat=q.answerFormat;return plan;
         }
         if(q==null||q.expression==null||!q.kind.equals("number"))return null;

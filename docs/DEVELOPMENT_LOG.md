@@ -1,3 +1,9 @@
+## 2026-10-07 — General oblique grid distance engine candidate
+
+Added arbitrary oblique endpoint pairs within the unit grid, including exact integer and irrational distances. Eight teaching fields start from public movements, square areas and their sum, then check the square factor, remaining radicand and coefficient. The displayed result is assembled from checked learner entries rather than an answer-key hint, and it does not fill the main answer. Nullable root-result metadata preserves existing serialized guides. Candidate titles and teaching text have authored English and Portuguese translations in the private app.
+
+Local 953 tests passed, covering 100 unique prompts, 6000 signed endpoint samples, exact-value choices, all four shuffled answer positions, root assembly after answer-key mutation and serialized frame metadata. Initial failures exposed a missing radical choice route, distinct correct-answer notation and an untranslated title; those were corrected. Native activation, country mapping, expression scaffolding and geometric illustration are still pending. This is engine evidence, not a completed new app flow. UI, translations, QA and learner records remain private. No app deployment or Play release occurred.
+
 ## 2026-10-07 — Native horizontal and doubled-reference distance
 
 Following perimeter and area drafts restored on the tablet in 59.04 seconds with their main answers and first teaching fields blank. Existing horizontal distance practice continued through a wrong direction and main-answer correction in 42.56 seconds. Four real following problems were then solved in order until a scale-two reference problem appeared: negative horizontal and vertical movement compared with the supplied segment, entered multiplier 2 and length 10, and a separately typed main answer. The sequence passed in 66.163 seconds. Five new distance submissions were made in total; no finished problem was replayed or learning state injected.
