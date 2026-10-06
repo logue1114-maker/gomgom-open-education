@@ -1,0 +1,72 @@
+{
+  "date": "2026-10-07",
+  "topic": "coordinateAltitudeArea",
+  "coverage": "Axis-base non-right triangles with an interior foot or a foot beyond either endpoint; all-oblique bases and full EF09MA16 remain incomplete.",
+  "generation": {
+    "base": [
+      4,
+      12
+    ],
+    "height": [
+      2,
+      12
+    ],
+    "external_offset": [
+      1,
+      4
+    ],
+    "placements": [
+      "interior",
+      "before A",
+      "beyond B"
+    ],
+    "orientations_per_placement": 8,
+    "coordinate_bounds": [
+      -8,
+      8
+    ]
+  },
+  "teaching": {
+    "steps": 7,
+    "lengths": "positive AD, DB and CD counts",
+    "rectangles": "ADCE and DBFC, using only public coordinates",
+    "combination": "interior: addition; exterior: larger area minus smaller area",
+    "result": "checked learner numerator divided by checked divisor 2; main fields stay blank"
+  },
+  "validation": {
+    "unique_problems": 100,
+    "geometries": 6000,
+    "independent_solver": "public-coordinate shoelace, perpendicularity, projection classification, rectangle bounds and all 24 placement/orientation combinations",
+    "local_engine": 683,
+    "local_app": 286,
+    "public_engine": 683,
+    "failures": 0,
+    "native_submission": "Normal continuation from saved problem2. Entries8/1/12/96/12/108/2, then4/7/9/36/63/99/2, then exterior1/7/7/7/49/42/2. Incorrect exterior sum56 rejected; main42/2 separately typed and submitted.85.057seconds.",
+    "next": "problem5/100, A(1,0), B(-5,0), C(-8,-5), D(-8,0), blank main and first helper",
+    "small_phone_v1_cold_seconds": 39.227,
+    "visual_correction": "Initial exterior image placed adjacent endpoint/foot letters across one another. Label directions corrected for exterior feet. Current-frame checks recorded separately.",
+    "new_submissions": 3,
+    "prior_completed_problem_replayed": false,
+    "small_phone_v2_cold_seconds": 37.974,
+    "tablet_v2_cold_seconds": 42.147,
+    "learning_total": 3098,
+    "normal_home_total_seconds": 10.577,
+    "visual_correction_verified": "Current unfinished beyond-B problem5, separate A/B/C/D/E/F labels and fully visible inputs/actions on phone and tablet. Earlier before-A image defect is preserved; no completed problem was replayed."
+  },
+  "private_exclusions": [
+    "Android UI",
+    "translations",
+    "instrumentation",
+    "learner records",
+    "curriculum source prose",
+    "screenshots",
+    "APKs"
+  ],
+  "remaining": [
+    "All-oblique bases",
+    "Whole worldwide curricula and languages",
+    "30/60-minute complete real sessions",
+    "Physical-device/accessibility/student-comprehension evidence",
+    "Advertising/payment/release verification"
+  ]
+}
