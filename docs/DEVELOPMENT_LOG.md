@@ -1,3 +1,7 @@
+## 2026-10-07 — Unequal parallel-segment ratio through normal saved practice
+
+Continued the unfinished practice through normal saved-session controls. The unequal 3:4 ratio was solved independently from visible givens, with a wrong division helper corrected to 6 and a wrong main value corrected to 24. The next question and its first help field remained blank, and a cold restart restored both. Existing unrelated saved practices remained unchanged. Native continuation and cold checks passed in 111.557 and 94.368 seconds. This is emulator evidence for one unequal-ratio form; it does not establish all four targets on devices, physical-device usability, or full curriculum coverage. Product code and the previously frozen APK were unchanged. QA and learner records remain private.
+
 ## 2026-10-06 — Search factors and multiples before entering the answer
 
 Factor and common-factor help previously reversed the answer into a division hint; common-multiple help supplied the LCM before the student calculated it. The replacement derives all steps from public givens, lets students enter quotients, products and remainders, then asks for the requested factor or multiple. Multiple drills enter successive products. No help result transfers automatically to the main answer. Private display preserves the given numbers and position, with curated English and a numeric help keypad.
