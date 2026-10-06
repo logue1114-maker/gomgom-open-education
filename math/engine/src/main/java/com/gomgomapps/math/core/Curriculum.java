@@ -22,6 +22,7 @@ public final class Curriculum {
     }
     /** Version-specific additions stay available for chosen practice, but never enter older-course diagnosis. */
     public static boolean inCurriculum(Catalog.Skill skill,int version){
+        if(skill.id.equals(PolygonConstruction.ID))return false; // Brazil placement only; Korean diagnosis is not reviewed.
         // Common recommended grades are not a reviewed Korean placement.
         // Keep these Kenya additions available for explicitly chosen practice.
         if(TimetableQuestions.added(skill.id)||ClockFaces.supports(skill.id)||ClockNotation.supports(skill.id)||ClockReadings.supports(skill.id)||DotCollections.supports(skill.id)||MetricConversions.added(skill.id)||LargePlaceFoundations.supports(skill.id)||MassDensity.supports(skill.id)||MotionFoundations.supports(skill.id)||MoneyFoundations.supports(skill.id)||ErrorFoundations.supports(skill.id)||GradientFoundations.supports(skill.id))return false;

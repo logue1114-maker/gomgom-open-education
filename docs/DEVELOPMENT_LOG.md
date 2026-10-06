@@ -1,3 +1,9 @@
+## 2026-10-07 — Ruler and compass construction sequences
+
+Added equilateral-triangle and regular-hexagon construction actions with a finite 100-prompt supply. The checker executes public action dependencies and validates generated geometry, accepts either circle order for the triangle, and identifies the first invalid step without revealing its replacement. Native action menus shuffle independently and drafts use normal session storage.
+
+Local 939 and public engine 665 tests passed, including all 240 action permutations. Normal practice verified both constructions, wrong-stage correction, following blank drafts and cold restore. Small-phone scrolling controls and tablet notebook drawing/reopening were exercised. EF09MA15 remains selected/partial: free written descriptions, interactive ruler/compass work and other polygons are unfinished. UI, translations, QA, learner records, screenshots and APKs stay private. No public app deployment or Play release occurred.
+
 ## 2026-10-07 — Unequal parallel-segment ratio through normal saved practice
 
 Continued the unfinished practice through normal saved-session controls. The unequal 3:4 ratio was solved independently from visible givens, with a wrong division helper corrected to 6 and a wrong main value corrected to 24. The next question and its first help field remained blank, and a cold restart restored both. Existing unrelated saved practices remained unchanged. Native continuation and cold checks passed in 111.557 and 94.368 seconds. This is emulator evidence for one unequal-ratio form; it does not establish all four targets on devices, physical-device usability, or full curriculum coverage. Product code and the previously frozen APK were unchanged. QA and learner records remain private.

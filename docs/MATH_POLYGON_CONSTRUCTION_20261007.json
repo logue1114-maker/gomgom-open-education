@@ -1,0 +1,35 @@
+{
+  "topic": "regularPolygonConstruction",
+  "figures": [
+    "equilateral triangle",
+    "regular hexagon"
+  ],
+  "independentPublicProblems": 100,
+  "actionPermutations": 240,
+  "triangleValidOrders": 2,
+  "hexagonValidOrders": 1,
+  "checker": "execute public ruler/compass action dependencies and geometry; answer metadata is not authority",
+  "shuffle": "action menu ordering shuffled independently; stable action identities saved",
+  "tests": {
+    "engine": 665,
+    "app": 137,
+    "globalApp": 137
+  },
+  "actualNormalFlow": [
+    "normal unit practice menu and 100-question input mode",
+    "both figures submitted after wrong-stage correction",
+    "triangle circles in either valid order accepted",
+    "triangle B-circle followed by A-circle accepted",
+    "small phone scrolling controls and fixed check action",
+    "tablet notebook physical stroke preserved when closed and reopened without changing selected steps"
+  ],
+  "mapping": "BR9 EF09MA15 selected/partial",
+  "remaining": [
+    "free written construction algorithms",
+    "interactive ruler/compass manipulation and other constructible polygons",
+    "physical devices, accessibility and student comprehension",
+    "world curricula and languages",
+    "actual 30/60-minute study and commercial advertising/payment/release"
+  ],
+  "publicScope": "engine and anonymous development summaries; UI, translations, QA, learner records, screenshots, APKs and official prose excluded"
+}

@@ -36,6 +36,7 @@ public final class Generator {
         int oldest=Integer.MAX_VALUE;
         if(FractionSupply.supports(skillId,limits))q=FractionSupply.next(s,random,limits,previous);
         if(skillId.equals("el_common_divisor"))q=CommonFactorSupply.next(random,limits,previous);
+        if(skillId.equals(PolygonConstruction.ID))q=PolygonConstruction.next(s,random,previous);
         if(ClockFaces.supports(skillId))q=ClockFaces.next(s,random,limits,previous);
         if(ClockNotation.supports(skillId))q=ClockNotation.next(s,random,limits,previous);
         if(ClockReadings.supports(skillId))q=ClockReadings.next(s,random,limits,previous);
@@ -75,6 +76,7 @@ public final class Generator {
         if(IrrationalLengths.supports(s.id))return IrrationalLengths.create(s,random);
         if(RealRootBounds.supports(s.id))return RealRootBounds.create(s,random);
         if(FigurePatterns.supports(s.id))return FigurePatterns.create(s,random);
+        if(s.id.equals(PolygonConstruction.ID))return PolygonConstruction.create(s,random);
         if(SequenceAlgorithm.supports(s.id))return SequenceAlgorithm.create(s,random);
         if(SequenceDiscovery.supports(s.id))return SequenceDiscovery.create(s,random);
         if(FunctionConcepts.supports(s.id))return FunctionConcepts.create(s,random);

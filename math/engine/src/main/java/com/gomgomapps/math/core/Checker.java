@@ -21,6 +21,7 @@ public final class Checker {
         Result work=checkSteps(q,steps,kinds,false);
         if(!work.correct())return work;
         if(SequenceAlgorithm.selected(q))return SequenceAlgorithm.check(q,answers);
+        if(PolygonConstruction.selected(q))return PolygonConstruction.check(q,answers);
         if(q.kind.equals("inequality"))return LinearInequality.checkAnswer(q,answers);
         if(q.kind.equals("algebra"))return Algebra.checkAnswer(q,answers);
         if(q.kind.equals("complex"))return ComplexWork.answer(q,answers);
