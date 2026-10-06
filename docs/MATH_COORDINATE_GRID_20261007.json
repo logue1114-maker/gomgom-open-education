@@ -1,0 +1,38 @@
+{
+  "topic": [
+    "coordinateGridMidpoint",
+    "coordinateGridDistance"
+  ],
+  "problemsChecked": {
+    "uniqueMidpoints": 100,
+    "uniqueDistances": 100,
+    "publicGeometrySamples": 6000
+  },
+  "teaching": "equal signed grid movements from both endpoints; axis space counting or comparison with a supplied 3/4/5 reference segment",
+  "diagram": "public endpoints and unit grid only; no midpoint or answer rendered",
+  "choices": "positive distinct counting and projection mistakes with independently shuffled correct positions",
+  "tests": {
+    "engine": 668,
+    "app": 138,
+    "globalApp": 138,
+    "publicEngine": 668
+  },
+  "actualNormalFlow": [
+    "normal BR9 topic menu and 100-question typed midpoint practice",
+    "one wrong x-coordinate highlighted and then corrected; next question has both answer fields blank",
+    "cold restore and 360x640dp phone grid, typed fields, negative keypad and blank first teaching frame",
+    "long Portuguese teaching prefix stacked above its input; fixed after direct screenshot inspection"
+  ],
+  "mapping": "BR9 EF09MA16 selected/partial",
+  "remaining": [
+    "native distance/reference comparison submission and geometry across target devices",
+    "native signed midpoint teaching steps and draft restore",
+    "arbitrary diagonal distances, perimeter and area applications",
+    "physical devices, accessibility and student comprehension",
+    "world curricula and languages",
+    "actual 30/60-minute study and commercial advertising/payment/release"
+  ],
+  "publicScope": "engine and anonymous development summaries; UI, translations, QA, learner records, screenshots, APKs and official prose excluded",
+  "flagAppealAlreadySubmittedByUser": true,
+  "officialFlagClearanceVerified": false
+}

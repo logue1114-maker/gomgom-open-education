@@ -77,6 +77,7 @@ public final class Generator {
         if(RealRootBounds.supports(s.id))return RealRootBounds.create(s,random);
         if(FigurePatterns.supports(s.id))return FigurePatterns.create(s,random);
         if(s.id.equals(PolygonConstruction.ID))return PolygonConstruction.create(s,random);
+        if(CoordinateGrid.supports(s.id))return CoordinateGrid.create(s,random);
         if(SequenceAlgorithm.supports(s.id))return SequenceAlgorithm.create(s,random);
         if(SequenceDiscovery.supports(s.id))return SequenceDiscovery.create(s,random);
         if(FunctionConcepts.supports(s.id))return FunctionConcepts.create(s,random);

@@ -1,3 +1,9 @@
+## 2026-10-07 — Coordinate grid midpoint and distance
+
+Added signed midpoint walking, axis distances and comparison with a supplied reference segment. Public diagrams carry only endpoints, equal grid spacing and reference givens. Teaching checks one entered field at a time. Distinct distance choices shuffle independently. BR9 EF09MA16 remains selected/partial; arbitrary diagonal distance, perimeter and area applications are unfinished.
+
+Local 944 and public engine 668 tests passed, including 100 unique questions per skill and 6000 independent public geometry samples. Normal native practice checked a wrong midpoint coordinate, correction, following blank fields and cold restoration. Small-phone teaching text was corrected after actual screenshot inspection; signed keypad and visible controls passed. Native distance submissions, physical devices, accessibility and student comprehension remain unverified. UI, translations, QA, learner records, screenshots and APKs stay private. No public app deployment or Play release occurred. The user has already submitted the flag appeal; anonymous file access does not establish official clearance.
+
 ## 2026-10-07 — Ruler and compass construction sequences
 
 Added equilateral-triangle and regular-hexagon construction actions with a finite 100-prompt supply. The checker executes public action dependencies and validates generated geometry, accepts either circle order for the triangle, and identifies the first invalid step without revealing its replacement. Native action menus shuffle independently and drafts use normal session storage.
