@@ -109,6 +109,7 @@ public final class Choices {
         }
         void placeErrors(Rational step,String reason){for(int sign:new int[]{-1,1})add(answer.add(step.mul(Rational.of(sign))),reason);}
         void collect(){
+            if(FunctionRepresentations.supports(skill.id)){FunctionRepresentations.errors(q).forEach(this::add);return;}
             if(SuccessivePercent.supports(skill.id)){SuccessivePercent.errors(q).forEach(this::add);return;}
             if(CountingSequenceFoundations.supports(skill.id)){CountingSequenceFoundations.errors(q).forEach(this::add);return;}
             if(PowerRootFoundations.supports(skill.id)){PowerRootFoundations.errors(q).forEach(this::add);return;}

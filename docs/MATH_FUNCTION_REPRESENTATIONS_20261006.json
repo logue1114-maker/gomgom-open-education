@@ -1,0 +1,39 @@
+{
+  "tests": {
+    "engine": 632,
+    "app": 120,
+    "globalApp": 120
+  },
+  "nativeVerified": true,
+  "wholeCurriculumComplete": false,
+  "tabletViewportVerified": true,
+  "tabletViewport": [
+    1600,
+    2560
+  ],
+  "savedBefore": 74,
+  "savedAfter": 77,
+  "old74LabelsUnchanged": true,
+  "learningBefore": 3007,
+  "learningAfter": 3010,
+  "newQuestionsAnswered": 3,
+  "mainFieldsEntered": 4,
+  "helpFieldsEntered": 9,
+  "lastHelpBlankRestored": true,
+  "mainBlankAfterHelp": true,
+  "installedBaseMatches": true,
+  "physicalDeviceVerified": false,
+  "externalReview": false,
+  "releaseReady": false,
+  "commonSkills": 507,
+  "brazilSelectedSkills": 96,
+  "brazilPlacements": 144,
+  "partial": 74,
+  "unmapped": 173,
+  "complete": 0,
+  "requirementsGrades1To9": 247,
+  "beforeSeconds": 48.319,
+  "nativeSeconds": 157.914,
+  "coldSeconds": 230.523,
+  "tabletSeconds": 107.043
+}

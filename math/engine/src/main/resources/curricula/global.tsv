@@ -1165,3 +1165,5 @@ MAP	br-bncc-fundamental-2017-v1	9	scientificMassProduct,scientificSpeedQuotient	
 MAP	br-bncc-fundamental-2017-v1	9	scientificMassSum,scientificLengthDifference	EF09MA04; selected positive scientific-notation mass sums and remaining-length differences; full real-number contexts and problem construction incomplete; BNCC printed p.317
 
 MAP	br-bncc-fundamental-2017-v1	9	successivePercentPrice,successivePercentRate	EF09MA05; selected exact two-stage price changes and signed overall percentage rates; broader financial contexts, problem construction and full outcome incomplete; BNCC printed p.317
+
+MAP	br-bncc-fundamental-2017-v1	9	functionTableOutput,functionTableRule,functionGraphOutput	EF09MA06; selected linear relationships across numeric tables, algebraic rules and graphs; full function uniqueness, nonlinear relations and contextual analysis incomplete; BNCC printed p.317
