@@ -149,6 +149,7 @@ public final class Catalog {
         ALL.addAll(NumberExtensions.SKILLS);
         ALL.addAll(CountingSequenceFoundations.SKILLS);
         ALL.addAll(SequenceDiscovery.SKILLS);
+        ALL.addAll(SequenceAlgorithm.SKILLS);
         ALL.addAll(PowerRootFoundations.SKILLS);
         ALL.addAll(StrandFoundations.SKILLS);
         ALL.addAll(MeasurementFoundations.SKILLS);

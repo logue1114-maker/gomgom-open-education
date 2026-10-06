@@ -1,0 +1,22 @@
+{
+  "tests": {
+    "engine": 587,
+    "app": 109,
+    "globalApp": 109
+  },
+  "newTypes": 2,
+  "newBrazilPlacements": 2,
+  "distinctPublicProblemsIndependentlySolved": 200,
+  "commonSkills": 491,
+  "brazilSelectedSkills": 75,
+  "brazilPlacements": 121,
+  "requirementsGrades1To9": 247,
+  "partial": 68,
+  "unmapped": 179,
+  "complete": 0,
+  "wholeCurriculumComplete": false,
+  "nativeVerified": false,
+  "installed": false,
+  "physicalDeviceVerified": false,
+  "releaseReady": false
+}
