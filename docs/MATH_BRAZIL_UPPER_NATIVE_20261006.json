@@ -1,0 +1,23 @@
+{
+  "tests": {
+    "engineReused": 557,
+    "app": 91,
+    "globalApp": 91
+  },
+  "newMainAnswers": 7,
+  "helpInputs": 5,
+  "original21LabelsAndTimersPreserved": true,
+  "upperGradesChosenThroughNormalTopicFilter": true,
+  "profileGradeWasNotChanged": true,
+  "percentage100AppearedNormally": true,
+  "curatedPercentagePromptFixed": true,
+  "decimalHelpPortugueseFixed": true,
+  "coldUnansweredQuestionsAndDraftPreserved": true,
+  "mainAnswerNotAutofilled": true,
+  "initialQASelectionAndCounterFailuresPreserved": true,
+  "answerMetadataRead": false,
+  "stateInjection": false,
+  "physicalDeviceVerified": false,
+  "releaseReady": false,
+  "newCurriculumMappings": 0
+}
