@@ -367,3 +367,7 @@ Added missing-factor/dividend/divisor drills and preserving equality by applying
 ## 2026-10-06 — Portuguese equality native flow
 
 Normal grade 4/5 topic filtering and 100-question setup confirmed six inverse/equality lessons through public problem text, actual keypad input and learner-entered help. A wrong equality step is marked and corrected without revealing the answer. Main answers stay blank after help; cold restart preserves next unanswered questions and blank first help frames. Added missing authored English/Portuguese inverse-operation concepts and instructions. Fixed a dangling equality blank by fitting both authored rows to the actual available width; verified line count and line width through the normal saved-session flow. Original saved labels/timers preserved. App93/global93 pass; unchanged engine563 evidence reused. Private UI/translations/QA/screens/learner data/APK excluded. No physical-device or whole-curriculum/release claim.
+
+## 2026-10-06 — Brazil seventh-grade foundations
+
+Selected integer/rational arithmetic and equations reducible to ax+b=c are now mapped to grade 7. Five placements each supply 100 different public prompts solved independently; correct/wrong answers, four unique shuffled alternatives and prior-grade diagnosis pass. Engine565/app93/global93 and Android build pass. Official grades 1–9 matrix: 247 outcomes, 56 partial, 191 unmapped, none complete. Number lines, explanations, contexts, student-created problems, grades 8–9 and native flow remain unfinished. Private learner data/UI/QA/APK/official prose excluded.

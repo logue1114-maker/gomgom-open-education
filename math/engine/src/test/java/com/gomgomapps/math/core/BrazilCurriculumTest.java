@@ -9,7 +9,7 @@ public class BrazilCurriculumTest {
     private Learning.Profile profile(int grade){Learning.Profile p=new Learning.Profile();p.languageTag="pt";GlobalCurriculum.chooseCountry(p,"BR");GlobalCurriculum.choosePack(p,PACK);p.grade=grade;return p;}
     @Test public void brazilIsSelectableWithoutChangingLanguageOrClaimingUnmappedLevels(){
         Learning.Profile p=profile(3);GlobalCurriculum.Pack pack=GlobalCurriculum.pack(p);
-        assertEquals("pt",p.languageTag);assertEquals("BR",pack.country);assertEquals(List.of(1,2,3,4,5,6),pack.levels());assertEquals("3º ano",pack.level(3));
+        assertEquals("pt",p.languageTag);assertEquals("BR",pack.country);assertEquals(List.of(1,2,3,4,5,6,7),pack.levels());assertEquals("3º ano",pack.level(3));
         assertTrue(pack.grades.size()>23);assertTrue(pack.coverage.contains("remain unmapped"));
         assertFalse(pack.inGrade("divide",2));assertTrue(pack.inGrade("divide",3));assertFalse(pack.inGrade("el_fraction_of_number",3));
         assertEquals("9,999까지의 덧셈",GlobalCurriculum.title(PACK,"add1000",3));assertEquals(Catalog.get("add1000").title,GlobalCurriculum.title(PACK,"add1000",2));
