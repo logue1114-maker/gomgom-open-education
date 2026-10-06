@@ -163,12 +163,12 @@ public final class SecondaryBasics {
             }
             case "sec_direct_proportion":{
                 a=signed(random,7);x=signed(random,9);do{b=signed(random,9);}while(b==x);answer=a*b;
-                guide=two("주어진 순서쌍으로 비례상수를 구하세요.",a*x+" ÷ "+x+" = ","",a,"새 x에 비례상수를 곱하세요.",a+" × ("+b+") = ","",answer);
+                guide=two("주어진 순서쌍으로 비례상수를 구하세요.",a*x+" ÷ "+x+" = ","",a,"새 x에 비례상수를 곱하세요.",a+" × ("+b+") = ","",answer).transfer(false);
                 return q(s,"y는 x에 정비례하고 x="+x+"일 때 y="+(a*x)+"입니다. x="+b+"일 때 y는?",Rational.of(answer),guide,null,"constant",a,"x1",x,"y1",a*x,"x2",b);
             }
             case "sec_inverse_proportion":{
                 a=n(random,2,12);x=n(random,1,9);k=a*x;do{b=n(random,1,12);}while(k%b!=0||b==x);answer=k/b;
-                guide=two("처음 순서쌍의 곱을 구하세요.",x+" × "+a+" = ","",k,"일정한 곱을 새 x로 나누세요.",k+" ÷ "+b+" = ","",answer);
+                guide=two("처음 순서쌍의 곱을 구하세요.",x+" × "+a+" = ","",k,"일정한 곱을 새 x로 나누세요.",k+" ÷ "+b+" = ","",answer).transfer(false);
                 return q(s,"y는 x에 반비례하고 x="+x+"일 때 y="+a+"입니다. x="+b+"일 때 y는?",Rational.of(answer),guide,null,"constant",k,"x1",x,"y1",a,"x2",b);
             }
             case "sec_graph_change":{

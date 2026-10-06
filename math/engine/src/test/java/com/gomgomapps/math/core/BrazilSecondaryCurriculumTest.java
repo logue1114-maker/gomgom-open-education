@@ -28,7 +28,7 @@ public class BrazilSecondaryCurriculumTest {
         Set<String> diagnostic=new HashSet<>();GlobalCurriculum.scope(p).forEach(s->diagnostic.add(s.id));
         for(String id:IDS)assertFalse(id,diagnostic.contains(id));
         assertTrue(diagnostic.contains("el_equality_add_sub"));assertEquals("7º ano",GlobalCurriculum.pack(p).level(7));
-        assertFalse(GlobalCurriculum.pack(p).levels().contains(8));
+        assertFalse(GlobalCurriculum.pack(p).levels().contains(9));
     }
     private static Rational solve(String prompt,String id,Set<String> operations){
         if(id.equals("linear")||id.equals("linearFraction")){

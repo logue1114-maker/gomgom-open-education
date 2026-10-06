@@ -1030,11 +1030,16 @@ RULE	au-acara-v9-primary-v1	9	quadratic	monicQuadratic=true;answerDomain=integer
 RULE	au-acara-v9-primary-v1	10	quadratic	monicQuadratic=false
 
 # Brazil BNCC: selected calculation components only; no regional/term sequence inferred.
-PACK	br-bncc-fundamental-2017-v1	BR	Brasil · BNCC	https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf	1º–7º ano · selected foundational calculation components; other outcomes and grades 8–9 remain unmapped
+PACK	br-bncc-fundamental-2017-v1	BR	Brasil · BNCC	https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf	1º–8º ano · selected foundational calculation components; other outcomes and grade 9 remain unmapped
 LEVEL	br-bncc-fundamental-2017-v1	1	1º ano
 LEVEL	br-bncc-fundamental-2017-v1	2	2º ano
 LEVEL	br-bncc-fundamental-2017-v1	3	3º ano
 LEVEL	br-bncc-fundamental-2017-v1	7	7º ano
+LEVEL	br-bncc-fundamental-2017-v1	8	8º ano
+MAP	br-bncc-fundamental-2017-v1	8	percent	EF08MA04; percentage-of-quantity calculation only; contexts and student-created problems remain incomplete; BNCC printed p.313
+MAP	br-bncc-fundamental-2017-v1	8	substitute	EF08MA06; numerical values of linear expressions only; broader algebraic expressions, contexts and student-created problems remain incomplete; BNCC printed p.313
+MAP	br-bncc-fundamental-2017-v1	8	linearSystem	EF08MA08; solving two independent linear equations only; contextual modelling, Cartesian interpretation and student-created problems remain incomplete; BNCC printed p.313
+MAP	br-bncc-fundamental-2017-v1	8	sec_direct_proportion,sec_inverse_proportion	EF08MA12,EF08MA13; finding a new value from a stated direct/inverse relation only; nonproportional relations, graphs, contexts and student-created problems remain incomplete; BNCC printed p.313
 MAP	br-bncc-fundamental-2017-v1	7	signedAdd	EF07MA03,EF07MA04; integer addition/subtraction only; ordering, number lines, contexts and student-created problems remain incomplete; BNCC printed p.307
 MAP	br-bncc-fundamental-2017-v1	7	signedMul	EF07MA04; integer multiplication/exact division only; contexts and student-created problems remain incomplete; BNCC printed p.307
 MAP	br-bncc-fundamental-2017-v1	7	rational	EF07MA11,EF07MA12; signed rational operations only; inverse-operation explanations, contexts and student-created problems remain incomplete; BNCC printed p.307
