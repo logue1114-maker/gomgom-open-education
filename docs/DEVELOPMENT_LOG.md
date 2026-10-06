@@ -1,3 +1,9 @@
+## 2026-10-07 — Irrational perimeter input and boundary labels
+
+Continued the existing second grid right-triangle problem with legs2 and7. Nine learner-entered steps checked square areas4/49, hypotenuse square53, and leg sum9. A wrong helper entry and a separately entered main answer were corrected, then exact perimeter9+sqrt53 submitted in52.419 seconds. Completed problems were not replayed. The next answer and first helper remained blank.
+
+Moved corner letters away from the right-angle mark and checked the same saved boundary-area problem on a tablet in63.351 seconds. All twelve small-phone helper keys, its input and both actions were visible at representative square and final-sum stages. Android app checks284 passed. The engine source is unchanged; the prior680 tests apply. UI, screenshots, APKs and learner records remain private. These are emulator observations, not physical-device or student-comprehension evidence; general triangles, whole curricula/languages and release work remain incomplete.
+
 ## 2026-10-07 — Grid right-triangle area and perimeter
 
 Added two explicit topics for rotated/reflected axis-leg right triangles. Area teaching builds a rectangle from two congruent triangles and assembles the checked learner entries as an exact fraction. Perimeter teaching counts the legs, relates three square areas, simplifies the hypotenuse and adds the leg lengths. The main fraction/root fields start blank and help does not fill them. BR9 EF09MA16 is selected/partial, not arbitrary-triangle or whole-curriculum coverage.

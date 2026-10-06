@@ -34,7 +34,10 @@
   },
   "native_examples": {
     "area": "7 × 3 / 2; wrong entries corrected; main stays blank after help.",
-    "perimeter": "3 and 4 legs, 5 hypotenuse; initial integer-sum rejection reproduced and repaired, same unsubmitted problem completed."
+    "perimeter": "3 and 4 legs, 5 hypotenuse; initial integer-sum rejection reproduced and repaired, same unsubmitted problem completed.",
+    "irrational_perimeter": "Continued the second unfinished problem, legs2/7, square areas4/49, exact perimeter9+sqrt53. Wrong helper and separately typed main entries corrected; completed without replay.",
+    "irrational_time_seconds": 52.419,
+    "layout": "Corner letters moved away from the right-angle mark; same saved boundary example checked on the tablet. Last small-phone helper input, all12keys and both actions visible."
   },
   "private_exclusions": [
     "Android UI",
