@@ -978,7 +978,8 @@ public final class ElementaryBasics {
                 labels("첫째 부분","둘째 부분"),
                 guide(step("비의 두 항을 더해 전체 묶음 수를 구합니다.",first+" + "+second+" = ","",first+"+"+second),
                         step("전체를 한 묶음 수로 나눕니다.",total+" ÷ "+(first+second)+" = ","",total+"/"+(first+second)),
-                        step("각 항의 비만큼 곱합니다.",(total/(first+second))+" × "+first+" = ","",firstExpression)),null,
+                        step("첫째 비만큼 곱해 첫째 부분을 구하세요.",(total/(first+second))+" × "+first+" = ","",firstExpression),
+                        step("둘째 비만큼 곱해 둘째 부분을 구하세요.",(total/(first+second))+" × "+second+" = ","",secondExpression)),null,
                 r(total*first,first+second),r(total*second,first+second));
     }
 
