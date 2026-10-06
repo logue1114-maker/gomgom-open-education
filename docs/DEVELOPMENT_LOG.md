@@ -323,3 +323,7 @@ Curated the actual return control and composed help titles from the selected-lan
 ## 2026-10-06 — Working vertical arithmetic diagram
 
 Added right-aligned operands and active-place highlighting. Only confirmed learner entries populate carry, borrowed working numbers and result digits; original changed digits remain crossed above working values. Future result places remain blank. App86/global86 checks pass; unchanged engine551 evidence reused. Normal English Android saved-session flow: two new answers, 25 help steps and preserved original sessions after cold restart. Private UI, translations, QA, images, APK and learner data excluded. Physical device, small phone, tablet and Portuguese new diagram remain unverified; no new curriculum mapping or release claim.
+
+## 2026-10-06 — Small phone column calculation
+
+Compacted column-help spacing and diagram for short screens while retaining 44dp numeric buttons. Normal next saved questions at 360x640dp: two new main answers and 24 learner-entered help steps, including two borrowing operations in one problem. Actual original/working digits, blank future digits, field and controls visible. Original sessions preserved after cold restart; emulator display settings restored. App86/global86 pass; unchanged engine551 evidence reused. Private UI/QA/images/APK/learner data excluded. Portuguese diagram, tablet and physical device remain unverified; no new curriculum mapping or release claim.

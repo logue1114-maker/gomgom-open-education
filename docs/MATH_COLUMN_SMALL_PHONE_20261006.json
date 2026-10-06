@@ -1,0 +1,23 @@
+{
+  "localTests": {
+    "engine": 551,
+    "app": 86,
+    "globalApp": 86
+  },
+  "engineUnchangedTestsReused": true,
+  "newMainAnswers": 2,
+  "helpSteps": 24,
+  "logicalViewportDp": [
+    360,
+    640
+  ],
+  "borrowedDiagramNativeVerified": true,
+  "mainAnswerAutomaticTransfer": false,
+  "nativeLanguage": "English",
+  "tabletVerified": false,
+  "physicalDeviceVerified": false,
+  "releaseReady": false,
+  "scope": "Compact column help with 44dp numeric buttons and confirmed working borrow digits",
+  "newCurriculumMappings": 0,
+  "wholeCurriculumComplete": false
+}
