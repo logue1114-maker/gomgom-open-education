@@ -1,0 +1,20 @@
+{
+  "tests": {
+    "app": 94,
+    "globalApp": 94
+  },
+  "engineTestsReused": 565,
+  "newMainAnswers": 0,
+  "newHelpInputs": 19,
+  "nativeUnits": 5,
+  "wrongHelpMarkedAndCorrected": true,
+  "noMainAnswerTransferred": true,
+  "signedAddDraftStage": 3,
+  "coldDraftBlank": true,
+  "savedBefore": 39,
+  "savedAfter": 39,
+  "old34LabelsUnchanged": true,
+  "wholeCurriculumComplete": false,
+  "physicalDeviceVerified": false,
+  "releaseReady": false
+}
