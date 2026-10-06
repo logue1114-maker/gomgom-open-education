@@ -1,3 +1,9 @@
+## 2026-10-07 — Concave grid polygon perimeter and area
+
+Added two explicit topics for rotated/reflected six-corner orthogonal polygons. Perimeter teaching checks the six grid-side counts and their sum. Area teaching shows a public dashed subdivision into two rectangles, checks their side counts and areas, then their sum. Main answers remain blank after help. The selected BR9 EF09MA16 mapping does not claim arbitrary polygons or complete curriculum coverage.
+
+Local 958 checks and public engine 676 checks passed. Each topic was checked on 100 unique generated prompts; 6000 public geometries covered all eight orientations, coordinate bounds, concavity and correct values. The normal Android topic menu produced actual perimeter24 and area70 examples with wrong teaching and main entries corrected before submission. UI, translations, QA, learner data, source prose, images and APKs remain private; no deployment or Play release occurred. Broader polygon shapes, curricula/languages, physical devices, student comprehension and release work remain incomplete.
+
 ## 2026-10-07 — Integer oblique-distance result and left-edge labels
 
 Continued the existing generated sequence without replaying completed problems until an integer result appeared. The public horizontal and vertical movements were 4 and 3, with square areas 16 and 9. Eight actual teaching entries simplified the result to 5; a wrong teaching entry and a separately typed main answer were corrected before submission. The next problem remained blank. This complements the earlier irrational-result native example.

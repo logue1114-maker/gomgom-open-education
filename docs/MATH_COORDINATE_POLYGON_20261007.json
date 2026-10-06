@@ -1,0 +1,40 @@
+{
+  "topics": [
+    "coordinatePolygonPerimeter",
+    "coordinatePolygonArea"
+  ],
+  "status": "Selected BR9 subset, normal native examples and blank cold restore on small phone/tablet verified; broader work remains",
+  "curriculum": "BNCC EF09MA16 printed page319; selected concave orthogonal six-corner polygon perimeter and two-rectangle area applications",
+  "geometry": "Rotated/reflected shapes in all eight orientations, translated within unit grid; side lengths at least two grid spaces for legible vertex names",
+  "teachingFrames": 7,
+  "teaching": "Count six boundary sides and add; for area, count two adjacent rectangle sides, calculate each rectangle area and add. Keep the main answer blank after help.",
+  "tests": {
+    "engine": 676,
+    "app": 141,
+    "globalApp": 141,
+    "publicEngine": 676
+  },
+  "independentChecks": {
+    "uniqueQuestionsPerTopic": 100,
+    "publicGeometrySamples": 6000,
+    "area": "Signed shoelace check in unit tests and unit-cell centre inclusion in actual native questions",
+    "perimeter": "Count public grid intervals on six boundary segments",
+    "answerPositions": "All four shuffled positions observed"
+  },
+  "nativeExamples": {
+    "perimeter": 24,
+    "area": 70,
+    "teachingAndMainWrongEntriesCorrected": true,
+    "newSubmissions": 2,
+    "firstBlankTeachingFieldVisibleOnSmallPhoneAndTablet": true,
+    "smallPhoneViewport": "360x640dp"
+  },
+  "remaining": [
+    "Arbitrary polygons with sloping sides and full EF09MA16 coverage",
+    "World curricula/languages",
+    "Actual full30/60-minute study, physical devices/accessibility/student comprehension, advertising/payment/release"
+  ],
+  "publicScope": "Engine and anonymous development records; UI/translations/QA/learner records/source prose/screenshots/APKs excluded",
+  "flagAppealAlreadySubmittedByUser": true,
+  "officialFlagClearanceVerified": false
+}

@@ -1191,3 +1191,6 @@ MAP	br-bncc-fundamental-2017-v1	9	coordinateGridPerimeter	EF09MA16; selected axi
 MAP	br-bncc-fundamental-2017-v1	9	coordinateGridArea	EF09MA16; selected axis-aligned rectangle perimeter and unit-square area applications from public Cartesian coordinates and equal grid intervals; arbitrary diagonal distances and general polygon applications remain incomplete; BNCC printed p.319
 
 MAP	br-bncc-fundamental-2017-v1	9	coordinateGridDiagonal	EF09MA16; selected oblique grid distance through square-area comparison and exact integer/radical results from public Cartesian points; general polygon perimeter/area applications remain incomplete; BNCC printed p.319
+
+MAP	br-bncc-fundamental-2017-v1	9	coordinatePolygonPerimeter	EF09MA16; selected rotated/reflected concave orthogonal six-corner polygons, grid-edge perimeter and two-rectangle unit-square area decomposition; arbitrary polygons with sloping sides and full criterion remain incomplete; BNCC printed p.319
+MAP	br-bncc-fundamental-2017-v1	9	coordinatePolygonArea	EF09MA16; selected rotated/reflected concave orthogonal six-corner polygons, grid-edge perimeter and two-rectangle unit-square area decomposition; arbitrary polygons with sloping sides and full criterion remain incomplete; BNCC printed p.319
