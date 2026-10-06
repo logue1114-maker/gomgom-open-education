@@ -387,3 +387,7 @@ Mapped percentage-of-quantity, substitution in linear expressions, independent t
 ## 2026-10-06 — Brazil eighth-grade native input and wording
 
 Five normal grade-8/100-question sessions were solved from visible public prompts through numeric keys, including separate x/y fields. Five next unanswered questions survived restart; saved sessions increased from 39 to 44 with the old 39 labels unchanged. Actual system instructions had malformed translated wording; added private authored Portuguese/English substitution, system and proportion prompts that preserve all literal givens. App98/global98 and Android build pass, unchanged engine567 evidence reused. Corrected wording was verified in the same normal saved-session flow. Help input, physical-device testing and release remain unfinished. Private UI/translations/QA/screens/learner data/APK excluded.
+
+## 2026-10-06 — Brazil eighth-grade native help
+
+Five normal saved practice sessions were opened at their second unanswered question. Twelve student help fields were independently calculated from visible prompts and entered through the actual keypad. One incorrect system-elimination field was marked and manually corrected. Main answer fields remained blank after help and restart. Substitution reopened at its third blank step. All 44 saved labels/timers remain unchanged; no new main answers. Product APK unchanged; private QA, learner data, screenshots and source curriculum prose excluded. Physical-device, external visual review and release remain unverified.
