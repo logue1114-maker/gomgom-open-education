@@ -1,0 +1,40 @@
+{
+  "tests": {
+    "engine": 590,
+    "app": 110,
+    "globalApp": 110
+  },
+  "newTypes": 1,
+  "newBrazilPlacements": 1,
+  "distinctPublicProblemsIndependentlySolved": 100,
+  "commonSkills": 492,
+  "brazilSelectedSkills": 76,
+  "brazilPlacements": 122,
+  "requirementsGrades1To9": 247,
+  "partial": 68,
+  "unmapped": 179,
+  "complete": 0,
+  "wholeCurriculumComplete": false,
+  "nativeVerified": true,
+  "installed": true,
+  "physicalDeviceVerified": false,
+  "releaseReady": false,
+  "native": {
+    "beforeSeconds": 51.24,
+    "nativeSeconds": 113.606,
+    "coldSeconds": 76.865,
+    "newMainQuestionsAnswered": 1,
+    "programBlocksEntered": 5,
+    "wrongGrowthMarkedAndManuallyCorrected": true,
+    "studentOutputVerified": true,
+    "savedBefore": 56,
+    "savedAfter": 57,
+    "old56LabelsUnchanged": true,
+    "learningHistoryBefore": 2989,
+    "learningHistoryAfter": 2990,
+    "oneSelectedAndFourUnselectedBlocksRestored": true,
+    "physicalDeviceVerified": false,
+    "externalVisualReview": false,
+    "releaseReady": false
+  }
+}

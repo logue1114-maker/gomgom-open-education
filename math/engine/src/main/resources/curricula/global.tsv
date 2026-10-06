@@ -1149,3 +1149,4 @@ MAP	br-bncc-fundamental-2017-v1	8	discoverRecursiveRule	EF08MA11; discover nonco
 
 MAP	br-bncc-fundamental-2017-v1	8	indexSequenceLoop	EF08MA10; learner-selected bounded loop condition/branches/update/index commands executed against public affine numerical rule; figures and free-form algorithms incomplete; BNCC printed p.313
 MAP	br-bncc-fundamental-2017-v1	8	recursiveSequenceLoop	EF08MA11; learner-selected bounded loop condition/branches/update/index commands executed against public affine recurrence; other families and free-form algorithms incomplete; BNCC printed p.313
+MAP	br-bncc-fundamental-2017-v1	8	figureSequenceLoop	EF08MA10; constant-row-growth tile figures; learner selects update/condition/branches and runs a bounded loop producing tile arrays; other figural rules and free-form algorithms incomplete; BNCC printed p.313
