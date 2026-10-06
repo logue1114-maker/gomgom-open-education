@@ -1155,3 +1155,5 @@ MAP	br-bncc-fundamental-2017-v1	8	triangleFigureCount	EF08MA10; constant row-gro
 MAP	br-bncc-fundamental-2017-v1	9	rootIntegerBounds,rootTenthBounds	EF09MA02; selected positive irrational square-root location as consecutive integer/tenth bounds; broader irrational representations, negative values, graphical placements and full decimal nonperiodicity remain incomplete; BNCC printed p.317
 MAP	br-bncc-fundamental-2017-v1	9	integerPowerValue,rootPowerLink	EF09MA03; selected exact integer powers and perfect-root positive fractional-power relations reused from grade8; broader real-number calculations remain incomplete; BNCC printed p.317
 LEVEL	br-bncc-fundamental-2017-v1	9	9º ano
+
+MAP	br-bncc-fundamental-2017-v1	9	squareDiagonalRoot,equilateralHeightRoot	EF09MA01; positive integer-side square diagonals and equilateral heights expressed as rational coefficients times sqrt2/sqrt3; geometric drawings and squared lengths; other lengths and recognition contexts incomplete; BNCC printed p.317

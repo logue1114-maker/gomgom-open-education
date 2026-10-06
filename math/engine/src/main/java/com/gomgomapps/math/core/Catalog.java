@@ -152,6 +152,7 @@ public final class Catalog {
         ALL.addAll(SequenceAlgorithm.SKILLS);
         ALL.addAll(FigurePatterns.SKILLS);
         ALL.addAll(RealRootBounds.SKILLS);
+        ALL.addAll(IrrationalLengths.SKILLS);
         ALL.addAll(PowerRootFoundations.SKILLS);
         ALL.addAll(StrandFoundations.SKILLS);
         ALL.addAll(MeasurementFoundations.SKILLS);
