@@ -150,6 +150,7 @@ public final class Catalog {
         ALL.addAll(ScientificQuantity.SKILLS);
         ALL.addAll(SuccessivePercent.SKILLS);
         ALL.addAll(FunctionRepresentations.SKILLS);
+        ALL.addAll(FunctionConcepts.SKILLS);
         ALL.addAll(CountingSequenceFoundations.SKILLS);
         ALL.addAll(SequenceDiscovery.SKILLS);
         ALL.addAll(SequenceAlgorithm.SKILLS);
