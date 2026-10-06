@@ -331,3 +331,7 @@ Compacted column-help spacing and diagram for short screens while retaining 44dp
 ## 2026-10-06 — Tablet notebook and phone boundary
 
 Curated actual notebook controls, regrouping row labels and working-place accessibility descriptions in English/Portuguese. Actual tablet touch strokes retain their normalized visible bounds across rotation and cold restart; phone offers formula entry without notebook. No answers submitted; original sessions preserved. The draw/rotate/help test reached its actions but failed at tail country navigation; preserved evidence and fresh country-row selection, then final cold and phone checks passed. App88/global88 pass; unchanged engine551 evidence reused. Portuguese notebook, physical tablet/stylus and OCR remain unverified. Private UI/QA/ink/images/APK excluded; no new curriculum mapping or release claim.
+
+## 2026-10-06 — Portuguese tablet notebook
+
+Curated notebook/handwriting/check/close controls. Actual Portuguese tablet menu, column fields and concept diagram verified through normal saved-session controls without new answers. Visual inspection found the translated Tools label clipped; changed its fixed width to fit the label and verified the same screen again. Existing handwriting and all saved sessions retained. App88/global88 pass; unchanged engine551 prior evidence reused. Physical devices/stylus, OCR, student comprehension and release remain unverified. Private UI/QA/screens/ink/APK excluded; no new curriculum mapping.

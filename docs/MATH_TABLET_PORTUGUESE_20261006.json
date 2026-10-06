@@ -1,0 +1,19 @@
+{
+  "localTests": {
+    "engine": 551,
+    "app": 88,
+    "globalApp": 88
+  },
+  "engineUnchangedTestsReused": true,
+  "newMainAnswers": 0,
+  "PortugueseNotebookNativeVerified": true,
+  "PortugueseColumnDiagramVisible": true,
+  "PortugueseToolsWidthClippingFixed": true,
+  "existingInkPreserved": true,
+  "mainAnswerRemainedBlank": true,
+  "physicalTabletOrStylusVerified": false,
+  "ocrVerified": false,
+  "releaseReady": false,
+  "newCurriculumMappings": 0,
+  "wholeCurriculumComplete": false
+}
