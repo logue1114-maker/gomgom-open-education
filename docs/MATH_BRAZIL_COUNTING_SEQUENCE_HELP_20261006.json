@@ -1,0 +1,23 @@
+{
+  "nativeSeconds": 231.929,
+  "coldSeconds": 183.438,
+  "engineTestsReused": 579,
+  "appTestsReused": 107,
+  "globalAppTestsReused": 107,
+  "productSourceChanged": false,
+  "newCorrectHelpInputs": 5,
+  "wrongHelpInputAndManualCorrection": true,
+  "mainAnswersNotAutoTransferred": true,
+  "newMainQuestionsAnswered": 0,
+  "newMainFieldsEntered": 0,
+  "savedBefore": 52,
+  "savedAfter": 52,
+  "all52LabelsUnchanged": true,
+  "learningHistoryBefore": 2985,
+  "learningHistoryAfter": 2985,
+  "threeColdMainAnswersBlank": true,
+  "recursiveHelpThirdFrameBlankRestored": true,
+  "physicalDeviceVerified": false,
+  "externalVisualReview": false,
+  "releaseReady": false
+}
