@@ -57,6 +57,7 @@ public final class HelpPlan {
     }
     public static HelpPlan forQuestion(Question q){
         ColumnArithmeticTeaching.attach(q);
+        if(q!=null)RadicalTeaching.attach(q);
         if(q!=null&&q.studyGuide!=null&&!q.studyGuide.frames.isEmpty()){
             HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:q.studyGuide.frames)plan.steps.add(new Step(frame));
             plan.transfer=q.studyGuide.transfer&&q.answers.length==1&&(q.kind.equals("number")||q.kind.equals("symbol"));

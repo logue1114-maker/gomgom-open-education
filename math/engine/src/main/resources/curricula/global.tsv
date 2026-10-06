@@ -1157,3 +1157,5 @@ MAP	br-bncc-fundamental-2017-v1	9	integerPowerValue,rootPowerLink	EF09MA03; sele
 LEVEL	br-bncc-fundamental-2017-v1	9	9º ano
 
 MAP	br-bncc-fundamental-2017-v1	9	squareDiagonalRoot,equilateralHeightRoot	EF09MA01; positive integer-side square diagonals and equilateral heights expressed as rational coefficients times sqrt2/sqrt3; geometric drawings and squared lengths; other lengths and recognition contexts incomplete; BNCC printed p.317
+
+MAP	br-bncc-fundamental-2017-v1	9	rootSimplify,rootAddSub,rootProduct,rootQuotient,rootRationalize	EF09MA03; selected exact square-root simplification/arithmetic and rationalisation with numeric input scaffolds; other real calculations, problem construction and the full outcome incomplete; BNCC printed p.317

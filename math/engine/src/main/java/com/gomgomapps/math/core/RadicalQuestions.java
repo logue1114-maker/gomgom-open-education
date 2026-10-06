@@ -19,7 +19,7 @@ final class RadicalQuestions {
             default:throw new IllegalArgumentException("근호 계산 유형 확인 필요");
         }
         String prompt=(skill.id.equals("rootSimplify")?"근호 안의 수를 간단히 하세요.":skill.id.equals("rootRationalize")?"분모를 유리화하여 간단히 나타내세요.":"계산하여 간단히 나타내세요.")+"\n"+expression;
-        Question q=new Question(skill.id,prompt,expression,Radical.parse(expression).toString());q.kind="radical";return q.withInputs(a,b,d,e);
+        Question q=new Question(skill.id,prompt,expression,Radical.parse(expression).toString());q.kind="radical";RadicalTeaching.attach(q);return q.withInputs(a,b,d,e);
     }
     static void choices(Question q,Random random){
         if(!q.choices.isEmpty()||q.choiceInputs==null||q.choiceInputs.length!=4)return;
