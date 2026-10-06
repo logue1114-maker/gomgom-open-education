@@ -319,3 +319,7 @@ Added learner-entered place-value, carry and borrowing steps using public operan
 ## 2026-10-06 — Portuguese column help and cold draft preservation
 
 Curated the actual return control and composed help titles from the selected-language label. Normal Portuguese saved-session flow verifies two new answers and 29 entered help steps, including borrowing across a zero. A wrong value and second help stage survive cold restart and APK update. Main answer stays blank until learner input; original sessions preserved. App83/global83 pass; unchanged engine551 evidence reused. Private UI/translation/QA/device evidence excluded. No new curriculum mappings or release claim.
+
+## 2026-10-06 — Working vertical arithmetic diagram
+
+Added right-aligned operands and active-place highlighting. Only confirmed learner entries populate carry, borrowed working numbers and result digits; original changed digits remain crossed above working values. Future result places remain blank. App86/global86 checks pass; unchanged engine551 evidence reused. Normal English Android saved-session flow: two new answers, 25 help steps and preserved original sessions after cold restart. Private UI, translations, QA, images, APK and learner data excluded. Physical device, small phone, tablet and Portuguese new diagram remain unverified; no new curriculum mapping or release claim.

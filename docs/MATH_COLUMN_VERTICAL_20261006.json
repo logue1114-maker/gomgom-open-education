@@ -1,0 +1,19 @@
+{
+  "scope": "Working vertical calculation diagram from public operands and confirmed learner entries",
+  "tests": {
+    "engine": 551,
+    "app": 86,
+    "globalApp": 86
+  },
+  "engineUnchanged": true,
+  "nativeLanguage": "English",
+  "newAnswers": 2,
+  "helpSteps": 25,
+  "currentPlaceHighlighted": true,
+  "originalDigitsDistinguishedFromBorrowedWorkingDigits": true,
+  "futureResultsRendered": false,
+  "automaticMainAnswerTransfer": false,
+  "newCurriculumMappings": 0,
+  "wholeCurriculumComplete": false,
+  "releaseReady": false
+}
