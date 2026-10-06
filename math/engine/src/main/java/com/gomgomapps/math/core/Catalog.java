@@ -147,6 +147,7 @@ public final class Catalog {
         add("binomial","이항확률",12,1,2,"확률과 통계","binomial",6,"combination,probability,powerLaw,fracMul","독립인 시행에서 성공 횟수의 경우의 수와 각 경우의 확률을 곱한다.");
         add("expectation","확률변수의 기댓값",12,1,3,"확률과 통계","expectation",9,"probability,fracMul,fracAdd","각 값에 그 확률을 곱한 결과를 모두 더한다.");
         ALL.addAll(NumberExtensions.SKILLS);
+        ALL.addAll(CountingSequenceFoundations.SKILLS);
         ALL.addAll(PowerRootFoundations.SKILLS);
         ALL.addAll(StrandFoundations.SKILLS);
         ALL.addAll(MeasurementFoundations.SKILLS);
