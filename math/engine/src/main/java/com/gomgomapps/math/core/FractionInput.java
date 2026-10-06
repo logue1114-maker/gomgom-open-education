@@ -20,7 +20,7 @@ public final class FractionInput {
     }
     public static boolean defaultFraction(Question q){
         String family=Catalog.get(q.skillId).family.toLowerCase(Locale.ROOT);
-        return available(q)&&("fraction".equals(q.answerFormat)||!"decimal".equals(q.answerFormat)&&(family.contains("frac")||Set.of("reduce","rational","probability").contains(family)));
+        return available(q)&&("fraction".equals(q.answerFormat)||!"decimal".equals(q.answerFormat)&&(CoordinateTriangle.AREA.equals(q.skillId)||family.contains("frac")||Set.of("reduce","rational","probability").contains(family)));
     }
     public static Map<Integer,Form> forms(Learning.Session s){if(s.answerForms==null)s.answerForms=new LinkedHashMap<>();return s.answerForms;}
     public static Form form(Learning.Session s,int index){

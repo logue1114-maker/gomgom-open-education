@@ -1,3 +1,9 @@
+## 2026-10-07 — Grid right-triangle area and perimeter
+
+Added two explicit topics for rotated/reflected axis-leg right triangles. Area teaching builds a rectangle from two congruent triangles and assembles the checked learner entries as an exact fraction. Perimeter teaching counts the legs, relates three square areas, simplifies the hypotenuse and adds the leg lengths. The main fraction/root fields start blank and help does not fill them. BR9 EF09MA16 is selected/partial, not arbitrary-triangle or whole-curriculum coverage.
+
+Local 964 checks passed. Each topic has 100 independently solved unique prompts and 6000 public geometries cover eight orientations and integer/fraction/irrational cases. Actual Android input completed area21/2. An integer perimeter input7+5 was initially rejected; the narrow perimeter-frame fix was tested and the same unsubmitted problem completed. General root simplification still rejects unsimplified roots. UI, translations, instrumentation, learner records, screenshots and APKs remain private. No deployment or Play release occurred. See MATH_COORDINATE_TRIANGLES_20261007.json for the scope and remaining work.
+
 ## 2026-10-07 — Concave grid polygon perimeter and area
 
 Added two explicit topics for rotated/reflected six-corner orthogonal polygons. Perimeter teaching checks the six grid-side counts and their sum. Area teaching shows a public dashed subdivision into two rectangles, checks their side counts and areas, then their sum. Main answers remain blank after help. The selected BR9 EF09MA16 mapping does not claim arbitrary polygons or complete curriculum coverage.

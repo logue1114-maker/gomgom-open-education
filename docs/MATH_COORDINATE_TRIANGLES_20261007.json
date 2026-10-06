@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-07",
+  "topics": [
+    "coordinateTriangleArea",
+    "coordinateTrianglePerimeter"
+  ],
+  "coverage": "Selected axis-leg right triangles only; arbitrary triangles and full EF09MA16 remain incomplete.",
+  "generation": {
+    "legs": [
+      2,
+      12
+    ],
+    "coordinates": [
+      -8,
+      8
+    ],
+    "orientations": 8,
+    "unique_prompts_tested_per_topic": 100,
+    "public_geometries_tested": 6000
+  },
+  "teaching": {
+    "area_frames": 4,
+    "perimeter_frames": 9,
+    "transfer_to_main": false,
+    "area": "Count legs, rectangle area, congruent triangle count; exact fraction result.",
+    "perimeter": "Count legs, squares, square-factor simplification, then sum legs; exact root result.",
+    "integer_frame": "Accept the two entered integer length terms as an exact perimeter sum; wrong values and unsimplified square roots remain rejected."
+  },
+  "local_tests": {
+    "engine": 680,
+    "app": 142,
+    "globalApp": 142,
+    "failures": 0
+  },
+  "native_examples": {
+    "area": "7 × 3 / 2; wrong entries corrected; main stays blank after help.",
+    "perimeter": "3 and 4 legs, 5 hypotenuse; initial integer-sum rejection reproduced and repaired, same unsubmitted problem completed."
+  },
+  "private_exclusions": [
+    "Android UI",
+    "translations",
+    "instrumentation",
+    "learner data",
+    "source curriculum prose",
+    "screenshots",
+    "APK"
+  ],
+  "remaining": [
+    "General triangles",
+    "Whole national curricula and languages",
+    "Physical devices and learner comprehension",
+    "Long study-session completion",
+    "Advertising, payment and release verification"
+  ]
+}

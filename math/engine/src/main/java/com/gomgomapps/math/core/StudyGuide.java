@@ -14,6 +14,7 @@ public final class StudyGuide implements Serializable {
     /** Optional result assembled from two learner-entered frames; absent in old saved guides. */
     public Integer resultNumeratorFrame,resultDenominatorFrame;
     public Integer resultCoefficientFrame,resultRadicandFrame;
+    public Integer resultAddendFrame;
     public static final class Frame implements Serializable {
         private static final long serialVersionUID=1L;
         public String instruction,before,after,expected;
@@ -25,5 +26,6 @@ public final class StudyGuide implements Serializable {
     public StudyGuide transfer(boolean value){transfer=value;return this;}
     public StudyGuide fractionResult(int numeratorFrame,int denominatorFrame){resultNumeratorFrame=numeratorFrame;resultDenominatorFrame=denominatorFrame;return this;}
     public StudyGuide radicalResult(int coefficientFrame,int radicandFrame){resultCoefficientFrame=coefficientFrame;resultRadicandFrame=radicandFrame;return this;}
+    public StudyGuide radicalSumResult(int addendFrame,int coefficientFrame,int radicandFrame){resultAddendFrame=addendFrame;return radicalResult(coefficientFrame,radicandFrame);}
     public StudyGuide choice(String instruction,Map<String,String> labels,String expected){Frame f=new Frame(instruction,"","",expected);f.options.putAll(labels);frames.add(f);return this;}
 }

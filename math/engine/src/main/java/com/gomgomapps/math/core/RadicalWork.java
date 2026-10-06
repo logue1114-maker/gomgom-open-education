@@ -31,7 +31,7 @@ public final class RadicalWork {
         String raw=answers.get(0);
         try{
             if(!Radical.parse(raw).equals(Radical.parse(question.answers[0])))return new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 답 확인");
-            if(!Radical.simplified(raw))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"근호 안의 수와 계수 정리 필요");
+            if(!Radical.simplified(raw)&&!CoordinateTriangle.integerPerimeterSum(question,raw))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"근호 안의 수와 계수 정리 필요");
             return new Checker.Result(Checker.Status.CORRECT,-1,"정답");
         }catch(IllegalArgumentException|ArithmeticException ex){return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"답의 기호 확인 필요");}
     }

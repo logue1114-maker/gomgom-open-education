@@ -41,6 +41,7 @@ public final class HelpPlan {
     private boolean transfer=true;
     private Integer resultNumeratorFrame,resultDenominatorFrame;
     private Integer resultCoefficientFrame,resultRadicandFrame;
+    private Integer resultAddendFrame;
     private HelpPlan(int denominator){answerDenominator=denominator;}
     public int size(){return steps.size();}
     public Step step(int index){return steps.get(index);}
@@ -54,7 +55,9 @@ public final class HelpPlan {
         if(resultCoefficientFrame!=null&&resultRadicandFrame!=null){
             String coefficient=draft.entries.get(resultCoefficientFrame),radicand=draft.entries.get(resultRadicandFrame);
             if(!step(resultCoefficientFrame).accepts(coefficient)||!step(resultRadicandFrame).accepts(radicand))throw new IllegalStateException("근호 입력 확인 필요");
-            return Radical.parse(Expression.number(coefficient)+"*sqrt("+Expression.number(radicand)+")").toString();
+            Radical result=Radical.parse(Expression.number(coefficient)+"*sqrt("+Expression.number(radicand)+")");
+            if(resultAddendFrame!=null){String addend=draft.entries.get(resultAddendFrame);if(!step(resultAddendFrame).accepts(addend))throw new IllegalStateException("변 길이의 합 입력 확인 필요");result=result.add(Radical.parse(Expression.number(addend).toString()));}
+            return result.toString();
         }
         return answerDenominator==0?value:value+"/"+answerDenominator;
     }
@@ -68,7 +71,7 @@ public final class HelpPlan {
         if(q!=null&&q.studyGuide!=null&&!q.studyGuide.frames.isEmpty()){
             HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:q.studyGuide.frames)plan.steps.add(new Step(frame));
             plan.transfer=q.studyGuide.transfer&&q.answers.length==1&&(q.kind.equals("number")||q.kind.equals("symbol"));
-            plan.resultNumeratorFrame=q.studyGuide.resultNumeratorFrame;plan.resultDenominatorFrame=q.studyGuide.resultDenominatorFrame;plan.resultCoefficientFrame=q.studyGuide.resultCoefficientFrame;plan.resultRadicandFrame=q.studyGuide.resultRadicandFrame;
+            plan.resultNumeratorFrame=q.studyGuide.resultNumeratorFrame;plan.resultDenominatorFrame=q.studyGuide.resultDenominatorFrame;plan.resultCoefficientFrame=q.studyGuide.resultCoefficientFrame;plan.resultRadicandFrame=q.studyGuide.resultRadicandFrame;plan.resultAddendFrame=q.studyGuide.resultAddendFrame;
             if(plan.transfer&&q.answerFormat!=null)plan.steps.get(plan.steps.size()-1).requiredFormat=q.answerFormat;return plan;
         }
         if(q==null||q.expression==null||!q.kind.equals("number"))return null;
