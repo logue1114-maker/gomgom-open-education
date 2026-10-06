@@ -152,6 +152,7 @@ public final class Catalog {
         ALL.addAll(FunctionRepresentations.SKILLS);
         ALL.addAll(FunctionConcepts.SKILLS);
         ALL.addAll(FunctionContexts.SKILLS);
+        ALL.addAll(PopulationDensity.SKILLS);
         ALL.addAll(CountingSequenceFoundations.SKILLS);
         ALL.addAll(SequenceDiscovery.SKILLS);
         ALL.addAll(SequenceAlgorithm.SKILLS);

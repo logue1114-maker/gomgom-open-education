@@ -60,6 +60,7 @@ public final class Choices {
         }
         boolean between(Rational v,long min,long max){return v.compareTo(Rational.of(min))>=0&&v.compareTo(Rational.of(max))<=0;}
         boolean allowed(Rational v){
+            if(PopulationDensity.supports(skill.id)&&(v.compareTo(Rational.ZERO)<=0||v.isInteger()!=answer.isInteger()||!v.mul(Rational.of(10)).isInteger()))return false;
             if(SumFoundations.supports(skill.id)&&in.length==4&&i(3)==1&&v.toString().length()!=answer.toString().length())return false;
             if(ErrorFoundations.supports(skill.id)&&v.compareTo(Rational.ZERO)<0)return false;
             if(MoneyFoundations.supports(skill.id)&&v.compareTo(Rational.ZERO)<=0)return false;
@@ -111,6 +112,7 @@ public final class Choices {
         void collect(){
             if(FunctionConcepts.supports(skill.id)){FunctionConcepts.errors(q).forEach(this::add);return;}
             if(FunctionContexts.supports(skill.id)){FunctionContexts.errors(q).forEach(this::add);return;}
+            if(PopulationDensity.supports(skill.id)){PopulationDensity.errors(q).forEach(this::add);return;}
             if(FunctionRepresentations.supports(skill.id)){FunctionRepresentations.errors(q).forEach(this::add);return;}
             if(SuccessivePercent.supports(skill.id)){SuccessivePercent.errors(q).forEach(this::add);return;}
             if(CountingSequenceFoundations.supports(skill.id)){CountingSequenceFoundations.errors(q).forEach(this::add);return;}

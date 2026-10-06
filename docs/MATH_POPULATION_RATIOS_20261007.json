@@ -1,0 +1,47 @@
+{
+  "nativeVerified": true,
+  "wholeCurriculumComplete": false,
+  "tests": {
+    "globalApp": 125,
+    "engine": 643,
+    "app": 125
+  },
+  "productChangeAfterPrimary": "Population help: compact short-screen layout and vertically separated equation/input; no engine or learner-state change",
+  "tabletViewportVerified": true,
+  "shortPhoneViewportVerified": true,
+  "shortPhoneViewport": [
+    900,
+    1600
+  ],
+  "shortPhoneDp": [
+    360,
+    640
+  ],
+  "savedBefore": 81,
+  "savedAfter": 86,
+  "old81LabelsUnchanged": true,
+  "learningBefore": 3014,
+  "learningAfter": 3019,
+  "newQuestionsAnswered": 5,
+  "mainFieldsEntered": 5,
+  "helpFieldsEntered": 7,
+  "lastHelpBlanksRestored": 4,
+  "mainBlankAfterHelp": true,
+  "installedBaseMatches": true,
+  "physicalDeviceVerified": false,
+  "newTabletInkVerified": false,
+  "externalReview": false,
+  "releaseReady": false,
+  "partial": 75,
+  "unmapped": 172,
+  "complete": 0,
+  "normalScrollToResumeVerified": true,
+  "commonSkills": 514,
+  "brazilSelectedSkills": 105,
+  "brazilPlacements": 153,
+  "beforeSeconds": 52.072,
+  "nativeSeconds": 191.706,
+  "coldSeconds": 99.626,
+  "tabletSeconds": 40.303,
+  "shortPhoneSeconds": 36.728
+}

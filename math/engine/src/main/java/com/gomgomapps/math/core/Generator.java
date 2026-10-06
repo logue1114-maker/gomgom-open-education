@@ -78,6 +78,7 @@ public final class Generator {
         if(SequenceDiscovery.supports(s.id))return SequenceDiscovery.create(s,random);
         if(FunctionConcepts.supports(s.id))return FunctionConcepts.create(s,random);
         if(FunctionContexts.supports(s.id))return FunctionContexts.create(s,random);
+        if(PopulationDensity.supports(s.id))return PopulationDensity.create(s,random);
         if(FunctionRepresentations.supports(s.id))return FunctionRepresentations.create(s,random);
         if(SuccessivePercent.supports(s.id))return SuccessivePercent.create(s,random);
         if(ScientificQuantity.supports(s.id))return ScientificQuantity.create(s,random);
