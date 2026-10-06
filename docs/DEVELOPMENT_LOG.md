@@ -371,3 +371,7 @@ Normal grade 4/5 topic filtering and 100-question setup confirmed six inverse/eq
 ## 2026-10-06 — Brazil seventh-grade foundations
 
 Selected integer/rational arithmetic and equations reducible to ax+b=c are now mapped to grade 7. Five placements each supply 100 different public prompts solved independently; correct/wrong answers, four unique shuffled alternatives and prior-grade diagnosis pass. Engine565/app93/global93 and Android build pass. Official grades 1–9 matrix: 247 outcomes, 56 partial, 191 unmapped, none complete. Number lines, explanations, contexts, student-created problems, grades 8–9 and native flow remain unfinished. Private learner data/UI/QA/APK/official prose excluded.
+
+## 2026-10-06 — Brazil seventh-grade native input
+
+Five selected units were entered through normal grade/topic/100-question controls and answered through visible numeric/fraction keys. Answers were calculated from public prompts. Five next unanswered questions survived cold restart; 34 previous saved labels/timers are unchanged, now 39 saved sessions. Added private Portuguese fraction/number toggle labels after inspecting actual screens. Four QA failures (progress read as arithmetic, changed format-button description, Unicode minus parsing and equation accessibility wording) were preserved and fixed without resetting learner data. Help input, physical-device testing and release remain unfinished. Private UI/translations/QA/images/learner data/APK excluded.
