@@ -1169,3 +1169,4 @@ MAP	br-bncc-fundamental-2017-v1	9	successivePercentPrice,successivePercentRate	E
 MAP	br-bncc-fundamental-2017-v1	9	functionTableOutput,functionTableRule,functionGraphOutput	EF09MA06; selected linear relationships across numeric tables, algebraic rules and graphs; full function uniqueness, nonlinear relations and contextual analysis incomplete; BNCC printed p.317
 
 MAP	br-bncc-fundamental-2017-v1	9	functionUniqueOutput,functionSquareOutput	EF09MA06; selected finite unique-output classification and square function values/graphs; full contextual function analysis and other nonlinear families incomplete; BNCC printed p.317
+MAP	br-bncc-fundamental-2017-v1	9	functionContextRule,functionContextOutput	EF09MA06; selected constant-rate water, block and book contexts with initial amounts, variable definitions, algebraic rules and output calculation; other functional situations and families incomplete; BNCC printed p.317
