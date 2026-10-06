@@ -1176,3 +1176,4 @@ MAP	br-bncc-fundamental-2017-v1	9	expand,factor,commonFactorFrame,quadratic	EF09
 RULE	br-bncc-fundamental-2017-v1	9	quadratic	monicQuadratic=true;answerDomain=integer
 MAP	br-bncc-fundamental-2017-v1	9	sec_parallel_angle	EF09MA10; selected corresponding, alternate interior and same-side interior angle calculations with actual transversal diagrams; formal demonstration incomplete; BNCC printed p.317
 MAP	br-bncc-fundamental-2017-v1	9	sec_circle_inscribed	EF09MA11; selected central, inscribed and minor-arc angular relationships with circle diagrams; broader contexts and dynamic geometry investigation incomplete; BNCC printed p.317
+MAP	br-bncc-fundamental-2017-v1	9	sec_similarity_condition	EF09MA12; selected AA/SAS/SSS correspondence decisions and missing angle or side calculations with paired actual triangles; formal necessity/sufficiency arguments and non-included-angle insufficiency investigation remain incomplete; BNCC printed p.317

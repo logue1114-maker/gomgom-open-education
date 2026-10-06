@@ -50,7 +50,7 @@ public final class SecondaryBasics {
         skill("sec_incenter_distance","삼각형의 내심",8,2,1,"",20,"angles","삼각형의 내심에서 세 변까지의 거리는 모두 같다."),
         skill("sec_parallelogram_angle","평행사변형의 각",8,2,1,"",160,"angles","평행사변형의 이웃한 두 각의 합은 180°이다."),
         skill("sec_similarity_length","닮은 도형의 길이비",8,2,2,"",12,"proportion","닮은 도형의 대응하는 길이의 비는 닮음비와 같다."),
-        skill("sec_similarity_condition","삼각형의 닮음 판별",8,2,2,"",12,"sec_triangle_congruence,proportion","세 대응변의 길이의 비가 모두 같으면 두 삼각형은 SSS 닮음이다."),
+        skill("sec_similarity_condition","삼각형의 닮음 판별",8,2,2,"",12,"sec_triangle_congruence,proportion","AA는 두 대응각, SAS는 두 대응변의 비와 끼인각, SSS는 세 대응변의 비로 닮음을 판별한다."),
         skill("sec_parallel_segment_ratio","삼각형과 평행선의 선분비",8,2,2,"",12,"sec_similarity_length","삼각형의 한 변과 평행한 선분은 다른 두 변을 같은 비로 나눈다."),
         skill("sec_similarity_area","닮은 도형의 넓이비",8,2,2,"",12,"sec_similarity_length","넓이의 비는 닮음비의 제곱이다."),
         skill("sec_similarity_volume","닮은 입체의 부피비",8,2,2,"",8,"sec_similarity_area","부피의 비는 닮음비의 세제곱이다."),
@@ -284,9 +284,7 @@ public final class SecondaryBasics {
                 return q(s,"두 닮은 도형의 닮음비가 1:"+k+"입니다. 작은 도형의 대응변이 "+a+"일 때 큰 도형의 대응변은?",Rational.of(answer),guide,null,"ratio",k,"small",a);
             }
             case "sec_similarity_condition":{
-                int[][] triples={{3,4,5},{4,5,6},{5,6,7},{6,7,8}};int[] t=triples[random.nextInt(triples.length)];k=n(random,2,4);boolean similar=random.nextBoolean();int last=t[2]*k+(similar?0:1);answer=similar?1:0;
-                int crossDifference=last*t[0]-t[0]*k*t[2];guide=two("앞의 두 대응변의 비를 확인하세요.",t[0]*k+"/"+t[0]+" = "+t[1]*k+"/"+t[1]+" = ","",k,"셋째 대응변은 교차곱으로 비교하세요.",last+"×"+t[0]+" - "+(t[0]*k)+"×"+t[2]+" = ","",crossDifference).transfer(false);
-                return choices(q(s,"삼각형 A의 세 변은 "+t[0]+", "+t[1]+", "+t[2]+"이고 대응하는 삼각형 B의 세 변은 "+(t[0]*k)+", "+(t[1]*k)+", "+last+"입니다. SSS 닮음인지 고르세요.",Rational.of(answer),guide,new StudyDiagram("triangleSides",new double[]{t[0],t[1],t[2]},"삼각형 A"),"a1",t[0],"a2",t[1],"a3",t[2],"b1",t[0]*k,"b2",t[1]*k,"b3",last),"1","닮음","0","닮음 아님");
+                return TriangleSimilarity.create(s,random);
             }
             case "sec_parallel_segment_ratio":{
                 int m=n(random,1,5),nn=n(random,1,5);k=n(random,2,7);a=m*k;answer=nn*k;guide=two("평행선 때문에 두 변이 같은 비로 나뉩니다.","AD:DB = AE:EC = "+m+":"+nn,"",m,"한 비의 크기를 찾아 EC를 구하세요.",a+" ÷ "+m+" × "+nn+" = ","",answer);
