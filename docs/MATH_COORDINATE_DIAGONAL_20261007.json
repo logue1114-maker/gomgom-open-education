@@ -16,7 +16,6 @@
     "globalApp": 140
   },
   "remaining": [
-    "Native integer-result submission example",
     "General polygon applications and full world curricula/languages",
     "Actual 30/60-minute study, physical devices/accessibility/student comprehension, advertising/payment/release"
   ],
@@ -41,6 +40,9 @@
     "nextProblemBlankAfterForceStop": true,
     "smallPhone": "360x640dp, visible coefficient and radicand fields after settled scroll",
     "tablet": "Visible blank frame and first teaching field",
-    "integerNativeSubmissionVerified": false
+    "integerNativeSubmissionVerified": true,
+    "typedIntegerResult": "5",
+    "integerTeachingResultSimplifiesRootOne": true,
+    "boundaryLabelReview": "Actual API36 installed candidate shows top-left B label clear of the y tick and segment; following blank draft restored after force-stop"
   }
 }

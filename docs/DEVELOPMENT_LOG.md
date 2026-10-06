@@ -1,3 +1,9 @@
+## 2026-10-07 — Integer oblique-distance result and left-edge labels
+
+Continued the existing generated sequence without replaying completed problems until an integer result appeared. The public horizontal and vertical movements were 4 and 3, with square areas 16 and 9. Eight actual teaching entries simplified the result to 5; a wrong teaching entry and a separately typed main answer were corrected before submission. The next problem remained blank. This complements the earlier irrational-result native example.
+
+Actual screenshot inspection also exposed a left-edge point label overlapping an axis tick, followed by a top-left label crossing the segment. The private painter was adjusted to place left-edge labels opposite the segment and give the top label room. The product APK and final native readback are recorded privately; engine behavior is unchanged. This does not establish student comprehension or full curriculum/release completion. Public scope remains engine and anonymous development records.
+
 ## 2026-10-07 — Native oblique distance and root expression frame
 
 Connected the selected BR9 EF09MA16 mapping, blank coefficient/radicand scaffold, right-angle projections and equal-scale square-area teaching diagram. The mapping covers this distance subset; general polygon perimeter and area applications remain incomplete.
