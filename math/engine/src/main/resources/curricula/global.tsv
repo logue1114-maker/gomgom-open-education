@@ -1036,6 +1036,9 @@ LEVEL	br-bncc-fundamental-2017-v1	2	2º ano
 LEVEL	br-bncc-fundamental-2017-v1	3	3º ano
 LEVEL	br-bncc-fundamental-2017-v1	7	7º ano
 LEVEL	br-bncc-fundamental-2017-v1	8	8º ano
+MAP	br-bncc-fundamental-2017-v1	8	integerPowerValue	EF08MA01; signed nonzero integer bases, zero/positive/negative integer exponent values; broader compound power operations remain incomplete; BNCC printed p.313
+MAP	br-bncc-fundamental-2017-v1	8	rootPowerLink	EF08MA02; numerical square/cube root and positive fractional-power relations for perfect powers; contextual modelling, student-created problems and broader representations remain incomplete; BNCC printed p.313
+MAP	br-bncc-fundamental-2017-v1	8	pureSquareEquation	EF08MA09; ax²=b with nonzero signed integer coefficient and zero/integer real roots only; irrational roots, no-real-root cases, contexts and student-created problems remain incomplete; BNCC printed p.313
 MAP	br-bncc-fundamental-2017-v1	8	standardForm	EF08MA01; positive numbers in scientific notation with normalized coefficient and signed integer exponent; integer-power operations remain incomplete; BNCC printed p.313
 MAP	br-bncc-fundamental-2017-v1	8	recurringFraction	EF08MA05; generating fractions from explicitly marked decimal periods with optional nonrepeating digits; independent recognition and broader conceptual understanding remain incomplete; BNCC printed p.313
 MAP	br-bncc-fundamental-2017-v1	8	percent	EF08MA04; percentage-of-quantity calculation only; contexts and student-created problems remain incomplete; BNCC printed p.313

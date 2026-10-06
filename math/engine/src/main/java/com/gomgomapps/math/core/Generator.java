@@ -71,6 +71,7 @@ public final class Generator {
         Question q=createQuestion(s,limits);ArithmeticTeaching.attach(q);FractionEquationTeaching.attach(q);DecimalTeaching.attach(q);RatioValueTeaching.attach(q);StatisticsAngleTeaching.attach(q);GeometryCalculationTeaching.attach(q);DivisorMultipleTeaching.attach(q);return q;
     }
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
+        if(PowerRootFoundations.supports(s.id))return PowerRootFoundations.create(s,random);
         if(EqualityFoundations.supports(s.id))return EqualityFoundations.create(s,random);
         if(TimetableQuestions.supports(s.id)&&(TimetableQuestions.added(s.id)||limits.timetables()))return TimetableQuestions.create(s,random,limits);
         if(ClockFaces.supports(s.id))return ClockFaces.next(s,random,limits,Map.of());
