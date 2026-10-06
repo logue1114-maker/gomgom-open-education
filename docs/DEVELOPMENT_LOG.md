@@ -1,3 +1,9 @@
+## 2026-10-07 — Native oblique distance and root expression frame
+
+Connected the selected BR9 EF09MA16 mapping, blank coefficient/radicand scaffold, right-angle projections and equal-scale square-area teaching diagram. The mapping covers this distance subset; general polygon perimeter and area applications remain incomplete.
+
+Local 954 checks and public engine 674 checks passed. A real generated irrational example on the Android emulator was solved through eight learner-entered fields, a wrong teaching entry corrected, and a separately typed wrong main answer corrected before submission. Help did not fill the main answer. The following blank problem restored after force-stop on a small phone and tablet. Settled screenshot/XML inspection confirmed both root fields on the small phone; an earlier capture was taken before scrolling settled. Existing saved entries were retained. Integer-result native submission, broader curricula, physical-device and release checks remain pending. Only engine and anonymous records are published; UI, translations, QA, learner records, source prose, screenshots and APKs remain private. No deployment or Play release occurred.
+
 ## 2026-10-07 — General oblique grid distance engine candidate
 
 Added arbitrary oblique endpoint pairs within the unit grid, including exact integer and irrational distances. Eight teaching fields start from public movements, square areas and their sum, then check the square factor, remaining radicand and coefficient. The displayed result is assembled from checked learner entries rather than an answer-key hint, and it does not fill the main answer. Nullable root-result metadata preserves existing serialized guides. Candidate titles and teaching text have authored English and Portuguese translations in the private app.

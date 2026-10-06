@@ -11,7 +11,7 @@ public final class CoordinateDiagonal {
   int dx=Math.abs(bx-ax),dy=Math.abs(by-ay),n=dx*dx+dy*dy,c=1;for(int k=2;k*k<=n;k++)if(n%(k*k)==0)c=k;int inside=n/(c*c);
   String prompt="격자 한 칸의 길이는 1입니다.\nA("+ax+", "+ay+"), B("+bx+", "+by+")\nAB의 길이를 가장 간단한 근호 꼴로 쓰세요. 정수이면 정수로 쓰세요.";
   Question q=new Question(s.id,prompt,"",Radical.parse("sqrt("+n+")").toString());q.kind="radical";q.stepSupport=false;q.labels=new String[]{"AB"};q.resultSymbol="AB";
-  q.diagram=new StudyDiagram("coordinateGrid",new double[]{ax,ay,bx,by,0,0,0},"A","B");
+  q.diagram=new StudyDiagram("coordinateDiagonal",new double[]{ax,ay,bx,by,0,0,0},"A","B");
   q.givenNumbers.put("ax",""+ax);q.givenNumbers.put("ay",""+ay);q.givenNumbers.put("bx",""+bx);q.givenNumbers.put("by",""+by);
   StudyGuide g=new StudyGuide().transfer(false);
   g.step("A에서 B까지 가로로 몇 칸인지 세세요.","가로 = "," 칸",""+dx).step("A에서 B까지 세로로 몇 칸인지 세세요.","세로 = "," 칸",""+dy);

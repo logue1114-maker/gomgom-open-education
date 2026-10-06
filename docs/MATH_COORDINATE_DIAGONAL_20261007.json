@@ -2,7 +2,7 @@
   "topics": [
     "coordinateGridDiagonal"
   ],
-  "status": "Engine and curated KO/EN/PT text candidate; native activation and validation pending",
+  "status": "Selected BR9 mapping and native emulator radical-answer flow verified; broader work remains",
   "publicEndpointSamples": 6000,
   "uniqueProblemsChecked": 100,
   "teachingFrames": 8,
@@ -11,19 +11,36 @@
   "choices": "Exact-value deduplication, positive distances, matching radical notation, independently shuffled positions and feasible randomized magnitude ranks",
   "compatibility": "Nullable coefficient/radicand frame metadata added without changing serialization IDs; original coordinate and saved skills unchanged",
   "tests": {
-    "engine": 673,
+    "engine": 674,
     "app": 140,
     "globalApp": 140
   },
   "remaining": [
-    "Country curriculum mapping and actual normal topic entry",
-    "Visible expression frame and geometric teaching illustration",
-    "Native wrong-stage correction, typed radical answer, cold blank-next restore, small-phone/tablet input checks",
+    "Native integer-result submission example",
     "General polygon applications and full world curricula/languages",
     "Actual 30/60-minute study, physical devices/accessibility/student comprehension, advertising/payment/release"
   ],
   "publicScope": "Engine and anonymous development records only; UI, translations, QA, learner data, official prose, images and APKs excluded",
   "flagAppealAlreadySubmittedByUser": true,
   "officialFlagClearanceVerified": false,
-  "publicEngineTests": 673
+  "publicEngineTests": 674,
+  "curriculum": {
+    "country": "BR",
+    "grade": 9,
+    "code": "EF09MA16",
+    "scope": "Selected oblique-grid distance from public Cartesian endpoints through square-area comparison; general polygon perimeter and area applications remain incomplete",
+    "source": "Official BNCC printed page 319"
+  },
+  "expressionFrame": "Two initially empty numeric fields for coefficient and radicand, plus direct-expression option; main answer is not copied from teaching",
+  "illustration": "Right-angle projections and equal-scale square-area comparison derived from public endpoints",
+  "native": {
+    "platform": "Android API36 emulator",
+    "newSubmissions": 1,
+    "typedIrrationalResult": "4 sqrt(2)",
+    "wrongTeachingAndMainEntriesCorrected": true,
+    "nextProblemBlankAfterForceStop": true,
+    "smallPhone": "360x640dp, visible coefficient and radicand fields after settled scroll",
+    "tablet": "Visible blank frame and first teaching field",
+    "integerNativeSubmissionVerified": false
+  }
 }

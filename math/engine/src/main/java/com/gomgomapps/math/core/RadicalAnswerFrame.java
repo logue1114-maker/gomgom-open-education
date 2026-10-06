@@ -12,7 +12,7 @@ public final class RadicalAnswerFrame {
   public List<String> values=new ArrayList<>();
  }
  public static boolean available(Learning.Session s){
-  if(s==null||s.question==null||!RadicalWork.SKILLS.contains(s.question.skillId)||!s.question.choices.isEmpty())return false;
+  if(s==null||s.question==null||!(RadicalWork.SKILLS.contains(s.question.skillId)||CoordinateDiagonal.supports(s.question.skillId))||!s.question.choices.isEmpty())return false;
   if(s.radicalAnswerDraft!=null&&Objects.equals(s.radicalAnswerDraft.questionId,s.question.id))return !s.radicalAnswerDraft.disabled;
   return s.answers.size()==1&&s.answers.get(0).isBlank();
  }
