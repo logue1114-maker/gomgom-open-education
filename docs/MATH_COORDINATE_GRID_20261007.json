@@ -25,11 +25,14 @@
     "signed midpoint teaching: wrong horizontal movement corrected, four entered calculation stages checked, main answer still blank until typed submission",
     "reference distance and vertical-axis distance: wrong first teaching stage corrected, blank next stage, independent typed answer correction and submission",
     "following midpoint and distance blanks and first teaching stages restored after force-stop on a small phone and tablet",
-    "tablet notebook opened through the normal study menu and closed without entering an answer or drawing a new stroke"
+    "tablet notebook opened through the normal study menu and closed without entering an answer or drawing a new stroke",
+    "Continued the unsolved horizontal distance through wrong direction correction, counting spaces, wrong main-answer correction and typed submission",
+    "Continued real following problems in order until a scale-two reference example; checked both teaching inputs and typed length after wrong-answer correction",
+    "After force-stop, restored the following distance problem at 8/100 with its answer and first teaching input blank; existing midpoint blanks also retained"
   ],
   "mapping": "BR9 EF09MA16 selected/partial",
   "remaining": [
-    "additional native horizontal-distance and doubled-reference examples; physical-device evidence",
+    "physical-device evidence for generated coordinate forms",
     "arbitrary diagonal distances and perimeter/area beyond axis-aligned rectangles; see MATH_COORDINATE_REGION_20261007.json",
     "physical devices, accessibility and student comprehension",
     "world curricula and languages",
@@ -42,6 +45,9 @@
     "signedMidpoint": 41.764,
     "distanceSequence": 54.197,
     "phoneRestore": 42.591,
-    "tabletRestore": 39.55
+    "tabletRestore": 39.55,
+    "horizontalDistance": 42.56,
+    "followingScaleTwoSequence": 66.163,
+    "followingColdRestore": 45.413
   }
 }

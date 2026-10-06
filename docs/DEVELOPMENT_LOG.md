@@ -1,3 +1,9 @@
+## 2026-10-07 — Native horizontal and doubled-reference distance
+
+Following perimeter and area drafts restored on the tablet in 59.04 seconds with their main answers and first teaching fields blank. Existing horizontal distance practice continued through a wrong direction and main-answer correction in 42.56 seconds. Four real following problems were then solved in order until a scale-two reference problem appeared: negative horizontal and vertical movement compared with the supplied segment, entered multiplier 2 and length 10, and a separately typed main answer. The sequence passed in 66.163 seconds. Five new distance submissions were made in total; no finished problem was replayed or learning state injected.
+
+Following distance and existing midpoint blanks also restored after force-stop in 45.413 seconds. The product APK and engine are unchanged, so prior local 948 and public engine 670 checks remain the matching code evidence. These examples establish the generated axis/reference variants on an emulator, not arbitrary diagonal distances, general polygons, physical devices or full curriculum coverage. QA and learner records remain private.
+
 ## 2026-10-07 — Coordinate rectangle perimeter and area
 
 Added two grid applications: count the four sides and add their lengths; count cells in one row and the number of rows before multiplying. Each entered calculation is checked without filling the main answer. Rectangle diagrams contain only the four given corners and equal unit spacing. Incorrect counting choices remain distinct and shuffle independently. BR9 EF09MA16 remains selected/partial: these are axis-aligned rectangles, not arbitrary diagonal distances or general polygons.

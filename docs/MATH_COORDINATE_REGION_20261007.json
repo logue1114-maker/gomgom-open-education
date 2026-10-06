@@ -21,7 +21,8 @@
     "Wrong first teaching entry corrected, each following field blank, all 5 perimeter and 3 area stages checked",
     "Main answer remains blank after help; wrong typed result corrected and submitted",
     "Following public problems retained at 2/100 with blank answers and first help stages",
-    "Cold restart, normal saved menu, following blank problems and blank first teaching stages restored on a 360x640dp phone; complete help inputs and 12 keypad controls visible after layout correction"
+    "Cold restart, normal saved menu, following blank problems and blank first teaching stages restored on a 360x640dp phone; complete help inputs and 12 keypad controls visible after layout correction",
+    "Following perimeter and area blanks and first teaching inputs restored on a 1600x2560/240 tablet without entering answers or drawing a new notebook stroke"
   ],
   "remaining": [
     "Native boundary-label recapture and physical-device/accessibility/student comprehension evidence",
@@ -34,7 +35,8 @@
   "nativeSeconds": {
     "perimeter": 53.016,
     "area": 48.513,
-    "smallPhoneRestore": 54.038
+    "smallPhoneRestore": 54.038,
+    "tabletRestore": 59.04
   },
   "uiRepair": "Allow scroll content to wrap and re-position the current calculation after translated layout changes; preserve the 220dp grid."
 }
