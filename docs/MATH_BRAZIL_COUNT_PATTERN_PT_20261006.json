@@ -1,0 +1,25 @@
+{
+  "localTests": {
+    "engine": 554,
+    "app": 89,
+    "globalApp": 89
+  },
+  "engineUnchangedTestsReused": true,
+  "newMainAnswers": 2,
+  "enteredHelpSteps": 10,
+  "wrongHelpCorrected": 1,
+  "original19LabelsAndTimersPreserved": true,
+  "PortugueseNewUnitsNativeVerified": true,
+  "curatedLabelsBeforeLiteralMathFixed": true,
+  "mathLiteralsAndAnswerInputUnchanged": true,
+  "coldDraftStageAndPublicProblemPreserved": true,
+  "mainAnswerNotAutofilled": true,
+  "initialPartialSavedButtonFailurePreserved": true,
+  "actualRowFullyScrolledBeforeClick": true,
+  "answerMetadataRead": false,
+  "stateInjection": false,
+  "physicalDeviceVerified": false,
+  "releaseReady": false,
+  "newCurriculumMappings": 0,
+  "wholeCurriculumComplete": false
+}
