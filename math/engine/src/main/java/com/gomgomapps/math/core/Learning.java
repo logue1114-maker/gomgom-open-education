@@ -80,6 +80,7 @@ public final class Learning {
         public int inkTarget=-1000;
         public int inkPart,answerFocus;
         public Map<Integer,FractionInput.Form> answerForms=new LinkedHashMap<>();
+        public RadicalAnswerFrame.Draft radicalAnswerDraft;
         public VerticalWork.Draft verticalWork;
         // Study surface preferences stay with the round; paper geometry stays with each question.
         public boolean workOpen;
@@ -205,7 +206,7 @@ public final class Learning {
         s.question=generator.next(next,Review.avoid(state,next),s.choices&&!s.mode.equals("diagnostic")&&(s.diagnosticRun==null||s.diagnosticRun.current==null),GlobalCurriculum.limits(s.educationSystem,next,questionGrade));
         state.recent.addLast(s.question.signature());while(state.recent.size()>160)state.recent.removeFirst();
         QuestionHistory.record(state,next,s.question.signature());
-        s.steps.clear();s.stepKinds.clear();s.answers.clear();for(String ignored:s.question.answers)s.answers.add("");FractionInput.forms(s).clear();s.verticalWork=null;s.conceptHelp=null;s.answerFocus=0;s.inkPart=0;s.scratch.clear();s.pendingInk.clear();s.scratchAspect=0;s.inkAspect=0;s.inkTarget=-1000;s.hadError=false;s.advancePending=false;s.reviewWork=null;Review.openFresh(state,day);return s.question;
+        s.steps.clear();s.stepKinds.clear();s.answers.clear();for(String ignored:s.question.answers)s.answers.add("");FractionInput.forms(s).clear();s.radicalAnswerDraft=null;s.verticalWork=null;s.conceptHelp=null;s.answerFocus=0;s.inkPart=0;s.scratch.clear();s.pendingInk.clear();s.scratchAspect=0;s.inkAspect=0;s.inkTarget=-1000;s.hadError=false;s.advancePending=false;s.reviewWork=null;Review.openFresh(state,day);return s.question;
     }
     public static void markError(State state){markError(state,LocalDate.now());}
     public static void markError(State state,LocalDate day){if(state.session!=null&&state.session.question!=null&&!state.session.advancePending&&(!state.session.finished||Deferred.active(state.session))){state.session.hadError=true;Review.error(state,day);}}

@@ -1,0 +1,43 @@
+{
+  "tests": {
+    "engine": 618,
+    "app": 114,
+    "globalApp": 114
+  },
+  "newTypes": 0,
+  "newAnswerFrameTypes": 5,
+  "commonSkills": 498,
+  "brazilSelectedSkills": 87,
+  "brazilPlacements": 135,
+  "requirementsGrades1To9": 247,
+  "partial": 71,
+  "unmapped": 176,
+  "complete": 0,
+  "wholeCurriculumComplete": false,
+  "nativeVerified": true,
+  "installed": true,
+  "physicalDeviceVerified": false,
+  "releaseReady": false,
+  "asyncSnapshotDraftSupported": true,
+  "native": {
+    "newMainQuestionsAnswered": 5,
+    "newMainFieldsEntered": 11,
+    "initialAPKMainQuestionsAnswered": 3,
+    "correctedAPKMainQuestionsAnswered": 2,
+    "initialAsyncSaveFailureRepaired": true,
+    "wrongMainFieldManuallyCorrected": true,
+    "savedBefore": 68,
+    "savedAfter": 68,
+    "old63LabelsUnchanged": true,
+    "learningHistoryBefore": 2996,
+    "learningHistoryAfter": 3001,
+    "incompleteSignedFractionRestored": true,
+    "nextQuestionFramesBlank": true,
+    "physicalDeviceVerified": false,
+    "externalVisualReview": false,
+    "releaseReady": false,
+    "beforeSeconds": 71.523,
+    "nativeSeconds": 319.021,
+    "coldSeconds": 308.677
+  }
+}
