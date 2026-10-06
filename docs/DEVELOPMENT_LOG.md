@@ -327,3 +327,7 @@ Added right-aligned operands and active-place highlighting. Only confirmed learn
 ## 2026-10-06 — Small phone column calculation
 
 Compacted column-help spacing and diagram for short screens while retaining 44dp numeric buttons. Normal next saved questions at 360x640dp: two new main answers and 24 learner-entered help steps, including two borrowing operations in one problem. Actual original/working digits, blank future digits, field and controls visible. Original sessions preserved after cold restart; emulator display settings restored. App86/global86 pass; unchanged engine551 evidence reused. Private UI/QA/images/APK/learner data excluded. Portuguese diagram, tablet and physical device remain unverified; no new curriculum mapping or release claim.
+
+## 2026-10-06 — Tablet notebook and phone boundary
+
+Curated actual notebook controls, regrouping row labels and working-place accessibility descriptions in English/Portuguese. Actual tablet touch strokes retain their normalized visible bounds across rotation and cold restart; phone offers formula entry without notebook. No answers submitted; original sessions preserved. The draw/rotate/help test reached its actions but failed at tail country navigation; preserved evidence and fresh country-row selection, then final cold and phone checks passed. App88/global88 pass; unchanged engine551 evidence reused. Portuguese notebook, physical tablet/stylus and OCR remain unverified. Private UI/QA/ink/images/APK excluded; no new curriculum mapping or release claim.

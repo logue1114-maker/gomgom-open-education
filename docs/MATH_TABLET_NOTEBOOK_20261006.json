@@ -1,0 +1,24 @@
+{
+  "localTests": {
+    "engine": 551,
+    "app": 88,
+    "globalApp": 88
+  },
+  "engineUnchangedTestsReused": true,
+  "newMainAnswers": 0,
+  "tabletPenActualTouch": true,
+  "rotationAndColdInkPixelsPreserved": true,
+  "phoneNotebookAbsent": true,
+  "phoneFormulaAvailable": true,
+  "tabletConceptVisible": true,
+  "mainAnswerRemainedBlank": true,
+  "firstDrawTestTailCountryNavigationFailed": true,
+  "coldAndPhoneFinalPassed": true,
+  "PortugueseNotebookNativeVerified": false,
+  "physicalTabletOrStylusVerified": false,
+  "ocrVerified": false,
+  "releaseReady": false,
+  "scope": "Tablet notebook actual touch persistence and curated working labels",
+  "newCurriculumMappings": 0,
+  "wholeCurriculumComplete": false
+}
