@@ -1,0 +1,23 @@
+{
+  "beforeSeconds": 47.383,
+  "nativeSeconds": 120.694,
+  "coldSeconds": 157.292,
+  "engineTestsReused": 582,
+  "appTestsPassed": 108,
+  "globalAppTestsPassed": 108,
+  "phoneLayoutFixed": true,
+  "initialNativeFailureSeconds": 125.111,
+  "blankHintsShortened": true,
+  "newMainQuestionsAnswered": 2,
+  "newMainFieldsEntered": 6,
+  "savedBefore": 52,
+  "savedAfter": 54,
+  "old52LabelsUnchanged": true,
+  "learningHistoryBefore": 2985,
+  "learningHistoryAfter": 2987,
+  "coldMainAnswersBlank": true,
+  "newHelpInputs": 0,
+  "physicalDeviceVerified": false,
+  "externalVisualReview": false,
+  "releaseReady": false
+}
