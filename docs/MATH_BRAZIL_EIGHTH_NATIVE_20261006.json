@@ -1,0 +1,18 @@
+{
+  "tests": {
+    "app": 98,
+    "globalApp": 98
+  },
+  "engineTestsReused": 567,
+  "newMainQuestionsAnswered": 5,
+  "newAnswerFieldsEntered": 6,
+  "newHelpInputs": 0,
+  "savedBefore": 39,
+  "savedAfter": 44,
+  "old39LabelsUnchanged": true,
+  "fiveColdNextQuestionsUnanswered": true,
+  "authoredAlgebraPromptWordingVerified": true,
+  "physicalDeviceVerified": false,
+  "externalVisualReview": false,
+  "releaseReady": false
+}
