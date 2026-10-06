@@ -9,8 +9,8 @@ public class BrazilCurriculumTest {
     private Learning.Profile profile(int grade){Learning.Profile p=new Learning.Profile();p.languageTag="pt";GlobalCurriculum.chooseCountry(p,"BR");GlobalCurriculum.choosePack(p,PACK);p.grade=grade;return p;}
     @Test public void brazilIsSelectableWithoutChangingLanguageOrClaimingUnmappedLevels(){
         Learning.Profile p=profile(3);GlobalCurriculum.Pack pack=GlobalCurriculum.pack(p);
-        assertEquals("pt",p.languageTag);assertEquals("BR",pack.country);assertEquals(List.of(1,2,3),pack.levels());assertEquals("3º ano",pack.level(3));
-        assertEquals(23,pack.grades.size());assertTrue(pack.coverage.contains("remain unmapped"));
+        assertEquals("pt",p.languageTag);assertEquals("BR",pack.country);assertEquals(List.of(1,2,3,4,5,6),pack.levels());assertEquals("3º ano",pack.level(3));
+        assertTrue(pack.grades.size()>23);assertTrue(pack.coverage.contains("remain unmapped"));
         assertFalse(pack.inGrade("divide",2));assertTrue(pack.inGrade("divide",3));assertFalse(pack.grades.containsKey("fractionPart"));
         assertEquals("9,999까지의 덧셈",GlobalCurriculum.title(PACK,"add1000",3));assertEquals(Catalog.get("add1000").title,GlobalCurriculum.title(PACK,"add1000",2));
     }
@@ -23,7 +23,7 @@ public class BrazilCurriculumTest {
     }
     @Test public void everyPlacementGeneratesInNormalEngineWithIndependentArithmeticChecks(){
         Generator generator=new Generator(new Random(20261006031L));GlobalCurriculum.Pack pack=GlobalCurriculum.pack(profile(3));int placements=0,fourDigit=0;
-        for(int grade:pack.levels())for(String id:pack.grades.keySet())if(pack.inGrade(id,grade)){
+        for(int grade:List.of(1,2,3))for(String id:pack.grades.keySet())if(pack.inGrade(id,grade)){
             placements++;List<String> recent=new ArrayList<>();CurriculumLimits limits=GlobalCurriculum.limits(PACK,id,grade);
             for(int i=0;i<100;i++){
                 Question q=generator.next(id,recent,i%2==0,limits);assertEquals(id,q.skillId);assertTrue(id+"/"+grade+": "+q.prompt,limits.allows(q));

@@ -17,6 +17,7 @@ public final class CurriculumLimits {
     private int metricDecimals=0;
     private Integer maxSecondOperand,maxRegroups,decimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides;
     private final List<Integer> roundingUnits=new ArrayList<>();
+    private final List<Integer> percentages=new ArrayList<>();
     private String answerDomain="";
     private Rational maxFractionValue;
     private Integer minimumWholeDigits;
@@ -27,6 +28,7 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "percentages":for(String value:pair[1].split(",",-1)){int percent=Integer.parseInt(value);if(percent<1||percent>100||percentages.contains(percent))throw new IllegalArgumentException("Invalid percentage");percentages.add(percent);}break;
                 case "minimumWholeDigits":minimumWholeDigits=Integer.valueOf(pair[1]);if(minimumWholeDigits<1||minimumWholeDigits>6)throw new IllegalArgumentException("Invalid minimum operand digits");break;
                 case "integerSecondOperand":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid integer second operand flag");integerSecondOperand=true;break;
                 case "maxFractionValue":maxFractionValue=Expression.number(pair[1]);if(maxFractionValue.compareTo(Rational.ZERO)<=0)throw new IllegalArgumentException("Invalid fraction magnitude");break;
@@ -62,6 +64,10 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(!percentages.isEmpty()){
+            Matcher percent=Pattern.compile("^(\\d+)\\*(\\d+)/100$").matcher(q.expression);
+            if(!percent.matches()||!percentages.contains(Integer.parseInt(percent.group(2))))return false;
+        }
         if(monicQuadratic){
             if(!q.kind.equals("roots"))return false;
             try{String[] sides=q.expression.split("=",-1);if(sides.length!=2)return false;Expression.Poly polynomial=Expression.parse(sides[0]).sub(Expression.parse(sides[1]));if(polynomial.degree()!=2||!polynomial.coefficient(2).equals(Rational.ONE))return false;}
@@ -140,6 +146,7 @@ public final class CurriculumLimits {
         return new int[]{each,terms.length};
     }
     public int timesTableMax(){return timesTableMax;}
+    int[] percentages(){return percentages.isEmpty()?java.util.stream.IntStream.rangeClosed(1,19).map(i->i*5).toArray():percentages.stream().mapToInt(Integer::intValue).toArray();}
     public int minuteStep(){return minuteStep;}
     public boolean timetables(){return timetables;}
     public int metricDecimals(){return metricDecimals;}

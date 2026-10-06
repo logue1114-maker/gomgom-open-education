@@ -1,0 +1,19 @@
+{
+  "tests": {
+    "engine": 557,
+    "app": 89,
+    "globalApp": 89
+  },
+  "newPlacements": 39,
+  "totalBrazilPlacements": 68,
+  "requirementsGrades1To6": 160,
+  "partial": 37,
+  "unmapped": 123,
+  "complete": 0,
+  "generatedUpperQuestionsIndependentlyChecked": 3900,
+  "newNativeFlowVerified": false,
+  "installed": false,
+  "releaseReady": false,
+  "wholeCurriculumComplete": false,
+  "scope": "Selected BNCC grades 4\u20136 natural-number arithmetic, place value, finite decimals and percentages. Number lines, context, estimation, student-created problems, fractions, other outcomes and grades 7\u20139 remain incomplete."
+}

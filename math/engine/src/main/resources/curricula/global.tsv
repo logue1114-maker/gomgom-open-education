@@ -1030,7 +1030,7 @@ RULE	au-acara-v9-primary-v1	9	quadratic	monicQuadratic=true;answerDomain=integer
 RULE	au-acara-v9-primary-v1	10	quadratic	monicQuadratic=false
 
 # Brazil BNCC: selected calculation components only; no regional/term sequence inferred.
-PACK	br-bncc-fundamental-2017-v1	BR	Brasil · BNCC	https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf	1º–3º ano · selected counting, additive-pattern and calculation components; other skills and later grades remain unmapped
+PACK	br-bncc-fundamental-2017-v1	BR	Brasil · BNCC	https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf	1º–6º ano · selected foundational calculation components; other outcomes and grades 7–9 remain unmapped
 LEVEL	br-bncc-fundamental-2017-v1	1	1º ano
 LEVEL	br-bncc-fundamental-2017-v1	2	2º ano
 LEVEL	br-bncc-fundamental-2017-v1	3	3º ano
@@ -1064,3 +1064,38 @@ RULE	br-bncc-fundamental-2017-v1	3	tables	variedFacts=true;timesTableMax=10;fact
 RULE	br-bncc-fundamental-2017-v1	3	divide	variedFacts=true;timesTableMax=10;divisors=2,3,4,5,6,7,8,9,10;maxGiven=100
 RULE	br-bncc-fundamental-2017-v1	3	remainder	divisors=2,3,4,5,6,7,8,9;maxGiven=99
 RULE	br-bncc-fundamental-2017-v1	3	el_compare_10000	maxGiven=9999
+
+LEVEL	br-bncc-fundamental-2017-v1	4	4º ano
+MAP	br-bncc-fundamental-2017-v1	4	largePlace	EF04MA01,EF04MA02; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.291
+MAP	br-bncc-fundamental-2017-v1	4	add1000,sub1000	EF04MA03; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.291
+MAP	br-bncc-fundamental-2017-v1	4	mul2,mul3,mul22	EF04MA06; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.291
+MAP	br-bncc-fundamental-2017-v1	4	divide2,remainder	EF04MA07; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.291
+MAP	br-bncc-fundamental-2017-v1	4	el_decimal_place	EF04MA10; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.291
+RULE	br-bncc-fundamental-2017-v1	4	largePlace	wholeMaximum=99999
+RULE	br-bncc-fundamental-2017-v1	4	add1000,sub1000	wholeDigits=5;minimumWholeDigits=1;maxGiven=99999;maxResult=99999
+RULE	br-bncc-fundamental-2017-v1	4	el_decimal_place	decimalPlaces=2
+LEVEL	br-bncc-fundamental-2017-v1	5	5º ano
+MAP	br-bncc-fundamental-2017-v1	5	largePlace	EF05MA01; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.295
+MAP	br-bncc-fundamental-2017-v1	5	el_decimal_place,el_decimal_compare	EF05MA02; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.295
+MAP	br-bncc-fundamental-2017-v1	5	add1000,sub1000,decimalAdd,decimalSub	EF05MA07; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.295
+MAP	br-bncc-fundamental-2017-v1	5	mul2,mul3,mul22,divide2,decimalMul,decimalDivInt	EF05MA08; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.295
+MAP	br-bncc-fundamental-2017-v1	5	percent	EF05MA06; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.295
+RULE	br-bncc-fundamental-2017-v1	5	largePlace	wholeMaximum=999999
+RULE	br-bncc-fundamental-2017-v1	5	add1000,sub1000	wholeDigits=6;minimumWholeDigits=1;maxGiven=999999;maxResult=999999
+RULE	br-bncc-fundamental-2017-v1	5	el_decimal_place	decimalPlaces=2
+RULE	br-bncc-fundamental-2017-v1	5	el_decimal_compare,decimalAdd,decimalSub,decimalDivInt	decimalPlaces=2
+RULE	br-bncc-fundamental-2017-v1	5	decimalMul	decimalPlaces=2;integerSecondOperand=true
+RULE	br-bncc-fundamental-2017-v1	5	percent	percentages=10,25,50,75,100
+LEVEL	br-bncc-fundamental-2017-v1	6	6º ano
+MAP	br-bncc-fundamental-2017-v1	6	largePlace,el_decimal_place	EF06MA02; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.301
+MAP	br-bncc-fundamental-2017-v1	6	el_decimal_compare	EF06MA01; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.301
+MAP	br-bncc-fundamental-2017-v1	6	add1000,sub1000,mul2,mul3,mul22,divide2,remainder	EF06MA03; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.301
+MAP	br-bncc-fundamental-2017-v1	6	decimalAdd,decimalSub,decimalMul,decimalDivInt,decimalDiv	EF06MA11; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.301
+MAP	br-bncc-fundamental-2017-v1	6	percent	EF06MA13; selected calculation drills only; contexts, estimation, student-created problems and full conceptual outcomes remain incomplete; BNCC printed p.301
+RULE	br-bncc-fundamental-2017-v1	6	largePlace	wholeMaximum=999999
+RULE	br-bncc-fundamental-2017-v1	6	add1000,sub1000	wholeDigits=6;minimumWholeDigits=1;maxGiven=999999;maxResult=999999
+RULE	br-bncc-fundamental-2017-v1	6	el_decimal_place	decimalPlaces=2
+RULE	br-bncc-fundamental-2017-v1	6	el_decimal_compare,decimalAdd,decimalSub,decimalDivInt	decimalPlaces=2
+RULE	br-bncc-fundamental-2017-v1	6	decimalMul	decimalPlaces=2;integerSecondOperand=true
+RULE	br-bncc-fundamental-2017-v1	6	percent	percentages=5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100
+RULE	br-bncc-fundamental-2017-v1	6	decimalDiv	decimalPlaces=2
