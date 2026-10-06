@@ -1030,7 +1030,7 @@ RULE	au-acara-v9-primary-v1	9	quadratic	monicQuadratic=true;answerDomain=integer
 RULE	au-acara-v9-primary-v1	10	quadratic	monicQuadratic=false
 
 # Brazil BNCC: selected calculation components only; no regional/term sequence inferred.
-PACK	br-bncc-fundamental-2017-v1	BR	Brasil · BNCC	https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf	1º–8º ano · selected foundational calculation components; other outcomes and grade 9 remain unmapped
+PACK	br-bncc-fundamental-2017-v1	BR	Brasil · BNCC	https://basenacionalcomum.mec.gov.br/images/BNCC_EI_EF_110518_versaofinal_site.pdf	1º–9º ano · selected foundational calculation components; other outcomes remain incomplete
 LEVEL	br-bncc-fundamental-2017-v1	1	1º ano
 LEVEL	br-bncc-fundamental-2017-v1	2	2º ano
 LEVEL	br-bncc-fundamental-2017-v1	3	3º ano
@@ -1152,3 +1152,6 @@ MAP	br-bncc-fundamental-2017-v1	8	recursiveSequenceLoop	EF08MA11; learner-select
 MAP	br-bncc-fundamental-2017-v1	8	figureSequenceLoop	EF08MA10; constant-row-growth tile figures; learner selects update/condition/branches and runs a bounded loop producing tile arrays; other figural rules and free-form algorithms incomplete; BNCC printed p.313
 MAP	br-bncc-fundamental-2017-v1	8	squareFigureCount	EF08MA10; constant side-growth square tile patterns and nonlinear tile-count calculation; general algorithm construction and other families incomplete; BNCC printed p.313
 MAP	br-bncc-fundamental-2017-v1	8	triangleFigureCount	EF08MA10; constant row-growth staircase tile patterns and nonlinear tile-count calculation; general algorithm construction and other families incomplete; BNCC printed p.313
+MAP	br-bncc-fundamental-2017-v1	9	rootIntegerBounds,rootTenthBounds	EF09MA02; selected positive irrational square-root location as consecutive integer/tenth bounds; broader irrational representations, negative values, graphical placements and full decimal nonperiodicity remain incomplete; BNCC printed p.317
+MAP	br-bncc-fundamental-2017-v1	9	integerPowerValue,rootPowerLink	EF09MA03; selected exact integer powers and perfect-root positive fractional-power relations reused from grade8; broader real-number calculations remain incomplete; BNCC printed p.317
+LEVEL	br-bncc-fundamental-2017-v1	9	9º ano

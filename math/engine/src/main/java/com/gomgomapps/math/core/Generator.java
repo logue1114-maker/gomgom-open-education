@@ -71,6 +71,7 @@ public final class Generator {
         Question q=createQuestion(s,limits);ArithmeticTeaching.attach(q);FractionEquationTeaching.attach(q);DecimalTeaching.attach(q);RatioValueTeaching.attach(q);StatisticsAngleTeaching.attach(q);GeometryCalculationTeaching.attach(q);DivisorMultipleTeaching.attach(q);return q;
     }
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
+        if(RealRootBounds.supports(s.id))return RealRootBounds.create(s,random);
         if(FigurePatterns.supports(s.id))return FigurePatterns.create(s,random);
         if(SequenceAlgorithm.supports(s.id))return SequenceAlgorithm.create(s,random);
         if(SequenceDiscovery.supports(s.id))return SequenceDiscovery.create(s,random);
