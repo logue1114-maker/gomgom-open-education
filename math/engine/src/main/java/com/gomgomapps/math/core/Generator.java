@@ -76,6 +76,7 @@ public final class Generator {
         if(FigurePatterns.supports(s.id))return FigurePatterns.create(s,random);
         if(SequenceAlgorithm.supports(s.id))return SequenceAlgorithm.create(s,random);
         if(SequenceDiscovery.supports(s.id))return SequenceDiscovery.create(s,random);
+        if(ScientificQuantity.supports(s.id))return ScientificQuantity.create(s,random);
         if(CountingSequenceFoundations.supports(s.id))return CountingSequenceFoundations.create(s,random);
         if(PowerRootFoundations.supports(s.id))return PowerRootFoundations.create(s,random);
         if(EqualityFoundations.supports(s.id))return EqualityFoundations.create(s,random);

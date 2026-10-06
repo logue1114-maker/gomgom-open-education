@@ -1,0 +1,48 @@
+{
+  "tests": {
+    "engine": {
+      "tests": 622,
+      "failures": 0,
+      "errors": 0
+    },
+    "app": {
+      "tests": 116,
+      "failures": 0,
+      "errors": 0
+    },
+    "globalApp": {
+      "tests": 116,
+      "failures": 0,
+      "errors": 0
+    }
+  },
+  "nativeVerified": true,
+  "coverage": "Selected BR9 EF09MA04 mass products and constant-speed quotients only. Full outcome incomplete.",
+  "installedBaseMatches": true,
+  "savedBefore": 68,
+  "savedAfter": 70,
+  "old68LabelsUnchanged": true,
+  "learningBefore": 3001,
+  "learningAfter": 3003,
+  "newQuestionsAnswered": 2,
+  "nextQuestionsBlankAfterRestart": true,
+  "wrongExponentManuallyCorrected": true,
+  "helpFramesNativeVerified": false,
+  "commonSkills": 500,
+  "brazilSelectedSkills": 89,
+  "brazilPlacements": 137,
+  "requirementsGrades1To9": 247,
+  "partial": 72,
+  "unmapped": 175,
+  "complete": 0,
+  "wholeCurriculumComplete": false,
+  "physicalDeviceVerified": false,
+  "externalReview": false,
+  "releaseReady": false,
+  "beforeSeconds": 50.397,
+  "nativeSeconds": 95.173,
+  "coldSeconds": 142.343,
+  "finalPairedFieldsVerified": true,
+  "fitSeconds": 144.078,
+  "mainEntryAndFinalLayoutAPKDiffer": true
+}
