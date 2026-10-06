@@ -51,7 +51,15 @@
     "local_app_tests": 286,
     "public_engine_tests": 683,
     "failures": 0,
-    "native": "Normal Android menu, public coordinates,7 help entries and wrong entry correction, separately typed61/2wrong→60/2correct; next answer/help blank.69.817seconds."
+    "native": "Normal Android menu, public coordinates,7 help entries and wrong entry correction, separately typed61/2wrong→60/2correct; next answer/help blank.69.817seconds.",
+    "tablet_cold_seconds": 36.886,
+    "small_phone_cold_seconds": 37.273,
+    "saved_before": 111,
+    "saved_after": 112,
+    "old_other_labels_unchanged": 110,
+    "previous_perimeter_progression": "Expected one old label change from the preceding irrational-perimeter submission.",
+    "learning_total": 3095,
+    "settled_capture": "Shared screenshot helper waits for UI idle. Same unfinished second problem shows both fraction fields and visible wrong feedback; inputs cleared, no submission.37.745seconds."
   },
   "private_exclusions": [
     "Android UI",
