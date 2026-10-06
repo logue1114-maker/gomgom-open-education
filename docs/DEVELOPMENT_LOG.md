@@ -1,3 +1,9 @@
+## 2026-10-07 — Native signed coordinate teaching and distance practice
+
+Continued the saved midpoint through all four signed teaching steps. An incorrect direction was identified without replacing the learner input; the corrected steps were checked and the main coordinates remained empty until independently entered and submitted. Normal distance practice also checked reference comparison and vertical space counting, with first-stage errors corrected and both typed answers submitted. Following blank problems and their first teaching stages restored through normal saved-session menus after a cold restart on small-phone and tablet layouts. The tablet notebook opened through its real menu path and closed without changing the answer.
+
+The product APK and engine were unchanged; previous local 944 and public engine 668 checks remain the matching code evidence. Native continuation checks passed in 41.764, 54.197, 42.591 and 39.55 seconds. An initial tablet QA failure assumed a direct notebook button; the actual menu route was used on retry. No previously submitted problem was replayed and no learning state was injected. These checks do not establish every generated form on physical devices, arbitrary diagonal distance or full curriculum coverage. QA and learner records remain private.
+
 ## 2026-10-07 — Coordinate grid midpoint and distance
 
 Added signed midpoint walking, axis distances and comparison with a supplied reference segment. Public diagrams carry only endpoints, equal grid spacing and reference givens. Teaching checks one entered field at a time. Distinct distance choices shuffle independently. BR9 EF09MA16 remains selected/partial; arbitrary diagonal distance, perimeter and area applications are unfinished.

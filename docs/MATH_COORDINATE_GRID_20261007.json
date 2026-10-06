@@ -21,12 +21,15 @@
     "normal BR9 topic menu and 100-question typed midpoint practice",
     "one wrong x-coordinate highlighted and then corrected; next question has both answer fields blank",
     "cold restore and 360x640dp phone grid, typed fields, negative keypad and blank first teaching frame",
-    "long Portuguese teaching prefix stacked above its input; fixed after direct screenshot inspection"
+    "long Portuguese teaching prefix stacked above its input; fixed after direct screenshot inspection",
+    "signed midpoint teaching: wrong horizontal movement corrected, four entered calculation stages checked, main answer still blank until typed submission",
+    "reference distance and vertical-axis distance: wrong first teaching stage corrected, blank next stage, independent typed answer correction and submission",
+    "following midpoint and distance blanks and first teaching stages restored after force-stop on a small phone and tablet",
+    "tablet notebook opened through the normal study menu and closed without entering an answer or drawing a new stroke"
   ],
   "mapping": "BR9 EF09MA16 selected/partial",
   "remaining": [
-    "native distance/reference comparison submission and geometry across target devices",
-    "native signed midpoint teaching steps and draft restore",
+    "additional native horizontal-distance and doubled-reference examples; physical-device evidence",
     "arbitrary diagonal distances, perimeter and area applications",
     "physical devices, accessibility and student comprehension",
     "world curricula and languages",
@@ -34,5 +37,11 @@
   ],
   "publicScope": "engine and anonymous development summaries; UI, translations, QA, learner records, screenshots, APKs and official prose excluded",
   "flagAppealAlreadySubmittedByUser": true,
-  "officialFlagClearanceVerified": false
+  "officialFlagClearanceVerified": false,
+  "nativeContinuationSeconds": {
+    "signedMidpoint": 41.764,
+    "distanceSequence": 54.197,
+    "phoneRestore": 42.591,
+    "tabletRestore": 39.55
+  }
 }
