@@ -1,0 +1,23 @@
+{
+  "coldSeconds": 177.639,
+  "tests": {
+    "app": 104,
+    "globalApp": 104
+  },
+  "engineTestsReused": 575,
+  "newMainQuestionsAnswered": 3,
+  "newAnswerFieldsEntered": 4,
+  "newHelpInputs": 0,
+  "savedBefore": 46,
+  "savedAfter": 49,
+  "old46LabelsUnchanged": true,
+  "learningHistoryBefore": 2978,
+  "learningHistoryAfter": 2981,
+  "threeColdNextQuestionsBlank": true,
+  "fractionalExponentVisuallyInspected": true,
+  "pureSquareNumericKeypadAndBothFieldsVisible": true,
+  "negativeExponentNativeInputVerified": false,
+  "physicalDeviceVerified": false,
+  "externalVisualReview": false,
+  "releaseReady": false
+}
