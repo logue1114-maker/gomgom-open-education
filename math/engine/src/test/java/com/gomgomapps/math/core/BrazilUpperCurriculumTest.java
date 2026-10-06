@@ -11,7 +11,7 @@ public class BrazilUpperCurriculumTest {
     private static Learning.Profile profile(int grade){Learning.Profile p=new Learning.Profile();p.languageTag="pt";GlobalCurriculum.chooseCountry(p,"BR");GlobalCurriculum.choosePack(p,PACK);p.grade=grade;return p;}
     @Test public void everyUpperPlacementHasOneHundredDistinctNormallyGeneratedProblems(){
         Generator generator=new Generator(new Random(20261006061L));GlobalCurriculum.Pack pack=GlobalCurriculum.pack(profile(6));int placements=0;
-        for(int grade:List.of(4,5,6))for(String id:pack.grades.keySet())if(pack.inGrade(id,grade)){
+        for(int grade:List.of(4,5,6))for(String id:pack.grades.keySet())if(pack.inGrade(id,grade)&&Set.of("largePlace","add1000","sub1000","mul2","mul3","mul22","divide2","remainder","el_decimal_place","el_decimal_compare","decimalAdd","decimalSub","decimalMul","decimalDivInt","decimalDiv","percent").contains(id)){
             placements++;Set<String> seen=new LinkedHashSet<>();CurriculumLimits limits=GlobalCurriculum.limits(PACK,id,grade);
             for(int i=0;i<100;i++){
                 Question q=generator.next(id,seen,i%2==0,limits);

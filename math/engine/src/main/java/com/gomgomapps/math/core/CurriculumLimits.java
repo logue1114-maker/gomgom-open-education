@@ -147,6 +147,8 @@ public final class CurriculumLimits {
     }
     public int timesTableMax(){return timesTableMax;}
     int[] percentages(){return percentages.isEmpty()?java.util.stream.IntStream.rangeClosed(1,19).map(i->i*5).toArray():percentages.stream().mapToInt(Integer::intValue).toArray();}
+    boolean unitFractions(){return unitFractions;}
+    int[] fractionDenominators(){return denominators.isEmpty()?java.util.stream.IntStream.rangeClosed(2,9).toArray():denominators.stream().sorted().mapToInt(Integer::intValue).toArray();}
     public int minuteStep(){return minuteStep;}
     public boolean timetables(){return timetables;}
     public int metricDecimals(){return metricDecimals;}

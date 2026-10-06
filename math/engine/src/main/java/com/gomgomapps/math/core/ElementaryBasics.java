@@ -252,17 +252,21 @@ public final class ElementaryBasics {
         return new StudyDiagram(type,values,labels);
     }
 
+    private static StudyGuide fractionGuide(Catalog.Skill skill,StudyGuide guide){
+        if(guide!=null&&Set.of("el_mixed_to_improper","el_fraction_common_den","el_fraction_decimal","el_decimal_fraction","el_fraction_of_number").contains(skill.id))guide.transfer(false);
+        return guide;
+    }
     private static Question number(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer.toString());
-        question.studyGuide=guide;question.diagram=diagram;
+        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;
         return question;
     }
 
     private static Question numberText(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                        String answerText,boolean decimal,StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answerText);
-        question.decimal=decimal;question.studyGuide=guide;question.diagram=diagram;
+        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;
         return question;
     }
 
@@ -875,12 +879,16 @@ public final class ElementaryBasics {
 
     private static Question fractionOfNumber(Catalog.Skill skill,Random random){
         int denominator=n(random,2,9),numerator=n(random,1,denominator-1),parts=n(random,2,12);
+        return fractionOfNumber(skill,numerator,denominator,parts);
+    }
+    static Question fractionOfNumber(Catalog.Skill skill,int numerator,int denominator,int parts){
         int total=denominator*parts,answer=numerator*parts;
-        String expression=total+"*"+numerator+"/"+denominator;
-        return number(skill,numerator+"/"+denominator+"만큼인 "+total+"은 얼마인가요?",expression,Rational.of(answer),
+        String expression=total+"*("+numerator+"/"+denominator+")";
+        Question q=number(skill,total+"의 "+numerator+"/"+denominator+"은 얼마인가요?",expression,Rational.of(answer),
                 guide(step("전체를 분모만큼 똑같이 나눕니다.",total+" ÷ "+denominator+" = ","",total+"/"+denominator),
                         step("필요한 부분의 수를 곱합니다.",(total/denominator)+" × "+numerator+" = ","",expression)),
                 diagram("fraction",new double[]{numerator,denominator},"필요한 부분","전체 부분"));
+        q.studyGuide.transfer(false);return q;
     }
 
     private static Question decimalRounding(Catalog.Skill skill,Random random,CurriculumLimits limits){

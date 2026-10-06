@@ -1099,3 +1099,18 @@ RULE	br-bncc-fundamental-2017-v1	6	el_decimal_compare,decimalAdd,decimalSub,deci
 RULE	br-bncc-fundamental-2017-v1	6	decimalMul	decimalPlaces=2;integerSecondOperand=true
 RULE	br-bncc-fundamental-2017-v1	6	percent	percentages=5,10,15,20,25,30,35,40,45,50,55,60,65,70,75,80,85,90,95,100
 RULE	br-bncc-fundamental-2017-v1	6	decimalDiv	decimalPlaces=2
+
+MAP	br-bncc-fundamental-2017-v1	4	el_fraction_of_number	EF04MA09; unit fractions of whole-number quantities only; measurement and number lines remain incomplete; BNCC printed p.291
+MAP	br-bncc-fundamental-2017-v1	4	el_fraction_decimal,el_decimal_fraction	EF04MA10; selected fraction calculation and representation drills only; number lines, contexts and full conceptual outcomes remain incomplete; BNCC printed p.291
+RULE	br-bncc-fundamental-2017-v1	4	el_fraction_decimal	decimalPlaces=2
+MAP	br-bncc-fundamental-2017-v1	5	el_mixed_to_improper,el_improper_to_mixed	EF05MA03; selected fraction calculation and representation drills only; number lines, contexts and full conceptual outcomes remain incomplete; BNCC printed p.295
+MAP	br-bncc-fundamental-2017-v1	5	reduce,el_fraction_common_den	EF05MA04; selected fraction calculation and representation drills only; number lines, contexts and full conceptual outcomes remain incomplete; BNCC printed p.295
+MAP	br-bncc-fundamental-2017-v1	5	el_fraction_compare	EF05MA05; selected fraction calculation and representation drills only; number lines, contexts and full conceptual outcomes remain incomplete; BNCC printed p.295
+MAP	br-bncc-fundamental-2017-v1	6	el_mixed_to_improper,el_improper_to_mixed,reduce,el_fraction_common_den,el_fraction_compare	EF06MA07; selected fraction calculation and representation drills only; number lines, contexts and full conceptual outcomes remain incomplete; BNCC printed p.301
+MAP	br-bncc-fundamental-2017-v1	6	el_fraction_decimal,el_decimal_fraction	EF06MA08; selected fraction calculation and representation drills only; number lines, contexts and full conceptual outcomes remain incomplete; BNCC printed p.301
+MAP	br-bncc-fundamental-2017-v1	6	el_fraction_of_number	EF06MA09; selected fraction calculation and representation drills only; number lines, contexts and full conceptual outcomes remain incomplete; BNCC printed p.301
+MAP	br-bncc-fundamental-2017-v1	6	fracAddLike,fracSubLike,fracAdd,fracSub	EF06MA10; selected fraction calculation and representation drills only; number lines, contexts and full conceptual outcomes remain incomplete; BNCC printed p.301
+RULE	br-bncc-fundamental-2017-v1	6	el_fraction_decimal	decimalPlaces=2
+RULE	br-bncc-fundamental-2017-v1	4	el_fraction_of_number	denominators=2,3,4,5,10,100;unitFractions=true;answerDomain=integer;maxGiven=5000;maxResult=50
+RULE	br-bncc-fundamental-2017-v1	6	el_fraction_of_number	answerDomain=integer;maxResult=108
+RULE	br-bncc-fundamental-2017-v1	6	fracAddLike,fracSubLike,fracAdd,fracSub	nonnegative=true;maxResult=2

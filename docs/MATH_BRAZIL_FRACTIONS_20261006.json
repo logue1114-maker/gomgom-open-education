@@ -1,0 +1,33 @@
+{
+  "tests": {
+    "engine": 560,
+    "app": 93,
+    "globalApp": 93
+  },
+  "commonSkills": 477,
+  "brazilSelectedSkills": 48,
+  "brazilPlacements": 88,
+  "newPlacements": 20,
+  "generatedFractionQuestionsIndependentlyChecked": 2000,
+  "unitDenominatorsGenerated": [
+    2,
+    3,
+    4,
+    5,
+    10,
+    100
+  ],
+  "reductionLearnerEnteredHelpAdded": true,
+  "fractionHelpTransferDisabled": true,
+  "quantityPromptMeaningCorrected": true,
+  "curatedEnglishPortuguesePromptsAdded": true,
+  "requirementsGrades1To6": 160,
+  "partial": 45,
+  "unmapped": 115,
+  "complete": 0,
+  "newNativeFlowVerified": false,
+  "installed": false,
+  "physicalDeviceVerified": false,
+  "releaseReady": false,
+  "wholeCurriculumComplete": false
+}

@@ -322,8 +322,8 @@ public class ElementaryBasicsTest {
                 Matcher decimalFraction=Pattern.compile("([0-9]+\\.[0-9]+)의 값").matcher(q.prompt);assertTrue(id,decimalFraction.find());
                 assertNumber(q,Rational.decimal(decimalFraction.group(1)));return;
             case "el_fraction_of_number":
-                fractions=Pattern.compile("(\\d+)/(\\d+)만큼인 (\\d+)").matcher(q.prompt);assertTrue(id,fractions.find());
-                assertNumber(q,Rational.of((long)Integer.parseInt(fractions.group(1))*Integer.parseInt(fractions.group(3))/Integer.parseInt(fractions.group(2))));return;
+                fractions=Pattern.compile("(\\d+)의 (\\d+)/(\\d+)은").matcher(q.prompt);assertTrue(id,fractions.find());
+                assertNumber(q,Rational.of((long)Integer.parseInt(fractions.group(1))*Integer.parseInt(fractions.group(2))/Integer.parseInt(fractions.group(3))));return;
             case "el_decimal_round":
                 Matcher decimalRound=Pattern.compile("([0-9]+\\.[0-9]+)을 소수 (첫째|둘째) 자리").matcher(q.prompt);assertTrue(id,decimalRound.find());
                 int places=decimalRound.group(2).equals("첫째")?1:2;

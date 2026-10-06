@@ -5,9 +5,10 @@ import java.util.regex.*;
 final class FractionEquationTeaching {
  private FractionEquationTeaching(){}
  static void attach(Question q){
+  if(q.skillId.equals("reduce")){reduce(q);return;}
   if(q.skillId.equals("linear")){linear(q);return;}
   if(q.skillId.equals("linearFraction")){linearFraction(q);return;}
-  if(!Set.of("fracAdd","fracSub","fracMul","fracDiv","rational").contains(q.skillId))return;
+  if(!Set.of("fracAddLike","fracSubLike","fracAdd","fracSub","fracMul","fracDiv","rational").contains(q.skillId))return;
   Matcher m=Pattern.compile("\\((-?\\d+)/(\\d+)\\)\\s*([+*/−-])\\s*\\((-?\\d+)/(\\d+)\\)").matcher(q.expression);if(!m.matches())return;
   int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(2)),c=Integer.parseInt(m.group(4)),d=Integer.parseInt(m.group(5));String op=m.group(3);if(b<=0||d<=0||c==0)return;
   StudyGuide guide=new StudyGuide().transfer(false);int numerator,denominator;
@@ -47,4 +48,12 @@ final class FractionEquationTeaching {
    .step("x의 계수로 양변을 나누세요.",right+" ÷ ("+a+") = ","",String.valueOf(right/a));
  }
  private static int gcd(int a,int b){while(b!=0){int next=a%b;a=b;b=next;}return Math.abs(a);}
+ private static void reduce(Question q){
+  Matcher m=Pattern.compile("(\\d+)/(\\d+)을 기약분수로 나타내세요\\.").matcher(q.prompt);if(!m.matches())return;
+  int numerator=Integer.parseInt(m.group(1)),denominator=Integer.parseInt(m.group(2)),common=gcd(numerator,denominator);
+  q.studyGuide=new StudyGuide().transfer(false)
+   .step("분자와 분모의 최대공약수를 구하세요.","gcd("+numerator+", "+denominator+") = ","",String.valueOf(common))
+   .step("분자를 최대공약수로 나누세요.",numerator+" ÷ "+common+" = ","",String.valueOf(numerator/common))
+   .step("분모를 같은 최대공약수로 나누세요.",denominator+" ÷ "+common+" = ","",String.valueOf(denominator/common)).fractionResult(1,2);
+ }
 }
