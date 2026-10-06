@@ -56,6 +56,7 @@ public final class Generator {
         }
         if(q==null)throw new IllegalStateException("No question matches the curriculum limits: "+skillId);
         if(q.studyGuide==null)FractionEquationTeaching.attach(q);
+        FactorTeaching.attach(q);
         if(q.choiceDiagrams!=null&&!q.choiceDiagrams.isEmpty()){q.choices=new ArrayList<>(q.choiceDiagrams.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
         else if(q.choiceLabels!=null&&!q.choiceLabels.isEmpty()){q.choices=new ArrayList<>(q.choiceLabels.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
         else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number")){if(EqualityFoundations.selected(s.id))EqualityFoundations.choices(q,random,limits);else Choices.build(q,s,random);}
