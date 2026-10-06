@@ -1036,6 +1036,8 @@ LEVEL	br-bncc-fundamental-2017-v1	2	2º ano
 LEVEL	br-bncc-fundamental-2017-v1	3	3º ano
 LEVEL	br-bncc-fundamental-2017-v1	7	7º ano
 LEVEL	br-bncc-fundamental-2017-v1	8	8º ano
+MAP	br-bncc-fundamental-2017-v1	8	standardForm	EF08MA01; positive numbers in scientific notation with normalized coefficient and signed integer exponent; integer-power operations remain incomplete; BNCC printed p.313
+MAP	br-bncc-fundamental-2017-v1	8	recurringFraction	EF08MA05; generating fractions from explicitly marked decimal periods with optional nonrepeating digits; independent recognition and broader conceptual understanding remain incomplete; BNCC printed p.313
 MAP	br-bncc-fundamental-2017-v1	8	percent	EF08MA04; percentage-of-quantity calculation only; contexts and student-created problems remain incomplete; BNCC printed p.313
 MAP	br-bncc-fundamental-2017-v1	8	substitute	EF08MA06; numerical values of linear expressions only; broader algebraic expressions, contexts and student-created problems remain incomplete; BNCC printed p.313
 MAP	br-bncc-fundamental-2017-v1	8	linearSystem	EF08MA08; solving two independent linear equations only; contextual modelling, Cartesian interpretation and student-created problems remain incomplete; BNCC printed p.313
