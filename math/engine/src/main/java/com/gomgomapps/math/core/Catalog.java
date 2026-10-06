@@ -148,6 +148,7 @@ public final class Catalog {
         add("expectation","확률변수의 기댓값",12,1,3,"확률과 통계","expectation",9,"probability,fracMul,fracAdd","각 값에 그 확률을 곱한 결과를 모두 더한다.");
         ALL.addAll(NumberExtensions.SKILLS);
         ALL.addAll(CountingSequenceFoundations.SKILLS);
+        ALL.addAll(SequenceDiscovery.SKILLS);
         ALL.addAll(PowerRootFoundations.SKILLS);
         ALL.addAll(StrandFoundations.SKILLS);
         ALL.addAll(MeasurementFoundations.SKILLS);

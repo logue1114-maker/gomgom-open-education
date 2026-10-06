@@ -1143,3 +1143,6 @@ MAP	br-bncc-fundamental-2017-v1	5	el_equality_add_sub,el_equality_mul_div	EF05MA
 RULE	br-bncc-fundamental-2017-v1	5	el_missing_add,el_missing_sub	wholeDigits=3;minimumWholeDigits=1;maxGiven=2000;maxResult=999
 RULE	br-bncc-fundamental-2017-v1	5	el_missing_mul,el_missing_div	answerDomain=integer;nonnegative=true;maxGiven=240;maxResult=240
 RULE	br-bncc-fundamental-2017-v1	5	el_equality_add_sub,el_equality_mul_div	answerDomain=integer;nonnegative=true;maxGiven=2000;maxResult=30
+
+MAP	br-bncc-fundamental-2017-v1	8	discoverIndexRule	EF08MA10; discover affine index rule and fill numeric operation flow; figural patterns and general flowchart construction remain incomplete; BNCC printed p.313
+MAP	br-bncc-fundamental-2017-v1	8	discoverRecursiveRule	EF08MA11; discover nonconstant affine recurrence and fill numeric next-term flow; loop/decision construction remains incomplete; BNCC printed p.313
