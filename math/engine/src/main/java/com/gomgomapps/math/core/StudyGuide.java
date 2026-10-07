@@ -11,6 +11,7 @@ public final class StudyGuide implements Serializable {
     private static final long serialVersionUID=1L;
     public List<Frame> frames=new ArrayList<>();
     public boolean transfer=true;
+    public String teachingVersion;
     /** Optional result assembled from two learner-entered frames; absent in old saved guides. */
     public Integer resultNumeratorFrame,resultDenominatorFrame;
     public Integer resultCoefficientFrame,resultRadicandFrame;

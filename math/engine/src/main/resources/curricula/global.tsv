@@ -1200,3 +1200,5 @@ MAP	br-bncc-fundamental-2017-v1	9	coordinateTrianglePerimeter	EF09MA16; selected
 MAP	br-bncc-fundamental-2017-v1	9	coordinateAltitudeArea	EF09MA16; selected axis-base non-right triangles with interior and either exterior altitude foot, sums or differences of two public rectangle halves and exact integer/fraction area; all-oblique bases and full criterion remain incomplete; BNCC printed p.319
 
 MAP	br-bncc-fundamental-2017-v1	9	coordinateObliqueArea	EF09MA16; selected integer-coordinate all-oblique triangles, public baseline and trapezoid differences with exact integer/fraction area; full criterion remains incomplete; BNCC printed p.319
+
+MAP	br-bncc-fundamental-2017-v1	9	sec_prism_volume,triangularPrismVolume,sec_cylinder_volume	EF09MA19; selected rectangular/triangular right-prism and cylinder volume calculations from centimetre dimensions with actual labelled solid diagrams; other bases, everyday modelling and student-created problems remain incomplete; BNCC printed p.319

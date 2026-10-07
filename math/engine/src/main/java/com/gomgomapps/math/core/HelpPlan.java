@@ -9,9 +9,10 @@ public final class HelpPlan {
     public static final class Draft implements Serializable {
         private static final long serialVersionUID=1L;
         public String questionId;
+        public String teachingVersion;
         public int stage;
         public List<String> entries=new ArrayList<>();
-        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.stage=stage;d.entries=new ArrayList<>(entries);return d;}
+        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);return d;}
     }
     public static final class Step {
         public final String instruction,before,after;
@@ -39,6 +40,7 @@ public final class HelpPlan {
     private final List<Step> steps=new ArrayList<>();
     private final int answerDenominator;
     private boolean transfer=true;
+    private String teachingVersion;
     private Integer resultNumeratorFrame,resultDenominatorFrame;
     private Integer resultCoefficientFrame,resultRadicandFrame;
     private Integer resultAddendFrame;
@@ -65,11 +67,14 @@ public final class HelpPlan {
         steps.add(new Step(instruction,before,after,expected,filled,extra,denominator));
     }
     public static HelpPlan forQuestion(Question q){
+        SolidVolumeTeaching.attach(q);
+        CoordinateRelationTeaching.attach(q);
         FactorTeaching.attach(q);
         ColumnArithmeticTeaching.attach(q);
         if(q!=null)RadicalTeaching.attach(q);
         if(q!=null&&q.studyGuide!=null&&!q.studyGuide.frames.isEmpty()){
             HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:q.studyGuide.frames)plan.steps.add(new Step(frame));
+            plan.teachingVersion=q.studyGuide.teachingVersion;
             plan.transfer=q.studyGuide.transfer&&q.answers.length==1&&(q.kind.equals("number")||q.kind.equals("symbol"));
             plan.resultNumeratorFrame=q.studyGuide.resultNumeratorFrame;plan.resultDenominatorFrame=q.studyGuide.resultDenominatorFrame;plan.resultCoefficientFrame=q.studyGuide.resultCoefficientFrame;plan.resultRadicandFrame=q.studyGuide.resultRadicandFrame;plan.resultAddendFrame=q.studyGuide.resultAddendFrame;
             if(plan.transfer&&q.answerFormat!=null)plan.steps.get(plan.steps.size()-1).requiredFormat=q.answerFormat;return plan;
@@ -114,6 +119,9 @@ public final class HelpPlan {
     }
     public Draft restore(Draft draft,String questionId){
         if(draft==null||!questionId.equals(draft.questionId)){draft=new Draft();draft.questionId=questionId;}
+        if(!Objects.equals(teachingVersion,draft.teachingVersion)){
+            draft.teachingVersion=teachingVersion;draft.stage=0;draft.entries=new ArrayList<>();
+        }
         if(draft.entries==null)draft.entries=new ArrayList<>();
         int valid=0;while(valid<Math.min(draft.stage,size())&&valid<draft.entries.size()&&step(valid).accepts(draft.entries.get(valid)))valid++;
         draft.stage=valid;while(draft.entries.size()<=valid)draft.entries.add("");return draft;

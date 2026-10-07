@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial product correction; global app still incomplete",
+  "decision": "Relationship templates only. Learner enters measurements and intermediate calculations. Keep public problem givens and formula constants.",
+  "engine_changes": [
+    "Rectangular prism: width, depth, base area, height, volume",
+    "Cylinder: radius, base area coefficient, height, volume coefficient",
+    "Triangular prism: triangle base, triangle height, base area, prism height, volume",
+    "Coordinate altitude: symbolic rectangle area sum/difference",
+    "Oblique coordinate triangle: symbolic height sums/spacings and doubled area combinations"
+  ],
+  "supply": {
+    "cylinder_old": 88,
+    "cylinder_current": 551,
+    "unique_checked_per_solid": 100
+  },
+  "curriculum": {
+    "country": "BR",
+    "grade": 9,
+    "standard": "EF09MA19",
+    "coverage": "Selected right prism/cylinder foundations only; other bases, contextual modelling and student-authored problems remain incomplete"
+  },
+  "local_tests": {
+    "engine": {
+      "tests": 689,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 145,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 145,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "public_tests": {
+    "tests": 689,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "native_small_phone": {
+    "display": "900x1600 / 400",
+    "result": "OK (1 test)",
+    "checks": [
+      {
+        "unit": "prism",
+        "helper_entries": 5,
+        "mainSubmitted": false
+      },
+      {
+        "unit": "cylinder",
+        "helper_entries": 4,
+        "mainSubmitted": false
+      },
+      {
+        "unit": "triangular",
+        "helper_entries": 5,
+        "mainSubmitted": false
+      }
+    ],
+    "main_submissions": 0
+  },
+  "migration": "Versioned helper draft clears incompatible old filled-formula entries; question identity, main answer and learner history stay intact.",
+  "unverified": [
+    "Changed coordinate intermediate frames not exercised on device in this correction",
+    "Tablet and physical-device checks for new relationship templates",
+    "Remaining domains require semantic review; source candidate inventory is not completed audit",
+    "Worldwide curriculum/language completeness; 30/60-minute completion; accessibility/student comprehension; ads/billing/store release"
+  ],
+  "failure": "Initial run compiled the old two-frame triangular-prism test before test update; 688 tests, one failure. Corrected independent measurement/area/volume expectations; final 689 pass.",
+  "private_exclusions": [
+    "Android UI and translations",
+    "Native QA source",
+    "Learner records",
+    "Screenshots/APKs",
+    "Cached official source PDF"
+  ]
+}

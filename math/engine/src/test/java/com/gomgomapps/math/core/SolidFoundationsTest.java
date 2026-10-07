@@ -18,7 +18,7 @@ public class SolidFoundationsTest {
                     double exact=v.get(0).n.doubleValue()/v.get(0).d.doubleValue()/(2*Math.tan(Math.PI/sides));double measured=v.get(1).n.doubleValue()/v.get(1).d.doubleValue();assertEquals(exact,measured,0.05000001);assertTrue(q.prompt.contains("근삿값"));
                     Rational one=v.get(0).mul(v.get(1)).div(Rational.of(2));answer=one.mul(Rational.of(sides));steps.add(one);steps.add(answer);
                 }else if(skill.id.equals("triangularPrismVolume")){
-                    assertEquals(3,v.size());Rational base=v.get(0).mul(v.get(1)).div(Rational.of(2));answer=base.mul(v.get(2));steps.add(base);steps.add(answer);
+                    assertEquals(3,v.size());Rational base=v.get(0).mul(v.get(1)).div(Rational.of(2));answer=base.mul(v.get(2));steps.add(v.get(0));steps.add(v.get(1));steps.add(base);steps.add(v.get(2));steps.add(answer);
                 }else{
                     boolean triangle=q.prompt.contains("삼각형"),square=q.prompt.contains("정사각형");shapes.add(triangle?"triangle":square?"square":"rectangle");assertTrue(q.prompt.contains("수직 높이"));assertEquals(square?2:3,v.size());
                     Rational base=square?v.get(0).pow(2):v.get(0).mul(v.get(1));if(triangle)base=base.div(Rational.of(2));Rational product=base.mul(v.get(v.size()-1));answer=product.div(Rational.of(3));steps.add(base);steps.add(product);steps.add(answer);

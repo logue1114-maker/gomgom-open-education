@@ -7,7 +7,7 @@ import java.util.*;
 import static org.junit.Assert.*;
 
 public class SecondaryBasicsTest {
-    private static final Set<String> DIAGRAMS=Set.of("parallelSegments","triangleSimilarity","parallelAngleRelation","circleAngleRelation","clock","polygon","rectangle","triangle","triangleSides","circle","sector","bars","line","fraction","coordinate","polyline","scatter");
+    private static final Set<String> DIAGRAMS=Set.of("solidRectPrism","solidCylinder","parallelSegments","triangleSimilarity","parallelAngleRelation","circleAngleRelation","clock","polygon","rectangle","triangle","triangleSides","circle","sector","bars","line","fraction","coordinate","polyline","scatter");
 
     private static int i(Question q,String key){return Integer.parseInt(q.givenNumbers.get(key));}
     private static Rational r(long value){return Rational.of(value);}

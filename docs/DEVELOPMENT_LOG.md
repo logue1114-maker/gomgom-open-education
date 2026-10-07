@@ -1,3 +1,9 @@
+## 2026-10-07 — Relationship templates and solid-volume foundations
+
+The owner clarified that helpers should show relationships, while learners supply measurements and intermediate results. Rectangular prism, cylinder and triangular prism helpers now collect the public measurements before area/volume calculations, show symbolic relationships, and leave the main answer blank. Versioned helper drafts discard incompatible old numeric-template entries. Existing coordinate altitude and oblique area helpers replace supplied intermediate operands with named length/area relationships. Other domains remain under semantic review.
+
+Cylinder supply expands from88 to551 dimension pairs; each of three solid topics has100 independently checked unique questions. Selected BR9 EF09MA19 mapping is partial. Local engine689/app290 and independent public engine689 tests passed. Small-phone saved problem2 helpers were completed through actual numeric buttons for all three solids, with wrong measurement feedback and no main submissions. Coordinate intermediate-frame device proof and new-template tablet/physical checks remain absent. UI, translations, screenshots and learner records are private. No Play/homepage deployment. See MATH_RELATION_TEMPLATES_20261007.json.
+
 ## 2026-10-07 — Triangle area with three sloped sides
 
 Added coordinateObliqueArea to the normal grade9 topic menu. Three distinct x/y integer coordinates produce noncollinear triangles with all sides sloped. The lowest vertex gives a shared horizontal baseline; public perpendicular projections D/E/F give nonnegative heights. Fifteen checked entries count three spacings/heights, build doubled triangle/trapezoid areas, combine two adjacent parts, subtract the smaller from the larger, and divide by2. A zero-height part is a triangle, and coincident vertex/foot labels are combined. Help results never fill the main answer.

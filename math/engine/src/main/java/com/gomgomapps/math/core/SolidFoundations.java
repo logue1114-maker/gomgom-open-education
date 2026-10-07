@@ -34,7 +34,7 @@ public final class SolidFoundations {
             guide.step("삼각형인 밑면의 넓이를 구하세요.",b+" × "+t+" ÷ 2 = "," cm²",base.toString());
             Rational answer=base.mul(Rational.of(height));guide.step("밑면 넓이에 기둥 높이를 곱하세요.",base.decimalText()+" × "+height+" = "," cm³",answer.toString());
             prompt="삼각기둥\n밑면 삼각형: 밑변 "+b+"cm · 높이 "+t+"cm\n기둥 높이 "+height+"cm\n부피는 몇 cm³인가요?";
-            return scalar(s,prompt,b+" * "+t+" / 2 * "+height,answer,guide,true).withInputs(b,t,height);
+            Question volume=scalar(s,prompt,b+" * "+t+" / 2 * "+height,answer,guide,true).withInputs(b,t,height);volume.diagram=new StudyDiagram("solidTriangularPrism",new double[]{b,t,height},"밑변","밑면 높이","기둥 높이");SolidVolumeTeaching.attach(volume);return volume;
         }
         int shape=r.nextInt(3);if(shape==2)t=b;
         base=Rational.of((long)b*t,shape==0?2:1);

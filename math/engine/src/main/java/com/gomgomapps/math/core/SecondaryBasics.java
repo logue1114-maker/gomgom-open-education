@@ -219,12 +219,12 @@ public final class SecondaryBasics {
                 return q(s,"가로 "+a+", 세로 "+b+", 높이 "+c+"인 직육면체의 겉넓이는?",Rational.of(answer),guide,new StudyDiagram("rectangle",new double[]{a,b},"가로","세로"),"width",a,"depth",b,"height",c);
             }
             case "sec_prism_volume":{
-                a=n(random,2,9);b=n(random,2,9);c=n(random,2,9);answer=a*b*c;guide=two("밑면의 넓이를 구하세요.",a+" × "+b+" = ","",a*b,"밑면의 넓이에 높이를 곱하세요.",a*b+" × "+c+" = ","",answer);
-                return q(s,"가로 "+a+", 세로 "+b+", 높이 "+c+"인 직육면체의 부피는?",Rational.of(answer),guide,new StudyDiagram("rectangle",new double[]{a,b},"가로","세로"),"width",a,"depth",b,"height",c);
+                a=n(random,2,9);b=n(random,2,9);c=n(random,2,9);answer=a*b*c;guide=two("밑면의 넓이를 구하세요.",a+" × "+b+" = "," cm²",a*b,"밑면의 넓이에 높이를 곱하세요.",a*b+" × "+c+" = "," cm³",answer).transfer(false);
+                Question volume=q(s,"직육면체\n가로 "+a+"cm · 세로 "+b+"cm · 높이 "+c+"cm\n부피는 몇 cm³인가요?",Rational.of(answer),guide,new StudyDiagram("solidRectPrism",new double[]{a,b,c},"가로","세로","높이"),"width",a,"depth",b,"height",c);volume.labels=new String[]{"cm³"};SolidVolumeTeaching.attach(volume);return volume;
             }
             case "sec_cylinder_volume":{
-                a=n(random,2,9);b=n(random,2,12);answer=a*a*b;guide=two("밑면 넓이의 π 앞 계수를 구하세요.",a+"² = ","",a*a,"높이를 곱하세요.",a*a+" × "+b+" = ","",answer);
-                return q(s,"반지름이 "+a+", 높이가 "+b+"인 원기둥의 부피는 (□)π입니다. □는?",Rational.of(answer),guide,new StudyDiagram("circle",new double[]{a},"밑면"),"radius",a,"height",b);
+                a=n(random,2,20);b=n(random,2,30);answer=a*a*b;guide=two("밑면 넓이의 π 앞 계수를 구하세요.",a+" × "+a+" = "," π cm²",a*a,"높이를 곱하세요.",a*a+" × "+b+" = "," π cm³",answer).transfer(false);
+                Question volume=q(s,"원기둥\n반지름 "+a+"cm · 높이 "+b+"cm\n부피 = □π cm³\nπ 앞의 수를 쓰세요.",Rational.of(answer),guide,new StudyDiagram("solidCylinder",new double[]{a,b},"반지름","높이"),"radius",a,"height",b);volume.labels=new String[]{"π"};SolidVolumeTeaching.attach(volume);return volume;
             }
             case "sec_cylinder_surface":{
                 a=n(random,2,limits.wholeMaximum(10));b=n(random,2,12);answer=2*a*(a+b);guide=two("두 밑면의 넓이에서 π 앞 계수를 구하세요.","2×"+a+"² = ","",2*a*a,"옆면 2πrh의 계수를 더하세요.",2*a*a+" + 2×"+a+"×"+b+" = ","",answer);
