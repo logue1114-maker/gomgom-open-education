@@ -482,16 +482,19 @@ public final class SecondaryBasics {
                 LineCircleRelations.attach(lineCircleQuestion);return lineCircleQuestion;
             }
             case "sec_circle_line_intersections":{
-                r=n(random,2,9);int relation=random.nextInt(3);a=relation==0?r-1:relation==1?r:r+1;answer=a<r?2:a==r?1:0;guide=one("중심과 직선 사이의 거리에서 반지름을 빼 비교하세요.",a+" - "+r+" = ","",a-r).transfer(false);
-                return choices(q(s,"원 x²+y²="+(r*r)+"과 직선 x="+a+"의 교점 수를 고르세요.",Rational.of(answer),guide,null,"radius",r,"distance",a),"2","2개","1","1개","0","없음");
+                r=n(random,2,9);int relation=random.nextInt(3);int distance=relation==0?n(random,0,r-1):relation==1?r:r+1;a=distance*(random.nextBoolean()?1:-1);String axis=random.nextBoolean()?"x":"y";answer=distance<r?2:distance==r?1:0;
+                Question movementQuestion=choices(q(s,"원 x²+y²="+(r*r)+"과 직선 "+axis+"="+a+"의 교점 수를 고르세요.",Rational.of(answer),null,null,"radius",r,"distance",distance),"2","2개","1","1개","0","없음");
+                MovementCircleRelations.attach(movementQuestion);return movementQuestion;
             }
             case "sec_translation":{
-                x=signed(random,8);y=signed(random,8);a=signed(random,5);b=signed(random,5);guide=two("x좌표에 가로 이동량을 더하세요.",x+" + ("+a+") = ","",x+a,"y좌표에 세로 이동량을 더하세요.",y+" + ("+b+") = ","",y+b);
-                return pair(s,"점 P("+x+", "+y+")를 벡터 ("+a+", "+b+")만큼 평행이동한 좌표는?",x+a,y+b,"x","y",guide,new StudyDiagram("coordinate",new double[]{x,y},"P"),"x",x,"y",y,"dx",a,"dy",b);
+                x=signed(random,8);y=signed(random,8);a=signed(random,5);b=signed(random,5);
+                Question movementQuestion=pair(s,"점 P("+x+", "+y+")를 벡터 ("+a+", "+b+")만큼 평행이동한 좌표는?",x+a,y+b,"x","y",null,new StudyDiagram("coordinate",new double[]{x,y},"P"),"x",x,"y",y,"dx",a,"dy",b);
+                MovementCircleRelations.attach(movementQuestion);return movementQuestion;
             }
             case "sec_reflection":{
-                x=signed(random,9);y=signed(random,9);int type=random.nextInt(3);int rx=type==0?-x:type==1?x:-x,ry=type==0?y:type==1?-y:-y;String target=type==0?"y축":type==1?"x축":"원점";guide=two("대칭 기준에 따라 x좌표를 확인하세요.","x′ = ","",rx,"대칭 기준에 따라 y좌표를 확인하세요.","y′ = ","",ry);
-                return pair(s,"점 ("+x+", "+y+")를 "+target+"에 대하여 대칭이동한 좌표는?",rx,ry,"x","y",guide,new StudyDiagram("coordinate",new double[]{x,y},"P"),"x",x,"y",y,"type",type);
+                x=signed(random,9);y=signed(random,9);int type=random.nextInt(3);int rx=type==0?-x:type==1?x:-x,ry=type==0?y:type==1?-y:-y;String target=type==0?"y축":type==1?"x축":"원점";
+                Question movementQuestion=pair(s,"점 ("+x+", "+y+")를 "+target+"에 대하여 대칭이동한 좌표는?",rx,ry,"x","y",null,new StudyDiagram("coordinate",new double[]{x,y},"P"),"x",x,"y",y,"type",type);
+                MovementCircleRelations.attach(movementQuestion);return movementQuestion;
             }
             case "sec_set_intersection": case "sec_set_union": case "sec_set_difference":{
                 int sizeA=n(random,4,8),sizeB=n(random,4,8),common=n(random,1,Math.min(sizeA,sizeB)-1);int result=s.family.equals("sec_set_intersection")?common:s.family.equals("sec_set_union")?sizeA+sizeB-common:sizeA-common;

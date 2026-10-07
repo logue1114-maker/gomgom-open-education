@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-07",
+  "status": "Progress; whole global app incomplete",
+  "units": [
+    "sec_circle_line_intersections",
+    "sec_translation",
+    "sec_reflection"
+  ],
+  "behavior": "Student-entered squared radius/root/line coordinate/absolute distance/difference precede intersection choice. Translation uses initial coordinates and movement values before both sums. Reflection uses initial coordinates before unchanged/opposite coordinates. No numerical prefill or main transfer.",
+  "versions": [
+    "circle-intersection-relations-v1",
+    "translation-relations-v1",
+    "reflection-relations-v1"
+  ],
+  "supply": "Circle intersection public domain24 to224 prompts using both axes, signed coordinates and all inner integer distances. Radius2..9, maximum absolute line coordinate10 retained, relation categories sampled uniformly. Each unit2400 generated prompts with more than100 distinct. Existing translation/reflection small ranges retained.",
+  "tests": {
+    "engine": {
+      "tests": 788,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 182,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 182,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 788,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "restore_kenya_seconds": 21.913,
+  "home_seconds": 27.523,
+  "home_learning_total": 3102,
+  "apk_sha256": "106382db4126267e14cd92161ba7ca31e5c2562da5ff9c8ff6d3a01299f6bdad",
+  "installed_matches": true,
+  "display": "1080x2400/420",
+  "unverified": [
+    "KO/PT native",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old-help draft migration",
+    "full global app completion"
+  ],
+  "ui_versions": "V1 three calculation completions. V2 small single-point coordinate labels moved sideways with leader lines to avoid y-axis label overlap. Fresh translation/reflection first-frame visual checks only, no calculation replay.",
+  "native": {
+    "intersections": {
+      "seconds": 139.153,
+      "steps": 6,
+      "mainSubmitted": false
+    },
+    "translation": {
+      "seconds": 77.825,
+      "steps": 6,
+      "mainSubmitted": false
+    },
+    "reflection": {
+      "seconds": 74.992,
+      "steps": 4,
+      "mainSubmitted": false
+    }
+  }
+}
