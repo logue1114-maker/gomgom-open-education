@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-07",
+  "status": "Progress; full app incomplete",
+  "behavior": "Public coefficients, shifts, constants and input are learner-entered. Rational: denominator, quotient and final sum. Radical: radicand, nonnegative root and final sum. No numerical prefill or main transfer.",
+  "versions": [
+    "rational-value-relations-v1",
+    "radical-value-relations-v1"
+  ],
+  "supply": {
+    "rational_parameter_space": 27456,
+    "radical_parameter_space": 1690,
+    "samples_each": 12000,
+    "distinct_sampled_prompts_each_more_than": 100,
+    "zero_shift_and_constant_included": true,
+    "zero_radical_included": true,
+    "rational_zero_denominator_excluded": true
+  },
+  "saved": "Legacy signed function prompts/id/answers/learner inputs remain intact; help alone is replaced. Old draft reset/new draft restoration tested.",
+  "tests": {
+    "engine": {
+      "tests": 802,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 188,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 188,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 802,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "rational": {
+      "seconds": 136.104,
+      "steps": 7,
+      "mainSubmitted": false
+    },
+    "radical": {
+      "seconds": 82.417,
+      "steps": 6,
+      "mainSubmitted": false
+    }
+  },
+  "restore_kenya_seconds": 21.471,
+  "home_seconds": 10.157,
+  "home_learning_total": 3102,
+  "apk_sha256": "94b357e2af73d8e17dd8d78d6c085da47b853744de2bfdf87b8533078513e2fc",
+  "installed_matches": true,
+  "builds": {
+    "local": "1m 32s",
+    "public": "1m 15s"
+  },
+  "next": "Actual Generator -> HelpPlan inventory finds numerical generic scaffolds in signedAdd/signedMul and absent help in likeTerms. Inventory numeric flags include legitimate constants and are candidates, not a defect count.",
+  "unverified": [
+    "KO/PT native",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old-help migration",
+    "nonperfect radical values",
+    "full function domain/graph coverage",
+    "remaining generic/absent help",
+    "full global app completion"
+  ]
+}

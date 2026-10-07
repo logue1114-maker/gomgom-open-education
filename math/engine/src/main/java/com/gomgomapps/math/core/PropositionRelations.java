@@ -3,11 +3,12 @@ import java.util.*;import java.util.regex.*;
 /** Learners calculate a public division and use the remainder to judge the statement. */
 public final class PropositionRelations {
  private PropositionRelations(){}
- public static boolean supports(String id){return Set.of("sec_proposition_truth","sec_contrapositive","sec_sufficient_condition","sec_amgm_minimum").contains(id);}
+ public static boolean supports(String id){return Set.of("sec_proposition_truth","sec_contrapositive","sec_sufficient_condition","sec_amgm_minimum","sec_rational_function","sec_radical_function").contains(id);}
  public static void attach(Question q){
   if(q==null||q.prompt==null||!supports(q.skillId))return;
   if(q.skillId.equals("sec_sufficient_condition")){ConditionRelations.attach(q);return;}
   if(q.skillId.equals("sec_amgm_minimum")){AmgmRelations.attach(q);return;}
+  if(q.skillId.equals("sec_rational_function")||q.skillId.equals("sec_radical_function")){FunctionValueRelations.attach(q);return;}
   boolean contra=q.skillId.equals("sec_contrapositive");
   Matcher m=Pattern.compile(contra?"(?:정수 n에 대한 )?명제 ‘n이 (\\d+)의 배수이면 n은 (\\d+)의 배수이다’의 대우가 참인지 거짓인지 고르세요\\.":"명제 ‘(\\d+)(?:은|는) (\\d+)의 배수이다’의 참과 거짓을 고르세요\\.").matcher(q.prompt);
   if(!m.matches())return;long value=Long.parseLong(m.group(1)),divisor=Long.parseLong(m.group(2));if(divisor<=0)return;

@@ -541,12 +541,12 @@ public final class SecondaryBasics {
                 AlgebraRelations.attach(inverse);return inverse;
             }
             case "sec_rational_function":{
-                a=signed(random,8);h=signed(random,5);k=signed(random,6);int denominator=signed(random,6);x=h+denominator;Rational result=Rational.of(a,denominator).add(Rational.of(k));guide=two("분모 x-p를 먼저 계산하세요.",x+" - ("+h+") = ","",denominator,"나눗셈 뒤 상수를 더하세요.",a+"/"+denominator+" + ("+k+") = ","",result.toString());
-                return q(s,"f(x)="+a+"/(x-("+h+"))"+plus(k)+"일 때 f("+x+")의 값은?",result,guide,null,"a",a,"h",h,"k",k,"x",x);
+                a=signed(random,8);h=random.nextInt(11)-5;k=random.nextInt(13)-6;int denominator=signed(random,6);x=h+denominator;Rational result=Rational.of(a,denominator).add(Rational.of(k));
+                Question rational=q(s,"f(x)="+a+"/(x-("+h+"))"+plus(k)+"일 때 f("+x+")의 값은?",result,null,null,"a",a,"h",h,"k",k,"x",x);FunctionValueRelations.attach(rational);return rational;
             }
             case "sec_radical_function":{
-                h=signed(random,6);k=signed(random,6);a=n(random,1,9);x=h+a*a;answer=a+k;guide=two("근호 안을 먼저 계산하세요.",x+" - ("+h+") = ","",a*a,"양의 제곱근 뒤 상수를 더하세요.","√"+(a*a)+" + ("+k+") = ","",answer);
-                return q(s,"f(x)=√(x-("+h+"))"+plus(k)+"일 때 f("+x+")의 값은?",Rational.of(answer),guide,null,"h",h,"k",k,"x",x,"root",a);
+                h=random.nextInt(13)-6;k=random.nextInt(13)-6;a=random.nextInt(10);x=h+a*a;answer=a+k;
+                Question radical=q(s,"f(x)=√(x-("+h+"))"+plus(k)+"일 때 f("+x+")의 값은?",Rational.of(answer),null,null,"h",h,"k",k,"x",x,"root",a);FunctionValueRelations.attach(radical);return radical;
             }
             default:return null;
         }

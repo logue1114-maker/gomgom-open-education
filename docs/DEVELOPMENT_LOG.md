@@ -1,3 +1,7 @@
+# 2026-10-07 — Rational and radical function values
+
+Replaced numeric scaffolds with learner-entered public values and operations: seven frames for rational functions, six for radical functions. Added zero shifts/constants and zero radical boundary while excluding zero denominators. Both families exceed100 distinct prompts in12000 sampled generations. The theoretical parameter spaces are27456 and1690; this is not a claim that every prompt was sampled or exercised on a device. Exact fractions, old saved-help replacement, translations and normal-menu native evidence are in MATH_FUNCTION_VALUE_20261007.json. Generic/absent help, complete function graphs/domains and the full global app remain incomplete.
+
 # 2026-10-07 — AM-GM minimum and equality point
 
 Expanded the minimum family to120 distinct public prompts with coefficients1–4, numerator at most81 and small signed constants. Learners enter public values, product/root, quotient/equality point, minimum sum and final minimum in nine symbolic frames. No numerical prefill or main transfer. Saved questions remain intact. Exact attainment and positive-rational difference checks, translations and normal-menu native evidence are in MATH_AMGM_20261007.json. Remaining rational/radical function help and the full global app are incomplete.
