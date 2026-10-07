@@ -1,3 +1,7 @@
+# 2026-10-07 — Decimal and fraction place-value relationships
+
+Both conversion units now use blank symbolic frames from the visible original prompt. Learners enter the numerator and denominator before the decimal quotient, or the decimal and its number of places before the denominator and numerator. No later-grade reduction is required. Decimal input frames reject fraction notation; saved guides retain this format and draft version. Each unit exceeds100 distinct prompts in4000 samples. Local engine823 and isolated public engine823 checks passed. Existing numerical/curriculum/supply tests retain their calculations and honor the updated input stages. UI/native/APK evidence is private. Other units and the full global app remain incomplete.
+
 # 2026-10-07 — Fraction conversion and quantity relationships
 
 Replaced numeric prefills in mixed/improper conversion, requested-denominator equivalent fractions and fractions of quantities with learner-entered symbolic frames. Mixed-number completion assembles validated whole/numerator/denominator inputs. Numerator-only slots whose denominator is printed and integer quantity answers use matching ordinary input, preserving separate mixed-number answer slots and explicit format overrides. Each unit exceeds100 distinct prompts in4000 samples. Exact public-value, draft, serialization and translation checks are recorded in MATH_FRACTION_CONCEPTS_20261007.json. UI/native evidence remains private. Other fraction/decimal concepts and the full global app remain incomplete.

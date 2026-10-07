@@ -856,7 +856,7 @@ public final class ElementaryBasics {
         Rational answer=r(numerator,denominator);
         Question question=numberText(skill,numerator+"/"+denominator+"의 값을 소수로 나타내세요.",numerator+"/"+denominator,answer,
                 answer.decimalText(),true,
-                guide(step("분수를 나누어 소수로 나타냅니다.",numerator+" ÷ "+denominator+" = ","",numerator+"/"+denominator)),
+                null,
                 denominator<=100?diagram("fraction",new double[]{numerator,denominator},"분자","분모"):null);
         question.answerFormat="decimal";
         return question;
@@ -868,7 +868,7 @@ public final class ElementaryBasics {
         Rational answer=r(value,scale);
         String decimal=d(value,scale);
         Question question=number(skill,decimal+"의 값을 분수로 나타내세요.",decimal,answer,
-                guide(step("소수점 아래 자릿수를 분모로 정합니다.",decimal+" = ","",value+"/"+scale)),
+                null,
                 null);
         question.answerFormat="fraction";
         return question;

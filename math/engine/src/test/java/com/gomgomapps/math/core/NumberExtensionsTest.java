@@ -99,7 +99,7 @@ public class NumberExtensionsTest {
             List<String> values=numbers(q.prompt);int numerator=Integer.parseInt(values.get(0)),denominator=Integer.parseInt(values.get(1));large|=denominator>100;
             assertTrue(Set.of(10,100,1000,10000).contains(denominator));assertFalse(recent.contains(q.signature()));recent.add(q.signature());
             assertTrue(checker.check(q,List.of(),List.of(new BigDecimal(numerator).divide(new BigDecimal(denominator)).toPlainString())).correct());
-            assertTrue(HelpPlan.forQuestion(q).step(0).accepts(new BigDecimal(numerator).divide(new BigDecimal(denominator)).toPlainString()));if(denominator>100)assertNull(q.diagram);
+            assertTrue(HelpPlan.forQuestion(q).step(2).accepts(new BigDecimal(numerator).divide(new BigDecimal(denominator)).toPlainString()));if(denominator>100)assertNull(q.diagram);
         }
         assertTrue(large);
         for(String system:List.of(KE,"us-ccss-2010-v1"))for(int i=0;i<100;i++){Question q=g.next("el_fraction_decimal",List.of(),false,GlobalCurriculum.limits(system,"el_fraction_decimal",system.equals(KE)?6:4));assertTrue(Integer.parseInt(numbers(q.prompt).get(1))<=100);}

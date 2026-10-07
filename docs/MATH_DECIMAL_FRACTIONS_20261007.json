@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-07",
+  "scope": [
+    "el_fraction_decimal",
+    "el_decimal_fraction"
+  ],
+  "teachingVersion": "decimal-fraction-relations-v1",
+  "behavior": [
+    "Read visible original prompts without answer metadata.",
+    "Fraction to decimal: enter numerator, denominator, decimal quotient.",
+    "Decimal to fraction: enter decimal, decimal places, denominator, numerator.",
+    "Use place values, without requiring later-grade reduction.",
+    "Decimal input frames reject fraction notation.",
+    "No numeric prefill or main-answer transfer."
+  ],
+  "sourceManifest": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/DecimalFractionRelations.java",
+      "sha256": "d9a31d64333c8b74b964c19eb8240990e9f5514a480686dfa4a10376886a9f99"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/FractionConceptRelations.java",
+      "sha256": "1ce7d129646a571cede5f95efc838d4f3066a7580aa3faf2749a3cba40fb2f1b"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/ElementaryBasics.java",
+      "sha256": "414bea34411b7e623cff82cb9f32e253478bc3d2e2c0cc185db5aaac4429c8cb"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/StudyGuide.java",
+      "sha256": "4d7bf1ef6a6144ca8a6e5e7fb73564066f3e90a88b1d05632e93bf4fb6a81b4f"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/HelpPlan.java",
+      "sha256": "482068693243378bacc0c64126ae69bf249f9b77f089f3172c7cbcb989c2b2bb"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/DecimalFractionRelationsTest.java",
+      "sha256": "216d72a1215fcc56b5912d5591e48d75b5b2d9d98685baa3a7f53cb3c286f160"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/AustraliaSecondaryCurriculumTest.java",
+      "sha256": "641ca25f359b9a595bc4b7eb6256019901ec16f39e2ec7e82b6106953fb359ab"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/FoundationIntegrationTest.java",
+      "sha256": "0d53781cfcef775f346e35ba7f09f4dd0d4a6b447acdb7cc8db2cea84e9d7282"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/FractionSupplyTest.java",
+      "sha256": "712a0fdbc1b70b632b7421fe2e85f7bb66743bd693f066cea1970bfa43dbfbe8"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/NumberExtensionsTest.java",
+      "sha256": "b7a8523389d9a8086e521ed722f487979b2896cde5ddbb7417b17ea9bab3636e"
+    }
+  ],
+  "validation": "Local engine823/app195/global195 and isolated public engine823 tests passed. Checked public values, >100 distinct prompts per unit in4000 samples, decimal notation, blank frames, wrong input, draft restoration and serialization. Existing country limits and supply checks remain. Native/UI/APK/evidence are private.",
+  "remaining": "Other unconverted units, global curriculum completeness, language coverage, timed-study completion, young-primary controls, phone/tablet notebook boundary, OCR and release verification remain incomplete."
+}

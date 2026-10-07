@@ -25,7 +25,7 @@ public final class HelpPlan {
             this.instruction=instruction;this.before=before;this.after=after;this.expected=String.valueOf(expected);this.general=false;this.options=Map.of();
             this.filled=filled;this.extra=extra;this.denominator=denominator;
         }
-        Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=-1;extra=denominator=0;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);}
+        Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=-1;extra=denominator=0;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);requiredFormat=frame.inputFormat==null?"":frame.inputFormat;}
         public boolean accepts(String value){
             if(value==null||value.trim().isEmpty()||value.length()>120)return false;
             if(!options.isEmpty())return options.containsKey(value.trim())&&value.trim().equals(expected);

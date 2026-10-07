@@ -3,9 +3,9 @@ import java.util.*;import java.util.regex.*;
 /** Blank concept frames derived from the visible mixed, equivalent or quantity fraction. */
 public final class FractionConceptRelations {
  private FractionConceptRelations(){}
- public static boolean supports(String id){return Set.of("el_mixed_to_improper","el_improper_to_mixed","el_fraction_common_den","el_fraction_of_number").contains(id);}
+ public static boolean supports(String id){return DecimalFractionRelations.supports(id)||Set.of("el_mixed_to_improper","el_improper_to_mixed","el_fraction_common_den","el_fraction_of_number").contains(id);}
  public static void attach(Question q){
-  if(q==null||!supports(q.skillId)||q.prompt==null)return;StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="fraction-concept-relations-v1";Matcher m;
+  if(q==null||!supports(q.skillId)||q.prompt==null)return;if(DecimalFractionRelations.supports(q.skillId)){DecimalFractionRelations.attach(q);return;}StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="fraction-concept-relations-v1";Matcher m;
   switch(q.skillId){
    case "el_mixed_to_improper":
     m=Pattern.compile("(\\d+)와 (\\d+)/(\\d+)을 가분수로 나타내세요\\.\\n□/(\\d+)").matcher(q.prompt);if(!m.matches()||!m.group(3).equals(m.group(4)))return;

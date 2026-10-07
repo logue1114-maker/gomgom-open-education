@@ -20,6 +20,7 @@ public final class StudyGuide implements Serializable {
     public static final class Frame implements Serializable {
         private static final long serialVersionUID=1L;
         public String instruction,before,after,expected;
+        public String inputFormat;
         public Map<String,String> options=new LinkedHashMap<>();
         public Frame(){}
         Frame(String instruction,String before,String after,String expected){this.instruction=instruction;this.before=before;this.after=after;this.expected=expected;}
