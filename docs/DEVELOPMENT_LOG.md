@@ -1,3 +1,9 @@
+## 2026-10-07 — Triangular prism surface relationships
+
+The helper collects the four public dimensions before learner-calculated base area, base perimeter, lateral sum and surface area. Named relationships replace supplied intermediate numbers. Triangle divisor2 and two-base factor2, right-triangle conditions and units remain. Normal generated/saved paths use versioned draft migration and no main-answer transfer. Curated English/Portuguese and decimal/fraction keypad are connected.
+
+Local1042 and separate public engine726 tests pass.600 public prompts are solved independently; answer-key/input independence, wrong entries, saved fractional dimensions and old/new draft restoration remain covered. Initial legacy-only English lookup failed and was repaired through the actual curated handler without reducing original geometry checks. Actual normal Kenya Grade8 practice enters four givens and three intermediates, corrects a reading error and leaves final helper/main blank; small-phone controls are visible. Final completion and physical/student proof remain unverified. See MATH_PRISM_SURFACE_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Annual compound/change relationships
 
 Helpers collect initial amount, rate and years, convert the percentage, then use named prior-year balances and learner-calculated annual interest/increase/decrease. Computed balances and differences are never supplied. Year numbers are temporal labels and percentage100 remains a definition. Generated and matching saved prompts share the normal teaching path with draft migration and no main-answer transfer. English/Portuguese prompt/step text and decimal/fraction13-key layout are connected.

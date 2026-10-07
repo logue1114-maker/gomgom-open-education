@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app remains active/incomplete",
+  "units": [
+    "triangularPrismSurface"
+  ],
+  "behavior": "Four public dimensions entered by learner, then base area, perimeter, lateral sum and total surface area through named relationships. Eight stages; computed operands never supplied; triangle divisor2 and two-base factor2 preserved. No main-answer transfer.",
+  "migration": "prism-surface-relations-v1 protects new given fields from old calculated drafts; generated/saved public prompt paths connected",
+  "tests": {
+    "engine": {
+      "tests": 726,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 158,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 158,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 726,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": 53.314,
+    "scope": "Normal Kenya Grade8 typed10-question practice1/10; incorrect first reading corrected; four givens and three intermediate values typed, final helper/main blank. All13 decimal/fraction keys and both actions visible on900x1600/400.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 9.813
+  },
+  "apk_sha256": "e633e04f5f456007e79020b737238179ac7aebbd75c8469baa5a3713ca2b78cc",
+  "installed_matches": true,
+  "display": "1080x2400 /420 restored",
+  "test_alignment": "Initial SolidEnglish instruction check only used the legacy translation handler. Actual curated prism handler added; existing public lengths, units, right-triangle and perpendicular-height checks retained. Initial failure log preserved.",
+  "unverified": [
+    "Final helper/main completion",
+    "Saved fractional dimensions actual device input",
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Remaining helpers",
+    "Worldwide curricula/languages,100-question supply/diversity,long study completion,real ads/billing/release"
+  ],
+  "release": "Only isolated engine and docs public; app/UI/QA/APK/screens private, no homepage or Play deployment"
+}
