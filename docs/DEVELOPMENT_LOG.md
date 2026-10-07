@@ -1,3 +1,7 @@
+## 2026-10-07 — Probability relations from public conditions
+
+Learners enter non-overlapping event counts and total outcomes before adding/dividing; independent-trial helpers collect both public probabilities before multiplication. Computed intermediates are not supplied. Equal likelihood/independence, exact fractions, saved identity, curriculum and no main transfer remain. More100 distinct prompts and answers per unit pass2000 public generation checks. Local1097 and separate public759 tests pass; normal US Common Core Grade7 Android fraction input/error correction/helper completion checked, followed by Kenya profile restoration. UI/screens/student inputs/APK private. See MATH_PROBABILITY_RELATIONS_20261007.json. Whole global app remains incomplete.
+
 ## 2026-10-07 — Similarity measures from public givens
 
 Learners enter public ratio1:k and smaller length/area/volume, calculate the squared/cubed measure ratio and multiply. Computed factors are not supplied. Exact fractions, saved identity, curriculum and no main transfer remain. Supply grows to539 length,539 area,450 volume combinations. Local1092 and separate public756 tests pass; normal US Common Core Grade8/9 Android input/error correction/helper completion checked for all3 units, followed by Kenya profile restoration. UI/screens/student inputs/APK private. See MATH_SIMILARITY_MEASURE_RELATIONS_20261007.json. Whole global app remains incomplete.

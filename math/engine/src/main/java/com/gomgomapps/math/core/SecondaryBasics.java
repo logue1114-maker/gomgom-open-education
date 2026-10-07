@@ -298,11 +298,11 @@ public final class SecondaryBasics {
                 return q(s,"두 닮은 입체의 닮음비가 1:"+k+"입니다. 작은 입체의 부피가 "+a+"일 때 큰 입체의 부피는?",Rational.of(answer),guide,null,"ratio",k,"smallVolume",a);
             }
             case "sec_probability_add":{
-                int total=n(random,6,14);a=n(random,1,total-2);b=n(random,1,total-a-1);Rational result=Rational.of(a+b,total);guide=two("두 사건의 경우의 수를 더하세요.",a+" + "+b+" = ","",a+b,"전체 경우의 수로 나누세요.",(a+b)+" ÷ "+total+" = ","",result.toString());
+                int total=n(random,6,60);a=n(random,1,total-2);b=n(random,1,total-a-1);Rational result=Rational.of(a+b,total);guide=two("두 사건의 경우의 수를 더하세요.",a+" + "+b+" = ","",a+b,"전체 경우의 수로 나누세요.",(a+b)+" ÷ "+total+" = ","",result.toString());
                 return q(s,"같은 가능성의 결과가 "+total+"개이고 서로 겹치지 않는 A가 "+a+"개, B가 "+b+"개입니다. A 또는 B일 확률은?",result,guide,null,"total",total,"a",a,"b",b);
             }
             case "sec_probability_multiply":{
-                a=n(random,2,8);b=n(random,2,8);c=n(random,1,a-1);d=n(random,1,b-1);Rational result=Rational.of((long)c*d,(long)a*b);guide=two("첫 단계 확률을 적으세요.",c+" ÷ "+a+" = ","",Rational.of(c,a).toString(),"두 단계 확률을 곱하세요.",c+"/"+a+" × "+d+"/"+b+" = ","",result.toString());
+                a=n(random,2,20);b=n(random,2,20);c=n(random,1,a-1);d=n(random,1,b-1);Rational result=Rational.of((long)c*d,(long)a*b);guide=two("첫 단계 확률을 적으세요.",c+" ÷ "+a+" = ","",Rational.of(c,a).toString(),"두 단계 확률을 곱하세요.",c+"/"+a+" × "+d+"/"+b+" = ","",result.toString());
                 return q(s,"서로 독립인 두 시행에서 A가 일어날 확률은 "+c+"/"+a+", B가 일어날 확률은 "+d+"/"+b+"입니다. 둘 다 일어날 확률은?",result,guide,null,"aNum",c,"aDen",a,"bNum",d,"bDen",b);
             }
             case "sec_quadratic_vertex":{

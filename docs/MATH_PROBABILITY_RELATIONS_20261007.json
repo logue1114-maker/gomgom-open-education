@@ -1,0 +1,69 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "sec_probability_add",
+    "sec_probability_multiply"
+  ],
+  "behavior": "For non-overlapping events, learners enter the two public counts and total count, calculate the union count then divide by total equally likely outcomes. For independent trials, learners enter both public probabilities then multiply. No supplied calculated intermediate or main transfer. Exact fractions, original saved identity and curriculum remain.",
+  "migration": "probability-relations-v1; generated and saved HelpPlan paths; old calculated-sum drafts reset.",
+  "supply": {
+    "validation": "1000 generated public examples per unit, more100 distinct prompts and answers, all4 correct-option positions",
+    "addition_total_range": [
+      6,
+      60
+    ],
+    "multiplication_denominator_range": [
+      2,
+      20
+    ]
+  },
+  "tests": {
+    "engine": {
+      "tests": 759,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 169,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 169,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 759,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "scope": "Normal United States English Common Core Grade7 typed10 practice. First/final wrong inputs corrected; helpers complete and main blank. Small phone900x1600/400. Public prompt only; no answer metadata or learning-state injection.",
+    "seconds": {
+      "addition": 79.126,
+      "multiplication": 47.752
+    },
+    "restore_kenya_seconds": 13.648,
+    "home_learning_total": 3102,
+    "home_seconds": 15.975
+  },
+  "apk_sha256": "fddd94c8783ab22ebd9af3afc40b7e9d2bd11d5cb77372d15b499fde3da133c6",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "local_visual": "Actual main, intermediate, blank final relation and learner completion screens inspected; emulator only",
+  "unverified": [
+    "Saved0/1/decimal probability input on device",
+    "Reinstall/helper draft restoration on device",
+    "KO/PT/tablet/physical/TalkBack/student understanding",
+    "Other helper units and complete100-question supply",
+    "Worldwide curricula/languages,long study completion,real ads/billing/release"
+  ],
+  "release": "Isolated engine/docs public; UI/QA/screens/APK/student inputs private; no homepage or Play deployment"
+}
