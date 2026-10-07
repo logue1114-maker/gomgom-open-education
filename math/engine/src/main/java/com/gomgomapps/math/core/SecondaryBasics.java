@@ -326,8 +326,8 @@ public final class SecondaryBasics {
                 return q(s,name+"의 값은?",result,guide,null,"type",pick);
             }
             case "sec_trig_height":{
-                a=n(random,3,20);guide=one("45°에서 tan 45°=높이/밑변=1입니다.","높이 = "+a+" × 1 = ","",a);
-                return q(s,"어떤 지점에서 건물 꼭대기를 올려다본 각이 45°이고 건물 밑까지의 수평 거리가 "+a+"m입니다. 눈높이를 0m로 보면 건물 높이는?",Rational.of(a),guide,null,"distance",a);
+                Rational horizontalDistance=Rational.of(n(random,30,200),10);String horizontalText=horizontalDistance.decimalText();guide=one("45°에서 tan 45°=높이/밑변=1입니다.","높이 = "+horizontalText+" × 1 = ","",horizontalDistance);
+                return q(s,"어떤 지점에서 건물 꼭대기를 올려다본 각이 45°이고 건물 밑까지의 수평 거리가 "+horizontalText+"m입니다. 눈높이를 0m로 보면 건물 높이는?",horizontalDistance,guide,null,"distance",horizontalText);
             }
             case "sec_circle_chord":{
                 Rational halfChord=Rational.of(n(random,20,150),10),chordLength=halfChord.mul(Rational.of(2));String halfText=halfChord.decimalText();guide=one("중심에서 현에 내린 수선은 현을 이등분합니다.",halfText+" × 2 = ","",chordLength);

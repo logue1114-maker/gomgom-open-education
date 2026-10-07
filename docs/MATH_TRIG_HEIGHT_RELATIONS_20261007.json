@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "sec_trig_height"
+  ],
+  "behavior": "Learners enter public horizontal distance, derive the height/base ratio from equal legs of a45-degree right triangle, and multiply distance by tan45. No prefilled numerical calculation, supplied intermediate or main transfer. Elevation angle45degrees, eye height0m, length units, exact fractions, saved identity and curriculum remain.",
+  "migration": "trig-height-relations-v1; generated and saved HelpPlan paths. Old single-answer draft resets by version even when its value equals the new first public-distance step.",
+  "supply": "171 horizontal distances3..20m in one-decimal increments, replacing18integer prompts.1000 independently calculated public generated examples show more100 distinct prompts and answers, all4 correct-option positions, integer/decimal answers.",
+  "tests": {
+    "engine": {
+      "tests": 766,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 172,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 172,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 766,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "scope": "Normal US Common Core Grade9 typed10 menu, small phone900x1600/400. Three helper stages; first/final wrong inputs corrected. Public prompt only, no answer metadata or learning-state injection. Main blank after help, learner separately types final value and erases without submitting.",
+    "seconds": 74.813,
+    "decimal_input": true,
+    "restore_kenya_seconds": 15.351,
+    "home_learning_total": 3102,
+    "home_seconds": 38.297
+  },
+  "apk_sha256": "0757416f6e8b13a33faaf1f1b2f092b596c1091f0ed00e5c463273012400e60d",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "local_visual": "Main, ratio relation, blank final relation, helper completion and main input inspected; emulator only",
+  "unverified": [
+    "Saved fractions and reinstall/draft restoration on device",
+    "KO/PT/tablet/physical/TalkBack/student understanding",
+    "Main answer submission",
+    "Other helper units and complete100-question supply",
+    "Worldwide curricula/languages,long study completion,real ads/billing/release"
+  ],
+  "release": "Engine/docs public; UI/QA/screens/APK/student inputs private; no homepage/Play deployment or service restart"
+}

@@ -99,7 +99,7 @@ public class SecondaryBasicsTest {
             case "sec_quadratic_opening":return List.of(r(Integer.signum(i(q,"a"))));
             case "sec_quadratic_value":{long delta=i(q,"x")-i(q,"h");return List.of(r(i(q,"a")*delta*delta+i(q,"k")));}
             case "sec_trig_special":return List.of(i(q,"type")==2?Rational.ONE:Rational.of(1,2));
-            case "sec_trig_height":return List.of(r(i(q,"distance")));
+            case "sec_trig_height":return List.of(Expression.number(q.givenNumbers.get("distance")));
             case "sec_circle_chord":return List.of(Expression.number(q.givenNumbers.get("halfChord")).mul(Rational.of(2)));
             case "sec_circle_inscribed":{int a=Integer.parseInt(q.givenNumbers.get("given"));return List.of(r(q.prompt.contains("∠ACB = ")?a*2:a/2));}
             case "sec_circle_tangent":{Rational d=Expression.number(q.givenNumbers.get("distance")),radius=Expression.number(q.givenNumbers.get("radius"));return List.of(d.mul(d).sub(radius.mul(radius)).sqrt());}
