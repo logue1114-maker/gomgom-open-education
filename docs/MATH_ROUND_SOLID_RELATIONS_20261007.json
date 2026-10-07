@@ -1,0 +1,70 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "sec_cone_volume",
+    "sec_sphere_volume"
+  ],
+  "behavior": "Learner enters public radius/height, calculates square/cube and cylinder coefficient, then exact volume coefficient with named relationships. No supplied calculated intermediate values or main-answer transfer. Original exact(box)pi questions,3/4/power definitions and curriculum bounds remain.",
+  "migration": "round-solid-volume-relations-v1; generated/saved paths. Display geometry is derived without mutating question identity or persisted original diagrams.",
+  "diagrams": "Six relevant surface/volume displays derive public lengths for schematic cuboid,cylinder,cone with perpendicular height or slant length,and sphere. Shape labels placed outside edges. Exact original questions/units retained; no invented cm for unitless coefficient questions. Other diagram fallback preserves InteriorAngleDiagram.",
+  "tests": {
+    "engine": {
+      "tests": 742,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 163,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 163,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 742,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": {
+      "cone": 57.558,
+      "sphere": 45.621
+    },
+    "scope": "Normal Kenya English Grade9 typed10 practices1/10, incorrect first length corrected, all length and intermediate inputs entered. Last relations captured blank, final error corrected and helpers completed with learner-entered exact final values; main answers remain blank.",
+    "helper_completed": {
+      "cone": true,
+      "sphere": true
+    },
+    "main_submissions": 0,
+    "restored_surface_seconds": 25.748,
+    "diagram_samples_seconds": 47.053,
+    "home_learning_total": 3102,
+    "home_seconds": 13.701,
+    "compact_main_seconds": 51.803,
+    "version_scope": "Volume completion/saved sphere/helper diagram inputs verified onV1. V2 reduces small-phone main diagram height to80dp; cuboid prompt/shape/blank answer completely displayed. Initial cylinder still hid answer because Grade8 cylinder was missing from compact control predicates. V3 includes all six solid units in those predicates and resumes same unentered cylinder, then checks cone. Other helper logic unchanged; V3 home/hash verified."
+  },
+  "apk_sha256": "26790f70742a71eb2e8f0eace59b0003665af4fad40a1142f9c73fb4bbddfec7",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "initial_failure": "Local/public each2 saved-fractional tests detected that replacing persisted diagram changed question signature. Fixed with pure BasicSolidDiagram display factory; identity assertion kept. Initial logs retained.",
+  "unverified": [
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Saved fractional length input on device",
+    "Other old drafts and full inventory migration",
+    "Remaining helpers including regularPolygonArea/pyramidVolume",
+    "Worldwide curricula/languages,100-question supply/diversity,long study completion,real ads/billing/release"
+  ],
+  "release": "Isolated engine/docs public; app/UI/QA/screens/APK private, no homepage or Play deployment",
+  "native_initial_failure": "Diagram sample check first passed cuboid, then asserted cylinder accessibility before the dialog finished rendering. Later failure screenshot/tree shows the expected cylinder description and diagram. QA now waits up to5s for that exact live description; skips guarded cuboid and resumes the same unentered cylinder exercise. Initial53.801s failure retained; no app-data reset or completed calculation replay.",
+  "previous_apk_sha256": "6906dda2d49119496a85f89decb0aaf045714d505783845dc11e7322e49912ee",
+  "layout_initial_failure": "V2 main test50.208s: cuboid passed; cylinder answer0percent visible. V3 fixes missing compact predicate for cylinder; assertion retained. QA compilation first failed on Android Files.readString; changed to readAllBytes without product change. Initial logs/screens retained."
+}

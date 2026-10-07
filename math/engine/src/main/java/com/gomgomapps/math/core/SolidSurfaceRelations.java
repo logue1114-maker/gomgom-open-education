@@ -37,4 +37,5 @@ public final class SolidSurfaceRelations {
    .step("반지름의 제곱에 4를 곱해 π계수를 구하세요.","4 × 반지름 제곱 = ","",radius.pow(2).mul(Rational.of(4)).toString());}
   q.studyGuide=g;
  }
+ private static double value(Rational v){return v.n.doubleValue()/v.d.doubleValue();}
 }

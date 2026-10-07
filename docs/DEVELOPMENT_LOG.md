@@ -1,3 +1,11 @@
+## 2026-10-07 — Round solid volume relationships and schematic solids
+
+Small-phone main diagrams use80dp height. An actual Grade8 cylinder check found its answer hidden because it lacked the compact control predicate; all six relevant solid units now use that layout. The same unentered cylinder and normal cone flow pass with the full prompt, diagram and blank answer visible. Cuboid visibility passed before that predicate correction. Volume helper inputs were verified onV1; the final installedV3 adds the main-layout correction without changing those helpers.
+
+Cone and sphere volume helpers now collect public lengths, learner-calculated powers and cylinder coefficients before exact final division by3. Named relationships replace supplied intermediate results;3/4/power definitions, exact pi coefficient questions, no main-answer transfer and versioned draft restoration remain. Curated English/Portuguese and fraction/decimal keys are connected.
+
+A pure display factory derives six relevant schematic solid diagrams from public lengths, distinguishing perpendicular height from slant length. Saved question signatures and original diagrams stay unchanged. Initial saved-fractional identity tests detected diagram mutation; code was fixed while preserving the assertions. Local1068 and separate public742 tests pass. Normal Android small-phone cone/sphere practices verify initial/final error correction and helper completion with the main answers blank. An existing surface draft restores after reinstall without re-entering values; normal cuboid/cylinder/slant-cone screens verify the diagrams. See MATH_ROUND_SOLID_RELATIONS_20261007.json. Physical/student/remaining-app proof is incomplete.
+
 ## 2026-10-07 — Solid surface relationships
 
 Cuboid, cylinder, cone and sphere surface helpers now collect public lengths and learner-calculated face areas or exact pi coefficients. Named relationships replace supplied intermediate values. Definitions, exact coefficient questions, curriculum limits and versioned saved-input restoration remain. No main-answer transfer.

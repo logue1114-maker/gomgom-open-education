@@ -75,7 +75,7 @@ public final class HelpPlan {
         SimpleGeometryRelations.attach(q);
         ElementarySplitAngleRelations.attach(q);
         ElementaryGraphRelations.attach(q);
-        ProportionalPairRelations.attach(q);ScaleRelations.attach(q);HireInterestRelations.attach(q);AnnualChangeRelations.attach(q);PrismSurfaceRelations.attach(q);SectorPerimeterRelations.attach(q);CuboidSurfaceRelations.attach(q);SectorCoefficientRelations.attach(q);SolidSurfaceRelations.attach(q);WorkRateRelations.attach(q);
+        ProportionalPairRelations.attach(q);ScaleRelations.attach(q);HireInterestRelations.attach(q);AnnualChangeRelations.attach(q);PrismSurfaceRelations.attach(q);SectorPerimeterRelations.attach(q);CuboidSurfaceRelations.attach(q);SectorCoefficientRelations.attach(q);SolidSurfaceRelations.attach(q);RoundSolidVolumeRelations.attach(q);WorkRateRelations.attach(q);
         FactorTeaching.attach(q);
         ColumnArithmeticTeaching.attach(q);
         if(q!=null)RadicalTeaching.attach(q);
