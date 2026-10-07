@@ -1,0 +1,61 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; global product remains active/incomplete",
+  "units": [
+    "el_bar_graph",
+    "el_line_graph"
+  ],
+  "stages": [
+    3,
+    3
+  ],
+  "behavior": "Learner reads largest/smallest bar values or January/April line values before a named subtraction relationship. Increasing/decreasing order is preserved; no solved extrema or endpoint operands are prefilled and no main-answer transfer.",
+  "migration": "elementary-graph-relations-v1 clears incompatible old helper results and restores new checked readings. Generated and supported saved public Korean graph prompts convert; unsupported historical formats unverified.",
+  "tests": {
+    "engine": {
+      "tests": 709,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 152,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 152,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 709,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": 32.259,
+    "readback_seconds": 17.983,
+    "final_labels_seconds": 19.909,
+    "scope": "Normal Ghana B4 typed bar-chart practice1/10. Largest/smallest values entered with wrong-largest feedback; final difference helper/main blank, graph/input/keys/actions visible.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 10.855
+  },
+  "apk_sha256": "484470ac95e0c8e97d65e7ee93e00f6629c7af2b3e339aa7fa2bb3f270c38b83",
+  "installed_hash_matches": true,
+  "default_display": "1080x2400 / 420 restored",
+  "unverified": [
+    "Line graph actual device flow",
+    "Final difference completion",
+    "Other previously pending helper UI/physical-device/student proof",
+    "Small pools and100-question diversity",
+    "Global curricula/languages, long study completion, ads/billing/release"
+  ],
+  "initial_native_failure": "Long prompt exceeded the small-phone scrolling viewport before helper input. Enabled existing compact foundation layout for both graph units and shortened curated prompt; rebuilt v2 and reused the same unfinished problem. Actual v2 screenshot showed overlapping weekday labels; v3 fits all graph labels to the per-category width at one uniform text size, then restores the same blank helper without calculation replay.",
+  "release": "Engine/docs only; no homepage or Play deployment"
+}

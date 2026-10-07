@@ -1,3 +1,9 @@
+## 2026-10-07 — Elementary graph relationships
+
+Bar-chart help collects largest/smallest readings before their named difference. Line-graph help collects January/April readings before subtraction ordered for increase or decrease. It no longer supplies the selected values in the formula or transfers a main answer. New teaching version clears incompatible old result drafts and restores confirmed readings. English/Portuguese prompts, chart labels and relationships use consistent curated text in both translation paths.
+
+Local1013 and separate public engine709 tests passed, including500 public-data examples per unit, both directions, tied bars, answer-key independence and draft migration. Actual normal Ghana B4 bar-chart practice entered readings with wrong-largest correction and retained blank helper/main final fields. Small-phone actual inspection found an overflowing original prompt and overlapping weekday chart labels. Existing compact foundation layout, shorter curated text and uniformly fitted chart labels were applied and the same unfinished problem restored without retyping. Line-graph device input and final difference completion remain unverified. See MATH_GRAPH_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Proportional division and elementary angle relationships
 
 Proportional division collects both ratio terms and total before sum, one-share division and two-part multiplication. Both main answer fields remain; the helper transfers neither. Given/added angles are entered before named right-angle subtraction/addition; concept constants remain. A new teaching version clears incompatible old draft meanings while restoring new confirmed operands. Curated English/Portuguese text takes precedence in both translation paths.
