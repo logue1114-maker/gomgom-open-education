@@ -1,0 +1,51 @@
+{
+  "units": [
+    "el_length_mm_cm",
+    "el_length_m_cm",
+    "el_length_km_m",
+    "el_length_add_sub",
+    "el_length_mixed",
+    "el_capacity_l_ml",
+    "el_capacity_add_sub",
+    "el_capacity_mixed",
+    "el_mass_kg_g",
+    "el_mass_t_kg",
+    "el_mass_add_sub",
+    "el_mass_mixed"
+  ],
+  "teachingVersion": "measure-unit-relations-v1",
+  "method": "Published quantities -> blank unit relationships -> previously accepted learner inputs only.",
+  "invariants": [
+    "Existing unit sizes and operand bounds retained.",
+    "Problem-specific calculations are never prefilled or transferred.",
+    "Guides read the public prompt, not hidden expressions or answers.",
+    "Direct ElementaryBasics creation and normal Generator/HelpPlan paths connected.",
+    "Old drafts reset; new partial drafts restore."
+  ],
+  "generation": "Six scalar conversion units also generate addition/subtraction of two quantities in the same unit, then convert. Each of twelve units has at least 100 distinct public prompts in 1200 samples. This does not claim 100 distinct answers or numeric facts.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 857,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 219,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 219,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "checks": "Independent physical-unit oracle, original checker, zero and reverse conversion, source bounds, old/new draft and hidden metadata mutation.",
+  "limits": "Engine and translation tests. No assertion of all countries, physical devices, learner comprehension or release readiness."
+}

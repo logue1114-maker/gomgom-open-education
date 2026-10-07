@@ -259,14 +259,14 @@ public final class ElementaryBasics {
     private static Question number(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer.toString());
-        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);
+        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);
         return question;
     }
 
     private static Question numberText(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                        String answerText,boolean decimal,StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answerText);
-        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);
+        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);
         return question;
     }
 
@@ -277,14 +277,14 @@ public final class ElementaryBasics {
         Question question=new Question(skill.id,prompt,expression,answerTexts);
         question.kind="pair";
         if(labels!=null)question.labels=labels;
-        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);
+        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);
         return question;
     }
 
     private static Question symbol(Catalog.Skill skill,String prompt,String expression,String answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer);
-        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);
+        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);
         return question;
     }
 
@@ -595,7 +595,16 @@ public final class ElementaryBasics {
         return numbers(skill,prompt,"",labels("주일","일"),frames,null,Rational.of(total/7),Rational.of(total%7));
     }
 
+    private static Question variedUnitConversion(Catalog.Skill skill,Random random,String large,String small,int scale,int maximum){
+        boolean add=random.nextBoolean(),forward=random.nextBoolean();int a,b;
+        if(add){a=n(random,1,maximum-1);b=n(random,1,maximum-a);}else{a=n(random,1,maximum);b=n(random,1,a);}
+        String source=forward?large:small,target=forward?small:large;int left=forward?a:a*scale,right=forward?b:b*scale,total=add?a+b:a-b;
+        String op=add?"+":"−",expression="("+left+(add?"+":"-")+right+")"+(forward?"*":"/")+scale;
+        return number(skill,left+source+" "+op+" "+right+source+" = □"+target,expression,Rational.of(forward?total*scale:total),null,null);
+    }
+
     private static Question lengthMmCm(Catalog.Skill skill,Random random){
+        if(random.nextInt(3)!=0)return variedUnitConversion(skill,random,"cm","mm",10,99);
         int cm=n(random,1,99);
         if(random.nextBoolean())return number(skill,cm+"cm는 몇 mm인가요?",cm+"*10",Rational.of(cm*10),
                 guide(step("cm를 mm로 바꿉니다.",cm+" × 10 = ","mm",cm+"*10")),null);
@@ -605,6 +614,7 @@ public final class ElementaryBasics {
     }
 
     private static Question lengthMCm(Catalog.Skill skill,Random random){
+        if(random.nextInt(3)!=0)return variedUnitConversion(skill,random,"m","cm",100,20);
         int metres=n(random,1,20);
         if(random.nextBoolean())return number(skill,metres+"m는 몇 cm인가요?",metres+"*100",Rational.of(metres*100),
                 guide(step("m를 cm로 바꿉니다.",metres+" × 100 = ","cm",metres+"*100")),null);
@@ -614,6 +624,7 @@ public final class ElementaryBasics {
     }
 
     private static Question lengthKmM(Catalog.Skill skill,Random random){
+        if(random.nextInt(3)!=0)return variedUnitConversion(skill,random,"km","m",1000,20);
         int km=n(random,1,20);
         if(random.nextBoolean())return number(skill,km+"km는 몇 m인가요?",km+"*1000",Rational.of(km*1000),
                 guide(step("km를 m로 바꿉니다.",km+" × 1000 = ","m",km+"*1000")),null);
@@ -648,6 +659,7 @@ public final class ElementaryBasics {
     }
 
     private static Question capacityLMl(Catalog.Skill skill,Random random){
+        if(random.nextInt(3)!=0)return variedUnitConversion(skill,random,"L","mL",1000,20);
         int litres=n(random,1,20);
         if(random.nextBoolean())return number(skill,litres+"L는 몇 mL인가요?",litres+"*1000",Rational.of(litres*1000),
                 guide(step("L를 mL로 바꿉니다.",litres+" × 1000 = ","mL",litres+"*1000")),null);
@@ -673,6 +685,7 @@ public final class ElementaryBasics {
     }
 
     private static Question massKgG(Catalog.Skill skill,Random random){
+        if(random.nextInt(3)!=0)return variedUnitConversion(skill,random,"kg","g",1000,50);
         int kg=n(random,1,50);
         if(random.nextBoolean())return number(skill,kg+"kg는 몇 g인가요?",kg+"*1000",Rational.of(kg*1000),
                 guide(step("kg를 g로 바꿉니다.",kg+" × 1000 = ","g",kg+"*1000")),null);
@@ -682,6 +695,7 @@ public final class ElementaryBasics {
     }
 
     private static Question massTKg(Catalog.Skill skill,Random random){
+        if(random.nextInt(3)!=0)return variedUnitConversion(skill,random,"t","kg",1000,8);
         int tonnes=n(random,1,8);
         if(random.nextBoolean())return number(skill,tonnes+"t는 몇 kg인가요?",tonnes+"*1000",Rational.of(tonnes*1000),
                 guide(step("t을 kg로 바꿉니다.",tonnes+" × 1000 = ","kg",tonnes+"*1000")),null);

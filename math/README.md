@@ -133,3 +133,7 @@ Five existing units now use blank learner-entered rounding steps: natural-number
 `TimeUnitRelations`는 시간·분·초 및 주일·일 변환과 시각 덧셈·차 9개 단원에서 공개 문제의 값을 학생 입력으로 연결합니다. 1시간=60분, 1분=60초, 1주일=7일이라는 고정 단위 관계를 제시하고 계산칸은 비웁니다. 원래 문제·정답·선택지·국가별 생성 범위를 유지하며 도움 답을 본문으로 자동 전송하지 않습니다. 화면의 참고값은 이전 단계에서 학생이 입력하고 확인한 값입니다.
 
 옛 도움 초안은 새 관계식 버전으로 갱신하고, 새 버전의 부분 입력은 복원합니다. 공개 원문의 수로 별도 계산한 oracle, 0 나머지·시각 자리 넘김·잘못된 시각, 모든 단원 각600개 생성·100개 이상 서로 다른 문제와 기존 정답 채점을 검사했습니다. 이는 엔진 검사이며 실물 기기·학생 이해·모든 교육과정 지원이나 출시 완료를 뜻하지 않습니다. [검사 범위](../docs/MATH_TIME_UNIT_RELATIONS_20261008.json)
+
+### Length, capacity and mass relationships (2026-10-08)
+
+Twelve units use blank learner-entered quantities and unit relationships. Fixed definitions such as 1 L = 1000 mL teach the unit; the learner supplies the calculation. Mixed quantities convert the larger part before combining it with the smaller part. Main answers are never filled by help. Six conversion units now include adding or subtracting two quantities before conversion, within the existing operand bounds. Each unit has at least 100 distinct public prompts in 1200 generated samples, without claiming 100 distinct answers or numeric facts. Direct question creation, normal generation and restored help use the same relationship guide. See [scope and validation](../docs/MATH_MEASURE_UNIT_RELATIONS_20261008.json).
