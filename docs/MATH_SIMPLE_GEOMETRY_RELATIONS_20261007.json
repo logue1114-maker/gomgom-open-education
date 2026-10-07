@@ -1,0 +1,74 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; global product remains incomplete",
+  "units": [
+    "el_rectangle_area",
+    "el_square_area",
+    "el_parallelogram_area",
+    "el_circle_area",
+    "el_circle_circumference",
+    "el_rect_prism_volume",
+    "el_rect_prism_surface",
+    "el_cube_volume",
+    "el_cube_surface"
+  ],
+  "stages": [
+    3,
+    2,
+    3,
+    3,
+    3,
+    5,
+    8,
+    3,
+    3
+  ],
+  "behavior": "Public cm measurements are entered by the learner, followed by independently checked calculations. Templates show relationships; only mathematical constants 2, 6 and prescribed 3.14 remain. No transfer to the main answer.",
+  "migration": "simple-geometry-relations-v1 clears incompatible old helper entries and preserves new checked entries. Historical prompts without supported cm measurements remain outside this conversion.",
+  "tests": {
+    "engine": {
+      "tests": 693,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 146,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 146,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 693,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "initial_v1_circle_full_helper_seconds": 47.088,
+    "final_v2_circle_blank_result_preview_seconds": 48.143,
+    "prior_triangle_completed_restore_v1_seconds": 21.023,
+    "home_learning_total": 3102,
+    "home_seconds": 7.266,
+    "main_submissions": 0,
+    "final_scope": "Normal Australia Year8 circle-area menu, 10-question typed practice. Measurements and radius product typed, final result left blank; all keys, input and actions visible. Other eight new unit device flows unverified."
+  },
+  "failure": "Final copy-preview first failed before practice selection following redundant activity launch. QA now reuses its already-open home, without learner-state injection. Successful retry used normal controls; original failure retained.",
+  "apk_sha256": "cd57d62fc5d628d0f71c0a26d91a5eca4a289b2089702da7822e56a9caa9ed13",
+  "installed_hash_matches": true,
+  "default_display": "1080x2400 / 420 restored",
+  "unverified": [
+    "Other eight new geometry helpers on device",
+    "100-question supply/diversity for small one-measure pools",
+    "Remaining angle-sum, ratio and other helper candidates",
+    "Global curricula/languages, long study completion, physical-device/accessibility/student understanding, ads/billing/release"
+  ],
+  "release": "No homepage or Play deployment; source/docs only"
+}

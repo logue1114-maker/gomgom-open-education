@@ -1,3 +1,9 @@
+## 2026-10-07 — Nine additional geometry relationship helpers
+
+Rectangle, square, parallelogram and circle area/circumference, cuboid volume/surface and cube volume/surface now collect public measurements before calculation. Named relationship templates leave the main answer blank; versioned helper restoration clears incompatible old values. English/Portuguese templates were checked locally.
+
+Local 985 and independent public engine693 tests passed, including 500 independently derived examples per unit. Actual normal circle practice completed the initial helper and checked final copy on a new pending blank-result helper without main submissions. Prior completed triangle help restored; normal home retained3102. Final APK matches installed bytes. Other new unit device flows and 100-question diversity in small one-measure pools remain unverified. Existing angle-sum/ratio helpers still need correction. See MATH_SIMPLE_GEOMETRY_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Learner-entered elementary area relationships
 
 Triangle, rhombus and trapezoid area helpers now collect the public lengths before arithmetic, show named relationships, and leave the main answer blank. Four/four/six stages retain exact half-area results; versioned draft migration clears old intermediate values and preserves checked new entries. Curated English/Portuguese text and a compact keypad were checked locally.
