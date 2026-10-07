@@ -161,3 +161,7 @@ Four elementary units now use learner-entered ratio terms, numerator/reference-d
 ### Trapezoid and rhombus perimeters (2026-10-08)
 
 Two perimeter units now use learner-entered side lengths, pair sums or the fixed count of four equal rhombus sides. Side lengths remain 2..20 and trapezoids retain the original scale 1..4 right-triangle construction. Pure lengths remain alongside bounded addition/subtraction side expressions. Each unit has at least 100 distinct public prompts in 1600 samples, without claiming more than 19 rhombus side values or 76 trapezoid side combinations. Only earlier checked student entries appear as references, and help never fills the main answer. See [scope and validation](../docs/MATH_PERIMETER_BOUNDARIES_20261008.json).
+
+### Decimal places and graph reading (2026-10-08)
+
+Four units now use learner-entered decimal positions/digits or graph counts, units, categories and percentages. Original problem domains and diagrams remain unchanged. Help does not prefill or transfer answers. Each unit has at least 100 distinct public question-plus-diagram combinations in 1600 samples; this does not imply 100 distinct answer facts or an authored question bank. See [scope and validation](../docs/MATH_READING_FOUNDATIONS_20261008.json).

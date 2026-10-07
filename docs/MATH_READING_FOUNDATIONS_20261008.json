@@ -1,0 +1,45 @@
+{
+  "units": [
+    "el_decimal_place",
+    "el_picture_graph",
+    "el_strip_graph",
+    "el_circle_graph"
+  ],
+  "teachingVersion": "reading-foundation-relations-v1",
+  "method": "Public decimal place choice and digit entry; public graph count/unit/product or category/percentage reading.",
+  "invariants": [
+    "No answer metadata, computed prefill or main-answer transfer.",
+    "Original decimal and graph generators, domains and diagrams are unchanged.",
+    "Pictograms retain countable marks; strip/pie diagrams retain all supplied category percentages equally.",
+    "Only earlier checked student values appear as references.",
+    "Obsolete drafts reset; checked partial drafts restore."
+  ],
+  "samples": "1600 samples per unit, at least 100 different public question-plus-diagram combinations. Pictogram prompt alone has four category variants and only eight possible answers; this is not a 100 authored question bank.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 878,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 233,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 233,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "limits": [
+    "Unit tests and normal UI evidence are separate.",
+    "No physical-device, learner-comprehension or release-readiness assertion."
+  ]
+}
