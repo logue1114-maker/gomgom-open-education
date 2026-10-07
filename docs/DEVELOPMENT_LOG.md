@@ -1,3 +1,7 @@
+## 2026-10-07 — Relative frequency from public counts
+
+Relative-frequency helpers now collect public class and total frequencies before learner-entered division. Arbitrary preliminary reduction and supplied reduced intermediates are removed. Exact fractions, original counts/diagrams, curriculum, no main-answer transfer and versioned drafts remain. Local1083 and separate public751 tests pass. Normal Rwanda S2 Android small-phone input/error correction/helper completion verified, then previous Kenya profile restored. UI/screens/student inputs/APK remain private. See MATH_RELATIVE_FREQUENCY_RELATIONS_20261007.json. Remaining app and physical/student proof incomplete.
+
 ## 2026-10-07 — Learner counted mode
 
 Mode helpers now ask learners to count each public value, find the largest frequency, then enter its value. Supplied frequency/answer hints are removed from help. Main/help screens omit legacy precomputed frequency bars while keeping persisted question identity. No main-answer transfer, curriculum and versioned drafts remain. Local1077 and separate public747 tests pass; normal Android small-phone input/error-correction/helper completion verified. UI/screens/student inputs/APK remain private. See MATH_MODE_RELATIONS_20261007.json. Remaining app and physical/student proof incomplete.

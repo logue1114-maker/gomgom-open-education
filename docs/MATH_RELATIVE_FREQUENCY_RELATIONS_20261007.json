@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "sec_relative_frequency"
+  ],
+  "behavior": "Learner enters the two published class/total frequencies and divides class frequency by total frequency. No arbitrary preliminary reduction, supplied reduced intermediate values or main-answer transfer. Original public counts/answer/diagram, curriculum and exact fraction remain.",
+  "migration": "relative-frequency-relations-v1; generated/saved HelpPlan paths. Old reduced-value draft resets; valid versioned public counts restore.",
+  "tests": {
+    "engine": {
+      "tests": 751,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 166,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 166,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 751,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": 34.609,
+    "scope": "Normal country/language/curriculum setup to Rwanda English S2, untouched initial assessment then normal typed10 practice1/10. First public count/final coefficient errors corrected; counts and final entered through visible keys; final relation captured blank; helper completed. No answer metadata or learning-state injection. No main submission.",
+    "restore_kenya_seconds": 28.796,
+    "labels_readback_seconds": 27.766,
+    "home_learning_total": 3102,
+    "home_seconds": 8.116,
+    "version_scope": "Country setup/untouched assessment/main layout failure onV1; main prompt/blank answer and complete help calculations checked onV2. No completed inputs replayed. V3 adds a pure public-count display factory with curated This class/Other classes labels and accessibility description; main readback only, no calculation re-entry. Original saved diagram/signature unchanged.",
+    "fraction_scope": "The observed public counts are equal; final relative frequency is1. Exact noninteger fractions and0 endpoints pass engine tests but were not entered in this device run."
+  },
+  "apk_sha256": "fda0ce9f0b9b96fe63d22e2e77f963ce4d65d890edfb9fce5675907c6475c777",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "unverified": [
+    "Other fractions/endpoints on device",
+    "Reinstall/draft restoration on device",
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Other old drafts and remaining helper audit",
+    "Worldwide curricula/languages,100-question supply/diversity,long study completion,real ads/billing/release"
+  ],
+  "release": "Isolated engine/docs public; app/UI/QA/screens/APK private; no homepage or Play deployment",
+  "native_initial_failure": "Initial25.857s QA expected Menu but the normal home directly shows Settings. QA uses the actual visible Settings entry. Next run reached Rwanda practice and failed because the oversized frequency diagram pushed the main answer out of view. ProductV2 reduces the small-phone main diagram to64dp and includes relative-frequency in compact geometry input/feedback layout; the same unentered question resumed. Initial logs/screens retained; original full-visibility assertions kept.",
+  "diagram_labels": "V2 screenshot exposed mistranslated Classification/Remainder. V3 labels refer to data classes; display factory derives frequencies from public counts without mutating stored question metadata."
+}
