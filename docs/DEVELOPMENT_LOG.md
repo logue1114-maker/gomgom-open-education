@@ -1,3 +1,9 @@
+## 2026-10-07 — Main graph layout and line-graph device input
+
+Small-phone graph practice now shows the question and scale beside the actual chart without duplicating its entire numeric list. Full public data stays in the chart and curated accessibility description; a two-row integer keypad and compact chart leave the answer visible. The same saved bar question was checked without retyping; its existing blank helper stage remains. Normal line-graph practice also read and entered both endpoint values, corrected a wrong first reading and retained blank final difference/main fields.
+
+App/global304 unit tests and product/QA builds passed; engine unchanged and not rerun. Actual main chart/prompt/input/controls visibility and public accessibility data were checked. Initial prompt99 percent visibility failed and chart height was adjusted while retaining full100 percent assertions. Tablet, TalkBack, physical-device/student proof and the other line direction remain unverified. See MATH_GRAPH_MAIN_LAYOUT_20261007.json.
+
 ## 2026-10-07 — Elementary graph relationships
 
 Bar-chart help collects largest/smallest readings before their named difference. Line-graph help collects January/April readings before subtraction ordered for increase or decrease. It no longer supplies the selected values in the formula or transfers a main answer. New teaching version clears incompatible old result drafts and restores confirmed readings. English/Portuguese prompts, chart labels and relationships use consistent curated text in both translation paths.

@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial UI improvement; global product remains active/incomplete",
+  "units": [
+    "el_bar_graph",
+    "el_line_graph"
+  ],
+  "behavior": "Small-phone main prompt keeps question/scale without repeating the full numeric list; all public values remain in the chart and curated full accessibility description. Integer keypad has two rows and the main chart height fits with answer input. Tablet layout and helper stage meanings unchanged.",
+  "tests": {
+    "app": {
+      "tests": 152,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 152,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "engine": "No engine changes or repeated engine suite; prior709 tests/public c183dac evidence remains separate.",
+  "native": {
+    "bar_readback_seconds": 16.522,
+    "bar_scope": "Same saved GhanaB4 bar question1/10, full graph/answer/prompt/main keys/actions simultaneously displayed without scrolling; full data accessible, helper stage2 restored blank without retyping.",
+    "line_seconds": 31.88,
+    "line_scope": "Normal GhanaB6 line-graph practice1/10; main graph and answer visible together, January/April values read from rendered public help prompt and entered, wrong-first feedback corrected, final named difference/helper/main blank.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 10.419
+  },
+  "apk_sha256": "caad9ad0e2ab7dddd0eea75fbc625e68ff21825d8fd854ac438841692a060452",
+  "installed_hash_matches": true,
+  "default_display": "1080x2400 / 420 restored",
+  "initial_failure": "First bar readback found the prompt99 percent visible after input focus scrolled it a few pixels. Adjusted chart height100 to96dp; full100 percent visibility assertion retained. Curated full accessibility prompt also replaces malformed fallback translation.",
+  "unverified": [
+    "Other line direction device flow",
+    "Final main/helper difference completion",
+    "Tablet/physical-device/TalkBack/student understanding",
+    "Remaining helper corrections, global curricula/languages, study completion, ads/billing/release"
+  ],
+  "release": "Public docs only; app/UI/QA/APK private, no homepage or Play deployment"
+}
