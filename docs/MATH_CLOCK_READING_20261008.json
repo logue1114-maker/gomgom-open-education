@@ -1,0 +1,45 @@
+{
+  "units": [
+    "el_clock_hour",
+    "el_clock_minute",
+    "el_clock_second"
+  ],
+  "teachingVersion": "clock-reading-relations-v1",
+  "method": "Read publicly drawn hands into blank hour/minute/second fields. Fine readings separate the last large mark and remaining small marks before addition.",
+  "invariants": [
+    "Only public diagram values used; hidden answers and expressions do not define teaching.",
+    "Original question quantities, signatures and curriculum minute resolution retained.",
+    "Fixed five-minute/five-second interval and twelve-as-zero rules are concepts, not prefilled computed results.",
+    "References contain only earlier checked learner values.",
+    "No main-answer transfer.",
+    "Obsolete drafts reset; checked partial drafts restore."
+  ],
+  "samples": "Each primitive clock unit: 1200 generated samples with at least 100 distinct public clock drawings. This does not mean 100 different prompts, answers, facts or an authored problem bank.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 863,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 222,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 222,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "limits": [
+    "Tests and normal-UI evidence are separate.",
+    "No assertion of physical-device, learner-comprehension or release readiness."
+  ]
+}
