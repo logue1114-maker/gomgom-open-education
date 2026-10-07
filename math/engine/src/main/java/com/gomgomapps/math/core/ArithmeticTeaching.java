@@ -6,6 +6,8 @@ final class ArithmeticTeaching {
   ColumnArithmeticTeaching.attach(q);
   WholeNumberRelations.attach(q);
   FactRelations.attach(q);
+  RepeatedGroupingRelations.attach(q);
+  WholeProductRelations.attach(q);WholeDivisionRelations.attach(q);
   if(FractionReductionRelations.supports(q.skillId)){FractionReductionRelations.attach(q);return;}
   BasicAlgebraRelations.attach(q);
  }

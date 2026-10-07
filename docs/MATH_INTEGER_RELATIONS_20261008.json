@@ -1,0 +1,98 @@
+{
+  "units": [
+    "mulIntro",
+    "mul2",
+    "mul3",
+    "mul22",
+    "el_mul_3x2",
+    "divide2",
+    "remainder",
+    "el_div_2x2_rem",
+    "el_div_3x2_rem"
+  ],
+  "teachingVersions": [
+    "repeated-grouping-relations-v1",
+    "whole-product-relations-v1",
+    "whole-division-relations-v1"
+  ],
+  "behavior": "Original public givens only. Four repeated-grouping forms preserve their intended missing amount or group count. Multi-digit products split both factors into single-digit table facts and place-value products before addition. Division follows the original left prefix, quotient digit, product, subtraction and next digit, then final quotient and optional remainder. Every result is entered by the learner; blank relationships never transfer into the main answer. Old numeric guides and drafts refresh; current partial drafts restore.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 846,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 209,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 209,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "public engine",
+      "tests": 846,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "sourceManifest": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/RepeatedGroupingRelations.java",
+      "sha256": "2ee414fbe9da2a0e7ef837dd8161b5b6cc6a0477327f84c424c6010f11e66021",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/WholeProductRelations.java",
+      "sha256": "c9ecf4667e6d9a6ecb610fa0edd5ec3c0d7b0420f6f86b2a1994ee8a7af92d82",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/WholeDivisionRelations.java",
+      "sha256": "e214b4d4790404c609c902a076336c531463e54de58c17ff28d45697aa897f26",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/ArithmeticTeaching.java",
+      "sha256": "64df74bf5b5950ce8fbaf13603147676ccc6c7635735efd403c7e70fc8ddf645",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/HelpPlan.java",
+      "sha256": "ae16ac9bce9758f111251687ffdc78f46e7cff2fd3fe47758ceea07c5caed2d4",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/NumberFoundations.java",
+      "sha256": "65d5cb94ef98b01b4b9a7840ec4ac11234b1437958a541358d0ad473d8540885",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/WholeIntegerBatchTest.java",
+      "sha256": "2bc8dc51d18cc9c9c75e19566080e93822ae962f31d88431b13ebe6e0f8bb777",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/NumberFoundationsTest.java",
+      "sha256": "77354ad072519eba47f1d1883d1abd334d491ab01869c4fc25d1666cd4fccc02",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/KenyaWholeCurriculumTest.java",
+      "sha256": "697073ce60be19c14bbb8b7f047ee6c0079587ddd6ca0492f3b60848055add57",
+      "public": true
+    }
+  ],
+  "diversity": "Each of the nine existing default units produced at least 100 distinct public problem forms in 600 samples. Repeated-grouping forms are counted as forms, not as 100 unique numeric facts. Existing country-specific ranges, answers, choices and signatures remain unchanged; Kenya Grade6 four-digit products and division are independently checked.",
+  "remaining": "Other units and whole-app/world curriculum, languages, timed study, device, accessibility, advertising, payment and release coverage remain incomplete. UI, QA, images, student entries and APK stay private."
+}

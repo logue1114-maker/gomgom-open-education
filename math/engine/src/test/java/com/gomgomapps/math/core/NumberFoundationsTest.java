@@ -43,7 +43,7 @@ public class NumberFoundationsTest {
             Question q=g.next("mulIntro",recent,true);int expected=solve(q);assertEquals(""+expected,q.answers[0]);
             assertFalse(recent.contains(q.signature()));recent.add(q.signature());if(recent.size()>100)recent.remove(0);all.add(q.signature());
             String equation=q.prompt.split("\\n")[0];String mode=q.prompt.contains("씩 ")?"groups":equation.endsWith("= □")?"sum":equation.contains("= □ ×")?"each":"count";modes.add(mode);
-            HelpPlan h=HelpPlan.forQuestion(q);assertEquals(1,h.size());assertTrue(h.step(0).accepts(""+expected));assertFalse(h.step(0).accepts(""+(expected+1)));
+            HelpPlan h=HelpPlan.forQuestion(q);assertFalse(h.canTransfer());assertTrue(h.step(h.size()-1).accepts(""+expected));assertFalse(h.step(h.size()-1).accepts(""+(expected+1)));
             assertTrue(new Checker().check(q,List.of(),List.of(""+expected)).correct());assertFalse(new Checker().check(q,List.of(),List.of(""+(expected+1))).correct());
             assertEquals(4,q.choices.size());assertEquals(4,new HashSet<>(q.choices).size());positions.add(q.correctChoice);assertEquals(q.answers[0],q.choices.get(q.correctChoice));
         }

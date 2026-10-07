@@ -52,8 +52,9 @@ public class KenyaWholeCurriculumTest {
             if(id.equals("el_mul_3x2"))expected=List.of(String.valueOf(v.get(0)*v.get(1)));
             else{
                 long quotient=v.get(0)/v.get(1),rest=v.get(0)%v.get(1);expected=List.of(String.valueOf(quotient),String.valueOf(rest));exact|=rest==0;remainder|=rest>0;
-                HelpPlan help=HelpPlan.forQuestion(q);assertEquals(2,help.size());assertFalse(help.canTransfer());
-                assertEquals(v.get(0)+" ÷ "+v.get(1)+" → 몫 = ",help.step(0).before);assertTrue(help.step(0).accepts(expected.get(0)));assertTrue(help.step(1).accepts(expected.get(1)));
+                HelpPlan help=HelpPlan.forQuestion(q);assertTrue(help.size()>2);assertFalse(help.canTransfer());
+                assertEquals("나누어지는 수 = ",help.step(0).before);assertTrue(help.step(0).accepts(String.valueOf(v.get(0))));assertTrue(help.step(1).accepts(String.valueOf(v.get(1))));
+                assertEquals("몫 = ",help.step(help.size()-2).before);assertTrue(help.step(help.size()-2).accepts(expected.get(0)));assertTrue(help.step(help.size()-1).accepts(expected.get(1)));
             }
             assertTrue(new Checker().check(q,List.of(),expected).correct());assertNotNull(VerticalWork.layout(q));
             VerticalWork.Draft draft=new VerticalWork.Draft();int wrongDigit=(Integer.parseInt(expected.get(0).substring(expected.get(0).length()-1))+1)%10;draft.cells.put("answer:0",String.valueOf(wrongDigit));

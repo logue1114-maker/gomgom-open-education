@@ -119,3 +119,7 @@ Eight counting, make-ten, break-ten and three-number addition/subtraction units 
 ### Basic group relationships (2026-10-08)
 
 `tables` and `divide` use blank group relationships for normal equations and either missing operand. Student-entered given values precede the calculation; computed values are never prefilled or transferred. Existing country-specific fact limits and choices remain unchanged. Default division has 72 ordered equations; selected Singapore curricula retain 100 distinct equation forms without claiming 100 distinct numeric facts. See [scope and validation](../docs/MATH_FACT_RELATIONS_20261008.json).
+
+### Whole-number multiplication and division (2026-10-08)
+
+Nine elementary units now use blank learner-entered relationships: repeated groups, multi-digit multiplication, exact division and division with a remainder. Multiplication splits both factors into single-digit facts and place values; division walks through quotient digits, subtraction and bringing down. Helpers preserve existing curriculum ranges and problem forms and never fill the main answer. See [scope and engine validation](../docs/MATH_INTEGER_RELATIONS_20261008.json).

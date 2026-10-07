@@ -37,11 +37,7 @@ final class NumberFoundations {
         int mode=random.nextInt(4),answer=mode==2?groups:mode==3?each:each*groups;
         String sum=String.join(" + ",Collections.nCopies(groups,String.valueOf(each)));
         String prompt=mode==0?each+"씩 "+groups+"묶음은 모두 얼마인가요?":sum+" = "+(mode==1?"□":mode==2?each+" × □":"□ × "+groups)+"\n□에 들어갈 수는?";
-        StudyGuide guide=new StudyGuide();
-        if(mode<=1)guide.step("같은 수를 모두 더하세요.",sum+" = ","",String.valueOf(answer));
-        else if(mode==2)guide.step("같은 수가 몇 번 나오는지 세세요.","묶음의 수 = ","",String.valueOf(groups));
-        else guide.step("한 묶음의 수를 읽으세요.","한 묶음의 수 = ","",String.valueOf(each));
-        Question q=new Question(skill.id,prompt,mode<=1?each+"*"+groups:"",String.valueOf(answer));q.stepSupport=false;q.studyGuide=guide;
+        Question q=new Question(skill.id,prompt,mode<=1?each+"*"+groups:"",String.valueOf(answer));q.stepSupport=false;RepeatedGroupingRelations.attach(q);
         return q.withInputs(each,groups,mode);
     }
 }
