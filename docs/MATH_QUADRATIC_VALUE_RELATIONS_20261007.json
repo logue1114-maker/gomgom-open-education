@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "sec_quadratic_value"
+  ],
+  "behavior": "Learners enter public x,a,h,k from f(x)=a(x-h)^2+k; calculate x-h, square, coefficient product and constant addition. No supplied calculated intermediate or main transfer. Negative/zero/exact fractional values, original saved identity and curriculum remain.",
+  "migration": "quadratic-value-relations-v1; generated and saved HelpPlan paths; old shifted-value drafts reset.",
+  "supply": "Original generation range preserved.1000 generated public examples prove more100 distinct prompts and answers, all4 correct-option positions, negative/zero differences and positive/negative products and final answers.",
+  "tests": {
+    "engine": {
+      "tests": 762,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 170,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 170,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 762,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "scope": "Normal United States English Common Core Grade9 typed10 practice. First/final wrong inputs corrected; helper completed and main blank. Small phone900x1600/400;14 keys include minus, decimal and fraction. Public formula only; no answer metadata or learning-state injection.",
+    "seconds": 71.359,
+    "negative_input": true,
+    "restore_kenya_seconds": 16.316,
+    "home_learning_total": 3102,
+    "home_seconds": 13.765
+  },
+  "apk_sha256": "995eadcfcbff7c57c0ba099c116354fdd9e802a57689a0051fc52be79bfdfad8",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "local_visual": "Actual main, subtraction, product, blank final relation and learner completion screens inspected; emulator only",
+  "unverified": [
+    "Saved fractional coefficients/inputs and zero difference on device",
+    "Reinstall/helper draft restoration on device",
+    "KO/PT/tablet/physical/TalkBack/student understanding",
+    "Other helper units and complete100-question supply",
+    "Worldwide curricula/languages,long study completion,real ads/billing/release"
+  ],
+  "release": "Isolated engine/docs public; UI/QA/screens/APK/student inputs private; no homepage or Play deployment"
+}

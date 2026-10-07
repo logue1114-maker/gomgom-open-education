@@ -1,3 +1,7 @@
+## 2026-10-07 — Quadratic evaluation through learner calculations
+
+Learners enter public x,a,h,k before subtraction, squaring, coefficient multiplication and constant addition. Computed intermediates are not supplied. Negative/zero/exact fractional values, saved identity, curriculum and no main transfer remain. Original supply range kept; more100 distinct prompts and answers pass1000 public generation checks. Local1102 and separate public762 tests pass; normal US Common Core Grade9 Android input/error correction/helper completion checked, followed by Kenya profile restoration. UI/screens/student inputs/APK private. See MATH_QUADRATIC_VALUE_RELATIONS_20261007.json. Whole global app remains incomplete.
+
 ## 2026-10-07 — Probability relations from public conditions
 
 Learners enter non-overlapping event counts and total outcomes before adding/dividing; independent-trial helpers collect both public probabilities before multiplication. Computed intermediates are not supplied. Equal likelihood/independence, exact fractions, saved identity, curriculum and no main transfer remain. More100 distinct prompts and answers per unit pass2000 public generation checks. Local1097 and separate public759 tests pass; normal US Common Core Grade7 Android fraction input/error correction/helper completion checked, followed by Kenya profile restoration. UI/screens/student inputs/APK private. See MATH_PROBABILITY_RELATIONS_20261007.json. Whole global app remains incomplete.
