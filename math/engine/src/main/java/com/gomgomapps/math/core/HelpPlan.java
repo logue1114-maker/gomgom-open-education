@@ -31,6 +31,7 @@ public final class HelpPlan {
             if(!options.isEmpty())return options.containsKey(value.trim())&&value.trim().equals(expected);
             if(requiredFormat.equals("fraction")&&!value.contains("/"))return false;
             if(requiredFormat.equals("decimal")&&(!value.contains(".")||value.contains("/")))return false;
+            if(requiredFormat.equals("decimalValue")&&value.contains("/"))return false;
             if(!general)return value.matches("[0-9]{1,4}")&&Integer.parseInt(value)==Integer.parseInt(expected);
             if(!value.trim().matches("[+−-]?\\d+(?:\\.\\d+)?(?:/[+-]?\\d+)?")&&!Set.of("<",">","=").contains(value.trim()))return false;
             try{return Expression.number(value).equals(Expression.number(expected));}

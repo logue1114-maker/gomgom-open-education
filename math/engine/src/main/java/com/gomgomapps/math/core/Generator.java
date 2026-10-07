@@ -183,14 +183,6 @@ public final class Generator {
                 if(limits.integerSecondOperand())y=Rational.of(n(2,9));
                 if(op.equals("/"))x=y.mul(Rational.of(n(1,99),10));
                 e=x.decimalText()+" "+op+" "+y.decimalText();q=numeric(s,e,e,Expression.number(e));q.decimal=true;
-                if(s.family.equals("decimalMul")&&limits.integerSecondOperand()){
-                    String decimal=x.decimalText();int point=decimal.indexOf('.'),places=point<0?0:decimal.length()-point-1;
-                    int unit=(int)Math.pow(10,places);Rational whole=x.mul(Rational.of(unit)),product=whole.mul(y);
-                    q.studyGuide=new StudyGuide()
-                        .step("소수점을 뺀 수를 쓰세요.",decimal+" → ","",whole.toString())
-                        .step("자연수끼리 곱하세요.",whole+" × "+y+" = ","",product.toString())
-                        .step("원래 소수 자릿수를 맞추세요.",product+" ÷ "+unit+" = ","",x.mul(y).toString()).transfer(false);
-                }
                 return q.withInputs(x,y);
             }
             case "mixed": {

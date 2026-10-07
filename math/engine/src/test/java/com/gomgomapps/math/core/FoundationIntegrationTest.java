@@ -14,7 +14,7 @@ public class FoundationIntegrationTest {
                 String raw=q.studyGuide.frames.get(i).expected,value;
                 try{Rational number=Expression.number(raw);value=i==plan.size()-1&&"decimal".equals(q.answerFormat)?number.decimalText():number.toString();if("fraction".equals(q.answerFormat)&&i==plan.size()-1&&!value.contains("/"))value+="/1";if("decimal".equals(q.answerFormat)&&i==plan.size()-1&&!value.contains("."))value+=".0";}
                 catch(RuntimeException error){value=raw;}
-                if("decimal".equals(q.studyGuide.frames.get(i).inputFormat)){value=Expression.number(raw).decimalText();if(!value.contains("."))value+=".0";}assertTrue(skill.id+" stage "+i+" cannot accept "+value,plan.step(i).accepts(value));
+                if("decimalValue".equals(q.studyGuide.frames.get(i).inputFormat))value=Expression.number(raw).decimalText();if("decimal".equals(q.studyGuide.frames.get(i).inputFormat)){value=Expression.number(raw).decimalText();if(!value.contains("."))value+=".0";}assertTrue(skill.id+" stage "+i+" cannot accept "+value,plan.step(i).accepts(value));
                 while(draft.entries.size()<=i)draft.entries.add("");draft.entries.set(i,value);draft.stage=i+1;
             }
             if(plan.canTransfer())assertTrue(skill.id+" transferred "+plan.enteredAnswer(draft),checker.check(q,List.of(),List.of(plan.enteredAnswer(draft))).correct());

@@ -9,7 +9,7 @@ public class DecimalSignedTeachingTest {
  }
  @Test public void decimalsAlignZerosAndReturnExactPlaceValuesFromVisibleGivens(){
   String[] ids={"decimalAdd","decimalSub","decimalMul","decimalDiv","decimalDivInt"},expr={"1.05 + 0.9","1.05 - 0.9","1.05 * 0.9","0.315 / 0.9","0.3 / 3"};
-  List<List<String>> values=List.of(List.of("100","105","90","195","1.95"),List.of("100","105","90","15","0.15"),List.of("105","9","3","945","0.945"),List.of("1000","315","900","0.35"),List.of("10","3","30","0.1"));
+  List<List<String>> values=List.of(List.of("1.05","0.9","2","100","105","90","195","1.95"),List.of("1.05","0.9","2","100","105","90","15","0.15"),List.of("1.05","0.9","2","1","105","9","945","3","0.945"),List.of("0.315","0.9","1","10","3.15","9","0.35"),List.of("0.3","3","1","10","3","1","0.1"));
   for(int i=0;i<ids.length;i++){Question q=new Question(ids[i],expr[i],expr[i],"999");DecimalTeaching.attach(q);assertEquals(values.get(i),q.studyGuide.frames.stream().map(f->f.expected).toList());}
  }
  @Test public void signedFractionsNormalizeNegativeDenominatorsAndZero(){

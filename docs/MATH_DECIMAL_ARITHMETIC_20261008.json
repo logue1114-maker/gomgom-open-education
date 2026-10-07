@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-08",
+  "units": [
+    "decimalAdd",
+    "decimalSub",
+    "decimalMul",
+    "decimalDiv",
+    "decimalDivInt"
+  ],
+  "teachingVersion": "decimal-arithmetic-relations-v1",
+  "behavior": [
+    "Enter the original visible operands; no numerical prefill or main-answer transfer.",
+    "Addition and subtraction: enter decimal-place count, place-value multiplier, moved operands, whole-number operation and moved-back result.",
+    "Multiplication: enter operand decimal-place counts, whole-number factors, product and moved-back decimal result. Whole-number second operands use a shorter six-stage path.",
+    "Division by decimals moves both operands equally. Division by a whole number moves the dividend and then restores the quotient.",
+    "Place-value instruction uses 10/100 and zero-place multiplier 1 rather than requiring exponent terminology."
+  ],
+  "sourceManifest": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/DecimalArithmeticRelations.java",
+      "sha256": "b6d6b86b8e1e6bdc518b78948984f8a5c99b9246f3134692ef489344823a8f69"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/DecimalTeaching.java",
+      "sha256": "e7a5191d3fa7e7b972aa1d1c7093932cbc5eb7fafadc161f0f1569f7bd119c23"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/FractionConceptRelations.java",
+      "sha256": "d7dad731b6945797a991bfa7bef867772a754e1ad75f6e396d1e0d597eebc31c"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/HelpPlan.java",
+      "sha256": "8d3d8316655167e96c3d42fb9dcfd0d355b3ad9f5dbf977f2d3cb52a58b4e54d"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/Generator.java",
+      "sha256": "ce4cd298e654c95d45d7a6be457243a16291e48bb8ce071e7bd97399423ada84"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/DecimalArithmeticRelationsTest.java",
+      "sha256": "c41691064b5787a920cf921a54edb53967b755c440e23be0fe76cf0884f0586a"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/DecimalSignedTeachingTest.java",
+      "sha256": "601006da186c085762f631a0946151bb8d833f9710c1320ac24b2699031430eb"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/JapanCurriculumTest.java",
+      "sha256": "74c2311596db005f02ff76550021a8161e58a1ea19339e84e4140a67b2549dab"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/AustraliaSecondaryCurriculumTest.java",
+      "sha256": "91c7a920b63b125c2004499eb00aece69b00ed2697517ed0dca951519f5d8a77"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/FoundationIntegrationTest.java",
+      "sha256": "887ee8143ba912c3229909821b18ff8f30aa100490796b6455d0ffe5f2c11250"
+    }
+  ],
+  "validation": "Public engine 832 tests passed. Each decimal unit: 4000 generated prompts, over 100 distinct prompts, independent exact BigDecimal checks. Actual Japan Grade4 and Brazil Grade5 multiplier limits, decimal input formats, serialization and draft restoration passed. App/native/learner evidence stays private.",
+  "remaining": "Full global app scope and other units remain incomplete."
+}

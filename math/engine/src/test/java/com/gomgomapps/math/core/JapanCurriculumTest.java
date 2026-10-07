@@ -21,7 +21,7 @@ public class JapanCurriculumTest {
         for(int i=0;i<500;i++){
             Question q=generator.next("decimalMul",List.of(),i%2==0,integer);assertTrue(integer.allows(q));
             assertEquals(java.math.BigInteger.ONE,q.choiceInputs[1].d);fractionalLeft|=!q.choiceInputs[0].d.equals(java.math.BigInteger.ONE);
-            HelpPlan help=HelpPlan.forQuestion(q);assertNotNull(help);assertEquals(3,help.size());assertFalse(help.canTransfer());
+            HelpPlan help=HelpPlan.forQuestion(q);assertNotNull(help);assertEquals(6,help.size());assertFalse(help.canTransfer());
             if(!q.choices.isEmpty()){boolean integerAnswer=Expression.number(q.answers[0]).isInteger();assertTrue(q.choices.stream().filter(c->Expression.number(c).isInteger()==integerAnswer).count()>=2);}
             for(int step=0;step<help.size();step++){String expected=q.studyGuide.frames.get(step).expected;assertTrue(help.step(step).accepts(expected));assertFalse(help.step(step).accepts(Expression.number(expected).add(Rational.ONE).toString()));}
             Question later=generator.next("decimalMul",List.of(),false,GlobalCurriculum.limits(pack,"decimalMul",5));fractionalGrade5Right|=!later.choiceInputs[1].d.equals(java.math.BigInteger.ONE);
