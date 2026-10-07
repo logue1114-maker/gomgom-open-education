@@ -1,0 +1,104 @@
+{
+  "status": "Progress; whole global app incomplete",
+  "date": "2026-10-07",
+  "units": [
+    "sec_matrix_element",
+    "sec_matrix_add",
+    "sec_matrix_sub",
+    "sec_matrix_scalar",
+    "sec_matrix_product"
+  ],
+  "behavior": "Public row/column and selected entries, symbolic entry sum, opposite-sign subtraction, scalar multiplication and first-row/first-column dot product. Students enter every intermediate. No calculated prefill or main-answer transfer. Original public matrices and ranges preserved.",
+  "versions": [
+    "matrix-element-relations-v1",
+    "matrix-addition-relations-v1",
+    "matrix-subtraction-relations-v1",
+    "matrix-scalar-relations-v1",
+    "matrix-product-relations-v1"
+  ],
+  "supply": "Unchanged generated ranges; each unit tested with1000 public problems and more than100 distinct prompts. Element/scalar use nonzero signed givens; addition/subtraction include zeros; product targets entry(1,1).",
+  "tests": {
+    "engine": {
+      "tests": 780,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 179,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 179,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 780,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "restore_kenya_seconds": 18.251,
+  "home_seconds": 25.913,
+  "home_learning_total": 3102,
+  "apk_sha256": "7b279fafa4b1203aca5fcd213315878d678428cf0980fa502ba3314b19651c13",
+  "installed_matches": true,
+  "display_restored": "1080x2400/420",
+  "initial_failure": "Existing addition/subtraction tests assumed obsolete one/two-step numerical prefill. Updated expectations to student row/column, public entries, opposite sign and final operation; retained public-matrix independent solution checks. Initial local/public failure logs retained. A second local check still routed new help instructions through legacy GeometryEnglish; updated that test to the actual MatrixCalculationText route while preserving legacy public-matrix translation checks.",
+  "native_menu_failure": "Addition initial selected-grade visibility check timed out before selecting a topic or entering calculations (54.18s). Actual final screenshot/XML showed All foundations. Extended normal selected-grade visibility wait from12 to30s in private QA; product APK unchanged. Original log/screens retained.",
+  "native_scope": "Normal US English / All foundations / typed10 / 900x1600/400. Public matrices and normal visible controls, no state injection or answer metadata. One actual case per unit; not all requested matrix positions on a device.",
+  "unverified": [
+    "KO/PT native flow",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old draft migration",
+    "all four matrix positions on device",
+    "general product entries beyond current(1,1) generator"
+  ],
+  "native": {
+    "element": {
+      "seconds": 61.688,
+      "steps": 3,
+      "mainSubmitted": false,
+      "row": 2,
+      "column": 2
+    },
+    "addition": {
+      "seconds": 83.711,
+      "steps": 5,
+      "mainSubmitted": false,
+      "row": 1,
+      "column": 1
+    },
+    "subtraction": {
+      "seconds": 67.266,
+      "steps": 6,
+      "mainSubmitted": false,
+      "row": 2,
+      "column": 2
+    },
+    "scalar": {
+      "seconds": 68.214,
+      "steps": 3,
+      "mainSubmitted": false,
+      "row": 2,
+      "column": 2
+    },
+    "product": {
+      "seconds": 95.101,
+      "steps": 7,
+      "mainSubmitted": false,
+      "row": 1,
+      "column": 1
+    }
+  },
+  "private_scope": "UI/QA/APK/screens/learner inputs not published."
+}

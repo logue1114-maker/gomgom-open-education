@@ -429,25 +429,27 @@ public final class SecondaryBasics {
                 CombinedCountingRelations.attach(multiplication);return multiplication;
             }
             case "sec_matrix_element":{
-                a=signed(random,9);b=signed(random,9);c=signed(random,9);d=signed(random,9);int row=n(random,1,2),col=n(random,1,2);answer=row==1?(col==1?a:b):(col==1?c:d);guide=one("먼저 행을 찾고 그 안에서 열을 찾으세요.","("+row+", "+col+") 성분 = ","",answer);
-                return q(s,"행렬 "+matrix(a,b,c,d)+"의 ("+row+", "+col+") 성분은?",Rational.of(answer),guide,null,"a11",a,"a12",b,"a21",c,"a22",d,"row",row,"col",col);
+                a=signed(random,9);b=signed(random,9);c=signed(random,9);d=signed(random,9);int row=n(random,1,2),col=n(random,1,2);answer=row==1?(col==1?a:b):(col==1?c:d);
+                Question matrixQuestion=q(s,"행렬 "+matrix(a,b,c,d)+"의 ("+row+", "+col+") 성분은?",Rational.of(answer),null,null,"a11",a,"a12",b,"a21",c,"a22",d,"row",row,"col",col);
+                MatrixCalculationRelations.attach(matrixQuestion);return matrixQuestion;
             }
             case "sec_matrix_add":case "sec_matrix_sub":{
                 boolean subtract=s.id.equals("sec_matrix_sub");String operation=subtract?"-":"+";
                 int[] left=new int[4],right=new int[4];for(int i=0;i<4;i++){left[i]=n(random,-9,9);right[i]=n(random,-9,9);}
                 int row=n(random,1,2),col=n(random,1,2),index=(row-1)*2+col-1;answer=left[index]+(subtract?-right[index]:right[index]);
-                if(subtract)guide=two("빼는 성분의 부호를 바꾸세요.","-("+right[index]+") = ","",-right[index],"같은 위치의 첫 성분에 더하세요.",left[index]+" + ("+(-right[index])+") = ","",answer).transfer(false);
-                else guide=one("같은 위치인 ("+row+","+col+") 성분끼리 더하세요.",left[index]+" + ("+right[index]+") = ","",answer).transfer(false);
-                return q(s,"A="+matrix(left[0],left[1],left[2],left[3])+", B="+matrix(right[0],right[1],right[2],right[3])+"일 때 A"+operation+"B의 ("+row+","+col+") 성분은?",Rational.of(answer),guide,null,
+                Question matrixQuestion=q(s,"A="+matrix(left[0],left[1],left[2],left[3])+", B="+matrix(right[0],right[1],right[2],right[3])+"일 때 A"+operation+"B의 ("+row+","+col+") 성분은?",Rational.of(answer),null,null,
                     "a11",left[0],"a12",left[1],"a21",left[2],"a22",left[3],"b11",right[0],"b12",right[1],"b21",right[2],"b22",right[3],"row",row,"col",col);
+                MatrixCalculationRelations.attach(matrixQuestion);return matrixQuestion;
             }
             case "sec_matrix_scalar":{
-                a=signed(random,6);b=signed(random,9);c=signed(random,9);d=signed(random,9);answer=a*d;guide=one("해당 성분에도 같은 실수를 곱하세요.",a+" × ("+d+") = ","",answer);
-                return q(s,"A="+matrix(b,c,0,d)+"일 때 "+a+"A의 (2,2) 성분은?",Rational.of(answer),guide,null,"scalar",a,"a11",b,"a12",c,"a22",d);
+                a=signed(random,6);b=signed(random,9);c=signed(random,9);d=signed(random,9);answer=a*d;
+                Question matrixQuestion=q(s,"A="+matrix(b,c,0,d)+"일 때 "+a+"A의 (2,2) 성분은?",Rational.of(answer),null,null,"scalar",a,"a11",b,"a12",c,"a22",d);
+                MatrixCalculationRelations.attach(matrixQuestion);return matrixQuestion;
             }
             case "sec_matrix_product":{
-                a=signed(random,6);b=signed(random,6);c=signed(random,6);d=signed(random,6);e=signed(random,6);k=signed(random,6);answer=a*e+b*k;guide=two("A의 첫째 행과 B의 첫째 열을 맞추세요.",a+"×"+e+" + "+b+"×"+k,"",answer,"두 곱을 더하세요.",a*e+" + ("+(b*k)+") = ","",answer);
-                return q(s,"A="+matrix(a,b,c,d)+", B="+matrix(e,1,k,0)+"일 때 AB의 (1,1) 성분은?",Rational.of(answer),guide,null,"a11",a,"a12",b,"a21",c,"a22",d,"b11",e,"b21",k);
+                a=signed(random,6);b=signed(random,6);c=signed(random,6);d=signed(random,6);e=signed(random,6);k=signed(random,6);answer=a*e+b*k;
+                Question matrixQuestion=q(s,"A="+matrix(a,b,c,d)+", B="+matrix(e,1,k,0)+"일 때 AB의 (1,1) 성분은?",Rational.of(answer),null,null,"a11",a,"a12",b,"a21",c,"a22",d,"b11",e,"b21",k);
+                MatrixCalculationRelations.attach(matrixQuestion);return matrixQuestion;
             }
             case "sec_point_distance":{
                 int[][] delta={{3,4,5},{5,12,13},{6,8,10},{8,15,17}};int[] t=delta[random.nextInt(delta.length)];x=signed(random,6);y=signed(random,6);int sx=random.nextBoolean()?1:-1,sy=random.nextBoolean()?1:-1;int x2=x+sx*t[0],y2=y+sy*t[1];answer=t[2];guide=two("두 좌표의 차를 각각 구하세요.","Δx="+(x2-x)+", Δy="+(y2-y),"",(x2-x)*(x2-x)+(y2-y)*(y2-y),"차의 제곱합의 제곱근을 구하세요.","√"+(answer*answer)+" = ","",answer);
