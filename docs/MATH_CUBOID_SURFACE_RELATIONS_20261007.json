@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app remains active/incomplete",
+  "units": [
+    "cuboidNetArea",
+    "cuboidSurfacePath"
+  ],
+  "behavior": "Learner enters the three public edges, then three face areas and net area, or three unfolded squared path lengths, their minimum and positive square root. Seven/eight stages; numeric face areas, candidate squares and minimum never supplied. Surface/opposite-vertex conditions, net/solid diagrams,2 definitions, units and partial-expression support preserved; no main-answer transfer.",
+  "migration": "cuboid-surface-relations-v1 prevents old calculations entering new edge fields; generated/saved public prompt paths connected",
+  "tests": {
+    "engine": {
+      "tests": 733,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 160,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 160,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 733,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "net_seconds": 59.984,
+    "path_seconds": 53.958,
+    "scope": "Normal Kenya Grade8 typed10-question practices1/10. Incorrect first edge corrected; public edges and each intermediate face/squared path/minimum typed; final helper/main blank. Actual small-phone intermediate/final relationships captured; final public prompt, input, all13 keys and both actions visible.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 10.639
+  },
+  "apk_sha256": "9bec822ef6da4a2426fbdbb5ea0723ebfe04e682cacbf2725d919351c777b47b",
+  "installed_matches": true,
+  "display": "1080x2400 /420 restored",
+  "test_alignment": "Existing independent surface calculation expected frames prepend three edges read from public prompt. Perimeter, partial-expression,200-distinct choice, diagnosis, serialization and sector-coefficient coverage retained. Original English title/concept scope remains; new instructions checked through actual curated handler.",
+  "unverified": [
+    "Final helper/main completion",
+    "Saved fractional edges and tied shortest path actual device input",
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Remaining helpers",
+    "Worldwide curricula/languages,100-question supply/diversity,long study completion,real ads/billing/release"
+  ],
+  "release": "Only isolated engine and docs public; app/UI/QA/APK/screens private, no homepage or Play deployment"
+}

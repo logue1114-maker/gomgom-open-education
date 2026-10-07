@@ -1,3 +1,9 @@
+## 2026-10-07 — Cuboid net and surface-path relationships
+
+Both helpers collect public edges before learner-computed face areas or three unfolded squared path lengths. Named face areas/minimum replace supplied calculations. The surface-path helper compares all three squared paths before their positive square root. Normal generated/saved paths use versioned draft migration and no main-answer transfer. Surface/opposite-vertex conditions, actual diagrams, units, definition2 and partial-expression support remain. Curated English/Portuguese and decimal/fraction keypad are connected; related changes share one build.
+
+Local1053 and separate public engine733 tests pass.600 public-givens examples per unit independently solve geometry, verify answer-key/input independence and wrong values; saved fractional edges, tied minimum and draft restoration are covered. Existing surface independent solving,200-distinct choice/diagnosis/serialization/partial-expression and sector-coefficient checks retain coverage. Actual normal Kenya Grade8 practices enter givens/intermediates, correct a first edge and leave final helper/main blank; small-phone final public prompt and controls are fully visible. Final completion and physical/student proof remain unverified. See MATH_CUBOID_SURFACE_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Sector perimeter relationships
 
 The helper collects public radius, central angle and the indicated pi before learner-computed circumference, arc and full perimeter. Named relationships replace supplied intermediate numbers;2/360 definitions, pi, sector geometry and units remain. Normal generated/saved paths use versioned draft migration and no main-answer transfer. Curated English/Portuguese and decimal/fraction keypad are connected.
