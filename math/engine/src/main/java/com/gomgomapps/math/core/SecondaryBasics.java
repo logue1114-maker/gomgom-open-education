@@ -364,8 +364,9 @@ public final class SecondaryBasics {
                 PolyDivisionRelations.attach(division);return division;
             }
             case "sec_identity_coefficient":{
-                a=signed(random,9);b=signed(random,9);c=signed(random,9);answer=a+b;guide=one("왼쪽의 x항 계수를 더하세요.",a+" + ("+b+") = ","",answer);
-                return q(s,a+"x"+plus(c)+" + ("+b+"x) ≡ kx"+plus(c)+"일 때 k는?",Rational.of(answer),guide,null,"a",a,"b",b,"constant",c);
+                a=signed(random,9);b=signed(random,9);c=signed(random,9);answer=a+b;
+                Question identity=q(s,a+"x"+plus(c)+" + ("+b+"x) ≡ kx"+plus(c)+"일 때 k는?",Rational.of(answer),null,null,"a",a,"b",b,"constant",c);
+                AlgebraRelations.attach(identity);return identity;
             }
             case "sec_factor_theorem":{
                 a=signed(random,9);do{b=signed(random,7);}while(b==-a);boolean factor=random.nextBoolean();c=factor?a:a+1;int p=c*c+(b-a)*c-a*b;answer=p==0?1:0;
@@ -504,8 +505,9 @@ public final class SecondaryBasics {
                 return q(s,"x>0일 때 x+"+(a*a)+"/x의 최솟값은?",Rational.of(answer),guide,null,"a",a,"square",a*a);
             }
             case "sec_inverse_function":{
-                a=signed(random,6);b=signed(random,8);x=signed(random,9);int output=a*x+b;guide=two("원래 함수식의 양변에서 상수항을 빼세요.",a+"x = ","",output-b,"계수로 나누어 원래 입력을 찾으세요.",(output-b)+" ÷ "+a+" = ","",x);
-                return q(s,"f(x)="+a+"x"+plus(b)+"일 때 f⁻¹("+output+")의 값은?",Rational.of(x),guide,null,"a",a,"b",b,"input",x,"output",output);
+                a=signed(random,6);b=signed(random,8);x=signed(random,9);int output=a*x+b;
+                Question inverse=q(s,"f(x)="+a+"x"+plus(b)+"일 때 f⁻¹("+output+")의 값은?",Rational.of(x),null,null,"a",a,"b",b,"input",x,"output",output);
+                AlgebraRelations.attach(inverse);return inverse;
             }
             case "sec_rational_function":{
                 a=signed(random,8);h=signed(random,5);k=signed(random,6);int denominator=signed(random,6);x=h+denominator;Rational result=Rational.of(a,denominator).add(Rational.of(k));guide=two("분모 x-p를 먼저 계산하세요.",x+" - ("+h+") = ","",denominator,"나눗셈 뒤 상수를 더하세요.",a+"/"+denominator+" + ("+k+") = ","",result.toString());

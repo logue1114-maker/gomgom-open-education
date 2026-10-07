@@ -1,0 +1,71 @@
+{
+  "status": "Progress; whole global math app incomplete",
+  "date": "2026-10-07",
+  "units": [
+    "sec_identity_coefficient",
+    "sec_inverse_function"
+  ],
+  "behavior": "Public coefficients and function output entered by learner, followed by symbolic addition or subtraction/division. No supplied intermediates, no numeric answer frame, no main answer transfer. Direct generation and saved HelpPlan included.",
+  "versions": [
+    "identity-coefficient-relations-v1",
+    "inverse-function-relations-v1"
+  ],
+  "tests": {
+    "engine": {
+      "tests": 770,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 174,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 174,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 770,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "apk_sha256": "d075a98534239556b071e0c5968ae63193f7f6fa2481e8612980553a77d277e9",
+  "installed_matches": true,
+  "unverified": [
+    "physical device",
+    "KO/PT native flow",
+    "tablet",
+    "TalkBack",
+    "student understanding",
+    "main answer submission",
+    "old saved draft on device"
+  ],
+  "scope": "Normal US English profile / All foundations / typed 10; no whole curriculum completion claim",
+  "initial_failure": "Inverse UI attempts 77.34s / 84.061s / 58.168s failed before selecting the unit or entering any learner value. Search shows Differentiating inverse functions first; requested result is below the small viewport. Generic swipe could hit the grade spinner; actual title readback confirms Inverse functions. QA changed to normal scrollTo on the exact checkbox, then selection passed. Product and learning state were not forced. Initial/scroll/title screenshots/log retained; completed identity not replayed.",
+  "restore-kenya_seconds": 24.711,
+  "home_seconds": 24.503,
+  "public_prompt_combinations": {
+    "identity": 5832,
+    "inverse": 3456
+  },
+  "native": {
+    "identity": {
+      "seconds": 126.614,
+      "steps": 3,
+      "mainSubmitted": false
+    },
+    "inverse": {
+      "seconds": 89.994,
+      "steps": 5,
+      "mainSubmitted": false
+    }
+  },
+  "private_scope": "UI/QA/APK/screens/learner inputs are not published."
+}
