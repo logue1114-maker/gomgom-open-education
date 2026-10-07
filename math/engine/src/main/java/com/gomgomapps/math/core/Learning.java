@@ -35,6 +35,8 @@ public final class Learning {
         public long lastDay,reviewDay;
         public Review.Track review=new Review.Track();
         public LinkedList<String> recentQuestions=new LinkedList<>();
+        // First encounter only. Deferred retries must not erase the original difficulty.
+        public LinkedList<Boolean> evaluationResults=new LinkedList<>();
         public boolean weak(){return Review.needsPractice(this);}
     }
     public static final class State implements Serializable {
@@ -220,6 +222,7 @@ public final class Learning {
         String id=s.question.skillId;Progress p=state.progress(id);p.attempts++;p.lastDay=day.toEpochDay();
         boolean assisted=s.reviewWork!=null&&s.reviewWork.helpUsed;
         boolean independent=!skip&&!s.hadError&&!assisted;
+        LearningEvaluation.record(p,independent);
         boolean probing=s.diagnosticRun!=null&&s.diagnosticRun.current!=null;
         Review.finish(state,skip,!independent,day);
         if(skip){Deferred.rememberSkip(s);p.skipped++;s.skipped++;p.consecutive=0;}
