@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app remains active/incomplete",
+  "units": [
+    "sectorPerimeter"
+  ],
+  "behavior": "Learner enters public radius, angle and pi, then computes circumference, arc and full perimeter using named relationships. Six stages; computed operands never supplied. Constants2 and360, public pi, sector diagram and units preserved; no main-answer transfer.",
+  "migration": "sector-perimeter-relations-v1 protects new radius from old circumference draft; generated/saved public prompt paths connected",
+  "tests": {
+    "engine": {
+      "tests": 729,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 159,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 159,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 729,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "v1_seconds": 55.477,
+    "v2_restored_seconds": 22.4,
+    "scope": "Normal Kenya Grade8 typed10-question practice1/10; incorrect radius corrected; givens/fractional pi and circumference/decimal arc entered; final helper/main blank. V1 diagram pushed public givens above viewport. V2 reduces only small-phone sector diagram height and restores same final stage without replay; full prompt, relationship, blank, all13 keys and both actions visible.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 8.829
+  },
+  "apk_sha256": "4c1415c883856a3a2270080e098f5d915a5ac14a6692f4c82739573e6b63f1cd",
+  "installed_matches": true,
+  "display": "1080x2400 /420 restored",
+  "test_alignment": "Existing independent perimeter/public-solving and200-distinct choice checks retained. Expected helper sequence adds public-given entries before independently calculated circumference/arc/perimeter; public pi remains in prompt rather than supplied before text. Existing English title/concept checks retained with actual curated instructions.",
+  "unverified": [
+    "V2 arc stage actual screenshot",
+    "Final helper/main completion",
+    "Decimal pi and saved fractional dimensions actual device input",
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Remaining helpers",
+    "Worldwide curricula/languages,100-question supply/diversity,long study completion,real ads/billing/release"
+  ],
+  "release": "Only isolated engine and docs public; app/UI/QA/APK/screens private, no homepage or Play deployment"
+}

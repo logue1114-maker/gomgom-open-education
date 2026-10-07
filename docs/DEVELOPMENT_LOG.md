@@ -1,3 +1,9 @@
+## 2026-10-07 — Sector perimeter relationships
+
+The helper collects public radius, central angle and the indicated pi before learner-computed circumference, arc and full perimeter. Named relationships replace supplied intermediate numbers;2/360 definitions, pi, sector geometry and units remain. Normal generated/saved paths use versioned draft migration and no main-answer transfer. Curated English/Portuguese and decimal/fraction keypad are connected.
+
+Local1047 and separate public engine729 tests pass, including600 independent public prompts, both pi formats, major sectors, answer-key/input independence, wrong values, saved fractional givens and draft restoration. Original surface independent calculations,200-distinct choices and diagnosis/serialization coverage remain. Actual Kenya Grade8 practice corrects a radius reading, types fractional pi and decimal arc, leaving final helper/main blank. V1 small-phone prompt clipping was observed; V2 reduces sector diagram height and restores the same final stage without replay, with full prompt and controls visible. V2 arc screenshot/final completion and physical/student proof remain unverified. See MATH_SECTOR_PERIMETER_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Triangular prism surface relationships
 
 The helper collects the four public dimensions before learner-calculated base area, base perimeter, lateral sum and surface area. Named relationships replace supplied intermediate numbers. Triangle divisor2 and two-base factor2, right-triangle conditions and units remain. Normal generated/saved paths use versioned draft migration and no main-answer transfer. Curated English/Portuguese and decimal/fraction keypad are connected.
