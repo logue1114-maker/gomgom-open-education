@@ -10,7 +10,7 @@ public final class Choices {
         if(DotCollections.supports(skill.id)){DotCollections.choices(q,random);return;}
         if(CountingPatterns.supports(skill.id)){CountingPatterns.choices(q,random);return;}
         if(CoordinateGrid.DIST.equals(skill.id)){CoordinateGrid.choices(q,random);return;}
-        if(CoordinateTriangle.AREA.equals(skill.id)||CoordinateAltitudeArea.ID.equals(skill.id)){CoordinateTriangle.choices(q,random);return;}
+        if(CoordinateTriangle.AREA.equals(skill.id)||CoordinateAltitudeArea.ID.equals(skill.id)||CoordinateObliqueArea.ID.equals(skill.id)){CoordinateTriangle.choices(q,random);return;}
         if(CoordinatePolygon.supports(skill.id)){CoordinatePolygon.choices(q,random);return;}
         if(CoordinateRegion.supports(skill.id)){CoordinateRegion.choices(q,random);return;}
         if(MetricConversions.selected(q)){MetricConversions.choices(q,random);return;}

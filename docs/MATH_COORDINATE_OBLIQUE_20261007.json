@@ -1,0 +1,80 @@
+{
+  "date": "2026-10-07",
+  "topic": "coordinateObliqueArea",
+  "coverage": "Integer-coordinate noncollinear triangles with three sloped sides, coordinates[-8,8] and doubled area>=8. Earlier axis-base topics remain separate. Full EF09MA16/worldwide curricula remain incomplete.",
+  "teaching": {
+    "baseline": "lowest vertex y",
+    "public_feet": [
+      "D below A",
+      "E below B",
+      "F below C"
+    ],
+    "coincident_vertex_and_foot": "combined label and zero height; triangle parts not incorrectly called trapezoids",
+    "steps": 15,
+    "operations": [
+      "DE,EF,DF spacing counts",
+      "AD,BE,CF nonnegative height counts",
+      "height sums and products for ABED,BCFE,ACFD",
+      "combine first two doubled areas",
+      "larger-minus-smaller difference",
+      "divide by2"
+    ],
+    "answer_auto_filled": false,
+    "fraction_input": "blank numerator and denominator"
+  },
+  "validation": {
+    "unique_prompts": 100,
+    "generated_geometries": 6000,
+    "vertical_orders": 6,
+    "subtraction_directions": 2,
+    "all_three_zero_height_positions": true,
+    "independent_solver": "shoelace on public coordinates; not generated answer keys",
+    "local_engine_tests": 686,
+    "local_android_tests": 288,
+    "public_engine_tests": 686,
+    "failures": 0,
+    "native_normal_seconds": 83.761,
+    "native_entries": [
+      13,
+      2,
+      15,
+      2,
+      4,
+      0,
+      6,
+      78,
+      4,
+      8,
+      2,
+      30,
+      86,
+      56,
+      2
+    ],
+    "native_result": "Incorrect first helper14 rejected before13; separately typed main57/2 rejected,56/2 submitted. Next main and first helper blank.",
+    "small_phone_cold_seconds": 33.611,
+    "tablet_cold_seconds": 36.754,
+    "screens": "Local emulator inspection; long small-phone helper stage14 scrolls the lesson to retain input/feedback above the fixed keypad. Whole plot and input simultaneously are not claimed.",
+    "new_submissions": 1,
+    "prior_altitude_saved_draft_seconds": 36.092,
+    "prior_altitude_draft": "problem5/100, same public coordinates, blank main and first helper, no submission",
+    "learning_total": 3099,
+    "normal_home_total_seconds": 8.822
+  },
+  "private_exclusions": [
+    "Android UI",
+    "translations",
+    "instrumentation",
+    "learner records",
+    "source curriculum prose",
+    "screenshots",
+    "APK"
+  ],
+  "remaining": [
+    "Worldwide curriculum/language gaps",
+    "30/60-minute real complete sessions",
+    "Physical devices and accessibility",
+    "Student comprehension of the15-step area concept",
+    "Advertising, payment and release verification"
+  ]
+}
