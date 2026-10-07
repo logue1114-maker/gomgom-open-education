@@ -125,7 +125,7 @@ public class SecondaryBasicsTest {
             case "sec_quadratic_line_intersections":return List.of(r(i(q,"level")*i(q,"a")>0?2:i(q,"level")==0?1:0));
             case "sec_linear_inequality_system":return List.of(r(i(q,"high")-i(q,"low")));
             case "sec_absolute_linear_inequality":return List.of(r(2L*i(q,"radius")+1));
-            case "sec_quadratic_inequality_system":return List.of(r(i(q,"high")-i(q,"cutoff")));
+            case "sec_quadratic_inequality_system":return List.of(r(Math.max(0,i(q,"high")-Math.max(i(q,"low"),i(q,"cutoff")+1)+1)));
             case "sec_count_addition":return List.of(r(i(q,"a")+i(q,"b")));
             case "sec_count_multiplication":return List.of(r((long)i(q,"first")*i(q,"second")));
             case "sec_matrix_element":{int row=i(q,"row"),col=i(q,"col");return List.of(r(i(q,"a"+row+col)));}

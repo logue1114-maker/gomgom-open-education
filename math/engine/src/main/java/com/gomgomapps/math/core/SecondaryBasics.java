@@ -414,16 +414,19 @@ public final class SecondaryBasics {
                 IntervalRelations.attach(absoluteInequality);return absoluteInequality;
             }
             case "sec_quadratic_inequality_system":{
-                a=signed(random,6);b=a+n(random,3,9);c=n(random,a,b-1);answer=b-c;guide=two("첫 이차부등식의 해를 두 근 사이로 정리하세요.",a+" ≤ x ≤ "+b,"",b-a+1,"x>"+c+"와 겹치는 정수를 세세요.",(c+1)+"부터 "+b+"까지 = ","개",answer);
-                return q(s,"(x-("+a+"))(x-("+b+"))≤0이고 x>"+c+"를 모두 만족하는 정수 x는 몇 개인가요?",Rational.of(answer),guide,null,"low",a,"high",b,"cutoff",c);
+                a=signed(random,6);b=a+n(random,3,9);c=n(random,a-2,b+2);answer=Math.max(0,b-Math.max(a,c+1)+1);
+                Question combined=q(s,"(x-("+a+"))(x-("+b+"))≤0이고 x>"+c+"를 모두 만족하는 정수 x는 몇 개인가요?",Rational.of(answer),null,null,"low",a,"high",b,"cutoff",c);
+                CombinedCountingRelations.attach(combined);return combined;
             }
             case "sec_count_addition":{
-                a=n(random,2,12);b=n(random,2,12);answer=a+b;guide=one("두 방법이 겹치지 않으므로 경우의 수를 더하세요.",a+" + "+b+" = ","",answer);
-                return q(s,"서로 겹치지 않는 A 방법이 "+a+"가지, B 방법이 "+b+"가지입니다. A 또는 B를 고르는 방법은?",Rational.of(answer),guide,null,"a",a,"b",b);
+                a=n(random,2,12);b=n(random,2,12);answer=a+b;
+                Question addition=q(s,"서로 겹치지 않는 A 방법이 "+a+"가지, B 방법이 "+b+"가지입니다. A 또는 B를 고르는 방법은?",Rational.of(answer),null,null,"a",a,"b",b);
+                CombinedCountingRelations.attach(addition);return addition;
             }
             case "sec_count_multiplication":{
-                a=n(random,2,9);b=n(random,2,9);answer=a*b;guide=one("첫 단계마다 둘째 단계의 선택이 반복되므로 곱하세요.",a+" × "+b+" = ","",answer);
-                return q(s,"상의 "+a+"벌과 하의 "+b+"벌 중 각각 하나씩 고르는 방법은?",Rational.of(answer),guide,null,"first",a,"second",b);
+                a=n(random,2,12);b=n(random,2,12);answer=a*b;
+                Question multiplication=q(s,"상의 "+a+"벌과 하의 "+b+"벌 중 각각 하나씩 고르는 방법은?",Rational.of(answer),null,null,"first",a,"second",b);
+                CombinedCountingRelations.attach(multiplication);return multiplication;
             }
             case "sec_matrix_element":{
                 a=signed(random,9);b=signed(random,9);c=signed(random,9);d=signed(random,9);int row=n(random,1,2),col=n(random,1,2);answer=row==1?(col==1?a:b):(col==1?c:d);guide=one("먼저 행을 찾고 그 안에서 열을 찾으세요.","("+row+", "+col+") 성분 = ","",answer);

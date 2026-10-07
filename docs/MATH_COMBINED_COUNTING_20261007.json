@@ -1,0 +1,97 @@
+{
+  "status": "Progress; whole global app incomplete",
+  "date": "2026-10-07",
+  "units": [
+    "sec_quadratic_inequality_system",
+    "sec_count_addition",
+    "sec_count_multiplication"
+  ],
+  "behavior": "Public roots and strict cutoff entry; first integer for each condition, combined lower candidate and upper bound, inclusive count or empty interval. Public option counts entered for disjoint sum and independent pair product. No prefilled numeric intermediates or main-answer transfer.",
+  "versions": [
+    "combined-quadratic-inequality-relations-v1",
+    "count-addition-relations-v1",
+    "count-multiplication-relations-v1"
+  ],
+  "supply": {
+    "system": 924,
+    "addition": 121,
+    "multiplication": 121
+  },
+  "tests": {
+    "engine": {
+      "tests": 778,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 178,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 178,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 778,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "restore_kenya_seconds": 18.607,
+  "home_seconds": 19.901,
+  "home_learning_total": 3102,
+  "apk_sha256": "8bc68d6ce04721077de89152be58b88d305811e34252fc4ad9db72ca444c3837",
+  "installed_matches": true,
+  "display_restored": "1080x2400/420",
+  "initial_failure": "New unit test included typed-answer correctChoice -1 in multiple-choice position set; fixed to collect actual choice positions only. Initial local/public failure logs retained; product behavior unchanged. Native V1 before calculation exposed missing asynchronous LocalText routing: immediate curated text was overwritten by generic translation. V2 connects both actual translation paths, resumes same untouched public question; original screen and native failure log retained. V2 final English frame label clipped its first letter. V3 shortens label; fresh public-question preview checks stage7 without replaying any completed calculation. System/addition completion evidence is V2; multiplication and fresh visual preview are V3.",
+  "native_scope": "Normal US English / All foundations / typed10 / 900x1600/400. Actual public conditions and visible controls; no state injection or answer metadata. One case per unit, not all three interval cases or whole US curriculum.",
+  "unverified": [
+    "KO/PT native flow",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old draft migration",
+    "all three interval cases on device"
+  ],
+  "native_versions": {
+    "system": "V2",
+    "addition": "V2",
+    "multiplication": "V3",
+    "label_visual": "V3"
+  },
+  "native": {
+    "system": {
+      "seconds": 41.398,
+      "steps": 8,
+      "mainSubmitted": false,
+      "intervalCase": "empty"
+    },
+    "addition": {
+      "seconds": 59.021,
+      "steps": 3,
+      "mainSubmitted": false,
+      "intervalCase": null
+    },
+    "multiplication": {
+      "seconds": 86.497,
+      "steps": 3,
+      "mainSubmitted": false,
+      "intervalCase": null
+    }
+  },
+  "label_visual": {
+    "seconds": 73.332,
+    "finalEntered": false,
+    "mainSubmitted": false,
+    "intervalCase": "partial"
+  },
+  "private_scope": "UI/QA/APK/screens/learner inputs not published."
+}
