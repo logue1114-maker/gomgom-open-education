@@ -1,0 +1,58 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app remains active/incomplete",
+  "units": [
+    "compoundProportion",
+    "combinedWorkTime"
+  ],
+  "behavior": "Compound: five public operands, two learner-calculated ratios, final named product. Combined work: two public times, two per-hour rates, combined rate, final reciprocal. No computed operand prefilled or main-answer transfer. Whole-job constant1 remains.",
+  "migration": "work-rate-relations-v1 clears old calculated-ratio/rate drafts and restores confirmed new givens; matching generated/saved public prompt formats",
+  "paths": "Generator.create, normal Generator.next including distinct RateFoundations.nextWork path, and saved HelpPlan.forQuestion all attached",
+  "tests": {
+    "engine": {
+      "tests": 717,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 155,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 155,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 717,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "compound_seconds": 50.533,
+    "combined_seconds": 47.866,
+    "scope": "Normal Kenya Grade9 typed10-question practices1/10. Public givens entered and a wrong first reading corrected. Fractional people/time ratios and combined per-hour rates/sum entered; final helper/main blank. All12 fraction keys and both actions visible.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 15.8
+  },
+  "apk_sha256": "7168205575a0564126e05ce57beaf5995a7844b542065c38cbc7a7a6f1d21a0e",
+  "installed_matches": true,
+  "display": "1080x2400 /420 restored",
+  "unverified": [
+    "Compound find-time actual UI",
+    "Final helper/main completion",
+    "Saved fractional times actual device input",
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Remaining helpers and global curriculum/language coverage",
+    "100-question supply/diversity and30/60-minute completion",
+    "Real ads/billing/store release"
+  ],
+  "release": "Only isolated engine and docs public; app/UI/QA/APK/screens private, no homepage or Play deployment"
+}

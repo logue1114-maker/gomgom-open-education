@@ -1,3 +1,9 @@
+## 2026-10-07 — Work rate relationships
+
+Compound proportion now collects five public givens before learner-calculated people/time-or-items ratios and the final named product. Combined work collects each time before per-hour fractions, their sum and final reciprocal. No computed ratio/rate supplied and no main-answer transfer; whole-job constant1 remains. Versioned draft migration prevents old ratios entering new given fields. Normal creation, distinct work-pair selection and saved HelpPlan paths all connect the new teaching. English/Portuguese helpers use curated text in both translation paths; the old English instruction test follows that runtime handler with its original prompt/condition checks retained.
+
+Local1027 and separate public engine717 tests pass. Existing800 public-givens cases per unit retain independent solving, choices/rank variation and step checks with new8/6-frame expectations; all153 distinct work pairs and proportion100-distinct checks remain. Additional500 cases per unit check creation, answer-key/input independence, wrong entries and named formulas; saved fractional work/compound values and draft migration remain exact. Actual Kenya Grade9 compound/combined practices entered public operands and fractional intermediates, corrected an incorrect reading, and leave final helper/main blank. Find-time compound UI, final completion and physical/student proof remain unverified. See MATH_WORK_RATE_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Scale relationships
 
 Scale length and notation helpers collect public operands before named length/conversion relationships; computed intermediate lengths are not supplied. Definition factors100/100000 remain. New teaching version clears incompatible legacy stages and restores checked new inputs. Generated and matching saved prompts use the same normal path.

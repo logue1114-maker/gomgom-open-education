@@ -56,6 +56,7 @@ public final class Generator {
             if(q==null||age<oldest){q=candidate;oldest=age;}
         }
         if(q==null)throw new IllegalStateException("No question matches the curriculum limits: "+skillId);
+        WorkRateRelations.attach(q);
         if(q.studyGuide==null)FractionEquationTeaching.attach(q);
         FactorTeaching.attach(q);
         if(q.choiceDiagrams!=null&&!q.choiceDiagrams.isEmpty()){q.choices=new ArrayList<>(q.choiceDiagrams.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
@@ -70,7 +71,7 @@ public final class Generator {
         return create(s,CurriculumLimits.NONE);
     }
     private Question create(Catalog.Skill s,CurriculumLimits limits){
-        Question q=createQuestion(s,limits);ArithmeticTeaching.attach(q);FractionEquationTeaching.attach(q);DecimalTeaching.attach(q);RatioValueTeaching.attach(q);StatisticsAngleTeaching.attach(q);GeometryCalculationTeaching.attach(q);DivisorMultipleTeaching.attach(q);SimpleGeometryRelations.attach(q);ElementarySplitAngleRelations.attach(q);ElementaryGraphRelations.attach(q);ProportionalPairRelations.attach(q);ScaleRelations.attach(q);return q;
+        Question q=createQuestion(s,limits);ArithmeticTeaching.attach(q);FractionEquationTeaching.attach(q);DecimalTeaching.attach(q);RatioValueTeaching.attach(q);StatisticsAngleTeaching.attach(q);GeometryCalculationTeaching.attach(q);DivisorMultipleTeaching.attach(q);SimpleGeometryRelations.attach(q);ElementarySplitAngleRelations.attach(q);ElementaryGraphRelations.attach(q);ProportionalPairRelations.attach(q);ScaleRelations.attach(q);WorkRateRelations.attach(q);return q;
     }
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
         if(IrrationalLengths.supports(s.id))return IrrationalLengths.create(s,random);

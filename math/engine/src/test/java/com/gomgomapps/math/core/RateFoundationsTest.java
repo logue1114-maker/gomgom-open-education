@@ -14,10 +14,10 @@ public class RateFoundationsTest {
             if(id.equals("compoundProportion")){
                 assertEquals(5,v.size());boolean time=q.prompt.contains("몇 시간이");timeModes.add(time);
                 Rational people=Rational.of(time?v.get(0):v.get(3),time?v.get(3):v.get(0));
-                Rational other=Rational.of(v.get(4),time?v.get(2):v.get(1));answer=Rational.of(time?v.get(1):v.get(2)).mul(people).mul(other);steps=List.of(people,other,answer);
+                Rational other=Rational.of(v.get(4),time?v.get(2):v.get(1));answer=Rational.of(time?v.get(1):v.get(2)).mul(people).mul(other);steps=List.of(Rational.of(v.get(0)),Rational.of(v.get(1)),Rational.of(v.get(2)),Rational.of(v.get(3)),Rational.of(v.get(4)),people,other,answer);
                 assertTrue(answer.isInteger());assertNotEquals(v.get(0),v.get(3));
             }else{
-                assertEquals(2,v.size());assertTrue(v.get(0)<=v.get(1));Rational first=Rational.of(1,v.get(0)),second=Rational.of(1,v.get(1)),sum=first.add(second);answer=Rational.ONE.div(sum);steps=List.of(first,second,sum,answer);
+                assertEquals(2,v.size());assertTrue(v.get(0)<=v.get(1));Rational first=Rational.of(1,v.get(0)),second=Rational.of(1,v.get(1)),sum=first.add(second);answer=Rational.ONE.div(sum);steps=List.of(Rational.of(v.get(0)),Rational.of(v.get(1)),first,second,sum,answer);
                 assertTrue(answer.compareTo(Rational.of(v.get(0)))<0);
             }
             assertTrue(checker.check(q,List.of(),List.of(answer.toString())).correct());assertFalse(checker.check(q,List.of(),List.of(answer.add(Rational.ONE).toString())).correct());assertEquals(answer,Expression.number(q.expression));assertFalse(q.studyGuide.transfer);

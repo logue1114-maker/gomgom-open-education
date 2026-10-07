@@ -75,7 +75,7 @@ public final class HelpPlan {
         SimpleGeometryRelations.attach(q);
         ElementarySplitAngleRelations.attach(q);
         ElementaryGraphRelations.attach(q);
-        ProportionalPairRelations.attach(q);ScaleRelations.attach(q);
+        ProportionalPairRelations.attach(q);ScaleRelations.attach(q);WorkRateRelations.attach(q);
         FactorTeaching.attach(q);
         ColumnArithmeticTeaching.attach(q);
         if(q!=null)RadicalTeaching.attach(q);
