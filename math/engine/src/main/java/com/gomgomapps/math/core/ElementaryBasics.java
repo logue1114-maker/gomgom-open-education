@@ -259,14 +259,14 @@ public final class ElementaryBasics {
     private static Question number(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer.toString());
-        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);
+        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);
         return question;
     }
 
     private static Question numberText(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                        String answerText,boolean decimal,StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answerText);
-        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);
+        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);
         return question;
     }
 
@@ -277,14 +277,14 @@ public final class ElementaryBasics {
         Question question=new Question(skill.id,prompt,expression,answerTexts);
         question.kind="pair";
         if(labels!=null)question.labels=labels;
-        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);
+        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);
         return question;
     }
 
     private static Question symbol(Catalog.Skill skill,String prompt,String expression,String answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer);
-        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);
+        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);
         return question;
     }
 
@@ -452,12 +452,15 @@ public final class ElementaryBasics {
 
     private static Question range(Catalog.Skill skill,Random random,int mode){
         int boundary=n(random,2,30),answer;
+        String bound=String.valueOf(boundary);int form=random.nextInt(3);
+        if(form==1){int first=n(random,1,boundary-1);bound="("+first+" + "+(boundary-first)+")";}
+        else if(form==2&&boundary<30){int second=n(random,1,30-boundary);bound="("+(boundary+second)+" − "+second+")";}
         String wording;
         switch(mode){
-            case 0: wording=boundary+" 이상인 자연수 중 가장 작은 수";answer=boundary;break;
-            case 1: wording=boundary+" 이하인 자연수 중 가장 큰 수";answer=boundary;break;
-            case 2: wording=boundary+" 초과인 자연수 중 가장 작은 수";answer=boundary+1;break;
-            default: wording=boundary+" 미만인 자연수 중 가장 큰 수";answer=boundary-1;break;
+            case 0: wording=bound+" 이상인 자연수 중 가장 작은 수";answer=boundary;break;
+            case 1: wording=bound+" 이하인 자연수 중 가장 큰 수";answer=boundary;break;
+            case 2: wording=bound+" 초과인 자연수 중 가장 작은 수";answer=boundary+1;break;
+            default: wording=bound+" 미만인 자연수 중 가장 큰 수";answer=boundary-1;break;
         }
         String expression=mode==2?w(boundary)+"+1":mode==3?w(boundary)+"-1":w(boundary)+"+0";
         return number(skill,wording+"는?",expression,Rational.of(answer),

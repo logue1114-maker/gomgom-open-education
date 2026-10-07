@@ -1,0 +1,46 @@
+{
+  "units": [
+    "el_range_at_least",
+    "el_range_at_most",
+    "el_range_over",
+    "el_range_under"
+  ],
+  "teachingVersion": "range-boundary-relations-v1",
+  "method": "Public boundary calculation -> learner inclusion choice -> blank natural-number endpoint.",
+  "invariants": [
+    "Boundary remains 2..30; every public operand remains 1..30.",
+    "Pure boundary questions retained alongside sum/difference boundaries.",
+    "At least/at most include the boundary, greater/less than exclude it.",
+    "Only earlier checked student entries appear as references; no computed prefill or main-answer transfer.",
+    "Fixed +1/-1 describes neighboring natural numbers, not a prefilled endpoint.",
+    "Obsolete drafts reset; checked new partial drafts restore."
+  ],
+  "samples": "1600 samples per unit, at least 100 distinct public prompts. There are still 29 possible boundary values, not 100 distinct facts or an authored bank.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 869,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 226,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 226,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "limits": [
+    "Normal UI evidence and tests are separate.",
+    "No physical-device, learner-comprehension or release-readiness assertion."
+  ]
+}

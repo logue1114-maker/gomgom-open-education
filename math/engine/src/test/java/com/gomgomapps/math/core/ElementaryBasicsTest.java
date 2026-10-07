@@ -18,6 +18,7 @@ import static org.junit.Assert.*;
  * module itself exposes every skill and can create a sound question.</p>
  */
 public class ElementaryBasicsTest {
+    private static int rangeBoundary(String prompt){int[] n=ints(prompt);return prompt.startsWith("(")?(prompt.contains(" + ")?n[0]+n[1]:n[0]-n[1]):n[0];}
     private static final Pattern INTEGER = Pattern.compile("-?\\d+");
 
     @Test public void publishesAllElementarySkillsWithValidMetadataAndPrerequisites(){
@@ -250,9 +251,9 @@ public class ElementaryBasicsTest {
                 v=ints(q.prompt);assertNumber(q,Rational.of(roundNearest(v[0],v[2])+roundNearest(v[1],v[2])));return;
             case "el_round": case "el_round_up": case "el_round_down":
                 v=ints(q.prompt);int rounded=id.equals("el_round_up")?roundUp(v[0],v[1]):id.equals("el_round_down")?roundDown(v[0],v[1]):roundNearest(v[0],v[1]);assertNumber(q,Rational.of(rounded));return;
-            case "el_range_at_least": case "el_range_at_most": assertNumber(q,Rational.of(ints(q.prompt)[0]));return;
-            case "el_range_over": assertNumber(q,Rational.of(ints(q.prompt)[0]+1));return;
-            case "el_range_under": assertNumber(q,Rational.of(ints(q.prompt)[0]-1));return;
+            case "el_range_at_least": case "el_range_at_most": assertNumber(q,Rational.of(rangeBoundary(q.prompt)));return;
+            case "el_range_over": assertNumber(q,Rational.of(rangeBoundary(q.prompt)+1));return;
+            case "el_range_under": assertNumber(q,Rational.of(rangeBoundary(q.prompt)-1));return;
 
             case "el_clock_hour": assertNumber(q,Rational.of((int)q.diagram.values[0]));assertNoNumericClockPrompt(q);return;
             case "el_clock_minute": assertNumber(q,Rational.of((int)q.diagram.values[1]));assertNoNumericClockPrompt(q);return;
