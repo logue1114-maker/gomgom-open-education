@@ -44,6 +44,7 @@ public final class HelpPlan {
     private Integer resultNumeratorFrame,resultDenominatorFrame;
     private Integer resultCoefficientFrame,resultRadicandFrame;
     private Integer resultAddendFrame;
+    private Integer resultWholeFrame;
     private HelpPlan(int denominator){answerDenominator=denominator;}
     public int size(){return steps.size();}
     public Step step(int index){return steps.get(index);}
@@ -53,7 +54,7 @@ public final class HelpPlan {
         if(draft.stage!=size()||draft.entries.size()<size())throw new IllegalStateException("도움 계산 완료 필요");
         String value=draft.entries.get(size()-1);
         if(!step(size()-1).accepts(value))throw new IllegalStateException("마지막 입력 확인 필요");
-        if(resultNumeratorFrame!=null&&resultDenominatorFrame!=null){String numerator=draft.entries.get(resultNumeratorFrame),denominator=draft.entries.get(resultDenominatorFrame);if(!step(resultNumeratorFrame).accepts(numerator)||!step(resultDenominatorFrame).accepts(denominator))throw new IllegalStateException("분수 입력 확인 필요");return Expression.number(numerator)+"/"+Expression.number(denominator);}
+        if(resultNumeratorFrame!=null&&resultDenominatorFrame!=null){String numerator=draft.entries.get(resultNumeratorFrame),denominator=draft.entries.get(resultDenominatorFrame);if(!step(resultNumeratorFrame).accepts(numerator)||!step(resultDenominatorFrame).accepts(denominator))throw new IllegalStateException("분수 입력 확인 필요");String fraction=Expression.number(numerator)+"/"+Expression.number(denominator);if(resultWholeFrame!=null){String whole=draft.entries.get(resultWholeFrame);if(!step(resultWholeFrame).accepts(whole))throw new IllegalStateException("자연수 부분 확인 필요");return Expression.number(whole)+" "+fraction;}return fraction;}
         if(resultCoefficientFrame!=null&&resultRadicandFrame!=null){
             String coefficient=draft.entries.get(resultCoefficientFrame),radicand=draft.entries.get(resultRadicandFrame);
             if(!step(resultCoefficientFrame).accepts(coefficient)||!step(resultRadicandFrame).accepts(radicand))throw new IllegalStateException("근호 입력 확인 필요");
@@ -84,12 +85,13 @@ public final class HelpPlan {
         FractionReductionRelations.attach(q);
         PrimaryFractionRelations.attach(q);
         FractionProductRelations.attach(q);
+        FractionConceptRelations.attach(q);
         if(q!=null)RadicalTeaching.attach(q);
         if(q!=null&&q.studyGuide!=null&&!q.studyGuide.frames.isEmpty()){
             HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:q.studyGuide.frames)plan.steps.add(new Step(frame));
             plan.teachingVersion=q.studyGuide.teachingVersion;
             plan.transfer=q.studyGuide.transfer&&q.answers.length==1&&(q.kind.equals("number")||q.kind.equals("symbol"));
-            plan.resultNumeratorFrame=q.studyGuide.resultNumeratorFrame;plan.resultDenominatorFrame=q.studyGuide.resultDenominatorFrame;plan.resultCoefficientFrame=q.studyGuide.resultCoefficientFrame;plan.resultRadicandFrame=q.studyGuide.resultRadicandFrame;plan.resultAddendFrame=q.studyGuide.resultAddendFrame;
+            plan.resultWholeFrame=q.studyGuide.resultWholeFrame;plan.resultNumeratorFrame=q.studyGuide.resultNumeratorFrame;plan.resultDenominatorFrame=q.studyGuide.resultDenominatorFrame;plan.resultCoefficientFrame=q.studyGuide.resultCoefficientFrame;plan.resultRadicandFrame=q.studyGuide.resultRadicandFrame;plan.resultAddendFrame=q.studyGuide.resultAddendFrame;
             if(plan.transfer&&q.answerFormat!=null)plan.steps.get(plan.steps.size()-1).requiredFormat=q.answerFormat;return plan;
         }
         if(q==null||q.expression==null||!q.kind.equals("number"))return null;

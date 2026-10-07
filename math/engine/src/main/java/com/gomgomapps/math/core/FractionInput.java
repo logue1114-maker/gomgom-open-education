@@ -15,6 +15,7 @@ public final class FractionInput {
     public static boolean available(Question q){
         if(!q.choices.isEmpty()||!Set.of("number","reduced","equation","system","inequality").contains(q.kind))return false;
         if("fraction".equals(q.answerFormat)||"decimal".equals(q.answerFormat))return true;
+        if(Set.of("el_mixed_to_improper","el_fraction_common_den","el_fraction_of_number").contains(q.skillId))return false;
         Catalog.Skill skill=Catalog.get(q.skillId);String family=skill.family.toLowerCase(Locale.ROOT);
         return skill.grade>=7||family.contains("frac")||Set.of("reduce","mean","percent","trianglearea","trapezoidarea","rhombusarea").contains(family);
     }

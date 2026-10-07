@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-07",
+  "units": [
+    "el_mixed_to_improper",
+    "el_improper_to_mixed",
+    "el_fraction_common_den",
+    "el_fraction_of_number"
+  ],
+  "policy": "Public givens and conversion/quotient/remainder/scaling/quantity calculations are learner-entered in symbolic frames. No numeric prefill or main-answer transfer.",
+  "steps": {
+    "mixedToImproper": 5,
+    "improperToMixed": 4,
+    "requestedCommonDenominator": 5,
+    "fractionOfQuantity": 5
+  },
+  "result": "The mixed-number completion composes the whole part, numerator and denominator from validated learner inputs. Added optional serialized whole-result frame while preserving existing fraction/radical guide fields.",
+  "input": "Numerator-only slots with a printed denominator and whole-number quantity answers use their ordinary integer input, not the general fraction input. The two mixed-number answer slots remain separate. Explicit answer-format overrides are preserved.",
+  "generationCheck": {
+    "samplesPerUnit": 4000,
+    "distinctPromptsPerUnit": "greater than 100"
+  },
+  "tests": {
+    "localEngine": 820,
+    "app": 195,
+    "globalApp": 195,
+    "publicEngine": 820,
+    "failures": 0,
+    "errors": 0
+  },
+  "checks": [
+    "Independent visible-number parsing and exact conversion, quotient/remainder, equivalent-fraction cross products and quantity multiplication.",
+    "Blank and incorrect inputs rejected; original question identity and answers remain unchanged by attachment.",
+    "Answer/expression metadata mutation does not alter help; old drafts reset and current partial drafts restore.",
+    "Mixed-result serialization retains the new optional whole-frame field.",
+    "Existing Brazil fraction curriculum checks retain independent answers and match the new learner-entered givens before the quantity calculations.",
+    "KO/EN/PT titles and every instruction and symbolic frame."
+  ],
+  "scope": "Current integer-part conversions, divisible requested denominators and whole quantities divisible by the fraction denominator. General nondivisible quantity fractions are outside this slice.",
+  "limitations": [
+    "Other fraction/decimal concept helpers and the full global app remain incomplete.",
+    "Native UI, learner inputs, screenshots and APK artifacts remain private.",
+    "Play release is incomplete."
+  ]
+}

@@ -259,14 +259,14 @@ public final class ElementaryBasics {
     private static Question number(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer.toString());
-        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;
+        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);
         return question;
     }
 
     private static Question numberText(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                        String answerText,boolean decimal,StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answerText);
-        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;
+        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);
         return question;
     }
 
@@ -277,14 +277,14 @@ public final class ElementaryBasics {
         Question question=new Question(skill.id,prompt,expression,answerTexts);
         question.kind="pair";
         if(labels!=null)question.labels=labels;
-        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;
+        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);
         return question;
     }
 
     private static Question symbol(Catalog.Skill skill,String prompt,String expression,String answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer);
-        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;
+        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);
         return question;
     }
 
@@ -785,8 +785,7 @@ public final class ElementaryBasics {
         String expression=whole+"*"+denominator+"+"+numerator;
         return number(skill,whole+"와 "+numerator+"/"+denominator+"을 가분수로 나타내세요.\n□/"+denominator,
                 expression,Rational.of((long)whole*denominator+numerator),
-                guide(step("자연수 부분을 분모와 곱합니다.",whole+" × "+denominator+" = ","",whole+"*"+denominator),
-                        step("분수의 분자를 더합니다.",whole+"*"+denominator+" + "+numerator+" = ","",expression)),
+                null,
                 diagram("fraction",new double[]{numerator,denominator},"분자","분모"));
     }
 
@@ -796,8 +795,7 @@ public final class ElementaryBasics {
         String remainderExpression=improper+"-"+whole+"*"+denominator;
         return numbers(skill,improper+"/"+denominator+"을 대분수로 나타내세요.\n□와 □/"+denominator,
                 "",labels("자연수 부분","분자"),
-                guide(step("분자를 분모로 나눈 몫을 구합니다.",improper+" ÷ "+denominator+"의 몫 = ","",whole+"+0"),
-                        step("나누고 남은 수가 분수의 분자입니다.","분자 - 몫 × "+denominator+" = ","",remainderExpression)),null,
+                null,null,
                 Rational.of(whole),Rational.of(numerator));
     }
 
@@ -846,8 +844,7 @@ public final class ElementaryBasics {
         String expression=numerator+"*"+(common/denominator);
         return number(skill,numerator+"/"+denominator+"을 분모가 "+common+"인 분수로 통분하세요.\n□/"+common,
                 expression,Rational.of(converted),
-                guide(step("분모를 공통분모로 만드는 배수를 찾습니다.",denominator+" × "+(common/denominator)+" = ","",denominator+"*"+(common/denominator)),
-                        step("분자에도 같은 수를 곱합니다.",numerator+" × "+(common/denominator)+" = "," / "+common,expression)),
+                null,
                 diagram("fraction",new double[]{numerator,denominator},"분자","분모"));
     }
 
@@ -885,8 +882,7 @@ public final class ElementaryBasics {
         int total=denominator*parts,answer=numerator*parts;
         String expression=total+"*("+numerator+"/"+denominator+")";
         Question q=number(skill,total+"의 "+numerator+"/"+denominator+"은 얼마인가요?",expression,Rational.of(answer),
-                guide(step("전체를 분모만큼 똑같이 나눕니다.",total+" ÷ "+denominator+" = ","",total+"/"+denominator),
-                        step("필요한 부분의 수를 곱합니다.",(total/denominator)+" × "+numerator+" = ","",expression)),
+                null,
                 diagram("fraction",new double[]{numerator,denominator},"필요한 부분","전체 부분"));
         q.studyGuide.transfer(false);return q;
     }

@@ -1,3 +1,7 @@
+# 2026-10-07 — Fraction conversion and quantity relationships
+
+Replaced numeric prefills in mixed/improper conversion, requested-denominator equivalent fractions and fractions of quantities with learner-entered symbolic frames. Mixed-number completion assembles validated whole/numerator/denominator inputs. Numerator-only slots whose denominator is printed and integer quantity answers use matching ordinary input, preserving separate mixed-number answer slots and explicit format overrides. Each unit exceeds100 distinct prompts in4000 samples. Exact public-value, draft, serialization and translation checks are recorded in MATH_FRACTION_CONCEPTS_20261007.json. UI/native evidence remains private. Other fraction/decimal concepts and the full global app remain incomplete.
+
 # 2026-10-07 — Whole and mixed fraction relationships
 
 Replaced numeric prefills in whole/fraction and mixed-number multiplication/division with learner-entered public operands, improper-fraction conversion, reciprocal components, products and reduction. Also connected fraction-by-whole division through its actual parenthesized-fraction/whole-number prompt. The original prompt/answer stays intact and help never transfers the main answer. Each of five units exceeds100 distinct prompts in4000 samples. Existing operand variants, shuffled choices and curriculum tests remain in place. Exact public-value, draft and translation checks are recorded in MATH_FRACTION_PRODUCTS_20261007.json. Native UI/evidence remains private. Other fraction concepts and the full global app remain incomplete.
