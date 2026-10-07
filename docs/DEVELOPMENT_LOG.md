@@ -1,3 +1,7 @@
+# 2026-10-07 — AM-GM minimum and equality point
+
+Expanded the minimum family to120 distinct public prompts with coefficients1–4, numerator at most81 and small signed constants. Learners enter public values, product/root, quotient/equality point, minimum sum and final minimum in nine symbolic frames. No numerical prefill or main transfer. Saved questions remain intact. Exact attainment and positive-rational difference checks, translations and normal-menu native evidence are in MATH_AMGM_20261007.json. Remaining rational/radical function help and the full global app are incomplete.
+
 # 2026-10-07 — Necessary and sufficient conditions
 
 Added necessary-condition questions and both implication directions. A shifted square relation supplies684 distinct public questions, including a repeated root. Symbolic help requires learner direction choice, public values, subtraction, squaring and the other root, then relation judgment. No numerical prefill or main transfer. Old saved questions remain intact. Independent tests and fresh normal-menu native evidence are in MATH_CONDITION_20261007.json. Remaining function help and the full global app are incomplete.

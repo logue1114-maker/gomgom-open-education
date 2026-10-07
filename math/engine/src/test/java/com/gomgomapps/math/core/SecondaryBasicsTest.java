@@ -148,7 +148,7 @@ public class SecondaryBasicsTest {
             case "sec_proposition_truth":return List.of(r(i(q,"value")%i(q,"divisor")==0?1:0));
             case "sec_contrapositive":return List.of(r(i(q,"larger")%i(q,"smaller")==0?1:0));
             case "sec_sufficient_condition":return List.of(r(((i(q,"type")==0)!=(i(q,"necessary")==1)||i(q,"a")==0)?1:0));
-            case "sec_amgm_minimum":return List.of(r(2L*i(q,"a")));
+            case "sec_amgm_minimum":return List.of(r(2L*squareRoot(i(q,"coefficient")*i(q,"numerator"))+i(q,"constant")));
             case "sec_inverse_function":return List.of(Rational.of(i(q,"output")-i(q,"b"),i(q,"a")));
             case "sec_rational_function":return List.of(Rational.of(i(q,"a"),i(q,"x")-i(q,"h")).add(r(i(q,"k"))));
             case "sec_radical_function":return List.of(r(squareRoot(i(q,"x")-i(q,"h"))+i(q,"k")));

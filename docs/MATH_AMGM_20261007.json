@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-07",
+  "status": "Progress; full app incomplete",
+  "behavior": "Learner retrieves coefficient/numerator/constant, calculates product/square root, quotient/equality point, minimum sum and constant-adjusted minimum. No numerical prefill or main transfer. Equality point establishes that the lower bound is attained.",
+  "version": "amgm-relations-v1",
+  "supply": {
+    "distinct_prompts": 120,
+    "samples": 4000,
+    "coefficient": [
+      1,
+      4
+    ],
+    "numerator_max": 81,
+    "constant": [
+      -2,
+      2
+    ],
+    "product_max": 256,
+    "equality_point_max": 9
+  },
+  "independent_tests": "Each distinct public prompt is parsed independently. Positive square roots are enumerated. Attainment is checked exactly; 1440 positive rational inputs per prompt check the nonnegative difference identity p*(x-r)^2/x. Answer/given metadata mutation does not change help.",
+  "saved": "Legacy unweighted prompts/id/answers/learner inputs remain intact; help alone is replaced. Old draft reset/new draft restoration tested.",
+  "tests": {
+    "engine": {
+      "tests": 799,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 187,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 187,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 799,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": 41.135,
+    "steps": 9,
+    "resumed_at_stage": 6,
+    "mainSubmitted": false
+  },
+  "native_failure": "Initial calculation accepted the first six frames, then QA failed before frame7 input because display converted the hyphen in Equal-term to mathematical minus. Reworded to Equal terms. Retained failure log/screens; V2 normal Resume restored the same prompt at frame7, without replaying accepted frames.",
+  "restore_kenya_seconds": 22.038,
+  "home_seconds": 11.736,
+  "home_learning_total": 3102,
+  "apk_sha256": "4a8319939fe0baca7ddb86b90d663361968df8491a53c72892f2fc4253efcfa9",
+  "installed_matches": true,
+  "builds": {
+    "local": "1m 32s",
+    "app_v2": "16s",
+    "public": "1m 17s"
+  },
+  "unverified": [
+    "KO/PT native",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old-help migration",
+    "remaining rational/radical function help",
+    "full global app completion"
+  ]
+}

@@ -532,8 +532,8 @@ public final class SecondaryBasics {
                 Question condition=choices(q(s,"실수 x에 대해 p: "+p+", q: "+qText+"일 때 p가 q의 "+label+"인지 고르세요.",Rational.of(answer),null,null,"a",a,"h",h,"type",type,"necessary",necessary?1:0),"1",label+"이다","0",label+"이 아니다");ConditionRelations.attach(condition);return condition;
             }
             case "sec_amgm_minimum":{
-                a=n(random,2,9);answer=2*a;guide=two("두 양수 항의 곱을 구하세요.","x × "+(a*a)+"/x = ","",a*a,"산술평균-기하평균 부등식을 적용하세요.","2√"+(a*a)+" = ","",answer);
-                return q(s,"x>0일 때 x+"+(a*a)+"/x의 최솟값은?",Rational.of(answer),guide,null,"a",a,"square",a*a);
+                a=n(random,1,4);b=n(random,1,(int)Math.sqrt(81/a));h=random.nextInt(5)-2;int numerator=a*b*b;answer=2*a*b+h;
+                Question minimum=q(s,"x>0일 때 "+(a==1?"":a)+"x+"+numerator+"/x+("+h+")의 최솟값은?",Rational.of(answer),null,null,"coefficient",a,"numerator",numerator,"constant",h);AmgmRelations.attach(minimum);return minimum;
             }
             case "sec_inverse_function":{
                 a=signed(random,6);b=signed(random,8);x=signed(random,9);int output=a*x+b;
