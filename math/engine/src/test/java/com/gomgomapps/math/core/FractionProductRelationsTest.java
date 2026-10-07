@@ -1,0 +1,11 @@
+package com.gomgomapps.math.core;
+import java.util.*;import org.junit.Test;import static org.junit.Assert.*;
+public class FractionProductRelationsTest {
+ @Test public void fiveUnitsHaveDiverseBlankFramesAndIndependentResults(){Generator g=new Generator(new Random(710109));for(String id:List.of("fracMulInt","fracDivInt","fracWholeDiv","fracMixedMul","fracMixedDiv")){Set<String> prompts=new HashSet<>();for(int i=0;i<4000;i++){
+  Question q=g.next(id,List.of(),i%2==0);prompts.add(q.prompt);String signature=q.signature();HelpPlan p=HelpPlan.forQuestion(q);assertNotNull(p);assertFalse(p.canTransfer());assertEquals(signature,q.signature());List<Rational> expected=FractionProductsTest.frames(q.prompt);assertEquals(expected.size(),p.size());
+  for(int k=0;k<p.size();k++){assertFalse(p.step(k).before.matches(".*[0-9].*"));assertEquals("",p.step(k).after);assertTrue(p.step(k).accepts(expected.get(k).toString()));assertFalse(p.step(k).accepts(""));assertFalse(p.step(k).accepts(expected.get(k).add(Rational.ONE).toString()));}
+  HelpPlan.Draft d=new HelpPlan.Draft();d.stage=p.size();d.entries=new ArrayList<>(expected.stream().map(Rational::toString).toList());assertEquals(FractionProductsTest.solve(q.prompt),Expression.number(p.enteredAnswer(d)));List<String> values=q.studyGuide.frames.stream().map(f->f.expected).toList();q.expression="999";q.answers=new String[]{"999"};q.givenNumbers.put("solution","999");HelpPlan.forQuestion(q);assertEquals(values,q.studyGuide.frames.stream().map(f->f.expected).toList());
+ }assertTrue(id,prompts.size()>100);}}
+ @Test public void savedGuideAndDraftUseTheSameNewRelationships(){Question q=new Question("fracMixedDiv","2 2/4 ÷ 3 3/6","999","999");q.studyGuide=new StudyGuide().step("old","5/2 ÷ 7/2 = ","","5/7");HelpPlan.Draft d=new HelpPlan.Draft();d.questionId=q.id;d.stage=1;d.entries=new ArrayList<>(List.of("5/7"));HelpPlan p=HelpPlan.forQuestion(q);d=p.restore(d,q.id);assertEquals(0,d.stage);assertEquals(List.of(""),d.entries);d.entries.set(0,"2");d.stage=1;d=p.restore(d,q.id);assertEquals(1,d.stage);assertEquals(15,p.size());}
+ @Test public void invalidPublicOperandsDoNotAcquireAHelper(){for(String prompt:List.of("2 ÷ 0","2 ÷ 1/0","2 ÷ 0/4","-2 × 1/2","2 4/3 × 1/2")){Question q=new Question("fracMixedDiv",prompt,"","0");FractionProductRelations.attach(q);assertNull(q.studyGuide);}}
+}

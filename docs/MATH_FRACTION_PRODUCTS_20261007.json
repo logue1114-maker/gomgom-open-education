@@ -1,0 +1,45 @@
+{
+  "date": "2026-10-07",
+  "units": [
+    "fracMulInt",
+    "fracDivInt",
+    "fracWholeDiv",
+    "fracMixedMul",
+    "fracMixedDiv"
+  ],
+  "policy": "Public whole/mixed/fraction operands, conversions, reciprocal components, products and reduction are learner-entered in symbolic frames. No numeric operand prefill or main-answer transfer.",
+  "steps": {
+    "wholeFractionMultiply": 9,
+    "fractionByWhole": 11,
+    "wholeByFraction": 11,
+    "mixedMultiply": "11 or 13",
+    "mixedDivide": "13 or 15"
+  },
+  "fixedConcept": "A whole number has an equivalent fraction with denominator1; the instructional rule is stated, but the input remains blank.",
+  "generationCheck": {
+    "samplesPerUnit": 4000,
+    "distinctPromptsPerUnit": "greater than 100"
+  },
+  "tests": {
+    "localEngine": 817,
+    "app": 194,
+    "globalApp": 194,
+    "publicEngine": 817,
+    "failures": 0,
+    "errors": 0
+  },
+  "checks": [
+    "Independent printed mixed-number conversion and exact arithmetic across all operand positions.",
+    "Original unreduced operands and question identity are preserved; answer/expression metadata mutation does not alter helper values.",
+    "Blank/incorrect inputs are rejected, completed learner-entered fractions match the public calculation, old drafts reset and current partial drafts restore.",
+    "Existing four FractionProducts unit tests retain operand variants, distinct choice values, all four answer positions and curriculum placements.",
+    "KO/EN/PT titles, instructions and symbolic frames."
+  ],
+  "initialFailure": "The initial two-fraction-only helper missed fracDivInt whose public prompt is (fraction) / whole number. It is now routed through the whole/mixed operand helper with reader-only normalization; original question and answer metadata are unchanged.",
+  "scope": "Current positive whole numbers and positive proper fraction parts in the existing public operand reader. Signed/zero mixed-number families are not introduced by this change.",
+  "limitations": [
+    "Other fraction concept helpers and the full global app remain incomplete.",
+    "UI, native learner inputs, screenshots and APK artifacts remain private.",
+    "Play release is incomplete."
+  ]
+}

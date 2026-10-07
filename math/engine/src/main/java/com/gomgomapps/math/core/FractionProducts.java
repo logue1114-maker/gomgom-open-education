@@ -54,19 +54,7 @@ public final class FractionProducts {
         }
         String prompt=left+(division?" ÷ ":" × ")+right;Givens givens=read(prompt);
         Rational x=givens.left.value(),y=givens.right.value(),answer=division?x.div(y):x.mul(y);
-        long ln=givens.left.improperNumerator(),ld=givens.left.denominator;
-        long rn=givens.right.improperNumerator(),rd=givens.right.denominator;
-        StudyGuide guide=new StudyGuide();convert(guide,givens.left,true);convert(guide,givens.right,false);
-        if(division){guide.step("나누는 수의 역수를 쓰세요.",rn+"/"+rd+" → ","",Rational.of(rd,rn).toString());long swap=rn;rn=rd;rd=swap;}
-        guide.step("분자끼리 곱하세요.",ln+" × "+rn+" = ","",String.valueOf(ln*rn))
-            .step("분모끼리 곱하세요.",ld+" × "+rd+" = ","",String.valueOf(ld*rd))
-            .step("계산한 분수를 약분하세요.",(ln*rn)+"/"+(ld*rd)+" = ","",answer.toString()).transfer(false);
-        Question q=new Question(skill.id,prompt,givens.expression(),answer.toString());q.studyGuide=guide;
+        Question q=new Question(skill.id,prompt,givens.expression(),answer.toString());FractionProductRelations.attach(q);
         return q.withInputs(x,y);
-    }
-    private static void convert(StudyGuide guide,Operand part,boolean first){
-        String instruction=part.mixed()?(first?"첫 대분수를 가분수로 바꾸세요.":"둘째 대분수를 가분수로 바꾸세요."):
-            part.denominator==1?"자연수를 분모가 1인 분수로 쓰세요.":"주어진 분수를 쓰세요.";
-        guide.step(instruction,part.printed+" = ","",part.value().toString());
     }
 }

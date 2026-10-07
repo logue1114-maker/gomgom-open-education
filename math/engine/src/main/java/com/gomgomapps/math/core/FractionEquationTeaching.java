@@ -7,5 +7,6 @@ final class FractionEquationTeaching {
   if(q.skillId.equals("reduce")){FractionReductionRelations.attach(q);return;}
   if(LinearEquationRelations.supports(q.skillId)){LinearEquationRelations.attach(q);return;}
   PrimaryFractionRelations.attach(q);
+  FractionProductRelations.attach(q);
  }
 }

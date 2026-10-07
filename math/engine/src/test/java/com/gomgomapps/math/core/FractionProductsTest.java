@@ -7,16 +7,21 @@ import java.io.*;
 
 public class FractionProductsTest {
     // Independent oracle uses only printed givens, never the production operand reader or answer key.
-    private long[] operand(String printed){String[] v=printed.split("[ /]");return switch(v.length){case 1->new long[]{Long.parseLong(v[0]),1};case 2->new long[]{Long.parseLong(v[0]),Long.parseLong(v[1])};default->new long[]{Long.parseLong(v[0])*Long.parseLong(v[2])+Long.parseLong(v[1]),Long.parseLong(v[2])};};}
-    private Rational solve(String prompt){String[] v=prompt.split(" [×÷] ");long[] a=operand(v[0]),b=operand(v[1]);return prompt.contains("÷")?Rational.of(a[0]*b[1],a[1]*b[0]):Rational.of(a[0]*b[0],a[1]*b[1]);}
+    static long[] operand(String printed){String[] v=printed.split("[ /]");return switch(v.length){case 1->new long[]{Long.parseLong(v[0]),1};case 2->new long[]{Long.parseLong(v[0]),Long.parseLong(v[1])};default->new long[]{Long.parseLong(v[0])*Long.parseLong(v[2])+Long.parseLong(v[1]),Long.parseLong(v[2])};};}
+    static Rational solve(String prompt){prompt=prompt.replace("(","").replace(")","").replace(" / "," ÷ ");String[] v=prompt.split(" [×÷] ");long[] a=operand(v[0]),b=operand(v[1]);return prompt.contains("÷")?Rational.of(a[0]*b[1],a[1]*b[0]):Rational.of(a[0]*b[0],a[1]*b[1]);}
+    static List<Rational> frames(String prompt){
+        prompt=prompt.replace("(","").replace(")","").replace(" / "," ÷ ");
+        String[] parts=prompt.split(" [×÷] ");List<Rational> frames=new ArrayList<>();
+        for(String printed:parts){String[] v=printed.split("[ /]");long[] f=operand(printed);if(v.length==3){frames.add(Rational.of(Long.parseLong(v[0])));frames.add(Rational.of(Long.parseLong(v[1])));frames.add(Rational.of(Long.parseLong(v[2])));frames.add(Rational.of(f[0]));}else{frames.add(Rational.of(f[0]));frames.add(Rational.of(f[1]));}}
+        long[] a=operand(parts[0]),b=operand(parts[1]);boolean div=prompt.contains("÷");if(div){frames.add(Rational.of(b[1]));frames.add(Rational.of(b[0]));long swap=b[0];b[0]=b[1];b[1]=swap;}
+        long n=a[0]*b[0],d=a[1]*b[1],g=java.math.BigInteger.valueOf(n).gcd(java.math.BigInteger.valueOf(d)).longValueExact();frames.add(Rational.of(n));frames.add(Rational.of(d));frames.add(Rational.of(g));frames.add(Rational.of(n/g));frames.add(Rational.of(d/g));return frames;
+    }
     @Test public void allPrintedVariantsHaveCorrectAnswersAndStudentFrames(){
         Generator g=new Generator(new Random(102101));Set<String> variants=new HashSet<>();boolean unreduced=false;
         for(String id:FractionProducts.SKILLS)for(int i=0;i<500;i++){
             Question q=g.create(Catalog.get(id));Rational expected=solve(q.prompt);assertEquals(expected,Expression.number(q.answers[0]));assertEquals(expected,Expression.number(q.expression));
             String[] v=q.prompt.split(" [×÷] ");long[] a=operand(v[0]),b=operand(v[1]);boolean div=q.prompt.contains("÷");
-            List<Rational> frames=new ArrayList<>(List.of(Rational.of(a[0],a[1]),Rational.of(b[0],b[1])));
-            if(div){frames.add(Rational.of(b[1],b[0]));long swap=b[0];b[0]=b[1];b[1]=swap;}
-            frames.add(Rational.of(a[0]*b[0]));frames.add(Rational.of(a[1]*b[1]));frames.add(expected);
+            List<Rational> frames=frames(q.prompt);
             HelpPlan help=HelpPlan.forQuestion(q);assertFalse(help.canTransfer());assertEquals(frames.size(),help.size());
             for(int j=0;j<frames.size();j++){assertTrue(q.prompt+" frame"+j,help.step(j).accepts(frames.get(j).toString()));assertFalse(help.step(j).accepts("999999"));}
             for(String printed:v){if(printed.contains("/")){String tail=printed.substring(printed.lastIndexOf(' ')+1);long[] f=operand(tail);if(Generator.gcd((int)f[0],(int)f[1])>1)unreduced=true;}}
