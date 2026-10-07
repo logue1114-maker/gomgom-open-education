@@ -1,0 +1,85 @@
+{
+  "status": "Progress; whole global app incomplete",
+  "date": "2026-10-07",
+  "units": [
+    "sec_quadratic_line_intersections",
+    "sec_linear_inequality_system",
+    "sec_absolute_linear_inequality"
+  ],
+  "behavior": "Public-value entry and symbolic difference/division or bounds; signed nonzero quadratic coefficient; real-square sign, strict lower versus closed upper inequality, inclusive absolute distance, exact fractions. No supplied numeric intermediate or main-answer transfer.",
+  "versions": [
+    "quadratic-intersection-relations-v1",
+    "linear-inequality-system-relations-v1",
+    "absolute-linear-inequality-relations-v1"
+  ],
+  "supply": {
+    "intersections": 6600,
+    "linear": 1176,
+    "absolute": 112
+  },
+  "tests": {
+    "engine": {
+      "tests": 776,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 177,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 177,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 776,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "restore_kenya_seconds": 16.075,
+  "home_seconds": 24.078,
+  "home_learning_total": 3102,
+  "apk_sha256": "73572c0d0a5981316ba19c8bcd70bf0f39578147e82869a6d724f959e84e45fe",
+  "installed_matches": true,
+  "display_restored": "1080x2400/420",
+  "initial_failure": "Native selection wait timed out before calculation. Retry reached topic; public prompt was above scroll. V2 reduced text/control layout but diagram still displaced prompt at focused input. V3 compact diagram and padding keep prompt/input visible and separate coordinate labels. V3 completed stages0..4 but long final instruction clipped the field. V4 smaller diagram/instruction resumes saved stage5 only; earlier calculations not replayed. Failure screens/retry logs retained.",
+  "native_scope": "Normal US English / All foundations / typed10 / 900x1600/400. Public equations and visible controls only. No learner-state injection or main submission. One native case per unit; all three intersection counts proven in unit tests only.",
+  "unverified": [
+    "KO/PT native flow",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old draft migration",
+    "all three intersection counts on device"
+  ],
+  "native": {
+    "intersections": {
+      "seconds": 29.502,
+      "secondsScope": "saved stage5 completion only; prior stages in V3 failure evidence",
+      "steps": 6,
+      "mainSubmitted": false
+    },
+    "linear": {
+      "seconds": 77.197,
+      "secondsScope": "entire native helper flow",
+      "steps": 8,
+      "mainSubmitted": false
+    },
+    "absolute": {
+      "seconds": 69.378,
+      "secondsScope": "entire native helper flow",
+      "steps": 7,
+      "mainSubmitted": false
+    }
+  },
+  "private_scope": "UI/QA/APK/screens/learner inputs not published."
+}

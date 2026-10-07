@@ -399,16 +399,19 @@ public final class SecondaryBasics {
                 QuadraticRangeRelations.attach(extremum);return extremum;
             }
             case "sec_quadratic_line_intersections":{
-                k=n(random,-5,5);answer=k>0?2:k==0?1:0;guide=two("두 함수의 y값을 같게 놓으세요.","x² = "+k,"",k,"실수해의 수를 판단하세요.","교점 수 = ","",answer);
-                return q(s,"이차함수 y=x²과 직선 y="+k+"의 교점은 몇 개인가요?",Rational.of(answer),guide,new StudyDiagram("coordinate",new double[]{0,0,0,k},"꼭짓점","직선의 y값"),"level",k);
+                a=signed(random,3);h=signed(random,5);b=signed(random,5);k=n(random,-5,5);c=b+k;answer=k*a>0?2:k==0?1:0;
+                Question intersections=q(s,"이차함수 y="+a+"(x-("+h+"))²+("+b+")과 직선 y="+c+"의 교점은 몇 개인가요?",Rational.of(answer),null,new StudyDiagram("coordinate",new double[]{h,b,h,c},"꼭짓점","직선의 y값"),"level",k,"a",a,"h",h,"b",b,"line",c);
+                IntervalRelations.attach(intersections);return intersections;
             }
             case "sec_linear_inequality_system":{
-                h=signed(random,7);a=signed(random,6);b=a+n(random,2,8);answer=b-a;guide=two("두 부등식에서 같은 이동량을 없애세요.",a+" < x-("+h+") ≤ "+b,"",b-a,"겹치는 정수를 세세요.",(a+h+1)+"부터 "+(b+h)+"까지 = ","개",answer);
-                return q(s,"x-("+h+")>"+a+"이고 x-("+h+")≤"+b+"를 모두 만족하는 정수 x는 몇 개인가요?",Rational.of(answer),guide,null,"shift",h,"low",a,"high",b);
+                h=signed(random,7);a=signed(random,6);b=a+n(random,2,8);answer=b-a;
+                Question linearInequality=q(s,"x-("+h+")>"+a+"이고 x-("+h+")≤"+b+"를 모두 만족하는 정수 x는 몇 개인가요?",Rational.of(answer),null,null,"shift",h,"low",a,"high",b);
+                IntervalRelations.attach(linearInequality);return linearInequality;
             }
             case "sec_absolute_linear_inequality":{
-                h=signed(random,8);a=n(random,1,7);answer=2*a+1;guide=two("절댓값을 거리 구간으로 바꾸세요.",h+"-"+a+" ≤ x ≤ "+h+"+"+a,"",h-a,"양 끝을 포함한 정수를 세세요.","2×"+a+"+1 = ","개",answer);
-                return q(s,"|x-("+h+")|≤"+a+"를 만족하는 정수 x는 몇 개인가요?",Rational.of(answer),guide,null,"center",h,"radius",a);
+                h=signed(random,8);a=n(random,1,7);answer=2*a+1;
+                Question absoluteInequality=q(s,"|x-("+h+")|≤"+a+"를 만족하는 정수 x는 몇 개인가요?",Rational.of(answer),null,null,"center",h,"radius",a);
+                IntervalRelations.attach(absoluteInequality);return absoluteInequality;
             }
             case "sec_quadratic_inequality_system":{
                 a=signed(random,6);b=a+n(random,3,9);c=n(random,a,b-1);answer=b-c;guide=two("첫 이차부등식의 해를 두 근 사이로 정리하세요.",a+" ≤ x ≤ "+b,"",b-a+1,"x>"+c+"와 겹치는 정수를 세세요.",(c+1)+"부터 "+b+"까지 = ","개",answer);
