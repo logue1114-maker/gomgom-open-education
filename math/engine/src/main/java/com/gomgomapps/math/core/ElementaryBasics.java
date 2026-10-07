@@ -259,14 +259,14 @@ public final class ElementaryBasics {
     private static Question number(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer.toString());
-        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);
+        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);
         return question;
     }
 
     private static Question numberText(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                        String answerText,boolean decimal,StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answerText);
-        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);
+        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);
         return question;
     }
 
@@ -277,14 +277,14 @@ public final class ElementaryBasics {
         Question question=new Question(skill.id,prompt,expression,answerTexts);
         question.kind="pair";
         if(labels!=null)question.labels=labels;
-        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);
+        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);
         return question;
     }
 
     private static Question symbol(Catalog.Skill skill,String prompt,String expression,String answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer);
-        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);
+        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);
         return question;
     }
 
@@ -1080,10 +1080,16 @@ public final class ElementaryBasics {
                 null);
     }
 
+    private static String variedSide(int side,Random random){
+        int form=random.nextInt(3);
+        if(form==1){int first=n(random,1,side-1);return "("+first+" + "+(side-first)+")";}
+        if(form==2&&side<20){int second=n(random,1,20-side);return "("+(side+second)+" − "+second+")";}
+        return String.valueOf(side);
+    }
     private static Question trapezoidPerimeter(Catalog.Skill skill,Random random){
         int scale=n(random,1,4),upper=n(random,2,20),left=3*scale,lower=upper+4*scale,right=5*scale;
         String expression=upper+"+"+left+"+"+lower+"+"+right;
-        return number(skill,"네 변의 길이가 "+upper+"cm, "+left+"cm, "+lower+"cm, "+right+"cm인 사다리꼴의 둘레는?",
+        return number(skill,"네 변의 길이가 "+variedSide(upper,random)+"cm, "+left+"cm, "+lower+"cm, "+right+"cm인 사다리꼴의 둘레는?",
                 expression,Rational.of(upper+left+lower+right),
                 guide(step("네 변의 길이를 모두 더합니다.",upper+" + "+left+" + "+lower+" + "+right+" = ","cm",expression)),
                 null);
@@ -1091,7 +1097,7 @@ public final class ElementaryBasics {
 
     private static Question rhombusPerimeter(Catalog.Skill skill,Random random){
         int side=n(random,2,20);
-        return number(skill,"한 변의 길이가 "+side+"cm인 마름모의 둘레는?","4*"+side,Rational.of(4L*side),
+        return number(skill,"한 변의 길이가 "+variedSide(side,random)+"cm인 마름모의 둘레는?","4*"+side,Rational.of(4L*side),
                 guide(step("같은 변 네 개를 더합니다.",side+" × 4 = ","cm","4*"+side)),
                 null);
     }

@@ -18,6 +18,8 @@ import static org.junit.Assert.*;
  * module itself exposes every skill and can create a sound question.</p>
  */
 public class ElementaryBasicsTest {
+    private static int[] measuredSides(String prompt){java.util.List<Integer> lengths=new java.util.ArrayList<>();Matcher m=Pattern.compile("(\\([0-9]+ [+−-] [0-9]+\\)|[0-9]+)cm").matcher(prompt);while(m.find()){int[] digits=ints(m.group(1));lengths.add(digits.length==1?digits[0]:m.group(1).contains(" + ")?digits[0]+digits[1]:digits[0]-digits[1]);}return lengths.stream().mapToInt(Integer::intValue).toArray();}
+
     private static int rangeBoundary(String prompt){int[] n=ints(prompt);return prompt.startsWith("(")?(prompt.contains(" + ")?n[0]+n[1]:n[0]-n[1]):n[0];}
     private static final Pattern INTEGER = Pattern.compile("-?\\d+");
 
@@ -373,8 +375,8 @@ public class ElementaryBasicsTest {
             case "el_triangle_perimeter": v=ints(q.prompt);assertNumber(q,Rational.of((long)v[0]+v[1]+v[2]));return;
             case "el_square_perimeter": assertNumber(q,Rational.of(4L*ints(q.prompt)[0]));return;
             case "el_parallelogram_perimeter": v=ints(q.prompt);assertNumber(q,Rational.of(2L*(v[0]+v[1])));return;
-            case "el_trapezoid_perimeter": v=ints(q.prompt);assertNumber(q,Rational.of((long)v[0]+v[1]+v[2]+v[3]));return;
-            case "el_rhombus_perimeter": assertNumber(q,Rational.of(4L*ints(q.prompt)[0]));return;
+            case "el_trapezoid_perimeter": v=measuredSides(q.prompt);assertNumber(q,Rational.of((long)v[0]+v[1]+v[2]+v[3]));return;
+            case "el_rhombus_perimeter": assertNumber(q,Rational.of(4L*measuredSides(q.prompt)[0]));return;
             case "el_rectangle_area": v=ints(q.prompt);assertNumber(q,Rational.of((long)v[0]*v[1]));return;
             case "el_square_area": assertNumber(q,Rational.of((long)ints(q.prompt)[0]*ints(q.prompt)[0]));return;
             case "el_triangle_area": v=ints(q.prompt);assertNumber(q,Rational.of((long)v[0]*v[1],2));return;

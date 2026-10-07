@@ -157,3 +157,7 @@ Four range units now use blank boundary calculations, an inclusion choice and a 
 ### Ratios and input-output rules (2026-10-08)
 
 Four elementary units now use learner-entered ratio terms, numerator/reference-denominator quantities and named input-output relationships. Multiplicative input values can be given directly or as bounded sums/differences; input 1..12 and factor 2..9 remain unchanged. Each unit has at least 100 distinct public prompts in 1600 samples, without claiming new numeric facts or an authored bank. The fraction helper keeps numerator/denominator separate and permits equivalent unreduced representations. Only earlier checked learner entries appear as references; help never fills the main answer. See [scope and validation](../docs/MATH_RATIO_CORRESPONDENCE_20261008.json).
+
+### Trapezoid and rhombus perimeters (2026-10-08)
+
+Two perimeter units now use learner-entered side lengths, pair sums or the fixed count of four equal rhombus sides. Side lengths remain 2..20 and trapezoids retain the original scale 1..4 right-triangle construction. Pure lengths remain alongside bounded addition/subtraction side expressions. Each unit has at least 100 distinct public prompts in 1600 samples, without claiming more than 19 rhombus side values or 76 trapezoid side combinations. Only earlier checked student entries appear as references, and help never fills the main answer. See [scope and validation](../docs/MATH_PERIMETER_BOUNDARIES_20261008.json).

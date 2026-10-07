@@ -1,0 +1,44 @@
+{
+  "units": [
+    "el_trapezoid_perimeter",
+    "el_rhombus_perimeter"
+  ],
+  "teachingVersion": "perimeter-boundary-relations-v1",
+  "method": "Public measured sides -> learner-entered length relationships -> sums or fixed four equal sides.",
+  "invariants": [
+    "Rhombus side and trapezoid upper side remain 2..20, and public side operands 1..20.",
+    "Trapezoids retain the original scale 1..4 with 3/4/5 right-triangle side geometry.",
+    "Pure side lengths remain alongside bounded sum/difference forms.",
+    "Only earlier checked student entries are referenced; no computed prefill or main-answer transfer.",
+    "The fixed 4 describes the rhombus side count, not a prefilled perimeter.",
+    "Obsolete drafts reset and checked partial drafts restore."
+  ],
+  "samples": "1600 samples per unit with at least 100 distinct public prompts. There remain 19 rhombus side values and 76 trapezoid side combinations, not 100 different shape facts or an authored bank.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 875,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 230,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 230,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "limits": [
+    "Normal UI evidence and tests are separate.",
+    "No physical-device, learner-comprehension or release-readiness assertion."
+  ]
+}
