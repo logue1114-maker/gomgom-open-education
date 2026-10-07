@@ -35,6 +35,11 @@ public final class Question implements Serializable {
         id=UUID.randomUUID().toString();this.skillId=skillId;this.prompt=prompt;this.expression=expression;this.answers=answers;
         labels=answers.length==1?new String[]{"답"}:new String[]{"첫 번째 답","두 번째 답"};
     }
+    private void readObject(java.io.ObjectInputStream in)throws java.io.IOException,ClassNotFoundException{
+        in.defaultReadObject();
+        // All active/deferred questions pass through the same actual device deserialization path.
+        if("sec_line_relation".equals(skillId))LineCircleRelations.attach(this);
+    }
     String legacySignature(){return skillId+"|"+prompt;}
     boolean hasDiagramSignature(){return diagram!=null&&signatureVersion>0;}
     public String signature(){

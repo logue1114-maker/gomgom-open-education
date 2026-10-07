@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-07",
+  "status": "Progress; full global app incomplete",
+  "behavior": "Four relationship labels including coincident. All coefficient, determinant, dot and constant cross-product calculations are student-entered; no numerical prefill or main transfer. Question deserialization repairs active/saved/deferred contracts while keeping identity, prompt, choice order, learner inputs and historical totals.",
+  "version": "line-relation-relations-v2",
+  "tests": {
+    "engine": {
+      "tests": 786,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 181,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 181,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 786,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "store_seconds": 0.984,
+  "restore_kenya_seconds": 37.254,
+  "home_seconds": 32.239,
+  "apk_sha256": "f42597c3f2e52ec5e7dfe2a2338eb8dc7466b6ea34b0027a1da20db057b5fe0e",
+  "installed_matches": true,
+  "home_learning_total": 3102,
+  "display": "1080x2400/420",
+  "unverified": [
+    "Real pre-update learner record coincident question on UI; isolated actual StateStore fixture only",
+    "KO/PT native",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "global app completion"
+  ],
+  "native": {
+    "seconds": 190.932,
+    "steps": 19,
+    "mainSubmitted": false
+  },
+  "store_fixture": "Isolated Android cache fixture through real StateStore load/save/reload; no live learner data replacement. Active/saved/deferred serialized-state regression retains learner work and history."
+}
