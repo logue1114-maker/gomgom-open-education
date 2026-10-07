@@ -1,3 +1,7 @@
+# 2026-10-07 — Learner-entered fraction and decimal comparison
+
+Same-denominator fractions use denominator/numerator inputs before the sign choice. Different-denominator fractions use public operands, a product common denominator and equivalent numerators before the sign choice. Decimals compare whole parts and matching digits, stopping when the first difference determines the sign; missing places count as zero. The learner chooses among shuffled comparison signs, with no numeric prefill or main-answer transfer. Each unit exceeds100 distinct prompts in4000 samples. Local engine826 and isolated public engine826 checks passed. UI/native/APK evidence stays private; other units and the global app remain incomplete.
+
 # 2026-10-07 — Decimal and fraction place-value relationships
 
 Both conversion units now use blank symbolic frames from the visible original prompt. Learners enter the numerator and denominator before the decimal quotient, or the decimal and its number of places before the denominator and numerator. No later-grade reduction is required. Decimal input frames reject fraction notation; saved guides retain this format and draft version. Each unit exceeds100 distinct prompts in4000 samples. Local engine823 and isolated public engine823 checks passed. Existing numerical/curriculum/supply tests retain their calculations and honor the updated input stages. UI/native/APK evidence is private. Other units and the full global app remain incomplete.

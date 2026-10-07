@@ -1,0 +1,44 @@
+{
+  "date": "2026-10-07",
+  "units": [
+    "fracCompare",
+    "el_fraction_compare",
+    "el_decimal_compare"
+  ],
+  "teachingVersion": "comparison-relations-v1",
+  "behavior": [
+    "Same denominators: enter denominator and two numerators, then choose a sign.",
+    "Different denominators: enter four operands, the product denominator and two equivalent numerators, then choose a sign.",
+    "Decimals: enter whole parts and matching decimal digits until comparison is determined. Missing decimal places are zero.",
+    "All numerical fields are blank; the sign is chosen by the learner from shuffled options.",
+    "No main-answer transfer; original problem and answer stay intact."
+  ],
+  "sourceManifest": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/ComparisonRelations.java",
+      "sha256": "588357951c4f85fef2b08a051ff0fcd80664afa5d99f68817f4a17ced49fd866"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/FractionConceptRelations.java",
+      "sha256": "206b8b9d65bd93641adeec2780c0752e21318da0cba654261e7bf285c1cfb0ff"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/FractionEquationTeaching.java",
+      "sha256": "ee1cc266274166da3aa08f4ce96df8ac0120b8de1ca7d424e76268ad71ffac2c"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/ElementaryBasics.java",
+      "sha256": "bf3c32b8aa3234b8d727933cef7a427e21445886542344db87fa60f61d52d782"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/ComparisonRelationsTest.java",
+      "sha256": "dc52e162131236edb60a03d8ada49ebe282742d7df25fd2c386ce0bd683d0de2"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/ElementaryBasicsTest.java",
+      "sha256": "b27d3efda857785f7c89af769e6d70c34b2cd7a65aaad5fbe0f9d59e6ad69f67"
+    }
+  ],
+  "validation": "Local engine826/app196/global196 and isolated public engine826 tests passed. Each unit exceeds100 distinct prompts in4000 samples. Independent cross-products and decimal place values, all comparison signs, unequal precision and equality, blank frames, wrong inputs, metadata independence and draft restoration checked. Native/UI/APK/learner evidence remain private.",
+  "remaining": "Other units and full global product scope remain incomplete."
+}

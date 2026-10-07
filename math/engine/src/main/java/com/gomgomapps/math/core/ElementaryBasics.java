@@ -818,7 +818,7 @@ public final class ElementaryBasics {
         String answer=leftValue.compareTo(rightValue)==0?"=":leftValue.compareTo(rightValue)>0?">":"<";
         String leftText=d(left,scale),rightText=d(right,scale);
         return symbol(skill,leftText+"  □  "+rightText,leftText+"-"+rightText,answer,
-                guide(step("소수점을 맞추어 두 수의 차를 살핍니다.",leftText+" - "+rightText+" = ","",leftText+"-"+rightText)),null);
+                null,null);
     }
 
     private static Question fractionCompare(Catalog.Skill skill,Random random){
@@ -829,7 +829,7 @@ public final class ElementaryBasics {
         String answer=left.compareTo(right)==0?"=":left.compareTo(right)>0?">":"<";
         String expression=numerator1+"*"+denominator2+"-"+numerator2+"*"+denominator1;
         return symbol(skill,numerator1+"/"+denominator1+"  □  "+numerator2+"/"+denominator2,expression,answer,
-                guide(step("분모를 같게 생각해 분자를 비교합니다.",numerator1+" × "+denominator2+" - "+numerator2+" × "+denominator1+" = ","",expression)),
+                null,
                 diagram("fraction",new double[]{numerator1,denominator1},"왼쪽 분자","왼쪽 분모"));
     }
 

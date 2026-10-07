@@ -3,6 +3,7 @@ package com.gomgomapps.math.core;
 final class FractionEquationTeaching {
  private FractionEquationTeaching(){}
  static void attach(Question q){
+  if(ComparisonRelations.supports(q.skillId)){ComparisonRelations.attach(q);return;}
   if(RationalArithmeticRelations.supports(q.skillId)){RationalArithmeticRelations.attach(q);return;}
   if(q.skillId.equals("reduce")){FractionReductionRelations.attach(q);return;}
   if(LinearEquationRelations.supports(q.skillId)){LinearEquationRelations.attach(q);return;}

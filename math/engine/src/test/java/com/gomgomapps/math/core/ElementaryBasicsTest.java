@@ -115,8 +115,10 @@ public class ElementaryBasicsTest {
             assertNotNull(skill.id,frame.after);
             assertNotNull(skill.id,frame.expected);
             assertFalse(skill.id,frame.expected.trim().isEmpty());
-            try{Expression.number(frame.expected);}
-            catch(RuntimeException error){fail(skill.id+" guide expected is not numeric: "+frame.expected);}
+            if(frame.options.isEmpty()){
+                try{Expression.number(frame.expected);}
+                catch(RuntimeException error){fail(skill.id+" guide expected is not numeric: "+frame.expected);}
+            }
         }
 
         if("symbol".equals(question.kind)){
