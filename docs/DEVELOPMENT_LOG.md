@@ -1,3 +1,9 @@
+## 2026-10-07 — Mean and triangle-angle relationship helpers
+
+Mean now names the sum/count relationship instead of supplying intermediate numbers, retaining compatible learner-entered sum/count drafts. Triangle angles now collect both given angles before sum/subtraction; versioned restoration clears incompatible legacy stages. Median sorting already requires learner input and was preserved.
+
+Local998 and independent public engine700 tests passed, including500 independently derived public-prompt cases per unit, fractional means, wrong inputs and answer-key independence. Actual normal Ghana JHS1 B7 mean practice entered sum/count, corrected a wrong sum and retained blank final helper/main fields without submissions. New angle device flow and remaining helper candidates are incomplete. See MATH_STATISTICS_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Percentage, proportion and substitution relationships
 
 Five helpers now collect the public values before calculation, name operands and intermediate results, and leave the main answer blank. Four/five stages retain exact decimals and signed/fractional substitution. Versioned saved-help conversion clears old entries and restores checked new inputs. Curated English/Portuguese text is used in both translation paths.

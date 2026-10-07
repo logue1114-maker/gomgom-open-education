@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global product remains incomplete",
+  "units": [
+    "mean",
+    "angles"
+  ],
+  "stages": [
+    3,
+    4
+  ],
+  "behavior": "Mean asks for sum/count then shows a named division relationship, without supplied intermediate values. Angles collect each public angle before sum and named subtraction from180. No transfer to the main answer; mathematical constant180 remains.",
+  "migration": "Mean keeps original sum/count/result stage meanings and compatible legacy checked inputs. Angles use statistics-angle-relations-v1 to clear incompatible legacy sum entries and preserve new checked measurements. Both generated and supported saved help paths convert.",
+  "tests": {
+    "engine": {
+      "tests": 700,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 149,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 149,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 700,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": 41.378,
+    "scope": "Normal Ghana JHS1 B7 ten-question typed mean practice. Sum entered with wrong-sum feedback, count entered, final mean result/main left blank. Fraction key, input and actions visible.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 9.59
+  },
+  "apk_sha256": "481dcc5301590a90050c0ddcec2e99e7592514e0c435d7ba67b97bac4373cb52",
+  "installed_hash_matches": true,
+  "default_display": "1080x2400 / 420 restored",
+  "failure_log": [
+    "Initial app compile helper translation variable collided with existing StatisticsText variable; renamed. Original log retained."
+  ],
+  "unverified": [
+    "New angle helper device flow",
+    "Final mean-result completion",
+    "Previously pending helper device checks and small-pool100-question diversity",
+    "Global curricula/languages, long study completion, student understanding/accessibility/physical device, ads/billing/release"
+  ],
+  "release": "Source/docs only; no homepage or Play deployment"
+}
