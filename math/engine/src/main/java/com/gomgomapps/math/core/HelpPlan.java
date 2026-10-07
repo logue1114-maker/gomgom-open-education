@@ -81,6 +81,7 @@ public final class HelpPlan {
         BasicAlgebraRelations.attach(q);
         RationalArithmeticRelations.attach(q);
         LinearEquationRelations.attach(q);
+        FractionReductionRelations.attach(q);
         if(q!=null)RadicalTeaching.attach(q);
         if(q!=null&&q.studyGuide!=null&&!q.studyGuide.frames.isEmpty()){
             HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:q.studyGuide.frames)plan.steps.add(new Step(frame));

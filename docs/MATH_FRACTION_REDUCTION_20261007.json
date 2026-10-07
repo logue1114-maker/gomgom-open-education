@@ -1,0 +1,36 @@
+{
+  "date": "2026-10-07",
+  "units": [
+    "reduce"
+  ],
+  "policy": "Visible numerator and denominator, greatest common divisor and reduced numerator/denominator are learner-entered. Symbolic frames only; no main-answer transfer.",
+  "stepsPerUnit": 5,
+  "generationCheck": {
+    "samples": 4000,
+    "distinctPrompts": "greater than 100"
+  },
+  "scope": "Nonnegative integer numerator and positive integer denominator in the current public Korean reduction prompt. Zero denominator is excluded.",
+  "tests": {
+    "localEngine": 811,
+    "app": 192,
+    "globalApp": 192,
+    "publicEngine": 811,
+    "failures": 0,
+    "errors": 0
+  },
+  "checks": [
+    "Independent visible operand parsing, division and cross-product equivalence; coprime positive denominator result.",
+    "Every frame rejects an incorrect value and blank input.",
+    "Main question identity remains unchanged; answer/expression metadata changes do not alter help.",
+    "Old help draft resets; current partial draft restores; zero numerator reduces to zero over one.",
+    "KO/EN/PT curated labels and instructions."
+  ],
+  "testCorrections": [
+    "The previous three-frame assertions now include the two learner-entered original operands while retaining independent fraction result checks."
+  ],
+  "limitations": [
+    "Primary fraction arithmetic help remains incomplete.",
+    "Native UI, learner inputs, screenshots and APK artifacts are private.",
+    "Full global app and Play release are incomplete."
+  ]
+}

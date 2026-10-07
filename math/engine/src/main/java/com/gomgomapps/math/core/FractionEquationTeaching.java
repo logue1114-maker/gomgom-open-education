@@ -6,7 +6,7 @@ final class FractionEquationTeaching {
  private FractionEquationTeaching(){}
  static void attach(Question q){
   if(RationalArithmeticRelations.supports(q.skillId)){RationalArithmeticRelations.attach(q);return;}
-  if(q.skillId.equals("reduce")){reduce(q);return;}
+  if(q.skillId.equals("reduce")){FractionReductionRelations.attach(q);return;}
   if(LinearEquationRelations.supports(q.skillId)){LinearEquationRelations.attach(q);return;}
   if(!Set.of("fracAddLike","fracSubLike","fracAdd","fracSub","fracMul","fracDiv","rational").contains(q.skillId))return;
   Matcher m=Pattern.compile("\\((-?\\d+)/(\\d+)\\)\\s*([+*/−-])\\s*\\((-?\\d+)/(\\d+)\\)").matcher(q.expression);if(!m.matches())return;
@@ -32,12 +32,4 @@ final class FractionEquationTeaching {
   guide.step(denominator<0?"분모를 같은 음수로 나누세요.":"분모를 같은 최대공약수로 나누세요.",denominator+" ÷ "+(divisor<0?"("+divisor+")":divisor)+" = ","",String.valueOf(denominator/divisor));guide.fractionResult(guide.frames.size()-2,guide.frames.size()-1);q.studyGuide=guide;
  }
  private static int gcd(int a,int b){while(b!=0){int next=a%b;a=b;b=next;}return Math.abs(a);}
- private static void reduce(Question q){
-  Matcher m=Pattern.compile("(\\d+)/(\\d+)을 기약분수로 나타내세요\\.").matcher(q.prompt);if(!m.matches())return;
-  int numerator=Integer.parseInt(m.group(1)),denominator=Integer.parseInt(m.group(2)),common=gcd(numerator,denominator);
-  q.studyGuide=new StudyGuide().transfer(false)
-   .step("분자와 분모의 최대공약수를 구하세요.","gcd("+numerator+", "+denominator+") = ","",String.valueOf(common))
-   .step("분자를 최대공약수로 나누세요.",numerator+" ÷ "+common+" = ","",String.valueOf(numerator/common))
-   .step("분모를 같은 최대공약수로 나누세요.",denominator+" ÷ "+common+" = ","",String.valueOf(denominator/common)).fractionResult(1,2);
- }
 }

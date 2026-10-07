@@ -13,7 +13,7 @@ public class ArithmeticTeachingTest {
   }
  }
  @Test public void reductionUsesUnreducedVisibleOperandsAndSavedFramesRetainTheirSteps()throws Exception{
-  Question q=new Question("reduce","18/30을 기약분수로 나타내세요.","3/5","3/5");q.kind="reduced";ArithmeticTeaching.attach(q);assertEquals(List.of("6","3","5"),q.studyGuide.frames.stream().map(f->f.expected).toList());
-  ByteArrayOutputStream out=new ByteArrayOutputStream();new ObjectOutputStream(out).writeObject(q);Question restored=(Question)new ObjectInputStream(new ByteArrayInputStream(out.toByteArray())).readObject();assertEquals(q.signature(),restored.signature());assertFalse(HelpPlan.forQuestion(restored).canTransfer());assertEquals(3,HelpPlan.forQuestion(restored).size());
+  Question q=new Question("reduce","18/30을 기약분수로 나타내세요.","3/5","3/5");q.kind="reduced";ArithmeticTeaching.attach(q);assertEquals(List.of("18","30","6","3","5"),q.studyGuide.frames.stream().map(f->f.expected).toList());
+  ByteArrayOutputStream out=new ByteArrayOutputStream();new ObjectOutputStream(out).writeObject(q);Question restored=(Question)new ObjectInputStream(new ByteArrayInputStream(out.toByteArray())).readObject();assertEquals(q.signature(),restored.signature());assertFalse(HelpPlan.forQuestion(restored).canTransfer());assertEquals(5,HelpPlan.forQuestion(restored).size());
  }
 }
