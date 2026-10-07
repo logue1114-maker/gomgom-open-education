@@ -519,12 +519,12 @@ public final class SecondaryBasics {
                 SubsetRelations.attach(subset);return subset;
             }
             case "sec_proposition_truth":{
-                a=n(random,2,9);b=n(random,1,a-1);boolean trueCase=random.nextBoolean();int value=trueCase?a*b:a*b+1;answer=value%a==0?1:0;guide=one("주어진 수를 실제로 나누어 나머지를 확인하세요.",value+" ÷ "+a+"의 나머지 = ","",value%a);
-                guide.transfer(false);return choices(q(s,"명제 ‘"+value+"은 "+a+"의 배수이다’의 참과 거짓을 고르세요.",Rational.of(answer),guide,null,"value",value,"divisor",a),"1","참","0","거짓");
+                a=n(random,2,9);b=n(random,1,9);int value=a*b+(random.nextBoolean()?0:n(random,1,a-1));answer=value%a==0?1:0;
+                String particle=Set.of(2,4,5,9).contains(value%10)?"는 ":"은 ";Question proposition=choices(q(s,"명제 ‘"+value+particle+a+"의 배수이다’의 참과 거짓을 고르세요.",Rational.of(answer),null,null,"value",value,"divisor",a),"1","참","0","거짓");PropositionRelations.attach(proposition);return proposition;
             }
             case "sec_contrapositive":{
-                a=n(random,2,6);b=a*n(random,2,5);boolean valid=random.nextBoolean();if(!valid)b+=1;answer=b%a==0?1:0;guide=one("큰 수를 작은 수로 나눈 나머지를 확인하세요.",b+" ÷ "+a+"의 나머지 = ","",b%a).transfer(false);
-                return choices(q(s,"명제 ‘n이 "+b+"의 배수이면 n은 "+a+"의 배수이다’의 대우가 참인지 거짓인지 고르세요.",Rational.of(answer),guide,null,"smaller",a,"larger",b),"1","참","0","거짓");
+                a=n(random,2,9);b=a*n(random,2,9)+(random.nextBoolean()?0:n(random,1,a-1));answer=b%a==0?1:0;
+                Question contraposition=choices(q(s,"정수 n에 대한 명제 ‘n이 "+b+"의 배수이면 n은 "+a+"의 배수이다’의 대우가 참인지 거짓인지 고르세요.",Rational.of(answer),null,null,"smaller",a,"larger",b),"1","참","0","거짓");PropositionRelations.attach(contraposition);return contraposition;
             }
             case "sec_sufficient_condition":{
                 a=signed(random,9);int type=random.nextInt(2);answer=type==0?1:0;

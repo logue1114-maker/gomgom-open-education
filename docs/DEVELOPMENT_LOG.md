@@ -1,3 +1,7 @@
+# 2026-10-07 — Divisibility statements and contrapositive calculations
+
+Expanded truth prompts to396 and contrapositive prompts to352, with variable nonzero remainders as well as exact division. New contrapositive statements explicitly quantify integer n. Symbolic help requires learner-entered public numbers, quotient, product, remainder and truth choice; contraposition also requires a reversed/negated-form choice. No numerical prefill or main transfer. Saved prompts/identity remain intact; only help is replaced. Scoped independent tests and fresh English normal-menu native evidence are recorded in MATH_PROPOSITION_20261007.json. Necessity/sufficiency and the full global app remain incomplete.
+
 # 2026-10-07 — Subset counting and containment without supplied calculations
 
 Explicit public sets now give 120 counting prompts and more than100 prompts for each containment result in4000 generated samples. Count help requires learner-entered cardinality, choices, initial case count and each multiplication. Containment retrieves each element and checks membership before a final conclusion. All numeric frames are symbolic blanks; neither form transfers the main answer. Saved generic-count/ellipsis exercises keep public identity and receive replacement help. One fresh English native case of each form completed through normal topic selection with wrong-input correction. See MATH_SUBSET_20261007.json for scoped test/runtime evidence and remaining global-app work.

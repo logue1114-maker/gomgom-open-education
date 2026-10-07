@@ -1,0 +1,86 @@
+{
+  "date": "2026-10-07",
+  "status": "Progress; full app incomplete",
+  "behavior": "Learner retrieves public dividend/condition base and divisor, then calculates integer quotient, product and remainder. Truth is selected from the remainder. Contrapositive also requires selecting the reversed/negated logical form before truth judgment. Quotient k is distinct from logical condition q. No numerical prefill or main transfer.",
+  "versions": [
+    "proposition-truth-relations-v1",
+    "contrapositive-relations-v1"
+  ],
+  "supply": {
+    "truth": 396,
+    "contrapositive": 352,
+    "samples_each": 16000,
+    "remainders": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "divisor": [
+      2,
+      9
+    ],
+    "max_value": 89
+  },
+  "saved": "Old prompts and identity/answers remain intact; replacement help resets old drafts and restores new drafts. New contrapositive prompts state integer n explicitly. New numeric topic particle follows the final Korean numeral syllable; old \uc740 wording is still parsed.",
+  "tests": {
+    "engine": {
+      "tests": 795,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 185,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 185,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 795,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "truth": {
+      "seconds": 92.208,
+      "steps": 6,
+      "mainSubmitted": false
+    },
+    "contrapositive": {
+      "seconds": 80.26,
+      "steps": 7,
+      "mainSubmitted": false
+    }
+  },
+  "restore_kenya_seconds": 20.838,
+  "home_seconds": 11.033,
+  "home_learning_total": 3102,
+  "apk_sha256": "aa3fc8b1747ccdeabcd034d2e731ce37d4bf8526fd236e5fffacdbb57844eb55",
+  "installed_matches": true,
+  "builds": "First local build1m41 succeeded. Updated source rerun1m47 passed engine/app/global tests but failed QA Java compilation because local int d shadowed UiDevice d. Renamed to divisor; final app/QA build2s succeeded. Public build1m33 succeeded. Failure log retained.",
+  "unverified": [
+    "KO/PT native",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old-help migration",
+    "necessity/sufficiency topic completion",
+    "full global app completion"
+  ]
+}
