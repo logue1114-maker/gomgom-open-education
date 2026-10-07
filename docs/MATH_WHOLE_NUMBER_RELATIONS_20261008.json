@@ -1,0 +1,62 @@
+{
+  "units": [
+    "add9",
+    "sub9",
+    "add20",
+    "sub20",
+    "addThree9",
+    "subThree9",
+    "addThree100",
+    "subThree100"
+  ],
+  "teachingVersion": "whole-number-relations-v1",
+  "behavior": "Original public operands enter blank counting, make-ten, break-ten and three-term relations. Checked earlier learner entries supply references; computed future values are not prefilled or transferred. Old saved guides refresh from original operands; old drafts reset and current partial drafts restore.",
+  "quantityPictures": "Optional serialized frame counts retain original given quantity pictures. Small counting uses original groups; make-ten uses both original groups; subtracting from ten uses ten with original removed amount. Future computed remainders are not supplied.",
+  "sourceManifest": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/WholeNumberRelations.java",
+      "sha256": "3f54d53f8523c1be508e0e8205d193584229e817d59474285142ed0149f23e02",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/StudyGuide.java",
+      "sha256": "7fb9b09ddf70f2be32cbbd978a22be4bfa8e81bbc5b67994e84498727ca6ec4e",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/HelpPlan.java",
+      "sha256": "12416b2035a7b17fc3fbd795c06f49bd199c6e9b762ecaa562fcbf93d628a4a1",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/ArithmeticTeaching.java",
+      "sha256": "fe762f514ac789837463b987ee542b1d5628d09e137c881e9fdf8ebd29e03b1d",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/Generator.java",
+      "sha256": "20fe36dc2e6b8efe23a17aa09329b1e91f9d2bfeb73d1579f9a5494b9abe2e6c",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/WholeNumberRelationsTest.java",
+      "sha256": "c8dac24b8957d88f65dffb32af6128c5a8a7cc22aeb22f597887321895338838",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/HelpPlanTest.java",
+      "sha256": "9f2f6683497f068acc686d7a1fb4c90bfda56f9bd8ea60faff3c6c64ef00c9d0",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/KenyaWholeCurriculumTest.java",
+      "sha256": "f2d27222f3790ced3ba55f9fcb3c104ba3eb57453877d28ec0d076f5fa5c8c56",
+      "public": true
+    }
+  ],
+  "validation": "Public engine 838 tests passed, zero failures. UI, QA, images, student entries and APK stay private.",
+  "remaining": [
+    "Full global app scope and other unit help remain incomplete.",
+    "Low-number numeric domains are finite: add9/sub9 have 55 pairs and add20/sub20 have 45 default pairs. Do not claim 100 unique numerical problems by duplicate sampling; further representation diversity remains work."
+  ]
+}

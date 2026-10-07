@@ -144,7 +144,7 @@ public final class Generator {
                 e=a+" + "+b+" + "+c;
                 if(limits.hasWholeDigits()){
                     q=numeric(s,e,e,Rational.of((long)a+b+c));
-                    q.studyGuide=new StudyGuide().step("앞의 두 수를 더하세요.",a+" + "+b+" = ","",String.valueOf(a+b)).step("남은 수를 더하세요.",(a+b)+" + "+c+" = ","",String.valueOf(a+b+c)).transfer(false);
+                    WholeNumberRelations.attach(q);
                     return q.withInputs(a,b,c);
                 }
                 break;

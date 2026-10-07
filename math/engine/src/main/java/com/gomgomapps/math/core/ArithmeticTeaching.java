@@ -4,6 +4,7 @@ final class ArithmeticTeaching {
  private ArithmeticTeaching(){}
  static void attach(Question q){
   ColumnArithmeticTeaching.attach(q);
+  WholeNumberRelations.attach(q);
   if(FractionReductionRelations.supports(q.skillId)){FractionReductionRelations.attach(q);return;}
   BasicAlgebraRelations.attach(q);
  }

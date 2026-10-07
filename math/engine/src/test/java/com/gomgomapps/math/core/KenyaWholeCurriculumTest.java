@@ -36,9 +36,10 @@ public class KenyaWholeCurriculumTest {
             for(long operand:v)assertEquals(6,String.valueOf(operand).length());assertEquals(0,carries(v));assertTrue(sum<=1000000);lastDigits[(int)(sum%10)]++;leadingDigits.add(sum/100000);
             largestPositions.add(v.indexOf(Collections.max(v)));distinct.add(q.signature());
             assertTrue(new Checker().check(q,List.of(),List.of(String.valueOf(sum))).correct());
-            HelpPlan help=HelpPlan.forQuestion(q);assertNotNull(help);assertEquals(2,help.size());assertFalse(help.canTransfer());
-            long first=v.get(0)+v.get(1);assertTrue(help.step(0).accepts(String.valueOf(first)));assertFalse(help.step(0).before.contains(String.valueOf(first)));
-            q.answers[0]="99999999";assertTrue(HelpPlan.forQuestion(q).step(1).accepts(String.valueOf(sum)));
+            HelpPlan help=HelpPlan.forQuestion(q);assertNotNull(help);assertEquals(5,help.size());assertFalse(help.canTransfer());
+            for(int j=0;j<3;j++)assertTrue(help.step(j).accepts(String.valueOf(v.get(j))));
+            long first=v.get(0)+v.get(1);assertTrue(help.step(3).accepts(String.valueOf(first)));assertFalse(help.step(3).before.contains(String.valueOf(first)));
+            q.answers[0]="99999999";assertTrue(HelpPlan.forQuestion(q).step(4).accepts(String.valueOf(sum)));
         }
         assertEquals(400,distinct.size());assertEquals(Set.of(0,1,2),largestPositions);assertEquals(Set.of(3L,4L,5L,6L,7L,8L,9L),leadingDigits);for(int count:lastDigits)assertTrue(count>=20&&count<=65);
         assertFalse(GlobalCurriculum.limits(KE,"addThree100",5).allows(new Question("addThree100","199999 + 111111 + 111111","199999 + 111111 + 111111","422221")));

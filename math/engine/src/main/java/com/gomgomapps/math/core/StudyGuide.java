@@ -21,12 +21,14 @@ public final class StudyGuide implements Serializable {
         private static final long serialVersionUID=1L;
         public String instruction,before,after,expected;
         public String inputFormat;
+        public Integer pictureFilled,pictureExtra,pictureDenominator;
         public Map<String,String> options=new LinkedHashMap<>();
         public Frame(){}
         Frame(String instruction,String before,String after,String expected){this.instruction=instruction;this.before=before;this.after=after;this.expected=expected;}
     }
     public StudyGuide step(String instruction,String before,String after,String expected){frames.add(new Frame(instruction,before,after,expected));return this;}
     public StudyGuide transfer(boolean value){transfer=value;return this;}
+    public StudyGuide quantity(int filled,int extra,int denominator){Frame f=frames.get(frames.size()-1);f.pictureFilled=filled;f.pictureExtra=extra;f.pictureDenominator=denominator;return this;}
     public StudyGuide fractionResult(int numeratorFrame,int denominatorFrame){resultNumeratorFrame=numeratorFrame;resultDenominatorFrame=denominatorFrame;return this;}
     public StudyGuide mixedResult(int wholeFrame,int numeratorFrame,int denominatorFrame){resultWholeFrame=wholeFrame;return fractionResult(numeratorFrame,denominatorFrame);}
     public StudyGuide radicalResult(int coefficientFrame,int radicandFrame){resultCoefficientFrame=coefficientFrame;resultRadicandFrame=radicandFrame;return this;}
