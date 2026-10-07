@@ -1,0 +1,54 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "sec_mode"
+  ],
+  "behavior": "Learner counts occurrences of each distinct publicly listed value, selects largest frequency, then enters the mode. Count labels include only public values; counts/mode are not supplied. Main/helper screens omit legacy precomputed frequency bars; original public list, question identity/diagram and curriculum remain unchanged. No main-answer transfer.",
+  "migration": "mode-relations-v1; generated/saved HelpPlan paths. Old unversioned answer draft resets; valid versioned counts restore.",
+  "tests": {
+    "engine": {
+      "tests": 747,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 165,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 165,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 747,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": 45.657,
+    "scope": "Normal Kenya English Grade8 typed10 practice1/10. First frequency/final mode errors corrected, all counts entered through visible keys, final Mode relation captured blank, helper completed. No answer metadata or learning-state injection. No main submission.",
+    "home_learning_total": 3102,
+    "home_seconds": 13.056
+  },
+  "apk_sha256": "9f1bc8adf4ddad16fd16840dd51e9ab0e3d2c2fadecce24a56993fae94d36b06",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "unverified": [
+    "Other sorted mode positions on device",
+    "Reinstall/draft restoration on device",
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Saved unusual/ambiguous datasets",
+    "Other helpers including relative frequency",
+    "Worldwide curricula/languages,100-question supply/diversity,long study completion,real ads/billing/release"
+  ],
+  "release": "Isolated engine/docs public; app/UI/QA/screens/APK private; no homepage or Play deployment",
+  "native_initial_failure": "Initial41.2s QA searched Kenya Grade7 and found no Mode topic. Current canonical global.tsv places this unit in Kenya Grade8. QA selection corrected to Grade8; product curriculum mapping unchanged, no exercise or calculation had begun. Initial log/screens retained."
+}

@@ -1,3 +1,7 @@
+## 2026-10-07 — Learner counted mode
+
+Mode helpers now ask learners to count each public value, find the largest frequency, then enter its value. Supplied frequency/answer hints are removed from help. Main/help screens omit legacy precomputed frequency bars while keeping persisted question identity. No main-answer transfer, curriculum and versioned drafts remain. Local1077 and separate public747 tests pass; normal Android small-phone input/error-correction/helper completion verified. UI/screens/student inputs/APK remain private. See MATH_MODE_RELATIONS_20261007.json. Remaining app and physical/student proof incomplete.
+
 ## 2026-10-07 — Regular polygon and pyramid relationships
 
 Regular polygon area and pyramid volume helpers now collect public lengths and learner-calculated intermediate areas/volumes. Named relationships replace supplied results; rounded distance, perpendicular height, units, formula definitions, no main-answer transfer and versioned drafts remain. Curated English/Portuguese and fraction/decimal keys are connected. Local1073 and separate public745 tests pass. Normal small-phone Android practices verify visible prompts/inputs, first/final error correction and helper completion with main answers blank. Other shapes, student comprehension and remaining app work are unverified. See MATH_SOLID_FOUNDATION_RELATIONS_20261007.json.
