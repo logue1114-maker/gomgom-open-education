@@ -1,3 +1,7 @@
+# 2026-10-07 — Necessary and sufficient conditions
+
+Added necessary-condition questions and both implication directions. A shifted square relation supplies684 distinct public questions, including a repeated root. Symbolic help requires learner direction choice, public values, subtraction, squaring and the other root, then relation judgment. No numerical prefill or main transfer. Old saved questions remain intact. Independent tests and fresh normal-menu native evidence are in MATH_CONDITION_20261007.json. Remaining function help and the full global app are incomplete.
+
 # 2026-10-07 — Divisibility statements and contrapositive calculations
 
 Expanded truth prompts to396 and contrapositive prompts to352, with variable nonzero remainders as well as exact division. New contrapositive statements explicitly quantify integer n. Symbolic help requires learner-entered public numbers, quotient, product, remainder and truth choice; contraposition also requires a reversed/negated-form choice. No numerical prefill or main transfer. Saved prompts/identity remain intact; only help is replaced. Scoped independent tests and fresh English normal-menu native evidence are recorded in MATH_PROPOSITION_20261007.json. Necessity/sufficiency and the full global app remain incomplete.

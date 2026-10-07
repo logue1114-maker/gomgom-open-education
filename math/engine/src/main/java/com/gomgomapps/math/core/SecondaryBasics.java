@@ -527,10 +527,9 @@ public final class SecondaryBasics {
                 Question contraposition=choices(q(s,"정수 n에 대한 명제 ‘n이 "+b+"의 배수이면 n은 "+a+"의 배수이다’의 대우가 참인지 거짓인지 고르세요.",Rational.of(answer),null,null,"smaller",a,"larger",b),"1","참","0","거짓");PropositionRelations.attach(contraposition);return contraposition;
             }
             case "sec_sufficient_condition":{
-                a=signed(random,9);int type=random.nextInt(2);answer=type==0?1:0;
-                String p=type==0?"x="+a:"x²="+(a*a),qText=type==0?"x²="+(a*a):"x="+a;
-                guide=(type==0?one("p의 x를 q의 왼쪽에 대입하세요.",a+"² = ","",a*a):one("p의 두 해 중 q와 다른 반례를 찾으세요.","q와 다른 해 x = ","",-a)).transfer(false);
-                return choices(q(s,"p: "+p+", q: "+qText+"일 때 p가 q이기 위한 충분조건인지 고르세요.",Rational.of(answer),guide,null,"a",a,"type",type),"1","충분조건이다","0","충분조건이 아니다");
+                a=random.nextInt(19)-9;h=random.nextInt(9)-4;int type=random.nextInt(2);boolean necessary=random.nextBoolean();answer=((type==0)!=necessary||a==0)?1:0;
+                String linear="x="+(h+a),square="(x-("+h+"))²="+(a*a),p=type==0?linear:square,qText=type==0?square:linear,label=necessary?"필요조건":"충분조건";
+                Question condition=choices(q(s,"실수 x에 대해 p: "+p+", q: "+qText+"일 때 p가 q의 "+label+"인지 고르세요.",Rational.of(answer),null,null,"a",a,"h",h,"type",type,"necessary",necessary?1:0),"1",label+"이다","0",label+"이 아니다");ConditionRelations.attach(condition);return condition;
             }
             case "sec_amgm_minimum":{
                 a=n(random,2,9);answer=2*a;guide=two("두 양수 항의 곱을 구하세요.","x × "+(a*a)+"/x = ","",a*a,"산술평균-기하평균 부등식을 적용하세요.","2√"+(a*a)+" = ","",answer);

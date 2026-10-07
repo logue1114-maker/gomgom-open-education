@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-07",
+  "status": "Progress; full app incomplete",
+  "behavior": "Both necessary and sufficient conditions in both equation directions. Learner chooses implication direction, retrieves public centre/linear value/squared value, computes difference/square/other root, then judges the relation. No numerical prefill or main transfer.",
+  "version": "condition-relations-v1",
+  "supply": {
+    "distinct_prompts": 684,
+    "samples": 16000,
+    "centre": [
+      -4,
+      4
+    ],
+    "difference": [
+      -9,
+      9
+    ],
+    "zero_root_included": true,
+    "necessary_prompts": 342,
+    "sufficient_prompts": 342
+  },
+  "saved": "Legacy sufficient-condition prompts/id/answers/learner inputs remain intact; help alone is replaced. Old draft reset/new draft restoration tested.",
+  "tests": {
+    "engine": {
+      "tests": 797,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 186,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 186,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 797,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "necessary": {
+      "seconds": 176.259,
+      "steps": 8,
+      "mainSubmitted": false
+    },
+    "sufficient": {
+      "seconds": 77.786,
+      "steps": 8,
+      "mainSubmitted": false
+    }
+  },
+  "restore_kenya_seconds": 18.204,
+  "home_seconds": 11.764,
+  "home_learning_total": 3102,
+  "apk_sha256": "744ca42fe2e323e247c02ddf86a4840061b5600e8a073120221c00dbdbbe7fde",
+  "installed_matches": true,
+  "builds": "Initial build1m40 failed app translation comparison because ASCII minus and display minus differed. Canonical display fixed; final build log records successful rebuild. Initial failure preserved.",
+  "unverified": [
+    "KO/PT native",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old-help migration",
+    "remaining function help",
+    "full global app completion"
+  ]
+}
