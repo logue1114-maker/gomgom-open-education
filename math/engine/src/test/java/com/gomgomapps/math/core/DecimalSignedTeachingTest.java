@@ -18,7 +18,7 @@ public class DecimalSignedTeachingTest {
  }
  @Test public void fractionalEquationsUseBothSidesForSignedAndZeroSolutions(){
   for(int a=2;a<=9;a++)for(int b=-9;b<=9;b++)for(int x=-9;x<=9;x++){
-   String e="x/"+a+" + ("+b+") = "+(x+b);Question q=new Question("linearFraction",e,e,"999");FractionEquationTeaching.attach(q);assertEquals(List.of(""+(-b),""+x,""+(a*x)),q.studyGuide.frames.stream().map(f->f.expected).toList());assertFalse(HelpPlan.forQuestion(q).canTransfer());
+   String e="x/"+a+" + ("+b+") = "+(x+b);Question q=new Question("linearFraction",e,e,"999");FractionEquationTeaching.attach(q);assertEquals(List.of(""+a,""+b,""+(x+b),""+(-b),""+x,""+(a*x)),q.studyGuide.frames.stream().map(f->f.expected).toList());assertFalse(HelpPlan.forQuestion(q).canTransfer());
   }
  }
 }

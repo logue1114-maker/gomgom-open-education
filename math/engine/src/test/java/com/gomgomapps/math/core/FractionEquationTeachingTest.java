@@ -8,7 +8,7 @@ public class FractionEquationTeachingTest {
  }
  @Test public void generatedTasksHaveEnteredFramesAndDoNotTransferTheMainAnswer(){
   Generator g=new Generator(new Random(20261006901L));for(String id:List.of("fracAdd","fracSub","fracMul","fracDiv","linear"))for(int i=0;i<300;i++){
-   Question q=g.next(id,List.of(),i%2==0);assertNotNull(id,q.studyGuide);HelpPlan plan=HelpPlan.forQuestion(q);assertFalse(plan.canTransfer());assertEquals(id.equals("linear")?3:id.equals("fracMul")?5:7,plan.size());
+   Question q=g.next(id,List.of(),i%2==0);assertNotNull(id,q.studyGuide);HelpPlan plan=HelpPlan.forQuestion(q);assertFalse(plan.canTransfer());assertEquals(id.equals("linear")?6:id.equals("fracMul")?5:7,plan.size());
    HelpPlan.Draft draft=new HelpPlan.Draft();for(int stage=0;stage<plan.size();stage++){String value=q.studyGuide.frames.get(stage).expected;assertTrue(plan.step(stage).accepts(value));assertFalse(plan.step(stage).accepts(Expression.number(value).add(Rational.ONE).toString()));draft.entries.add(value);}draft.stage=plan.size();assertEquals(Expression.number(q.answers[0]),Expression.number(plan.enteredAnswer(draft)));
   }
  }
@@ -19,7 +19,7 @@ public class FractionEquationTeachingTest {
  }
  @Test public void bothSidesOfSignedEquationsAndSerializedGuidesUseGivensInsteadOfAnswerMetadata()throws Exception{
   for(int a=-12;a<=12;a++)if(a!=0)for(int b=-12;b<=12;b++)for(int x=-12;x<=12;x++){
-   int c=a*x+b;String expression=a+"x + ("+b+") = "+c;Question q=new Question("linear",expression,expression,"999");q.kind="equation";FractionEquationTeaching.attach(q);assertEquals(List.of(""+(-b),""+(c-b),""+x),q.studyGuide.frames.stream().map(f->f.expected).toList());assertFalse(HelpPlan.forQuestion(q).canTransfer());
+   int c=a*x+b;String expression=a+"x + ("+b+") = "+c;Question q=new Question("linear",expression,expression,"999");q.kind="equation";FractionEquationTeaching.attach(q);assertEquals(List.of(""+a,""+b,""+c,""+(-b),""+(c-b),""+x),q.studyGuide.frames.stream().map(f->f.expected).toList());assertFalse(HelpPlan.forQuestion(q).canTransfer());
   }
   Question q=new Generator(new Random(20261006902L)).next("fracDiv",List.of(),false);ByteArrayOutputStream bytes=new ByteArrayOutputStream();new ObjectOutputStream(bytes).writeObject(q);Question restored=(Question)new ObjectInputStream(new ByteArrayInputStream(bytes.toByteArray())).readObject();assertEquals(q.signature(),restored.signature());assertEquals(7,HelpPlan.forQuestion(restored).size());assertFalse(HelpPlan.forQuestion(restored).canTransfer());
  }

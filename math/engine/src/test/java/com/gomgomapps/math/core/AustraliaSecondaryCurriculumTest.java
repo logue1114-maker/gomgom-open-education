@@ -21,7 +21,7 @@ public class AustraliaSecondaryCurriculumTest {
  @Test public void year7EquationsYear8ExponentsAndYear9QuadraticsHonorDomains(){
   Generator g=new Generator(new Random(20261006782L));boolean signed=false,negativeExponent=false,nonMonic=false;
   for(int i=0;i<200;i++){
-   Question linear=g.next("linear",List.of(),false,GlobalCurriculum.limits(PACK,"linear",7));assertTrue(Integer.parseInt(linear.answers[0])>0);
+   Question linear=g.next("linear",List.of(),false,GlobalCurriculum.limits(PACK,"linear",7));assertTrue(Integer.parseInt(linear.answers[0])>=0);
    Question later=g.next("linear",List.of(),false,GlobalCurriculum.limits(PACK,"linear",8));signed|=Integer.parseInt(later.answers[0])<0;
    Question exponent=g.next("powerQuotient",List.of(),false,GlobalCurriculum.limits(PACK,"powerQuotient",8));assertTrue(Integer.parseInt(exponent.answers[0])>=0);
    Question advanced=g.next("powerQuotient",List.of(),false,GlobalCurriculum.limits(PACK,"powerQuotient",9));negativeExponent|=Integer.parseInt(advanced.answers[0])<0;

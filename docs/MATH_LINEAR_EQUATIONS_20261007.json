@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-07",
+  "units": [
+    "linear",
+    "linearFraction"
+  ],
+  "policy": "Visible coefficients/constants and every operation are learner-entered in blank symbolic frames. Apply the same operation to both sides; no main-answer transfer.",
+  "stepsPerUnit": 6,
+  "generationCheck": {
+    "samplesPerUnit": 4000,
+    "distinctPromptsPerUnit": "greater than 100",
+    "zeroConstant": true,
+    "zeroSolution": true,
+    "currentAnswerMode": "typed equations, including when mixed-choice mode is requested"
+  },
+  "scope": "Current ax+b=c and x/d+b=c families. The helper accepts exact fractional solutions for integer a/b/c; general fractional coefficients/constants and variables on both sides remain outside this slice.",
+  "tests": {
+    "localEngine": 808,
+    "app": 191,
+    "globalApp": 191,
+    "publicEngine": 808,
+    "failures": 0,
+    "errors": 0
+  },
+  "testCorrections": [
+    "Old frame assertions now include the three learner-entered givens and preserve the existing balance/solution checks.",
+    "Australia Year7 strict-positive assertion corrected to the existing integer/nonnegative curriculum rule; curriculum data is unchanged.",
+    "New test removed its unsupported equation multiple-choice assumption; production remains typed."
+  ],
+  "savedQuestions": "Identity, published question and main answer are preserved. Old help drafts reset and current drafts restore.",
+  "nativeEvidence": "Normal-menu EN Android emulator cases and all UI/QA/learner input remain private; not physical device, accessibility or learning-effectiveness proof.",
+  "remaining": "Primary fraction/reduction help and full global app remain incomplete."
+}

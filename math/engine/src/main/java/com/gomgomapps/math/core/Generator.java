@@ -222,8 +222,8 @@ public final class Generator {
             case "linearValue": case "linearSlope": case "linearXIntercept": case "linearYIntercept": return linearFunction(s);
             case "likeTerms": a=signed(9);b=signed(9);c=signed(9);e=a+"x + ("+b+"x) + ("+c+")";q=new Question(s.id,e,e,Expression.parse(e).toString());q.kind="polynomial";return q;
             case "polyAdd": a=signed(8);b=signed(8);c=signed(8);int d=signed(8);e="("+a+"x^2 + "+b+"x) - ("+c+"x^2 + "+d+"x)";q=new Question(s.id,e,e,Expression.parse(e).toString());q.kind="polynomial";return q;
-            case "linear": a=signed(12);b=signed(20);c=signed(12);e=a+"x + ("+b+") = "+(a*c+b);q=numeric(s,e+"\nx의 값은?",e,Rational.of(c));q.kind="equation";return q;
-            case "linearFraction": a=n(2,9);b=signed(9);c=signed(9);e="x/"+a+" + ("+b+") = "+(c+b);q=numeric(s,e+"\nx의 값은?",e,Rational.of(a*c));q.kind="equation";return q;
+            case "linear": a=signed(12);b=n(-20,20);c=n(-12,12);e=a+"x + ("+b+") = "+(a*c+b);q=numeric(s,e+"\nx의 값은?",e,Rational.of(c));q.kind="equation";return q;
+            case "linearFraction": a=n(2,9);b=n(-9,9);c=n(-9,9);e="x/"+a+" + ("+b+") = "+(c+b);q=numeric(s,e+"\nx의 값은?",e,Rational.of(a*c));q.kind="equation";return q;
             case "linearSystem": {
                 int x=n(-s.range,s.range),y=n(-s.range,s.range),secondY;
                 do{a=signed(5);b=signed(5);c=signed(5);secondY=signed(5);}while(a*secondY-b*c==0);

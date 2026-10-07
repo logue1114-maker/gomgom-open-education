@@ -1,3 +1,7 @@
+# 2026-10-07 — Balance-preserving linear equation help
+
+Replaced numeric prefills in ax+b=c and x/d+b=c with six learner-entered symbolic frames: visible givens, the opposite constant added to both sides, the adjusted right side and final division/multiplication. Added zero constants and zero solutions without allowing a zero coefficient/denominator. Both units exceed100 distinct prompts in4000 sampled generations. Exact substitution, draft and translation checks are recorded in MATH_LINEAR_EQUATIONS_20261007.json, including old test assumptions corrected to the unchanged nonnegative curriculum rule and the actual typed-equation mode. UI and native evidence stay private. Other fraction help, broader equation forms and the full global app remain incomplete.
+
 # 2026-10-07 — Rational arithmetic relationships
 
 Replaced numeric prefills in rational addition, subtraction, multiplication and division with learner-entered fractions, common denominators/scaling, reciprocal/product operations and signed reduction. Frames contain symbolic relationships only, preserve the public question, and never transfer the main answer. Each operation exceeds100 distinct prompts in4000 sampled generations. Exact rational-value and zero/sign/draft checks and KO/EN/PT translation checks are recorded in MATH_RATIONAL_ARITHMETIC_20261007.json. UI, native evidence and learner input stay private. Primary fraction and equation help, and the full global app, remain incomplete.
