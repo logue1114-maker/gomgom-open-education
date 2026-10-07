@@ -1,0 +1,57 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app remains active/incomplete",
+  "units": [
+    "annualCompound",
+    "annualValueChange"
+  ],
+  "behavior": "Initial amount/rate/period, percentage conversion, then learner-computed annual interest/change and resulting balance. Named prior-year balance replaces supplied calculated operands. Year indices are labels, not computed money; percentage100 remains.6/8/10 stages for1/2/3 years; no main-answer transfer.",
+  "migration": "annual-change-relations-v1 clears old annual calculations from new given fields and restores checked new inputs; matching generated/saved public prompts",
+  "tests": {
+    "engine": {
+      "tests": 723,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 157,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 157,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 723,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "compound_seconds": 74.96,
+    "value_increase_seconds": 61.443,
+    "scope": "Normal Kenya Grade8 typed10-question practices1/10. Three-year compound/increase flows: public givens, wrong initial readings corrected, fractional percentage rates and later decimal annual differences/balances typed; final helper/main blank. All13 keys including decimal/fraction and both actions visible.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 11.761
+  },
+  "apk_sha256": "63675a2140ed95a5133ac69e22d7e3afbdf9ccf306ae843310ee371fc1f4cd80",
+  "installed_matches": true,
+  "display": "1080x2400 /420 restored",
+  "test_alignment": "Existing annual frame count now4+2*public years. Three-year test selects public period3 and derives each frame independently from public givens instead of evaluating supplied numeric before text. Existing measurement public solving/diversity/choice/diagnostic exclusion/serialization checks retained.",
+  "unverified": [
+    "Depreciation actual UI",
+    "Final helper/main completion",
+    "Saved fractional annual givens actual device input",
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Triangular prism surface and remaining helpers",
+    "Worldwide curricula/languages,100-question supply/diversity,long study completion,real ads/billing/release"
+  ],
+  "release": "Only isolated engine and docs public; app/UI/QA/APK/screens private, no homepage or Play deployment"
+}

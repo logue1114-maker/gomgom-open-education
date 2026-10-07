@@ -28,7 +28,7 @@ public class MeasurementFoundationsTest {
             Question q=g.next(s.id,List.of(),i%2==0,GlobalCurriculum.limits(KE,s.id,8));BigDecimal answer=solve(q);String text=answer.toPlainString();
             assertTrue(q.prompt,checker.check(q,List.of(),List.of(text)).correct());assertFalse(checker.check(q,List.of(),List.of(answer.add(BigDecimal.ONE).toPlainString())).correct());
             assertFalse(q.studyGuide.transfer);assertTrue(q.studyGuide.frames.size()>0);assertFalse(q.answers[0].contains("/"));
-            if(q.skillId.equals("annualCompound")||q.skillId.equals("annualValueChange"))assertTrue(q.studyGuide.frames.size()>=2&&q.studyGuide.frames.size()<=6);
+            if(q.skillId.equals("annualCompound")||q.skillId.equals("annualValueChange"))assertTrue(q.studyGuide.frames.size()==4+2*Integer.parseInt(q.prompt.substring(q.prompt.indexOf("기간: ")+4,q.prompt.indexOf("년",q.prompt.indexOf("기간: ")))));
             if(q.skillId.equals("annualValueChange"))variants.add(q.prompt.contains("하락")?"fall":"rise");
             if(q.skillId.equals("scaleLength"))variants.add((q.prompt.contains("도면 길이:")?"toActual":"toDrawing")+(q.prompt.contains("km")?"Km":"M"));
             if(q.skillId.equals("scaleNotation"))variants.add(q.prompt.startsWith("도면")?"statement":"ratio");
@@ -49,12 +49,11 @@ public class MeasurementFoundationsTest {
     }
     @Test public void threeYearGuideChecksAllStudentStepsAndKeepsPartialDraft()throws Exception{
         Generator g=new Generator(new Random(100303));Question q;
-        do{q=g.create(Catalog.get("annualCompound"));}while(q.studyGuide.frames.size()!=6);
+        do{q=g.create(Catalog.get("annualCompound"));}while(!q.prompt.contains("기간: 3년"));
         HelpPlan plan=HelpPlan.forQuestion(q);assertFalse(plan.canTransfer());
-        for(int i=0;i<plan.size();i++){
-            StudyGuide.Frame frame=q.studyGuide.frames.get(i);String entered=Expression.number(frame.before.replace(" = ","")).decimalText();
-            assertTrue(plan.step(i).accepts(entered));assertFalse(plan.step(i).accepts("99999999"));
-        }
+        List<BigDecimal> publicValues=new ArrayList<>();Matcher givens=Pattern.compile("\\d+(?:\\.\\d+)?").matcher(q.prompt);while(givens.find())publicValues.add(new BigDecimal(givens.group()));
+        BigDecimal balance=publicValues.get(0),fraction=publicValues.get(1).divide(new BigDecimal("100"));List<BigDecimal> expected=new ArrayList<>(publicValues);expected.add(fraction);for(int year=0;year<3;year++){BigDecimal interest=balance.multiply(fraction);balance=balance.add(interest);expected.add(interest);expected.add(balance);}
+        assertEquals(10,plan.size());for(int i=0;i<plan.size();i++){assertTrue(plan.step(i).accepts(expected.get(i).toPlainString()));assertFalse(plan.step(i).accepts("99999999"));}
         Learning.State state=new Learning.State();GlobalCurriculum.chooseCountry(state.profile,"KE");GlobalCurriculum.choosePack(state.profile,KE);state.profile.grade=8;state.profile.currentSkill="signedAdd";
         Diagnosis.begin(state,new Random(100304),true);for(Catalog.Skill s:MeasurementFoundations.SKILLS){assertTrue(GlobalCurriculum.pack(state.profile).inGrade(s.id,8));assertFalse(state.session.diagnosticRun.plan.scope.contains(s.id));}
         Learning.beginPractice(state,"practice",List.of("annualCompound"),100,false,new Random(100305),Map.of("annualCompound",8));Learning.ensureQuestion(state,g);state.session.answers.set(0,"123.45");
