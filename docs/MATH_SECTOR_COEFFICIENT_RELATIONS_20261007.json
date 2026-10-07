@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app remains active/incomplete",
+  "units": [
+    "sec_sector_arc",
+    "sec_sector_area"
+  ],
+  "behavior": "Learner enters radius/angle, calculates the full-circle pi coefficient, then sector coefficient using named relationships. Four stages; computed2r/r\u00b2 not supplied. Exact(\u25a1)pi question,360/2/square definitions, actual sector angle and curriculum limits remain; no approximate pi replacement or main-answer transfer.",
+  "migration": "sector-coefficient-relations-v1 protects new given fields from old calculated drafts; generated/saved public prompt paths connected",
+  "tests": {
+    "engine": {
+      "tests": 736,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 161,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 161,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 736,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "arc_seconds": 71.689,
+    "area_seconds": 67.171,
+    "scope": "Normal Kenya Grade8 typed10-question practices1/10. Public givens/circle coefficient entered and initial radius error corrected; final relationships first captured blank. Arc final error corrected with exact fractional keypad input, own entered result shown, main answer remains blank. Area final helper/main blank. All13 keys, actions and full public prompt visible on small phone.",
+    "arc_helper_completed": true,
+    "area_helper_completed": false,
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 19.492
+  },
+  "apk_sha256": "aa729c80f6a5b31a15976ebbb54faf30ee54bf023ba5a0e4d1c61aebb7402a76",
+  "installed_matches": true,
+  "display": "1080x2400 /420 restored",
+  "test_alignment": "Initial SolidEnglish instruction lookup used only older handlers. Actual curated sector-coefficient handler added; original200 public-length/unit/geometry/approximation/perpendicular-height checks retained. Initial failure log preserved.",
+  "unverified": [
+    "Area helper final completion and both main answers",
+    "Noninteger final coefficient actual device input (arc fraction form had denominator1)",
+    "Saved fractional givens actual device input",
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Remaining helpers",
+    "Worldwide curricula/languages,100-question supply/diversity,long study completion,real ads/billing/release"
+  ],
+  "release": "Only isolated engine and docs public; app/UI/QA/APK/screens private, no homepage or Play deployment",
+  "native_initial_failure": "37.769s, two assertions before any exercise: setup pressed Back while language preparation had not reached home, target window absent. Normal cold launch showed Preparing language. QA setup now waits for home/preparation before navigation; no app data reset or exercise replay. Initial logs/screens retained."
+}

@@ -1,3 +1,9 @@
+## 2026-10-07 — Exact sector pi-coefficient relationships
+
+Both helpers collect public radius and angle before learner-calculated circle pi coefficient and final sector coefficient. Named relationships replace supplied2r/r². Exact(□)pi questions, actual angles,360/2/square definitions and curriculum bounds remain; pi is not replaced with an approximation. Normal generated/saved paths use versioned draft migration and no main-answer transfer. Curated English/Portuguese and decimal/fraction keypad are connected.
+
+Local1058 and separate public engine736 tests pass.600 independent public-givens examples per unit verify exact coefficients, public angle diagrams, answer-key/input independence, wrong values, saved fractional givens and draft restoration. Initial legacy-only SolidEnglish lookup failed; actual curated handler added with original geometry/unit/condition scope retained. Actual normal Kenya Grade8 arc practice enters givens/circle coefficient, then corrects a final error with fractional input and completes the helper; only its own entered result is shown and the main answer stays blank. Area final relationship/main remain blank. Area completion and physical/student proof remain unverified. See MATH_SECTOR_COEFFICIENT_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Cuboid net and surface-path relationships
 
 Both helpers collect public edges before learner-computed face areas or three unfolded squared path lengths. Named face areas/minimum replace supplied calculations. The surface-path helper compares all three squared paths before their positive square root. Normal generated/saved paths use versioned draft migration and no main-answer transfer. Surface/opposite-vertex conditions, actual diagrams, units, definition2 and partial-expression support remain. Curated English/Portuguese and decimal/fraction keypad are connected; related changes share one build.
