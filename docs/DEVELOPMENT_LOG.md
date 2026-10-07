@@ -1,3 +1,7 @@
+## 2026-10-07 — Isosceles angles from public givens
+
+Learners enter the public apex angle, calculate the sum of base angles and divide by2. Computed intermediates are not supplied. Exact fractions, saved identity, curriculum and no main transfer remain. Supply expands from27 to179 distinct angles. Local1088 and separate public754 tests pass; normal US Common Core Grade8 Android input/error correction/helper completion verified, followed by Kenya profile restoration. Pure public display uses lateral equal-side marks and unknown base angles. UI/screens/student inputs/APK private. See MATH_ISOSCELES_ANGLE_RELATIONS_20261007.json. Whole global app remains incomplete.
+
 ## 2026-10-07 — Relative frequency from public counts
 
 Relative-frequency helpers now collect public class and total frequencies before learner-entered division. Arbitrary preliminary reduction and supplied reduced intermediates are removed. Exact fractions, original counts/diagrams, curriculum, no main-answer transfer and versioned drafts remain. Local1083 and separate public751 tests pass. Normal Rwanda S2 Android small-phone input/error correction/helper completion verified, then previous Kenya profile restored. UI/screens/student inputs/APK remain private. See MATH_RELATIVE_FREQUENCY_RELATIONS_20261007.json. Remaining app and physical/student proof incomplete.

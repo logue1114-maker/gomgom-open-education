@@ -264,7 +264,7 @@ public final class SecondaryBasics {
                 return q(s,"전체 도수가 "+a+"이고 한 계급의 도수가 "+(c*multiple)+"일 때 그 계급의 상대도수는?",result,guide,new StudyDiagram("bars",new double[]{c*multiple,a-c*multiple},"해당 계급","나머지"),"total",a,"frequency",c*multiple);
             }
             case "sec_isosceles_angle":{
-                a=n(random,4,30)*5;Rational baseAngle=Rational.of(180-a,2);guide=two("두 밑각의 합을 구하세요.","180 - "+a+" = ","°",180-a,"같은 두 밑각으로 나누세요.",(180-a)+" ÷ 2 = ","°",baseAngle.toString());
+                a=n(random,1,179);Rational baseAngle=Rational.of(180-a,2);guide=two("두 밑각의 합을 구하세요.","180 - "+a+" = ","°",180-a,"같은 두 밑각으로 나누세요.",(180-a)+" ÷ 2 = ","°",baseAngle.toString());
                 return q(s,"꼭지각이 "+a+"°인 이등변삼각형의 한 밑각은?",baseAngle,guide,new StudyDiagram("triangle",new double[]{1,1},"같은 변","같은 변"),"vertexAngle",a);
             }
             case "sec_circumcenter_radius":{

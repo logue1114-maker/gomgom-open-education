@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "sec_isosceles_angle"
+  ],
+  "behavior": "Published apex angle entered by learner, then 180 degrees minus apex, then sum of equal base angles divided by 2. No supplied computed intermediate or main-answer transfer. Exact fractional angles, original question identity and curriculum remain.",
+  "migration": "isosceles-angle-relations-v1; generated and saved HelpPlan paths; old calculated-sum drafts reset.",
+  "supply": "179 distinct public apex prompts and answers; previous 27. Over100 distinct prompts and answers sampled in1000 engine examples, all4 correct-option positions.",
+  "diagram": "Pure public-apex display factory; equal-side ticks on the two lateral sides, unknown base angles, Not to scale. No altitude/equal-base implication. Original stored diagram and signature unchanged.",
+  "tests": {
+    "engine": {
+      "tests": 754,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 167,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 167,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 754,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": 83.824,
+    "scope": "Normal United States English Common Core Grade8 setup, untouched assessment and normal typed10 practice. Public apex/sum/final input, first/final errors corrected, helper completed, main blank. Small-phone900x1600/400; no learning-state injection or answer metadata read.",
+    "restore_kenya_seconds": 22.034,
+    "home_learning_total": 3102,
+    "home_seconds": 14.72
+  },
+  "apk_sha256": "415e09b97ed36615aae209b226b4160b0ad999a02fe0be3f2f1fde8a68f641fb",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "local_visual": "Actual main, blank final relation and learner-completed screens inspected; emulator only",
+  "unverified": [
+    "Fractional angles on device",
+    "Reinstall/helper draft restoration on device",
+    "KO/PT/tablet/physical/TalkBack/student understanding",
+    "Other helper units and complete100-question supply",
+    "Worldwide curricula/languages,long study completion,real ads/billing/release"
+  ],
+  "release": "Isolated engine/docs public; UI/QA/screens/APK/student inputs private; no homepage or Play deployment"
+}
