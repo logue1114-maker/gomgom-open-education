@@ -103,3 +103,7 @@ gradle :math:engine:test
 ## 대분수 덧셈·뺄셈 관계식 (2026-10-08)
 
 `MixedFractionRelations`는 두 대분수의 공개 자연수 부분·분자·분모를 읽어 가분수 변환, 최소공배수에 따른 통분 배수와 통분한 분자, 연산 및 약분을 17개의 빈 입력 단계로 구성합니다. 중간 분자나 공통 분모를 미리 표시하지 않습니다. 기존 국가별 학년 배정·문제 생성·선택지·정답은 유지하며 본문 답으로 전송하지 않습니다. 상세 변경은 `docs/MATH_MIXED_FRACTION_RELATIONS_20261008.json`에 있습니다.
+
+### Blank column arithmetic relations (2026-10-08)
+
+`add1000` and `sub1000` retain country digit limits and use blank place-value, carry and borrow relations. Existing saved guides refresh from the original operands; computed answers are not displayed or transferred. See [scope and source manifest](../docs/MATH_COLUMN_RELATIONS_20261008.json).

@@ -1,0 +1,23 @@
+{
+  "units": [
+    "add1000",
+    "sub1000"
+  ],
+  "teachingVersion": "column-relations-v1",
+  "behavior": "Public original operands and checked learner entries support blank place-value, carry and borrow relations. Computed current or future answers are never prefilled or transferred to the main answer. Legacy saved guides refresh; legacy drafts reset, current drafts restore.",
+  "constants": "Only fixed 1 and 10 place-value concepts appear in relation frames.",
+  "sourceManifest": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/ColumnArithmeticTeaching.java",
+      "sha256": "97afa508399a40713c40dd3df3b82734b5d50f50766753d8b28d0a4ece51d518",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/ColumnArithmeticTeachingTest.java",
+      "sha256": "816954f1a8d756e6aa2dc56d1d24470deb9214f2c9c96a1e5bc54f3cb23bd9b1",
+      "public": true
+    }
+  ],
+  "validation": "Public engine 836 tests passed, zero failures. UI, QA, images, student entries and APK stay private.",
+  "remaining": "World curricula, all units and final app release remain incomplete."
+}
