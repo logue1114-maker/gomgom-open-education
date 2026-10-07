@@ -280,7 +280,7 @@ public final class SecondaryBasics {
                 return q(s,"평행사변형의 한 내각이 "+a+"°일 때 이웃한 내각의 크기는?",Rational.of(answer),guide,new StudyDiagram("polygon",new double[]{4},"평행사변형"),"angle",a);
             }
             case "sec_similarity_length":{
-                k=n(random,2,5);a=n(random,2,10);answer=a*k;guide=one("대응 길이에 닮음비를 곱하세요.",a+" × "+k+" = ","",answer);
+                k=n(random,2,12);a=n(random,2,50);answer=a*k;guide=one("대응 길이에 닮음비를 곱하세요.",a+" × "+k+" = ","",answer);
                 return q(s,"두 닮은 도형의 닮음비가 1:"+k+"입니다. 작은 도형의 대응변이 "+a+"일 때 큰 도형의 대응변은?",Rational.of(answer),guide,null,"ratio",k,"small",a);
             }
             case "sec_similarity_condition":{
@@ -290,11 +290,11 @@ public final class SecondaryBasics {
                 return ParallelSegments.create(s,random);
             }
             case "sec_similarity_area":{
-                k=n(random,2,5);a=n(random,2,12);answer=a*k*k;guide=two("닮음비를 제곱하세요.",k+"² = ","",k*k,"작은 넓이에 넓이비를 곱하세요.",a+" × "+(k*k)+" = ","",answer);
+                k=n(random,2,12);a=n(random,2,50);answer=a*k*k;guide=two("닮음비를 제곱하세요.",k+"² = ","",k*k,"작은 넓이에 넓이비를 곱하세요.",a+" × "+(k*k)+" = ","",answer);
                 return q(s,"두 닮은 도형의 닮음비가 1:"+k+"입니다. 작은 도형의 넓이가 "+a+"일 때 큰 도형의 넓이는?",Rational.of(answer),guide,null,"ratio",k,"smallArea",a);
             }
             case "sec_similarity_volume":{
-                k=n(random,2,4);a=n(random,1,8);answer=a*k*k*k;guide=two("닮음비를 세제곱하세요.",k+"³ = ","",k*k*k,"작은 부피에 부피비를 곱하세요.",a+" × "+(k*k*k)+" = ","",answer);
+                k=n(random,2,10);a=n(random,1,50);answer=a*k*k*k;guide=two("닮음비를 세제곱하세요.",k+"³ = ","",k*k*k,"작은 부피에 부피비를 곱하세요.",a+" × "+(k*k*k)+" = ","",answer);
                 return q(s,"두 닮은 입체의 닮음비가 1:"+k+"입니다. 작은 입체의 부피가 "+a+"일 때 큰 입체의 부피는?",Rational.of(answer),guide,null,"ratio",k,"smallVolume",a);
             }
             case "sec_probability_add":{

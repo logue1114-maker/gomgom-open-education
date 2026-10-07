@@ -1,3 +1,7 @@
+## 2026-10-07 — Similarity measures from public givens
+
+Learners enter public ratio1:k and smaller length/area/volume, calculate the squared/cubed measure ratio and multiply. Computed factors are not supplied. Exact fractions, saved identity, curriculum and no main transfer remain. Supply grows to539 length,539 area,450 volume combinations. Local1092 and separate public756 tests pass; normal US Common Core Grade8/9 Android input/error correction/helper completion checked for all3 units, followed by Kenya profile restoration. UI/screens/student inputs/APK private. See MATH_SIMILARITY_MEASURE_RELATIONS_20261007.json. Whole global app remains incomplete.
+
 ## 2026-10-07 — Isosceles angles from public givens
 
 Learners enter the public apex angle, calculate the sum of base angles and divide by2. Computed intermediates are not supplied. Exact fractions, saved identity, curriculum and no main transfer remain. Supply expands from27 to179 distinct angles. Local1088 and separate public754 tests pass; normal US Common Core Grade8 Android input/error correction/helper completion verified, followed by Kenya profile restoration. Pure public display uses lateral equal-side marks and unknown base angles. UI/screens/student inputs/APK private. See MATH_ISOSCELES_ANGLE_RELATIONS_20261007.json. Whole global app remains incomplete.

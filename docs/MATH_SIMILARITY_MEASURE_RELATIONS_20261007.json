@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "sec_similarity_length",
+    "sec_similarity_area",
+    "sec_similarity_volume"
+  ],
+  "behavior": "Learners enter the public second number k of ratio1:k and public smaller measure; calculate squared/cubed factor when needed, then multiply smaller measure by its measure ratio. No supplied computed intermediate or main transfer. Exact fractions, original saved identity and curriculum remain.",
+  "migration": "similarity-measure-relations-v1; generated and saved HelpPlan paths; old computed-factor drafts reset.",
+  "supply": {
+    "length": 539,
+    "area": 539,
+    "volume": 450,
+    "validation": "1000 public generated examples per unit, more100 distinct prompts and answers, all4 correct-option positions"
+  },
+  "tests": {
+    "engine": {
+      "tests": 756,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 168,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 168,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 756,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "version_scope": "Area input was checked on V1. V2 clarifies final labels to length/area/volume ratio; completed area inputs are not replayed. Length and volume use V2.",
+    "initial_failure": "Initial43.442s QA did not wait for the saved US profile to return to home after language selection. Actual home image verified; QA waits for the normal home. No new problem/input on the failed run; initial log/screens retained.",
+    "scope": "Normal United States English Common Core Grade8 length/Grade9 area and volume typed10 practice. First/final wrong inputs corrected; helpers complete and main blank. Small phone900x1600/400. Public prompt only; no answer metadata or learning-state injection.",
+    "seconds": {
+      "length": 35.803,
+      "area": 51.985,
+      "volume": 52.757
+    },
+    "restore_kenya_seconds": 15.399,
+    "home_learning_total": 3102,
+    "home_seconds": 16.463
+  },
+  "apk_sha256": "7fe54e2671e970405610d7a7df23e93501d45b156beda9e41ccb26064687ed3b",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "local_visual": "Actual main, factor, blank final relation and learner completion screens inspected; emulator only",
+  "unverified": [
+    "Fractional ratio/measure on device",
+    "Reinstall/helper draft restoration on device",
+    "KO/PT/tablet/physical/TalkBack/student understanding",
+    "Other helper units and complete100-question supply",
+    "Worldwide curricula/languages,long study completion,real ads/billing/release"
+  ],
+  "release": "Isolated engine/docs public; UI/QA/screens/APK/student inputs private; no homepage or Play deployment"
+}
