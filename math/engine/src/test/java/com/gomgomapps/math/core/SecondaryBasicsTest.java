@@ -121,7 +121,7 @@ public class SecondaryBasicsTest {
             case "sec_quartic_equation":return List.of(r(i(q,"positiveRoot")));
             case "sec_simultaneous_quadratic":return List.of(r(i(q,"positiveX")));
             case "sec_quadratic_inequality":return List.of(r(2L*i(q,"radius")+1));
-            case "sec_quadratic_extremum":return List.of(r(i(q,"k")));
+            case "sec_quadratic_extremum":{long x=Math.max(i(q,"low"),Math.min(i(q,"h"),i(q,"high"))),difference=x-i(q,"h");return List.of(r(i(q,"a")*difference*difference+i(q,"k")));}
             case "sec_quadratic_line_intersections":return List.of(r(i(q,"level")>0?2:i(q,"level")==0?1:0));
             case "sec_linear_inequality_system":return List.of(r(i(q,"high")-i(q,"low")));
             case "sec_absolute_linear_inequality":return List.of(r(2L*i(q,"radius")+1));

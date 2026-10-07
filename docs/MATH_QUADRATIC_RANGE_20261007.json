@@ -1,0 +1,85 @@
+{
+  "status": "Progress; whole global app incomplete",
+  "date": "2026-10-07",
+  "units": [
+    "sec_simultaneous_quadratic",
+    "sec_quadratic_inequality",
+    "sec_quadratic_extremum"
+  ],
+  "behavior": "Public values and symbolic cancellation, positive square roots, inclusive integer endpoints and count; positive quadratic minimum now varies vertex inside/left/right of interval. Learner selects vertex or nearest endpoint and evaluates function. No supplied numeric intermediate/main transfer; direct generation and saved help.",
+  "versions": [
+    "simultaneous-quadratic-relations-v1",
+    "quadratic-inequality-relations-v1",
+    "quadratic-extremum-relations-v1"
+  ],
+  "supply": {
+    "simultaneous": 162,
+    "inequality": 300,
+    "minimum": 123200
+  },
+  "tests": {
+    "engine": {
+      "tests": 774,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 176,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 176,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 774,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "restore_kenya_seconds": 17.541,
+  "home_seconds": 17.321,
+  "home_learning_total": 3102,
+  "apk_sha256": "a7a096ef4f842e1b06877ae1e2009a9a6a031be17fa42e12100bdf205e702549",
+  "installed_matches": true,
+  "display_restored": "1080x2400/420",
+  "initial_failure": "Initial Java y redeclaration compile error fixed by using existing local variable; initial log retained.",
+  "native_scope": "Normal US English / All foundations / 900x1600/400 / typed10. Actual public equations and normal keys only; no learner-state injection/answer metadata/main submission. No whole US curriculum claim.",
+  "unverified": [
+    "KO/PT native flow",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old draft migration",
+    "all three vertex placements on device"
+  ],
+  "native": {
+    "minimum": {
+      "seconds": 82.914,
+      "steps": 7,
+      "mainSubmitted": false,
+      "vertexPlacement": "inside"
+    },
+    "simultaneous": {
+      "seconds": 61.897,
+      "steps": 4,
+      "mainSubmitted": false,
+      "vertexPlacement": null
+    },
+    "inequality": {
+      "seconds": 70.491,
+      "steps": 8,
+      "mainSubmitted": false,
+      "vertexPlacement": null
+    }
+  },
+  "private_scope": "UI/QA/APK/screens/learner inputs not published."
+}

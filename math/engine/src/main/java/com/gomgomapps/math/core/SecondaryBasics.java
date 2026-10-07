@@ -384,16 +384,19 @@ public final class SecondaryBasics {
                 PolynomialRootRelations.attach(quartic);return quartic;
             }
             case "sec_simultaneous_quadratic":{
-                a=n(random,2,10);guide=two("두 식의 y를 같게 놓으세요.","x² = "+(a*a),"",a*a,"x>0 조건을 적용하세요.","x = ","",a);
-                return q(s,"y=x², y="+(a*a)+"를 동시에 만족하고 x>0일 때 x는?",Rational.of(a),guide,null,"positiveX",a,"y",a*a);
+                a=n(random,2,10);b=signed(random,9);y=a*a+b;
+                Question simultaneous=q(s,"y=x²+("+b+"), y="+y+"를 동시에 만족하고 x>0일 때 x는?",Rational.of(a),null,null,"positiveX",a,"constant",b,"y",y);
+                QuadraticRangeRelations.attach(simultaneous);return simultaneous;
             }
             case "sec_quadratic_inequality":{
-                h=signed(random,5);a=n(random,1,5);answer=2*a+1;guide=two("제곱이 a² 이하이면 -a부터 a 사이입니다.","-"+a+" ≤ x-("+h+") ≤ "+a,"",a,"양 끝을 포함한 정수의 개수를 세세요.","2×"+a+"+1 = ","",answer);
-                return q(s,"(x-("+h+"))²≤"+(a*a)+"를 만족하는 정수 x는 모두 몇 개인가요?",Rational.of(answer),guide,null,"center",h,"radius",a);
+                h=signed(random,5);a=n(random,1,5);b=signed(random,3);answer=2*a+1;int right=a*a+b;
+                Question inequality=q(s,"(x-("+h+"))²+("+b+")≤"+right+"를 만족하는 정수 x는 모두 몇 개인가요?",Rational.of(answer),null,null,"center",h,"radius",a,"constant",b,"right",right);
+                QuadraticRangeRelations.attach(inequality);return inequality;
             }
             case "sec_quadratic_extremum":{
-                h=signed(random,7);k=signed(random,10);a=n(random,1,4);int low=h-n(random,1,5),high=h+n(random,1,5);guide=one("주어진 범위에 꼭짓점 x가 포함되는지 확인하세요.",low+" ≤ "+h+" ≤ "+high+"이므로 최솟값 = ","",k);
-                return q(s,low+"≤x≤"+high+"에서 f(x)="+a+"(x-("+h+"))²+("+k+")의 최솟값은?",Rational.of(k),guide,null,"a",a,"h",h,"k",k,"low",low,"high",high);
+                h=signed(random,7);k=signed(random,10);a=n(random,1,4);int low=h+n(random,-5,5),high=low+n(random,1,10),minimumX=Math.max(low,Math.min(h,high));answer=a*(minimumX-h)*(minimumX-h)+k;
+                Question extremum=q(s,low+"≤x≤"+high+"에서 f(x)="+a+"(x-("+h+"))²+("+k+")의 최솟값은?",Rational.of(answer),null,null,"a",a,"h",h,"k",k,"low",low,"high",high);
+                QuadraticRangeRelations.attach(extremum);return extremum;
             }
             case "sec_quadratic_line_intersections":{
                 k=n(random,-5,5);answer=k>0?2:k==0?1:0;guide=two("두 함수의 y값을 같게 놓으세요.","x² = "+k,"",k,"실수해의 수를 판단하세요.","교점 수 = ","",answer);
