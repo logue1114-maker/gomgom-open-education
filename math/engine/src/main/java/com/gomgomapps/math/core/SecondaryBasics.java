@@ -452,16 +452,19 @@ public final class SecondaryBasics {
                 MatrixCalculationRelations.attach(matrixQuestion);return matrixQuestion;
             }
             case "sec_point_distance":{
-                int[][] delta={{3,4,5},{5,12,13},{6,8,10},{8,15,17}};int[] t=delta[random.nextInt(delta.length)];x=signed(random,6);y=signed(random,6);int sx=random.nextBoolean()?1:-1,sy=random.nextBoolean()?1:-1;int x2=x+sx*t[0],y2=y+sy*t[1];answer=t[2];guide=two("두 좌표의 차를 각각 구하세요.","Δx="+(x2-x)+", Δy="+(y2-y),"",(x2-x)*(x2-x)+(y2-y)*(y2-y),"차의 제곱합의 제곱근을 구하세요.","√"+(answer*answer)+" = ","",answer);
-                return q(s,"두 점 ("+x+", "+y+"), ("+x2+", "+y2+") 사이의 거리는?",Rational.of(answer),guide,new StudyDiagram("coordinate",new double[]{x,y,x2,y2},"A","B"),"x1",x,"y1",y,"x2",x2,"y2",y2);
+                int[][] delta={{3,4,5},{5,12,13},{6,8,10},{8,15,17}};int[] t=delta[random.nextInt(delta.length)];x=signed(random,6);y=signed(random,6);int sx=random.nextBoolean()?1:-1,sy=random.nextBoolean()?1:-1;int x2=x+sx*t[0],y2=y+sy*t[1];answer=t[2];
+                Question coordinateQuestion=q(s,"두 점 ("+x+", "+y+"), ("+x2+", "+y2+") 사이의 거리는?",Rational.of(answer),null,new StudyDiagram("coordinate",new double[]{x,y,x2,y2},"A","B"),"x1",x,"y1",y,"x2",x2,"y2",y2);
+                CoordinateCalculationRelations.attach(coordinateQuestion);return coordinateQuestion;
             }
             case "sec_internal_division":{
-                x=signed(random,8);y=signed(random,8);a=signed(random,8);b=signed(random,8);int m=n(random,1,4),nn=n(random,1,4);int x2=x+(m+nn)*a,y2=y+(m+nn)*b;int px=x+m*a,py=y+m*b;guide=two("A에서 비율에 맞게 이동해 x좌표를 구하세요.",x+" + "+m+"×("+a+") = ","",px,"같은 방법으로 y좌표를 구하세요.",y+" + "+m+"×("+b+") = ","",py);
-                return pair(s,"A("+x+", "+y+")와 B("+x2+", "+y2+")를 AP:PB="+m+":"+nn+"로 내분하는 P의 좌표는?",px,py,"x","y",guide,new StudyDiagram("coordinate",new double[]{x,y,x2,y2},"A","B"),"x1",x,"y1",y,"x2",x2,"y2",y2,"m",m,"n",nn);
+                x=signed(random,8);y=signed(random,8);a=signed(random,8);b=signed(random,8);int m=n(random,1,4),nn=n(random,1,4);int x2=x+(m+nn)*a,y2=y+(m+nn)*b;int px=x+m*a,py=y+m*b;
+                Question coordinateQuestion=pair(s,"A("+x+", "+y+")와 B("+x2+", "+y2+")를 AP:PB="+m+":"+nn+"로 내분하는 P의 좌표는?",px,py,"x","y",null,new StudyDiagram("coordinate",new double[]{x,y,x2,y2},"A","B"),"x1",x,"y1",y,"x2",x2,"y2",y2,"m",m,"n",nn);
+                CoordinateCalculationRelations.attach(coordinateQuestion);return coordinateQuestion;
             }
             case "sec_line_equation":{
-                a=signed(random,6);b=signed(random,8);x=signed(random,7);answer=a*x+b;guide=two("직선의 식에 x를 대입하세요.","y="+a+"×("+x+")+"+b,"",a*x+b,"곱셈 뒤 상수를 더하세요.",a*x+" + ("+b+") = ","",answer);
-                return q(s,"직선 y="+a+"x"+plus(b)+" 위에서 x="+x+"일 때 y는?",Rational.of(answer),guide,null,"slope",a,"intercept",b,"x",x);
+                a=signed(random,6);b=signed(random,8);x=signed(random,7);answer=a*x+b;
+                Question coordinateQuestion=q(s,"직선 y="+a+"x"+plus(b)+" 위에서 x="+x+"일 때 y는?",Rational.of(answer),null,null,"slope",a,"intercept",b,"x",x);
+                CoordinateCalculationRelations.attach(coordinateQuestion);return coordinateQuestion;
             }
             case "sec_line_relation":{
                 a=n(random,1,5);b=n(random,1,5);int relation=n(random,-1,1),a2,b2;if(relation==1){int scale=n(random,2,4);a2=a*scale;b2=b*scale;}else if(relation==-1){a2=b;b2=-a;}else{a2=a+1;b2=b;}c=signed(random,8);d=signed(random,8);int determinant=a*b2-a2*b,dot=a*a2+b*b2;answer=determinant==0?1:dot==0?-1:0;

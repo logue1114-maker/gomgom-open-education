@@ -1,0 +1,78 @@
+{
+  "status": "Progress; whole global app incomplete",
+  "date": "2026-10-07",
+  "units": [
+    "sec_point_distance",
+    "sec_internal_division",
+    "sec_line_equation"
+  ],
+  "behavior": "Public coordinates and ratios or signed line coefficients determine every student-entered difference, square, sum, root, share and shift. Both internal-division coordinates retained. No numerical calculation prefill or main transfer.",
+  "versions": [
+    "point-distance-relations-v1",
+    "internal-division-relations-v1",
+    "line-value-relations-v1"
+  ],
+  "supply": "Original small ranges preserved. Three units each1000 generated public prompts, more than100 distinct; distance has four original Pythagorean lengths, not100 distinct answers.",
+  "tests": {
+    "engine": {
+      "tests": 782,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 180,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 180,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 782,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "restore_kenya_seconds": 17.93,
+  "home_seconds": 17.68,
+  "home_learning_total": 3102,
+  "apk_sha256": "8b7c6087bdca51c67f71a6d65b8c979e6630ab75d436c976a707669c6bba419f",
+  "installed_matches": true,
+  "display_restored": "1080x2400/420",
+  "native_ui_versions": "V1 line/distance completion with legacy18-key help; V2 division completion and fresh line/distance first-frame checks with14keys and public givens. V3 short coordinate diagram adaptive margin and separated labels; fresh division first-frame visual only. V4 places names outward according to x order with leader lines; fresh division first-frame only. Completed calculations never replayed.",
+  "native_failure": "V1 division public prompt88% visible after showing x/y fields; failed before calculation. V2 main prompt12sp/coordinate thumbnail48dp, helper relation route connected with question.skillId predicate. V2 QA compile first failed because Android Files.readString is unavailable; switched to UTF8 readAllBytes. Failure logs/screens preserved.",
+  "native_scope": "Normal US English / All foundations / typed10 / 900x1600/400. One case per unit. Public prompt independently solved; no answer metadata or state injection. Main fields remain blank.",
+  "unverified": [
+    "KO/PT native",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old draft migration"
+  ],
+  "native": {
+    "line": {
+      "seconds": 122.364,
+      "steps": 5,
+      "mainSubmitted": false
+    },
+    "distance": {
+      "seconds": 78.613,
+      "steps": 6,
+      "mainSubmitted": false
+    },
+    "division": {
+      "seconds": 70.747,
+      "steps": 11,
+      "mainSubmitted": false
+    }
+  },
+  "private_scope": "UI/QA/APK/screens/learner inputs not published."
+}
