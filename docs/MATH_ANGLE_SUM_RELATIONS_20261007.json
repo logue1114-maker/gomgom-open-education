@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; global product remains active and incomplete",
+  "units": [
+    "el_triangle_angle_sum",
+    "el_quadrilateral_angle_sum"
+  ],
+  "stages": [
+    4,
+    5
+  ],
+  "behavior": "Learner enters each given angle, adds them, then subtracts their calculated sum from 180 or 360 degrees. Templates supply mathematical totals only, never the intermediate sum; no transfer to the main answer.",
+  "migration": "angle-sum-relations-v1 clears incompatible old helper entries; checked new angle entries survive restoration; question and main answer/history remain intact.",
+  "tests": {
+    "engine": {
+      "tests": 695,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 147,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 147,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 695,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "final_seconds": 20.542,
+    "scope": "Normal saved Ghana JHS2 B8 quadrilateral typed practice, question16/100. Initial v1 entered three public angles once with wrong-first-angle feedback; final v2 restored those entries, typed sum and left final result and main answer blank.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 10.772
+  },
+  "fixes": [
+    "QA follows grade-specific home and study-menu entry controls; original entry failures retained",
+    "Native v1 discovered late automatic translation overwrote curated formula. Both immediate and asynchronous translation now use curated angle text; final v2 restored verified entries without retyping them."
+  ],
+  "apk_sha256": "ea2d2f22a318ecba6c1da65698dd550c6ec705ce6fea8e73489b1da4d66e3c64",
+  "installed_hash_matches": true,
+  "default_display": "1080x2400 / 420 restored",
+  "unverified": [
+    "Triangle helper device input",
+    "Final missing angle helper completion",
+    "Other pending geometry/coordinate device checks",
+    "Ratio/percentage/substitution and remaining helper corrections",
+    "100-question diversity in small one-measure pools",
+    "Global curricula/languages, long study sessions, student/accessibility/physical-device proof, ads/billing/release"
+  ],
+  "release": "Source/docs publication only; no homepage or Play deployment"
+}

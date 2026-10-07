@@ -1,3 +1,9 @@
+## 2026-10-07 — Learner-entered interior angle relationships
+
+Triangle and quadrilateral helpers now collect each given angle before summing and subtracting, with four/five stages and no main-answer transfer. Versioned restoration clears legacy intermediate values and preserves checked new angle entries.
+
+Local989 and independent public engine695 tests passed, including500 independently derived public-angle cases per unit. Actual saved Ghana quadrilateral practice entered measurements once, corrected a wrong input, restored them in the final APK, typed the sum, and retained blank helper-result/main fields with no main submission. Native inspection exposed curated text being overwritten by late translation; both translation paths now honor it. Other device flows and remaining ratio/value helpers are incomplete. See MATH_ANGLE_SUM_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Nine additional geometry relationship helpers
 
 Rectangle, square, parallelogram and circle area/circumference, cuboid volume/surface and cube volume/surface now collect public measurements before calculation. Named relationship templates leave the main answer blank; versioned helper restoration clears incompatible old values. English/Portuguese templates were checked locally.

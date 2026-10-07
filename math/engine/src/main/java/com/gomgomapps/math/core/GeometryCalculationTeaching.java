@@ -5,6 +5,7 @@ import java.util.regex.*;
 public final class GeometryCalculationTeaching {
  private GeometryCalculationTeaching(){}
  public static boolean relationArea(String id){return Set.of("el_triangle_area","el_rhombus_area","el_trapezoid_area").contains(id);}
+ public static boolean relationAngles(String id){return Set.of("el_triangle_angle_sum","el_quadrilateral_angle_sum").contains(id);}
  private static StudyGuide relationshipGuide(){StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="elementary-area-relations-v1";return g;}
  private static void measure(StudyGuide g,String label,long value){g.step("문제에서 "+label+" 값을 찾아 쓰세요.",label+" = "," cm",Long.toString(value));}
  static void attach(Question q){
@@ -24,13 +25,16 @@ public final class GeometryCalculationTeaching {
    q.studyGuide=g.step("두 변의 합에 높이를 곱하세요.","두 변의 합 × 높이 = ","",Long.toString(product))
     .step("계산한 곱을 2로 나누세요.","계산한 곱 ÷ 2 = "," cm²",Rational.of(product,2).toString());return;
   }
-  if(Set.of("el_triangle_angle_sum","el_quadrilateral_angle_sum").contains(q.skillId)){
+  if(relationAngles(q.skillId)){
    Matcher m=Pattern.compile("(180|360)-(\\d+)-(\\d+)(?:-(\\d+))?").matcher(q.expression);if(!m.matches())return;
    int total=Integer.parseInt(m.group(1)),a=Integer.parseInt(m.group(2)),b=Integer.parseInt(m.group(3)),c=m.group(4)==null?0:Integer.parseInt(m.group(4)),sum=a+b+c;
-   if(sum>=total)return;
-   q.studyGuide=new StudyGuide().transfer(false)
-    .step("주어진 각의 크기를 모두 더하세요.",a+" + "+b+(m.group(4)==null?"":" + "+c)+" = ","°",Integer.toString(sum))
-    .step(total==180?"180도에서 주어진 각의 합을 빼세요.":"360도에서 주어진 각의 합을 빼세요.",total+" − "+sum+" = ","°",Integer.toString(total-sum));
+   boolean triangle=q.skillId.equals("el_triangle_angle_sum");
+   if(sum>=total||a<=0||b<=0||triangle&&(total!=180||m.group(4)!=null)||!triangle&&(total!=360||m.group(4)==null||c<=0))return;
+   StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="angle-sum-relations-v1";
+   String[] labels={"첫 번째 각","두 번째 각","세 번째 각"};int[] values={a,b,c};
+   for(int i=0;i<(triangle?2:3);i++)g.step("문제에서 "+labels[i]+"의 크기를 찾아 쓰세요.",labels[i]+" = ","°",Integer.toString(values[i]));
+   q.studyGuide=g.step("주어진 각의 크기를 모두 더하세요.",triangle?"첫 번째 각 + 두 번째 각 = ":"첫 번째 각 + 두 번째 각 + 세 번째 각 = ","°",Integer.toString(sum))
+    .step("내각의 합에서 계산한 합을 빼세요.",total+"° − 계산한 합 = ","°",Integer.toString(total-sum));
   }
  }
 }
