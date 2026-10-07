@@ -1,0 +1,80 @@
+{
+  "status": "Progress; whole global app incomplete",
+  "date": "2026-10-07",
+  "units": [
+    "sec_factor_theorem",
+    "sec_cubic_equation",
+    "sec_quartic_equation"
+  ],
+  "behavior": "Public candidate/coefficient/constant and substitution arithmetic followed by factor decision; nonzero coefficient cubic; quartic constant cancellation and successive positive square roots. Symbolic frames only, learner computes intermediates, no main transfer. Direct generation and saved help paths, original identity/curriculum preserved.",
+  "versions": [
+    "factor-theorem-relations-v1",
+    "cubic-equation-relations-v1",
+    "quartic-equation-relations-v1"
+  ],
+  "supply": {
+    "cubic": 324,
+    "quartic": 144,
+    "factor": 464
+  },
+  "tests": {
+    "engine": {
+      "tests": 772,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 175,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 175,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 772,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "restore_kenya_seconds": 16.57,
+  "home_seconds": 16.623,
+  "home_learning_total": 3102,
+  "apk_sha256": "99dba2c7e28fa01759901e9f7b886a02b6b60e596abd8c0ae7b6822240f2b239",
+  "installed_matches": true,
+  "display_restored": "1080x2400/420",
+  "native_scope": "US English / All foundations / normal menu / 900x1600/400; no whole US curriculum claim, no learner-state injection/answer-key reading/main submission.",
+  "unverified": [
+    "KO/PT native flow",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old draft migration"
+  ],
+  "native": {
+    "cubic": {
+      "seconds": 73.513,
+      "steps": 3,
+      "mainSubmitted": false
+    },
+    "quartic": {
+      "seconds": 63.801,
+      "steps": 5,
+      "mainSubmitted": false
+    },
+    "factor": {
+      "seconds": 57.195,
+      "steps": 7,
+      "mainSubmitted": false
+    }
+  },
+  "private_scope": "UI/QA/APK/screens/learner inputs are not published."
+}

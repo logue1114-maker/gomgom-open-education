@@ -1,3 +1,7 @@
+# 2026-10-07 — Factor theorem and cubic/quartic relations
+
+Replaced prefilled numeric help with public-value entry and symbolic substitution, factor decision and root calculation. Cubic equations now vary a small nonzero coefficient; quartic equations vary a small constant that learners cancel. More than 100 distinct prompts per unit; original root ranges, positive-root condition and old saved equations remain supported. Versioned draft reset/restore, exact fractions, error correction and no main transfer tested. Local and separate public engine tests passed, and each normal Android All foundations flow completed via actual controls. UI/screens/APK/learner inputs private. Whole global app remains incomplete. See MATH_POLYNOMIAL_RELATIONS_20261007.json.
+
 # 2026-10-07 — Identity coefficients and inverse function relations
 
 Removed prefilled numeric calculation help from both direct generation and saved help. Learners read public coefficients and function output, then calculate addition or subtraction/division using symbolic frames. Exact fractions, negative/zero values, identity/inverse meaning, original small ranges and no main transfer remain. Versioned saved drafts reset old frames. More than 100 distinct public prompts per unit and all four option positions verified. Local and separate public engine tests and normal Android All foundations menu/input/error correction/help completion checked. UI/screens/APK/learner inputs remain private. Whole global app incomplete. See MATH_ALGEBRA_RELATIONS_20261007.json.

@@ -370,16 +370,18 @@ public final class SecondaryBasics {
             }
             case "sec_factor_theorem":{
                 a=signed(random,9);do{b=signed(random,7);}while(b==-a);boolean factor=random.nextBoolean();c=factor?a:a+1;int p=c*c+(b-a)*c-a*b;answer=p==0?1:0;
-                guide=one("후보 값을 P(x)에 대입하세요.",c+"² + ("+(b-a)+")×"+c+" + ("+(-a*b)+") = ","",p).transfer(false);
-                return choices(q(s,"P(x)=x²+("+(b-a)+")x+("+(-a*b)+")일 때 x-("+c+")가 P(x)의 인수인지 고르세요.",Rational.of(answer),guide,null,"root",a,"other",b,"candidate",c,"linear",b-a,"constant",-a*b),"1","인수이다","0","인수가 아니다");
+                Question factorQuestion=choices(q(s,"P(x)=x²+("+(b-a)+")x+("+(-a*b)+")일 때 x-("+c+")가 P(x)의 인수인지 고르세요.",Rational.of(answer),null,null,"root",a,"other",b,"candidate",c,"linear",b-a,"constant",-a*b),"1","인수이다","0","인수가 아니다");
+                PolynomialRootRelations.attach(factorQuestion);return factorQuestion;
             }
             case "sec_cubic_equation":{
-                a=signed(random,9);guide=one("세제곱이 0이면 그 안의 식이 0입니다.","x - ("+a+") = 0, x = ","",a);
-                return q(s,"(x-("+a+"))³=0을 만족하는 x는?",Rational.of(a),guide,null,"root",a);
+                a=signed(random,9);b=signed(random,9);
+                Question cubic=q(s,b+"×(x-("+a+"))³=0을 만족하는 x는?",Rational.of(a),null,null,"root",a,"coefficient",b);
+                PolynomialRootRelations.attach(cubic);return cubic;
             }
             case "sec_quartic_equation":{
-                a=n(random,1,8);guide=two("네제곱식을 제곱식으로 보세요.","x⁴ = "+(a*a*a*a)+" → x² = ","",a*a,"양의 해를 고르세요.","x = ","",a);
-                return q(s,"x⁴="+(a*a*a*a)+"의 양의 해는?",Rational.of(a),guide,null,"positiveRoot",a);
+                a=n(random,1,8);b=signed(random,9);int power=a*a*a*a,right=power+b;
+                Question quartic=q(s,"x⁴+("+b+")="+right+"의 양의 해는?",Rational.of(a),null,null,"positiveRoot",a,"constant",b,"right",right,"power",power);
+                PolynomialRootRelations.attach(quartic);return quartic;
             }
             case "sec_simultaneous_quadratic":{
                 a=n(random,2,10);guide=two("두 식의 y를 같게 놓으세요.","x² = "+(a*a),"",a*a,"x>0 조건을 적용하세요.","x = ","",a);
