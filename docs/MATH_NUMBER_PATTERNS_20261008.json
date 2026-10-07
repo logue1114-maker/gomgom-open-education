@@ -1,0 +1,48 @@
+{
+  "units": [
+    "el_even_odd",
+    "el_missing_add",
+    "el_missing_sub",
+    "el_number_pattern",
+    "el_repeat_pattern",
+    "el_sequence_10000"
+  ],
+  "teachingVersion": "number-pattern-relations-v1",
+  "method": "Public sequence/equation -> learner-entered named relationships -> earlier checked learner values only.",
+  "invariants": [
+    "No main-answer transfer or prefilled computed results.",
+    "Increasing and decreasing sequences use a positive gap and the appropriate addition/subtraction.",
+    "Parity keeps original source/total bounds; pure questions retained alongside addition/subtraction before pairing.",
+    "Alternating repeat patterns retain 1..9 numbers, with the blank moving among positions 3..6.",
+    "Original curriculum bounds, answers and shuffled choice labels retained.",
+    "Obsolete drafts reset; new checked partial drafts restore."
+  ],
+  "samples": "1200 generated samples per unit with at least 100 distinct public prompts in the default domain. These are not 100 distinct answers, numerical facts or stored authored questions. Tighter eight-number parity domains retain their actual finite capacity.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 866,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 224,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 224,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "limits": [
+    "Normal UI evidence and tests are separate.",
+    "No physical-device, learner-comprehension or release-readiness assertion."
+  ]
+}

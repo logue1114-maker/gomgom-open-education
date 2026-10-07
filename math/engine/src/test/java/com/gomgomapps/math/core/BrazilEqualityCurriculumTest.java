@@ -9,7 +9,9 @@ public class BrazilEqualityCurriculumTest {
    List<String> ids=new ArrayList<>(INVERSE);ids.add("el_equality_add_sub");if(grade==5)ids.add("el_equality_mul_div");
    for(String id:ids){placements++;assertTrue(GlobalCurriculum.packs("BR").get(0).inGrade(id,grade));Set<String> recent=new LinkedHashSet<>();CurriculumLimits limits=GlobalCurriculum.limits(PACK,id,grade);
     for(int i=0;i<100;i++){Question q=g.next(id,recent,i%2==0,limits);assertTrue(q.prompt,recent.add(q.signature()));assertTrue(limits.allows(q));int answer=solve(q.prompt,operations,positions);assertEquals(String.valueOf(answer),q.answers[0]);assertTrue(new Checker().check(q,List.of(),List.of(String.valueOf(answer))).correct());assertFalse(new Checker().check(q,List.of(),List.of(String.valueOf(answer+1))).correct());assertNotNull(q.studyGuide);assertFalse(q.studyGuide.transfer);
-     for(StudyGuide.Frame frame:q.studyGuide.frames){String calculation=frame.before.strip().replaceAll("\\s*=\\s*$","");assertEquals(q.prompt,Expression.number(frame.expected),Expression.number(calculation));}
+     for(StudyGuide.Frame frame:q.studyGuide.frames){String calculation=frame.before.strip().replaceAll("\\s*=\\s*$","");
+      if(NumberPatternRelations.supports(id)){Matcher given=Pattern.compile("(□|\\d+) ([+−-]) (□|\\d+) = (\\d+)").matcher(q.prompt);assertTrue(given.matches());boolean missingFirst=given.group(1).equals("□");String known=given.group(missingFirst?3:1),result=given.group(4);boolean add=given.group(2).equals("+");Map<String,String> quantities=Map.of("알고 있는 부분",known,"전체",add?result:missingFirst?String.valueOf(answer):known,"뺀 부분",known,"빼고 남은 부분",result);for(var entry:quantities.entrySet())calculation=calculation.replace(entry.getKey(),entry.getValue());}
+      assertEquals(q.prompt,Expression.number(frame.expected),Expression.number(calculation));}
      if(!q.choices.isEmpty()){assertEquals(4,new HashSet<>(q.choices).size());assertEquals(q.answers[0],q.choices.get(q.correctChoice));choicePositions.add(q.correctChoice);}
     }
    }

@@ -234,7 +234,7 @@ public class ElementaryBasicsTest {
                 assertTrue(id,sequence.find());
                 int s=Integer.parseInt(sequence.group(1)),next=Integer.parseInt(sequence.group(2));
                 assertNumber(q,Rational.of(s+2*(next-s)));return;
-            case "el_even_odd": assertNumber(q,Rational.of(ints(q.prompt)[0]%2));return;
+            case "el_even_odd": v=ints(q.prompt);int parity=v.length==1?v[0]:q.prompt.contains(" + ")?v[0]+v[1]:v[0]-v[1];assertNumber(q,Rational.of(parity%2));return;
             case "el_missing_add": v=ints(q.prompt);assertNumber(q,Rational.of(v[1]-v[0]));return;
             case "el_missing_sub":
                 v=ints(q.prompt);assertNumber(q,Rational.of(q.prompt.contains("□ -")?v[0]+v[1]:v[0]-v[1]));return;
@@ -245,7 +245,7 @@ public class ElementaryBasicsTest {
                 assertTrue(id,patternPosition>=2);
                 int patternStart=Integer.parseInt(patternTokens[0]),patternNext=Integer.parseInt(patternTokens[1]);
                 assertNumber(q,Rational.of(patternStart+patternPosition*(patternNext-patternStart)));return;
-            case "el_repeat_pattern": assertNumber(q,Rational.of(ints(q.prompt)[0]));return;
+            case "el_repeat_pattern": String[] repeated=q.prompt.split("\\R",2)[0].split(" → ");int missing=Arrays.asList(repeated).indexOf("□");assertNumber(q,Rational.of(Integer.parseInt(repeated[missing%2])));return;
             case "el_estimate_ops":
                 v=ints(q.prompt);assertNumber(q,Rational.of(roundNearest(v[0],v[2])+roundNearest(v[1],v[2])));return;
             case "el_round": case "el_round_up": case "el_round_down":

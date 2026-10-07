@@ -259,14 +259,14 @@ public final class ElementaryBasics {
     private static Question number(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer.toString());
-        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);
+        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);
         return question;
     }
 
     private static Question numberText(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                        String answerText,boolean decimal,StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answerText);
-        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);
+        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);
         return question;
     }
 
@@ -277,14 +277,14 @@ public final class ElementaryBasics {
         Question question=new Question(skill.id,prompt,expression,answerTexts);
         question.kind="pair";
         if(labels!=null)question.labels=labels;
-        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);
+        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);
         return question;
     }
 
     private static Question symbol(Catalog.Skill skill,String prompt,String expression,String answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer);
-        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);
+        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);
         return question;
     }
 
@@ -336,8 +336,11 @@ public final class ElementaryBasics {
     }
 
     private static Question parity(Catalog.Skill skill,Random random,CurriculumLimits limits){
-        int value=n(random,1,limits.wholeMaximum(20)),remainder=value%2;
-        Question question=number(skill,value+"은 짝수인가요, 홀수인가요?","",Rational.of(remainder),
+        int maximum=limits.wholeMaximum(20),value=n(random,1,maximum),remainder=value%2;
+        String prompt=value+"은 짝수인가요, 홀수인가요?";int form=random.nextInt(3);
+        if(form==1&&value>1){int first=n(random,1,value-1);prompt=first+" + "+(value-first)+"의 값은 짝수인가요, 홀수인가요?";}
+        else if(form==2&&value<maximum){int second=n(random,1,maximum-value);prompt=(value+second)+" − "+second+"의 값은 짝수인가요, 홀수인가요?";}
+        Question question=number(skill,prompt,"",Rational.of(remainder),
                 new StudyGuide().step("둘씩 묶으면 몇 묶음인지 쓰세요.","묶음 수 = ","",String.valueOf(value/2))
                         .step("둘씩 묶고 남는 수를 쓰세요.",value+" - 2 × "+(value/2)+" = ","",String.valueOf(remainder))
                         .choice("남는 수가 0이면 짝수, 1이면 홀수입니다.",Map.of("0","짝수","1","홀수"),String.valueOf(remainder)).transfer(false),null);
@@ -403,10 +406,11 @@ public final class ElementaryBasics {
     private static Question repeatPattern(Catalog.Skill skill,Random random){
         int first=n(random,1,9),second;
         do{second=n(random,1,9);}while(second==first);
-        Question question=number(skill,
-                first+" → "+second+" → "+first+" → "+second+" → □ → "+second+"\n반복되는 규칙을 찾아 빈 수를 구하세요.","",
-                Rational.of(first),
-                guide(step("앞의 수들이 어떤 순서로 반복되는지 살핍니다.","반복 규칙의 첫 수 = ","",first+"+0")),null);
+        int position=n(random,2,5);StringBuilder prompt=new StringBuilder();
+        for(int i=0;i<6;i++){if(i>0)prompt.append(" → ");prompt.append(i==position?"□":i%2==0?first:second);}
+        int answer=position%2==0?first:second;
+        Question question=number(skill,prompt+"\n반복되는 규칙을 찾아 빈 수를 구하세요.","",Rational.of(answer),
+                guide(step("앞의 수들이 어떤 순서로 반복되는지 살핍니다.","반복 규칙의 첫 수 = ","",answer+"+0")),null);
         question.stepSupport=false;
         return question;
     }
