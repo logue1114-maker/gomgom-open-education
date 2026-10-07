@@ -57,6 +57,7 @@ public final class Generator {
         }
         if(q==null)throw new IllegalStateException("No question matches the curriculum limits: "+skillId);
         WorkRateRelations.attach(q);
+        FactRelations.attach(q);
         if(q.studyGuide==null)FractionEquationTeaching.attach(q);
         FactorTeaching.attach(q);
         if(q.choiceDiagrams!=null&&!q.choiceDiagrams.isEmpty()){q.choices=new ArrayList<>(q.choiceDiagrams.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}

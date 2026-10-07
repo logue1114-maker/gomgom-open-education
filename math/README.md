@@ -115,3 +115,7 @@ Eight counting, make-ten, break-ten and three-number addition/subtraction units 
 ### Two-digit column relations (2026-10-08)
 
 `add100` and `sub100` now use blank column relations, including carry and borrow. Existing `add1000`/`sub1000` also support naturally small country-specific operands. Number limits and main answers remain unchanged; no computed answer is prefilled or transferred. See [scope and validation](../docs/MATH_TWO_DIGIT_COLUMN_RELATIONS_20261008.json).
+
+### Basic group relationships (2026-10-08)
+
+`tables` and `divide` use blank group relationships for normal equations and either missing operand. Student-entered given values precede the calculation; computed values are never prefilled or transferred. Existing country-specific fact limits and choices remain unchanged. Default division has 72 ordered equations; selected Singapore curricula retain 100 distinct equation forms without claiming 100 distinct numeric facts. See [scope and validation](../docs/MATH_FACT_RELATIONS_20261008.json).

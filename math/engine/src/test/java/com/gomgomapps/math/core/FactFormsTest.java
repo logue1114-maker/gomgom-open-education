@@ -22,7 +22,7 @@ public class FactFormsTest {
                 String[] operands=q.prompt.replace("□",String.valueOf(expected)).split(" = ",2)[0].split(id.equals("tables")?" × ":" ÷ ");int a=Integer.parseInt(operands[0]),b=Integer.parseInt(operands[1]);
                 assertTrue(limits.allows(q));assertTrue(id.equals("tables")?allowed.contains(a)||allowed.contains(b):allowed.contains(b));
                 assertTrue(b<=limits.timesTableMax());assertTrue(id.equals("tables")?a<=limits.timesTableMax():a/b<=limits.timesTableMax());
-                if(q.studyGuide!=null){assertFalse(q.studyGuide.transfer);assertEquals(String.valueOf(expected),q.studyGuide.frames.get(0).expected);assertFalse(q.expression.contains("□"));}
+                if(q.studyGuide!=null){assertFalse(q.studyGuide.transfer);assertEquals(String.valueOf(expected),q.studyGuide.frames.get(q.studyGuide.frames.size()-1).expected);assertFalse(q.expression.contains("□"));}
                 assertTrue("Repeated public equation: "+q.prompt,signatures.add(q.signature()));recent.add(q.signature());
             }
         }

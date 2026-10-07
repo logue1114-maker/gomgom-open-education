@@ -1,0 +1,73 @@
+{
+  "units": [
+    "tables",
+    "divide"
+  ],
+  "teachingVersion": "fact-relations-v1",
+  "behavior": "Direct multiplication/division and either missing operand use blank group relationships. Two visible given values are entered before computing the missing amount or group count. Never transfer the computed value to the main answer. Derive exclusively from public equations; refresh legacy numeric guides and reset legacy drafts, preserving current partial drafts.",
+  "variants": "Normal equations and both missing-term locations, including the normal zero multiplication cases. Reject ambiguous zero-factor missing terms and zero divisors.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 842,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 206,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 206,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "public engine",
+      "tests": 842,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "sourceManifest": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/FactRelations.java",
+      "sha256": "d0366e44ea7a1dc2fdaa06492da7e0c74f3ebf5f90c63dd9c58eb665e4df2038",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/ArithmeticTeaching.java",
+      "sha256": "a4dd48e5ee009a16b8b41548275e878b17739a8cdc201620cc94c1348bc05a27",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/Generator.java",
+      "sha256": "aac990f54123d9125d2ecf7753dd2186500f171c2284f0357f63a59701379b99",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/HelpPlan.java",
+      "sha256": "f877f5573b716e76a3b7da209cf651d1f1267a2e0f5e4c2923481f96e910ef90",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/FactRelationsTest.java",
+      "sha256": "b3856c4034bb7ca06a9485a42811cc8fa525ed08282a9e485b251d92c87ebb54",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/FactFormsTest.java",
+      "sha256": "1dfd55a40be50e0a55140ec24632831eb8ad46e4b2f3a9dc32308868d2b9a44f",
+      "public": true
+    }
+  ],
+  "diversity": "Default multiplication domain contains 100 ordered equations, default division 72. Selected Singapore grade 2/3 curricula each supply 100 distinct existing direct/missing-term forms without widening table constraints. These forms are not described as 100 distinct numeric facts.",
+  "remaining": "Word problems, quantity diagrams, multi-digit multiplication/division and final whole-app/world curriculum coverage remain incomplete. UI, QA, images, student entries and APK private."
+}

@@ -81,6 +81,7 @@ public final class HelpPlan {
         FactorTeaching.attach(q);
         ColumnArithmeticTeaching.attach(q);
         WholeNumberRelations.attach(q);
+        FactRelations.attach(q);
         BasicAlgebraRelations.attach(q);
         RationalArithmeticRelations.attach(q);
         LinearEquationRelations.attach(q);
