@@ -1,0 +1,65 @@
+{
+  "units": [
+    "el_estimate_ops",
+    "el_round",
+    "el_round_up",
+    "el_round_down",
+    "el_decimal_round"
+  ],
+  "teachingVersion": "rounding-relations-v1",
+  "behavior": "Read only public number/place/method. Enter the given number and rounding place, the next digit or entire discarded amount for upward rounding, choose Increase or Keep, enter the truncated number and increment, and add. Truncation uses three frames. Decimal rounding derives the requested decimal place value. Estimation repeats rounding for both given numbers before adding checked rounded entries. Never prefill computed values or transfer to main answer. Legacy guides and drafts refresh, current partial numeric and choice drafts restore.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 850,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 213,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 213,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "public engine",
+      "tests": 850,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "diversity": "Each of five default units produced at least 100 distinct public problems in 600 seeded samples. Existing choices, signatures, numerical answers and national limits are preserved. Kenya Grade6 includes up to four source decimal places and target places 1/2/3, independently checked.",
+  "sourceManifest": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/RoundingRelations.java",
+      "sha256": "dbbab8f1ab7626354eab467ba50c05202083eaf9cc473a2c5b090f040e15097b",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/ArithmeticTeaching.java",
+      "sha256": "f19f9c0cc1112c8c5663515915ed8ef44efb497b697126f99f3f9887f9c5fd46",
+      "public": true
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/HelpPlan.java",
+      "sha256": "7fe1a429a44a00a092acb3645d079e700059aef40bdf7f01598e38d525bbd0f3",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/RoundingRelationsTest.java",
+      "sha256": "442f72681eb76099192deb4427a4a53e442d8345f12cc184738f2fa047bda71a",
+      "public": true
+    }
+  ],
+  "remaining": "Whole-app/world curricula and languages, timed study, primary/tablet/accessibility/OCR, payments/ads and release remain incomplete. UI, QA, images, student entries and APK private."
+}

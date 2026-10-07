@@ -123,3 +123,7 @@ Eight counting, make-ten, break-ten and three-number addition/subtraction units 
 ### Whole-number multiplication and division (2026-10-08)
 
 Nine elementary units now use blank learner-entered relationships: repeated groups, multi-digit multiplication, exact division and division with a remainder. Multiplication splits both factors into single-digit facts and place values; division walks through quotient digits, subtraction and bringing down. Helpers preserve existing curriculum ranges and problem forms and never fill the main answer. See [scope and engine validation](../docs/MATH_INTEGER_RELATIONS_20261008.json).
+
+### Rounding and estimation relationships (2026-10-08)
+
+Five existing units now use blank learner-entered rounding steps: natural-number rounding, rounding up, rounding down, decimal rounding and addition after estimating both terms. The learner identifies the rounding place and the decision digit or discarded amount, chooses Increase or Keep, and supplies the truncation and increment. Helpers preserve existing national limits and never fill the main answer. See [scope and engine validation](../docs/MATH_ROUNDING_RELATIONS_20261008.json).
