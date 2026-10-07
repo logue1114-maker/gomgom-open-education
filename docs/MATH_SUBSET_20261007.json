@@ -1,0 +1,84 @@
+{
+  "date": "2026-10-07",
+  "status": "Progress; full app incomplete",
+  "behavior": "Explicit public sets replace small generic size/ellipsis-only generation. Count help requires counting distinct elements, choices per element, initial empty-set count and successive multiplication. Membership help retrieves each A element, checks its inclusion in B then chooses a conclusion. No numerical prefill or main transfer.",
+  "versions": [
+    "subset-count-relations-v1",
+    "subset-membership-relations-v1"
+  ],
+  "supply": {
+    "count_prompts": 120,
+    "membership_true_prompts": "more than100",
+    "membership_false_prompts": "more than100",
+    "samples": 4000,
+    "element_count": [
+      2,
+      6
+    ],
+    "first_element": [
+      1,
+      12
+    ],
+    "spacing": [
+      1,
+      2
+    ]
+  },
+  "saved": "Old size-only counting and 1,2,... membership exercises retain identity/public givens. Only helper replaced; old draft reset/new draft restored. Empty set and repeated displayed element coverage is test evidence, not generated or native coverage.",
+  "tests": {
+    "engine": {
+      "tests": 793,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 184,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 184,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 793,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "count": {
+      "seconds": 98.035,
+      "steps": 9,
+      "mainSubmitted": false
+    },
+    "membership": {
+      "seconds": 349.827,
+      "steps": 5,
+      "mainSubmitted": false
+    }
+  },
+  "restore_kenya_seconds": 38.973,
+  "home_seconds": 16.233,
+  "home_learning_total": 3102,
+  "apk_sha256": "0c9ff06d1f1bd1e04acb6ddbb3e0e1977b3ace9fd83255a26e578736046311cc",
+  "installed_matches": true,
+  "builds": "Local1m44, QA2s, V2 title/app/QA build in retained log; public1m30",
+  "membership_native_failure": "V2 QA assumed an EditText on the main containment choice screen; failed before help input. V3 checks both actual main buttons are visible and unselected, not a nonexistent field. Completed V2 count never replayed.",
+  "initial_native_failure": "Short Subset title did not prefix-match actual Identifying and counting subsets title. Failed before topic selection/calculation input. Curated full EN/PT title and QA selector aligned; fresh V2 guards; original failure retained.",
+  "unverified": [
+    "KO/PT native",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old-help migration",
+    "full global app completion"
+  ]
+}

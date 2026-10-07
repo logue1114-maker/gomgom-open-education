@@ -1,3 +1,7 @@
+# 2026-10-07 — Subset counting and containment without supplied calculations
+
+Explicit public sets now give 120 counting prompts and more than100 prompts for each containment result in4000 generated samples. Count help requires learner-entered cardinality, choices, initial case count and each multiplication. Containment retrieves each element and checks membership before a final conclusion. All numeric frames are symbolic blanks; neither form transfers the main answer. Saved generic-count/ellipsis exercises keep public identity and receive replacement help. One fresh English native case of each form completed through normal topic selection with wrong-input correction. See MATH_SUBSET_20261007.json for scoped test/runtime evidence and remaining global-app work.
+
 # 2026-10-07 — Complement problems in the set difference/complement unit
 
 Added 143 small U/A complement questions, including empty and full A, alongside 105 A-B questions. Symbolic three-step help requires learner-entered U count, A count and subtraction; no numerical prefill or answer transfer. Public-condition independent tests cover all 248 generated prompts and exhaustive complement boundaries. KO/EN/PT text is connected; one fresh English native complement case completed through normal topic selection with wrong-input correction. Existing saved A-B questions remain unchanged. See MATH_COMPLEMENT_20261007.json for scoped test/runtime evidence and unfinished global-app work.

@@ -509,9 +509,14 @@ public final class SecondaryBasics {
                 SetCountRelations.attach(setQuestion);return setQuestion;
             }
             case "sec_subset":{
-                int size=n(random,2,6),mode=random.nextInt(2);if(mode==0){answer=1<<size;guide=one("각 원소마다 포함하거나 포함하지 않는 두 선택이 있습니다.","2^"+size+" = ","개",answer);return q(s,"원소가 "+size+"개인 집합의 부분집합은 모두 몇 개인가요?",Rational.of(answer),guide,null,"size",size,"mode",mode,"contained",1);}
-                boolean contained=random.nextBoolean();answer=contained?1:0;String candidate=contained?"{1, 2}":"{1, "+(size+1)+"}";guide=one("후보 집합의 각 원소가 B에 있는지 확인하세요.","B 밖에 있는 원소 수 = ","",contained?0:1).transfer(false);
-                return choices(q(s,"B={1, 2, ..., "+size+"}일 때 A="+candidate+"가 B의 부분집합인지 고르세요.",Rational.of(answer),guide,null,"size",size,"mode",mode,"contained",answer),"1","부분집합","0","부분집합 아님");
+                int size=n(random,2,6),mode=random.nextInt(2),start=n(random,1,12),spacing=n(random,1,2);List<Integer> set=new ArrayList<>();for(int i=0;i<size;i++)set.add(start+i*spacing);String publicSet=set.toString().replace('[','{').replace(']','}');Question subset;
+                if(mode==0)subset=q(s,"집합 B="+publicSet+"의 부분집합은 모두 몇 개인가요?",Rational.of(1<<size),null,null,"size",size,"mode",mode,"contained",1);
+                else{
+                    boolean contained=random.nextBoolean();answer=contained?1:0;int first=random.nextInt(size),second=random.nextInt(size-1);if(second>=first)second++;int one=set.get(first),two=contained?set.get(second):start+size*spacing;
+                    if(random.nextBoolean()){int temp=one;one=two;two=temp;}String candidate="{"+one+", "+two+"}";
+                    subset=choices(q(s,"B="+publicSet+"일 때 A="+candidate+"가 B의 부분집합인지 고르세요.",Rational.of(answer),null,null,"size",size,"mode",mode,"contained",answer),"1","부분집합","0","부분집합 아님");
+                }
+                SubsetRelations.attach(subset);return subset;
             }
             case "sec_proposition_truth":{
                 a=n(random,2,9);b=n(random,1,a-1);boolean trueCase=random.nextBoolean();int value=trueCase?a*b:a*b+1;answer=value%a==0?1:0;guide=one("주어진 수를 실제로 나누어 나머지를 확인하세요.",value+" ÷ "+a+"의 나머지 = ","",value%a);
