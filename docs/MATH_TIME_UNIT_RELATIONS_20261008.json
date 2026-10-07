@@ -1,0 +1,46 @@
+{
+  "units": [
+    "el_hours_to_minutes",
+    "el_minutes_to_hours",
+    "el_time_add",
+    "el_time_difference",
+    "el_days_week",
+    "el_days_to_weeks",
+    "el_time_to_seconds",
+    "el_time_second_add",
+    "el_time_second_difference"
+  ],
+  "teachingVersion": "time-unit-relations-v1",
+  "method": "Public source quantities -> blank unit relationships -> only prior accepted student inputs as references.",
+  "constants": "One hour has 60 minutes, one minute 60 seconds, one week 7 days. Fixed unit rules are stated; problem-specific calculations are not filled in.",
+  "invariants": [
+    "Original prompt, numeric answers, choices, signatures and generation limits retained.",
+    "No helper answer transfer.",
+    "No hidden expression/answer used to make the guide.",
+    "Partial student drafts restore; obsolete teaching drafts reset."
+  ],
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 854,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 216,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 216,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "samples": "All nine units: 600 generated questions each; at least 100 distinct public prompts per unit. Original checker and independent quantity oracle; zero remainders, clock carry, malformed clock rejection. Existing Kenya CBC and US CCSS packs also generated and checked."
+}

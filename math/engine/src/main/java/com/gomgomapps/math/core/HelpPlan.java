@@ -84,6 +84,7 @@ public final class HelpPlan {
         FactRelations.attach(q);
         RepeatedGroupingRelations.attach(q);
         RoundingRelations.attach(q);
+        TimeUnitRelations.attach(q);
         WholeProductRelations.attach(q);WholeDivisionRelations.attach(q);
         BasicAlgebraRelations.attach(q);
         RationalArithmeticRelations.attach(q);

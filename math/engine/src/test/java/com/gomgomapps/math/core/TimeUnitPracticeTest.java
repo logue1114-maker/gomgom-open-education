@@ -51,10 +51,10 @@ public class TimeUnitPracticeTest {
             Question q=generator.create(Catalog.get(id));if(q.answers.length==1)continue;
             HelpPlan plan=HelpPlan.forQuestion(q);assertFalse(plan.canTransfer());HelpPlan.Draft draft=plan.restore(null,q.id);
             int total=duration(id,q.prompt),unit=id.equals("el_minutes_to_hours")?60:7;
-            Set<Integer> publicNumbers=new HashSet<>();for(int n:givens(q.prompt))publicNumbers.add(n);publicNumbers.add(unit);
+            Set<Integer> publicNumbers=new HashSet<>();for(int n:givens(q.prompt))publicNumbers.add(n);publicNumbers.add(unit);publicNumbers.add(1);
             for(int step=0;step<plan.size();step++){
                 HelpPlan.Step frame=plan.step(step);for(int n:givens(frame.before))assertTrue(frame.before,publicNumbers.contains(n));
-                int value=step==0&&plan.size()==3?total:step==plan.size()-1?total%unit:total/unit;
+                int[] given=givens(q.prompt);String label=frame.before;int value=label.contains("−")?total%unit:label.contains("÷")?total/unit:label.startsWith("1")?unit:label.startsWith("둘째")?given[1]:label.contains("+")||label.startsWith("전체")?total:given[0];
                 assertFalse(frame.accepts(""));assertFalse(frame.accepts(String.valueOf(value+1)));assertTrue(frame.accepts(String.valueOf(value)));
                 draft.entries.set(step,String.valueOf(value));draft.stage++;draft=plan.restore(draft.copy(),q.id);assertEquals(step+1,draft.stage);
             }
