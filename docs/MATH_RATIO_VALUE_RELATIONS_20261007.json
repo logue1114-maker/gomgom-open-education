@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global product remains incomplete",
+  "units": [
+    "percent",
+    "proportion",
+    "substitute",
+    "function",
+    "linearValue"
+  ],
+  "stages": [
+    4,
+    5,
+    5,
+    5,
+    5
+  ],
+  "behavior": "Learner enters public values before calculating. Templates name whole/percentage, left/right proportion numbers or x/coefficient/addend, never fill operands/intermediate results. Mathematical constant100 remains; no main-answer transfer.",
+  "migration": "ratio-value-relations-v1 clears legacy helper drafts and preserves checked new values; supported generated/saved help paths both convert.",
+  "tests": {
+    "engine": {
+      "tests": 697,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 148,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 148,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 697,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": 24.533,
+    "scope": "Normal Ghana B5 10-question typed percentage practice. Whole and percentage entered with wrong-whole feedback, decimal rate typed, final helper result/main left blank; all12 keys/input/actions visible.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 8.097
+  },
+  "apk_sha256": "7e72d8fb10f52905c10525d53c485a131e2a3ba2e80023d5e293ce741b4fc607",
+  "installed_hash_matches": true,
+  "default_display": "1080x2400 / 420 restored",
+  "failure_log": [
+    "Initial app compile variable name collision in LocalText repaired",
+    "Portuguese regression test consulted static TSV only; it now checks actual curated helper text before TSV fallback and still rejects missing/Korean text",
+    "Initial native QA expected a study-menu help action; Ghana B5 displays the direct Concept help button. Retry reused the same untouched question through that visible button."
+  ],
+  "unverified": [
+    "Other four helper device flows, including signed/fractional coefficient entry",
+    "Final percentage result completion",
+    "Global curricula/languages, long study completion, student understanding/accessibility/physical device, ads/billing/release",
+    "Remaining helper source candidates and small-pool100-question diversity"
+  ],
+  "release": "Source/docs publication only; no homepage or Play deployment"
+}

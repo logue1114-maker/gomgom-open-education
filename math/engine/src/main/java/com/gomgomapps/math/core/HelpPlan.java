@@ -67,6 +67,7 @@ public final class HelpPlan {
         steps.add(new Step(instruction,before,after,expected,filled,extra,denominator));
     }
     public static HelpPlan forQuestion(Question q){
+        RatioValueTeaching.attach(q);
         SolidVolumeTeaching.attach(q);
         CoordinateRelationTeaching.attach(q);
         if(q!=null&&(GeometryCalculationTeaching.relationArea(q.skillId)||GeometryCalculationTeaching.relationAngles(q.skillId)))GeometryCalculationTeaching.attach(q);

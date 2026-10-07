@@ -1,3 +1,9 @@
+## 2026-10-07 — Percentage, proportion and substitution relationships
+
+Five helpers now collect the public values before calculation, name operands and intermediate results, and leave the main answer blank. Four/five stages retain exact decimals and signed/fractional substitution. Versioned saved-help conversion clears old entries and restores checked new inputs. Curated English/Portuguese text is used in both translation paths.
+
+Local993 and independent public engine697 tests passed, including500 independently derived public-prompt cases per unit and signed fraction cases. Actual normal Ghana B5 percentage practice entered whole/percentage/rate and retained blank final helper/main fields, without submissions. Other four device flows remain unverified. See MATH_RATIO_VALUE_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Learner-entered interior angle relationships
 
 Triangle and quadrilateral helpers now collect each given angle before summing and subtracting, with four/five stages and no main-answer transfer. Versioned restoration clears legacy intermediate values and preserves checked new angle entries.
