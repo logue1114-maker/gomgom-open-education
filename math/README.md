@@ -153,3 +153,7 @@ Six elementary units now use learner-entered named relationships instead of ques
 ### Natural-number range boundaries (2026-10-08)
 
 Four range units now use blank boundary calculations, an inclusion choice and a blank endpoint. At least/at most include the boundary, while greater/less than exclude it; adjacent natural numbers differ by the fixed concept 1. Boundaries remain 2..30 and public operands 1..30, with pure questions retained alongside addition/subtraction boundaries. Each unit has at least 100 distinct public prompts in 1600 samples; these still represent 29 boundary values, not 100 distinct numeric facts or an authored bank. Help never fills the main answer. See [scope and validation](../docs/MATH_RANGE_BOUNDARIES_20261008.json).
+
+### Ratios and input-output rules (2026-10-08)
+
+Four elementary units now use learner-entered ratio terms, numerator/reference-denominator quantities and named input-output relationships. Multiplicative input values can be given directly or as bounded sums/differences; input 1..12 and factor 2..9 remain unchanged. Each unit has at least 100 distinct public prompts in 1600 samples, without claiming new numeric facts or an authored bank. The fraction helper keeps numerator/denominator separate and permits equivalent unreduced representations. Only earlier checked learner entries appear as references; help never fills the main answer. See [scope and validation](../docs/MATH_RATIO_CORRESPONDENCE_20261008.json).

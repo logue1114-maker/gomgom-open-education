@@ -259,14 +259,14 @@ public final class ElementaryBasics {
     private static Question number(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer.toString());
-        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);
+        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);
         return question;
     }
 
     private static Question numberText(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                        String answerText,boolean decimal,StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answerText);
-        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);
+        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);
         return question;
     }
 
@@ -277,14 +277,14 @@ public final class ElementaryBasics {
         Question question=new Question(skill.id,prompt,expression,answerTexts);
         question.kind="pair";
         if(labels!=null)question.labels=labels;
-        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);
+        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);
         return question;
     }
 
     private static Question symbol(Catalog.Skill skill,String prompt,String expression,String answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer);
-        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);
+        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);
         return question;
     }
 
@@ -984,7 +984,10 @@ public final class ElementaryBasics {
 
     private static Question correspondenceMul(Catalog.Skill skill,Random random){
         int input=n(random,1,12),factor=n(random,2,9),output=input*factor;
-        return number(skill,"x와 y의 대응 관계가 y="+factor+"x입니다.\nx="+input+"일 때 y의 값은?",
+        String given=String.valueOf(input);int form=random.nextInt(3);
+        if(form==1&&input>1){int first=n(random,1,input-1);given="("+first+" + "+(input-first)+")";}
+        else if(form==2&&input<12){int second=n(random,1,12-input);given="("+(input+second)+" − "+second+")";}
+        return number(skill,"x와 y의 대응 관계가 y="+factor+"x입니다.\nx="+given+"일 때 y의 값은?",
                 input+"*"+factor,Rational.of(output),
                 guide(step("x에 주어진 수를 규칙의 배수만큼 곱합니다.",input+" × "+factor+" = ","",input+"*"+factor)),null);
     }

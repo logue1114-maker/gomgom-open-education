@@ -357,7 +357,7 @@ public class ElementaryBasicsTest {
                 assertNumber(q,Rational.of(Integer.parseInt(ratio.group(1))+Integer.parseInt(ratio.group(2))));return;
             case "el_ratio_fraction": v=ints(q.prompt);assertNumber(q,Rational.of(v[0],v[1]));return;
             case "el_correspondence_add": v=ints(q.prompt);assertNumber(q,Rational.of(v[0]+v[1]));return;
-            case "el_correspondence_mul": v=ints(q.prompt);assertNumber(q,Rational.of((long)v[0]*v[1]));return;
+            case "el_correspondence_mul": v=ints(q.prompt);int input=v.length==2?v[1]:q.prompt.contains(" + ")?v[1]+v[2]:v[1]-v[2];assertNumber(q,Rational.of((long)v[0]*input));return;
             case "el_proportional_split":
                 v=ints(q.prompt);int ratioTotal=v[1]+v[2];assertPair(q,Rational.of((long)v[0]*v[1],ratioTotal),Rational.of((long)v[0]*v[2],ratioTotal));return;
 

@@ -1,0 +1,46 @@
+{
+  "units": [
+    "el_ratio_terms",
+    "el_ratio_fraction",
+    "el_correspondence_add",
+    "el_correspondence_mul"
+  ],
+  "teachingVersion": "ratio-correspondence-relations-v1",
+  "method": "Public ratio quantities or input rule -> learner-entered named relationships; fraction numerator and denominator stay separate.",
+  "invariants": [
+    "Ratio terms and compared/reference quantities retain their original 1..30 bounds and compared < reference.",
+    "Additive inputs 1..20 and addends 1..10 remain unchanged.",
+    "Multiplicative inputs 1..12 and factors 2..9 retain pure forms alongside bounded sum/difference input expressions.",
+    "Fraction result is compared/reference; equivalent unreduced forms are allowed, no extra reduction task imposed.",
+    "Only earlier checked learner entries appear as references; no computed prefill or main-answer transfer.",
+    "Obsolete drafts reset and checked new partial drafts restore."
+  ],
+  "samples": "1600 samples per unit with at least 100 distinct public prompts. Multiplicative relationships still have 96 input/factor pairs; varied public input calculations are not new facts or an authored bank.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 872,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 228,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 228,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "limits": [
+    "Normal UI evidence and tests are separate.",
+    "No physical-device, learner-comprehension or release-readiness assertion."
+  ]
+}
