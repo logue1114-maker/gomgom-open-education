@@ -111,3 +111,7 @@ gradle :math:engine:test
 ### Blank basic whole-number relations (2026-10-08)
 
 Eight counting, make-ten, break-ten and three-number addition/subtraction units use learner-entered blank relations and original quantity pictures. Country operand ranges remain unchanged, including larger three-term problems. Computed current/future values are not supplied or transferred. See [scope and source manifest](../docs/MATH_WHOLE_NUMBER_RELATIONS_20261008.json), including finite low-number domain limits.
+
+### Two-digit column relations (2026-10-08)
+
+`add100` and `sub100` now use blank column relations, including carry and borrow. Existing `add1000`/`sub1000` also support naturally small country-specific operands. Number limits and main answers remain unchanged; no computed answer is prefilled or transferred. See [scope and validation](../docs/MATH_TWO_DIGIT_COLUMN_RELATIONS_20261008.json).

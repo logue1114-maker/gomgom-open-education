@@ -23,7 +23,7 @@ public class ColumnArithmeticTeachingTest {
     }
     @Test public void legacyNumericGuidesRefreshAndUnrelatedOrSmallArithmeticArePreserved(){
         Question q=new Question("add1000","1000 + 1","","1001");StudyGuide existing=new StudyGuide().step("saved step","1000 + ","","old");q.studyGuide=existing;ColumnArithmeticTeaching.attach(q);assertNotSame(existing,q.studyGuide);assertEquals("column-relations-v1",q.studyGuide.teachingVersion);
-        for(Question other:List.of(new Question("add9","2 + 3","","5"),new Question("add1000","2 + 3","","5"),new Question("sub1000","100 − 200","","-100"),new Question("add1000","□ + 100 = 200","","100"))){ColumnArithmeticTeaching.attach(other);assertNull(other.studyGuide);}
+        for(Question other:List.of(new Question("add9","2 + 3","","5"),new Question("sub1000","100 − 200","","-100"),new Question("add1000","□ + 100 = 200","","100"))){ColumnArithmeticTeaching.attach(other);assertNull(other.studyGuide);}
     }
     @Test public void diverseCountryProblemsAndSavedDraftsUseBlankRelations(){
         Generator g=new Generator(new Random(710812));
@@ -37,6 +37,23 @@ public class ColumnArithmeticTeachingTest {
             }assertTrue(signatures.size()>100);
         }
         Question q=new Question("sub1000","1000 − 1","poison","poison");HelpPlan p=HelpPlan.forQuestion(q);HelpPlan.Draft old=new HelpPlan.Draft();old.questionId=q.id;old.stage=1;old.entries=new ArrayList<>(List.of("0"));old=p.restore(old,q.id);assertEquals(0,old.stage);old.entries.set(0,"0");old.stage=1;assertEquals(1,p.restore(old,q.id).stage);
+    }
+    @Test public void twoDigitAndSmallCountryOperandsHaveBlankColumnHelp(){
+        Generator g=new Generator(new Random(710814));
+        for(String id:List.of("add100","sub100","add1000","sub1000")){
+            Set<String> unique=new HashSet<>();boolean countrySmall=false;
+            for(int i=0;i<2000;i++){
+                Question q=g.next(id,List.of(),false);unique.add(q.prompt);checkColumn(q);
+                Question country=g.next(id,List.of(),false,GlobalCurriculum.limits("br-bncc-fundamental-2017-v1",id,2));checkColumn(country);String[] operands=country.prompt.split(" [+−-] ");int a=Integer.parseInt(operands[0]),b=Integer.parseInt(operands[1]);assertTrue(a<=999&&b<=999);countrySmall|=Math.max(a,b)<100;
+            }
+            assertTrue(unique.size()>100);assertTrue(id+" has naturally generated country problems below 100",countrySmall);
+            for(int[] numbers:new int[][]{{0,0},{2,1},{9,9},{10,1},{52,7},{99,99}}){Question q=new Question(id,numbers[0]+(id.startsWith("add")?" + ":" − ")+numbers[1],"99999","99999");checkColumn(q);}
+        }
+    }
+    private void checkColumn(Question q){
+        String[] operands=q.prompt.split(" [+−-] ");int a=Integer.parseInt(operands[0]),b=Integer.parseInt(operands[1]);String signature=q.signature();String[] answers=q.answers.clone();HelpPlan p=HelpPlan.forQuestion(q);assertNotNull(p);assertFalse(p.canTransfer());List<Integer> values=expected(a,b,q.skillId.startsWith("add"));assertEquals(values.size(),p.size());
+        for(int i=0;i<p.size();i++){assertTrue(p.step(i).accepts(String.valueOf(values.get(i))));assertFalse(p.step(i).accepts(""));assertFalse(p.step(i).accepts(String.valueOf(values.get(i)+1)));assertEquals("",p.step(i).after);assertFalse(p.step(i).before.replace("10","").replace("1","").matches(".*[0-9].*"));}
+        assertEquals(signature,q.signature());assertArrayEquals(answers,q.answers);
     }
     private static List<Integer> expected(int a,int b,boolean add){
         List<Integer> values=new ArrayList<>();int width=String.valueOf(Math.max(a,b)).length();

@@ -1,0 +1,59 @@
+{
+  "units": [
+    "add100",
+    "sub100",
+    "add1000",
+    "sub1000"
+  ],
+  "teachingVersion": "column-relations-v1",
+  "behavior": "Extend existing blank place-value, carry and borrow relations to two-digit units and naturally small operands in country-specific multi-digit units. Original prompt operands remain visible; only accepted earlier learner entries populate references. Computed current or future values are never prefilled or transferred.",
+  "countryScope": "Existing curriculum and number-generation constraints remain unchanged. Brazil grade 1 add100 uses maxResult=99; Brazil grade 2 multi-digit limits permit values up to 999, including smaller operands.",
+  "sourceManifest": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/ColumnArithmeticTeaching.java",
+      "sha256": "7bdff74da539954ba8504140493ea913e4439976edcb8c11955d76478daf9d8c",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/ColumnArithmeticTeachingTest.java",
+      "sha256": "9b2141105fd2f78f9c708dcdeb333ff8217a7e0ce6a83d71a3825695432593a7",
+      "public": true
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/HelpPlanTest.java",
+      "sha256": "1a3d462044c98647a16a966866bbabe2fc9eab1682db9922ad89866309f975b2",
+      "public": true
+    }
+  ],
+  "tests": [
+    {
+      "module": "engine",
+      "tests": 839,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 204,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 204,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "public engine",
+      "tests": 839,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "remaining": "UI/QA/images/student entries/APK remain private. Entire world curricula, all units and final app release remain incomplete."
+}

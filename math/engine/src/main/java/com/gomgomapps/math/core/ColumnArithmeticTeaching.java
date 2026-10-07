@@ -4,14 +4,15 @@ import java.util.Set;
 import java.util.regex.*;
 
 /** Place-value steps use only the public operands; the main answer is never transferred. */
-final class ColumnArithmeticTeaching {
+public final class ColumnArithmeticTeaching {
     private ColumnArithmeticTeaching(){}
+    public static boolean supports(String id){return Set.of("add100","sub100","add1000","sub1000").contains(id);}
     private static final String[] PLACES={"일의 자리","십의 자리","백의 자리","천의 자리","만의 자리","십만의 자리","백만의 자리"};
     static void attach(Question q){
-        if(q==null||!Set.of("add1000","sub1000").contains(q.skillId))return;
+        if(q==null||!supports(q.skillId))return;
         Matcher m=Pattern.compile("^([0-9]{1,6})\\s*([+−-])\\s*([0-9]{1,6})$").matcher(q.prompt);if(!m.matches())return;
-        int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(3));boolean add=m.group(2).equals("+");if(Math.max(a,b)<100||!add&&a<b)return;
-        if(add!=q.skillId.equals("add1000"))return;
+        int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(3));boolean add=m.group(2).equals("+");if(!add&&a<b)return;
+        if(add!=q.skillId.startsWith("add"))return;
         int width=String.valueOf(Math.max(a,b)).length();StudyGuide guide=new StudyGuide().transfer(false);guide.teachingVersion="column-relations-v1";
         if(add){
             int carry=0,power=1;

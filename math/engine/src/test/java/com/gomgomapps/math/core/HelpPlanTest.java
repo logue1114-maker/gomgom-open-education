@@ -28,6 +28,6 @@ public class HelpPlanTest {
     }
     @Test public void stepsAreDerivedFromGivensAndUnsupportedWorkRemainsOptional(){
         Question q=new Question("add20","8+7","8+7","999");assertTrue(HelpPlan.forQuestion(q).step(4).accepts("15"));
-        assertNull(HelpPlan.forQuestion(new Question("add100","47+28","47+28","75")));
+        HelpPlan column=HelpPlan.forQuestion(new Question("add100","47+28","47+28","75"));assertNotNull(column);assertFalse(column.canTransfer());
     }
 }
