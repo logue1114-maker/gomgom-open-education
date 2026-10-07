@@ -1,3 +1,9 @@
+## 2026-10-07 — Learner-entered elementary area relationships
+
+Triangle, rhombus and trapezoid area helpers now collect the public lengths before arithmetic, show named relationships, and leave the main answer blank. Four/four/six stages retain exact half-area results; versioned draft migration clears old intermediate values and preserves checked new entries. Curated English/Portuguese text and a compact keypad were checked locally.
+
+Local engine691/app292 and independent public engine691 tests passed.500 independently solved public-dimension examples per shape cover wrong entries, odd products and answer-key independence. Actual normal Australia Year7 triangle practice typed the two measurements on a small phone and restored the blank product stage after a tablet cold start. Product and decimal half-area were entered once; final restoration verified the completed helper with a blank main answer. Initial native QA failures involved startup/viewport and hidden-action/localization timing; original logs are retained, and completed calculations were not replayed. No main submission was made and normal home retained3102 learning entries. Rhombus/trapezoid device flows and remaining domains are incomplete. See MATH_ELEMENTARY_AREA_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Relationship templates and solid-volume foundations
 
 The owner clarified that helpers should show relationships, while learners supply measurements and intermediate results. Rectangular prism, cylinder and triangular prism helpers now collect the public measurements before area/volume calculations, show symbolic relationships, and leave the main answer blank. Versioned helper drafts discard incompatible old numeric-template entries. Existing coordinate altitude and oblique area helpers replace supplied intermediate operands with named length/area relationships. Other domains remain under semantic review.

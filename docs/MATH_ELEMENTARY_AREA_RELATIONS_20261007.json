@@ -1,0 +1,71 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global product remains active and incomplete",
+  "units": [
+    "el_triangle_area",
+    "el_rhombus_area",
+    "el_trapezoid_area"
+  ],
+  "stages": [
+    4,
+    4,
+    6
+  ],
+  "behavior": "Learner enters public lengths, then products/sums and area. Templates show named relationships rather than supplied operands/intermediate results. Help never fills the main answer.",
+  "migration": "elementary-area-relations-v1 clears incompatible old helper entries; independently checked learner entries survive restoration; question/main-answer/history stay unchanged.",
+  "tests": {
+    "engine": {
+      "tests": 691,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 146,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 146,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 691,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "phone_seconds": 23.704,
+    "tablet_return_seconds": 17.311,
+    "topic": "Triangle area, normal Australia Year7 menu, 100-question typed practice",
+    "phone": "Wrong length correction; both lengths typed; product field left blank; full keypad/actions visible.",
+    "tablet": "Cold restore of pending product field; product and decimal half-area typed once. First run reached helper completion but final back matcher matched a hidden button. Final retry restored completed helper and verified main answer blank without replaying calculations.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_readback_seconds": 8.83
+  },
+  "failure_log": [
+    "Initial QA compile used unavailable Android Files.readString; repaired to UTF8 readAllBytes",
+    "Phone QA corrected missing activity start and offscreen prompt/input lookup; existing pending practice reused, no completed question replay",
+    "Tablet QA restricted action lookup to visible buttons and waited for localized completion before branching; completed calculations not reentered"
+  ],
+  "apk_sha256": "e051c09440a381c638c88aa04a4d2a6ffe473db76e423f616172dfda1e10a9f1",
+  "installed_hash_matches": true,
+  "default_display": "1080x2400 / 420 restored",
+  "unverified": [
+    "Rhombus/trapezoid new-template device flows",
+    "Physical-device/student-comprehension/external-review proof",
+    "Remaining helper domains including elementary rectangle/square/parallelogram/circle areas and prism volume/surface",
+    "Worldwide curriculum/language coverage; 30/60-minute completion; mascot/low-age UI; accessibility; ads/billing/store release"
+  ],
+  "private_exclusions": [
+    "Android UI, translations and QA",
+    "Learner records",
+    "Screenshots and APKs"
+  ]
+}
