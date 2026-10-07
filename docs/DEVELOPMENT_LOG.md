@@ -1,3 +1,9 @@
+## 2026-10-07 — Proportional division and elementary angle relationships
+
+Proportional division collects both ratio terms and total before sum, one-share division and two-part multiplication. Both main answer fields remain; the helper transfers neither. Given/added angles are entered before named right-angle subtraction/addition; concept constants remain. A new teaching version clears incompatible old draft meanings while restoring new confirmed operands. Curated English/Portuguese text takes precedence in both translation paths.
+
+Local1008 and separate public engine706 tests passed, with500 public-givens examples per unit, all angle variants, two-part conservation and non-integral shares. The older4-frame curriculum test was updated to7 without removing its independent public-givens solver. Actual normal Australia Year7 split practice entered terms/total/sum with wrong-term correction and retained a blank one-share field and untouched main answers. Initial GhanaB6 selection lacked this mapped topic; curriculum mapping was preserved and normal country selection used. Other angle device flows and final split completion remain unverified. See MATH_SPLIT_ANGLE_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Diameter, radius and perimeter relationships
 
 Six additional geometry helpers now collect public lengths before named sum/multiplication/division relationships; no intermediate sum or main answer is supplied. Existing nine converted geometry units retain stage semantics/version. Legacy radius results cannot populate diameter-input blanks; decimal lengths remain exact. Actual v1 inspection found malformed automatic rectangle translation and inconsistent labels; curated English/Portuguese prompts and consistent width/length labels now take precedence in both translation paths.

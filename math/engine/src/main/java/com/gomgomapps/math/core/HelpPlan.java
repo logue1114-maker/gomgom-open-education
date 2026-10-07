@@ -73,6 +73,7 @@ public final class HelpPlan {
         CoordinateRelationTeaching.attach(q);
         if(q!=null&&(GeometryCalculationTeaching.relationArea(q.skillId)||GeometryCalculationTeaching.relationAngles(q.skillId)))GeometryCalculationTeaching.attach(q);
         SimpleGeometryRelations.attach(q);
+        ElementarySplitAngleRelations.attach(q);
         FactorTeaching.attach(q);
         ColumnArithmeticTeaching.attach(q);
         if(q!=null)RadicalTeaching.attach(q);

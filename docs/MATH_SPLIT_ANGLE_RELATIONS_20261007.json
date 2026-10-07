@@ -1,0 +1,56 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; global product remains active/incomplete",
+  "units": [
+    "el_proportional_split",
+    "el_shape_angle"
+  ],
+  "behavior": "Split: learner enters two ratio terms and total, then ratio sum, one share and both parts. Angle: learner enters given/added angle before 90 minus/plus the named angle. Rectangle-angle definition retains 360/4. No intermediate supplied sums or main-answer transfer; two-part main answers retained.",
+  "migration": "elementary-split-angle-relations-v1 clears incompatible old helper results and restores new checked operands. Generated and supported saved public Korean prompts convert; unsupported historical formats unverified.",
+  "tests": {
+    "engine": {
+      "tests": 706,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 151,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 151,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 706,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "readback_seconds": 14.991,
+    "input_observation_seconds": 22.544,
+    "scope": "Normal Australia Year7 typed proportional division 1/10; ratio terms/total/sum entered with wrong-first-term feedback; one-share helper blank and two main answers untouched.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 7.376
+  },
+  "apk_sha256": "0458950cde53d88c3bf544db69990e0b5186cdd079cf3041975e1b0be4f045c6",
+  "installed_hash_matches": true,
+  "default_display": "1080x2400 / 420 restored",
+  "unverified": [
+    "Shape-angle actual device flow",
+    "Remaining split result completion and device fractional share input",
+    "Other previously pending helper UI/physical-device/student proof",
+    "Small pools and100-question diversity",
+    "Global curricula/languages, long study completion, ads/billing/release"
+  ],
+  "failures": "Initial local/public ProportionCurriculumTest expected old4 frames; independent public-givens solution preserved and updated to7. Initial native GhanaB6 selection had no mapped split topic; no session/input started, then normal country/language selection switched to mapped AustraliaYear7. The next attempt opened a new1/10 session with a stale pre-build APK; final built v2 installed and same unfinished problem resumed without restarting. V2 entered operands and sum, then QA misread accessibility hint as field text after leaving the helper; read-only readback uses actual EditText text, verifies both main blanks and helper restoration without retyping.",
+  "release": "Engine/docs only; no homepage or Play deployment"
+}
