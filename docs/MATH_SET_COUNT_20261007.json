@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-07",
+  "status": "Progress; full global app incomplete",
+  "units": [
+    "sec_set_intersection",
+    "sec_set_union",
+    "sec_set_difference"
+  ],
+  "behavior": "New intersection problems give the union size instead of the requested intersection size. Students retrieve public sizes then calculate sum minus union. Union uses sum minus shared count; A-B uses A count minus shared count. No numerical prefill or main transfer.",
+  "versions": [
+    "set-count-relations-v1",
+    "set-intersection-read-relations-v1"
+  ],
+  "supply": "Original small set-size domain retained; each unit4000 generated samples cover all105 distinct public prompts and four main choice positions. Existing saved intersection reading questions retain identity/public givens; symbolic one-step retrieval replaces their help without main transfer.",
+  "tests": {
+    "engine": {
+      "tests": 790,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 183,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 183,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 790,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "restore_kenya_seconds": 19.703,
+  "home_seconds": 33.961,
+  "home_learning_total": 3102,
+  "apk_sha256": "e282d56574707543fffdb3017123f80eba648a49c2c1edc39e47b02977429888",
+  "installed_matches": true,
+  "display": "1080x2400/420",
+  "unverified": [
+    "KO/PT native",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old-help draft migration",
+    "complement problem generation in difference/complement unit",
+    "full global app completion"
+  ],
+  "initial_native_failure": "Generic English Intersection title prefix selected quadratic intersections. Public prompt assertion failed before any calculation input. Clarified EN/PT set-specific topic names and used fresh V2 guards. Original failure log/screens retained; no completed calculation replay.",
+  "native": {
+    "intersection": {
+      "seconds": 88.818,
+      "steps": 5,
+      "mainSubmitted": false
+    },
+    "union": {
+      "seconds": 80.374,
+      "steps": 5,
+      "mainSubmitted": false
+    },
+    "difference": {
+      "seconds": 71.248,
+      "steps": 3,
+      "mainSubmitted": false
+    }
+  }
+}

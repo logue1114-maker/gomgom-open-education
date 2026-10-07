@@ -499,8 +499,9 @@ public final class SecondaryBasics {
             case "sec_set_intersection": case "sec_set_union": case "sec_set_difference":{
                 int sizeA=n(random,4,8),sizeB=n(random,4,8),common=n(random,1,Math.min(sizeA,sizeB)-1);int result=s.family.equals("sec_set_intersection")?common:s.family.equals("sec_set_union")?sizeA+sizeB-common:sizeA-common;
                 String op=s.family.equals("sec_set_intersection")?"교집합":s.family.equals("sec_set_union")?"합집합":"차집합 A-B";
-                guide=s.family.equals("sec_set_intersection")?one("두 집합에 함께 있는 원소 수를 사용하세요.","n(A∩B) = ","",common):s.family.equals("sec_set_union")?two("두 집합의 원소 수를 더하세요.",sizeA+" + "+sizeB+" = ","",sizeA+sizeB,"겹친 원소를 한 번 빼세요.",(sizeA+sizeB)+" - "+common+" = ","",result):one("A에서 공통 원소를 빼세요.",sizeA+" - "+common+" = ","",result);
-                return q(s,"n(A)="+sizeA+", n(B)="+sizeB+", n(A∩B)="+common+"일 때 "+op+"의 원소 수는?",Rational.of(result),guide,null,"sizeA",sizeA,"sizeB",sizeB,"common",common);
+                String givenSet=s.family.equals("sec_set_intersection")?"∪":"∩";int givenSize=s.family.equals("sec_set_intersection")?sizeA+sizeB-common:common;
+                Question setQuestion=q(s,"n(A)="+sizeA+", n(B)="+sizeB+", n(A"+givenSet+"B)="+givenSize+"일 때 "+op+"의 원소 수는?",Rational.of(result),null,null,"sizeA",sizeA,"sizeB",sizeB,"common",common);
+                SetCountRelations.attach(setQuestion);return setQuestion;
             }
             case "sec_subset":{
                 int size=n(random,2,6),mode=random.nextInt(2);if(mode==0){answer=1<<size;guide=one("각 원소마다 포함하거나 포함하지 않는 두 선택이 있습니다.","2^"+size+" = ","개",answer);return q(s,"원소가 "+size+"개인 집합의 부분집합은 모두 몇 개인가요?",Rational.of(answer),guide,null,"size",size,"mode",mode,"contained",1);}
