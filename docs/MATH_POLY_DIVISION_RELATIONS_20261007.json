@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "sec_poly_division"
+  ],
+  "behavior": "Removed actual quotient b from generated help, including direct SecondaryBasics factory. Learners enter public signed x coefficient and public a from divisor x-a, then calculate b from x coefficient+a. Polynomial identity P(x)=(x-a)(x+b)+r, full public polynomial/remainder, negative/zero/exact fractional values, saved identity and no main transfer remain.",
+  "migration": "poly-division-relations-v1; Generator/direct SecondaryBasics/saved HelpPlan paths; old answer-leaking draft resets.",
+  "supply": "Original small generation ranges retained.1960 public polynomial/divisor/remainder combinations;14 quotient answers.1000 public generated examples independently verify x and constant coefficient identities, more100 distinct prompts, all4 correct-option positions, positive/negative results and negative/zero x coefficients.",
+  "tests": {
+    "engine": {
+      "tests": 768,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 173,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 173,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 768,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "scope": "Normal US English profile: Topic practice / All foundations / Dividing polynomials / typed10. This Korean catalog unit has no US-specific placement; no US grade coverage claim. Public displayed polynomial, divisor and remainder only;14 keys including minus, fraction and decimal, small phone900x1600/400. First/final wrong inputs corrected; helper completed/main blank. No answer metadata/learner-state injection/main submission.",
+    "seconds": 24.62,
+    "partial_resume": "V2 first two negative inputs and first wrong correction passed before QA prompt/instruction selector ambiguity. Normal Resume restores stage2; final blank/check/completion follows without repeating those inputs.",
+    "negative_input": true,
+    "restore_kenya_seconds": 16.141,
+    "home_learning_total": 3102,
+    "home_seconds": 27.358
+  },
+  "apk_sha256": "d7432e2b0d5cf4139466a07df0654be53509cba1b72029f8a87c1d53a561e28c",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "local_visual": "Actual main, divisor input, blank coefficient relation and helper completion inspected; emulator only",
+  "initial_failure": "App-test digit-pattern Java escape compilation error corrected. V1 normal displayed Unicode minus did not match the curated prompt translator, causing fragmented machine translation and public-prompt check failure before any learner input. V2 normalizes display signs for prompt matching; raw/displayed prompt regressions pass, same untouched question resumed. Initial logs/screens retained. V2 QA P(x)= selector matched prompt and relation instruction after two actual inputs; scoped public P(x)=x\u00b2 selector, resumed existing stage2 without repeating inputs. No completed calculation replay.",
+  "unverified": [
+    "Saved fractional coefficients/zero and reinstall/helper draft on device",
+    "KO/PT/tablet/physical/TalkBack/student understanding",
+    "US-specific placement for this catalog unit",
+    "Main answer submission",
+    "Other helper units and complete100-question supply",
+    "Worldwide curricula/languages,long study completion,real ads/billing/release"
+  ],
+  "release": "Engine/docs public; UI/QA/screens/APK/student inputs private; no homepage/Play deployment or service restart"
+}

@@ -359,8 +359,9 @@ public final class SecondaryBasics {
             }
 
             case "sec_poly_division":{
-                a=signed(random,7);b=signed(random,7);c=signed(random,5);int linear=b-a,constant=-a*b+c;guide=two("나누는 식 x-a에 몫 x+b를 곱하세요.","(x-("+a+"))(x+("+b+"))의 상수항 = ","",-a*b,"나머지는 몫이 아니라 따로 남습니다.","몫 x+("+b+")의 상수항 = ","",b);
-                return q(s,"P(x)=x²"+plus(linear)+"x"+plus(constant)+"를 x-("+a+")로 나누면 몫은 x+b, 나머지는 "+c+"입니다. b는?",Rational.of(b),guide,null,"divisorRoot",a,"quotientConstant",b,"remainder",c,"linear",linear,"constant",constant);
+                a=signed(random,7);b=signed(random,7);c=signed(random,5);int linear=b-a,constant=-a*b+c;
+                Question division=q(s,"P(x)=x²"+plus(linear)+"x"+plus(constant)+"를 x-("+a+")로 나누면 몫은 x+b, 나머지는 "+c+"입니다. b는?",Rational.of(b),null,null,"divisorRoot",a,"quotientConstant",b,"remainder",c,"linear",linear,"constant",constant);
+                PolyDivisionRelations.attach(division);return division;
             }
             case "sec_identity_coefficient":{
                 a=signed(random,9);b=signed(random,9);c=signed(random,9);answer=a+b;guide=one("왼쪽의 x항 계수를 더하세요.",a+" + ("+b+") = ","",answer);
