@@ -1,3 +1,9 @@
+## 2026-10-07 — Scale relationships
+
+Scale length and notation helpers collect public operands before named length/conversion relationships; computed intermediate lengths are not supplied. Definition factors100/100000 remain. New teaching version clears incompatible legacy stages and restores checked new inputs. Generated and matching saved prompts use the same normal path.
+
+Local1022 and isolated public engine714 tests pass:500 examples per unit covering8 direction/unit variants, independent public solving, wrong values, answer-key/input independence, signed-independent fractional saved lengths and draft migration. Existing100-distinct proportion coverage keeps independent solving with updated4/2 frame expectations. Curated English/Portuguese are connected in both text paths; the old English table-only test was repaired to check the actual runtime handler. Normal Kenya Grade8 scale-to-actual practice entered scale/decimal length/cm and corrected a wrong scale, leaving final/main blank. Native setup Menu assumption was fixed to actual direct Settings before any new practice. Reverse/notation actual UI and final completion remain unverified. See MATH_SCALE_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Direct/inverse proportional pair relationships
 
 Both helpers now collect original x/y and new x before calculating the proportionality constant or constant product and the final named relationship. No calculated constant is supplied or main answer transferred. New teaching version clears incompatible legacy constants while restoring new checked operands. Signed/fraction keys and curated English/Portuguese text are connected in both translation paths.

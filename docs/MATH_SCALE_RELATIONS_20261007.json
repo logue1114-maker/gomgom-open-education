@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app remains active/incomplete",
+  "units": [
+    "scaleLength",
+    "scaleNotation"
+  ],
+  "behavior": "Learner enters scale n and public length before named conversion relationships. Computed cm values never prefilled; no main-answer transfer. Unit-definition factors100/100000 remain. Four length stages and two notation stages.",
+  "migration": "scale-relations-v1 clears legacy calculated drafts, restores checked new operands; matching generated/saved public prompt formats supported",
+  "tests": {
+    "engine": {
+      "tests": 714,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 154,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 154,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 714,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": 45.089,
+    "scope": "Normal Kenya Grade8 typed10-question practice1/10. Entered scale and decimal drawing length, corrected a wrong scale, calculated cm; final conversion/main fields blank, all12 keys/two actions visible. Public prompt only, no state injection/answer-key read.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 9.438
+  },
+  "apk_sha256": "e92de5a616007bb8bff65f662826ffd269cb7ffdec6ff47e9a0645041c689980",
+  "installed_matches": true,
+  "display": "1080x2400 /420 restored",
+  "initial_failures": [
+    "English test searched only TSV; updated to actual curated ScaleRelationText without weakening original checks",
+    "First repair command used wrong cwd and repeated old failure; fixed absolute source path",
+    "Initial native expected Menu, but actual home exposes Settings; fixed normal direct Settings path before creating any practice"
+  ],
+  "unverified": [
+    "Inverse length/notation actual UI",
+    "Final helper/main completion",
+    "Fractional saved length actual input",
+    "Physical/tablet/TalkBack/student understanding",
+    "Compound proportion and remaining helpers",
+    "Worldwide curricula/languages,100-question diversity,long study completion,ads/billing/release"
+  ],
+  "release": "Only isolated engine and docs public; app/UI/QA/APK/screens private, no homepage or Play deployment"
+}
