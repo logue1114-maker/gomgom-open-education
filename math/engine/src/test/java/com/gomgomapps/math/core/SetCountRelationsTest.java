@@ -2,7 +2,9 @@ package com.gomgomapps.math.core;
 import java.util.*;import java.util.regex.*;import org.junit.Test;import static org.junit.Assert.*;
 public class SetCountRelationsTest {
  private List<Rational> values(Question q){
-  List<Rational> v=new ArrayList<>();Matcher m=Pattern.compile("[0-9]+").matcher(q.prompt);while(m.find())v.add(Expression.number(m.group()));assertEquals(3,v.size());Rational a=v.get(0),b=v.get(1),c=v.get(2),sum=a.add(b);
+  List<Rational> v=new ArrayList<>();Matcher m=Pattern.compile("[0-9]+").matcher(q.prompt);while(m.find())v.add(Expression.number(m.group()));
+  if(q.prompt.startsWith("전체집합 U")){assertEquals(2,v.size());return List.of(v.get(0),v.get(1),v.get(0).sub(v.get(1)));}
+  assertEquals(3,v.size());Rational a=v.get(0),b=v.get(1),c=v.get(2),sum=a.add(b);
   if(q.skillId.equals("sec_set_intersection"))return q.prompt.contains("n(A∪B)")?List.of(a,b,c,sum,sum.sub(c)):List.of(c);
   return q.skillId.equals("sec_set_union")?List.of(a,b,c,sum,sum.sub(c)):List.of(a,c,a.sub(c));
  }
@@ -15,7 +17,12 @@ public class SetCountRelationsTest {
  @Test public void allSmallCountPromptsDetermineIndependentCalculations(){
   Generator g=new Generator(new Random(2501));for(String skill:List.of("sec_set_intersection","sec_set_union","sec_set_difference")){Set<String> prompts=new HashSet<>();Set<Integer> positions=new HashSet<>();
    for(int i=0;i<4000;i++){Question q=g.next(skill,List.of(),i%2==0);prompts.add(q.prompt);if(q.correctChoice>=0)positions.add(q.correctChoice);if(skill.equals("sec_set_intersection"))assertTrue(q.prompt.contains("n(A∪B)"));verify(q);}
-   assertEquals(105,prompts.size());assertEquals(Set.of(0,1,2,3),positions);
+   assertEquals(skill.equals("sec_set_difference")?248:105,prompts.size());assertEquals(Set.of(0,1,2,3),positions);
+  }
+ }
+ @Test public void complementIncludesEmptyAndFullSetsWithoutPrefill(){
+  for(int u=4;u<=16;u++)for(int a=0;a<=u;a++){
+   Question q=new Question("sec_set_difference","전체집합 U에서 A⊆U이고 n(U)="+u+", n(A)="+a+"일 때 A의 여집합의 원소 수는?","",Integer.toString(u-a));verify(q);
   }
  }
  @Test public void publishedReadingExerciseAndZeroFullOverlapsKeepIdentityButResetOldHelp(){

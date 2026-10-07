@@ -497,6 +497,11 @@ public final class SecondaryBasics {
                 MovementCircleRelations.attach(movementQuestion);return movementQuestion;
             }
             case "sec_set_intersection": case "sec_set_union": case "sec_set_difference":{
+                if(s.family.equals("sec_set_difference")&&random.nextBoolean()){
+                    int universe=n(random,4,16),inside=n(random,0,universe);
+                    Question complement=q(s,"전체집합 U에서 A⊆U이고 n(U)="+universe+", n(A)="+inside+"일 때 A의 여집합의 원소 수는?",Rational.of(universe-inside),null,null,"universe",universe,"inside",inside);
+                    SetCountRelations.attach(complement);return complement;
+                }
                 int sizeA=n(random,4,8),sizeB=n(random,4,8),common=n(random,1,Math.min(sizeA,sizeB)-1);int result=s.family.equals("sec_set_intersection")?common:s.family.equals("sec_set_union")?sizeA+sizeB-common:sizeA-common;
                 String op=s.family.equals("sec_set_intersection")?"교집합":s.family.equals("sec_set_union")?"합집합":"차집합 A-B";
                 String givenSet=s.family.equals("sec_set_intersection")?"∪":"∩";int givenSize=s.family.equals("sec_set_intersection")?sizeA+sizeB-common:common;

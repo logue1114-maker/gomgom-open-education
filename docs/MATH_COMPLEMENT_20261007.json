@@ -1,0 +1,62 @@
+{
+  "date": "2026-10-07",
+  "status": "Progress; full app incomplete",
+  "behavior": "Difference/complement unit now randomly includes U/A complement calculations. Students enter U count, A count and U minus A. All frames blank and symbolic, no main transfer.",
+  "supply": {
+    "complement": 143,
+    "difference": 105,
+    "total": 248,
+    "universe_range": [
+      4,
+      16
+    ],
+    "inside_range": "0 through U inclusive"
+  },
+  "tests": {
+    "engine": {
+      "tests": 791,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 183,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 183,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 791,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": 172.704,
+    "steps": 3,
+    "mainSubmitted": false
+  },
+  "restore_kenya_seconds": 20.347,
+  "home_seconds": 9.841,
+  "home_learning_total": 3102,
+  "apk_sha256": "e199d01cf2b308b80219231128786b35bc714d4907eeb255bf54d39ccd6c1e2a",
+  "installed_matches": true,
+  "initial_failure": "Existing SecondaryBasicsTest assumed all difference/complement questions supplied sizeA/common metadata. Test updated for the actual new public U/A case; final tests pass. Public build command initially used missing wrapper and wrong project names; final :math:engine:test passed.",
+  "unverified": [
+    "KO/PT native",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "global curriculum completeness",
+    "full app completion"
+  ]
+}

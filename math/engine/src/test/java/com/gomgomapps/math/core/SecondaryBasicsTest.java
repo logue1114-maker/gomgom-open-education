@@ -143,7 +143,7 @@ public class SecondaryBasicsTest {
             case "sec_reflection":{int type=i(q,"type"),x=i(q,"x"),y=i(q,"y");return List.of(r(type==1?x:-x),r(type==0?y:-y));}
             case "sec_set_intersection":return List.of(r(i(q,"common")));
             case "sec_set_union":return List.of(r(i(q,"sizeA")+i(q,"sizeB")-i(q,"common")));
-            case "sec_set_difference":return List.of(r(i(q,"sizeA")-i(q,"common")));
+            case "sec_set_difference":return q.prompt.startsWith("전체집합 U")?List.of(r(i(q,"universe")-i(q,"inside"))):List.of(r(i(q,"sizeA")-i(q,"common")));
             case "sec_subset":return List.of(r(i(q,"mode")==0?1L<<i(q,"size"):i(q,"contained")));
             case "sec_proposition_truth":return List.of(r(i(q,"value")%i(q,"divisor")==0?1:0));
             case "sec_contrapositive":return List.of(r(i(q,"larger")%i(q,"smaller")==0?1:0));

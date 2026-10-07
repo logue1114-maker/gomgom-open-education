@@ -6,6 +6,16 @@ public final class SetCountRelations {
  public static boolean supports(String id){return Set.of("sec_set_intersection","sec_set_union","sec_set_difference").contains(id);}
  public static void attach(Question q){
   if(q==null||q.prompt==null||!supports(q.skillId))return;
+  Matcher complement=Pattern.compile("전체집합 U에서 A⊆U이고 n\\(U\\)=(\\d+), n\\(A\\)=(\\d+)일 때 A의 여집합의 원소 수는\\?").matcher(q.prompt);
+  if(q.skillId.equals("sec_set_difference")&&complement.matches()){
+   Rational u=Expression.number(complement.group(1)),a=Expression.number(complement.group(2));
+   if(a.compareTo(u)>0)return;
+   StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="set-complement-relations-v1";
+   step(g,"전체집합 U의 원소 수를 찾아 쓰세요.","전체집합 원소 수 u = ",u);
+   step(g,"집합 A의 원소 수를 찾아 쓰세요.","A의 원소 수 a = ",a);
+   step(g,"여집합은 전체집합에서 A에 속하지 않는 원소입니다. 전체 원소 수에서 A의 원소 수를 빼세요.","n(Aᶜ) = u − a = ",u.sub(a));
+   q.studyGuide=g;return;
+  }
   Matcher m=Pattern.compile("n\\(A\\)=(\\d+), n\\(B\\)=(\\d+), n\\(A([∩∪])B\\)=(\\d+)일 때 (교집합|합집합|차집합 A-B)의 원소 수는\\?").matcher(q.prompt);
   if(!m.matches())return;Rational a=Expression.number(m.group(1)),b=Expression.number(m.group(2)),c=Expression.number(m.group(4));boolean givenUnion=m.group(3).equals("∪");String target=m.group(5);
   if(givenUnion&&!target.equals("교집합"))return;

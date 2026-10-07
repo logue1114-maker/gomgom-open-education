@@ -1,3 +1,7 @@
+# 2026-10-07 — Complement problems in the set difference/complement unit
+
+Added 143 small U/A complement questions, including empty and full A, alongside 105 A-B questions. Symbolic three-step help requires learner-entered U count, A count and subtraction; no numerical prefill or answer transfer. Public-condition independent tests cover all 248 generated prompts and exhaustive complement boundaries. KO/EN/PT text is connected; one fresh English native complement case completed through normal topic selection with wrong-input correction. Existing saved A-B questions remain unchanged. See MATH_COMPLEMENT_20261007.json for scoped test/runtime evidence and unfinished global-app work.
+
 # 2026-10-07 — Set-size calculations from public givens
 
 New intersection problems provide union size so the requested count requires a calculation. Symbolic help uses learner-entered set sizes before sum minus union, sum minus shared count, or A count minus shared count. No numerical prefill or main transfer. Existing published intersection reading exercises retain their prompts/identity and use unfilled retrieval help. Each unit covers all105 small public prompts and four main choice positions in4000 samples. Independent public-count solving, metadata mutation invariance, zero/full overlaps, old/new help drafts and EN/PT text tested. Android normal input/error correction/help completion checked. Complement generation in the difference/complement unit remains unfinished. UI/QA/APK/screens/learner inputs private; full global app incomplete. See MATH_SET_COUNT_20261007.json.
