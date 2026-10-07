@@ -33,17 +33,8 @@ public final class MixedFractions {
         if(subtract&&value(left).compareTo(value(right))<0){int[] swap=left;left=right;right=swap;}
         String op=subtract?"-":"+",prompt=display(left)+" "+op+" "+display(right);
         Givens givens=read(prompt);Rational x=givens.left(),y=givens.right(),answer=subtract?x.sub(y):x.add(y);
-        int common=left[2]/Generator.gcd(left[2],right[2])*right[2];
-        int nx=x.mul(Rational.of(common)).intValue(),ny=y.mul(Rational.of(common)).intValue();
         Question q=new Question(skill.id,prompt,givens.expression(),answer.toString());
-        q.studyGuide=new StudyGuide()
-            .step("첫 대분수를 가분수로 바꾸세요.",left[0]+" + "+left[1]+"/"+left[2]+" = ","",x.toString())
-            .step("둘째 대분수를 가분수로 바꾸세요.",right[0]+" + "+right[1]+"/"+right[2]+" = ","",y.toString())
-            .step("두 분모의 최소공배수를 구하세요.",left[2]+"과 "+right[2]+"의 최소공배수 = ","",String.valueOf(common))
-            .step("첫 분수를 통분하세요.",x+" = ","/"+common,String.valueOf(nx))
-            .step("둘째 분수를 통분하세요.",y+" = ","/"+common,String.valueOf(ny))
-            .step(subtract?"분자끼리 빼고 분모를 유지하세요.":"분자끼리 더하고 분모를 유지하세요.","("+nx+" "+op+" "+ny+") / "+common+" = ","",answer.toString())
-            .transfer(false);
+        MixedFractionRelations.attach(q);
         return q.withInputs(x,y,Rational.of(subtract?1:0),Rational.of(left[2]),Rational.of(right[2]));
     }
 }

@@ -52,11 +52,11 @@ public class MixedFractionCurriculumTest {
         Generator g=new Generator(new Random(102072));
         for(String id:List.of("fracMixedAdd","fracMixedSub"))for(int i=0;i<150;i++){
             Question q=next(g,id,6,false);long[] v=mixed(q.prompt);long a=v[0]*v[2]+v[1],b=v[3]*v[5]+v[4],gcd=java.math.BigInteger.valueOf(v[2]).gcd(java.math.BigInteger.valueOf(v[5])).longValueExact(),common=v[2]/gcd*v[5];
-            List<String> entered=List.of(a+"/"+v[2],b+"/"+v[5],String.valueOf(common),String.valueOf(a*(common/v[2])),String.valueOf(b*(common/v[5])),result(q.prompt,v).toString());
-            q.answers[0]="99999";HelpPlan plan=HelpPlan.forQuestion(q);assertEquals(6,plan.size());assertFalse(plan.canTransfer());
-            for(int step=0;step<6;step++){assertTrue(plan.step(step).accepts(entered.get(step)));assertFalse(plan.step(step).accepts("99999"));}
-            assertFalse(plan.step(0).before.contains(a+"/"+v[2]));assertFalse(plan.step(1).before.contains(b+"/"+v[5]));
-            HelpPlan.Draft draft=plan.restore(null,q.id);draft.stage=6;draft.entries=new ArrayList<>(entered);assertEquals(entered.get(5),plan.enteredAnswer(draft));
+            long left=a*(common/v[2]),right=b*(common/v[5]),numerator=q.prompt.contains(" - ")?left-right:left+right,reduction=java.math.BigInteger.valueOf(numerator).gcd(java.math.BigInteger.valueOf(common)).longValueExact();
+            List<String> entered=java.util.stream.LongStream.of(v[0],v[1],v[2],a,v[3],v[4],v[5],b,common,common/v[2],common/v[5],left,right,numerator,reduction,numerator/reduction,common/reduction).mapToObj(Long::toString).toList();
+            q.answers[0]="99999";HelpPlan plan=HelpPlan.forQuestion(q);assertEquals(17,plan.size());assertFalse(plan.canTransfer());
+            for(int step=0;step<17;step++){assertTrue(plan.step(step).accepts(entered.get(step)));assertFalse(plan.step(step).accepts("99999"));assertFalse(plan.step(step).before.matches(".*[0-9].*"));assertEquals("",plan.step(step).after);}
+            HelpPlan.Draft draft=plan.restore(null,q.id);draft.stage=17;draft.entries=new ArrayList<>(entered);assertEquals(result(q.prompt,v),Expression.number(plan.enteredAnswer(draft)));
         }
     }
     @Test public void fractionWorkingChecksMixedPublicGivensEvenWhenAnswerMetadataIsWrong(){

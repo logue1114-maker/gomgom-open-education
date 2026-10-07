@@ -1,0 +1,38 @@
+{
+  "date": "2026-10-08",
+  "units": [
+    "fracMixedAdd",
+    "fracMixedSub"
+  ],
+  "teachingVersion": "mixed-fraction-relations-v1",
+  "behavior": [
+    "17 blank stages: each visible mixed-number part, improper numerators, LCM denominator, equivalent-fraction multipliers, equivalent numerators, operation and reduction.",
+    "No computed values in before/after labels and no main-answer transfer.",
+    "Reads public mixed-number prompt only; original question, answer, choices and curriculum placements remain intact.",
+    "Zero/whole results and subtraction requiring borrowing follow the same exact arithmetic."
+  ],
+  "sourceManifest": [
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/MixedFractionRelations.java",
+      "sha256": "ecad6a516a1b2e45a5c2a7f0c0d92e37c7eb06fb2cc1163b8f10f6b0f73e1001"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/MixedFractions.java",
+      "sha256": "dda77c90b5ee221ffa195833bb0c91b3a9aa87f9c5865715bf1572535c0fc837"
+    },
+    {
+      "path": "engine/src/main/java/com/gomgomapps/math/core/FractionConceptRelations.java",
+      "sha256": "6722eadf1c29769a8019934b435e68374ad1a5dbbf2c7b207337d57b994070c5"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/MixedFractionRelationsTest.java",
+      "sha256": "bdcf5fbed18942204dcff0e496784c1a8c8fcfbf5e5f3df838da27a42e97fb0c"
+    },
+    {
+      "path": "engine/src/test/java/com/gomgomapps/math/core/MixedFractionCurriculumTest.java",
+      "sha256": "a89f298a2fbf1d09f121250d29bc83930fff3b62b2aa18d5f4cda618ebefdbf7"
+    }
+  ],
+  "validation": "Public engine 835 tests passed, zero failures. Native/UI/student evidence stays private.",
+  "remaining": "Full global app scope and other units remain incomplete."
+}
