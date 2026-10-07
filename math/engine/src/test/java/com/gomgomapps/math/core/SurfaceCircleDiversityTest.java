@@ -25,10 +25,10 @@ public class SurfaceCircleDiversityTest {
                     int c=values.get(2);assertEquals(c*c,a*a+b*b);assertTrue(c<=50);
                     expected=Rational.of(c,2);fractional|=c%2==1;
                 }else{
-                    assertEquals(2,values.size());assertTrue(b>a&&b<=50);
-                    int length=(int)Math.sqrt(b*b-a*a);assertEquals(b*b,a*a+length*length);
-                    expected=Rational.of(length);
-                    assertTrue(HelpPlan.forQuestion(q).step(0).accepts(String.valueOf(b*b-a*a)));
+                    List<Rational> lengths=new ArrayList<>();Matcher publicLengths=Pattern.compile("\\d+(?:\\.\\d+)?(?:/\\d+)?").matcher(q.prompt);while(publicLengths.find())lengths.add(Expression.number(publicLengths.group()));
+                    assertEquals(2,lengths.size());Rational radius=lengths.get(0),distance=lengths.get(1);assertTrue(distance.compareTo(radius)>0&&distance.compareTo(Rational.of(50))<=0);
+                    Rational square=distance.mul(distance).sub(radius.mul(radius));expected=square.sqrt();assertEquals(distance.mul(distance),radius.mul(radius).add(expected.mul(expected)));fractional|=!expected.isInteger();
+                    HelpPlan tangentHelp=HelpPlan.forQuestion(q);assertEquals(6,tangentHelp.size());assertFalse(tangentHelp.canTransfer());assertTrue(tangentHelp.step(0).accepts(radius.toString()));assertTrue(tangentHelp.step(4).accepts(square.toString()));
                 }
                 assertEquals(q.prompt,expected,Expression.number(q.answers[0]));
                 assertTrue(new Checker().check(q,List.of(),List.of(expected.toString())).correct());
@@ -41,7 +41,7 @@ public class SurfaceCircleDiversityTest {
             }
             if(skill.equals("sec_cone_surface"))assertTrue(distinct.size()>=100);
             else if(skill.equals("sec_circumcenter_radius")){assertEquals(20,distinct.size());assertTrue(fractional);}
-            else assertEquals(40,distinct.size());
+            else {assertTrue(distinct.size()>100);assertTrue(fractional);}
         }
     }
 }

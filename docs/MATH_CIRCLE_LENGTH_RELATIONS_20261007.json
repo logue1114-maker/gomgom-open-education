@@ -1,0 +1,76 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "sec_circle_chord",
+    "sec_circle_tangent"
+  ],
+  "behavior": "Public geometric relationships only. Learners enter AM and double it, or radius/distance then their squares, difference and positive square root. No supplied computed intermediate or main transfer. Chord bisection, perpendicular tangent/radius, Pythagoras, positive lengths, exact fractions and saved identity remain.",
+  "migration": "circle-length-relations-v1; generated and saved HelpPlan paths; old calculated-square draft resets.",
+  "supply": {
+    "chord": 131,
+    "tangent": 122,
+    "description": "Chord AM2..15 with one decimal digit. Tangent original small integer right triangles scaled by1,2,5,10; distance<=50.1200 public generated examples per unit independently checked; more100 distinct prompts and all4 option positions. Shared triangle list unchanged."
+  },
+  "tests": {
+    "engine": {
+      "tests": 764,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 171,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 171,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 764,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "scope": "Normal US English Common Core Grade9 typed10 menu. Public displayed prompt only, no answer metadata, learner-state injection or main submission. First and final wrong inputs corrected.13keys visible on900x1600/400 small phone.",
+    "runs": [
+      {
+        "unit": "chord",
+        "seconds": 77.264,
+        "decimal_input": true
+      },
+      {
+        "unit": "tangent",
+        "seconds": 48.287,
+        "decimal_input": false
+      }
+    ],
+    "restore_kenya_seconds": 19.034,
+    "home_learning_total": 3102,
+    "home_seconds": 20.404
+  },
+  "apk_sha256": "3762c4e1e99e6860a09a9f5982823255f98bc5f27b506d375e762e1ac0ae6df8",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "main_decimal_readback_seconds": 31.578,
+  "helper_apk_version": "V1 calculation checks; V2 main decimal input; V3 explicit perpendicular foot condition. Completed helpers not replayed",
+  "chord_condition_readback_seconds": 47.444,
+  "helper_v1_sha256": "bf12bc8b0e4421ae2f4d3ed58b2c871b5cd96c43f5715b5e4fd4fab8d866fe3c",
+  "local_visual": "Actual main, intermediate, blank final and completion screens inspected; emulator only",
+  "unverified": [
+    "Saved fractions/old draft/reinstall restoration on device",
+    "KO/PT/tablet/physical/TalkBack/student understanding",
+    "V3 completed helper screens not reopened; no main answer submitted",
+    "Tangent decimals on device (current tangent sample integer)",
+    "Other helper units and complete100-question supply",
+    "Worldwide curricula/languages,long study completion,real ads/billing/release"
+  ],
+  "release": "Isolated engine/docs public; UI/QA/screens/APK/student inputs private; no homepage or Play deployment"
+}

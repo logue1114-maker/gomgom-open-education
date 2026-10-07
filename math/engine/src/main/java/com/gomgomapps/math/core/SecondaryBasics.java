@@ -330,13 +330,13 @@ public final class SecondaryBasics {
                 return q(s,"어떤 지점에서 건물 꼭대기를 올려다본 각이 45°이고 건물 밑까지의 수평 거리가 "+a+"m입니다. 눈높이를 0m로 보면 건물 높이는?",Rational.of(a),guide,null,"distance",a);
             }
             case "sec_circle_chord":{
-                a=n(random,2,15);answer=2*a;guide=one("중심에서 현에 내린 수선은 현을 이등분합니다.",a+" × 2 = ","",answer);
-                return q(s,"원의 중심 O에서 현 AB에 내린 수선의 발을 M이라 할 때 AM="+a+"입니다. 현 AB의 길이는?",Rational.of(answer),guide,null,"halfChord",a);
+                Rational halfChord=Rational.of(n(random,20,150),10),chordLength=halfChord.mul(Rational.of(2));String halfText=halfChord.decimalText();guide=one("중심에서 현에 내린 수선은 현을 이등분합니다.",halfText+" × 2 = ","",chordLength);
+                return q(s,"원의 중심 O에서 현 AB에 내린 수선의 발을 M이라 할 때 AM="+halfText+"입니다. 현 AB의 길이는?",chordLength,guide,null,"halfChord",halfText);
             }
             case "sec_circle_inscribed":return AngleRelations.create(s,random);
             case "sec_circle_tangent":{
-                int[] t=IntegerRightTriangles.next(random);int radiusIndex=random.nextInt(2);r=t[radiusIndex];answer=t[1-radiusIndex];d=t[2];guide=two("접점에서 반지름과 접선은 수직입니다. 접선 길이의 제곱을 구하세요.",d+"² - "+r+"² = ","",d*d-r*r,"양의 제곱근을 구하세요.","접선 = √"+(d*d-r*r)+" = ","",answer);
-                return q(s,"원의 반지름이 "+r+", 중심에서 원 밖의 점까지 거리가 "+d+"일 때 그 점에서 그은 접선의 길이는?",Rational.of(answer),guide,null,"radius",r,"distance",d);
+                int[] t=IntegerRightTriangles.next(random);int radiusIndex=random.nextInt(2),divisor=new int[]{1,2,5,10}[random.nextInt(4)];Rational radius=Rational.of(t[radiusIndex],divisor),distance=Rational.of(t[2],divisor),tangentLength=Rational.of(t[1-radiusIndex],divisor),tangentSquare=tangentLength.mul(tangentLength);String radiusText=radius.decimalText(),distanceText=distance.decimalText();guide=two("접점에서 반지름과 접선은 수직입니다. 접선 길이의 제곱을 구하세요.",distanceText+"² - "+radiusText+"² = ","",tangentSquare,"양의 제곱근을 구하세요.","접선 = √"+tangentSquare+" = ","",tangentLength);
+                return q(s,"원의 반지름이 "+radiusText+", 중심에서 원 밖의 점까지 거리가 "+distanceText+"일 때 그 점에서 그은 접선의 길이는?",tangentLength,guide,null,"radius",radiusText,"distance",distanceText);
             }
             case "sec_variance":case "sec_standard_deviation":
                 return StatisticsBasics.create(s,random);

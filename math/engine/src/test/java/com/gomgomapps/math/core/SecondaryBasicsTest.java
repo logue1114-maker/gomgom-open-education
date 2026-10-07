@@ -100,9 +100,9 @@ public class SecondaryBasicsTest {
             case "sec_quadratic_value":{long delta=i(q,"x")-i(q,"h");return List.of(r(i(q,"a")*delta*delta+i(q,"k")));}
             case "sec_trig_special":return List.of(i(q,"type")==2?Rational.ONE:Rational.of(1,2));
             case "sec_trig_height":return List.of(r(i(q,"distance")));
-            case "sec_circle_chord":return List.of(r(2L*i(q,"halfChord")));
+            case "sec_circle_chord":return List.of(Expression.number(q.givenNumbers.get("halfChord")).mul(Rational.of(2)));
             case "sec_circle_inscribed":{int a=Integer.parseInt(q.givenNumbers.get("given"));return List.of(r(q.prompt.contains("∠ACB = ")?a*2:a/2));}
-            case "sec_circle_tangent":return List.of(r(squareRoot(i(q,"distance")*i(q,"distance")-i(q,"radius")*i(q,"radius"))));
+            case "sec_circle_tangent":{Rational d=Expression.number(q.givenNumbers.get("distance")),radius=Expression.number(q.givenNumbers.get("radius"));return List.of(d.mul(d).sub(radius.mul(radius)).sqrt());}
             case "sec_variance":case "sec_standard_deviation":{
                 if(q.prompt.startsWith("분산이 "))return List.of(Expression.number(q.prompt.substring(4,q.prompt.indexOf("인 자료"))).sqrt());
                 String raw=q.prompt.substring(q.prompt.indexOf('[')+1,q.prompt.indexOf(']'));
