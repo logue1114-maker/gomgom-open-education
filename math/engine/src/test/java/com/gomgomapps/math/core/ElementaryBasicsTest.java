@@ -216,13 +216,13 @@ public class ElementaryBasicsTest {
     /** Independent re-calculation from public prompt/diagram givens, not from q.expression. */
     private static void assertIndependentCalculation(Catalog.Skill skill,Question q){
         String id=skill.id;
-        if(Set.of("el_length_mm_cm","el_length_m_cm","el_length_km_m","el_capacity_l_ml","el_mass_kg_g","el_mass_t_kg").contains(id)&&q.prompt.contains("□")){
-            java.util.Map<String,Long> scale=java.util.Map.of("mm",1L,"cm",10L,"m",1000L,"km",1000000L,"mL",1L,"L",1000L,"g",1L,"kg",1000L,"t",1000000L);
-            Matcher quantities=Pattern.compile("([0-9]+)(mm|cm|km|mL|L|kg|g|t|m)").matcher(q.prompt);
+        if(Set.of("el_length_mm_cm","el_length_m_cm","el_length_km_m","el_capacity_l_ml","el_mass_kg_g","el_mass_t_kg","el_area_unit","el_volume_unit").contains(id)&&q.prompt.contains("□")){
+            java.util.Map<String,Long> scale=java.util.Map.ofEntries(java.util.Map.entry("mm",1L),java.util.Map.entry("cm",10L),java.util.Map.entry("m",1000L),java.util.Map.entry("km",1000000L),java.util.Map.entry("mL",1L),java.util.Map.entry("L",1000L),java.util.Map.entry("g",1L),java.util.Map.entry("kg",1000L),java.util.Map.entry("t",1000000L),java.util.Map.entry("cm²",1L),java.util.Map.entry("m²",10000L),java.util.Map.entry("cm³",1L),java.util.Map.entry("m³",1000000L));
+            Matcher quantities=Pattern.compile("([0-9]+)(cm²|m²|cm³|m³|mm|cm|km|mL|L|kg|g|t|m)").matcher(q.prompt);
             assertTrue(q.prompt,quantities.find());long amount=Long.parseLong(quantities.group(1))*scale.get(quantities.group(2));
             assertTrue(q.prompt,quantities.find());long second=Long.parseLong(quantities.group(1))*scale.get(quantities.group(2));
             amount+=q.prompt.contains(" + ")?second:-second;assertFalse(q.prompt,quantities.find());
-            Matcher target=Pattern.compile("□(mm|cm|km|mL|L|kg|g|t|m)$").matcher(q.prompt);assertTrue(q.prompt,target.find());
+            Matcher target=Pattern.compile("□(cm²|m²|cm³|m³|mm|cm|km|mL|L|kg|g|t|m)$").matcher(q.prompt);assertTrue(q.prompt,target.find());
             long targetScale=scale.get(target.group(1));assertEquals(q.prompt,0,amount%targetScale);assertNumber(q,Rational.of(amount/targetScale));return;
         }
         int[] v;int total;

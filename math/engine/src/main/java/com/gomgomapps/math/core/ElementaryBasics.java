@@ -730,6 +730,7 @@ public final class ElementaryBasics {
     }
 
     private static Question areaUnit(Catalog.Skill skill,Random random){
+        if(random.nextInt(3)!=0)return variedUnitConversion(skill,random,"m²","cm²",10000,20);
         int squareMetres=n(random,1,20);
         if(random.nextBoolean())return number(skill,squareMetres+"m²는 몇 cm²인가요?",squareMetres+"*10000",Rational.of(squareMetres*10000),
                 guide(step("넓이 단위를 바꿉니다.",squareMetres+" × 10000 = ","cm²",squareMetres+"*10000")),null);
@@ -739,6 +740,7 @@ public final class ElementaryBasics {
     }
 
     private static Question volumeUnit(Catalog.Skill skill,Random random){
+        if(random.nextInt(3)!=0)return variedUnitConversion(skill,random,"m³","cm³",1000000,8);
         int cubicMetres=n(random,1,8);
         if(random.nextBoolean())return number(skill,cubicMetres+"m³는 몇 cm³인가요?",cubicMetres+"*1000000",Rational.of(cubicMetres*1000000L),
                 guide(step("부피 단위를 바꿉니다.",cubicMetres+" × 1000000 = ","cm³",cubicMetres+"*1000000")),null);

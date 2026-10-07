@@ -1,0 +1,48 @@
+{
+  "units": [
+    "el_area_unit",
+    "el_volume_unit"
+  ],
+  "teachingVersion": "measure-unit-relations-v1",
+  "unitDefinitions": {
+    "m2ToCm2": 10000,
+    "m3ToCm3": 1000000
+  },
+  "method": "Published quantities -> learner-entered blank unit relationships -> prior accepted learner values only.",
+  "invariants": [
+    "Area, volume and linear units stay in separate dimension families.",
+    "Original 20 square metres and 8 cubic metres quantity bounds retained.",
+    "Original pure conversion forms retained, plus same-unit addition/subtraction then conversion.",
+    "No computed values prefilled or main-answer transfer.",
+    "Direct creation and normal generation share the same guide.",
+    "Obsolete drafts reset; new partial drafts restore."
+  ],
+  "samples": "All fourteen measurement units: 1200 generated samples and at least 100 distinct public prompts per unit; new area and volume direct-creation samples independently checked against unit sizes and source bounds. Distinct prompts do not mean distinct answers or numeric facts.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 860,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 220,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 220,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "limits": [
+    "Tests and normal-UI evidence are different layers.",
+    "No assertion of all-country curricula, physical devices, learner comprehension or release readiness."
+  ]
+}
