@@ -1,0 +1,79 @@
+{
+  "status": "Progress; whole global app incomplete",
+  "date": "2026-10-07",
+  "units": [
+    "sec_line_relation",
+    "sec_point_line_distance",
+    "sec_circle_equation"
+  ],
+  "behavior": "Public signed line coefficients determine products/difference/dot sum followed by relationship choice. Origin-line distance uses squares/sum/root/absolute value/division. Circle radius uses right-side squared value and positive root. Every calculation is student-entered; no numerical prefill or main transfer.",
+  "versions": [
+    "line-relation-relations-v1",
+    "point-line-distance-relations-v1",
+    "circle-radius-relations-v1"
+  ],
+  "supply": "Origin-line distance expanded24 to192 signed-coefficient/constant prompts, original four triples and distances1..6 preserved. Three units each1200 public prompts, more than100 distinct. Generated parallel lines now guaranteed distinct, including their constants.",
+  "tests": {
+    "engine": {
+      "tests": 784,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 181,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 181,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 784,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "restore_kenya_seconds": 35.382,
+  "home_seconds": 32.791,
+  "home_learning_total": 3102,
+  "apk_sha256": "7224b32a936d69a7815a3dd20424827fbd864f67a8c50a537d9b4ce25dfe6af9",
+  "installed_matches": true,
+  "display_restored": "1080x2400/420",
+  "initial_failure": "New independent test incorrectly counted Unicode squared glyph as an ASCII digit in circle prompt; actual prompt has3 numeric givens, not5. Corrected test/native parser only, original failed build log retained.",
+  "native_scope": "Normal US English / All foundations / typed10 requested (relation is original forced3choices) / 900x1600/400. One case per unit. Public equations independently solved; no answer metadata or state injection. Main answer not submitted.",
+  "unverified": [
+    "KO/PT native",
+    "tablet",
+    "physical device",
+    "TalkBack",
+    "student understanding",
+    "main submission",
+    "device old draft migration",
+    "old saved coincident-line question migration; new parallel generator excludes coincident lines"
+  ],
+  "ui_versions": "V1 three calculation completions. V2 center label separated from radius with center dot and symbolic r, norm instruction rewritten as square-root value. Fresh circle first-frame visual only, no completed calculation replay.",
+  "native": {
+    "relation": {
+      "seconds": 78.224,
+      "steps": 11,
+      "mainSubmitted": false
+    },
+    "distance": {
+      "seconds": 84.62,
+      "steps": 9,
+      "mainSubmitted": false
+    },
+    "circle": {
+      "seconds": 106.983,
+      "steps": 2,
+      "mainSubmitted": false
+    }
+  },
+  "private_scope": "UI/QA/APK/screens/learner inputs not published."
+}

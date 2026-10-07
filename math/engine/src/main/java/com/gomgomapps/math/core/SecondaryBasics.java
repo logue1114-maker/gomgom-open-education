@@ -467,17 +467,19 @@ public final class SecondaryBasics {
                 CoordinateCalculationRelations.attach(coordinateQuestion);return coordinateQuestion;
             }
             case "sec_line_relation":{
-                a=n(random,1,5);b=n(random,1,5);int relation=n(random,-1,1),a2,b2;if(relation==1){int scale=n(random,2,4);a2=a*scale;b2=b*scale;}else if(relation==-1){a2=b;b2=-a;}else{a2=a+1;b2=b;}c=signed(random,8);d=signed(random,8);int determinant=a*b2-a2*b,dot=a*a2+b*b2;answer=determinant==0?1:dot==0?-1:0;
-                guide=two("평행 여부는 두 계수쌍의 비로 확인하세요.",a+"×("+b2+") - "+a2+"×"+b+" = ","",determinant,"수직 여부는 법선벡터의 내적으로 확인하세요.",a+"×"+a2+" + "+b+"×("+b2+") = ","",dot).transfer(false);
-                return choices(q(s,"두 직선 "+a+"x+("+b+")y="+c+", "+a2+"x+("+b2+")y="+d+"의 관계를 고르세요.",Rational.of(answer),guide,null,"a1",a,"b1",b,"a2",a2,"b2",b2),"1","평행","-1","수직","0","둘 다 아님");
+                a=n(random,1,5);b=n(random,1,5);int relation=n(random,-1,1),a2,b2;if(relation==1){int scale=n(random,2,4);a2=a*scale;b2=b*scale;}else if(relation==-1){a2=b;b2=-a;}else{a2=a+1;b2=b;}c=signed(random,8);d=signed(random,8);if(relation==1&&a*d==a2*c)d=-d;int determinant=a*b2-a2*b,dot=a*a2+b*b2;answer=determinant==0?1:dot==0?-1:0;
+                Question lineCircleQuestion=choices(q(s,"두 직선 "+a+"x+("+b+")y="+c+", "+a2+"x+("+b2+")y="+d+"의 관계를 고르세요.",Rational.of(answer),null,null,"a1",a,"b1",b,"a2",a2,"b2",b2),"1","평행","-1","수직","0","둘 다 아님");
+                LineCircleRelations.attach(lineCircleQuestion);return lineCircleQuestion;
             }
             case "sec_point_line_distance":{
-                int[][] triples={{3,4,5},{5,12,13},{6,8,10},{8,15,17}};int[] t=triples[random.nextInt(triples.length)];a=n(random,1,6);c=-a*t[2];guide=two("직선 계수의 제곱합에서 제곱근을 구하세요.","√("+t[0]+"²+"+t[1]+"²) = ","",t[2],"원점 좌표를 식에 대입한 절댓값을 나누세요.",Math.abs(c)+" ÷ "+t[2]+" = ","",a);
-                return q(s,"원점 O와 직선 "+t[0]+"x+"+t[1]+"y+("+c+")=0 사이의 거리는?",Rational.of(a),guide,new StudyDiagram("coordinate",new double[]{0,0},"O"),"a",t[0],"b",t[1],"c",c);
+                int[][] triples={{3,4,5},{5,12,13},{6,8,10},{8,15,17}};int[] t=triples[random.nextInt(triples.length)];a=n(random,1,6);int aa=random.nextBoolean()?t[0]:-t[0],bb=random.nextBoolean()?t[1]:-t[1];c=(random.nextBoolean()?1:-1)*a*t[2];
+                Question lineCircleQuestion=q(s,"원점 O와 직선 "+aa+"x"+plus(bb)+"y+("+c+")=0 사이의 거리는?",Rational.of(a),null,new StudyDiagram("coordinate",new double[]{0,0},"O"),"a",aa,"b",bb,"c",c);
+                LineCircleRelations.attach(lineCircleQuestion);return lineCircleQuestion;
             }
             case "sec_circle_equation":{
-                h=signed(random,8);k=signed(random,8);r=n(random,2,12);guide=one("원의 방정식 오른쪽은 반지름의 제곱입니다.","r²="+(r*r)+" → r = ","",r);
-                return q(s,"(x-("+h+"))²+(y-("+k+"))²="+(r*r)+"인 원의 반지름은?",Rational.of(r),guide,new StudyDiagram("circle",new double[]{r},"중심 ("+h+", "+k+")"),"h",h,"k",k,"radiusSquared",r*r);
+                h=signed(random,8);k=signed(random,8);r=n(random,2,12);
+                Question lineCircleQuestion=q(s,"(x-("+h+"))²+(y-("+k+"))²="+(r*r)+"인 원의 반지름은?",Rational.of(r),null,new StudyDiagram("circle",new double[]{r},"중심 ("+h+", "+k+")"),"h",h,"k",k,"radiusSquared",r*r);
+                LineCircleRelations.attach(lineCircleQuestion);return lineCircleQuestion;
             }
             case "sec_circle_line_intersections":{
                 r=n(random,2,9);int relation=random.nextInt(3);a=relation==0?r-1:relation==1?r:r+1;answer=a<r?2:a==r?1:0;guide=one("중심과 직선 사이의 거리에서 반지름을 빼 비교하세요.",a+" - "+r+" = ","",a-r).transfer(false);
