@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app remains active/incomplete",
+  "units": [
+    "hirePurchase",
+    "simpleInterest"
+  ],
+  "behavior": "Hire total: deposit/payment/count then learner-computed instalments sum and final total5 stages; cash-price difference: adds cash-price reading and final subtraction7 stages. Simple interest: principal/rate/years then percentage conversion, annual interest and final period interest6 stages. No computed operands supplied or main-answer transfer;100 retained as percentage definition.",
+  "migration": "hire-interest-relations-v1 clears old calculated operands and restores checked new givens; matching generated/saved prompts",
+  "tests": {
+    "engine": {
+      "tests": 720,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 156,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 156,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 720,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "hire_v1_seconds": 102.42,
+    "simple_v1_seconds": 76.865,
+    "restored_simple_v2_seconds": 30.006,
+    "scope": "Normal Kenya Grade8 typed10-question practices1/10. Public givens entered, wrong first readings corrected; instalment sum or rate fraction/annual interest entered, final helper/main blank. All12 keys and both actions visible. V2 restores the same simple-interest stage without replaying input.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_v2_seconds": 11.837
+  },
+  "apk_sha256": "6996f98ead96cfc563b0ce1ba20cf3d2672fac2787484d90eac23f39eef7b88e",
+  "installed_matches": true,
+  "display": "1080x2400 /420 restored",
+  "copy_fix": "Observed V1 English hire-purchase hyphen normalized as subtraction inside prose. V2 says total instalment cost; formatted-text regression check passes. Hire control flow/screenshot are V1 evidence; V2 same restored simple-interest flow verified, new hire wording actual UI unverified.",
+  "unverified": [
+    "Cash-price difference actual UI",
+    "Final helper/main completion",
+    "Saved decimal/fractional money actual device input",
+    "New shorter hire wording actual UI",
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Annual compound/change and remaining helpers",
+    "Worldwide curricula/languages,100-question diversity,long study completion,real ads/billing/release"
+  ],
+  "release": "Only isolated engine and docs public; app/UI/QA/APK/screens private, no homepage or Play deployment"
+}
