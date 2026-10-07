@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "regularPolygonArea",
+    "pyramidVolume"
+  ],
+  "behavior": "Learner enters public lengths and triangle count, calculates triangle/base area and prism volume, then uses named relationships for final area/volume. No supplied calculated intermediate results or main-answer transfer. Original units, rounded perpendicular distance, perpendicular pyramid height, definitions and curriculum bounds remain.",
+  "migration": "solid-foundation-relations-v1; generated/saved paths; question identity and original diagrams unchanged.",
+  "tests": {
+    "engine": {
+      "tests": 745,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 164,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 164,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 745,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": {
+      "polygon": 36.422,
+      "pyramid": 54.422
+    },
+    "scope": "Normal Kenya English Grade9 typed10 practices1/10; first/final errors corrected, public lengths and intermediate calculations entered through visible keys, final relations captured blank and helper completed. Main answer remains blank.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 14.658,
+    "polygon_version_scope": "First side input/error correction onV1; V2 restores the same step2 and completes remaining calculations. Pyramid fully checked onV2. No app-data reset or completed input replay."
+  },
+  "apk_sha256": "ae433385b55a886bf4a202cc2ebf89c4acaf24f7fc22f917bb8ab76464ed6922",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "initial_failure": "Initial local/public each one existing test forced old two/three helper steps. Aligned expected steps with public length inputs, retaining 1600 examples per skill, independent public calculations, approximation checks and choice diversity. Initial logs retained.",
+  "unverified": [
+    "Other base/polygon shapes on device",
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Saved fractional length input and restoration on device",
+    "Other old drafts and complete helper audit",
+    "Worldwide curricula/languages,100-question supply/diversity,long study completion,real ads/billing/release"
+  ],
+  "release": "Isolated engine/docs public; app/UI/QA/screens/APK private; no homepage or Play deployment",
+  "native_initial_failure": "Initial polygon check failed at helper stage2: math label rendering converted hyphens in center-to-side to minus signs. Replaced the English phrase with perpendicular distance from center to side in the length/formula labels. Product/app tests and APK rebuilt; resumed the same uncompleted public problem at stage2, without replaying its first length. Initial logs/screens retained."
+}

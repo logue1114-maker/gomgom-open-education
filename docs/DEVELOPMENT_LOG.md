@@ -1,3 +1,7 @@
+## 2026-10-07 — Regular polygon and pyramid relationships
+
+Regular polygon area and pyramid volume helpers now collect public lengths and learner-calculated intermediate areas/volumes. Named relationships replace supplied results; rounded distance, perpendicular height, units, formula definitions, no main-answer transfer and versioned drafts remain. Curated English/Portuguese and fraction/decimal keys are connected. Local1073 and separate public745 tests pass. Normal small-phone Android practices verify visible prompts/inputs, first/final error correction and helper completion with main answers blank. Other shapes, student comprehension and remaining app work are unverified. See MATH_SOLID_FOUNDATION_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Round solid volume relationships and schematic solids
 
 Small-phone main diagrams use80dp height. An actual Grade8 cylinder check found its answer hidden because it lacked the compact control predicate; all six relevant solid units now use that layout. The same unentered cylinder and normal cone flow pass with the full prompt, diagram and blank answer visible. Cuboid visibility passed before that predicate correction. Volume helper inputs were verified onV1; the final installedV3 adds the main-layout correction without changing those helpers.

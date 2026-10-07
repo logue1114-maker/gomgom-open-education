@@ -16,12 +16,12 @@ public class SolidFoundationsTest {
                 if(skill.id.equals("regularPolygonArea")){
                     int sides=q.prompt.startsWith("정오각형")?5:6;shapes.add("polygon"+sides);assertEquals(2,v.size());
                     double exact=v.get(0).n.doubleValue()/v.get(0).d.doubleValue()/(2*Math.tan(Math.PI/sides));double measured=v.get(1).n.doubleValue()/v.get(1).d.doubleValue();assertEquals(exact,measured,0.05000001);assertTrue(q.prompt.contains("근삿값"));
-                    Rational one=v.get(0).mul(v.get(1)).div(Rational.of(2));answer=one.mul(Rational.of(sides));steps.add(one);steps.add(answer);
+                    Rational one=v.get(0).mul(v.get(1)).div(Rational.of(2));answer=one.mul(Rational.of(sides));steps.add(v.get(0));steps.add(v.get(1));steps.add(Rational.of(sides));steps.add(one);steps.add(answer);
                 }else if(skill.id.equals("triangularPrismVolume")){
                     assertEquals(3,v.size());Rational base=v.get(0).mul(v.get(1)).div(Rational.of(2));answer=base.mul(v.get(2));steps.add(v.get(0));steps.add(v.get(1));steps.add(base);steps.add(v.get(2));steps.add(answer);
                 }else{
                     boolean triangle=q.prompt.contains("삼각형"),square=q.prompt.contains("정사각형");shapes.add(triangle?"triangle":square?"square":"rectangle");assertTrue(q.prompt.contains("수직 높이"));assertEquals(square?2:3,v.size());
-                    Rational base=square?v.get(0).pow(2):v.get(0).mul(v.get(1));if(triangle)base=base.div(Rational.of(2));Rational product=base.mul(v.get(v.size()-1));answer=product.div(Rational.of(3));steps.add(base);steps.add(product);steps.add(answer);
+                    Rational base=square?v.get(0).pow(2):v.get(0).mul(v.get(1));if(triangle)base=base.div(Rational.of(2));Rational product=base.mul(v.get(v.size()-1));answer=product.div(Rational.of(3));steps.addAll(v);steps.add(base);steps.add(product);steps.add(answer);
                 }
                 assertTrue(q.prompt,checker.check(q,List.of(),List.of(answer.toString())).correct());assertFalse(checker.check(q,List.of(),List.of(answer.add(Rational.ONE).toString())).correct());assertEquals(answer,Expression.number(q.expression));assertFalse(q.studyGuide.transfer);
                 HelpPlan plan=HelpPlan.forQuestion(q);assertEquals(steps.size(),plan.size());for(int j=0;j<steps.size();j++){assertTrue(plan.step(j).accepts(steps.get(j).toString()));assertFalse(plan.step(j).accepts(steps.get(j).add(Rational.ONE).toString()));}
