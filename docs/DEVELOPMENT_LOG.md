@@ -1,3 +1,7 @@
+# 2026-10-07 — Primary fraction relationships
+
+Replaced numeric prefills across same/different-denominator addition/subtraction and fraction multiplication/division with learner-entered symbolic frames. Same-denominator operations keep the denominator and use four steps, without requiring later gcd/reduction content. Other operations include their common-denominator, reciprocal/product and reduction steps. Generation and saved HelpPlan share the same helper and disable main-answer transfer. Each unit exceeds100 distinct prompts in4000 samples. Exact public-value, draft and translation checks are recorded in MATH_PRIMARY_FRACTIONS_20261007.json. Native UI/evidence remains private. Natural-number fraction operations, other fraction concepts and the full global app remain incomplete.
+
 # 2026-10-07 — Fraction reduction relationships
 
 Replaced numeric prefills in reduction help with five learner-entered frames: visible numerator, visible denominator, greatest common divisor and the two reduced components. Both generation attachments and saved HelpPlan use the same symbolic frames, preserving the original question and disabling main-answer transfer. The unit exceeds100 distinct prompts in4000 samples. Operand, coprime result, zero, metadata and draft checks are recorded in MATH_FRACTION_REDUCTION_20261007.json. UI and native evidence remain private. Primary fraction arithmetic and the full global app remain incomplete.

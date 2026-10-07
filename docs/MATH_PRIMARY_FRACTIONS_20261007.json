@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-07",
+  "units": [
+    "fracAddLike",
+    "fracSubLike",
+    "fracAdd",
+    "fracSub",
+    "fracMul",
+    "fracDiv"
+  ],
+  "policy": "Every visible operand and calculation is learner-entered. Symbolic frames only; no numeric prefill or main-answer transfer.",
+  "steps": {
+    "sameDenominatorAddSubtract": 4,
+    "differentDenominatorAddSubtract": 11,
+    "multiply": 9,
+    "divide": 11
+  },
+  "sameDenominatorScope": "Keep the shared denominator and calculate the numerator. Do not require gcd/reduction content introduced later in the current primary sequence.",
+  "otherOperationsScope": "Common denominator/scaled numerators for addition/subtraction, reciprocal for division, products for multiplication/division and greatest-common-divisor reduction. Current nonnegative integer numerators and positive denominators. Zero divisor excluded.",
+  "generationCheck": {
+    "samplesPerUnit": 4000,
+    "distinctPromptsPerUnit": "greater than 100"
+  },
+  "tests": {
+    "localEngine": 814,
+    "app": 193,
+    "globalApp": 193,
+    "publicEngine": 814,
+    "failures": 0,
+    "errors": 0
+  },
+  "checks": [
+    "Public prompt parsing independent of expression and answer metadata.",
+    "Independent exact cross-product equivalence, positive result denominators and coprime results where reduction is taught.",
+    "Every frame rejects blank and incorrect input.",
+    "Zero numerator, cancellation, invalid division, saved question identity, old draft reset and current draft restore.",
+    "KO/EN/PT titles and all instructions and symbolic frames."
+  ],
+  "testCorrections": [
+    "Old frame assertions now include learner-entered givens and preserve existing exact result tests.",
+    "An updated saved-draft test now uses the returned draft and matching question id, matching the actual application restore call."
+  ],
+  "limitations": [
+    "Natural-number fraction operations and other primary fraction concepts remain incomplete.",
+    "UI, native evidence, learner inputs and APK artifacts remain private.",
+    "Full global app and Play release remain incomplete."
+  ]
+}
