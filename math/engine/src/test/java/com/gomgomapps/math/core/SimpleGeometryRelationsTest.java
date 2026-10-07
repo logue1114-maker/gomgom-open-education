@@ -5,6 +5,11 @@ public class SimpleGeometryRelationsTest {
   Generator g=new Generator(new Random(1371));for(String id:SimpleGeometryRelations.IDS)for(int i=0;i<500;i++){
    Question q=g.create(Catalog.get(id));List<Rational> v=new ArrayList<>();Matcher m=Pattern.compile("(\\d+)\\s*cm").matcher(q.prompt);while(m.find())v.add(Expression.number(m.group(1)));Rational a=v.get(0),b=v.size()>1?v.get(1):a,h=v.size()>2?v.get(2):a,p=a.mul(b),square=a.mul(a);List<Rational> expected;
    switch(id){
+    case "el_circle_diameter":expected=List.of(a,a.mul(Rational.of(2)));break;
+    case "el_circle_radius":expected=List.of(a,a.div(Rational.of(2)));break;
+    case "el_rectangle_perimeter":case "el_parallelogram_perimeter":expected=List.of(a,b,a.add(b),a.add(b).mul(Rational.of(2)));break;
+    case "el_square_perimeter":expected=List.of(a,a.mul(Rational.of(4)));break;
+    case "el_triangle_perimeter":expected=List.of(a,b,h,a.add(b).add(h));break;
     case "el_rectangle_area":case "el_parallelogram_area":expected=List.of(a,b,p);break;
     case "el_square_area":expected=List.of(a,square);break;
     case "el_circle_area":expected=List.of(a,square,Rational.of(157,50).mul(square));break;
@@ -16,7 +21,7 @@ public class SimpleGeometryRelationsTest {
     default:throw new AssertionError(id);
    }
    assertTrue(new Checker().check(q,List.of(),List.of(expected.get(expected.size()-1).toString())).correct());String signature=q.signature();Arrays.fill(q.answers,"999999");HelpPlan plan=HelpPlan.forQuestion(q);assertEquals(signature,q.signature());assertEquals(expected.size(),plan.size());assertFalse(plan.canTransfer());HelpPlan.Draft d=plan.restore(null,q.id);
-   for(int k=0;k<expected.size();k++){assertTrue(plan.step(k).accepts(expected.get(k).toString()));assertFalse(plan.step(k).accepts(expected.get(k).add(Rational.ONE).toString()));String before=plan.step(k).before.replace("3.14","").replace("× 2","").replace("× 6","");assertFalse(before,before.matches("(?s).*\\d.*"));d.entries.set(k,expected.get(k).toString());d.stage++;d.entries.add("");}
+   for(int k=0;k<expected.size();k++){assertTrue(plan.step(k).accepts(expected.get(k).toString()));assertFalse(plan.step(k).accepts(expected.get(k).add(Rational.ONE).toString()));String before=plan.step(k).before.replace("3.14","").replace("× 2","").replace("÷ 2","").replace("× 4","").replace("× 6","");assertFalse(before,before.matches("(?s).*\\d.*"));d.entries.set(k,expected.get(k).toString());d.stage++;d.entries.add("");}
    assertEquals(expected.get(expected.size()-1),Expression.number(plan.enteredAnswer(d)));
   }
  }

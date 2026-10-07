@@ -1,3 +1,9 @@
+## 2026-10-07 — Diameter, radius and perimeter relationships
+
+Six additional geometry helpers now collect public lengths before named sum/multiplication/division relationships; no intermediate sum or main answer is supplied. Existing nine converted geometry units retain stage semantics/version. Legacy radius results cannot populate diameter-input blanks; decimal lengths remain exact. Actual v1 inspection found malformed automatic rectangle translation and inconsistent labels; curated English/Portuguese prompts and consistent width/length labels now take precedence in both translation paths.
+
+Local1002 and independent public engine702 tests passed, including500 independently solved public-dimension examples per new unit. Actual normal Ghana B4 rectangle-perimeter practice entered lengths and sum, corrected a wrong length, and retained blank final helper/main fields without submissions. Other new unit device flows and100-question variety in small one-measure pools are incomplete. See MATH_PERIMETER_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Mean and triangle-angle relationship helpers
 
 Mean now names the sum/count relationship instead of supplying intermediate numbers, retaining compatible learner-entered sum/count drafts. Triangle angles now collect both given angles before sum/subtraction; versioned restoration clears incompatible legacy stages. Median sorting already requires learner input and was preserved.

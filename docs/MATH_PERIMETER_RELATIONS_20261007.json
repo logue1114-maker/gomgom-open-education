@@ -1,0 +1,68 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; global product remains active/incomplete",
+  "units": [
+    "el_circle_diameter",
+    "el_circle_radius",
+    "el_rectangle_perimeter",
+    "el_square_perimeter",
+    "el_triangle_perimeter",
+    "el_parallelogram_perimeter"
+  ],
+  "stages": [
+    2,
+    2,
+    4,
+    2,
+    4,
+    4
+  ],
+  "behavior": "Learner enters public cm lengths before named sum/double/half/four-side relationships. Mathematical constants2 and4 remain; no supplied intermediate length sums, no main-answer transfer.",
+  "migration": "New six units use existing simple-geometry-relations-v1 to clear incompatible legacy result entries and restore checked measurements. Previously converted nine unit semantics/version unchanged. Supported generated/saved cm prompts convert; other historical formats unverified.",
+  "tests": {
+    "engine": {
+      "tests": 702,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 150,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 150,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 702,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": 42.43,
+    "scope": "Normal Ghana B4 ten-question typed rectangle perimeter practice. Both lengths entered with wrong-first-length feedback, sum typed, final helper result/main left blank; all12 keys/input/actions visible.",
+    "copy_seconds": 16.778,
+    "copy_scope": "Final APK restores the same final blank helper without reentering calculations; curated rectangle prompt and consistent width/length labels checked.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 10.412
+  },
+  "apk_sha256": "0335f45cadccf5095c7a869952d4da2294e6cc2eb3ca92c488589d90e23966b9",
+  "installed_hash_matches": true,
+  "default_display": "1080x2400 / 420 restored",
+  "unverified": [
+    "Other five new helper device flows",
+    "Final perimeter helper-result completion",
+    "Previously pending helper UI/physical-device/student proof",
+    "Small one-measure pools and100-question diversity",
+    "Global curricula/languages, long study completion, ads/billing/release"
+  ],
+  "release": "Source/docs only; no homepage or Play deployment"
+}
