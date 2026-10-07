@@ -1,3 +1,7 @@
+# 2026-10-07 — Integer arithmetic and like terms
+
+Replaced prefilling in signed addition/subtraction and multiplication/exact division with blank symbolic relationships and learner-entered operands, magnitudes and signed results. Added coefficient/constant identification and a blank coefficient-sum frame for like terms, whose generated questions previously had no help. Each unit exceeds100 distinct prompts in3000 generated samples. Saved questions keep their identity and main answers; old help drafts reset, and help never transfers to the main answer. Engine and translation checks are recorded in MATH_BASIC_ALGEBRA_20261007.json. Native UI/evidence remains private. Other numeric help and the full global app remain incomplete.
+
 # 2026-10-07 — Rational and radical function values
 
 Replaced numeric scaffolds with learner-entered public values and operations: seven frames for rational functions, six for radical functions. Added zero shifts/constants and zero radical boundary while excluding zero denominators. Both families exceed100 distinct prompts in12000 sampled generations. The theoretical parameter spaces are27456 and1690; this is not a claim that every prompt was sampled or exercised on a device. Exact fractions, old saved-help replacement, translations and normal-menu native evidence are in MATH_FUNCTION_VALUE_20261007.json. Generic/absent help, complete function graphs/domains and the full global app remain incomplete.

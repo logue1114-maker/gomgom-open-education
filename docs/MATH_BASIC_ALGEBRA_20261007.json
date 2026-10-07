@@ -1,0 +1,34 @@
+{
+  "date": "2026-10-07",
+  "units": [
+    "signedAdd",
+    "signedMul",
+    "likeTerms"
+  ],
+  "policy": "Relationships and blank frames only; learners enter givens and calculations; no main-answer transfer.",
+  "steps": {
+    "signedAdd": {
+      "addition": 6,
+      "subtraction": 7
+    },
+    "signedMul": 6,
+    "likeTerms": 4
+  },
+  "generationCheck": {
+    "samplePerUnit": 3000,
+    "distinctProblemsPerUnit": "greater than 100",
+    "zeroAndAllSignBoundaries": "existing exhaustive signed arithmetic test"
+  },
+  "tests": {
+    "localEngine": 804,
+    "app": 189,
+    "globalApp": 189,
+    "publicEngine": 804,
+    "failures": 0,
+    "errors": 0
+  },
+  "savedQuestions": "Public prompt, identity and main answer are preserved. Old help drafts reset; current drafts restore.",
+  "scope": "Two integer operands; exact integer division; two x terms and one constant in the current likeTerms family. General rational division and additional polynomial forms are not completed by this slice.",
+  "nativeEvidence": "Private normal-menu Android emulator evidence. Device/student learning effectiveness, KO/PT native, tablet and physical devices are not established.",
+  "remaining": "Other numeric or absent help remains; next candidates are rational arithmetic and linear equations. Full global app incomplete."
+}
