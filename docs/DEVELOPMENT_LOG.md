@@ -1,3 +1,9 @@
+## 2026-10-07 — Direct/inverse proportional pair relationships
+
+Both helpers now collect original x/y and new x before calculating the proportionality constant or constant product and the final named relationship. No calculated constant is supplied or main answer transferred. New teaching version clears incompatible legacy constants while restoring new checked operands. Signed/fraction keys and curated English/Portuguese text are connected in both translation paths.
+
+Local1018 and separate public engine712 tests passed, including500 public-givens examples per relation, exact signed/fractional pairs, answer-key/hidden-constant independence and migration. Existing curriculum independent solving/diversity checks retain their coverage with new5-frame expectations. Portuguese test was updated to the actual curated runtime path after its old-table-only failure. Actual normal GhanaSHS3 direct/inverse practice entered operands, corrected a wrong negative first reading and accepted equivalent-fraction constants; final helper/main fields remain blank. Final y completion, non-integral pair device input and physical/student proof remain unverified. See MATH_PROPORTIONAL_PAIR_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Main graph layout and line-graph device input
 
 Small-phone graph practice now shows the question and scale beside the actual chart without duplicating its entire numeric list. Full public data stays in the chart and curated accessibility description; a two-row integer keypad and compact chart leave the answer visible. The same saved bar question was checked without retyping; its existing blank helper stage remains. Normal line-graph practice also read and entered both endpoint values, corrected a wrong first reading and retained blank final difference/main fields.

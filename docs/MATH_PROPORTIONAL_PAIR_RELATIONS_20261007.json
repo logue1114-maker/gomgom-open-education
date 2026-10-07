@@ -1,0 +1,59 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; global product remains active/incomplete",
+  "units": [
+    "sec_direct_proportion",
+    "sec_inverse_proportion"
+  ],
+  "stages": [
+    5,
+    5
+  ],
+  "behavior": "Learner enters original x/y and new x, then calculates proportionality constant or constant product before a named final multiplication/division relationship. No solved constants are prefilled; no main-answer transfer. Signed and fractional inputs remain available.",
+  "migration": "proportional-pair-relations-v1 clears old constant meanings and restores confirmed new operands; generated and matching saved public prompts convert. Unsupported historical formats unverified.",
+  "tests": {
+    "engine": {
+      "tests": 712,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 153,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 153,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 712,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "direct_seconds": 24.263,
+    "inverse_seconds": 35.916,
+    "scope": "Normal GhanaSHS3 typed practice1/10 per relation. Public original x/y and new x entered; a wrong negative first reading corrected; constant/product entered as an equivalent fraction, final helper/main blank. All13 keys including minus/slash and both actions visible.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 8.246
+  },
+  "apk_sha256": "26d41a7cc28dbba3ad0d617979567611e4beafd0c976487a42d7be87d4a8a95e",
+  "installed_hash_matches": true,
+  "default_display": "1080x2400 / 420 restored",
+  "initial_failure": "Portuguese help test searched the old TSV/ratio handler only; new runtime curated pair handler added to the existing missing-text/Hangul checks without removing coverage. First native parsing failed before help input because visible Unicode minus was not normalized; QA now recognizes it and resumes the same unfinished direct question.",
+  "unverified": [
+    "Final helper/main y completion",
+    "Saved non-integral pair device flow",
+    "Tablet/physical-device/TalkBack/student understanding",
+    "Remaining helper corrections,100-question diversity,global curricula/languages,long study completion,ads/billing/release"
+  ],
+  "release": "Engine/docs only; app/UI/QA/APK private, no homepage or Play deployment"
+}
