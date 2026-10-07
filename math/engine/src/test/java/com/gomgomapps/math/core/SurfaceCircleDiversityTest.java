@@ -18,7 +18,9 @@ public class SurfaceCircleDiversityTest {
                 if(skill.equals("sec_cone_surface")){
                     assertEquals(2,values.size());assertTrue(b>a&&a<=12&&b<=24);
                     expected=Rational.of(a*a+a*b);
-                    assertTrue(HelpPlan.forQuestion(q).step(0).accepts(String.valueOf(a*a)));
+                    HelpPlan coneHelp=HelpPlan.forQuestion(q);
+                    assertTrue(coneHelp.step(0).accepts(String.valueOf(a)));
+                    assertTrue(coneHelp.step(2).accepts(String.valueOf(a*a)));
                 }else if(skill.equals("sec_circumcenter_radius")){
                     int c=values.get(2);assertEquals(c*c,a*a+b*b);assertTrue(c<=50);
                     expected=Rational.of(c,2);fractional|=c%2==1;

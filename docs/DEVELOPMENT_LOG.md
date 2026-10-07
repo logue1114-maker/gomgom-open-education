@@ -1,3 +1,9 @@
+## 2026-10-07 — Solid surface relationships
+
+Cuboid, cylinder, cone and sphere surface helpers now collect public lengths and learner-calculated face areas or exact pi coefficients. Named relationships replace supplied intermediate values. Definitions, exact coefficient questions, curriculum limits and versioned saved-input restoration remain. No main-answer transfer.
+
+Local1063 and separate public739 tests pass, including600 independently calculated public examples per unit, saved fractional lengths and old/new draft restoration. Normal Android English small-phone practice verifies length-error correction, intermediate inputs and fully visible final relations/keypads with helper/main blanks retained. Original200-example surface diversity coverage remains, with the first cone step changed to radius rather than radius squared. Actual solid3D visuals, final completion and physical/student proof remain unverified. See MATH_SOLID_SURFACE_RELATIONS_20261007.json.
+
 ## 2026-10-07 — Exact sector pi-coefficient relationships
 
 Both helpers collect public radius and angle before learner-calculated circle pi coefficient and final sector coefficient. Named relationships replace supplied2r/r². Exact(□)pi questions, actual angles,360/2/square definitions and curriculum bounds remain; pi is not replaced with an approximation. Normal generated/saved paths use versioned draft migration and no main-answer transfer. Curated English/Portuguese and decimal/fraction keypad are connected.

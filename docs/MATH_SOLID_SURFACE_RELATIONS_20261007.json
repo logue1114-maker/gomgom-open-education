@@ -1,0 +1,63 @@
+{
+  "date": "2026-10-07",
+  "status": "Partial correction; whole global app incomplete",
+  "units": [
+    "sec_prism_surface",
+    "sec_cylinder_surface",
+    "sec_cone_surface",
+    "sec_sphere_surface"
+  ],
+  "behavior": "Public lengths entered by learner, then face areas/pi coefficients calculated with named relationships. No supplied computed values, no main-answer transfer. Exact (box)pi questions, definitions2/4/square, original diagrams and curriculum limits preserved.",
+  "migration": "solid-surface-relations-v1; normal generated and saved prompt paths",
+  "tests": {
+    "engine": {
+      "tests": 739,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "app": {
+      "tests": 162,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "globalApp": {
+      "tests": 162,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    "public_engine": {
+      "tests": 739,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  },
+  "native": {
+    "seconds": {
+      "prism": 71.574,
+      "cylinder": 60.039,
+      "cone": 66.109,
+      "sphere": 64.334
+    },
+    "scope": "Normal Kenya English Grade8 cylinder/Grade9 other typed10 practices1/10, incorrect first length corrected, public lengths and face coefficients entered, final helper/main blanks retained. Full prompt,13keys and actions displayed at900x1600/400.",
+    "main_submissions": 0,
+    "home_learning_total": 3102,
+    "home_seconds": 13.6
+  },
+  "apk_sha256": "73350c77bb9fcf8568055917d90914c7868202b2273b6ed5a2b43b9aa9885c67",
+  "installed_matches": true,
+  "display": "1080x2400/420 restored",
+  "test_alignment": "SurfaceCircleDiversity first cone step previously expected radius squared; now verifies radius first and radius squared at its calculation step. Original200 independent public-givens/diversity/choices/checker coverage preserved. Initial local/public failure logs retained.",
+  "unverified": [
+    "Final helper completion and main submissions",
+    "Saved fractional givens actual device input",
+    "Portuguese/tablet/physical/TalkBack/student understanding",
+    "Existing flat proxy diagrams do not establish solid3D comprehension",
+    "Remaining helpers including cone/sphere volume",
+    "Worldwide curricula/languages,100-question supply/diversity,long study completion,real ads/billing/release"
+  ],
+  "release": "Isolated engine/docs only public; app/UI/QA/screens/APK private, no homepage or Play deployment"
+}
