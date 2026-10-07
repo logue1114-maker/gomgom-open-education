@@ -259,14 +259,14 @@ public final class ElementaryBasics {
     private static Question number(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer.toString());
-        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);ReadingFoundationRelations.attach(question);
+        question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);ReadingFoundationRelations.attach(question);ShapeStructureRelations.attach(question);
         return question;
     }
 
     private static Question numberText(Catalog.Skill skill,String prompt,String expression,Rational answer,
                                        String answerText,boolean decimal,StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answerText);
-        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);ReadingFoundationRelations.attach(question);
+        question.decimal=decimal;question.studyGuide=fractionGuide(skill,guide);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);ReadingFoundationRelations.attach(question);ShapeStructureRelations.attach(question);
         return question;
     }
 
@@ -277,14 +277,14 @@ public final class ElementaryBasics {
         Question question=new Question(skill.id,prompt,expression,answerTexts);
         question.kind="pair";
         if(labels!=null)question.labels=labels;
-        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);ReadingFoundationRelations.attach(question);
+        question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);ReadingFoundationRelations.attach(question);ShapeStructureRelations.attach(question);
         return question;
     }
 
     private static Question symbol(Catalog.Skill skill,String prompt,String expression,String answer,
                                    StudyGuide guide,StudyDiagram diagram){
         Question question=new Question(skill.id,prompt,expression,answer);
-        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);ReadingFoundationRelations.attach(question);
+        question.kind="symbol";question.stepSupport=false;question.studyGuide=guide==null?null:guide.transfer(false);question.diagram=diagram;FractionConceptRelations.attach(question);MeasureUnitRelations.attach(question);ClockReadingRelations.attach(question);NumberPatternRelations.attach(question);RangeBoundaryRelations.attach(question);RatioCorrespondenceRelations.attach(question);PerimeterBoundaryRelations.attach(question);ReadingFoundationRelations.attach(question);ShapeStructureRelations.attach(question);
         return question;
     }
 
@@ -1007,9 +1007,9 @@ public final class ElementaryBasics {
 
     private static Question shapeSides(Catalog.Skill skill,Random random){
         int sides=n(random,3,8);
-        Question question=number(skill,sides+"각형의 변은 몇 개인가요?","",Rational.of(sides),
+        Question question=number(skill,"그림에 있는 도형의 변은 몇 개인가요?","",Rational.of(sides),
                 guide(step("도형의 선분을 하나씩 셉니다.",sides+" × 1 = ","개",sides+"*1")),
-                diagram("polygon",new double[]{sides},"변의 수"));
+                diagram("polygon",new double[]{sides},"변의 수").rotated(n(random,0,23)*15).scaledHorizontally(n(random,6,10)/10.0));
         question.stepSupport=false;return question;
     }
 
@@ -1027,7 +1027,7 @@ public final class ElementaryBasics {
         for(int i=0;i<sideCounts.length;i++)shapeNames[i]=sideCounts[i]==0?"원":sideCounts[i]==3?"삼각형":"사각형";
         Question question=number(skill,"그림에 있는 도형 중 삼각형은 몇 개인가요?","",
                 Rational.of(answer),guide(step("도형을 하나씩 살펴 삼각형의 개수를 셉니다.","삼각형의 개수 = ","개",answer+"+0")),
-                diagram("shapes",toDouble(sideCounts),shapeNames));
+                diagram("shapes",toDouble(sideCounts),shapeNames).rotated(n(random,0,23)*15,n(random,0,23)*15,n(random,0,23)*15,n(random,0,23)*15).scaledHorizontally(n(random,6,10)/10.0,n(random,6,10)/10.0,n(random,6,10)/10.0,n(random,6,10)/10.0));
         question.stepSupport=false;
         return question;
     }
@@ -1246,14 +1246,14 @@ public final class ElementaryBasics {
         if(part<3){
             String name=new String[]{"면","모서리","꼭짓점"}[part];int count=new int[]{6,12,8}[part];
             return number(skill,"직육면체의 "+name+(part==1?"는":"은")+" 모두 몇 개인가요?","",Rational.of(count),
-                    guide(step("직육면체의 "+name+(part==1?"를":"을")+" 하나씩 셉니다.",name+" = ","개",String.valueOf(count))),null);
+                    guide(step("직육면체의 "+name+(part==1?"를":"을")+" 하나씩 셉니다.",name+" = ","개",String.valueOf(count))),diagram("cuboidElements",new double[]{n(random,2,9),n(random,2,9),n(random,2,9)},"직육면체"));
         }
         return numbers(skill,"직육면체의 면, 모서리, 꼭짓점의 수는?","",
                 labels("면","모서리","꼭짓점"),
                 guide(step("직육면체의 면을 셉니다.","2 × 3 = ","개","2*3"),
                         step("직육면체의 모서리를 셉니다.","4 × 3 = ","개","4*3"),
                         step("직육면체의 꼭짓점을 셉니다.","2 × 2 × 2 = ","개","2^3")),
-                null,
+                diagram("cuboidElements",new double[]{n(random,2,9),n(random,2,9),n(random,2,9)},"직육면체"),
                 Rational.of(6),Rational.of(12),Rational.of(8));
     }
 

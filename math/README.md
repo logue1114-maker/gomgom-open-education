@@ -165,3 +165,7 @@ Two perimeter units now use learner-entered side lengths, pair sums or the fixed
 ### Decimal places and graph reading (2026-10-08)
 
 Four units now use learner-entered decimal positions/digits or graph counts, units, categories and percentages. Original problem domains and diagrams remain unchanged. Help does not prefill or transfer answers. Each unit has at least 100 distinct public question-plus-diagram combinations in 1600 samples; this does not imply 100 distinct answer facts or an authored question bank. See [scope and validation](../docs/MATH_READING_FOUNDATIONS_20261008.json).
+
+### Shape and cuboid structure (2026-10-08)
+
+Three units now teach learner-entered side counts, triangle classification and cuboid face/edge/vertex counts. Cuboids have countable wireframe and unfolded teaching diagrams while retaining the scalar and three-answer schemas. Rotations, positive horizontal stretch and cuboid proportions provide practice without claiming different fixed mathematical facts or a 100-question authored bank. Plane outline coordinate sets are deduplicated after symmetry, rather than counting raw drawing parameters. Help never prefills or transfers the main answer. See [scope and validation](../docs/MATH_SHAPE_STRUCTURES_20261008.json).

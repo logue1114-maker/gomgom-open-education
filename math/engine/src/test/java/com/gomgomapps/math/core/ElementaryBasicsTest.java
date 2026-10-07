@@ -165,6 +165,8 @@ public class ElementaryBasicsTest {
                 assertTrue(skill.id,diagram.values[1]>=0&&diagram.values[1]<60);
                 if(diagram.values.length==3)assertTrue(skill.id,diagram.values[2]>=0&&diagram.values[2]<60);
                 break;
+            case "cuboidElements":
+                assertEquals(3,diagram.values.length);for(double v:diagram.values)assertTrue(v>=2&&v<=9&&v==Math.rint(v));break;
             case "polygon":
                 assertEquals(skill.id,Math.rint(diagram.values[0]),diagram.values[0],0);
                 assertTrue(skill.id,diagram.values[0]>=3);

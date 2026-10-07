@@ -1,0 +1,47 @@
+{
+  "units": [
+    "el_shape_sides",
+    "el_shape_classify",
+    "el_3d_elements"
+  ],
+  "teachingVersion": "shape-structure-relations-v1",
+  "method": "Count actual sides; inspect four shapes then count triangles; count unfolded faces or wireframe edges/vertices.",
+  "invariants": [
+    "No answer metadata, computed prefill or main-answer transfer.",
+    "Side counts remain 3..8; classification retains four circle/triangle/quadrilateral shapes with at least one triangle.",
+    "Cuboid facts remain 6/12/8 with original scalar and three-answer schemas.",
+    "Optional rotations and positive horizontal stretch change drawings, not signatures or mathematical facts.",
+    "Actual outline vertices are deduplicated and independently checked for strict convexity; metadata tuples alone do not establish visible variation.",
+    "Cuboid dimensions 2..9 have 457 normalized proportion models; each remains a valid cuboid.",
+    "Old serialized drawings have null optional fields and retain the original unstretched orientation.",
+    "Obsolete drafts reset; checked partial drafts restore."
+  ],
+  "samples": "1600 samples per unit. Plane units have at least 100 distinct visible outline coordinate sets after symmetry deduplication. Cuboid proportions have 457 distinct scale-normalized models. Side counts still have six facts and cuboid prompts four facts; this is not a 100 distinct fact or authored question bank.",
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 882,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 236,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 236,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "limits": [
+    "Normal UI and unit test evidence are separate.",
+    "No physical-device, learner-comprehension or release-readiness assertion."
+  ]
+}
