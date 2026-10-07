@@ -1,0 +1,33 @@
+{
+  "date": "2026-10-07",
+  "unit": "rational",
+  "policy": "Blank symbolic frames; learners enter every visible operand and calculation; no main-answer transfer.",
+  "steps": {
+    "addition": 14,
+    "subtraction": 14,
+    "multiplication": 10,
+    "division": 12
+  },
+  "givenSource": "Original public prompt; independent of expression, answer and given-number metadata.",
+  "generationCheck": {
+    "sampleSize": 4000,
+    "distinctPromptsPerOperation": "greater than 100"
+  },
+  "boundaries": [
+    "positive and negative numerators",
+    "zero numerator and cancellation",
+    "positive final denominator",
+    "zero divisor excluded"
+  ],
+  "tests": {
+    "localEngine": 806,
+    "app": 190,
+    "globalApp": 190,
+    "publicEngine": 806,
+    "failures": 0,
+    "errors": 0
+  },
+  "savedQuestions": "Identity and main problem remain intact; old help drafts reset and current-version help drafts restore.",
+  "nativeEvidence": "Kept private; normal-menu Android emulator evidence does not establish physical device or student learning effectiveness.",
+  "remaining": "Primary fraction and equation help still includes numeric prefills; full global app incomplete."
+}

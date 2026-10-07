@@ -5,6 +5,7 @@ import java.util.regex.*;
 final class FractionEquationTeaching {
  private FractionEquationTeaching(){}
  static void attach(Question q){
+  if(RationalArithmeticRelations.supports(q.skillId)){RationalArithmeticRelations.attach(q);return;}
   if(q.skillId.equals("reduce")){reduce(q);return;}
   if(q.skillId.equals("linear")){linear(q);return;}
   if(q.skillId.equals("linearFraction")){linearFraction(q);return;}

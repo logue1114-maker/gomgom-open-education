@@ -1,3 +1,7 @@
+# 2026-10-07 — Rational arithmetic relationships
+
+Replaced numeric prefills in rational addition, subtraction, multiplication and division with learner-entered fractions, common denominators/scaling, reciprocal/product operations and signed reduction. Frames contain symbolic relationships only, preserve the public question, and never transfer the main answer. Each operation exceeds100 distinct prompts in4000 sampled generations. Exact rational-value and zero/sign/draft checks and KO/EN/PT translation checks are recorded in MATH_RATIONAL_ARITHMETIC_20261007.json. UI, native evidence and learner input stay private. Primary fraction and equation help, and the full global app, remain incomplete.
+
 # 2026-10-07 — Integer arithmetic and like terms
 
 Replaced prefilling in signed addition/subtraction and multiplication/exact division with blank symbolic relationships and learner-entered operands, magnitudes and signed results. Added coefficient/constant identification and a blank coefficient-sum frame for like terms, whose generated questions previously had no help. Each unit exceeds100 distinct prompts in3000 generated samples. Saved questions keep their identity and main answers; old help drafts reset, and help never transfers to the main answer. Engine and translation checks are recorded in MATH_BASIC_ALGEBRA_20261007.json. Native UI/evidence remains private. Other numeric help and the full global app remain incomplete.
