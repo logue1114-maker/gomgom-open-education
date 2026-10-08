@@ -41,7 +41,8 @@ public final class Generator {
         if(ClockNotation.supports(skillId))q=ClockNotation.next(s,random,limits,previous);
         if(ClockReadings.supports(skillId))q=ClockReadings.next(s,random,limits,previous);
         if(DotCollections.supports(skillId))q=DotCollections.next(s,random,limits,previous);
-        if(DoubleHalf.supports(skillId))q=DoubleHalf.next(s,random,limits,previous);
+        if(CountingSteps.supports(skillId))q=CountingSteps.next(s,random,limits,previous);
+        else if(DoubleHalf.supports(skillId))q=DoubleHalf.next(s,random,limits,previous);
         else if(ObjectGroups.supports(skillId))q=ObjectGroups.next(s,random,limits,previous);
         if(CountingPatterns.supports(skillId))q=CountingPatterns.next(s,random,limits,previous);
         if(SmallNumberFoundations.supports(skillId))q=SmallNumberFoundations.next(s,random,limits,previous);
@@ -99,6 +100,7 @@ public final class Generator {
         if(ClockNotation.supports(s.id))return ClockNotation.next(s,random,limits,Map.of());
         if(ClockReadings.supports(s.id))return ClockReadings.next(s,random,limits,Map.of());
         if(DotCollections.supports(s.id))return DotCollections.next(s,random,limits,Map.of());
+        if(CountingSteps.supports(s.id))return CountingSteps.next(s,random,limits,Map.of());
         if(DoubleHalf.supports(s.id))return DoubleHalf.next(s,random,limits,Map.of());
         if(ObjectGroups.supports(s.id))return ObjectGroups.next(s,random,limits,Map.of());
         if(CountingPatterns.supports(s.id))return CountingPatterns.next(s,random,limits,Map.of());

@@ -9,6 +9,10 @@ public final class CurriculumLimits {
     private static final Pattern FRACTION=Pattern.compile("(?:\\d+|□)\\s*/\\s*(\\d+)");
     private static final Pattern NUMBER=Pattern.compile("\\d+(?:\\.\\d+)?");
     private static final Pattern NEGATIVE=Pattern.compile("(?:^|[\\s(=+*/×÷])-\\d");
+    private final Map<Integer,Integer> countingBounds=new LinkedHashMap<>();
+    private boolean countingAnyStart;
+    public Map<Integer,Integer> countingBounds(){return Collections.unmodifiableMap(countingBounds);}
+    public boolean countingAnyStart(){return countingAnyStart;}
     private final List<Integer> doubleHalfInputs=new ArrayList<>();
     public List<Integer> doubleHalfInputs(){return List.copyOf(doubleHalfInputs);}
     private final List<Integer> objectGroupSizes=new ArrayList<>();
@@ -31,6 +35,8 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "countingAnyStart":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid counting start flag");countingAnyStart=true;break;
+                case "countingBounds":for(String entry:pair[1].split(",",-1)){String[] v=entry.split(":",-1);if(v.length!=2)throw new IllegalArgumentException("Invalid counting bound");int step=Integer.parseInt(v[0]),max=Integer.parseInt(v[1]);if(step<1||step>100||max<step||max>1000||countingBounds.putIfAbsent(step,max)!=null)throw new IllegalArgumentException("Invalid counting range");}break;
                 case "doubleHalfInputs":for(String value:pair[1].split(",",-1)){int n=Integer.parseInt(value);if(n<1||n>50||doubleHalfInputs.contains(n))throw new IllegalArgumentException("Invalid double/half input");doubleHalfInputs.add(n);}break;
                 case "objectGroupSizes":for(String value:pair[1].split(",",-1)){int n=Integer.parseInt(value);if(n<2||n>10||objectGroupSizes.contains(n))throw new IllegalArgumentException("Invalid object group size");objectGroupSizes.add(n);}break;
                 case "percentages":for(String value:pair[1].split(",",-1)){int percent=Integer.parseInt(value);if(percent<1||percent>100||percentages.contains(percent))throw new IllegalArgumentException("Invalid percentage");percentages.add(percent);}break;

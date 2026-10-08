@@ -196,3 +196,5 @@ Object grouping/sharing: [families, finite supply and scope](OBJECT_GROUPS.md).
 Object grouping/sharing: [families, finite supply and scope](OBJECT_GROUPS.md).
 
 Doubling/halving: [selected inputs and finite supply](DOUBLE_HALF.md).
+
+Counting steps: [ranges, directions and finite supply](COUNTING_STEPS.md).

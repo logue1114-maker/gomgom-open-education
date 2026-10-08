@@ -1467,3 +1467,15 @@ MAP	na-nied-primary-2024-v1	2	objectDouble,objectHalf,objectHalfRemainder	JP pri
 RULE	na-nied-primary-2024-v1	2	objectDouble	wholeMaximum=50;maxResult=100
 RULE	na-nied-primary-2024-v1	2	objectHalf	wholeMaximum=50;maxResult=25
 RULE	na-nied-primary-2024-v1	2	objectHalfRemainder	wholeMaximum=19;maxResult=9
+MAP	na-nied-primary-2024-v1	1	countForward,countBackward,countSkip	JP printed p.6 next-number written practice, forward1s100/backward20–0/2s30/5s10s100; oral full sequences and concrete rearrangement remain
+RULE	na-nied-primary-2024-v1	1	countForward	wholeMaximum=100;maxResult=100;countingBounds=1:100
+RULE	na-nied-primary-2024-v1	1	countBackward	wholeMaximum=20;maxResult=20;countingBounds=1:20
+RULE	na-nied-primary-2024-v1	1	countSkip	wholeMaximum=100;maxResult=100;countingBounds=2:30,5:100,10:100
+MAP	na-nied-primary-2024-v1	2	countForward,countBackward,countSkip	JP printed p.6 mechanical counting forward500, backward30 and2s20; selected oral ranges in written next-number form; concrete50/rearrangement remain
+RULE	na-nied-primary-2024-v1	2	countForward	wholeMaximum=500;maxResult=500;countingBounds=1:500
+RULE	na-nied-primary-2024-v1	2	countBackward	wholeMaximum=30;maxResult=30;countingBounds=1:30,2:20
+RULE	na-nied-primary-2024-v1	2	countSkip	wholeMaximum=500;maxResult=500;countingBounds=2:100,3:30,4:40,5:500,10:500
+MAP	na-nied-primary-2024-v1	3	countForward,countBackward,countSkip	JP printed p.6 from any number, forward/backward/step-specific bounds; written next-number form; oral1000/concrete100/rearrangement remain
+RULE	na-nied-primary-2024-v1	3	countForward	wholeMaximum=1000;maxResult=1000;countingBounds=1:1000;countingAnyStart=true
+RULE	na-nied-primary-2024-v1	3	countBackward	wholeMaximum=1000;maxResult=1000;countingBounds=1:1000,2:500,3:60,4:80,5:1000,10:1000,20:500,30:180,50:1000,100:1000;countingAnyStart=true
+RULE	na-nied-primary-2024-v1	3	countSkip	wholeMaximum=1000;maxResult=1000;countingBounds=2:500,3:60,4:80,5:1000,10:1000,20:500,30:180,50:1000,100:1000;countingAnyStart=true
