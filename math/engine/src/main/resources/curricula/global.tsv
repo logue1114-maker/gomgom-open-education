@@ -1347,3 +1347,5 @@ RULE	fr-men-lycee-general-2026-2027-v1	10	substitute
 RULE	fr-men-lycee-general-2026-2027-v1	10	rootWhole	wholeMaximum=200
 
 MAP	ke-kicd-cbc-2024-v1	9	matrixWholeAdd,matrixWholeSub	Grade9 July2024 PDF22 2.1: full 2x2, 2x3, 3x2 and 3x3 signed-integer addition/subtraction; matching-entry help and grid answers; contextual modelling remains
+
+MAP	gh-nacca-core-2019-2023-v1	11	moduloValue,moduloAdd,moduloSub,moduloMul	SHS 2023 2.1.1.CS.3 LI1–2 PDF173–175; signed integer residues and sum/difference/product, 0 <= r < m; contextual modelling and proofs remain

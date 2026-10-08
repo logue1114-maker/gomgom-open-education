@@ -9,7 +9,7 @@ public class KenyaCurriculumTest {
     private Learning.Profile profile(int grade){Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"KE");GlobalCurriculum.choosePack(p,KE);p.grade=grade;return p;}
     @Test public void explicitPrimaryCoverageAndPastGradesControlDiagnosis(){
         GlobalCurriculum.Pack pack=GlobalCurriculum.pack(profile(1));assertEquals(List.of(1,2,3,4,5,6,7,8,9),pack.levels());
-        assertTrue(pack.coverage.contains("Other grades"));assertEquals("Grade 3",pack.level(3));
+        assertTrue(pack.coverage.contains("Grade 1–9"));assertTrue(pack.coverage.contains("senior school are not complete"));assertEquals("Grade 3",pack.level(3));
         assertFalse(pack.inGrade("el_length_m_cm",3));assertFalse(pack.inGrade("fracAdd",3));assertFalse(pack.grades.containsKey("earlySolids"));
         assertEquals(2,pack.grade("fractionPart"));assertEquals(3,pack.grade("el_clock_minute"));
         assertFalse(GlobalCurriculum.scope(profile(2)).stream().anyMatch(s->s.id.equals("fractionPart")));

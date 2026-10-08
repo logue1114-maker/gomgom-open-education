@@ -187,6 +187,7 @@ public final class Catalog {
         ALL.addAll(GradientFoundations.SKILLS);
         ALL.addAll(MatrixDimensions.SKILLS);
         ALL.addAll(MatrixWholePractice.SKILLS);
+        ALL.addAll(ModuloFoundations.SKILLS);
         ALL.addAll(PolygonConstruction.SKILLS);
         ALL.addAll(CoordinateGrid.SKILLS);
         ALL.addAll(CoordinateRegion.SKILLS);

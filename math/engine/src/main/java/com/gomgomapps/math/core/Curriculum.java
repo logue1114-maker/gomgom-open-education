@@ -22,6 +22,7 @@ public final class Curriculum {
     }
     /** Version-specific additions stay available for chosen practice, but never enter older-course diagnosis. */
     public static boolean inCurriculum(Catalog.Skill skill,int version){
+        if(ModuloFoundations.supports(skill.id))return false; // Ghana SHS2 placement only; chosen practice remains available.
         if(skill.id.equals(PolygonConstruction.ID))return false; // Brazil placement only; Korean diagnosis is not reviewed.
         if(CoordinateGrid.supports(skill.id))return false; // Reviewed Brazil placement; chosen practice remains available.
         // Common recommended grades are not a reviewed Korean placement.

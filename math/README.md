@@ -182,3 +182,5 @@ Four elementary factor/multiple searches use named empty relations and checked s
 ## Current source update
 
 See [2026-10-08 module connections, curriculum limits and reproduction](UPDATES_20261008.md).
+
+[Signed-integer modulo foundations and reproduction](MODULO_FOUNDATIONS.md)
