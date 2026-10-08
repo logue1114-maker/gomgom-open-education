@@ -1499,3 +1499,11 @@ MAP	na-nied-primary-2024-v1	2	collectionEstimate	JP printed p.7 estimates throug
 RULE	na-nied-primary-2024-v1	2	collectionEstimate	wholeMaximum=20;maxResult=20
 MAP	na-nied-primary-2024-v1	3	collectionEstimate	JP printed p.7 estimates through30; student guess ungraded then independent grouped exact count
 RULE	na-nied-primary-2024-v1	3	collectionEstimate	wholeMaximum=30;maxResult=30
+MAP	na-nied-primary-2024-v1	2	numberOrder	JP printed p.8; selected three-number order and visible ordinal position; ordinal names/sequences remain
+RULE	na-nied-primary-2024-v1	2	numberOrder	wholeMaximum=100;maxResult=100;nonnegative=true
+MAP	na-nied-primary-2024-v1	2	objectOrdinal	JP printed p.8; selected three-number order and visible ordinal position; ordinal names/sequences remain
+RULE	na-nied-primary-2024-v1	2	objectOrdinal	wholeMaximum=20;maxResult=20;nonnegative=true
+MAP	na-nied-primary-2024-v1	3	numberOrder	JP printed p.8; selected three-number order and visible ordinal position; ordinal names/sequences remain
+RULE	na-nied-primary-2024-v1	3	numberOrder	wholeMaximum=500;maxResult=500;nonnegative=true
+MAP	na-nied-primary-2024-v1	3	objectOrdinal	JP printed p.8; selected three-number order and visible ordinal position; ordinal names/sequences remain
+RULE	na-nied-primary-2024-v1	3	objectOrdinal	wholeMaximum=30;maxResult=30;nonnegative=true

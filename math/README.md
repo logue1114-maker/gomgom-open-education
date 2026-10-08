@@ -206,3 +206,5 @@ Primary ordering: [selected comparison, sorting and ordinal foundations](PRIMARY
 Subitising: [selected Namibia recognition and independent recount](SUBITISING_NA.md).
 
 Estimation: [retain the learner estimate, then group and count](GROUPED_ESTIMATION.md).
+
+Ordering: [selected Grade2/3 range extension](ORDERING_RANGES.md).

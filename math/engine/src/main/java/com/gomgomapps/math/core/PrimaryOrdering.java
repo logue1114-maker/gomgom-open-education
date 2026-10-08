@@ -10,24 +10,39 @@ public final class PrimaryOrdering {
   new Catalog.Skill("objectOrdinal","몇 번째일까요",1,1,1,"","primaryOrdering",10,"count","시작 방향에 따라 물건의 순서를 센다."));
  public static boolean supports(String id){return SKILLS.stream().anyMatch(s->s.id.equals(id));}
  static Question next(Catalog.Skill s,Random random,CurriculumLimits limits,Map<String,Integer> recent){
-  int maximum=Math.min(s.id.equals("objectOrdinal")?10:20,limits.wholeMaximum(s.range));
-  List<int[]> domain=conditions(s.id,maximum);
+  int cap=s.id.equals("objectOrdinal")?30:s.id.equals("numberOrder")?500:20;
+  int maximum=Math.min(cap,limits.wholeMaximum(s.range)),size=conditionCount(s.id,maximum);
   // Normal practice selects a fresh public condition directly. Exhaustive selection is only needed
   // near exhaustion or for additional restrictive curriculum rules, not on every phone question.
   for(int attempt=0;attempt<64;attempt++){
-   Question q=make(s.id,domain.get(random.nextInt(domain.size())));
+   Question q=make(s.id,conditionAt(s.id,maximum,random.nextInt(size)));
    if(limits.allows(q)&&!recent.containsKey(q.signature())){attach(q);return q;}
   }
   // Keep only compact public-condition records while selecting; attach help to the selected item.
-  Question selected=null;int fresh=0,oldest=Integer.MAX_VALUE,oldCount=0;
-  for(int[] values:domain){
-   Question candidate=make(s.id,values);if(!limits.allows(candidate))continue;
+  Question selected=null;int oldest=Integer.MAX_VALUE,oldCount=0,start=random.nextInt(size);
+  for(int offset=0;offset<size;offset++){
+   Question candidate=make(s.id,conditionAt(s.id,maximum,(start+offset)%size));if(!limits.allows(candidate))continue;
    Integer age=recent.get(candidate.signature());
-   if(age==null){if(random.nextInt(++fresh)==0)selected=candidate;}
-   else if(fresh==0){if(age<oldest){oldest=age;oldCount=0;}if(age==oldest&&random.nextInt(++oldCount)==0)selected=candidate;}
+   if(age==null){attach(candidate);return candidate;}
+   if(age<oldest){oldest=age;oldCount=0;}if(age==oldest&&random.nextInt(++oldCount)==0)selected=candidate;
   }
   if(selected==null)throw new IllegalStateException("No primary ordering condition fits curriculum");
   attach(selected);return selected;
+ }
+ static int conditionCount(String id,int max){
+  return id.equals("numberOrder")?(max+1)*max*(max-1)*2:id.equals("objectOrdinal")?max*(max+1):max*max;
+ }
+ /** Decode a public condition without allocating the cubic sorting domain. */
+ static int[] conditionAt(String id,int max,int index){
+  if(index<0||index>=conditionCount(id,max))throw new IndexOutOfBoundsException();
+  if(id.equals("numberOrder")){
+   int reverse=index%2,k=index/2,n=max+1,a=k/((n-1)*(n-2));k%=(n-1)*(n-2);
+   int b=k/(n-2);if(b>=a)b++;
+   int c=k%(n-2),low=Math.min(a,b),high=Math.max(a,b);if(c>=low)c++;if(c>=high)c++;
+   return new int[]{a,b,c,reverse};
+  }
+  if(id.equals("objectOrdinal")){int count=1;while(index>=count*2)index-=count++*2;return new int[]{count,index/2,index%2};}
+  return new int[]{index/max+1,index%max+1};
  }
  static List<int[]> conditions(String id,int max){
   List<int[]> result=new ArrayList<>();
