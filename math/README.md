@@ -188,3 +188,9 @@ See [2026-10-08 module connections, curriculum limits and reproduction](UPDATES_
 [Namibia primary selected calculations](NAMIBIA_PRIMARY.md)
 
 [Android-compatible curriculum resource reading](ANDROID_RESOURCE_READING.md)
+
+Object grouping/sharing: [families, finite supply and scope](OBJECT_GROUPS.md).
+
+Object grouping/sharing: [families, finite supply and scope](OBJECT_GROUPS.md).
+
+Object grouping/sharing: [families, finite supply and scope](OBJECT_GROUPS.md).

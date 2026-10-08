@@ -1351,7 +1351,7 @@ MAP	ke-kicd-cbc-2024-v1	9	matrixWholeAdd,matrixWholeSub	Grade9 July2024 PDF22 2.
 MAP	gh-nacca-core-2019-2023-v1	11	moduloValue,moduloAdd,moduloSub,moduloMul	SHS 2023 2.1.1.CS.3 LI1–2 PDF173–175; signed integer residues and sum/difference/product, 0 <= r < m; contextual modelling and proofs remain
 
 # NIED 2024: selected number/calculation foundations; no term ordering inferred.
-PACK	na-nied-primary-2024-v1	NA	Namibia · NIED Primary (2024)	https://www.nied.edu.na/documents/syllabuses/juniorprimary/Syllabus/ | https://www.nied.edu.na/assets/documents/02Syllabuses/03SeniorPrimary/Mathematics/SP_Mathematicssyllabus2024.pdf	Grades 1–7 · selected number and calculation foundations from NIED 2024; grouping without operation signs, remaining numeric outcomes, other strands, senior school and local-language review are not complete.
+PACK	na-nied-primary-2024-v1	NA	Namibia · NIED Primary (2024)	https://www.nied.edu.na/documents/syllabuses/juniorprimary/Syllabus/ | https://www.nied.edu.na/assets/documents/02Syllabuses/03SeniorPrimary/Mathematics/SP_Mathematicssyllabus2024.pdf	Grades 1–7 · selected number and calculation foundations from NIED 2024; selected object grouping/sharing included; remaining numeric outcomes, all contexts/strategies, other strands, senior school and local-language review are not complete.
 LEVEL	na-nied-primary-2024-v1	1	Grade 1
 LEVEL	na-nied-primary-2024-v1	2	Grade 2
 LEVEL	na-nied-primary-2024-v1	3	Grade 3
@@ -1453,3 +1453,10 @@ RULE	na-nied-primary-2024-v1	7	squareWhole,cubeWhole	maxGiven=10;nonnegative=tru
 RULE	na-nied-primary-2024-v1	7	sec_prime_factor	maxGiven=99;nonnegative=true
 RULE	na-nied-primary-2024-v1	4	fracCompare	denominators=2,3,4,5,6,7,8,9,10
 RULE	na-nied-primary-2024-v1	7	decimalDiv	decimalPlaces=3;secondDecimalPlaces=1;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	1	objectGroupTotal,objectShare,objectGroupRemainder	JP printed pp.16–17: selected equal groups and sharing with objects; no operation signs; oral acting, full numeric ranges and all strategies remain
+RULE	na-nied-primary-2024-v1	1	objectGroupTotal	wholeMaximum=20;maxResult=20;objectGroupSizes=2,5,10
+RULE	na-nied-primary-2024-v1	1	objectShare	wholeMaximum=20;maxResult=20;objectGroupSizes=2,3,4,5
+RULE	na-nied-primary-2024-v1	1	objectGroupRemainder	wholeMaximum=10;maxResult=10;objectGroupSizes=2,3,4,5
+MAP	na-nied-primary-2024-v1	2	objectGroupTotal,objectShare,objectGroupRemainder	JP printed pp.16–17: selected grouped collections and equal sharing through50 without division notation; fractional remainders/contextual acting remain
+RULE	na-nied-primary-2024-v1	2	objectGroupTotal,objectShare,objectGroupRemainder	wholeMaximum=50;maxResult=50;objectGroupSizes=2,3,4,5,10

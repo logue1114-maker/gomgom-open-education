@@ -41,6 +41,7 @@ public final class Generator {
         if(ClockNotation.supports(skillId))q=ClockNotation.next(s,random,limits,previous);
         if(ClockReadings.supports(skillId))q=ClockReadings.next(s,random,limits,previous);
         if(DotCollections.supports(skillId))q=DotCollections.next(s,random,limits,previous);
+        if(ObjectGroups.supports(skillId))q=ObjectGroups.next(s,random,limits,previous);
         if(CountingPatterns.supports(skillId))q=CountingPatterns.next(s,random,limits,previous);
         if(SmallNumberFoundations.supports(skillId))q=SmallNumberFoundations.next(s,random,limits,previous);
         if(limits.variedSums()&&SumFoundations.supports(skillId))q=SumFoundations.next(s,random,limits,previous);
@@ -97,6 +98,7 @@ public final class Generator {
         if(ClockNotation.supports(s.id))return ClockNotation.next(s,random,limits,Map.of());
         if(ClockReadings.supports(s.id))return ClockReadings.next(s,random,limits,Map.of());
         if(DotCollections.supports(s.id))return DotCollections.next(s,random,limits,Map.of());
+        if(ObjectGroups.supports(s.id))return ObjectGroups.next(s,random,limits,Map.of());
         if(CountingPatterns.supports(s.id))return CountingPatterns.next(s,random,limits,Map.of());
         if(MetricConversions.added(s.id)||limits.metricDecimals()>0&&MetricConversions.supports(s.id))return MetricConversions.create(s,random,limits);
         if(limits.variedFacts()&&Set.of("tables","divide").contains(s.id))return FactFoundations.create(s,random,limits);

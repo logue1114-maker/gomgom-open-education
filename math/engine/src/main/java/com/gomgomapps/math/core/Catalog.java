@@ -165,6 +165,7 @@ public final class Catalog {
         ALL.addAll(MetricConversions.SKILLS);
         ALL.addAll(DotCollections.SKILLS);
         ALL.addAll(CountingPatterns.SKILLS);
+        ALL.addAll(ObjectGroups.SKILLS);
         ALL.addAll(EqualityFoundations.SKILLS);
         ALL.addAll(ClockReadings.SKILLS);
         ALL.addAll(ClockFaces.SKILLS);

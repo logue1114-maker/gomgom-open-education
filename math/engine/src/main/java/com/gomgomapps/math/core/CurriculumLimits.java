@@ -9,6 +9,7 @@ public final class CurriculumLimits {
     private static final Pattern FRACTION=Pattern.compile("(?:\\d+|□)\\s*/\\s*(\\d+)");
     private static final Pattern NUMBER=Pattern.compile("\\d+(?:\\.\\d+)?");
     private static final Pattern NEGATIVE=Pattern.compile("(?:^|[\\s(=+*/×÷])-\\d");
+    private final List<Integer> objectGroupSizes=new ArrayList<>();
     private final Set<Integer> denominators=new HashSet<>();
     private final Set<Integer> factors=new HashSet<>(),divisors=new HashSet<>();
     private final Map<Integer,Integer> dividendMaxima=new HashMap<>();
@@ -28,6 +29,7 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "objectGroupSizes":for(String value:pair[1].split(",",-1)){int n=Integer.parseInt(value);if(n<2||n>10||objectGroupSizes.contains(n))throw new IllegalArgumentException("Invalid object group size");objectGroupSizes.add(n);}break;
                 case "percentages":for(String value:pair[1].split(",",-1)){int percent=Integer.parseInt(value);if(percent<1||percent>100||percentages.contains(percent))throw new IllegalArgumentException("Invalid percentage");percentages.add(percent);}break;
                 case "minimumWholeDigits":minimumWholeDigits=Integer.valueOf(pair[1]);if(minimumWholeDigits<1||minimumWholeDigits>6)throw new IllegalArgumentException("Invalid minimum operand digits");break;
                 case "integerSecondOperand":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid integer second operand flag");integerSecondOperand=true;break;
@@ -173,6 +175,7 @@ public final class CurriculumLimits {
     int secondDigits(int defaults){return secondDigits==null?defaults:secondDigits;}
     boolean withoutRegrouping(){return Integer.valueOf(0).equals(maxRegroups);}
     boolean includeZeroCount(){return includeZeroCount;}
+    List<Integer> objectGroupSizes(){return objectGroupSizes.isEmpty()?List.of(2,3,4,5,10):List.copyOf(objectGroupSizes);}
     int wholeMaximum(int defaults){return givenMaximum(wholeMaximum==null?defaults:wholeMaximum);}
     int[] roundingUnits(){return roundingUnits.isEmpty()?new int[]{10,100,1000}:roundingUnits.stream().mapToInt(Integer::intValue).toArray();}
     int secondOperandMaximum(int defaultMaximum){return maxSecondOperand==null?defaultMaximum:Math.min(defaultMaximum,maxSecondOperand);}
