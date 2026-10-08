@@ -174,3 +174,7 @@ Three units now teach learner-entered side counts, triangle classification and c
 ### Factor and multiple searches
 
 Four elementary factor/multiple searches use named empty relations and checked student input references. The original search order and number domains remain intact; quotients, products and least common multiples are not prefilled. See `docs/MATH_FACTOR_SEARCH_20261008.json` for verification and boundaries.
+
+### Whole-number comparison (2026-10-08)
+
+`el_compare_10000` now uses blank named number and place-digit inputs, followed by a comparison-sign choice. It requires no subtraction or negative arithmetic, preserves generator bounds/signatures, and displays only checked student entries as references. [Scope and validation](../docs/MATH_WHOLE_COMPARE_20261008.json).

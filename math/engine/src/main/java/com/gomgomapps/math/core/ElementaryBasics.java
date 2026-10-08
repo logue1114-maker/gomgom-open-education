@@ -316,8 +316,8 @@ public final class ElementaryBasics {
         int maximum=limits.wholeMaximum(10000);
         int left=n(random,Math.min(100,maximum),maximum),right=n(random,Math.min(100,maximum),maximum);
         String answer=left==right?"=":left>right?">":"<";
-        return symbol(skill,left+"  □  "+right,w(left)+"-"+w(right),answer,
-                guide(step("두 수의 차를 살펴보세요.",w(left)+" - "+w(right)+" = ","",w(left)+"-"+w(right))),null);
+        Question q=symbol(skill,left+"  □  "+right,w(left)+"-"+w(right),answer,null,null);
+        WholeCompareRelations.attach(q);return q;
     }
 
     private static Question sequence(Catalog.Skill skill,Random random){

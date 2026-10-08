@@ -9,7 +9,7 @@ final class ArithmeticTeaching {
   RepeatedGroupingRelations.attach(q);
         RoundingRelations.attach(q);
         TimeUnitRelations.attach(q);
-        MeasureUnitRelations.attach(q);ClockReadingRelations.attach(q);NumberPatternRelations.attach(q);RangeBoundaryRelations.attach(q);RatioCorrespondenceRelations.attach(q);PerimeterBoundaryRelations.attach(q);ReadingFoundationRelations.attach(q);ShapeStructureRelations.attach(q);FactorSearchRelations.attach(q);
+        MeasureUnitRelations.attach(q);ClockReadingRelations.attach(q);NumberPatternRelations.attach(q);RangeBoundaryRelations.attach(q);RatioCorrespondenceRelations.attach(q);PerimeterBoundaryRelations.attach(q);ReadingFoundationRelations.attach(q);ShapeStructureRelations.attach(q);FactorSearchRelations.attach(q);WholeCompareRelations.attach(q);
   WholeProductRelations.attach(q);WholeDivisionRelations.attach(q);
   if(FractionReductionRelations.supports(q.skillId)){FractionReductionRelations.attach(q);return;}
   BasicAlgebraRelations.attach(q);

@@ -1,0 +1,40 @@
+{
+  "unit": "el_compare_10000",
+  "teachingVersion": "whole-compare-relations-v1",
+  "method": "Copy the public numbers into empty named fields, inspect corresponding digits from the highest place until the first difference, then choose a comparison sign.",
+  "invariants": [
+    "No subtraction or negative-number prerequisite.",
+    "No number is prefilled in a help frame.",
+    "Only checked prior student entries are later references.",
+    "Existing generator bounds, public signatures and answer schemas remain unchanged.",
+    "All three signs are choices, with incorrect choices rejected; final answers are not transferred to the main question.",
+    "Old drafts reset; checked partial drafts serialize and restore."
+  ],
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 888,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 240,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 240,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "supply": "2000 normal-generator questions preserve the original 100..10000 domain and contain at least 100 distinct public signatures. Boundary/equal/zero cases are separate engine tests, not injected native questions.",
+  "limits": [
+    "Tests do not establish learner comprehension, physical-device/tablet behavior or release readiness."
+  ]
+}
