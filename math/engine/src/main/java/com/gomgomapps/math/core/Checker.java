@@ -33,7 +33,10 @@ public final class Checker {
         for(int i=0;i<q.answers.length;i++){
             String raw=answers.get(i).trim();if(raw.isEmpty())return new Result(Status.INPUT_NEEDED,-1,"답 입력 필요");
             try{
-                if(q.kind.equals("englishNumberWords")){
+                if(q.kind.equals("fractionName")){
+                    if(!q.choiceLabels.containsKey(raw))return new Result(Status.INPUT_NEEDED,-1,"분수 이름 선택 필요");
+                    if(!raw.equals(q.answers[i]))return new Result(Status.WRONG_ANSWER,i,"이 답 확인");
+                }else if(q.kind.equals("englishNumberWords")){
                     if(!EnglishNumberWords.matches(raw,q.answers[i]))return new Result(Status.WRONG_ANSWER,i,"이 답 확인");
                 }else if(q.kind.equals("symbol")){
                     if(!Arrays.asList("<",">","=").contains(raw))return new Result(Status.INPUT_NEEDED,-1,"비교 기호 선택 필요");

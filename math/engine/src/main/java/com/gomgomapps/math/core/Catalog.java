@@ -169,6 +169,7 @@ public final class Catalog {
         ALL.addAll(DoubleHalf.SKILLS);
         ALL.addAll(NumberDecomposition.SKILLS);
         ALL.addAll(FractionPieces.SKILLS);
+        ALL.addAll(FractionNamesRelations.SKILLS);
         ALL.addAll(PrimaryAlgebra.SKILLS);
         ALL.addAll(CountingSteps.SKILLS);
         ALL.addAll(CollectionGrouping.SKILLS);

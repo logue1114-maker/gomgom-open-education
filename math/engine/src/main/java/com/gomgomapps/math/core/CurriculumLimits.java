@@ -119,7 +119,7 @@ public final class CurriculumLimits {
                 if(denominator<2||denominator>12||denominator!=q.diagram.values[0]||mask!=q.diagram.values[1]||mask<=0||(mask&~((1<<denominator)-1))!=0)return false;
                 shown=Integer.bitCount(mask)+"/"+denominator;
             }
-            if(!Set.of("fractionPart","el_fraction_of_number").contains(q.skillId)||!partFractions.contains(shown))return false;
+            if(!Set.of("fractionPart","fractionNamePicture","el_fraction_of_number").contains(q.skillId)||!partFractions.contains(shown))return false;
         }
         if(!percentages.isEmpty()){
             Matcher percent=Pattern.compile("^(\\d+)\\*(\\d+)/100$").matcher(q.expression);
