@@ -1,11 +1,17 @@
 # Partial calculation mappings. No term ordering is inferred. Sources and coverage are shown in the app.
 PACK	england-primary-2021-v1	GB	England · National Curriculum	 https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study	Years 1–6 · selected calculation skills
 MAP	england-primary-2021-v1	1	count,compare,join9,split9,add9,sub9,place50,place10,add20,sub20
-MAP	england-primary-2021-v1	2	add100,sub100,addThree9,mulIntro
-MAP	england-primary-2021-v1	3	place100,add1000,sub1000,mul2,fractionPart,fracCompare
+MAP	england-primary-2021-v1	2	add100,sub100,addThree9,mulIntro,tables,divide
+MAP	england-primary-2021-v1	3	place100,add1000,sub1000,mul2,fractionPart,fracCompare,tables,divide
 MAP	england-primary-2021-v1	4	place1000,tables,divide,mul3,fracAddLike,fracSubLike
 MAP	england-primary-2021-v1	5	largePlace,mul22,remainder,decimalAdd,decimalSub
 MAP	england-primary-2021-v1	6	divide2,mixed,reduce,fracAdd,fracSub,fracMul,fracDivInt,gcd,lcm
+RULE	england-primary-2021-v1	2	tables	timesTableMax=12;factors=2,5,10;variedFacts=true
+RULE	england-primary-2021-v1	2	divide	timesTableMax=12;divisors=2,5,10;divisionMinQuotient=0;variedFacts=true
+RULE	england-primary-2021-v1	3	tables	timesTableMax=12;factors=3,4,8;variedFacts=true
+RULE	england-primary-2021-v1	3	divide	timesTableMax=12;divisors=3,4,8;divisionMinQuotient=0;variedFacts=true
+RULE	england-primary-2021-v1	4	tables	timesTableMax=12;variedFacts=true
+RULE	england-primary-2021-v1	4	divide	timesTableMax=12;divisionMinQuotient=0;divisionMinDivisor=1;variedFacts=true
 PACK	za-caps-intermediate-2011-v1	ZA	South Africa · CAPS	 https://www.education.gov.za/LinkClick.aspx?fileticket=dr7zg3CFCr8%3D&mid=1568&portalid=0&tabid=572	Grades 4–6 · selected calculation skills · CAPS 2011 pp. 14–17
 MAP	za-caps-intermediate-2011-v1	4	place1000,add1000,sub1000,mul22,divide,remainder,tables
 MAP	za-caps-intermediate-2011-v1	5	largePlace,divide2,fractionPart,fracCompare,fracAddLike,fracSubLike

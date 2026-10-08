@@ -8,7 +8,7 @@ final class FactFoundations {
     static boolean blank(Question q){return Set.of("tables","divide").contains(q.skillId)&&q.prompt.contains("□");}
     static Question next(Catalog.Skill skill,Random random,CurriculumLimits limits,Map<String,Integer> recent){
         LinkedHashMap<String,Question> candidates=new LinkedHashMap<>();int maximum=limits.timesTableMax();boolean multiply=skill.id.equals("tables");
-        for(int a=multiply?0:1;a<=maximum;a++)for(int b=multiply?0:2;b<=maximum;b++)for(int form=0;form<3;form++){
+        for(int a=multiply?0:limits.divisionMinQuotient();a<=maximum;a++)for(int b=multiply?0:limits.divisionMinDivisor();b<=maximum;b++)for(int form=0;form<3;form++){
             Question q=make(skill,a,b,form,limits);if(limits.allows(q))candidates.putIfAbsent(q.signature(),q);
         }
         return choose(candidates,random,recent);
@@ -21,8 +21,8 @@ final class FactFoundations {
     }
     static Question create(Catalog.Skill skill,Random random,CurriculumLimits limits){
         int maximum=limits.timesTableMax();boolean multiply=skill.id.equals("tables");
-        int a=multiply?random.nextInt(maximum+1):1+random.nextInt(maximum);
-        int b=multiply?random.nextInt(maximum+1):2+random.nextInt(maximum-1);
+        int a=multiply?random.nextInt(maximum+1):limits.divisionMinQuotient()+random.nextInt(maximum-limits.divisionMinQuotient()+1);
+        int b=multiply?random.nextInt(maximum+1):limits.divisionMinDivisor()+random.nextInt(maximum-limits.divisionMinDivisor()+1);
         return make(skill,a,b,random.nextInt(3),limits);
     }
     private static Question make(Catalog.Skill skill,int a,int b,int form,CurriculumLimits limits){

@@ -1,0 +1,9 @@
+# Selected England Year 2–4 table facts
+
+DfE National Curriculum, updated September 2021: Year2 multiplication/division tables2,5,10; Year3 tables3,4,8; Year4 facts through12x12. Source: https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study
+
+Six grade placements reuse the existing finite fact supplier and three blank help frames. Selected practice multipliers/quotients are0–12, constrained to the named tables in Years2/3;12 is a selected practice bound here, not a claim that the earlier statutory bullets specify a12 cap. Year4 also includes division by1. Optional divisionMinQuotient and divisionMinDivisor leave all other existing defaults unchanged. Zero facts use the direct numeric expression, avoiding underdetermined missing terms.
+
+Visible expression pools: Year2/3 multiplication195, division111 each; Year4 multiplication457, division444. Blank-equation variants and reversed operands are separate practice expressions, not new concepts. Unused expressions are selected before oldest repeated expressions. Existing helpers use learner-filled relationships and never transfer answers. The current grade remains excluded from diagnosis until learned; review keeps earlier grade limits.
+
+Tests independently solve all six public pools, boundaries including0/12/divisor1, missing-term uniqueness, checker rejection, shuffled choices, blank help and exhaustion/repetition. Existing fact/relationship/diagnosis tests are included. This is selected calculation practice, not all statutory fluency, mental strategies, contextual problems or complete curriculum evidence. No official example items are copied. Private Android UI, language files, learner records, ads/billing, source HTML, QA and APKs are excluded.

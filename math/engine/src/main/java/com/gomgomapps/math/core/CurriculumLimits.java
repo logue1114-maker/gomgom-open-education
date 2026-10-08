@@ -28,6 +28,7 @@ public final class CurriculumLimits {
     private final Set<Integer> factors=new HashSet<>(),divisors=new HashSet<>();
     private final Map<Integer,Integer> dividendMaxima=new HashMap<>();
     private int timesTableMax=9;
+    private int divisionMinQuotient=1,divisionMinDivisor=2;
     private int minuteStep=5;
     private int metricDecimals=0;
     private Integer maxSecondOperand,maxRegroups,decimalPlaces,answerDecimalPlaces,secondDecimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides;
@@ -58,6 +59,8 @@ public final class CurriculumLimits {
                 case "denominators":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<2)throw new IllegalArgumentException("Invalid denominator");denominators.add(n);}break;
                 case "factors":case "divisors":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<1)throw new IllegalArgumentException("Invalid factor/divisor");(pair[0].equals("factors")?factors:divisors).add(n);}break;
                 case "timesTableMax":timesTableMax=Integer.parseInt(pair[1]);if(timesTableMax<2||timesTableMax>20)throw new IllegalArgumentException("Invalid times table range");break;
+                case "divisionMinQuotient":divisionMinQuotient=Integer.parseInt(pair[1]);if(divisionMinQuotient<0||divisionMinQuotient>1)throw new IllegalArgumentException("Invalid minimum quotient");break;
+                case "divisionMinDivisor":divisionMinDivisor=Integer.parseInt(pair[1]);if(divisionMinDivisor<1||divisionMinDivisor>2)throw new IllegalArgumentException("Invalid minimum divisor");break;
                 case "minuteStep":minuteStep=Integer.parseInt(pair[1]);if(!Set.of(1,5,15).contains(minuteStep))throw new IllegalArgumentException("Invalid clock minute step");break;
                 case "metricDecimals":metricDecimals=Integer.parseInt(pair[1]);if(metricDecimals<0||metricDecimals>3)throw new IllegalArgumentException("Invalid metric decimal precision");break;
                 case "maxSecondOperand":maxSecondOperand=Integer.valueOf(pair[1]);if(maxSecondOperand<1)throw new IllegalArgumentException("Invalid second operand limit");break;
@@ -178,6 +181,8 @@ public final class CurriculumLimits {
         return new int[]{each,terms.length};
     }
     public int timesTableMax(){return timesTableMax;}
+    int divisionMinQuotient(){return divisionMinQuotient;}
+    int divisionMinDivisor(){return divisionMinDivisor;}
     int[] percentages(){return percentages.isEmpty()?java.util.stream.IntStream.rangeClosed(1,19).map(i->i*5).toArray():percentages.stream().mapToInt(Integer::intValue).toArray();}
     boolean unitFractions(){return unitFractions;}
     boolean hasFractionDenominators(){return !denominators.isEmpty();}
