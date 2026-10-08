@@ -21,6 +21,18 @@ final class SmallNumberFoundations {
                     for(int cell=0;cell<9;cell++)if((mask&(1<<cell))!=0){points[at++]=.25+(cell%3)*.25;points[at++]=.25+(cell/3)*.25;}
                     Question q=new Question(skill.id,"동그라미는 모두 몇 개인가요?","",String.valueOf(value)).withInputs(value,maximum,minimum);q.stepSupport=false;q.diagram=new StudyDiagram("dotCollection",points);include(candidates,q,limits);
                 }
+            }else if(limits.variedFacts()){
+                // A 5-by-4 public card supports counting to 20 without allocating
+                // all 2^20 masks. Retain the exact exhaustive 3-by-3 domain above.
+                for(int value=minimum;value<=maximum;value++)for(int layout=0;layout<32;layout++){
+                    List<Integer> cells=new ArrayList<>();for(int cell=0;cell<20;cell++)cells.add(cell);
+                    Collections.shuffle(cells,new Random(2024L+value*97L+layout));
+                    List<Integer> selected=new ArrayList<>(cells.subList(0,value));Collections.sort(selected);
+                    double[] points=new double[1+2*value];int at=1;
+                    for(int cell:selected){points[at++]=.12+(cell%5)*.19;points[at++]=.20+(cell/5)*.20;}
+                    Question q=new Question(skill.id,"동그라미는 모두 몇 개인가요?","",String.valueOf(value)).withInputs(value,maximum,minimum);
+                    q.stepSupport=false;q.diagram=new StudyDiagram("dotCollection",points);include(candidates,q,limits);
+                }
             }else for(int value=minimum;value<=maximum;value++){
                 StringBuilder dots=new StringBuilder();for(int i=0;i<value;i++){dots.append("● ");if(i%5==4)dots.append('\n');}
                 Question q=new Question(skill.id,"동그라미는 모두 몇 개인가요?\n\n"+dots,"",String.valueOf(value)).withInputs(value,maximum,minimum);q.stepSupport=false;

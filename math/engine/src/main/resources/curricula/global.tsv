@@ -1349,3 +1349,107 @@ RULE	fr-men-lycee-general-2026-2027-v1	10	rootWhole	wholeMaximum=200
 MAP	ke-kicd-cbc-2024-v1	9	matrixWholeAdd,matrixWholeSub	Grade9 July2024 PDF22 2.1: full 2x2, 2x3, 3x2 and 3x3 signed-integer addition/subtraction; matching-entry help and grid answers; contextual modelling remains
 
 MAP	gh-nacca-core-2019-2023-v1	11	moduloValue,moduloAdd,moduloSub,moduloMul	SHS 2023 2.1.1.CS.3 LI1–2 PDF173–175; signed integer residues and sum/difference/product, 0 <= r < m; contextual modelling and proofs remain
+
+# NIED 2024: selected number/calculation foundations; no term ordering inferred.
+PACK	na-nied-primary-2024-v1	NA	Namibia · NIED Primary (2024)	https://www.nied.edu.na/documents/syllabuses/juniorprimary/Syllabus/ | https://www.nied.edu.na/assets/documents/02Syllabuses/03SeniorPrimary/Mathematics/SP_Mathematicssyllabus2024.pdf	Grades 1–7 · selected number and calculation foundations from NIED 2024; grouping without operation signs, remaining numeric outcomes, other strands, senior school and local-language review are not complete.
+LEVEL	na-nied-primary-2024-v1	1	Grade 1
+LEVEL	na-nied-primary-2024-v1	2	Grade 2
+LEVEL	na-nied-primary-2024-v1	3	Grade 3
+LEVEL	na-nied-primary-2024-v1	4	Grade 4
+LEVEL	na-nied-primary-2024-v1	5	Grade 5
+LEVEL	na-nied-primary-2024-v1	6	Grade 6
+LEVEL	na-nied-primary-2024-v1	7	Grade 7
+MAP	na-nied-primary-2024-v1	1	count,join9,split9	JP printed pp.6,10; selected quantities and number bonds
+MAP	na-nied-primary-2024-v1	1	place10	JP p.11; two-digit place value
+MAP	na-nied-primary-2024-v1	1	add9,sub9,add20,sub20	JP pp.14–15; results within 20
+MAP	na-nied-primary-2024-v1	2	el_compare_10000,place100	JP pp.8,11; comparison within100; place values through500
+MAP	na-nied-primary-2024-v1	2	join9,split9	JP p.10; number bonds through20
+MAP	na-nied-primary-2024-v1	2	add100,sub100	JP pp.14–15; results within100
+MAP	na-nied-primary-2024-v1	2	tables	JP p.16; 1,2,5,10 tables; no division sign
+MAP	na-nied-primary-2024-v1	2	fractionPart	JP p.18; halves and quarters only
+MAP	na-nied-primary-2024-v1	3	el_compare_10000,place100	JP pp.8,11; comparison through500; place value through1000
+MAP	na-nied-primary-2024-v1	3	add1000,sub1000	JP pp.14–15; results within500
+MAP	na-nied-primary-2024-v1	3	tables,mul2	JP p.16; tables1,2,3,4,5,10 and selected two-digit products
+MAP	na-nied-primary-2024-v1	3	divide,remainder	JP p.17; dividend through100 and divisors1–10
+MAP	na-nied-primary-2024-v1	3	fractionPart	JP p.18; halves,quarters,thirds
+MAP	na-nied-primary-2024-v1	4	place1000,el_compare_10000,el_round	SP pp.10–11; place and compare four-digit numbers; rounding10,100,1000
+MAP	na-nied-primary-2024-v1	4	add1000,sub1000	SP p.12; selected four-digit written calculation
+MAP	na-nied-primary-2024-v1	4	tables,divide,remainder,mul2,mul3	SP p.14; facts through10x10; selected three-digit products and two-digit division
+MAP	na-nied-primary-2024-v1	4	fractionPart,fracCompare	SP p.15; denominators through10; same-denominator comparisons
+MAP	na-nied-primary-2024-v1	4	fracAddLike,fracSubLike	SP p.16; like denominators within one whole
+MAP	na-nied-primary-2024-v1	5	largePlace,el_compare_10000,el_round	SP pp.23–24; numbers through100000
+MAP	na-nied-primary-2024-v1	5	add1000,sub1000	SP p.26; selected written calculation
+MAP	na-nied-primary-2024-v1	5	tables,divide,remainder,mul22	SP p.27; selected multiplication and division
+MAP	na-nied-primary-2024-v1	5	mixed	SP p.28; operations without negative answers
+MAP	na-nied-primary-2024-v1	5	el_improper_to_mixed,el_mixed_to_improper,fracAddLike,fracSubLike	SP pp.29–30; selected fraction conversions and like-denominator calculations
+MAP	na-nied-primary-2024-v1	5	el_fraction_decimal,el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	SP pp.31–32; selected decimal conversions and up-to-two-place calculations
+MAP	na-nied-primary-2024-v1	6	largePlace,el_compare_10000,el_round	SP p.40; numbers through1000000
+MAP	na-nied-primary-2024-v1	6	add1000,sub1000,mul22,divide2	SP p.41; selected written operations
+MAP	na-nied-primary-2024-v1	6	mixed,el_divisor,el_multiple	SP p.42; order, factors and multiples
+MAP	na-nied-primary-2024-v1	6	reduce,el_fraction_compare,fracAdd,fracSub	SP p.43; selected fractions and related denominators
+MAP	na-nied-primary-2024-v1	6	el_fraction_decimal,el_decimal_fraction,el_decimal_place,el_decimal_compare,el_decimal_round	SP p.44; selected decimal representation and rounding
+MAP	na-nied-primary-2024-v1	6	decimalAdd,decimalSub,decimalMul,decimalDivInt	SP p.45; decimal/whole calculations
+MAP	na-nied-primary-2024-v1	7	largePlace,el_compare_10000,el_round,add1000,sub1000,mul22,divide2,mixed	SP p.52; whole-number operations through1000000
+MAP	na-nied-primary-2024-v1	7	el_divisor,el_multiple,sec_prime_factor,gcd,lcm,squareWhole,cubeWhole	SP p.53; selected factors/primes/squares/cubes
+MAP	na-nied-primary-2024-v1	7	fracAdd,fracSub,fracMul,fracDiv,fracDivInt,el_fraction_compare	SP p.54; selected common-fraction arithmetic
+MAP	na-nied-primary-2024-v1	7	el_fraction_decimal,el_decimal_fraction,decimalAdd,decimalSub,decimalMul,decimalDiv,decimalDivInt	SP p.55; selected up-to-three-place decimal calculations
+MAP	na-nied-primary-2024-v1	7	percent	SP p.56; percentage of a quantity
+RULE	na-nied-primary-2024-v1	1	count	wholeMaximum=20;includeZeroCount=true;variedFacts=true
+RULE	na-nied-primary-2024-v1	1	join9,split9	wholeMaximum=20;maxGiven=20;maxResult=20;nonnegative=true
+RULE	na-nied-primary-2024-v1	2	join9,split9	wholeMaximum=20;maxGiven=20;maxResult=20;nonnegative=true
+RULE	na-nied-primary-2024-v1	1	add20,sub20	wholeMaximum=20;maxGiven=20;maxResult=20;variedSums=true;nonnegative=true
+RULE	na-nied-primary-2024-v1	2	el_compare_10000	wholeMaximum=100;minGiven=0
+RULE	na-nied-primary-2024-v1	3	el_compare_10000	wholeMaximum=500;minGiven=0
+RULE	na-nied-primary-2024-v1	1	place10	wholeMaximum=99
+RULE	na-nied-primary-2024-v1	2	place100	wholeMaximum=500
+RULE	na-nied-primary-2024-v1	3	place100	wholeMaximum=1000
+RULE	na-nied-primary-2024-v1	4	place1000	wholeMaximum=9999
+RULE	na-nied-primary-2024-v1	5	largePlace	wholeMaximum=99999
+RULE	na-nied-primary-2024-v1	6	largePlace	wholeMaximum=999999
+RULE	na-nied-primary-2024-v1	7	largePlace	wholeMaximum=999999
+RULE	na-nied-primary-2024-v1	2	add100,sub100	maxGiven=100;maxResult=100;nonnegative=true
+RULE	na-nied-primary-2024-v1	3	add1000,sub1000	maxGiven=500;maxResult=500;nonnegative=true
+RULE	na-nied-primary-2024-v1	4	add1000,sub1000	wholeDigits=4;secondDigits=4;maxGiven=9999;maxResult=9999;nonnegative=true
+RULE	na-nied-primary-2024-v1	5	add1000,sub1000	wholeDigits=5;secondDigits=5;maxGiven=99999;maxResult=99999;nonnegative=true
+RULE	na-nied-primary-2024-v1	6	add1000,sub1000	wholeDigits=6;secondDigits=6;maxGiven=999999;maxResult=999999;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	add1000,sub1000	wholeDigits=6;secondDigits=6;maxGiven=999999;maxResult=999999;nonnegative=true
+RULE	na-nied-primary-2024-v1	2	tables	factors=1,2,5,10;timesTableMax=10;maxResult=100;nonnegative=true
+RULE	na-nied-primary-2024-v1	3	tables	factors=1,2,3,4,5,10;timesTableMax=10;maxResult=100;variedFacts=true;nonnegative=true
+RULE	na-nied-primary-2024-v1	4	tables	timesTableMax=10;maxResult=100;variedFacts=true;nonnegative=true
+RULE	na-nied-primary-2024-v1	3	divide	timesTableMax=10;maxGiven=100;maxResult=100;variedFacts=true;nonnegative=true
+RULE	na-nied-primary-2024-v1	4	divide	timesTableMax=10;maxGiven=100;maxResult=100;variedFacts=true;nonnegative=true
+RULE	na-nied-primary-2024-v1	5	divide	timesTableMax=10;maxGiven=100;maxResult=100;variedFacts=true;nonnegative=true
+RULE	na-nied-primary-2024-v1	3	mul2	factors=2,3,4,5,10;maxGiven=99;maxResult=500;nonnegative=true
+RULE	na-nied-primary-2024-v1	4	mul2,mul3	maxGiven=999;maxResult=10000;nonnegative=true
+RULE	na-nied-primary-2024-v1	2	fractionPart	denominators=2,4;unitFractions=true
+RULE	na-nied-primary-2024-v1	3	fractionPart	denominators=2,3,4
+RULE	na-nied-primary-2024-v1	4	fractionPart	denominators=2,3,4,5,6,7,8,9,10
+RULE	na-nied-primary-2024-v1	4	fracAddLike,fracSubLike	denominators=2,3,4,5,6,7,8,9,10;maxFractionValue=1;maxResult=1;nonnegative=true
+RULE	na-nied-primary-2024-v1	5	fracAddLike,fracSubLike,el_improper_to_mixed,el_mixed_to_improper	denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
+RULE	na-nied-primary-2024-v1	6	fracAdd,fracSub	relatedDenominators=true;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	fracAdd,fracSub,fracMul,fracDiv,fracDivInt,el_fraction_compare	denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
+RULE	na-nied-primary-2024-v1	4	el_compare_10000	wholeMaximum=9999
+RULE	na-nied-primary-2024-v1	5	el_compare_10000	wholeMaximum=99999
+RULE	na-nied-primary-2024-v1	6	el_compare_10000	wholeMaximum=999999
+RULE	na-nied-primary-2024-v1	7	el_compare_10000	wholeMaximum=999999
+RULE	na-nied-primary-2024-v1	4	el_round	wholeMaximum=9999;roundingUnits=10,100,1000
+RULE	na-nied-primary-2024-v1	5	el_round	wholeMaximum=99999;roundingUnits=10,100,1000,10000
+RULE	na-nied-primary-2024-v1	6	el_round	wholeMaximum=999999;roundingUnits=10,100,1000,10000,100000
+RULE	na-nied-primary-2024-v1	7	el_round	wholeMaximum=999999;roundingUnits=10,100,1000,10000,100000
+RULE	na-nied-primary-2024-v1	5	mixed	nonnegative=true
+RULE	na-nied-primary-2024-v1	6	mixed	nonnegative=true
+RULE	na-nied-primary-2024-v1	7	mixed	nonnegative=true
+RULE	na-nied-primary-2024-v1	5	el_fraction_decimal	denominators=10,100
+RULE	na-nied-primary-2024-v1	6	el_fraction_decimal	denominators=2,4,5,10,100
+RULE	na-nied-primary-2024-v1	7	el_fraction_decimal	denominators=2,4,5,8,10
+RULE	na-nied-primary-2024-v1	5	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=2;nonnegative=true
+RULE	na-nied-primary-2024-v1	6	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=3;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=3;nonnegative=true
+RULE	na-nied-primary-2024-v1	6	decimalMul	integerSecondOperand=true;decimalPlaces=3;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	decimalMul	decimalPlaces=2;answerDecimalPlaces=3;nonnegative=true
+RULE	na-nied-primary-2024-v1	6	decimalDivInt	decimalPlaces=3;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	decimalDivInt	decimalPlaces=3;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	squareWhole,cubeWhole	maxGiven=10;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	sec_prime_factor	maxGiven=99;nonnegative=true
+RULE	na-nied-primary-2024-v1	4	fracCompare	denominators=2,3,4,5,6,7,8,9,10
+RULE	na-nied-primary-2024-v1	7	decimalDiv	decimalPlaces=3;secondDecimalPlaces=1;nonnegative=true

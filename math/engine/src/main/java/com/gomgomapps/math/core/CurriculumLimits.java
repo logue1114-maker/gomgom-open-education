@@ -15,7 +15,7 @@ public final class CurriculumLimits {
     private int timesTableMax=9;
     private int minuteStep=5;
     private int metricDecimals=0;
-    private Integer maxSecondOperand,maxRegroups,decimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides;
+    private Integer maxSecondOperand,maxRegroups,decimalPlaces,answerDecimalPlaces,secondDecimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides;
     private final List<Integer> roundingUnits=new ArrayList<>();
     private final List<Integer> percentages=new ArrayList<>();
     private String answerDomain="";
@@ -39,6 +39,7 @@ public final class CurriculumLimits {
                 case "metricDecimals":metricDecimals=Integer.parseInt(pair[1]);if(metricDecimals<0||metricDecimals>3)throw new IllegalArgumentException("Invalid metric decimal precision");break;
                 case "maxSecondOperand":maxSecondOperand=Integer.valueOf(pair[1]);if(maxSecondOperand<1)throw new IllegalArgumentException("Invalid second operand limit");break;
                 case "maxRegroups":maxRegroups=Integer.valueOf(pair[1]);if(maxRegroups<0||maxRegroups>9)throw new IllegalArgumentException("Invalid regrouping limit");break;
+                case "answerDecimalPlaces":case "secondDecimalPlaces":int precision=Integer.parseInt(pair[1]);if(precision<0||precision>4)throw new IllegalArgumentException("Invalid decimal precision");if(pair[0].equals("answerDecimalPlaces"))answerDecimalPlaces=precision;else secondDecimalPlaces=precision;break;
                 case "decimalPlaces":decimalPlaces=Integer.valueOf(pair[1]);if(decimalPlaces<1||decimalPlaces>4)throw new IllegalArgumentException("Invalid decimal places");break;
                 case "wholeMaximum":wholeMaximum=Integer.valueOf(pair[1]);if(wholeMaximum<1||wholeMaximum>999999999)throw new IllegalArgumentException("Invalid whole-number range");break;
                 case "wholeDigits":case "secondDigits":int digits=Integer.parseInt(pair[1]);if(digits<1||digits>6)throw new IllegalArgumentException("Invalid operand digits");if(pair[0].equals("wholeDigits"))wholeDigits=digits;else secondDigits=digits;break;
@@ -125,6 +126,11 @@ public final class CurriculumLimits {
                 if(input.compareTo(maxFractionValue)>0||input.compareTo(maxFractionValue.neg())<0)return false;
             }
         }
+        if(secondDecimalPlaces!=null){
+            Matcher operands=Pattern.compile("^-?\\d+(?:\\.\\d+)?\\s*[+*/×÷−-]\\s*(-?\\d+(?:\\.\\d+)?)$").matcher(q.expression);
+            if(!operands.matches()||!fitsDecimalPlaces(operands.group(1),secondDecimalPlaces))return false;
+        }
+        if(answerDecimalPlaces!=null)for(String answer:q.answers)if(!fitsDecimalPlaces(answer,answerDecimalPlaces))return false;
         if(decimalPlaces!=null){Matcher decimals=Pattern.compile("\\d+\\.(\\d+)").matcher(givens);while(decimals.find())if(decimals.group(1).length()>decimalPlaces)return false;}
         if(!roundingUnits.isEmpty()){Matcher place=Pattern.compile("(\\d+)의 자리까지").matcher(q.prompt);if(!place.find()||!roundingUnits.contains(Integer.parseInt(place.group(1))))return false;}
         if(unitFractions){Matcher m=Pattern.compile("(\\d+)\\s*/\\s*\\d+").matcher(q.expression);boolean found=false;while(m.find()){found=true;if(!m.group(1).equals("1"))return false;}if(!found)return false;}
@@ -186,6 +192,11 @@ public final class CurriculumLimits {
         }
         return count;
     }
+    private static boolean fitsDecimalPlaces(String value,int places){
+        try{return Expression.number(value).mul(Rational.of(java.math.BigInteger.TEN.pow(places).longValueExact())).isInteger();}
+        catch(RuntimeException error){return false;}
+    }
+    int givenMinimum(int defaults){return minGiven==null?defaults:minGiven.intValue();}
     int givenMaximum(int defaultMaximum){return maxGiven==null?defaultMaximum:Math.min(defaultMaximum,maxGiven.intValue());}
     private boolean allowsAnswer(String value){
         try{Rational number=Expression.number(value);if(answerDomain.equals("integer")&&!number.d.equals(java.math.BigInteger.ONE))return false;if(nonnegative&&number.compareTo(Rational.of(0))<0)return false;return maxResult==null||number.compareTo(Expression.number(maxResult.toString()))<=0;}

@@ -314,7 +314,7 @@ public final class ElementaryBasics {
 
     private static Question compare(Catalog.Skill skill,Random random,CurriculumLimits limits){
         int maximum=limits.wholeMaximum(10000);
-        int left=n(random,Math.min(100,maximum),maximum),right=n(random,Math.min(100,maximum),maximum);
+        int left=n(random,Math.min(limits.givenMinimum(100),maximum),maximum),right=n(random,Math.min(limits.givenMinimum(100),maximum),maximum);
         String answer=left==right?"=":left>right?">":"<";
         Question q=symbol(skill,left+"  □  "+right,w(left)+"-"+w(right),answer,null,null);
         WholeCompareRelations.attach(q);return q;
