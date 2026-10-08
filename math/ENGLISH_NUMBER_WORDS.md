@@ -1,0 +1,7 @@
+# Selected England numeral and English word correspondence
+
+DfE Year1: read/write1–20 in numerals and words. Year2: read/write to at least100 in numerals and words. Source: https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study
+
+Both directions are connected in each reviewed grade. Year1 has20 conditions per direction, Year2 has101 (0–100). The finite supplier exhausts visible conditions before repeating the oldest; UUID changes do not count as new facts. Writing requires student text, never answer-word choice buttons. Case/ordinary spaces/compound hyphens are accepted; misspellings and numeric answers in a word task are rejected. Numeric-from-word practice retains numeric input. Student-filled place-value help does not display the full spelling or transfer an answer. English givens remain English independently of the interface language. English spelling is not automatically included in Korean/common fallback curricula.
+
+Tests cover finite domains, spellings, input rejection, no answer choices/transfer, country separation and learned-only diagnosis. This is a selected correspondence practice, not complete literacy/scaffold, spoken/oral verification, every official representation, or full curriculum approval. No official example problems are copied. Private Android UI/translations/learner records/ads/billing/APKs/QA are excluded.

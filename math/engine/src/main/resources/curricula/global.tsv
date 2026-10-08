@@ -1544,3 +1544,11 @@ MAP	na-nied-primary-2024-v1	3	objectDouble,objectHalf,objectHalfRemainder	JP pri
 RULE	na-nied-primary-2024-v1	3	objectDouble	wholeMaximum=100;maxResult=200;doubleHalfDecomposition=true
 RULE	na-nied-primary-2024-v1	3	objectHalf	wholeMaximum=100;maxResult=50;doubleHalfDecomposition=true
 RULE	na-nied-primary-2024-v1	3	objectHalfRemainder	wholeMaximum=100;maxResult=49;doubleHalfDecomposition=true
+
+# England numeral and English word correspondence; Year1 explicitly1–20.
+MAP	england-primary-2021-v1	1	englishWordsToNumber,numberToEnglishWords
+RULE	england-primary-2021-v1	1	englishWordsToNumber	wholeMaximum=20;minGiven=1
+RULE	england-primary-2021-v1	1	numberToEnglishWords	wholeMaximum=20;minGiven=1
+MAP	england-primary-2021-v1	2	englishWordsToNumber,numberToEnglishWords
+RULE	england-primary-2021-v1	2	englishWordsToNumber	wholeMaximum=100;minGiven=0
+RULE	england-primary-2021-v1	2	numberToEnglishWords	wholeMaximum=100;minGiven=0
