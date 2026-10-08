@@ -1552,3 +1552,10 @@ RULE	england-primary-2021-v1	1	numberToEnglishWords	wholeMaximum=20;minGiven=1
 MAP	england-primary-2021-v1	2	englishWordsToNumber,numberToEnglishWords
 RULE	england-primary-2021-v1	2	englishWordsToNumber	wholeMaximum=100;minGiven=0
 RULE	england-primary-2021-v1	2	numberToEnglishWords	wholeMaximum=100;minGiven=0
+
+# Selected England Year1 object grouping/sharing20 and half/quarter recognition; Year2 selected written fractions.
+MAP	england-primary-2021-v1	1	objectGroupTotal,objectShare,fractionPiecePicture
+RULE	england-primary-2021-v1	1	objectGroupTotal,objectShare	wholeMaximum=20;maxResult=20;objectGroupSizes=2,5,10
+RULE	england-primary-2021-v1	1	fractionPiecePicture	picturePartitions=2,4
+MAP	england-primary-2021-v1	2	fractionPart
+RULE	england-primary-2021-v1	2	fractionPart	denominators=2,3,4;partFractions=1/2,1/3,1/4,2/4,3/4;variedFacts=true;maxResult=1;nonnegative=true

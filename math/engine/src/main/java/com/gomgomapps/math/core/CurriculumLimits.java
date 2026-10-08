@@ -27,6 +27,8 @@ public final class CurriculumLimits {
     public List<Integer> doubleHalfInputs(){return List.copyOf(doubleHalfInputs);}
     private final List<Integer> objectGroupSizes=new ArrayList<>();
     private final Set<Integer> denominators=new HashSet<>();
+    private final Set<String> partFractions=new LinkedHashSet<>();
+    boolean hasPartFractions(){return !partFractions.isEmpty();}
     private final Set<Integer> factors=new HashSet<>(),divisors=new HashSet<>();
     private final Map<Integer,Integer> dividendMaxima=new HashMap<>();
     private int timesTableMax=9;
@@ -60,6 +62,11 @@ public final class CurriculumLimits {
                 case "integerSecondOperand":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid integer second operand flag");integerSecondOperand=true;break;
                 case "maxFractionValue":maxFractionValue=Expression.number(pair[1]);if(maxFractionValue.compareTo(Rational.ZERO)<=0)throw new IllegalArgumentException("Invalid fraction magnitude");break;
                 case "denominators":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<2)throw new IllegalArgumentException("Invalid denominator");denominators.add(n);}break;
+                case "partFractions":for(String value:pair[1].split(",",-1)){
+                    if(!value.matches("[1-9][0-9]*/[1-9][0-9]*"))throw new IllegalArgumentException("Invalid part fraction");
+                    String[] numbers=value.split("/");int numerator=Integer.parseInt(numbers[0]),denominator=Integer.parseInt(numbers[1]);
+                    if(denominator<2||denominator>12||numerator>=denominator||!partFractions.add(value))throw new IllegalArgumentException("Invalid part fraction");
+                }break;
                 case "factors":case "divisors":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<1)throw new IllegalArgumentException("Invalid factor/divisor");(pair[0].equals("factors")?factors:divisors).add(n);}break;
                 case "timesTableMax":timesTableMax=Integer.parseInt(pair[1]);if(timesTableMax<2||timesTableMax>20)throw new IllegalArgumentException("Invalid times table range");break;
                 case "divisionMinQuotient":divisionMinQuotient=Integer.parseInt(pair[1]);if(divisionMinQuotient<0||divisionMinQuotient>1)throw new IllegalArgumentException("Invalid minimum quotient");break;
@@ -94,6 +101,18 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(!partFractions.isEmpty()){
+            // Use observable colored cells when present. Keep2/4 separate from1/2:
+            // this option limits the presented parts, not just their reduced value.
+            String shown=q.expression;
+            if(q.diagram!=null&&q.diagram.type.equals("fractionSelection")){
+                if(q.diagram.values.length<2)return false;
+                int denominator=(int)q.diagram.values[0],mask=(int)q.diagram.values[1];
+                if(denominator<2||denominator>12||denominator!=q.diagram.values[0]||mask!=q.diagram.values[1]||mask<=0||(mask&~((1<<denominator)-1))!=0)return false;
+                shown=Integer.bitCount(mask)+"/"+denominator;
+            }
+            if(!q.skillId.equals("fractionPart")||!partFractions.contains(shown))return false;
+        }
         if(!percentages.isEmpty()){
             Matcher percent=Pattern.compile("^(\\d+)\\*(\\d+)/100$").matcher(q.expression);
             if(!percent.matches()||!percentages.contains(Integer.parseInt(percent.group(2))))return false;

@@ -10,6 +10,7 @@ public final class FractionPartLayouts {
             int mask=0;for(int offset=0;offset<selected;offset++)mask|=1<<((start+offset)%denominator);
             Question q=new Question("fractionPart","색칠한 부분을 분수로 나타내세요.",selected+"/"+denominator,Rational.of(selected,denominator).toString()).withInputs(selected,denominator);
             q.diagram=new StudyDiagram("fractionSelection",new double[]{denominator,mask});q.stepSupport=false;
+            if(limits.hasPartFractions())q.answerFormat="fraction";
             q.studyGuide=new StudyGuide().transfer(false)
                 .step("전체 칸을 세어 분모를 쓰세요.","전체 칸 수 = ","",String.valueOf(denominator))
                 .step("색칠한 칸을 세어 분자를 쓰세요.","색칠한 칸 수 = ","",String.valueOf(selected)).fractionResult(1,0);

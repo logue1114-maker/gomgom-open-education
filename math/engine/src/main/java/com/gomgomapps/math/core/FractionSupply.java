@@ -13,7 +13,7 @@ final class FractionSupply {
         }else if(skill.id.equals("fractionPart")){
             if(limits.variedFacts())FractionPartLayouts.append(candidates,limits);
             else for(int denominator=2;denominator<=12;denominator++)for(int numerator=1;numerator<denominator;numerator++){
-                Question q=new Question(skill.id,"전체를 똑같이 "+denominator+"조각으로 나눈 것 중 "+numerator+"조각을 분수로 나타내세요.",numerator+"/"+denominator,Rational.of(numerator,denominator).toString()).withInputs(numerator,denominator);q.stepSupport=false;include(candidates,q,limits);
+                Question q=new Question(skill.id,"전체를 똑같이 "+denominator+"조각으로 나눈 것 중 "+numerator+"조각을 분수로 나타내세요.",numerator+"/"+denominator,Rational.of(numerator,denominator).toString()).withInputs(numerator,denominator);q.stepSupport=false;if(limits.hasPartFractions())q.answerFormat="fraction";include(candidates,q,limits);
             }
         }else if(skill.id.equals("el_fraction_decimal")){
             for(int places=1;places<=limits.decimalPlaces(2);places++){
