@@ -1615,3 +1615,10 @@ MAP	england-primary-2021-v1	5	el_fraction_compare,el_fraction_common_den,el_mixe
 RULE	england-primary-2021-v1	5	el_fraction_compare	commonDenominatorFactor=true;maxFractionValue=1;denominators=2,3,4,5,6,7,8,9,10,11,12
 MAP	england-primary-2021-v1	6	el_fraction_compare,el_fraction_common_den
 RULE	england-primary-2021-v1	6	el_fraction_compare	maxFractionValue=3;denominators=2,3,4,5,6,7,8,9,10,11,12
+MAP	england-primary-2021-v1	3	fractionOrder,likeFractionOrder
+RULE	england-primary-2021-v1	3	likeFractionOrder	denominators=2,3,4,5,6,7,8,9,10,11,12
+RULE	england-primary-2021-v1	3	fractionOrder	unitFractions=true;denominators=2,3,4,5,6,7,8,9,10,11,12
+MAP	england-primary-2021-v1	5	fractionOrder
+RULE	england-primary-2021-v1	5	fractionOrder	commonDenominatorFactor=true;maxFractionValue=1;denominators=2,3,4,5,6,7,8,9,10,11,12
+MAP	england-primary-2021-v1	6	fractionOrder
+RULE	england-primary-2021-v1	6	fractionOrder	maxFractionValue=3;denominators=2,3,4,5,6,7,8,9,10,11,12

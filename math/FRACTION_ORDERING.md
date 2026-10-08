@@ -1,0 +1,10 @@
+# Selected three-fraction ordering and given diagrams
+
+Four England placements: Year3 unit-fraction ordering and like-denominator ordering, Year5 fractions with one shared nontrivial denominator factor, Year6 positive fractions including values greater than one. Original fraction cards are selected into three positions in either direction; the public fractions have distinct values. Both new types use the existing exact Checker. Help offers the original fractions, removes the student's correctly chosen item, and never transfers a completed sequence to the main answer. Original prompt reconstruction ignores answer metadata. Each new placement has100 fresh conditions in the focused tests. Denominators2–12 and Year6 values through3 are selected practice scope, not statutory maximums. The native/default generic type is Grade5, preserving Korea's lower-grade scope.
+
+For three denominators, commonDenominatorFactor now requires one factor common to all, rather than only pairwise factors:6/10/15 is rejected. The old two-fraction selection remains identical and its related tests are rerun. Impossible unit/same-denominator domains fail explicitly instead of looping.
+
+FractionGivenDiagram reconstructs given whole/fraction components directly from the existing conversion prompt, including restored questions. Mixed input preserves all originally given whole units; improper input preserves the original numerator and denominator. It never reads solved outputs. Private drawing renders equal-sized wholes and cells without computed numeric answer labels. Numeric conversion and correct geometric grouping are distinct from full visual equivalence-family coverage.
+
+Official source: https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study
+Equivalent fraction picture families, tenths/hundredths, mixed arithmetic/full bounds/context/all languages/devices remain incomplete. Private UI, painter, translations, learner records, QA, APKs, ads and billing are excluded.

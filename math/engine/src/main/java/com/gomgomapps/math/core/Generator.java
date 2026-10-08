@@ -115,6 +115,7 @@ public final class Generator {
         if(DotCollections.supports(s.id))return DotCollections.next(s,random,limits,Map.of());
         if(GroupedEstimation.supports(s.id))return GroupedEstimation.next(s,random,limits,Map.of());
         if(PrimaryOrdering.supports(s.id))return PrimaryOrdering.next(s,random,limits,Map.of());
+        if(FractionOrdering.supports(s.id))return FractionOrdering.create(s,random,limits);
         if(CollectionGrouping.supports(s.id))return CollectionGrouping.next(s,random,limits,Map.of());
         if(CountingSteps.supports(s.id))return CountingSteps.next(s,random,limits,Map.of());
         if(DoubleHalf.supports(s.id))return DoubleHalf.next(s,random,limits,Map.of());

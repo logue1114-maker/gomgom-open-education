@@ -252,3 +252,5 @@ Selected England Year3 fractions: [ENGLAND_LIKE_FRACTIONS.md](ENGLAND_LIKE_FRACT
 Selected England Year5 fraction sums: [ENGLAND_UPPER_FRACTION_SUMS.md](ENGLAND_UPPER_FRACTION_SUMS.md).
 
 Selected England fraction relations: [ENGLAND_FRACTION_RELATIONS.md](ENGLAND_FRACTION_RELATIONS.md).
+
+Selected three-fraction ordering: [FRACTION_ORDERING.md](FRACTION_ORDERING.md).

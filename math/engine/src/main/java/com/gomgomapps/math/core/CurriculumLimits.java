@@ -174,7 +174,9 @@ public final class CurriculumLimits {
             Matcher operands=Pattern.compile("^-?\\d+(?:\\.\\d+)?\\s*[+*/×÷−-]\\s*(-?\\d+(?:\\.\\d+)?)$").matcher(q.expression);
             if(!operands.matches()||!Expression.number(operands.group(1)).d.equals(java.math.BigInteger.ONE))return false;
         }
-        if(maxFractionValue!=null){
+        if(maxFractionValue!=null&&FractionOrdering.supports(q.skillId)){
+            List<String> inputs=FractionOrdering.givens(q);if(inputs.size()!=3)return false;for(String input:inputs)if(Expression.number(input).compareTo(maxFractionValue)>0)return false;
+        }else if(maxFractionValue!=null){
             // choiceInputs also contains operator/denominator metadata; use the public operands.
             boolean comparison=Set.of("fracCompare","el_fraction_compare").contains(q.skillId);
             Matcher fractionOperands=Pattern.compile(comparison?"^(\\d+/\\d+)\\s+□\\s+(\\d+/\\d+)$":"^\\(([-0-9/]+)\\)\\s*[+−-]\\s*\\(([-0-9/]+)\\)$").matcher(comparison?q.prompt:q.expression);
@@ -193,7 +195,7 @@ public final class CurriculumLimits {
         if(!roundingUnits.isEmpty()){Matcher place=Pattern.compile("(\\d+)의 자리까지").matcher(q.prompt);if(!place.find()||!roundingUnits.contains(Integer.parseInt(place.group(1))))return false;}
         if(unitFractions){Matcher m=Pattern.compile("(\\d+)\\s*/\\s*\\d+").matcher(Set.of("fracCompare","el_fraction_compare").contains(q.skillId)?q.prompt:q.expression);boolean found=false;while(m.find()){found=true;if(!m.group(1).equals("1"))return false;}if(!found)return false;}
         if(relatedDenominators){List<Integer> found=new ArrayList<>();Matcher m=FRACTION.matcher(q.expression);while(m.find())found.add(Integer.parseInt(m.group(1)));for(int a:found)for(int b:found)if(a%b!=0&&b%a!=0)return false;}
-        if(commonDenominatorFactor){List<Integer> found=new ArrayList<>();Matcher m=FRACTION.matcher(q.prompt);while(m.find())found.add(Integer.parseInt(m.group(1)));if(found.size()<2)return false;for(int i=0;i<found.size();i++)for(int j=i+1;j<found.size();j++){int a=found.get(i),b=found.get(j);while(b!=0){int remainder=a%b;a=b;b=remainder;}if(a<2)return false;}}
+        if(commonDenominatorFactor){List<Integer> found=new ArrayList<>();Matcher m=FRACTION.matcher(q.prompt);while(m.find())found.add(Integer.parseInt(m.group(1)));if(found.size()<2)return false;int common=found.get(0);for(int i=1;i<found.size();i++){int b=found.get(i);while(b!=0){int remainder=common%b;common=b;b=remainder;}}if(common<2)return false;}
         if(!factors.isEmpty()){Matcher m=Pattern.compile("(\\d+)\\s*[×*]\\s*(\\d+)").matcher(operation);if(!m.matches()||(!factors.contains(Integer.parseInt(m.group(1)))&&!factors.contains(Integer.parseInt(m.group(2)))))return false;}
         if(!divisors.isEmpty()){Matcher m=Pattern.compile("\\d+\\s*[÷/]\\s*(\\d+)").matcher(operation);if(!m.matches()||!divisors.contains(Integer.parseInt(m.group(1))))return false;}
         if(!dividendMaxima.isEmpty()){Matcher m=Pattern.compile("(\\d+)\\s*[÷/]\\s*(\\d+)").matcher(operation);if(!m.matches())return false;Integer maximum=dividendMaxima.get(Integer.parseInt(m.group(2)));if(maximum==null||Long.parseLong(m.group(1))>maximum)return false;}
