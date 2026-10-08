@@ -32,7 +32,7 @@ public final class Generator {
     }
     public Question next(String skillId,Collection<String> recent,boolean multipleChoice,CurriculumLimits limits){
         Catalog.Skill s=Catalog.get(skillId);Question q=null;
-        Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(signature,position++);
+        Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(FractionNamesRelations.identity(signature),position++);
         int oldest=Integer.MAX_VALUE;
         if(FractionSupply.supports(skillId,limits))q=FractionSupply.next(s,random,limits,previous);
         if(skillId.equals("el_common_divisor"))q=CommonFactorSupply.next(random,limits,previous);

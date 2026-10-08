@@ -1,6 +1,11 @@
 package com.gomgomapps.math.core;
 import java.util.*;import org.junit.Test;import static org.junit.Assert.*;
 public class FractionNamesRelationsTest {
+ @Test public void explanationUpdatesPreserveStoredPublicConditionIdentity(){
+  Generator g=new Generator(new Random(68));List<String> old=new ArrayList<>();String first=null;
+  for(int i=0;i<4;i++){Question q=g.next("halfQuarterEquivalent",old,false,GlobalCurriculum.limits("england-primary-2021-v1","halfQuarterEquivalent",2));String canonical=q.signature();if(first==null)first=canonical;String previous="halfQuarterEquivalent|Old explanation.\n"+canonical.substring("halfQuarterEquivalent|".length());old.add(previous);assertEquals(canonical,FractionNamesRelations.identity(previous));q.prompt="Another explanation.\n"+q.prompt.substring(q.prompt.lastIndexOf('\n')+1);assertEquals(canonical,q.signature());}
+  assertEquals(first,g.next("halfQuarterEquivalent",old,false,GlobalCurriculum.limits("england-primary-2021-v1","halfQuarterEquivalent",2)).signature());
+ }
  @Test public void namesKeepThePresentedPartsAndSmallShuffledChoices(){
   for(int grade=1;grade<=2;grade++){Generator g=new Generator(new Random(66));CurriculumLimits limits=GlobalCurriculum.limits("england-primary-2021-v1","fractionNamePicture",grade);List<String> recent=new ArrayList<>();Set<Integer> positions=new HashSet<>();int size=grade==1?6:17;
    for(int i=0;i<size;i++){Question q=g.next("fractionNamePicture",recent,false,limits);assertFalse(recent.contains(q.signature()));recent.add(q.signature());int denominator=(int)q.diagram.values[0],numerator=Integer.bitCount((int)q.diagram.values[1]);String correct=numerator+"/"+denominator;assertEquals(grade==1?2:3,q.choices.size());assertTrue(q.choiceLabels.containsKey(correct));positions.add(q.choices.indexOf(correct));assertTrue(new Checker().check(q,List.of(),List.of(correct)).correct());for(String wrong:q.choices)if(!wrong.equals(correct))assertFalse(new Checker().check(q,List.of(),List.of(wrong)).correct());assertFalse(HelpPlan.forQuestion(q).canTransfer());

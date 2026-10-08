@@ -44,7 +44,7 @@ public final class Question implements Serializable {
         // All active/deferred questions pass through the same actual device deserialization path.
         if("sec_line_relation".equals(skillId))LineCircleRelations.attach(this);
     }
-    String legacySignature(){return skillId+"|"+prompt;}
+    String legacySignature(){return skillId+"|"+(skillId.equals("halfQuarterEquivalent")?prompt.substring(prompt.lastIndexOf('\n')+1):prompt);}
     boolean hasDiagramSignature(){return diagram!=null&&signatureVersion>0;}
     /** New picture tasks identify visible geometry, never hidden answer keys or shuffled button positions. */
     void usePictureChoiceSignature(){signatureVersion=2;}

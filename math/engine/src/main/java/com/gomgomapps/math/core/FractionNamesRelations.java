@@ -7,6 +7,11 @@ public final class FractionNamesRelations {
   new Catalog.Skill("fractionNamePicture","분수 이름 고르기",3,1,3,"","pictureParts",4,"fractionPart","같은 크기로 나눈 부분의 이름을 그림에서 찾는다."),
   new Catalog.Skill("halfQuarterEquivalent","같은 양의 분수",3,1,3,"","pictureParts",4,"fractionPart","같은 전체에서 절반과 사분의 이의 관계를 채운다."));
  public static boolean supports(String id){return SKILLS.stream().anyMatch(s->s.id.equals(id));}
+ static String identity(String signature){
+  String prefix="halfQuarterEquivalent|";if(!signature.startsWith(prefix))return signature;
+  int diagram=signature.indexOf("|diagram:"),line=signature.lastIndexOf('\n',diagram<0?signature.length():diagram);
+  return line<0?signature:prefix+signature.substring(line+1);
+ }
  static Question next(Catalog.Skill skill,Random random,CurriculumLimits limits,Map<String,Integer> recent){
   Map<String,Question> pool=new LinkedHashMap<>();
   if(skill.id.equals("fractionNamePicture")){
