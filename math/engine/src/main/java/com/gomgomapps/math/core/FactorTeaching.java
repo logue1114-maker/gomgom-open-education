@@ -17,14 +17,14 @@ public final class FactorTeaching {
   if(q==null||!supports(q.skillId)||q.studyGuide!=null)return;
   Expression.Poly p=polynomial(q);if(p.degree()!=2)return;Rational a=p.coefficient(2),b=p.coefficient(1),c=p.coefficient(0);Rational[] pair=pair(p);StudyGuide help=new StudyGuide().transfer(false);
   if(q.skillId.equals("expand")&&pair!=null){
-   help.step("x의 계수끼리 곱하세요.","1 × 1 = ","", "1")
-    .step("두 상수를 더해 x의 계수를 구하세요.",pair[0]+" + ("+pair[1]+") = ","",b.toString())
-    .step("두 상수를 곱해 상수항을 구하세요.",pair[0]+" × ("+pair[1]+") = ","",c.toString());
+   help.step("x의 계수끼리 곱하세요.","첫 인수의 x 계수 × 둘째 인수의 x 계수 = ","", "1")
+    .step("두 상수를 더해 x의 계수를 구하세요.","첫 인수의 상수 + 둘째 인수의 상수 = ","",b.toString())
+    .step("두 상수를 곱해 상수항을 구하세요.","첫 인수의 상수 × 둘째 인수의 상수 = ","",c.toString());
   }else if(pair!=null){
    help.step("x의 계수를 쓰세요.","두 수의 합 = ","",b.toString())
     .step("상수항을 쓰세요.","두 수의 곱 = ","",c.toString())
-    .step("합과 곱을 만족하는 두 정수 중 작은 수를 쓰세요.","합 "+b+" · 곱 "+c+"\n작은 수 = ","",pair[0].toString())
-    .step("합에서 작은 수를 빼 큰 수를 구하세요.",b+" − ("+pair[0]+") = ","",pair[1].toString());
+    .step("합과 곱을 만족하는 두 정수 중 작은 수를 쓰세요.","두 수의 합은 x의 계수, 곱은 상수항\n작은 수 = ","",pair[0].toString())
+    .step("합에서 작은 수를 빼 큰 수를 구하세요.","두 수의 합 − 작은 수 = ","",pair[1].toString());
    if(q.skillId.equals("quadratic")){
     help.step("곱이 0이면 인수 중 하나가 0입니다. 첫째 해를 구하세요.","x + ("+pair[0]+") = 0\nx = −("+pair[0]+") = ","",pair[0].neg().toString());
     if(!pair[0].equals(pair[1]))help.step("다른 인수가 0일 때 둘째 해를 구하세요.","x + ("+pair[1]+") = 0\nx = −("+pair[1]+") = ","",pair[1].neg().toString());

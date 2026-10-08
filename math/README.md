@@ -178,3 +178,7 @@ Four elementary factor/multiple searches use named empty relations and checked s
 ### Whole-number comparison (2026-10-08)
 
 `el_compare_10000` now uses blank named number and place-digit inputs, followed by a comparison-sign choice. It requires no subtraction or negative arithmetic, preserves generator bounds/signatures, and displays only checked student entries as references. [Scope and validation](../docs/MATH_WHOLE_COMPARE_20261008.json).
+
+## Current source update
+
+See [2026-10-08 module connections, curriculum limits and reproduction](UPDATES_20261008.md).

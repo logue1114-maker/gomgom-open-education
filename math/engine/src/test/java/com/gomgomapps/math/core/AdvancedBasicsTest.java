@@ -19,7 +19,7 @@ public class AdvancedBasicsTest {
                 Rational expected=Expression.number(q.answers[0]);assertFalse(context,checker.check(q,List.of(),List.of(expected.add(Rational.ONE).toString())).correct());
                 HelpPlan plan=HelpPlan.forQuestion(q);assertNotNull(context,plan);HelpPlan.Draft draft=plan.restore(null,q.id);
                 for(int j=0;j<plan.size();j++){String v=q.studyGuide.frames.get(j).expected;assertTrue(context,plan.step(j).accepts(v));assertFalse(context,plan.step(j).accepts(""));assertFalse(context,plan.step(j).accepts("1/0"));draft.entries.set(j,v);draft.stage++;while(draft.entries.size()<=draft.stage)draft.entries.add("");}
-                assertEquals(context,!skill.id.equals("commonLog"),plan.canTransfer());assertEquals(context,expected,Expression.number(plan.enteredAnswer(draft)));
+                assertEquals(context,!skill.id.equals("commonLog")&&!HigherFoundationPractice.supports(skill.id)&&!VectorFoundationPractice.supports(skill.id),plan.canTransfer());assertEquals(context,expected,Expression.number(plan.enteredAnswer(draft)));
                 q.answers[0]="987654321";HelpPlan after=HelpPlan.forQuestion(q);assertTrue(context,after.step(after.size()-1).accepts(expected.toString()));
             }
             assertTrue(skill.id+" question variety "+prompts.size(),prompts.size()>=4);

@@ -14,7 +14,7 @@ final class StatisticsBasics {
             Rational root=Rational.of(1+random.nextInt(24),2),variance=root.mul(root);
             Question q=new Question(skill.id,"분산이 "+variance+"인 자료의 표준편차는?","",root.toString());
             q.stepSupport=false;q.givenNumbers.put("variance",variance.toString());
-            q.studyGuide=new StudyGuide().step("분산의 제곱근을 구하세요.","√("+variance+") = ","",root.toString());
+            StatisticsSpreadRelations.attach(q);
             return q;
         }
         int[] data;
@@ -41,15 +41,8 @@ final class StatisticsBasics {
         Rational variance=squares.div(Rational.of(data.length));
         Rational answer=deviation?variance.sqrt():variance;
         String values=Arrays.stream(data).mapToObj(Integer::toString).collect(Collectors.joining(", "));
-        String total=Arrays.stream(data).mapToObj(Integer::toString).collect(Collectors.joining(" + "));
-        String squared=Arrays.stream(data).mapToObj(v->"("+v+" − ("+mean+"))²").collect(Collectors.joining(" + "));
-        StudyGuide guide=new StudyGuide()
-                .step("자료의 평균을 구하세요.","("+total+") ÷ "+data.length+" = ","",mean.toString())
-                .step("각 편차를 제곱한 값을 모두 더하세요.",squared+" = ","",squares.toString())
-                .step("제곱한 값의 합을 자료 개수로 나누세요.","("+squares+") ÷ "+data.length+" = ","",variance.toString());
-        if(deviation)guide.step("분산의 제곱근을 구하세요.","√("+variance+") = ","",answer.toString());
         Question q=new Question(skill.id,"자료 ["+values+"] 전체의 "+(deviation?"표준편차는?":"분산은?"),"",answer.toString());
-        q.stepSupport=false;q.studyGuide=guide;
+        q.stepSupport=false;StatisticsSpreadRelations.attach(q);
         return q;
     }
 }

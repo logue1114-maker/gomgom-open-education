@@ -224,7 +224,7 @@ public final class ElementaryBasics {
             case "el_circle_area": return circleArea(skill,random,limits);
             case "el_rect_prism_volume": return rectPrismVolume(skill,random);
             case "el_rect_prism_surface": return rectPrismSurface(skill,random);
-            case "el_cube_volume": return cubeVolume(skill,random);
+            case "el_cube_volume": return cubeVolume(skill,random,limits);
             case "el_cube_surface": return cubeSurface(skill,random,limits);
             case "el_3d_elements": return rectPrismElements(skill,random);
             case "el_picture_graph": return pictureGraph(skill,random);
@@ -1224,8 +1224,8 @@ public final class ElementaryBasics {
                 null);
     }
 
-    private static Question cubeVolume(Catalog.Skill skill,Random random){
-        int side=n(random,2,12);
+    private static Question cubeVolume(Catalog.Skill skill,Random random,CurriculumLimits limits){
+        int side=n(random,2,limits.wholeMaximum(12));
         return number(skill,"한 모서리의 길이가 "+side+"cm인 정육면체의 부피는?",side+"*"+side+"*"+side,
                 Rational.of((long)side*side*side),
                 guide(step("같은 모서리 세 개를 곱합니다.",side+" × "+side+" × "+side+" = ","cm³",side+"*"+side+"*"+side)),

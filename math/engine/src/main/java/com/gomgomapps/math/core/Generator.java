@@ -72,7 +72,7 @@ public final class Generator {
         return create(s,CurriculumLimits.NONE);
     }
     private Question create(Catalog.Skill s,CurriculumLimits limits){
-        Question q=createQuestion(s,limits);ArithmeticTeaching.attach(q);FractionEquationTeaching.attach(q);DecimalTeaching.attach(q);RatioValueTeaching.attach(q);StatisticsAngleTeaching.attach(q);GeometryCalculationTeaching.attach(q);DivisorMultipleTeaching.attach(q);SimpleGeometryRelations.attach(q);ElementarySplitAngleRelations.attach(q);ElementaryGraphRelations.attach(q);ProportionalPairRelations.attach(q);ScaleRelations.attach(q);HireInterestRelations.attach(q);AnnualChangeRelations.attach(q);PrismSurfaceRelations.attach(q);SectorPerimeterRelations.attach(q);CuboidSurfaceRelations.attach(q);SectorCoefficientRelations.attach(q);SolidSurfaceRelations.attach(q);RoundSolidVolumeRelations.attach(q);SolidFoundationRelations.attach(q);ModeRelations.attach(q);RelativeFrequencyRelations.attach(q);IsoscelesAngleRelations.attach(q);SimilarityMeasureRelations.attach(q);ProbabilityRelations.attach(q);QuadraticValueRelations.attach(q);CircleLengthRelations.attach(q);TrigHeightRelations.attach(q);PolyDivisionRelations.attach(q);AlgebraRelations.attach(q);PolynomialRootRelations.attach(q);QuadraticRangeRelations.attach(q);IntervalRelations.attach(q);CombinedCountingRelations.attach(q);MatrixCalculationRelations.attach(q);CoordinateCalculationRelations.attach(q);LineCircleRelations.attach(q);MovementCircleRelations.attach(q);SetCountRelations.attach(q);SubsetRelations.attach(q);PropositionRelations.attach(q);WorkRateRelations.attach(q);return q;
+        Question q=createQuestion(s,limits);ArithmeticTeaching.attach(q);FractionEquationTeaching.attach(q);DecimalTeaching.attach(q);RatioValueTeaching.attach(q);StatisticsAngleTeaching.attach(q);StatisticsSpreadRelations.attach(q);SequenceCalculusRelations.attach(q);LyceeAlgebraRelations.attach(q);HigherFoundationPractice.attach(q);VectorFoundationPractice.attach(q);GeometryCalculationTeaching.attach(q);DivisorMultipleTeaching.attach(q);SimpleGeometryRelations.attach(q);ElementarySplitAngleRelations.attach(q);ElementaryGraphRelations.attach(q);ProportionalPairRelations.attach(q);ScaleRelations.attach(q);HireInterestRelations.attach(q);AnnualChangeRelations.attach(q);PrismSurfaceRelations.attach(q);SectorPerimeterRelations.attach(q);CuboidSurfaceRelations.attach(q);SectorCoefficientRelations.attach(q);SolidSurfaceRelations.attach(q);RoundSolidVolumeRelations.attach(q);SolidFoundationRelations.attach(q);ModeRelations.attach(q);RelativeFrequencyRelations.attach(q);IsoscelesAngleRelations.attach(q);SimilarityMeasureRelations.attach(q);ProbabilityRelations.attach(q);QuadraticValueRelations.attach(q);CircleLengthRelations.attach(q);TrigHeightRelations.attach(q);PolyDivisionRelations.attach(q);AlgebraRelations.attach(q);PolynomialRootRelations.attach(q);QuadraticRangeRelations.attach(q);IntervalRelations.attach(q);CombinedCountingRelations.attach(q);MatrixCalculationRelations.attach(q);CoordinateCalculationRelations.attach(q);LineCircleRelations.attach(q);MovementCircleRelations.attach(q);SetCountRelations.attach(q);SubsetRelations.attach(q);PropositionRelations.attach(q);WorkRateRelations.attach(q);return q;
     }
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
         if(IrrationalLengths.supports(s.id))return IrrationalLengths.create(s,random);
@@ -118,6 +118,8 @@ public final class Generator {
         if(SquareFractionFoundations.SKILLS.contains(s.id))return SquareFractionFoundations.create(s,random,limits);
         if(FractionProducts.SKILLS.contains(s.id))return FractionProducts.create(s,random);
         if(s.family.startsWith("fracMixed"))return MixedFractions.create(s,random);
+        if(VectorFoundationPractice.supports(s.id))return VectorFoundationPractice.create(s,random);
+        if(HigherFoundationPractice.supports(s.id))return HigherFoundationPractice.create(s,random);
         if(s.family.startsWith("adv_"))return AdvancedBasics.create(s,random);
         if(s.id.startsWith("sec_"))return SecondaryBasics.create(s,random,limits);
         if(s.id.startsWith("el_"))return ElementaryBasics.create(s,random,limits);
@@ -158,7 +160,7 @@ public final class Generator {
             case "div2": b=n(11,39);a=b*n(2,24);e=a+" ÷ "+b;break;
             case "remainder": b=n(2,9);a=n(10,99);q=new Question(s.id,a+" ÷ "+b,"",String.valueOf(a/b),String.valueOf(a%b));q.labels=new String[]{"몫","나머지"};q.kind="pair";q.stepSupport=false;return q;
             case "place": {if(s.id.equals("place50"))return NumberFoundations.place50(s,random);int maximum=limits.wholeMaximum(s.range),digits=String.valueOf(maximum).length(),minimum=(int)Math.pow(10,digits-1);if(maximum==minimum&&minimum>1)minimum/=10;int v=n(minimum,maximum),place=n(0,String.valueOf(v).length()-1);int pow=(int)Math.pow(10,place);String[] names={"일","십","백","천","만","십만","백만","천만","억"};q=numeric(s,v+"에서 "+names[place]+"의 자리 숫자는?","",Rational.of((v/pow)%10));q.stepSupport=false;return q.withInputs(v,place);}
-            case "fractionPart": b=n(2,12);a=n(1,b-1);q=numeric(s,"전체를 똑같이 "+b+"조각으로 나눈 것 중 "+a+"조각을 분수로 나타내세요.",a+"/"+b,Rational.of(a,b));q.stepSupport=false;return q.withInputs(a,b);
+            case "fractionPart": if(limits.hasFractionDenominators()){int[] allowed=limits.fractionDenominators();b=allowed[random.nextInt(allowed.length)];}else b=n(2,12);a=n(1,b-1);q=numeric(s,"전체를 똑같이 "+b+"조각으로 나눈 것 중 "+a+"조각을 분수로 나타내세요.",a+"/"+b,Rational.of(a,b));q.stepSupport=false;return q.withInputs(a,b);
             case "fracCompare": b=n(3,12);a=n(1,b-1);c=n(1,b-1);q=new Question(s.id,a+"/"+b+"  □  "+c+"/"+b,"",a==c?"=":a>c?">":"<");q.kind="symbol";q.stepSupport=false;return q;
             case "fracAddLike": case "fracSubLike": case "fracAdd": case "fracSub": case "fracMul": case "fracDiv": case "fracDivInt": case "rational": {
                 int den=n(2,12),den2=s.family.endsWith("Like")?den:n(2,12);Rational x=Rational.of(n(1,den-1),den),y=Rational.of(n(1,den2-1),den2);
@@ -205,8 +207,8 @@ public final class Generator {
                 inputs=new Rational[]{Rational.of(a),Rational.of(b),Rational.of(c),Rational.of(variant)};break;
             }
             case "gcd": case "lcm": a=n(2,s.range);b=n(2,s.range);int gcd=gcd(a,b);answer=Rational.of(s.family.equals("gcd")?gcd:a/gcd*b);q=numeric(s,a+"와 "+b+"의 "+(s.family.equals("gcd")?"최대공약수":"최소공배수")+"는?","",answer);q.stepSupport=false;return q.withInputs(a,b);
-            case "mean": {int[] vs={n(1,40),n(1,40),n(1,40),n(1,40)};int sum=Arrays.stream(vs).sum();q=numeric(s,Arrays.toString(vs).replace("[","").replace("]","")+"의 평균은?","("+vs[0]+"+"+vs[1]+"+"+vs[2]+"+"+vs[3]+")/4",Rational.of(sum,4));return q.withInputs(vs[0],vs[1],vs[2],vs[3]);}
-            case "median": {List<Integer> vs=new ArrayList<>();for(int i=0;i<5;i++)vs.add(n(1,50));String display=vs.toString();long[] original=vs.stream().mapToLong(Integer::longValue).toArray();Collections.sort(vs);q=numeric(s,display.substring(1,display.length()-1)+"의 중앙값은?","",Rational.of(vs.get(2)));q.stepSupport=false;return q.withInputs(original);}
+            case "mean": {long[] vs=new long[n(3,8)];for(int i=0;i<vs.length;i++)vs[i]=n(1,40);long sum=Arrays.stream(vs).sum();String display=Arrays.toString(vs).replace("[","").replace("]","");q=numeric(s,display+"의 평균은?","("+display.replace(", ","+")+")/"+vs.length,Rational.of(sum,vs.length));return q.withInputs(vs);}
+            case "median": {List<Integer> vs=new ArrayList<>();int size=n(3,8);for(int i=0;i<size;i++)vs.add(n(1,50));String display=vs.toString();long[] original=vs.stream().mapToLong(Integer::longValue).toArray();Collections.sort(vs);Rational middle=size%2==1?Rational.of(vs.get(size/2)):Rational.of((long)vs.get(size/2-1)+vs.get(size/2),2);q=numeric(s,display.substring(1,display.length()-1)+"의 중앙값은?","",middle);q.stepSupport=false;return q.withInputs(original);}
             case "percent": int[] percentages=limits.percentages();a=percentages[random.nextInt(percentages.length)];b=n(2,40)*10;q=numeric(s,b+"의 "+a+"%는?",b+"*"+a+"/100",Rational.of(a*b,100));return q.withInputs(a,b);
             case "proportion": a=n(2,12);b=n(2,12);c=n(2,9);q=numeric(s,a+" : "+b+" = "+(a*c)+" : x\nx의 값은?","x="+(b*c),Rational.of(b*c));q.kind="equation";return q;
             case "signedAdd": a=signed(30);b=signed(30);boolean subtract=random.nextBoolean();inputs=new Rational[]{Rational.of(a),Rational.of(b),Rational.of(subtract?1:0)};e=wrap(a)+(subtract?" - ":" + ")+wrap(b);break;
@@ -239,7 +241,10 @@ public final class Generator {
                 if(random.nextBoolean()){
                     a=n(2,9);b=n(1,5);c=n(1,5);
                     q=numeric(s,a+"^"+b+" × "+a+"^"+c+" = "+a+"^□\n□에 들어갈 지수는?",b+"+"+c,Rational.of(b+c));q.labels=new String[]{"지수"};
-                    q.studyGuide=new StudyGuide().step("밑이 같으므로 지수끼리 더하세요.",b+" + "+c+" = ","",String.valueOf(b+c));return q.withInputs(a,b,c);
+                    q.studyGuide=new StudyGuide().transfer(false)
+                        .step("첫 번째 거듭제곱의 지수를 입력하세요.","첫 번째 지수 = ","",String.valueOf(b))
+                        .step("두 번째 거듭제곱의 지수를 입력하세요.","두 번째 지수 = ","",String.valueOf(c))
+                        .step("밑이 같으면 두 지수를 더합니다.","첫 번째 지수 + 두 번째 지수 = ","",String.valueOf(b+c));return q.withInputs(a,b,c);
                 }
                 a=n(2,5);b=n(1,3);c=n(1,3);e=a+"^"+b+" × "+a+"^"+c;break;
             }
@@ -257,7 +262,7 @@ public final class Generator {
                 a=n(2,9);b=n(2,9);c=random.nextBoolean()?n(2,9):0;int target=random.nextInt(c==0?2:3);int favourable=target==0?a:target==1?b:c,total=a+b+c;String colour=target==0?"빨간":target==1?"파란":"초록";
                 String givens="빨간 공 "+a+"개, 파란 공 "+b+"개"+(c==0?"":", 초록 공 "+c+"개");
                 q=numeric(s,givens+" 중 하나를 같은 가능성으로 뽑습니다.\n"+colour+" 공을 뽑을 확률은?",favourable+"/"+total,Rational.of(favourable,total));
-                q.studyGuide=new StudyGuide().step("전체 공의 수를 구하세요.",a+" + "+b+(c==0?"":" + "+c)+" = ","",String.valueOf(total)).step("뽑으려는 색 공의 수를 전체 공의 수로 나누세요.",favourable+" / "+total+" = ","",Rational.of(favourable,total).toString());
+                ProbabilityRelations.attach(q);
                 return q.withInputs(favourable,total-favourable);
             }
             case "setCount": a=n(5,20);b=n(5,20);c=n(1,Math.min(a,b));q=numeric(s,"n(A)="+a+", n(B)="+b+", n(A∩B)="+c+"\nn(A∪B)의 값은?",a+"+"+b+"-"+c,Rational.of(a+b-c));return q.withInputs(a,b,c);
@@ -265,7 +270,7 @@ public final class Generator {
             case "negativePower": return PowerLogPractice.negativePower(s,random);
             case "log": return PowerLogPractice.logarithm(s,random);
             case "arithmeticSeq": a=signed(12);b=signed(6);c=n(3,12);q=numeric(s,"첫째항 "+a+", 공차 "+b+"인 등차수열의 제"+c+"항은?",wrap(a)+"+"+(c-1)+"*"+wrap(b),Rational.of(a+(c-1)*b));return q.withInputs(a,b,c);
-            case "geometricSeq": a=signed(5);b=n(2,4);c=n(3,5);q=numeric(s,"첫째항 "+a+", 공비 "+b+"인 등비수열의 제"+c+"항은?",wrap(a)+"*"+b+"^"+(c-1),Rational.of(a*(long)Math.pow(b,c-1)));return q.withInputs(a,b,c);
+            case "geometricSeq": a=signed(5);b=n(2,4);c=n(3,7);q=numeric(s,"첫째항 "+a+", 공비 "+b+"인 등비수열의 제"+c+"항은?",wrap(a)+"*"+b+"^"+(c-1),Rational.of(a*(long)Math.pow(b,c-1)));return q.withInputs(a,b,c);
             case "limit": a=signed(6);b=signed(6);c=signed(5);q=numeric(s,"x가 "+c+"에 가까워질 때\n"+a+"x² + ("+b+")의 극한값은?",wrap(a)+"*"+wrap(c)+"^2+"+wrap(b),Rational.of(a*c*c+b));return q.withInputs(a,b,c);
             case "derivative": a=signed(6);b=n(2,4);c=signed(4);q=numeric(s,"f(x)="+a+"x^"+b+"\nf′("+c+")의 값은?",wrap(a)+"*"+b+"*"+wrap(c)+"^"+(b-1),Rational.of(a*b*(long)Math.pow(c,b-1)));return q.withInputs(a,b,c);
             case "integral": a=signed(5);b=n(1,3);c=n(1,4);q=numeric(s,"∫₀^"+c+" ("+a+"x^"+b+") dx의 값은?",wrap(a)+"*"+c+"^"+(b+1)+"/"+(b+1),Rational.of(a*(long)Math.pow(c,b+1),b+1));return q.withInputs(a,b,c);

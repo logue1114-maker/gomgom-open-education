@@ -87,7 +87,7 @@ public final class Catalog {
         add("linear","일차방정식",7,1,2,"linear",12,"likeTerms,signedMul","등식의 양변에 같은 수를 더하거나 빼고, 0이 아닌 같은 수로 곱하거나 나눌 수 있다.");
         add("linearFraction","계수가 분수인 일차방정식",7,1,2,"linearFraction",9,"linear,rational,lcm","양변에 분모의 공배수를 곱해 분모를 없앨 수 있다.");
         add("angles","삼각형의 내각",7,2,2,"angles",90,"sub1000","삼각형의 세 내각의 크기를 더하면 180도이다.");
-        add("median","중앙값",7,2,3,"median",50,"compare","자료를 크기순으로 정렬한 뒤 가운데 값을 찾는다.");
+        add("median","중앙값",7,2,3,"median",50,"compare","자료를 크기순으로 정렬한다. 자료 수가 홀수이면 가운데 수, 짝수이면 가운데 두 수의 평균을 구한다.");
         add("powerLaw","지수법칙",8,1,1,"powerLaw",6,"signedMul","밑이 같은 거듭제곱의 곱은 지수를 더한다.");
         add("monomialProduct","단항식의 곱셈",8,1,1,"monomialProduct",9,"powerLaw,signedMul","계수끼리 곱하고 같은 문자의 지수를 더한다.");
         add("monomialQuotient","단항식의 나눗셈",8,1,1,"monomialQuotient",9,"monomialProduct,rational","계수끼리 나누고 같은 문자의 지수를 뺀다. 분모는 0이 아니어야 한다.");
@@ -171,6 +171,7 @@ public final class Catalog {
         ALL.addAll(TimetableQuestions.SKILLS);
         ALL.addAll(ClockNotation.SKILLS);
         ALL.addAll(SurfaceGeometry.SKILLS);
+        ALL.addAll(HigherFoundationPractice.SKILLS);
         ALL.addAll(AdvancedBasics.skills());
         ALL.addAll(SecondaryBasics.skills());
         ALL.addAll(ElementaryBasics.skills());

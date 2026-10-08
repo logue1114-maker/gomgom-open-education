@@ -69,7 +69,7 @@ public final class HelpPlan {
         steps.add(new Step(instruction,before,after,expected,filled,extra,denominator));
     }
     public static HelpPlan forQuestion(Question q){
-        if(q!=null&&StatisticsAngleTeaching.relationships(q.skillId))StatisticsAngleTeaching.attach(q);
+        if(q!=null&&StatisticsAngleTeaching.relationships(q.skillId))StatisticsAngleTeaching.attach(q);StatisticsSpreadRelations.attach(q);SequenceCalculusRelations.attach(q);LyceeAlgebraRelations.attach(q);HigherFoundationPractice.attach(q);VectorFoundationPractice.attach(q);
         RatioValueTeaching.attach(q);
         SolidVolumeTeaching.attach(q);
         CoordinateRelationTeaching.attach(q);
@@ -88,6 +88,7 @@ public final class HelpPlan {
         MeasureUnitRelations.attach(q);ClockReadingRelations.attach(q);NumberPatternRelations.attach(q);RangeBoundaryRelations.attach(q);RatioCorrespondenceRelations.attach(q);PerimeterBoundaryRelations.attach(q);ReadingFoundationRelations.attach(q);ShapeStructureRelations.attach(q);FactorSearchRelations.attach(q);WholeCompareRelations.attach(q);
         WholeProductRelations.attach(q);WholeDivisionRelations.attach(q);
         BasicAlgebraRelations.attach(q);
+        FrequencyRelations.attach(q);
         RationalArithmeticRelations.attach(q);
         LinearEquationRelations.attach(q);
         FractionReductionRelations.attach(q);

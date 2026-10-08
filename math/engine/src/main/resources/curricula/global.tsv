@@ -1202,3 +1202,146 @@ MAP	br-bncc-fundamental-2017-v1	9	coordinateAltitudeArea	EF09MA16; selected axis
 MAP	br-bncc-fundamental-2017-v1	9	coordinateObliqueArea	EF09MA16; selected integer-coordinate all-oblique triangles, public baseline and trapezoid differences with exact integer/fraction area; full criterion remains incomplete; BNCC printed p.319
 
 MAP	br-bncc-fundamental-2017-v1	9	sec_prism_volume,triangularPrismVolume,sec_cylinder_volume	EF09MA19; selected rectangular/triangular right-prism and cylinder volume calculations from centimetre dimensions with actual labelled solid diagrams; other bases, everyday modelling and student-created problems remain incomplete; BNCC printed p.319
+
+# France selected current Cycle2/3 numeric foundations; see reviewed source mapping.
+PACK	fr-men-cycles23-2024-2025-v1	FR	France · CP–3e (2026–2027)	https://www.education.gouv.fr/bo/2026/Hebdo10/MENE2602912A	CP–3e · Calcul, géométrie et données : notions de base. Tous les domaines du programme ne sont pas encore disponibles.
+LEVEL	fr-men-cycles23-2024-2025-v1	1	CP
+LEVEL	fr-men-cycles23-2024-2025-v1	2	CE1
+LEVEL	fr-men-cycles23-2024-2025-v1	3	CE2
+LEVEL	fr-men-cycles23-2024-2025-v1	4	CM1
+LEVEL	fr-men-cycles23-2024-2025-v1	5	CM2
+LEVEL	fr-men-cycles23-2024-2025-v1	6	6e
+MAP	fr-men-cycles23-2024-2025-v1	1	count,compare,join9,split9,place10,place50,place100,add9,sub9,add20,sub20,add100,sub100,addThree100,mulIntro	Cycle2 PDF3–8: selected whole-number/place-value and add/subtract foundations within100; repeated groups model meaning only; oral names, counting to100, all mental procedures and sharing problems remain
+MAP	fr-men-cycles23-2024-2025-v1	2	place1000,el_compare_10000,add1000,sub1000,tables,el_even_odd,fractionPart,fracCompare,fracAddLike,fracSubLike	Cycle2 PDF10–17: numbers through1000, multiplication tables through10 and fractions of a whole with denominators2,3,4,5,6,8,10; same-denominator comparison/operations only; unit-fraction comparison, manipulative representations and full procedures remain
+MAP	fr-men-cycles23-2024-2025-v1	3	largePlace,el_sequence_10000,add1000,sub1000,mul2,mul3,mul22,el_mul_3x2,fractionPart,fracCompare,fracAddLike,fracSubLike,fracAdd,fracSub	Cycle2 PDF19–25: selected integers within10000, written products and related-denominator fractions; decimal money-context work and remaining representations/mental procedures are not covered by generic decimal arithmetic
+MAP	fr-men-cycles23-2024-2025-v1	4	largePlace,add1000,sub1000,mul2,mul3,mul22,el_mul_3x2,divide,remainder,fracAdd,fracSub,el_improper_to_mixed,el_mixed_to_improper,fracMulInt,el_decimal_place,el_decimal_compare,decimalAdd,decimalSub,decimalMul	Cycle3 PDF5–8: selected six-digit numeration, integer operations, fractions and hundredths; fraction-of-quantity uses unit fractions only; written algorithms/mental-procedure breadth and representations remain
+MAP	fr-men-cycles23-2024-2025-v1	5	largePlace,decimalAdd,decimalSub,decimalMul,decimalDivInt,fracAdd,fracSub,el_improper_to_mixed,el_mixed_to_improper	Cycle3 PDF9–13: selected numeration through999999999, thousandths, decimal-by-integer operations and fraction calculation; mapping effective for CM2 from2026 school year; broader mental/proportional/algebraic requirements remain
+MAP	fr-men-cycles23-2024-2025-v1	6	largePlace,decimalAdd,decimalSub,decimalMul,decimalDivInt,fracMulInt,fracAdd,fracSub,reduce,el_divisor,el_multiple	Cycle3 PDF13–16: selected decimal multiplication, fraction-by-integer, add/subtract, simplification and divisor/multiple foundations; billion numeration, percentages, wider division, fraction quotient representations and pre-algebra remain
+RULE	fr-men-cycles23-2024-2025-v1	1	add9,sub9,add20,sub20	variedSums=true;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	1	count	variedFacts=true
+RULE	fr-men-cycles23-2024-2025-v1	1	join9	variedFacts=true
+RULE	fr-men-cycles23-2024-2025-v1	1	add100,sub100,addThree100,mulIntro	maxGiven=100;maxResult=100;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	1	place100	wholeMaximum=100
+RULE	fr-men-cycles23-2024-2025-v1	2	place1000	wholeMaximum=1000
+RULE	fr-men-cycles23-2024-2025-v1	2	el_compare_10000	maxGiven=1000
+RULE	fr-men-cycles23-2024-2025-v1	3	el_compare_10000	maxGiven=10000
+RULE	fr-men-cycles23-2024-2025-v1	2	add1000,sub1000	wholeDigits=3;maxGiven=1000;maxResult=1000;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	3	add1000,sub1000	wholeDigits=4;minimumWholeDigits=3;maxGiven=10000;maxResult=10000;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	4	add1000,sub1000	wholeDigits=6;minimumWholeDigits=3;maxGiven=999999;maxResult=999999;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	2	tables	timesTableMax=10;variedFacts=true;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	2	fracCompare	denominators=2,3,4,5,6,8,10
+RULE	fr-men-cycles23-2024-2025-v1	2	fractionPart	denominators=2,3,4,5,6,8,10;variedFacts=true
+RULE	fr-men-cycles23-2024-2025-v1	2	fracAddLike,fracSubLike	denominators=2,3,4,5,6,8,10;maxFractionValue=1;maxResult=1;nonnegative=true;variedFacts=true
+RULE	fr-men-cycles23-2024-2025-v1	3	fracCompare	denominators=2,3,4,5,6,7,8,9,10,11,12
+RULE	fr-men-cycles23-2024-2025-v1	3	fractionPart	denominators=2,3,4,5,6,7,8,9,10,11,12;variedFacts=true
+RULE	fr-men-cycles23-2024-2025-v1	3	fracAddLike,fracSubLike	denominators=2,3,4,5,6,7,8,9,10,11,12;nonnegative=true;variedFacts=true
+RULE	fr-men-cycles23-2024-2025-v1	4	divide	variedFacts=true
+RULE	fr-men-cycles23-2024-2025-v1	3	fracAdd,fracSub	relatedDenominators=true;variedFacts=true;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	4	fracAdd,fracSub	nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	4	fracMulInt	unitFractions=true;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	6	fracMulInt	nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	3	largePlace	wholeMaximum=10000
+RULE	fr-men-cycles23-2024-2025-v1	4	largePlace	wholeMaximum=999999
+RULE	fr-men-cycles23-2024-2025-v1	5	largePlace	wholeMaximum=999999999
+RULE	fr-men-cycles23-2024-2025-v1	4	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=2;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	5	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub,decimalDivInt	decimalPlaces=3;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	4	decimalMul	integerSecondOperand=true;decimalPlaces=2;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	5	decimalMul	integerSecondOperand=true;decimalPlaces=3;nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	6	decimalMul	decimalPlaces=3;nonnegative=true
+LEVEL	fr-men-cycles23-2024-2025-v1	7	5e
+MAP	fr-men-cycles23-2024-2025-v1	7	signedAdd,fracCompare,fracAdd,fracSub,reduce,decimalDiv,el_divisor,el_multiple,substitute,likeTerms	5e BO2026 PDF7–9, effective2026: selected integer signed addition/subtraction, positive decimal division, positive fractions, divisors/multiples and linear-expression practice; arbitrary-denominator comparison, signed decimals, squares/cubes and one-operation equations remain incomplete
+LEVEL	fr-men-cycles23-2024-2025-v1	8	4e
+MAP	fr-men-cycles23-2024-2025-v1	8	signedAdd,signedMul,fracCompare,fracAdd,fracSub,fracMul,fracDiv,rational,reduce,sec_prime_factor,substitute,likeTerms,linear,powerLaw	4e current annual expectations PDF2–4, applicable2026–2027: selected integer/rational operations, prime factors, positive-exponent products and first-degree equations; signed decimals, scientific notation, perfect-square/root bounds and full literal algebra remain incomplete; BO2026 4e is not effective until2027
+LEVEL	fr-men-cycles23-2024-2025-v1	9	3e
+MAP	fr-men-cycles23-2024-2025-v1	9	signedAdd,signedMul,fracCompare,fracAdd,fracSub,fracMul,fracDiv,rational,reduce,sec_prime_factor,substitute,likeTerms,linear,powerLaw,negativePower,expand,factor,linearValue	3e current annual expectations PDF2–4, applicable2026–2027: selected rational arithmetic, prime factors, powers, double distributivity, monic-product factorisation, first-degree equations and affine function values; general square equations, scientific contexts and full function/geometry/statistics requirements remain incomplete; BO2026 3e is not effective until2028
+RULE	fr-men-cycles23-2024-2025-v1	7	fracCompare	
+RULE	fr-men-cycles23-2024-2025-v1	7	fracAdd,fracSub	
+RULE	fr-men-cycles23-2024-2025-v1	8	fracCompare	
+RULE	fr-men-cycles23-2024-2025-v1	8	fracAdd,fracSub	
+RULE	fr-men-cycles23-2024-2025-v1	9	fracCompare	
+RULE	fr-men-cycles23-2024-2025-v1	9	fracAdd,fracSub	
+RULE	fr-men-cycles23-2024-2025-v1	7	substitute	nonnegative=true
+RULE	fr-men-cycles23-2024-2025-v1	8	sec_prime_factor	variedFacts=true
+RULE	fr-men-cycles23-2024-2025-v1	9	sec_prime_factor	variedFacts=true
+MAP	fr-men-cycles23-2024-2025-v1	7	el_triangle_area,el_parallelogram_area,el_circle_area,el_rect_prism_volume,el_cube_volume,sec_prism_volume,triangularPrismVolume,sec_cylinder_volume,angles,mean,sec_frequency,sec_relative_frequency,probability,percent,proportion	5e BO2026 PDF12–13/16–19: selected area/volume/angle, simple mean, frequency, equiprobability and proportional calculation components; circle area uses stated3.14 approximation; geometry proof/construction, data production and full contextual reasoning remain incomplete
+MAP	fr-men-cycles23-2024-2025-v1	8	median,probability,proportion,percent,pythagoras,pyramidVolume,sec_cone_volume,sec_similarity_length,sec_similarity_area,sec_similarity_volume,speedUnitConvert	4e current annual expectations PDF5–6/8–10, applicable2026–2027: selected median/equiprobability, proportional and scale calculations, integer right triangles, pyramid/cone volumes and speed conversions; Thales diagrams, cosine, proof/construction and broader applications remain incomplete
+MAP	fr-men-cycles23-2024-2025-v1	9	sec_sphere_volume,pythagoras,sec_trig_height,sec_similarity_length,sec_similarity_area,sec_similarity_volume,sec_frequency,sec_relative_frequency,probability,proportion,percent	3e current annual expectations PDF4–6/7–9, applicable2026–2027: selected frequency/equiprobability, proportional/scale calculations, sphere volume, integer right triangles and45degree height problems; general trig angles, sphere assemblies, Thales proof and other requirements remain incomplete
+RULE	fr-men-cycles23-2024-2025-v1	7	el_cube_volume,el_circle_area	wholeMaximum=200
+RULE	fr-men-cycles23-2024-2025-v1	9	sec_sphere_volume	wholeMaximum=200
+
+RULE	fr-men-cycles23-2024-2025-v1	8	sec_cone_volume	wholeMaximum=20
+
+# France lycée: selected general specialty path with earlier foundations retained for diagnosis.
+PACK	fr-men-lycee-general-2026-2027-v1	FR	France · Lycée général · spécialité maths (2026–2027)	https://eduscol.education.gouv.fr/5817/programmes-et-ressources-en-mathematiques-voie-gt	CP–3e pour réviser. Seconde commune, puis spécialité maths en Première et Terminale. Calculs de base; programme complet et autres parcours non disponibles.
+LEVEL	fr-men-lycee-general-2026-2027-v1	1	CP
+LEVEL	fr-men-lycee-general-2026-2027-v1	2	CE1
+LEVEL	fr-men-lycee-general-2026-2027-v1	3	CE2
+LEVEL	fr-men-lycee-general-2026-2027-v1	4	CM1
+LEVEL	fr-men-lycee-general-2026-2027-v1	5	CM2
+LEVEL	fr-men-lycee-general-2026-2027-v1	6	6e
+MAP	fr-men-lycee-general-2026-2027-v1	1	count,compare,join9,split9,place10,place50,place100,add9,sub9,add20,sub20,add100,sub100,addThree100,mulIntro	Cycle2 PDF3–8: selected whole-number/place-value and add/subtract foundations within100; repeated groups model meaning only; oral names, counting to100, all mental procedures and sharing problems remain
+MAP	fr-men-lycee-general-2026-2027-v1	2	place1000,el_compare_10000,add1000,sub1000,tables,el_even_odd,fractionPart,fracCompare,fracAddLike,fracSubLike	Cycle2 PDF10–17: numbers through1000, multiplication tables through10 and fractions of a whole with denominators2,3,4,5,6,8,10; same-denominator comparison/operations only; unit-fraction comparison, manipulative representations and full procedures remain
+MAP	fr-men-lycee-general-2026-2027-v1	3	largePlace,el_sequence_10000,add1000,sub1000,mul2,mul3,mul22,el_mul_3x2,fractionPart,fracCompare,fracAddLike,fracSubLike,fracAdd,fracSub	Cycle2 PDF19–25: selected integers within10000, written products and related-denominator fractions; decimal money-context work and remaining representations/mental procedures are not covered by generic decimal arithmetic
+MAP	fr-men-lycee-general-2026-2027-v1	4	largePlace,add1000,sub1000,mul2,mul3,mul22,el_mul_3x2,divide,remainder,fracAdd,fracSub,el_improper_to_mixed,el_mixed_to_improper,fracMulInt,el_decimal_place,el_decimal_compare,decimalAdd,decimalSub,decimalMul	Cycle3 PDF5–8: selected six-digit numeration, integer operations, fractions and hundredths; fraction-of-quantity uses unit fractions only; written algorithms/mental-procedure breadth and representations remain
+MAP	fr-men-lycee-general-2026-2027-v1	5	largePlace,decimalAdd,decimalSub,decimalMul,decimalDivInt,fracAdd,fracSub,el_improper_to_mixed,el_mixed_to_improper	Cycle3 PDF9–13: selected numeration through999999999, thousandths, decimal-by-integer operations and fraction calculation; mapping effective for CM2 from2026 school year; broader mental/proportional/algebraic requirements remain
+MAP	fr-men-lycee-general-2026-2027-v1	6	largePlace,decimalAdd,decimalSub,decimalMul,decimalDivInt,fracMulInt,fracAdd,fracSub,reduce,el_divisor,el_multiple	Cycle3 PDF13–16: selected decimal multiplication, fraction-by-integer, add/subtract, simplification and divisor/multiple foundations; billion numeration, percentages, wider division, fraction quotient representations and pre-algebra remain
+RULE	fr-men-lycee-general-2026-2027-v1	1	add9,sub9,add20,sub20	variedSums=true;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	1	count	variedFacts=true
+RULE	fr-men-lycee-general-2026-2027-v1	1	join9	variedFacts=true
+RULE	fr-men-lycee-general-2026-2027-v1	1	add100,sub100,addThree100,mulIntro	maxGiven=100;maxResult=100;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	1	place100	wholeMaximum=100
+RULE	fr-men-lycee-general-2026-2027-v1	2	place1000	wholeMaximum=1000
+RULE	fr-men-lycee-general-2026-2027-v1	2	el_compare_10000	maxGiven=1000
+RULE	fr-men-lycee-general-2026-2027-v1	3	el_compare_10000	maxGiven=10000
+RULE	fr-men-lycee-general-2026-2027-v1	2	add1000,sub1000	wholeDigits=3;maxGiven=1000;maxResult=1000;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	3	add1000,sub1000	wholeDigits=4;minimumWholeDigits=3;maxGiven=10000;maxResult=10000;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	4	add1000,sub1000	wholeDigits=6;minimumWholeDigits=3;maxGiven=999999;maxResult=999999;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	2	tables	timesTableMax=10;variedFacts=true;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	2	fracCompare	denominators=2,3,4,5,6,8,10
+RULE	fr-men-lycee-general-2026-2027-v1	2	fractionPart	denominators=2,3,4,5,6,8,10;variedFacts=true
+RULE	fr-men-lycee-general-2026-2027-v1	2	fracAddLike,fracSubLike	denominators=2,3,4,5,6,8,10;maxFractionValue=1;maxResult=1;nonnegative=true;variedFacts=true
+RULE	fr-men-lycee-general-2026-2027-v1	3	fracCompare	denominators=2,3,4,5,6,7,8,9,10,11,12
+RULE	fr-men-lycee-general-2026-2027-v1	3	fractionPart	denominators=2,3,4,5,6,7,8,9,10,11,12;variedFacts=true
+RULE	fr-men-lycee-general-2026-2027-v1	3	fracAddLike,fracSubLike	denominators=2,3,4,5,6,7,8,9,10,11,12;nonnegative=true;variedFacts=true
+RULE	fr-men-lycee-general-2026-2027-v1	4	divide	variedFacts=true
+RULE	fr-men-lycee-general-2026-2027-v1	3	fracAdd,fracSub	relatedDenominators=true;variedFacts=true;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	4	fracAdd,fracSub	nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	4	fracMulInt	unitFractions=true;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	6	fracMulInt	nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	3	largePlace	wholeMaximum=10000
+RULE	fr-men-lycee-general-2026-2027-v1	4	largePlace	wholeMaximum=999999
+RULE	fr-men-lycee-general-2026-2027-v1	5	largePlace	wholeMaximum=999999999
+RULE	fr-men-lycee-general-2026-2027-v1	4	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=2;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	5	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub,decimalDivInt	decimalPlaces=3;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	4	decimalMul	integerSecondOperand=true;decimalPlaces=2;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	5	decimalMul	integerSecondOperand=true;decimalPlaces=3;nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	6	decimalMul	decimalPlaces=3;nonnegative=true
+LEVEL	fr-men-lycee-general-2026-2027-v1	7	5e
+MAP	fr-men-lycee-general-2026-2027-v1	7	signedAdd,fracCompare,fracAdd,fracSub,reduce,decimalDiv,el_divisor,el_multiple,substitute,likeTerms	5e BO2026 PDF7–9, effective2026: selected integer signed addition/subtraction, positive decimal division, positive fractions, divisors/multiples and linear-expression practice; arbitrary-denominator comparison, signed decimals, squares/cubes and one-operation equations remain incomplete
+LEVEL	fr-men-lycee-general-2026-2027-v1	8	4e
+MAP	fr-men-lycee-general-2026-2027-v1	8	signedAdd,signedMul,fracCompare,fracAdd,fracSub,fracMul,fracDiv,rational,reduce,sec_prime_factor,substitute,likeTerms,linear,powerLaw	4e current annual expectations PDF2–4, applicable2026–2027: selected integer/rational operations, prime factors, positive-exponent products and first-degree equations; signed decimals, scientific notation, perfect-square/root bounds and full literal algebra remain incomplete; BO2026 4e is not effective until2027
+LEVEL	fr-men-lycee-general-2026-2027-v1	9	3e
+MAP	fr-men-lycee-general-2026-2027-v1	9	signedAdd,signedMul,fracCompare,fracAdd,fracSub,fracMul,fracDiv,rational,reduce,sec_prime_factor,substitute,likeTerms,linear,powerLaw,negativePower,expand,factor,linearValue	3e current annual expectations PDF2–4, applicable2026–2027: selected rational arithmetic, prime factors, powers, double distributivity, monic-product factorisation, first-degree equations and affine function values; general square equations, scientific contexts and full function/geometry/statistics requirements remain incomplete; BO2026 3e is not effective until2028
+RULE	fr-men-lycee-general-2026-2027-v1	7	fracCompare	
+RULE	fr-men-lycee-general-2026-2027-v1	7	fracAdd,fracSub	
+RULE	fr-men-lycee-general-2026-2027-v1	8	fracCompare	
+RULE	fr-men-lycee-general-2026-2027-v1	8	fracAdd,fracSub	
+RULE	fr-men-lycee-general-2026-2027-v1	9	fracCompare	
+RULE	fr-men-lycee-general-2026-2027-v1	9	fracAdd,fracSub	
+RULE	fr-men-lycee-general-2026-2027-v1	7	substitute	nonnegative=true
+RULE	fr-men-lycee-general-2026-2027-v1	8	sec_prime_factor	variedFacts=true
+RULE	fr-men-lycee-general-2026-2027-v1	9	sec_prime_factor	variedFacts=true
+MAP	fr-men-lycee-general-2026-2027-v1	7	el_triangle_area,el_parallelogram_area,el_circle_area,el_rect_prism_volume,el_cube_volume,sec_prism_volume,triangularPrismVolume,sec_cylinder_volume,angles,mean,sec_frequency,sec_relative_frequency,probability,percent,proportion	5e BO2026 PDF12–13/16–19: selected area/volume/angle, simple mean, frequency, equiprobability and proportional calculation components; circle area uses stated3.14 approximation; geometry proof/construction, data production and full contextual reasoning remain incomplete
+MAP	fr-men-lycee-general-2026-2027-v1	8	median,probability,proportion,percent,pythagoras,pyramidVolume,sec_cone_volume,sec_similarity_length,sec_similarity_area,sec_similarity_volume,speedUnitConvert	4e current annual expectations PDF5–6/8–10, applicable2026–2027: selected median/equiprobability, proportional and scale calculations, integer right triangles, pyramid/cone volumes and speed conversions; Thales diagrams, cosine, proof/construction and broader applications remain incomplete
+MAP	fr-men-lycee-general-2026-2027-v1	9	sec_sphere_volume,pythagoras,sec_trig_height,sec_similarity_length,sec_similarity_area,sec_similarity_volume,sec_frequency,sec_relative_frequency,probability,proportion,percent	3e current annual expectations PDF4–6/7–9, applicable2026–2027: selected frequency/equiprobability, proportional/scale calculations, sphere volume, integer right triangles and45degree height problems; general trig angles, sphere assemblies, Thales proof and other requirements remain incomplete
+RULE	fr-men-lycee-general-2026-2027-v1	7	el_cube_volume,el_circle_area	wholeMaximum=200
+RULE	fr-men-lycee-general-2026-2027-v1	9	sec_sphere_volume	wholeMaximum=200
+RULE	fr-men-lycee-general-2026-2027-v1	8	sec_cone_volume	wholeMaximum=20
+LEVEL	fr-men-lycee-general-2026-2027-v1	10	Seconde
+LEVEL	fr-men-lycee-general-2026-2027-v1	11	Première
+LEVEL	fr-men-lycee-general-2026-2027-v1	12	Terminale
+MAP	fr-men-lycee-general-2026-2027-v1	10	signedAdd,signedMul,rational,substitute,likeTerms,linear,linearFraction,linearInequality,powerLaw,negativePower,expand,factor,rootWhole,rootFraction,rootDecimal,linearValue,linearSlope,linearXIntercept,linearYIntercept,sec_point_distance,sec_line_equation,mean,median,probability,vectorOperation,positionVector,vectorNorm	BO2026 Seconde PDF7–13; effective2026–2027; selected numeric/algebra, coordinate and data drills, not complete content; selected coordinate vector components/norm, Première dot/circle, Terminale parametric line/normal-plane numeric components
+MAP	fr-men-lycee-general-2026-2027-v1	11	quadratic,discriminant,quadraticRootSum,quadraticRootProduct,arithmeticSeq,geometricSeq,derivative,sec_variance,sec_standard_deviation,sec_natural_exp,sec_trig_scaled,conditionalProbability,expectation,varianceRandom,vectorOperation,positionVector,vectorNorm,vectorDot,planeVectorCircle	BO2026 Première spécialité PDF6–11; effective2026–2027; quadratic, sequences, derivatives and spread numeric components; optional specialty path only; selected natural exponential, logarithm (Terminale only), rational-angle trig and finite probability foundations; selected coordinate vector components/norm, Première dot/circle, Terminale parametric line/normal-plane numeric components
+MAP	fr-men-lycee-general-2026-2027-v1	12	arithmeticSeq,geometricSeq,derivative,limit,integral,sec_count_addition,sec_count_multiplication,permutation,combination,sec_variance,sec_standard_deviation,sec_natural_exp,sec_natural_log,sec_trig_scaled,binomial,binomialMoments,conditionalProbability,expectation,varianceRandom,vectorOperation,positionVector,vectorNorm,vectorDot,planeVectorCircle,vectorLine,planeVectorLine,vectorPlane	BO2019 Terminale spécialité PDF6–21; current2026–2027; selected counting, sequences, continuity limits, polynomial derivatives/integrals and population spread; BO2026 replacement not effective until2027–2028; selected natural exponential, logarithm (Terminale only), rational-angle trig and finite probability foundations; selected coordinate vector components/norm, Première dot/circle, Terminale parametric line/normal-plane numeric components
+RULE	fr-men-lycee-general-2026-2027-v1	10	substitute	
+RULE	fr-men-lycee-general-2026-2027-v1	10	rootWhole	wholeMaximum=200

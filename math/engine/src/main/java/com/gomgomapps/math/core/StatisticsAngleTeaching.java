@@ -4,7 +4,7 @@ import java.util.regex.*;
 /** Entered calculation stages from visible data; answer metadata is never used. */
 public final class StatisticsAngleTeaching {
  private StatisticsAngleTeaching(){}
- public static boolean relationships(String id){return id.equals("mean")||id.equals("angles");}
+ public static boolean relationships(String id){return id.equals("mean")||id.equals("median")||id.equals("angles");}
  static void attach(Question q){
   if(q==null||q.studyGuide!=null&&!relationships(q.skillId))return;
   if(q.skillId.equals("mean")||q.skillId.equals("median")){
@@ -18,10 +18,17 @@ public final class StatisticsAngleTeaching {
      .step("주어진 수가 몇 개인지 세세요.","자료의 개수 = ","",Integer.toString(values.length))
      .step("합계를 자료의 개수로 나누세요.","계산한 합계 ÷ 자료의 개수 = ","",Rational.of(sum,values.length).toString());
    }else{
-    if(values.length%2==0)return;
     Arrays.sort(values);
     for(int i=0;i<values.length;i++)guide.step("주어진 수를 작은 순서대로 쓰세요.","정렬한 수의 "+(i+1)+"번째 = ","",Integer.toString(values[i]));
-    guide.step("정렬한 수에서 가운데 수를 쓰세요.","중앙값 = ","",Integer.toString(values[values.length/2]));
+    if(values.length%2==1)guide.step("정렬한 수에서 가운데 수를 쓰세요.","중앙값 = ","",Integer.toString(values[values.length/2]));
+    else{
+     guide.teachingVersion="median-even-relations-v1";
+     int left=values[values.length/2-1],right=values[values.length/2];
+     guide.step("정렬한 수에서 가운데 두 수 중 왼쪽 수를 쓰세요.","가운데 왼쪽 수 = ","",Integer.toString(left))
+      .step("가운데 두 수 중 오른쪽 수를 쓰세요.","가운데 오른쪽 수 = ","",Integer.toString(right))
+      .step("가운데 두 수를 더하세요.","가운데 왼쪽 수 + 가운데 오른쪽 수 = ","",Long.toString((long)left+right))
+      .step("가운데 두 수의 합을 2로 나누세요.","가운데 두 수의 합 ÷ 2 = ","",Rational.of((long)left+right,2).toString());
+    }
    }
    q.studyGuide=guide;return;
   }

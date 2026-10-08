@@ -25,8 +25,7 @@ public class StatisticsSupplyTest {
             assertEquals(m[2],Expression.number(q.answers[0]));
             assertTrue(new Checker().check(q,List.of(),List.of(m[2].toString())).correct());
             if(!m[2].isZero())assertFalse(new Checker().check(q,List.of(),List.of(m[1].div(m[3].sub(Rational.ONE)).toString())).correct());
-            HelpPlan plan=HelpPlan.forQuestion(q);assertEquals(3,plan.size());
-            for(int j=0;j<3;j++){assertTrue(plan.step(j).accepts(m[j].toString()));assertFalse(plan.step(j).accepts(m[j].add(Rational.ONE).toString()));}
+            HelpPlan plan=HelpPlan.forQuestion(q);assertFrames(q,plan,m,false);
             assertChoices(q,m[2]);positions.add(q.correctChoice);counts.add(m[3].intValue());
             fractionalMean|=!m[0].isInteger();fractionalVariance|=!m[2].isInteger();
             assertFalse(q.signature(),recent.contains(q.signature()));recent.add(q.signature());seen.add(q.signature());
@@ -45,11 +44,9 @@ public class StatisticsSupplyTest {
             HelpPlan plan=HelpPlan.forQuestion(q);
             if(q.prompt.startsWith("분산이 ")){
                 Rational variance=Expression.number(q.prompt.substring(4,q.prompt.indexOf("인 자료")));
-                expected=variance.sqrt();given=true;assertEquals(1,plan.size());assertTrue(plan.step(0).accepts(expected.toString()));
+                expected=variance.sqrt();given=true;assertEquals(2,plan.size());assertTrue(plan.step(0).accepts(variance.toString()));assertTrue(plan.step(1).accepts(expected.toString()));assertFalse(plan.canTransfer());
             }else{
-                Rational[] m=moments(q.prompt);expected=m[2].sqrt();dataset=true;counts.add(m[3].intValue());assertEquals(4,plan.size());
-                for(int j=0;j<3;j++)assertTrue(plan.step(j).accepts(m[j].toString()));
-                assertTrue(plan.step(3).accepts(expected.toString()));
+                Rational[] m=moments(q.prompt);expected=m[2].sqrt();dataset=true;counts.add(m[3].intValue());assertFrames(q,plan,m,true);
             }
             assertEquals(expected,Expression.number(q.answers[0]));assertChoices(q,expected);
             assertTrue(new Checker().check(q,List.of(),List.of(expected.toString())).correct());
@@ -63,6 +60,14 @@ public class StatisticsSupplyTest {
         assertTrue("one result must not dominate the drill: "+frequencies,Collections.max(frequencies.values())<=90);
     }
 
+    private static void assertFrames(Question q,HelpPlan plan,Rational[] m,boolean deviation){
+        List<Rational> expected=new ArrayList<>(List.of(m[0].mul(m[3]),m[3],m[0]));
+        String data=q.prompt.substring(q.prompt.indexOf('[')+1,q.prompt.indexOf(']'));
+        for(String token:data.split(", ")){Rational delta=Expression.number(token).sub(m[0]);expected.add(delta);expected.add(delta.mul(delta));}
+        expected.add(m[1]);expected.add(m[2]);if(deviation)expected.add(m[2].sqrt());
+        assertEquals(expected.size(),plan.size());assertFalse(plan.canTransfer());
+        for(int j=0;j<expected.size();j++){assertTrue(plan.step(j).accepts(expected.get(j).toString()));assertFalse(plan.step(j).accepts(expected.get(j).add(Rational.ONE).toString()));assertFalse(plan.step(j).before.matches(".*[0-9].*[+÷×].*"));}
+    }
     private static void assertChoices(Question q,Rational expected){
         assertEquals(q.prompt,4,q.choices.size());assertEquals(4,q.choices.stream().map(Expression::number).distinct().count());
         assertEquals(expected,Expression.number(q.choices.get(q.correctChoice)));

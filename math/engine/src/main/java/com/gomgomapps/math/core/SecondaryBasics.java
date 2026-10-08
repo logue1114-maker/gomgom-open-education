@@ -141,6 +141,7 @@ public final class SecondaryBasics {
         StudyGuide guide;StudyDiagram diagram=null;
         switch(s.family){
             case "sec_prime_factor":{
+                if(limits.variedFacts())return PrimeExponentPractice.create(s,random);
                 int p=random.nextBoolean()?2:3,other=p==2?3:5,ep=n(random,1,4),eo=n(random,1,3);int value=1;for(int i=0;i<ep;i++)value*=p;for(int i=0;i<eo;i++)value*=other;
                 guide=two("작은 소수로 계속 나누세요.",value+" = "," × "+other+"^"+eo,p+"^"+ep,"두 지수를 더하세요.",ep+" + "+eo+" = ","",ep+"+"+eo);
                 return q(s,value+"을 소인수분해했을 때 모든 지수의 합은?",Rational.of(ep+eo),guide,null,"value",value,"p",p,"ep",ep,"other",other,"eo",eo);
@@ -256,7 +257,7 @@ public final class SecondaryBasics {
                 a=n(random,2,8);b=n(random,9,15);int[] data=new int[8];answer=0;StringJoiner text=new StringJoiner(", ");for(int i=0;i<data.length;i++){data[i]=n(random,1,20);if(data[i]>=a&&data[i]<b)answer++;text.add(String.valueOf(data[i]));}
                 guide=one("아랫값 이상, 윗값 미만인 자료만 세세요.",a+" 이상 "+b+" 미만인 자료의 수 = ","",answer);
                 double[] bars=Arrays.stream(data).asDoubleStream().toArray();Question result=q(s,"자료 "+text+"에서 "+a+" 이상 "+b+" 미만인 계급의 도수는?",Rational.of(answer),guide,new StudyDiagram("bars",bars,"자료"),"low",a,"high",b,"count",data.length);
-                for(int i=0;i<data.length;i++)result.givenNumbers.put("data"+i,String.valueOf(data[i]));return result;
+                for(int i=0;i<data.length;i++)result.givenNumbers.put("data"+i,String.valueOf(data[i]));FrequencyRelations.attach(result);return result;
             }
             case "sec_relative_frequency":{
                 b=n(random,2,8);int multiple=n(random,2,6);a=b*multiple;c=n(random,1,b);Rational result=Rational.of(c,b);

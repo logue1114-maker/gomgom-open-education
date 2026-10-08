@@ -101,7 +101,7 @@ public final class Choices {
                 case "lcm" -> v.isInteger()&&between(v,Math.max(i(0),i(1)),i(0)*i(1));
                 case "experimentalProbability" -> between(v,0,i(2)==2?100:1);
                 case "mean" -> between(v,1,40);
-                case "median" -> v.isInteger()&&between(v,1,50);
+                case "median" -> between(v,1,50);
                 case "percent" -> between(v,0,i(1));
                 case "angles" -> v.isInteger()&&between(v,1,179);
                 case "root" -> v.isInteger()&&between(v,0,30);
@@ -203,8 +203,8 @@ public final class Choices {
                 case "div": case "div2": add(a-b,"나눗셈 대신 한 번 뺌");add(b,"나누는 수를 몫으로 사용함");for(int offset=1;offset<=3;offset++)placeErrors(Rational.of(offset),"몫에 해당하는 묶음 수를 잘못 셈");break;
                 case "mixed": mixed(a,b,c,(int)i(3));break;
                 case "gcd": case "lcm": {long gcd=Generator.gcd((int)a,(int)b);add(f.equals("gcd")?a/gcd*b:gcd,"최대공약수와 최소공배수를 혼동함");add(a,"첫 번째 수를 그대로 사용함");add(b,"두 번째 수를 그대로 사용함");add(a*b,"공통인 인수를 중복해서 곱함");for(long k=1;k<=Math.min(a,b);k++)if(a%k==0||b%k==0)add(k,"한 수의 약수이거나 가장 큰 공약수가 아님");if(f.equals("lcm"))for(int k=2;k<=4;k++){add(a*k,"한 수의 배수만 확인함");add(b*k,"한 수의 배수만 확인함");}break;}
-                case "mean": {Rational sum=Rational.ZERO;for(Rational value:in){sum=sum.add(value);add(value,"자료 하나를 평균으로 사용함");}add(sum,"자료 수로 나누지 않음");add(sum.div(Rational.of(3)),"자료 수를 하나 적게 셈");add(sum.div(Rational.of(5)),"자료 수를 하나 더 셈");for(Rational value:in)add(sum.sub(value).div(Rational.of(4)),"자료 하나를 합에서 빠뜨림");placeErrors(Rational.of(1,4),"합계 계산에서 1 차이가 남");break;}
-                case "median": {Rational[] sorted=in.clone();Arrays.sort(sorted);add(in[2],"정렬 전 가운데 자료를 선택함");for(int index:new int[]{0,1,3,4})add(sorted[index],"정렬 후 가운데가 아닌 자료를 선택함");Rational sum=Rational.ZERO;for(Rational value:in)sum=sum.add(value);add(sum.div(Rational.of(5)),"중앙값 대신 평균을 구함");break;}
+                case "mean": {Rational count=Rational.of(in.length),sum=Rational.ZERO;for(Rational value:in){sum=sum.add(value);add(value,"자료 하나를 평균으로 사용함");}add(sum,"자료 수로 나누지 않음");add(sum.div(count.sub(Rational.ONE)),"자료 수를 하나 적게 셈");add(sum.div(count.add(Rational.ONE)),"자료 수를 하나 더 셈");for(Rational value:in)add(sum.sub(value).div(count),"자료 하나를 합에서 빠뜨림");placeErrors(Rational.ONE.div(count),"합계 계산에서 1 차이가 남");break;}
+                case "median": {Rational[] sorted=in.clone();Arrays.sort(sorted);int middle=in.length/2;add(in[middle],"정렬 전 가운데 자료를 선택함");for(int index=0;index<sorted.length;index++)add(sorted[index],"가운데 두 수의 평균을 구하지 않거나 가운데가 아닌 자료를 선택함");Rational sum=Rational.ZERO;for(Rational value:in)sum=sum.add(value);add(sum.div(Rational.of(in.length)),"중앙값 대신 평균을 구함");if(in.length%2==0){Rational middleSum=sorted[middle-1].add(sorted[middle]);add(middleSum,"가운데 두 수를 더한 뒤 2로 나누지 않음");for(int step=1;step<=3;step++)placeErrors(Rational.of(step),"가운데 두 수의 합 계산 오류");}break;}
                 case "percent": add(Rational.of(a*b,10),"백분율을 10으로 나눔");add(Rational.of(a*b,1000),"백분율을 1000으로 나눔");add(Rational.of(b).sub(answer),"남은 비율을 구함");add(a,"백분율 숫자를 양으로 사용함");placeErrors(Rational.of(b,100),"백분율의 1%를 잘못 계산함");break;
                 case "signedAdd": add(a+b,"빼는 수의 부호를 바꾸지 않음");add(a-b,"더하는 수의 부호를 바꿈");add(-a+b,"첫 번째 수의 부호를 바꿈");add(Math.abs(a)+Math.abs(b),"부호를 무시하고 절댓값을 더함");add(answer.neg(),"결과의 부호를 반대로 씀");placeErrors(Rational.ONE,"절댓값 계산 오류");break;
                 case "signedMul": add(answer.neg(),"결과의 부호를 반대로 씀");add(a+b,"덧셈으로 계산함");add(a-b,"뺄셈으로 계산함");if(c==1){add(a*b,"나눗셈 대신 곱셈을 함");placeErrors(Rational.ONE,"몫의 절댓값 계산 오류");}else{add(a*(b+1),"곱셈구구 한 칸을 잘못 적용함");add(a*(b-1),"곱셈구구 한 칸을 잘못 적용함");}break;

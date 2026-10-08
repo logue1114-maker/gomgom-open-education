@@ -109,6 +109,9 @@ public final class CurriculumLimits {
         }
         if(polygonSides!=null){Matcher polygon=Pattern.compile("(\\d+)각형").matcher(q.prompt);if(!polygon.find()||Integer.parseInt(polygon.group(1))>polygonSides)return false;}
         if(!allowsDenominators(givens))return false;
+        if(!denominators.isEmpty()&&q.diagram!=null&&q.diagram.type.equals("fractionSelection")){
+            if(q.diagram.values.length<2||q.diagram.values[0]!=Math.rint(q.diagram.values[0])||!denominators.contains((int)q.diagram.values[0]))return false;
+        }
         if(integerSecondOperand){
             Matcher operands=Pattern.compile("^-?\\d+(?:\\.\\d+)?\\s*[+*/×÷−-]\\s*(-?\\d+(?:\\.\\d+)?)$").matcher(q.expression);
             if(!operands.matches()||!Expression.number(operands.group(1)).d.equals(java.math.BigInteger.ONE))return false;
@@ -148,6 +151,7 @@ public final class CurriculumLimits {
     public int timesTableMax(){return timesTableMax;}
     int[] percentages(){return percentages.isEmpty()?java.util.stream.IntStream.rangeClosed(1,19).map(i->i*5).toArray():percentages.stream().mapToInt(Integer::intValue).toArray();}
     boolean unitFractions(){return unitFractions;}
+    boolean hasFractionDenominators(){return !denominators.isEmpty();}
     int[] fractionDenominators(){return denominators.isEmpty()?java.util.stream.IntStream.rangeClosed(2,9).toArray():denominators.stream().sorted().mapToInt(Integer::intValue).toArray();}
     public int minuteStep(){return minuteStep;}
     public boolean timetables(){return timetables;}
@@ -187,7 +191,7 @@ public final class CurriculumLimits {
         try{Rational number=Expression.number(value);if(answerDomain.equals("integer")&&!number.d.equals(java.math.BigInteger.ONE))return false;if(nonnegative&&number.compareTo(Rational.of(0))<0)return false;return maxResult==null||number.compareTo(Expression.number(maxResult.toString()))<=0;}
         catch(RuntimeException e){return maxResult==null&&answerDomain.isEmpty();}
     }
-    private boolean allowsDenominators(String text){if(!denominators.isEmpty()){Matcher m=FRACTION.matcher(text);while(m.find())if(!denominators.contains(Integer.parseInt(m.group(1))))return false;}return true;}
+    private boolean allowsDenominators(String text){if(!denominators.isEmpty()){Matcher m=FRACTION.matcher(text);while(m.find())if(!denominators.contains(Integer.parseInt(m.group(1))))return false;Matcher parts=Pattern.compile("전체를 똑같이 (\\d+)조각").matcher(text);while(parts.find())if(!denominators.contains(Integer.parseInt(parts.group(1))))return false;}return true;}
     boolean allowsChoice(String value){return allowsAnswer(value)&&allowsDenominators(value);}
     public void constrainChoices(Question q){
         if(q.choices.isEmpty()||(maxResult==null&&!nonnegative&&denominators.isEmpty()&&answerDomain.isEmpty()))return;

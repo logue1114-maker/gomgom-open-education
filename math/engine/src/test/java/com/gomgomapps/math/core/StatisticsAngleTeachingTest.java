@@ -4,7 +4,7 @@ public class StatisticsAngleTeachingTest {
  @Test public void normalProductionChecksEnteredStagesWithoutTransfer(){
   Generator g=new Generator(new Random(202610061501L));
   for(String id:List.of("mean","median","angles"))for(int i=0;i<500;i++){
-   Question q=g.next(id,List.of(),i%2==0);assertNotNull(id,q.studyGuide);HelpPlan p=HelpPlan.forQuestion(q);assertFalse(p.canTransfer());assertEquals(id.equals("mean")?3:id.equals("median")?6:4,p.size());
+   Question q=g.next(id,List.of(),i%2==0);assertNotNull(id,q.studyGuide);HelpPlan p=HelpPlan.forQuestion(q);assertFalse(p.canTransfer());int size=q.prompt.contains("의 중앙값")?q.prompt.substring(0,q.prompt.indexOf("의")).split(",").length:0;assertEquals(id.equals("mean")?3:id.equals("median")?size+(size%2==1?1:4):4,p.size());
    HelpPlan.Draft d=new HelpPlan.Draft();
    for(int j=0;j<p.size();j++){String expected=q.studyGuide.frames.get(j).expected;assertTrue(p.step(j).accepts(expected));assertFalse(p.step(j).accepts(Expression.number(expected).add(Rational.ONE).toString()));d.entries.add(expected);}d.stage=p.size();assertEquals(Expression.number(q.answers[0]),Expression.number(p.enteredAnswer(d)));
   }

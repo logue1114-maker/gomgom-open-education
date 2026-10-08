@@ -117,6 +117,8 @@ public final class AdvancedBasics {
     }
     public static Question create(Catalog.Skill s,Random r){
         if(!s.family.startsWith("adv_"))return null;
+        if(VectorFoundationPractice.supports(s.id))return VectorFoundationPractice.create(s,r);
+        if(HigherFoundationPractice.supports(s.id))return HigherFoundationPractice.create(s,r);
         int a=n(r,2,7),b=n(r,2,5),c=n(r,1,6),k=n(r,2,6);String e,p;
         switch(s.id){
             case "rationalExponent": {c=n(r,1,4);return steps(s,pow(a,b)+"^("+c+"/"+b+")의 값은?",a+"^"+c,b+"제곱해서 "+pow(a,b)+"이 되는 양수를 찾으세요.","양의 "+b+"제곱근 = ",""+a);}

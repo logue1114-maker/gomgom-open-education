@@ -12,7 +12,16 @@ final class SmallNumberFoundations {
         if(maximum>20)throw new IllegalArgumentException("Small-number collections support at most 20");
         if(skill.id.equals("count")){
             int minimum=limits.includeZeroCount()?0:1;
-            for(int value=minimum;value<=maximum;value++){
+            if(limits.variedFacts()&&maximum<=9){
+                // Counting remains visible throughout. Different occupied positions
+                // require recounting instead of memorizing the old fixed rows.
+                for(int mask=minimum==0?0:1;mask<512;mask++){
+                    int value=Integer.bitCount(mask);if(value>maximum)continue;
+                    double[] points=new double[1+2*value];int at=1;
+                    for(int cell=0;cell<9;cell++)if((mask&(1<<cell))!=0){points[at++]=.25+(cell%3)*.25;points[at++]=.25+(cell/3)*.25;}
+                    Question q=new Question(skill.id,"동그라미는 모두 몇 개인가요?","",String.valueOf(value)).withInputs(value,maximum,minimum);q.stepSupport=false;q.diagram=new StudyDiagram("dotCollection",points);include(candidates,q,limits);
+                }
+            }else for(int value=minimum;value<=maximum;value++){
                 StringBuilder dots=new StringBuilder();for(int i=0;i<value;i++){dots.append("● ");if(i%5==4)dots.append('\n');}
                 Question q=new Question(skill.id,"동그라미는 모두 몇 개인가요?\n\n"+dots,"",String.valueOf(value)).withInputs(value,maximum,minimum);q.stepSupport=false;
                 if(value==0)q.diagram=new StudyDiagram("dotCollection",new double[]{0});
@@ -23,6 +32,8 @@ final class SmallNumberFoundations {
                 Question q=new Question(skill.id,left+"  □  "+right,"",left==right?"=":left>right?">":"<");q.kind="symbol";q.stepSupport=false;
                 include(candidates,q,limits);
             }
+        }else if(skill.id.equals("join9")&&limits.variedFacts()&&maximum<=9){
+            JoiningDotLayouts.append(candidates,limits,maximum);
         }else{
             for(int whole=0;whole<=maximum;whole++)for(int left=0;left<=whole;left++){
                 int right=whole-left;
