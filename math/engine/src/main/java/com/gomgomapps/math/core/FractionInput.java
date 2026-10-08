@@ -54,6 +54,21 @@ public final class FractionInput {
         if(!parts[1].matches("[+-]?\\d+")||new java.math.BigInteger(parts[1]).signum()==0)return 2;
         return 0;
     }
+    /** Localize only when the public like-fraction frame identifies an unchanged part.
+     * Zero means no unique part is established, not that the answer is correct. */
+    public static int errorPart(Question q,String raw){
+        if(q==null||q.prompt==null||!Set.of("fracAddLike","fracSubLike").contains(q.skillId)||invalidPart(raw)!=0)return 0;
+        java.util.regex.Matcher m=java.util.regex.Pattern.compile("\\((\\d+)/(\\d+)\\)\\s*([+-])\\s*\\((\\d+)/(\\d+)\\)").matcher(q.prompt.replace('−','-'));
+        if(!m.matches()||!m.group(2).equals(m.group(5)))return 0;
+        java.math.BigInteger a=new java.math.BigInteger(m.group(1)),b=new java.math.BigInteger(m.group(4));
+        java.math.BigInteger numerator=m.group(3).equals("+")?a.add(b):a.subtract(b),denominator=new java.math.BigInteger(m.group(2));
+        if(denominator.signum()==0)return 0;
+        String[] parts=parts(raw);java.math.BigInteger n=new java.math.BigInteger(parts[0]),d=new java.math.BigInteger(parts[1]);
+        if(n.multiply(denominator).equals(numerator.multiply(d)))return 0;
+        if(d.equals(denominator))return 1;
+        if(n.equals(numerator))return 2;
+        return 0;
+    }
     public static String inputMessage(String raw){
         String[] parts=parts(raw);int invalid=invalidPart(raw);
         if(invalid==0)return "";

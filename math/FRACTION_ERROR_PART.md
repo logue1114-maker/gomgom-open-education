@@ -1,0 +1,5 @@
+# Fraction error location
+
+FractionInput.errorPart uses the public like-fraction expression, not an answer key, to identify an unchanged reference part. An incorrect answer retaining the original denominator identifies the numerator; retaining the calculated numerator identifies the denominator. Equivalent values return no error part. When neither part matches the public frame, or another fraction family is used, no unique error part is claimed. This does not certify correctness: the existing Checker still accepts/rejects the whole fraction, including equivalent, signed and zero representations. Incomplete input remains an input issue.
+
+The helper never mutates an answer, changes checker semantics, or exposes a replacement number. Tests cover numerator/denominator localization, independence from hidden answer metadata, equivalence, zero, signed, ambiguous and incomplete cases. Private Android rendering, ads/billing, learner records, QA and APKs are excluded. This is selected public-frame localization, not a claim to infer every student's mental error.
