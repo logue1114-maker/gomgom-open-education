@@ -12,7 +12,7 @@ public final class CollectionGrouping {
   }
   Question q=FactFoundations.choose(pool,random,recent);attach(q);return q;
  }
- public static List<Integer> sizes(Question q){if(q==null||q.diagram==null||!supports(q.skillId))return List.of();return Arrays.stream(q.diagram.labels).map(Integer::valueOf).toList();}
+ public static List<Integer> sizes(Question q){if(q==null||q.diagram==null||!(supports(q.skillId)||GroupedEstimation.supports(q.skillId)))return List.of();return Arrays.stream(q.diagram.labels).map(Integer::valueOf).toList();}
  public static void group(Question q,int size){if(size!=0&&!sizes(q).contains(size))throw new IllegalArgumentException("Group size outside this curriculum");q.collectionGroupSize=size;}
  public static int selected(Question q){return q.collectionGroupSize==null?0:q.collectionGroupSize;}
  /** Normalized positions: one dot per visible object, with no overlap or answer text. */

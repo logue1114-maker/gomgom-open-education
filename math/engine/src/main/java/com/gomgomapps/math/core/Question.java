@@ -22,6 +22,8 @@ public final class Question implements Serializable {
     public StudyDiagram diagram;
     /** Learner display preference; absent in old saves and excluded from the published identity. */
     public Integer collectionGroupSize;
+    /** Student's estimate, retained across regrouping and restore; excluded from public identity. */
+    public String learnerEstimate;
     /** Given assumptions, never inferred from the student's work. Null in older serialized questions. */
     public Set<String> nonzeroVariables=new LinkedHashSet<>();
     /** Public givens used in scalar function work; never populated from the student's answer. */

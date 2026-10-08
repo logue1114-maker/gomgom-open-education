@@ -29,6 +29,7 @@ public class NamibiaPrimaryTest {
             CurriculumLimits limits=GlobalCurriculum.limits(NA,id,grade);
             Question q=generator.next(id,List.of(),i%2==0,limits);
             assertEquals(id,q.skillId);assertTrue(id+"/"+grade+": "+q.prompt,limits.allows(q));
+            if(GroupedEstimation.supports(id)){Learning.Session session=new Learning.Session();session.question=q;session.answers.add("0");assertTrue(GroupedEstimation.beginCounting(session));}
             assertTrue(id+"/"+grade,new Checker().check(q,List.of(),Arrays.asList(q.answers)).correct());
         }
     }

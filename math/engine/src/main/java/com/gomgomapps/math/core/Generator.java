@@ -41,6 +41,7 @@ public final class Generator {
         if(ClockNotation.supports(skillId))q=ClockNotation.next(s,random,limits,previous);
         if(ClockReadings.supports(skillId))q=ClockReadings.next(s,random,limits,previous);
         if(DotCollections.supports(skillId))q=DotCollections.next(s,random,limits,previous);
+        if(GroupedEstimation.supports(skillId))q=GroupedEstimation.next(s,random,limits,previous);
         if(PrimaryOrdering.supports(skillId))q=PrimaryOrdering.next(s,random,limits,previous);
         if(CollectionGrouping.supports(skillId))q=CollectionGrouping.next(s,random,limits,previous);
         else if(CountingSteps.supports(skillId))q=CountingSteps.next(s,random,limits,previous);
@@ -102,6 +103,7 @@ public final class Generator {
         if(ClockNotation.supports(s.id))return ClockNotation.next(s,random,limits,Map.of());
         if(ClockReadings.supports(s.id))return ClockReadings.next(s,random,limits,Map.of());
         if(DotCollections.supports(s.id))return DotCollections.next(s,random,limits,Map.of());
+        if(GroupedEstimation.supports(s.id))return GroupedEstimation.next(s,random,limits,Map.of());
         if(PrimaryOrdering.supports(s.id))return PrimaryOrdering.next(s,random,limits,Map.of());
         if(CollectionGrouping.supports(s.id))return CollectionGrouping.next(s,random,limits,Map.of());
         if(CountingSteps.supports(s.id))return CountingSteps.next(s,random,limits,Map.of());

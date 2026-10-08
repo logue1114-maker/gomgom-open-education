@@ -204,3 +204,5 @@ Visible collections: [learner grouping and preserved identity](COLLECTION_GROUPI
 Primary ordering: [selected comparison, sorting and ordinal foundations](PRIMARY_ORDERING.md).
 
 Subitising: [selected Namibia recognition and independent recount](SUBITISING_NA.md).
+
+Estimation: [retain the learner estimate, then group and count](GROUPED_ESTIMATION.md).

@@ -1495,3 +1495,7 @@ MAP	na-nied-primary-2024-v1	1	el_subitise	JP printed p.7 selected screen recogni
 RULE	na-nied-primary-2024-v1	1	el_subitise	wholeMaximum=6;maxResult=6
 MAP	na-nied-primary-2024-v1	2	el_subitise	JP printed p.7 selected appropriately grouped recognition through10; count verification available in help; estimates20/30 remain
 RULE	na-nied-primary-2024-v1	2	el_subitise	wholeMaximum=10;maxResult=10;groupedSubitise=true
+MAP	na-nied-primary-2024-v1	2	collectionEstimate	JP printed p.7 estimates through20; student guess ungraded then independent grouped exact count
+RULE	na-nied-primary-2024-v1	2	collectionEstimate	wholeMaximum=20;maxResult=20
+MAP	na-nied-primary-2024-v1	3	collectionEstimate	JP printed p.7 estimates through30; student guess ungraded then independent grouped exact count
+RULE	na-nied-primary-2024-v1	3	collectionEstimate	wholeMaximum=30;maxResult=30
