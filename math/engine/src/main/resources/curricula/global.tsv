@@ -1364,6 +1364,11 @@ MAP	na-nied-primary-2024-v1	1	place10	JP p.11; two-digit place value
 MAP	na-nied-primary-2024-v1	1	add9,sub9,add20,sub20	JP pp.14–15; results within 20
 MAP	na-nied-primary-2024-v1	2	el_compare_10000,place100	JP pp.8,11; comparison within100; place values through500
 MAP	na-nied-primary-2024-v1	2	join9,split9	JP p.10; number bonds through20
+MAP	na-nied-primary-2024-v1	2	numberBuild,numberDecompose	JP printed p.10; selected multiple two-part constructions through99
+MAP	na-nied-primary-2024-v1	3	join9,split9,numberBuild,numberDecompose	JP printed p.10; bonds through20 and selected multiple two/three-part constructions through500
+RULE	na-nied-primary-2024-v1	2	numberBuild,numberDecompose	wholeMaximum=99;decompositionParts=2;nonnegative=true
+RULE	na-nied-primary-2024-v1	3	numberBuild,numberDecompose	wholeMaximum=500;decompositionParts=2,3;nonnegative=true
+RULE	na-nied-primary-2024-v1	3	join9,split9	wholeMaximum=20;maxGiven=20;maxResult=20;nonnegative=true
 MAP	na-nied-primary-2024-v1	2	add100,sub100	JP pp.14–15; results within100
 MAP	na-nied-primary-2024-v1	2	tables	JP p.16; 1,2,5,10 tables; no division sign
 MAP	na-nied-primary-2024-v1	2	fractionPart	JP p.18; halves and quarters only

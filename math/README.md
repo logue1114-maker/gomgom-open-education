@@ -210,3 +210,5 @@ Estimation: [retain the learner estimate, then group and count](GROUPED_ESTIMATI
 Ordering: [selected Grade2/3 range extension](ORDERING_RANGES.md).
 
 Double and half: [selected Grade3 range and blank part strategy](DOUBLE_HALF_GRADE3.md).
+
+Number parts: [selected multiple constructions](NUMBER_DECOMPOSITION.md).

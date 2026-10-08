@@ -167,6 +167,7 @@ public final class Catalog {
         ALL.addAll(CountingPatterns.SKILLS);
         ALL.addAll(ObjectGroups.SKILLS);
         ALL.addAll(DoubleHalf.SKILLS);
+        ALL.addAll(NumberDecomposition.SKILLS);
         ALL.addAll(CountingSteps.SKILLS);
         ALL.addAll(CollectionGrouping.SKILLS);
         ALL.addAll(PrimaryOrdering.SKILLS);

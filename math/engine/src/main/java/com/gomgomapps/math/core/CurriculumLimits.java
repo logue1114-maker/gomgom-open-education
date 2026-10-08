@@ -13,6 +13,8 @@ public final class CurriculumLimits {
     private boolean countingAnyStart;
     private boolean groupedSubitise;
     private boolean doubleHalfDecomposition;
+    private final List<Integer> decompositionParts=new ArrayList<>();
+    public List<Integer> decompositionParts(){return decompositionParts.isEmpty()?List.of(2):List.copyOf(decompositionParts);}
     public boolean doubleHalfDecomposition(){return doubleHalfDecomposition;}
     public boolean groupedSubitise(){return groupedSubitise;}
     public Map<Integer,Integer> countingBounds(){return Collections.unmodifiableMap(countingBounds);}
@@ -39,6 +41,7 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "decompositionParts":for(String value:pair[1].split(",",-1)){int p=Integer.parseInt(value);if((p!=2&&p!=3)||decompositionParts.contains(p))throw new IllegalArgumentException("Invalid decomposition parts");decompositionParts.add(p);}break;
                 case "groupedSubitise":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid grouped recognition flag");groupedSubitise=Boolean.parseBoolean(pair[1]);break;
                 case "doubleHalfDecomposition":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid double/half decomposition flag");doubleHalfDecomposition=Boolean.parseBoolean(pair[1]);break;
                 case "countingAnyStart":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid counting start flag");countingAnyStart=true;break;
