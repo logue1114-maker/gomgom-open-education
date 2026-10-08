@@ -192,13 +192,13 @@ public final class Generator {
                 int den=n(2,12),den2=s.family.endsWith("Like")?den:n(2,12);Rational x=Rational.of(n(1,den-1),den),y=Rational.of(n(1,den2-1),den2);
                 if(s.family.equals("fracAdd")||s.family.equals("fracSub")){
                     List<Rational> candidates=new ArrayList<>();for(Rational value:PROPER_FRACTIONS)if(!value.d.equals(x.d))candidates.add(value);
-                    y=candidates.get(random.nextInt(candidates.size()));den2=y.d.intValueExact();
+                    y=candidates.get(random.nextInt(candidates.size()));den2=y.d.intValue();
                 }
                 String op=s.family.contains("Sub")?"-":s.family.contains("Mul")?"*":s.family.contains("Div")?"/":"+";
                 if(s.family.equals("fracDivInt")){y=Rational.of(n(2,9));den2=1;}
                 if(op.equals("-")&&x.compareTo(y)<0){Rational tmp=x;x=y;y=tmp;int tmpDen=den;den=den2;den2=tmpDen;}
                 if(s.family.equals("rational")){if(random.nextBoolean())x=x.neg();if(random.nextBoolean())y=y.neg();op=new String[]{"+","-","*","/"}[random.nextInt(4)];}
-                if(!s.family.endsWith("Like")){den=x.d.intValueExact();den2=y.d.intValueExact();}
+                if(!s.family.endsWith("Like")){den=x.d.intValue();den2=y.d.intValue();}
                 inputs=new Rational[]{x,y,Rational.of(op.equals("+")?0:op.equals("-")?1:op.equals("*")?2:3),Rational.of(den),Rational.of(den2)};
                 if(s.family.endsWith("Like"))e="("+x.mul(Rational.of(den)).intValue()+"/"+den+") "+op+" ("+y.mul(Rational.of(den2)).intValue()+"/"+den2+")";
                 else e=frac(x)+" "+op+" "+frac(y);break;

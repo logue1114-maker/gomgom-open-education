@@ -36,7 +36,7 @@ public final class Rational implements Comparable<Rational>, Serializable {
     }
     public boolean isZero() { return n.signum() == 0; }
     public boolean isInteger() { return d.equals(BigInteger.ONE); }
-    public int intValue() { if (!isInteger()) throw new IllegalArgumentException("정수 필요"); return n.intValueExact(); }
+    public int intValue() { if (!isInteger()) throw new IllegalArgumentException("정수 필요"); if(n.bitLength()>31)throw new ArithmeticException("BigInteger out of int range"); return n.intValue(); }
     public Rational sqrt() {
         if (n.signum() < 0) throw new IllegalArgumentException("실수 제곱근 확인 필요");
         BigInteger a = root(n), b = root(d);

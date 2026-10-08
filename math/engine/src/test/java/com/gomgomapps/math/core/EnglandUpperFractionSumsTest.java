@@ -1,6 +1,11 @@
 package com.gomgomapps.math.core;
 import java.util.*;import java.util.regex.*;import org.junit.Test;import static org.junit.Assert.*;
 public class EnglandUpperFractionSumsTest {
+ @Test public void integerConversionKeepsExactBoundsWithoutNewAndroidMethods(){
+  assertEquals(Integer.MIN_VALUE,Rational.of(Integer.MIN_VALUE).intValue());assertEquals(Integer.MAX_VALUE,Rational.of(Integer.MAX_VALUE).intValue());
+  for(long value:new long[]{(long)Integer.MIN_VALUE-1,(long)Integer.MAX_VALUE+1}){try{Rational.of(value).intValue();fail("overflow accepted");}catch(ArithmeticException expected){}}
+  try{Rational.of(1,2).intValue();fail("fraction accepted");}catch(IllegalArgumentException expected){}
+ }
  @Test public void fourYearFivePlacementsHaveFreshPublicCalculationsAndStudentHelp(){
   var pack=GlobalCurriculum.packs("GB").stream().filter(p->p.id.equals("england-primary-2021-v1")).findFirst().orElseThrow();
   for(String id:List.of("fracAddLike","fracSubLike","fracAdd","fracSub")){
