@@ -242,3 +242,5 @@ Selected object/length quantities: [QUANTITY_FRACTION_PICTURES.md](QUANTITY_FRAC
 Selected names/equivalence: [FRACTION_NAMES_RELATIONS.md](FRACTION_NAMES_RELATIONS.md).
 
 Selected upper numbers: [ENGLAND_UPPER_NUMBERS.md](ENGLAND_UPPER_NUMBERS.md).
+
+Selected digit/value learning: [WHOLE_PLACE_VALUES.md](WHOLE_PLACE_VALUES.md).
