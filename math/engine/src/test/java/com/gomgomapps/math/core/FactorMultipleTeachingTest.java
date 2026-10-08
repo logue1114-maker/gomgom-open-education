@@ -20,12 +20,12 @@ public class FactorMultipleTeachingTest {
   Random random=new Random(1);Map<String,Integer> previous=new LinkedHashMap<>();Question oldest=null;for(int i=0;i<110;i++){Question q=CommonFactorSupply.next(random,CurriculumLimits.NONE,previous);if(i==0)oldest=q;assertFalse(previous.containsKey(q.signature()));previous.put(q.signature(),i);}Question repeated=CommonFactorSupply.next(random,CurriculumLimits.NONE,previous);assertEquals(oldest.signature(),repeated.signature());assertFalse(HelpPlan.forQuestion(repeated).canTransfer());
  }
  @Test public void commonMultipleDoesNotStartWithAnUnenteredLeastCommonMultiple(){
-  Question q=new Question("el_common_multiple","4과 6의 3번째 공배수는?","999*3","999");FactorMultipleTeaching.attach(q);assertEquals("6 × 1 = ",q.studyGuide.frames.get(0).before);assertEquals("6",q.studyGuide.frames.get(0).expected);assertEquals("36",q.studyGuide.frames.get(q.studyGuide.frames.size()-1).expected);assertEquals("999",q.answers[0]);
+  Question q=new Question("el_common_multiple","4과 6의 3번째 공배수는?","999*3","999");FactorMultipleTeaching.attach(q);assertEquals("첫 수 = ",q.studyGuide.frames.get(0).before);assertEquals("4",q.studyGuide.frames.get(0).expected);assertEquals("36",q.studyGuide.frames.get(q.studyGuide.frames.size()-1).expected);assertEquals("999",q.answers[0]);
  }
  @Test public void divisorScansNonFactorsAsWellAsFactorsWithoutReverseAnswerHints(){
-  Question q=new Question("el_divisor","25의 약수 중 2번째로 작은 수는?","25/999","999");FactorMultipleTeaching.attach(q);assertEquals(16,q.studyGuide.frames.size());assertEquals("25 ÷ 2 = ",q.studyGuide.frames.get(3).before);assertEquals("1",q.studyGuide.frames.get(5).expected);assertEquals("5",q.studyGuide.frames.get(15).expected);assertFalse(q.studyGuide.transfer);
+  Question q=new Question("el_divisor","25의 약수 중 2번째로 작은 수는?","25/999","999");FactorMultipleTeaching.attach(q);assertEquals(23,q.studyGuide.frames.size());assertEquals("주어진 수 ÷ 확인할 수 = ",q.studyGuide.frames.get(7).before);assertEquals("1",q.studyGuide.frames.get(9).expected);assertEquals("5",q.studyGuide.frames.get(22).expected);assertFalse(q.studyGuide.transfer);
  }
  @Test public void commonDivisorChecksBothNumbersAndIncludesRejectedCandidates(){
-  Question q=new Question("el_common_divisor","14과 21의 공약수 중 두 번째로 작은 수는?","14/999","999");FactorMultipleTeaching.attach(q);assertEquals(43,q.studyGuide.frames.size());assertEquals("21 ÷ 2 = ",q.studyGuide.frames.get(9).before);assertEquals("1",q.studyGuide.frames.get(11).expected);assertEquals("7",q.studyGuide.frames.get(42).expected);assertFalse(q.studyGuide.transfer);
+  Question q=new Question("el_common_divisor","14과 21의 공약수 중 두 번째로 작은 수는?","14/999","999");FactorMultipleTeaching.attach(q);assertEquals(52,q.studyGuide.frames.size());assertEquals("둘째 수 ÷ 확인할 수 = ",q.studyGuide.frames.get(13).before);assertEquals("1",q.studyGuide.frames.get(15).expected);assertEquals("7",q.studyGuide.frames.get(51).expected);assertFalse(q.studyGuide.transfer);
  }
 }

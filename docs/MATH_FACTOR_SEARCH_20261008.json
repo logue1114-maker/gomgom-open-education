@@ -1,0 +1,47 @@
+{
+  "units": [
+    "el_divisor",
+    "el_multiple",
+    "el_common_divisor",
+    "el_common_multiple"
+  ],
+  "teachingVersion": "factor-search-relations-v1",
+  "method": "Copy public givens into named blanks, enter each tested number or multiplier, then calculate quotient/product/remainder. Only checked student inputs are displayed as later references.",
+  "invariants": [
+    "Existing search order, number ranges, scalar schemas and public signatures remain unchanged.",
+    "Main-answer transfer was already disabled and remains disabled.",
+    "No computed quotient, product or least-common-multiple is prefilled in a frame.",
+    "The first counter 1, step size 1 and zero-remainder rule are structural concept constants.",
+    "Factor pairs and common factors shown in final references are formed only from accepted prior student entries.",
+    "Obsolete drafts reset; checked partial drafts serialize and restore.",
+    "Question answer metadata and expressions do not determine the help."
+  ],
+  "validation": [
+    {
+      "module": "engine",
+      "tests": 885,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "app",
+      "tests": 239,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    },
+    {
+      "module": "globalApp",
+      "tests": 239,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0
+    }
+  ],
+  "supply": "Each of four normal-generator samples produced at least 100 distinct public signatures in 500 samples; existing common-factor supply retains its 110-question domain and recent-100 exhaustion behavior. No new authored bank or enlarged signature domain is claimed.",
+  "limits": [
+    "Unit tests, native UI evidence and learner-comprehension evidence are separate.",
+    "No physical-device, tablet or release-readiness claim."
+  ]
+}

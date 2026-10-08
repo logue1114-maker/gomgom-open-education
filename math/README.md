@@ -169,3 +169,8 @@ Four units now use learner-entered decimal positions/digits or graph counts, uni
 ### Shape and cuboid structure (2026-10-08)
 
 Three units now teach learner-entered side counts, triangle classification and cuboid face/edge/vertex counts. Cuboids have countable wireframe and unfolded teaching diagrams while retaining the scalar and three-answer schemas. Rotations, positive horizontal stretch and cuboid proportions provide practice without claiming different fixed mathematical facts or a 100-question authored bank. Plane outline coordinate sets are deduplicated after symmetry, rather than counting raw drawing parameters. Help never prefills or transfers the main answer. See [scope and validation](../docs/MATH_SHAPE_STRUCTURES_20261008.json).
+
+
+### Factor and multiple searches
+
+Four elementary factor/multiple searches use named empty relations and checked student input references. The original search order and number domains remain intact; quotients, products and least common multiples are not prefilled. See `docs/MATH_FACTOR_SEARCH_20261008.json` for verification and boundaries.
