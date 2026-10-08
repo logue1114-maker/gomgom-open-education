@@ -701,6 +701,9 @@ LEVEL	sg-moe-primary-2021-v1	4	Primary 4
 LEVEL	sg-moe-primary-2021-v1	5	Primary 5
 LEVEL	sg-moe-primary-2021-v1	6	Primary 6
 MAP	sg-moe-primary-2021-v1	1	count,compare,join9,split9,place50,place10,place100,add9,sub9,add20,sub20,add100,sub100,addThree9,mulIntro	PDF31 whole numbers 1–3: selected counting, place value, add/subtract within100, grouping within40
+MAP	sg-moe-primary-2021-v1	1	objectShare,objectOrdinal,ordinalName	PDF31 whole numbers1.7 / multiplication-division3.4: selected equal sharing within20 and first–tenth ordinal position/names/symbols
+RULE	sg-moe-primary-2021-v1	1	objectShare	wholeMaximum=20;objectGroupSizes=2,3,4,5,6,7,8,9,10
+RULE	sg-moe-primary-2021-v1	1	objectOrdinal,ordinalName	wholeMaximum=10
 MAP	sg-moe-primary-2021-v1	2	place1000,el_compare_10000,el_even_odd,add1000,sub1000,tables,divide,fractionPart,fracCompare,fracAddLike,fracSubLike	PDF33 whole numbers1–3 and fractions1–2: numbers1000, selected tables2/3/4/5/10, like fractions within1
 MAP	sg-moe-primary-2021-v1	3	largePlace,el_compare_10000,add1000,sub1000,tables,divide,mul2,mul3,remainder,reduce,el_fraction_compare,fracAdd,fracSub	PDF35 whole numbers1–3/fractions1–2: numbers10000, four-digit add/subtract, selected multiplication/remainders, related fractions
 MAP	sg-moe-primary-2021-v1	4	largePlace,el_round,el_mul_3x2,el_mixed_to_improper,el_improper_to_mixed,el_fraction_of_number,fracAdd,fracSub,el_decimal_place,el_decimal_compare,el_decimal_fraction,el_fraction_decimal,el_decimal_round,decimalAdd,decimalSub,decimalMul,decimalDivInt	PDF37–38: selected place value100000, rounding, 3-by-2 multiplication, mixed-number conversion, fractions and decimals

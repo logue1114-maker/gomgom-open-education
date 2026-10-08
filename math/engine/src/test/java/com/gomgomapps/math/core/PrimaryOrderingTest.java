@@ -41,6 +41,9 @@ public class PrimaryOrderingTest {
  @Test public void selectedGradeBoundsAndPreviousGradeDiagnosisAreDistinct(){
   Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"NA");GlobalCurriculum.choosePack(p,NA);p.grade=1;
   assertFalse(GlobalCurriculum.scope(p).stream().anyMatch(s->PrimaryOrdering.supports(s.id)));p.grade=2;
-  for(Catalog.Skill s:PrimaryOrdering.SKILLS){assertTrue(GlobalCurriculum.scope(p).stream().anyMatch(mapped->mapped.id.equals(s.id)));assertNotNull(GlobalCurriculum.limits(NA,s.id,1));}
+  // This assertion belongs to Namibia's selected mapping, not every future skill
+  // registered in the shared family (e.g. Singapore ordinal names and symbols).
+  for(String id:List.of("numberCompareWords","objectCompareWords","numberOrder","objectOrdinal")){assertTrue(GlobalCurriculum.scope(p).stream().anyMatch(mapped->mapped.id.equals(id)));assertNotNull(GlobalCurriculum.limits(NA,id,1));}
+  assertFalse(GlobalCurriculum.scope(p).stream().anyMatch(mapped->mapped.id.equals("ordinalName")));
  }
 }

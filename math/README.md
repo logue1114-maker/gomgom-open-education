@@ -214,3 +214,5 @@ Double and half: [selected Grade3 range and blank part strategy](DOUBLE_HALF_GRA
 Number parts: [selected multiple constructions](NUMBER_DECOMPOSITION.md).
 
 Half/quarter pictures: [selected picture-only foundations](FRACTION_PIECES.md).
+
+Selected Singapore Primary1 sharing/ordinal scope: [SINGAPORE_PRIMARY1.md](SINGAPORE_PRIMARY1.md).
