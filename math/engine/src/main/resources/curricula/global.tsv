@@ -1460,3 +1460,10 @@ RULE	na-nied-primary-2024-v1	1	objectShare	wholeMaximum=20;maxResult=20;objectGr
 RULE	na-nied-primary-2024-v1	1	objectGroupRemainder	wholeMaximum=10;maxResult=10;objectGroupSizes=2,3,4,5
 MAP	na-nied-primary-2024-v1	2	objectGroupTotal,objectShare,objectGroupRemainder	JP printed pp.16–17: selected grouped collections and equal sharing through50 without division notation; fractional remainders/contextual acting remain
 RULE	na-nied-primary-2024-v1	2	objectGroupTotal,objectShare,objectGroupRemainder	wholeMaximum=50;maxResult=50;objectGroupSizes=2,3,4,5,10
+MAP	na-nied-primary-2024-v1	1	objectDouble,objectHalf	JP printed p.9 explicit selected double/half objects; mental and oral strategies remain
+RULE	na-nied-primary-2024-v1	1	objectDouble	wholeMaximum=10;maxResult=20;doubleHalfInputs=1,2,3,4,5,10
+RULE	na-nied-primary-2024-v1	1	objectHalf	wholeMaximum=20;maxResult=10;doubleHalfInputs=2,4,6,8,10,20
+MAP	na-nied-primary-2024-v1	2	objectDouble,objectHalf,objectHalfRemainder	JP printed p.9 doubling inputs through50, even halving through50 and odd halving through19; objects selected, oral strategies remain
+RULE	na-nied-primary-2024-v1	2	objectDouble	wholeMaximum=50;maxResult=100
+RULE	na-nied-primary-2024-v1	2	objectHalf	wholeMaximum=50;maxResult=25
+RULE	na-nied-primary-2024-v1	2	objectHalfRemainder	wholeMaximum=19;maxResult=9
