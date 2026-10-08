@@ -44,7 +44,7 @@ public final class CurriculumLimits {
     private Rational maxFractionValue;
     private Integer minimumWholeDigits;
     private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables,monicQuadratic;
-    private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,nonnegativeSubtrahend;
+    private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,commonDenominatorFactor,nonnegativeSubtrahend;
     CurriculumLimits(String definition){
         if(definition.isBlank())return;
         for(String option:definition.split(";")){
@@ -91,6 +91,7 @@ public final class CurriculumLimits {
                 case "minGiven":minGiven=Double.valueOf(pair[1]);if(!Double.isFinite(minGiven)||minGiven<0)throw new IllegalArgumentException("Invalid minimum input");break;
                 case "unitFractions":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid unit fraction flag");unitFractions=true;break;
                 case "relatedDenominators":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid denominator relation flag");relatedDenominators=true;break;
+                case "commonDenominatorFactor":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid common denominator factor flag");commonDenominatorFactor=true;break;
                 case "variedFacts":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid fact forms");variedFacts=true;break;
                 case "includeZeroCount":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid empty collection flag");includeZeroCount=true;break;
                 case "timetables":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid timetable flag");timetables=true;break;
@@ -191,6 +192,7 @@ public final class CurriculumLimits {
         if(!roundingUnits.isEmpty()){Matcher place=Pattern.compile("(\\d+)의 자리까지").matcher(q.prompt);if(!place.find()||!roundingUnits.contains(Integer.parseInt(place.group(1))))return false;}
         if(unitFractions){Matcher m=Pattern.compile("(\\d+)\\s*/\\s*\\d+").matcher(q.expression);boolean found=false;while(m.find()){found=true;if(!m.group(1).equals("1"))return false;}if(!found)return false;}
         if(relatedDenominators){List<Integer> found=new ArrayList<>();Matcher m=FRACTION.matcher(q.expression);while(m.find())found.add(Integer.parseInt(m.group(1)));for(int a:found)for(int b:found)if(a%b!=0&&b%a!=0)return false;}
+        if(commonDenominatorFactor){List<Integer> found=new ArrayList<>();Matcher m=FRACTION.matcher(q.prompt);while(m.find())found.add(Integer.parseInt(m.group(1)));if(found.size()<2)return false;for(int i=0;i<found.size();i++)for(int j=i+1;j<found.size();j++){int a=found.get(i),b=found.get(j);while(b!=0){int remainder=a%b;a=b;b=remainder;}if(a<2)return false;}}
         if(!factors.isEmpty()){Matcher m=Pattern.compile("(\\d+)\\s*[×*]\\s*(\\d+)").matcher(operation);if(!m.matches()||(!factors.contains(Integer.parseInt(m.group(1)))&&!factors.contains(Integer.parseInt(m.group(2)))))return false;}
         if(!divisors.isEmpty()){Matcher m=Pattern.compile("\\d+\\s*[÷/]\\s*(\\d+)").matcher(operation);if(!m.matches()||!divisors.contains(Integer.parseInt(m.group(1))))return false;}
         if(!dividendMaxima.isEmpty()){Matcher m=Pattern.compile("(\\d+)\\s*[÷/]\\s*(\\d+)").matcher(operation);if(!m.matches())return false;Integer maximum=dividendMaxima.get(Integer.parseInt(m.group(2)));if(maximum==null||Long.parseLong(m.group(1))>maximum)return false;}

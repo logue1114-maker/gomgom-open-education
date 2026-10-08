@@ -248,3 +248,5 @@ Selected digit/value learning: [WHOLE_PLACE_VALUES.md](WHOLE_PLACE_VALUES.md).
 Selected upper-primary sums: [ENGLAND_UPPER_SUMS.md](ENGLAND_UPPER_SUMS.md).
 
 Selected England Year3 fractions: [ENGLAND_LIKE_FRACTIONS.md](ENGLAND_LIKE_FRACTIONS.md).
+
+Selected England Year5 fraction sums: [ENGLAND_UPPER_FRACTION_SUMS.md](ENGLAND_UPPER_FRACTION_SUMS.md).

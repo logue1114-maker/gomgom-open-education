@@ -1604,3 +1604,7 @@ MAP	england-primary-2021-v1	3	fracAddLike,fracSubLike
 RULE	england-primary-2021-v1	3	fracAddLike,fracSubLike	maxFractionValue=1;maxResult=1;nonnegative=true;variedFacts=true
 # Reset Year3 bounds for existing Year4 onward practice beyond one whole.
 RULE	england-primary-2021-v1	4	fracAddLike,fracSubLike	
+MAP	england-primary-2021-v1	5	fracAddLike,fracSubLike,fracAdd,fracSub
+RULE	england-primary-2021-v1	5	fracAdd,fracSub	commonDenominatorFactor=true;maxFractionValue=1;maxResult=2;nonnegative=true;variedFacts=true
+# Preserve the existing general Year6 fraction supply without Year5's selected bounds.
+RULE	england-primary-2021-v1	6	fracAdd,fracSub	
