@@ -11,6 +11,7 @@ public final class CurriculumLimits {
     private static final Pattern NEGATIVE=Pattern.compile("(?:^|[\\s(=+*/×÷])-\\d");
     private final Map<Integer,Integer> countingBounds=new LinkedHashMap<>();
     private boolean countingAnyStart;
+    private final Set<Integer> countingAnyStartSteps=new HashSet<>();
     private boolean groupedSubitise;
     private boolean doubleHalfDecomposition;
     private final List<Integer> decompositionParts=new ArrayList<>();
@@ -21,6 +22,7 @@ public final class CurriculumLimits {
     public boolean groupedSubitise(){return groupedSubitise;}
     public Map<Integer,Integer> countingBounds(){return Collections.unmodifiableMap(countingBounds);}
     public boolean countingAnyStart(){return countingAnyStart;}
+    public boolean countingAnyStart(int step){return countingAnyStart||countingAnyStartSteps.contains(step);}
     private final List<Integer> doubleHalfInputs=new ArrayList<>();
     public List<Integer> doubleHalfInputs(){return List.copyOf(doubleHalfInputs);}
     private final List<Integer> objectGroupSizes=new ArrayList<>();
@@ -49,6 +51,7 @@ public final class CurriculumLimits {
                 case "groupedSubitise":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid grouped recognition flag");groupedSubitise=Boolean.parseBoolean(pair[1]);break;
                 case "doubleHalfDecomposition":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid double/half decomposition flag");doubleHalfDecomposition=Boolean.parseBoolean(pair[1]);break;
                 case "countingAnyStart":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid counting start flag");countingAnyStart=true;break;
+                case "countingAnyStartSteps":for(String value:pair[1].split(",",-1)){int step=Integer.parseInt(value);if(step<1||step>100||!countingAnyStartSteps.add(step))throw new IllegalArgumentException("Invalid counting start step");}break;
                 case "countingBounds":for(String entry:pair[1].split(",",-1)){String[] v=entry.split(":",-1);if(v.length!=2)throw new IllegalArgumentException("Invalid counting bound");int step=Integer.parseInt(v[0]),max=Integer.parseInt(v[1]);if(step<1||step>100||max<step||max>1000||countingBounds.putIfAbsent(step,max)!=null)throw new IllegalArgumentException("Invalid counting range");}break;
                 case "doubleHalfInputs":for(String value:pair[1].split(",",-1)){int n=Integer.parseInt(value);if(n<1||n>50||doubleHalfInputs.contains(n))throw new IllegalArgumentException("Invalid double/half input");doubleHalfInputs.add(n);}break;
                 case "objectGroupSizes":for(String value:pair[1].split(",",-1)){int n=Integer.parseInt(value);if(n<2||n>10||objectGroupSizes.contains(n))throw new IllegalArgumentException("Invalid object group size");objectGroupSizes.add(n);}break;

@@ -17,7 +17,7 @@ public final class CountingSteps {
   for(var bound:bounds.entrySet()){
    int step=bound.getKey(),maximum=bound.getValue();
    if(s.id.equals("countForward")&&step!=1||s.id.equals("countSkip")&&step==1)continue;
-   for(int start=back?step:0;start<=(back?maximum:maximum-step);start+=limits.countingAnyStart()?1:step){
+   for(int start=back?step:0;start<=(back?maximum:maximum-step);start+=limits.countingAnyStart(step)?1:step){
     int answer=back?start-step:start+step;
     Question q=new Question(s.id,step+"씩 "+(back?"거꾸로":"앞으로")+" 세세요.\n"+start+" → □","",""+answer);q.stepSupport=false;
     if(limits.allows(q))pool.put(q.signature(),q);
