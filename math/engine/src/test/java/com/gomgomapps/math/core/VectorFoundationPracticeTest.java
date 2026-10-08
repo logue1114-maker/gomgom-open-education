@@ -21,7 +21,7 @@ public class VectorFoundationPracticeTest {
   Generator gen=new Generator(new Random(2026100840));Checker checker=new Checker();
   for(String id:VectorFoundationPractice.IDS){Set<String> seen=new HashSet<>(),answers=new HashSet<>();for(int i=0;i<150;i++){
    Question q=gen.next(id,seen,i%2==0);assertTrue(id,seen.add(q.signature()));int expected=solve(q);answers.add(String.valueOf(expected));assertEquals(String.valueOf(expected),q.answers[0]);assertTrue(checker.check(q,List.of(),List.of(String.valueOf(expected))).correct());assertFalse(checker.check(q,List.of(),List.of(String.valueOf(expected+1))).correct());
-   HelpPlan p=HelpPlan.forQuestion(q);assertNotNull(id,p);assertFalse(p.canTransfer());assertEquals("vector-foundations-v1",q.studyGuide.teachingVersion);
+   assertFalse(id,q.stepSupport);HelpPlan p=HelpPlan.forQuestion(q);assertNotNull(id,p);assertFalse(p.canTransfer());assertEquals("vector-foundations-v1",q.studyGuide.teachingVersion);
    HelpPlan.Draft d=p.restore(null,q.id);for(int j=0;j<p.size();j++){
     StudyGuide.Frame f=q.studyGuide.frames.get(j);assertTrue(f.before.endsWith("= "));assertTrue(f.after.isEmpty());assertTrue(p.step(j).accepts(f.expected));assertFalse(p.step(j).accepts("999999999"));d.entries.set(j,f.expected);d.stage++;while(d.entries.size()<=d.stage)d.entries.add("");
    }assertEquals(String.valueOf(expected),p.enteredAnswer(d));

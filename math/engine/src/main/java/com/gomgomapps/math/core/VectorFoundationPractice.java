@@ -9,6 +9,15 @@ public final class VectorFoundationPractice {
  public static boolean supports(String id){return IDS.contains(id);}
  private static int signed(Random r){return r.nextInt(25)-12;}
  private static String tuple(int... values){StringJoiner j=new StringJoiner(",","(",")");for(int v:values)j.add(String.valueOf(v));return j.toString();}
+ static Question nextNorm(Catalog.Skill skill,Random random,CurriculumLimits limits,Map<String,Integer> recent){
+  Map<String,Question> candidates=new LinkedHashMap<>();
+  for(int[] t:IntegerRightTriangles.all())for(int swap=0;swap<2;swap++)for(int xSign:new int[]{-1,1})for(int ySign:new int[]{-1,1}){
+   int x=t[swap]*xSign,y=t[1-swap]*ySign;
+   Question q=new Question(skill.id,"정규직교좌표에서 벡터 v="+tuple(x,y)+"의 크기는?","",String.valueOf(t[2]));q.stepSupport=false;attach(q);
+   if(limits.allows(q))candidates.put(q.signature(),q);
+  }
+  return FactFoundations.choose(candidates,random,recent);
+ }
  public static Question create(Catalog.Skill skill,Random r){
   int a=signed(r),b=signed(r),c=signed(r),d=signed(r),k=signed(r);String axis=r.nextBoolean()?"x":"y",prompt;long answer;
   switch(skill.id){

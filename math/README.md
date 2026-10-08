@@ -186,3 +186,5 @@ See [2026-10-08 module connections, curriculum limits and reproduction](UPDATES_
 [Signed-integer modulo foundations and reproduction](MODULO_FOUNDATIONS.md)
 
 [Namibia primary selected calculations](NAMIBIA_PRIMARY.md)
+
+[Android-compatible curriculum resource reading](ANDROID_RESOURCE_READING.md)

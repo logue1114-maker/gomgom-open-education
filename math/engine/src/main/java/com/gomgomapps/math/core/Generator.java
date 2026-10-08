@@ -48,6 +48,7 @@ public final class Generator {
         if(skillId.equals("squareWhole")||skillId.equals("rootWhole"))q=SquareFractionFoundations.nextWhole(s,random,limits,previous);
         if(CubeFoundations.supports(skillId))q=CubeFoundations.nextWhole(s,random,limits,previous);
         if(skillId.equals("combinedWorkTime"))q=RateFoundations.nextWork(s,random,limits,previous);
+        if(skillId.equals("vectorNorm"))q=VectorFoundationPractice.nextNorm(s,random,limits,previous);
         if(q==null)for(int i=0,accepted=0;i<2048&&accepted<40;i++){
             Question candidate=create(s,limits);if(!limits.allows(candidate))continue;accepted++;
             Integer age=previous.get(candidate.signature());

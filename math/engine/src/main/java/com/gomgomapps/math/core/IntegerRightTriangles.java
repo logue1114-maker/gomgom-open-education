@@ -14,6 +14,7 @@ final class IntegerRightTriangles {
         }
         return List.copyOf(result);
     }
+    static List<int[]> all(){return TRIANGLES.stream().map(int[]::clone).toList();}
     static int[] next(Random random){return TRIANGLES.get(random.nextInt(TRIANGLES.size())).clone();}
     static Question pythagoras(Catalog.Skill skill,Random random){return RightTriangleLength.create(skill,random);}
 }

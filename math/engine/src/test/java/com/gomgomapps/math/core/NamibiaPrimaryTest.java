@@ -16,6 +16,13 @@ public class NamibiaPrimaryTest {
         assertFalse(state.session.diagnosticRun.plan.scope.contains("divide"));
         assertFalse(state.session.diagnosticRun.plan.scope.contains("decimalAdd"));
     }
+    @Test public void unmappedIntroductorySkillsDoNotOverrideTheNationalScope(){
+        Learning.Profile p=profile(1);p.currentSkill="count";assertTrue(GlobalCurriculum.scope(p).isEmpty());
+        p.currentSkill="add20";assertTrue(GlobalCurriculum.scope(p).isEmpty());
+        p.learnedSkills.add("count");assertEquals(List.of("count"),GlobalCurriculum.scope(p).stream().map(s->s.id).toList());
+        p.learnedSkills.add("compare");assertTrue(GlobalCurriculum.scope(p).stream().anyMatch(s->s.id.equals("compare")));
+        p=profile(2);p.currentSkill="add100";assertTrue(GlobalCurriculum.scope(p).stream().anyMatch(s->s.id.equals("count")));assertFalse(GlobalCurriculum.scope(p).stream().anyMatch(s->s.id.equals("compare")));
+    }
     @Test public void everyPlacementSuppliesOneHundredValidProblems(){
         Generator generator=new Generator(new Random(20241008));GlobalCurriculum.Pack pack=GlobalCurriculum.pack(profile(1));
         for(int grade:pack.levels())for(String id:pack.grades.keySet())if(pack.inGrade(id,grade))for(int i=0;i<100;i++){

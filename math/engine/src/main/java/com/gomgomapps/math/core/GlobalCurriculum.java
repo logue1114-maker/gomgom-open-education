@@ -42,7 +42,7 @@ public final class GlobalCurriculum {
         Map<String,Pack> packs=new LinkedHashMap<>();
         try(InputStream input=GlobalCurriculum.class.getResourceAsStream("/curricula/global.tsv")){
             if(input==null)throw new IOException("Missing curriculum data");
-            for(String line:new String(input.readAllBytes(),StandardCharsets.UTF_8).split("\\R")){
+            for(String line:new String(com.gomgomapps.math.core.StreamBytes.read(input),StandardCharsets.UTF_8).split("\\R")){
                 if(line.isBlank()||line.startsWith("#"))continue;
                 String[] row=line.split("\\t",-1);
                 if(row[0].equals("PACK")){if(row.length!=6)throw new IOException("Invalid PACK: "+line);Pack p=new Pack(Arrays.copyOfRange(row,1,row.length));if(packs.putIfAbsent(p.id,p)!=null)throw new IOException("Duplicate pack: "+p.id);}
@@ -157,7 +157,7 @@ public final class GlobalCurriculum {
         Pack pack=pack(p);List<Catalog.Skill> result=new ArrayList<>();
         for(Catalog.Skill s:available(p)){
             boolean learned=pack!=null&&pack.completedBefore(s.id,p.grade)>=0;
-            if((s.grade==0||learned||p.learnedSkills.contains(s.id))&&!p.excluded.contains(s.id)&&!p.currentSkill.equals(s.id))result.add(s);
+            if(((pack==null&&s.grade==0)||learned||p.learnedSkills.contains(s.id))&&!p.excluded.contains(s.id)&&!p.currentSkill.equals(s.id))result.add(s);
         }
         return result;
     }
