@@ -1,0 +1,7 @@
+# Selected England upper-primary whole addition and subtraction
+
+Official source: https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study
+
+Year4 adds two existing whole-calculation placements with operands0–9999. Year5 adds two placements with operands0–999999, a selected supported subset of the official more-than-four-digit requirement, which has no statutory six-digit upper cap. Sums can naturally have one extra digit; subtraction remains nonnegative. Lower numbers and zero remain available as foundational reinforcement. Defaults without explicit minGiven remain unchanged; no country-specific regrouping cap is copied. Year6 mixed/context/mental calculations and Year4/5 inverse, estimation, all contextual strategies remain incomplete.
+
+Existing column arithmetic and blank student-entered help are reused. Public operands determine digit/carry/borrow steps and final calculation; answer metadata is not a help source. No prefilled operand or answer transfer. Students still submit their main answer separately. Four selected placements each produce100 fresh public conditions, independent arithmetic, distinct shuffled choices, blank help and saved-question reconstruction. Zero, maximum and chained borrowing are checked; prior digit bounds, column help and titles are checked narrowly. Private UI, translations, learner records, ads/billing, QA and APKs are excluded.

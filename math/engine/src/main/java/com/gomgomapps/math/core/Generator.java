@@ -8,7 +8,7 @@ public final class Generator {
     public Generator(){this(new SecureRandom());}
     public Generator(Random random){this.random=random;}
     private int n(int lo,int hi){return lo+random.nextInt(hi-lo+1);}
-    private int operand(CurriculumLimits limits,int digits){return n((int)Math.pow(10,limits.minimumWholeDigits(digits)-1),limits.givenMaximum((int)Math.pow(10,digits)-1));}
+    private int operand(CurriculumLimits limits,int digits){return n(limits.givenMinimum((int)Math.pow(10,limits.minimumWholeDigits(digits)-1)),limits.givenMaximum((int)Math.pow(10,digits)-1));}
     private int[] threeWithoutCarry(int digits){
         int[] values=new int[3];int power=1;
         for(int column=0;column<digits;column++,power*=10){

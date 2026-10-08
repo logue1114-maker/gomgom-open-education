@@ -1594,3 +1594,9 @@ RULE	england-primary-2021-v1	6	wholePlaceValue	wholeMaximum=10000000;minGiven=0;
 RULE	england-primary-2021-v1	5	largePlace	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;nonnegative=true
 MAP	england-primary-2021-v1	6	largePlace
 RULE	england-primary-2021-v1	6	largePlace	wholeMaximum=10000000;minGiven=0;maxGiven=10000000;nonnegative=true
+MAP	england-primary-2021-v1	4	add1000,sub1000
+RULE	england-primary-2021-v1	4	add1000	wholeDigits=4;minimumWholeDigits=1;minGiven=0;maxGiven=9999;maxResult=19998;nonnegative=true
+RULE	england-primary-2021-v1	4	sub1000	wholeDigits=4;minimumWholeDigits=1;minGiven=0;maxGiven=9999;maxResult=9999;nonnegative=true
+MAP	england-primary-2021-v1	5	add1000,sub1000
+RULE	england-primary-2021-v1	5	add1000	wholeDigits=6;minimumWholeDigits=1;minGiven=0;maxGiven=999999;maxResult=1999998;nonnegative=true
+RULE	england-primary-2021-v1	5	sub1000	wholeDigits=6;minimumWholeDigits=1;minGiven=0;maxGiven=999999;maxResult=999999;nonnegative=true

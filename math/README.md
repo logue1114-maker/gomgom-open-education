@@ -244,3 +244,5 @@ Selected names/equivalence: [FRACTION_NAMES_RELATIONS.md](FRACTION_NAMES_RELATIO
 Selected upper numbers: [ENGLAND_UPPER_NUMBERS.md](ENGLAND_UPPER_NUMBERS.md).
 
 Selected digit/value learning: [WHOLE_PLACE_VALUES.md](WHOLE_PLACE_VALUES.md).
+
+Selected upper-primary sums: [ENGLAND_UPPER_SUMS.md](ENGLAND_UPPER_SUMS.md).
