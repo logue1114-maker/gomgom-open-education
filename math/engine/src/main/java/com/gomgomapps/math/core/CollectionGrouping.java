@@ -30,7 +30,7 @@ public final class CollectionGrouping {
   if(q==null||!supports(q.skillId)||q.diagram==null)return;int n=points(q,0).length;
   StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="collection-grouping-v1";
   g.step("5개씩 묶어 보세요. 완성된 묶음 수를 쓰세요.","5개씩 묶음 수 = ","",""+(n/5));
-  g.step("묶인 동그라미는 모두 몇 개인가요?","묶인 수 = ","",""+(n/5*5));
+  g.step("묶인 동그라미는 모두 몇 개인가요?","묶인 동그라미 수 = ","",""+(n/5*5));
   g.step("묶이지 않은 동그라미 수를 쓰세요.","남은 수 = ","",""+(n%5));
   g.step("묶인 수와 남은 수를 모으세요.","모두 = ","",""+n);q.studyGuide=g;
  }
