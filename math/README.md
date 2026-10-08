@@ -208,3 +208,5 @@ Subitising: [selected Namibia recognition and independent recount](SUBITISING_NA
 Estimation: [retain the learner estimate, then group and count](GROUPED_ESTIMATION.md).
 
 Ordering: [selected Grade2/3 range extension](ORDERING_RANGES.md).
+
+Double and half: [selected Grade3 range and blank part strategy](DOUBLE_HALF_GRADE3.md).

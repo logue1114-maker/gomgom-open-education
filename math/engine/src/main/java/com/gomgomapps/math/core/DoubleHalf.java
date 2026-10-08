@@ -21,6 +21,7 @@ public final class DoubleHalf {
    Question q=new Question(skill.id,prompt,"",remainder?new String[]{""+(amount/2),"1"}:new String[]{""+(twice?amount*2:amount/2)});
    if(remainder)q.labels=new String[]{"한쪽 몫","남은 수"};q.stepSupport=false;
    q.diagram=twice?new StudyDiagram("doubleObjects",new double[]{amount}):new StudyDiagram("sharingObjects",new double[]{amount,2,0});
+   if(limits.doubleHalfDecomposition())q.diagram.labels=new String[]{"placeParts"};
    attach(q);if(limits.allows(q))pool.put(q.signature(),q);
   }
   return FactFoundations.choose(pool,random,recent);
@@ -30,6 +31,16 @@ public final class DoubleHalf {
   Matcher m=Pattern.compile("^물건 (\\d+)개").matcher(q.prompt);if(!m.find())return;
   int amount=Integer.parseInt(m.group(1));boolean twice=q.skillId.equals("objectDouble");
   StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="double-half-v1";
+  if(q.diagram!=null&&Arrays.asList(q.diagram.labels).contains("placeParts")){
+   int tens=amount/10*10,ones=amount%10;g.teachingVersion="double-half-parts-v1";
+   g.step("십 단위 부분을 쓰세요.","십 단위 부분 = ","",""+tens);
+   g.step("남은 일 단위 부분을 쓰세요.","일 단위 부분 = ","",""+ones);
+   g.step(twice?"십 단위 부분의 두 배를 쓰세요.":"십 단위 부분의 절반을 쓰세요.",twice?"십 단위 두 배 = ":"십 단위 절반 = ","",""+(twice?tens*2:tens/2));
+   g.step(twice?"일 단위 부분의 두 배를 쓰세요.":"일 단위 부분을 둘로 나눈 한쪽 몫을 쓰세요.",twice?"일 단위 두 배 = ":"일 단위 몫 = ","",""+(twice?ones*2:ones/2));
+   g.step("구한 두 부분을 더하세요.",twice?"두 배 = ":"한쪽 몫 = ","",""+(twice?amount*2:amount/2));
+   if(!twice)g.step("둘로 나누고 남은 수를 쓰세요.","남은 수 = ","",""+(amount%2));
+   q.studyGuide=g;return;
+  }
   g.step("처음 물건 수를 쓰세요.","물건 수 = ","",""+amount);
   if(twice){
    g.step("같은 수를 한 번 더 모아요. 더 모을 수를 쓰세요.","더 모을 수 = ","",""+amount);

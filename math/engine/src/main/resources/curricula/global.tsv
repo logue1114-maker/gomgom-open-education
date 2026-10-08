@@ -1507,3 +1507,7 @@ MAP	na-nied-primary-2024-v1	3	numberOrder	JP printed p.8; selected three-number 
 RULE	na-nied-primary-2024-v1	3	numberOrder	wholeMaximum=500;maxResult=500;nonnegative=true
 MAP	na-nied-primary-2024-v1	3	objectOrdinal	JP printed p.8; selected three-number order and visible ordinal position; ordinal names/sequences remain
 RULE	na-nied-primary-2024-v1	3	objectOrdinal	wholeMaximum=30;maxResult=30;nonnegative=true
+MAP	na-nied-primary-2024-v1	3	objectDouble,objectHalf,objectHalfRemainder	JP printed p.9 double/half inputs through100; selected public objects and blank place-part strategy
+RULE	na-nied-primary-2024-v1	3	objectDouble	wholeMaximum=100;maxResult=200;doubleHalfDecomposition=true
+RULE	na-nied-primary-2024-v1	3	objectHalf	wholeMaximum=100;maxResult=50;doubleHalfDecomposition=true
+RULE	na-nied-primary-2024-v1	3	objectHalfRemainder	wholeMaximum=100;maxResult=49;doubleHalfDecomposition=true
