@@ -430,7 +430,7 @@ public final class ElementaryBasics {
     private static Question rounding(Catalog.Skill skill,Random random,boolean up,boolean down,CurriculumLimits limits){
         int[] units=limits.roundingUnits();int place=units[random.nextInt(units.length)];
         int value;
-        do{value=n(random,place*2,limits.wholeMaximum(99999));}while(up&&value%place==0);
+        do{value=n(random,limits.givenMinimum(place*2),limits.wholeMaximum(99999));}while(up&&value%place==0);
         int answer=up?roundUp(value,place):down?roundDown(value,place):roundNearest(value,place);
         String expression=up?roundUpExpression(value,place):down?roundDownExpression(value,place):roundNearestExpression(value,place);
         String method=up?"올림":down?"버림":"반올림";

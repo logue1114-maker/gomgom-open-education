@@ -258,7 +258,7 @@ public final class CurriculumLimits {
     int givenMinimum(int defaults){return minGiven==null?defaults:minGiven.intValue();}
     int givenMaximum(int defaultMaximum){return maxGiven==null?defaultMaximum:Math.min(defaultMaximum,maxGiven.intValue());}
     private boolean allowsAnswer(String value){
-        try{Rational number=Expression.number(value);if(answerDomain.equals("integer")&&!number.d.equals(java.math.BigInteger.ONE))return false;if(nonnegative&&number.compareTo(Rational.of(0))<0)return false;return maxResult==null||number.compareTo(Expression.number(maxResult.toString()))<=0;}
+        try{Rational number=Expression.number(value);if(answerDomain.equals("integer")&&!number.d.equals(java.math.BigInteger.ONE))return false;if(nonnegative&&number.compareTo(Rational.of(0))<0)return false;return maxResult==null||number.compareTo(Expression.number(java.math.BigDecimal.valueOf(maxResult).toPlainString()))<=0;}
         catch(RuntimeException e){return maxResult==null&&answerDomain.isEmpty();}
     }
     private boolean allowsDenominators(String text){if(!denominators.isEmpty()){Matcher m=FRACTION.matcher(text);while(m.find())if(!denominators.contains(Integer.parseInt(m.group(1))))return false;Matcher parts=Pattern.compile("전체를 똑같이 (\\d+)조각").matcher(text);while(parts.find())if(!denominators.contains(Integer.parseInt(parts.group(1))))return false;}return true;}

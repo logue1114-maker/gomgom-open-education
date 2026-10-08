@@ -43,9 +43,9 @@ public class WholeCompareRelationsTest {
         assertTrue(seen.size()>=100);assertTrue(directions.containsAll(List.of("<",">")));
     }
     @Test public void differentLengthsZerosEqualityAndLateDifferentDigits(){
-        for(int[] pair:new int[][]{{0,0},{0,1},{10000,9999},{9999,10000},{5000,5000},{1010,1001},{1010,1011},{999,1000},{10000,10000},{100,100}})
+        for(int[] pair:new int[][]{{0,0},{0,1},{10000,9999},{9999,10000},{5000,5000},{1010,1001},{1010,1011},{999,1000},{10000,10000},{100,100},{10001,1},{10000000,9999999},{10000000,10000000}})
             verify(new Question("el_compare_10000",pair[0]+"  □  "+pair[1],"","="));
-        for(String raw:List.of("10001 □ 1","-1 □ 0","9999999999999999 □ 0","1 + 2","1 □ 2 □ 3"))assertTrue(WholeCompareRelations.frames(new Question("el_compare_10000",raw,"","<")).isEmpty());
+        for(String raw:List.of("-1 □ 0","9999999999999999 □ 0","1 + 2","1 □ 2 □ 3"))assertTrue(WholeCompareRelations.frames(new Question("el_compare_10000",raw,"","<")).isEmpty());
         assertTrue(WholeCompareRelations.frames(null).isEmpty());
     }
     @Test public void oldDraftResetsAndCheckedPlacesSurviveSerialization()throws Exception{

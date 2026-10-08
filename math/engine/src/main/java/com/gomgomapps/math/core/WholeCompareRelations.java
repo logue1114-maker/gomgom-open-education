@@ -8,14 +8,13 @@ public final class WholeCompareRelations {
     private WholeCompareRelations() {}
     public static boolean supports(String id) { return "el_compare_10000".equals(id); }
     public record Frame(String instruction, String name, String expected, int[] prior, boolean choice) {}
-    private static final String[] PLACES={"일","십","백","천","만"};
+    private static final String[] PLACES={"일","십","백","천","만","십만","백만","천만","억","십억"};
     public static List<Frame> frames(Question q) {
         if(q==null||q.prompt==null||!supports(q.skillId))return List.of();
         Matcher m=Pattern.compile("^(\\d+)\\s+□\\s+(\\d+)$").matcher(q.prompt);
         if(!m.matches())return List.of();
         try {
             int left=Integer.parseInt(m.group(1)),right=Integer.parseInt(m.group(2));
-            if(left>10000||right>10000)return List.of();
             List<Frame> f=new ArrayList<>();
             f.add(new Frame("문제의 왼쪽 수를 쓰세요.","왼쪽 수",Integer.toString(left),new int[0],false));
             f.add(new Frame("문제의 오른쪽 수를 쓰세요.","오른쪽 수",Integer.toString(right),new int[0],false));

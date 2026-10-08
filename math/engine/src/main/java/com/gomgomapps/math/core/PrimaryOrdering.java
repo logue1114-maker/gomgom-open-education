@@ -13,6 +13,7 @@ public final class PrimaryOrdering {
  private static final String[] ORDINAL_NAMES={"첫째 (1st)","둘째 (2nd)","셋째 (3rd)","넷째 (4th)","다섯째 (5th)","여섯째 (6th)","일곱째 (7th)","여덟째 (8th)","아홉째 (9th)","열째 (10th)"};
  public static boolean supports(String id){return SKILLS.stream().anyMatch(s->s.id.equals(id));}
  static Question next(Catalog.Skill s,Random random,CurriculumLimits limits,Map<String,Integer> recent){
+  if(s.id.equals("numberOrder")&&limits.wholeMaximum(s.range)>500)return LargeOrderingSupply.next(s,random,limits,recent,limits.wholeMaximum(s.range));
   int cap=s.id.equals("ordinalName")?10:s.id.equals("objectOrdinal")?30:s.id.equals("numberOrder")?500:20;
   int maximum=Math.min(cap,limits.wholeMaximum(s.range)),size=conditionCount(s.id,maximum);
   // Normal practice selects a fresh public condition directly. Exhaustive selection is only needed
