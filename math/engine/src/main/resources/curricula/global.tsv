@@ -1562,4 +1562,6 @@ RULE	england-primary-2021-v1	2	fractionPart	denominators=2,3,4;partFractions=1/2
 
 # Selected Year1 numerical quantities only; object/length representations remain separate work.
 MAP	england-primary-2021-v1	1	el_fraction_of_number
-RULE	england-primary-2021-v1	1	el_fraction_of_number	denominators=2,4;unitFractions=true;maxGiven=20;maxResult=10;nonnegative=true
+RULE	england-primary-2021-v1	1	el_fraction_of_number	denominators=2,4;unitFractions=true;maxGiven=20;maxResult=10;nonnegative=true;quantityRepresentations=number,objects,length
+MAP	england-primary-2021-v1	2	el_fraction_of_number
+RULE	england-primary-2021-v1	2	el_fraction_of_number	denominators=2,3,4;partFractions=1/2,1/3,1/4,2/4,3/4;maxGiven=20;maxResult=15;nonnegative=true;quantityRepresentations=objects,length

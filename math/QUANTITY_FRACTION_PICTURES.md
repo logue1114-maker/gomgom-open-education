@@ -1,0 +1,7 @@
+# Selected whole-object and whole-length fraction quantities
+
+DfE Year1 halves/quarters of objects/shapes/quantities; Year2 recognise/find/name/write selected fractions of length/shape/sets/quantity: https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study
+
+Optional quantityRepresentations preserves the default numerical supplier. Selected Year1 practice through20 keeps15 numerical facts and adds whole dot collections and whole cm lengths:45 presented conditions,15 arithmetic facts. Selected Year2 objects/lengths use1/2,1/3,1/4,2/4,3/4 through20:26 facts in52 representation conditions. Bounds20 and omission of one-unit parts in the Year2 non-unit supplier are app drill subsets, not mandated official bounds. Exhaustion repeats oldest. partFractions now also restricts the exact unreduced presented quantity fraction;2/4 is distinct from1/2. Other packs without these options keep their existing questions.
+
+Pictures contain only the given total/numerator/denominator. Whole dots are unshaded; the whole length is labelled without computing or marking the requested part. Existing five student-filled relationship frames never transfer the result. This does not complete oral/real objects, fraction naming, all lengths/sets, or explicit2/4=1/2 teaching. Private painter/UI/translations/APK/ads/billing/learner records/QA excluded.

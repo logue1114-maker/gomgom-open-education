@@ -9,7 +9,10 @@ final class FractionSupply {
     static Question next(Catalog.Skill skill,Random random,CurriculumLimits limits,Map<String,Integer> recent){
         Map<String,Question> candidates=new LinkedHashMap<>();
         if(skill.id.equals("el_fraction_of_number")){
-            for(int denominator:limits.fractionDenominators())for(int numerator=1;numerator<(limits.unitFractions()?2:denominator);numerator++)for(int parts=limits.unitFractions()?1:2;parts<=(limits.unitFractions()?50:12);parts++)include(candidates,ElementaryBasics.fractionOfNumber(skill,numerator,denominator,parts),limits);
+            for(int denominator:limits.fractionDenominators())for(int numerator=1;numerator<(limits.unitFractions()?2:denominator);numerator++)for(int parts=limits.unitFractions()?1:2;parts<=(limits.unitFractions()?50:12);parts++)for(String representation:limits.quantityRepresentations()){
+                if(!representation.equals("number")&&denominator*parts>100)continue;
+                include(candidates,QuantityFractionPictures.create(skill,numerator,denominator,parts,representation),limits);
+            }
         }else if(skill.id.equals("fractionPart")){
             if(limits.variedFacts())FractionPartLayouts.append(candidates,limits);
             else for(int denominator=2;denominator<=12;denominator++)for(int numerator=1;numerator<denominator;numerator++){

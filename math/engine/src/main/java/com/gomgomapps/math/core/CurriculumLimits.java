@@ -28,6 +28,8 @@ public final class CurriculumLimits {
     private final List<Integer> objectGroupSizes=new ArrayList<>();
     private final Set<Integer> denominators=new HashSet<>();
     private final Set<String> partFractions=new LinkedHashSet<>();
+    private final List<String> quantityRepresentations=new ArrayList<>();
+    List<String> quantityRepresentations(){return quantityRepresentations.isEmpty()?List.of("number"):List.copyOf(quantityRepresentations);}
     boolean hasPartFractions(){return !partFractions.isEmpty();}
     private final Set<Integer> factors=new HashSet<>(),divisors=new HashSet<>();
     private final Map<Integer,Integer> dividendMaxima=new HashMap<>();
@@ -48,6 +50,7 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "quantityRepresentations":for(String value:pair[1].split(",",-1)){if(!Set.of("number","objects","length").contains(value)||quantityRepresentations.contains(value))throw new IllegalArgumentException("Invalid quantity representation");quantityRepresentations.add(value);}break;
                 case "picturePartitions":for(String value:pair[1].split(",",-1)){int n=Integer.parseInt(value);if((n!=2&&n!=4)||picturePartitions.contains(n))throw new IllegalArgumentException("Invalid picture partition");picturePartitions.add(n);}break;
                 case "decompositionParts":for(String value:pair[1].split(",",-1)){int p=Integer.parseInt(value);if((p!=2&&p!=3)||decompositionParts.contains(p))throw new IllegalArgumentException("Invalid decomposition parts");decompositionParts.add(p);}break;
                 case "groupedSubitise":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid grouped recognition flag");groupedSubitise=Boolean.parseBoolean(pair[1]);break;
@@ -101,17 +104,22 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(!quantityRepresentations.isEmpty()&&!q.skillId.equals("el_fraction_of_number"))return false;
         if(!partFractions.isEmpty()){
             // Use observable colored cells when present. Keep2/4 separate from1/2:
             // this option limits the presented parts, not just their reduced value.
             String shown=q.expression;
+            if(q.skillId.equals("el_fraction_of_number")){
+                Matcher quantity=Pattern.compile("\\d+\\*\\((\\d+)/(\\d+)\\)").matcher(q.expression);
+                if(!quantity.matches())return false;shown=quantity.group(1)+"/"+quantity.group(2);
+            }
             if(q.diagram!=null&&q.diagram.type.equals("fractionSelection")){
                 if(q.diagram.values.length<2)return false;
                 int denominator=(int)q.diagram.values[0],mask=(int)q.diagram.values[1];
                 if(denominator<2||denominator>12||denominator!=q.diagram.values[0]||mask!=q.diagram.values[1]||mask<=0||(mask&~((1<<denominator)-1))!=0)return false;
                 shown=Integer.bitCount(mask)+"/"+denominator;
             }
-            if(!q.skillId.equals("fractionPart")||!partFractions.contains(shown))return false;
+            if(!Set.of("fractionPart","el_fraction_of_number").contains(q.skillId)||!partFractions.contains(shown))return false;
         }
         if(!percentages.isEmpty()){
             Matcher percent=Pattern.compile("^(\\d+)\\*(\\d+)/100$").matcher(q.expression);
