@@ -20,6 +20,12 @@ RULE	england-primary-2021-v1	2	countBackward	wholeMaximum=110;maxResult=110;coun
 RULE	england-primary-2021-v1	2	countSkip	wholeMaximum=100;maxResult=100;countingBounds=2:100,3:100,5:100,10:100;countingAnyStartSteps=10
 RULE	england-primary-2021-v1	1	join9,split9	wholeMaximum=20;maxGiven=20;maxResult=20;nonnegative=true
 RULE	england-primary-2021-v1	1	add20,sub20	wholeMaximum=20;maxGiven=20;maxResult=20;variedSums=true;nonnegative=true
+MAP	england-primary-2021-v1	1	collectionCount
+RULE	england-primary-2021-v1	1	collectionCount	wholeMaximum=100;maxResult=100;includeZeroCount=true;objectGroupSizes=2,5,10
+MAP	england-primary-2021-v1	2	collectionCount,el_compare_10000,numberOrder
+RULE	england-primary-2021-v1	2	collectionCount	wholeMaximum=100;maxResult=100;includeZeroCount=true;objectGroupSizes=2,5,10
+RULE	england-primary-2021-v1	2	el_compare_10000	wholeMaximum=100;minGiven=0
+RULE	england-primary-2021-v1	2	numberOrder	wholeMaximum=100;maxResult=100;nonnegative=true
 PACK	za-caps-intermediate-2011-v1	ZA	South Africa · CAPS	 https://www.education.gov.za/LinkClick.aspx?fileticket=dr7zg3CFCr8%3D&mid=1568&portalid=0&tabid=572	Grades 4–6 · selected calculation skills · CAPS 2011 pp. 14–17
 MAP	za-caps-intermediate-2011-v1	4	place1000,add1000,sub1000,mul22,divide,remainder,tables
 MAP	za-caps-intermediate-2011-v1	5	largePlace,divide2,fractionPart,fracCompare,fracAddLike,fracSubLike

@@ -1,0 +1,7 @@
+# Selected England Year1–2 quantities and comparison through100
+
+DfE Year1: count/read/write numbers to100 in numerals; Year2: compare/order numbers from0 to100 using<,>,= and read/write numbers to at least100 in numerals and words. Source: https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study
+
+Four new grade placements reuse existing suppliers/screens/help: Year1/2 visible collection counting0–100 with grouping2/5/10; Year2 numeric comparison0–100 and ordering three distinct numbers0–100 in either direction. Collection conditions401 each include public layout variations, not401 distinct quantities. Existing identity-preserving grouping and student-filled help never transfer answers. Symbolic comparison includes equality; ordering uses visible numbers, not hidden keys. Other-country numeric bounds remain unchanged and unlearned current-grade tasks stay outside diagnosis.
+
+Tests independently count visible objects/compare public operands/sort visible diagram numbers, verify0/100 and valid answers, exhaust both selected collection domains before repetition, and retain shared grouping/order/comparison checks. Reading/writing number words, complete representations/fluency and all statutory outcomes remain partial. No official example questions are copied. Private UI/languages/learner records/ads/billing/APKs/QA/source HTML are excluded.

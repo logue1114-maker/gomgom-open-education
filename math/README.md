@@ -228,3 +228,5 @@ Selected England Year2–4 facts: [ENGLAND_TABLE_FACTS.md](ENGLAND_TABLE_FACTS.m
 Selected England Year1–2 next-number practice: [ENGLAND_COUNTING.md](ENGLAND_COUNTING.md).
 
 Selected England Year1 bonds/sums: [ENGLAND_BONDS_SUMS.md](ENGLAND_BONDS_SUMS.md).
+
+Selected England quantities/comparison: [ENGLAND_NUMBERS_HUNDRED.md](ENGLAND_NUMBERS_HUNDRED.md).
