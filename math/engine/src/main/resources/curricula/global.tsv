@@ -1479,3 +1479,7 @@ MAP	na-nied-primary-2024-v1	3	countForward,countBackward,countSkip	JP printed p.
 RULE	na-nied-primary-2024-v1	3	countForward	wholeMaximum=1000;maxResult=1000;countingBounds=1:1000;countingAnyStart=true
 RULE	na-nied-primary-2024-v1	3	countBackward	wholeMaximum=1000;maxResult=1000;countingBounds=1:1000,2:500,3:60,4:80,5:1000,10:1000,20:500,30:180,50:1000,100:1000;countingAnyStart=true
 RULE	na-nied-primary-2024-v1	3	countSkip	wholeMaximum=1000;maxResult=1000;countingBounds=2:500,3:60,4:80,5:1000,10:1000,20:500,30:180,50:1000,100:1000;countingAnyStart=true
+MAP	na-nied-primary-2024-v1	2	collectionCount	JP printed p.6 objects through50; learner chooses regrouping2/3/5; written count, oral/physical manipulation remain
+RULE	na-nied-primary-2024-v1	2	collectionCount	wholeMaximum=50;maxResult=50;includeZeroCount=true;objectGroupSizes=2,3,5
+MAP	na-nied-primary-2024-v1	3	collectionCount	JP printed p.6 objects through100; learner chooses regrouping2/5/10; written count, oral/physical manipulation remain
+RULE	na-nied-primary-2024-v1	3	collectionCount	wholeMaximum=100;maxResult=100;includeZeroCount=true;objectGroupSizes=2,5,10

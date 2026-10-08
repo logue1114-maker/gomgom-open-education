@@ -168,6 +168,7 @@ public final class Catalog {
         ALL.addAll(ObjectGroups.SKILLS);
         ALL.addAll(DoubleHalf.SKILLS);
         ALL.addAll(CountingSteps.SKILLS);
+        ALL.addAll(CollectionGrouping.SKILLS);
         ALL.addAll(EqualityFoundations.SKILLS);
         ALL.addAll(ClockReadings.SKILLS);
         ALL.addAll(ClockFaces.SKILLS);
