@@ -168,6 +168,7 @@ public final class Catalog {
         ALL.addAll(ObjectGroups.SKILLS);
         ALL.addAll(DoubleHalf.SKILLS);
         ALL.addAll(NumberDecomposition.SKILLS);
+        ALL.addAll(FractionPieces.SKILLS);
         ALL.addAll(CountingSteps.SKILLS);
         ALL.addAll(CollectionGrouping.SKILLS);
         ALL.addAll(PrimaryOrdering.SKILLS);

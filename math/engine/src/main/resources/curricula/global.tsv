@@ -316,6 +316,8 @@ LEVEL	gh-nacca-core-2019-2023-v1	12	SHS3
 MAP	gh-nacca-core-2019-2023-v1	1	count,compare,place50,place10	Primary 2019 B1.1.1.1 PDF21–24; selected range within 0–100
 MAP	gh-nacca-core-2019-2023-v1	1	join9,split9,add9,sub9,add20,sub20,el_missing_add,el_missing_sub	Primary 2019 B1.1.2.1–4 PDF25–29; within 20
 MAP	gh-nacca-core-2019-2023-v1	1	el_repeat_pattern	Primary 2019 B1.2.1.1 PDF33
+MAP	gh-nacca-core-2019-2023-v1	1	fractionPiecePicture,fractionPieceCount	Primary2019 B1.1.3.1.1–2 PDF30–31; selected picture-only halves; exclude fraction notation
+RULE	gh-nacca-core-2019-2023-v1	1	fractionPiecePicture,fractionPieceCount	picturePartitions=2
 MAP	gh-nacca-core-2019-2023-v1	1	earlyShapes,earlySolids,el_shape_sides,el_shape_classify	Primary 2019 B1.3.1.1 PDF34–35
 MAP	gh-nacca-core-2019-2023-v1	1	earlyLength	Primary 2019 B1.3.3.1 PDF36
 MAP	gh-nacca-core-2019-2023-v1	2	place100	Primary 2019 B2.1.1.1 PDF39–42; selected three-digit reading
@@ -323,6 +325,8 @@ MAP	gh-nacca-core-2019-2023-v1	2	add100,sub100,el_missing_add,el_missing_sub	Pri
 MAP	gh-nacca-core-2019-2023-v1	2	el_number_pattern	Primary 2019 B2.2.1.1 PDF51
 MAP	gh-nacca-core-2019-2023-v1	2	el_days_week,el_days_to_weeks,el_clock_hour	Primary 2019 B2.3.3.3 PDF58
 MAP	gh-nacca-core-2019-2023-v1	2	el_picture_graph	Primary 2019 B2.4.1.2 PDF59
+MAP	gh-nacca-core-2019-2023-v1	2	fractionPiecePicture,fractionPieceCount,fractionPieceWhole	Primary2019 B2.1.3.1.1–3 PDF48–49; selected picture-only halves/quarters and whole relationships; exclude fraction notation
+RULE	gh-nacca-core-2019-2023-v1	2	fractionPiecePicture,fractionPieceCount,fractionPieceWhole	picturePartitions=2,4
 MAP	gh-nacca-core-2019-2023-v1	3	place1000,el_compare_10000,el_sequence_10000	Primary 2019 B3.1.1.1 PDF61–64
 MAP	gh-nacca-core-2019-2023-v1	3	add1000,sub1000,el_missing_add,el_missing_sub	Primary 2019 B3.1.2.1–4 PDF67–72; within 1000
 MAP	gh-nacca-core-2019-2023-v1	3	mulIntro,tables,divide	Primary 2019 B3.1.2.5–6 PDF72–75; multiplication up to 5×5 and inverse sharing

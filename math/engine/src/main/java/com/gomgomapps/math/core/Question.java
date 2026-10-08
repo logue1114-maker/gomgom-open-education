@@ -46,7 +46,13 @@ public final class Question implements Serializable {
     }
     String legacySignature(){return skillId+"|"+prompt;}
     boolean hasDiagramSignature(){return diagram!=null&&signatureVersion>0;}
+    /** New picture tasks identify visible geometry, never hidden answer keys or shuffled button positions. */
+    void usePictureChoiceSignature(){signatureVersion=2;}
     public String signature(){
+        if(signatureVersion==2&&choiceDiagrams!=null&&!choiceDiagrams.isEmpty()){
+            List<String> pictures=new ArrayList<>();for(StudyDiagram d:choiceDiagrams.values())pictures.add(d.type+Arrays.toString(d.values)+Arrays.toString(d.labels));Collections.sort(pictures);
+            return legacySignature()+"|pictures:"+pictures;
+        }
         return hasDiagramSignature()?currentSignature():legacySignature();
     }
     String currentSignature(){

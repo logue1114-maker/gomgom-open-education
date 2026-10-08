@@ -212,3 +212,5 @@ Ordering: [selected Grade2/3 range extension](ORDERING_RANGES.md).
 Double and half: [selected Grade3 range and blank part strategy](DOUBLE_HALF_GRADE3.md).
 
 Number parts: [selected multiple constructions](NUMBER_DECOMPOSITION.md).
+
+Half/quarter pictures: [selected picture-only foundations](FRACTION_PIECES.md).
