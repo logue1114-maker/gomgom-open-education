@@ -15,7 +15,7 @@ public final class DoubleHalf {
   for(int amount=1;amount<=maximum;amount++){
    if(!limits.doubleHalfInputs().isEmpty()&&!limits.doubleHalfInputs().contains(amount))continue;
    if(skill.id.equals("objectHalf")&&amount%2!=0)continue;
-   if(skill.id.equals("objectHalfRemainder")&&(amount<3||amount%2==0))continue;
+   if(skill.id.equals("objectHalfRemainder")&&amount%2==0)continue;
    boolean twice=skill.id.equals("objectDouble"),remainder=skill.id.equals("objectHalfRemainder");
    String prompt=twice?"물건 "+amount+"개의 두 배는 몇 개인가요?":remainder?"물건 "+amount+"개를 똑같이 둘로 나눠요.\n한쪽 몫과 남은 수를 쓰세요.":"물건 "+amount+"개의 절반은 몇 개인가요?";
    Question q=new Question(skill.id,prompt,"",remainder?new String[]{""+(amount/2),"1"}:new String[]{""+(twice?amount*2:amount/2)});

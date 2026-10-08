@@ -8,7 +8,7 @@ public class DoubleHalfTest {
    if(grade==1&&skill.id.equals("objectHalfRemainder"))continue;
    List<Integer> inputs=new ArrayList<>();
    if(grade==1)inputs=skill.id.equals("objectDouble")?List.of(1,2,3,4,5,10):List.of(2,4,6,8,10,20);
-   else for(int n=1;n<=(skill.id.equals("objectHalfRemainder")?19:50);n++)if(skill.id.equals("objectDouble")||skill.id.equals("objectHalf")&&n%2==0||skill.id.equals("objectHalfRemainder")&&n>=3&&n%2==1)inputs.add(n);
+   else for(int n=1;n<=(skill.id.equals("objectHalfRemainder")?19:50);n++)if(skill.id.equals("objectDouble")||skill.id.equals("objectHalf")&&n%2==0||skill.id.equals("objectHalfRemainder")&&n%2==1)inputs.add(n);
    CurriculumLimits limits=GlobalCurriculum.limits(NA,skill.id,grade);Set<String> seen=new LinkedHashSet<>();Set<Integer> generated=new HashSet<>();
    for(int i=0;i<100;i++){
     Question q=generator.next(skill.id,seen,false,limits);if(i<inputs.size())assertTrue(seen.add(q.signature()));
