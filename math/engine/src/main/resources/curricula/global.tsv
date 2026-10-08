@@ -708,7 +708,8 @@ MAP	sg-moe-primary-2021-v1	2	place1000,el_compare_10000,el_even_odd,add1000,sub1
 MAP	sg-moe-primary-2021-v1	3	largePlace,el_compare_10000,add1000,sub1000,tables,divide,mul2,mul3,remainder,reduce,el_fraction_compare,fracAdd,fracSub	PDF35 whole numbers1–3/fractions1–2: numbers10000, four-digit add/subtract, selected multiplication/remainders, related fractions
 MAP	sg-moe-primary-2021-v1	4	largePlace,el_round,el_mul_3x2,el_mixed_to_improper,el_improper_to_mixed,el_fraction_of_number,fracAdd,fracSub,el_decimal_place,el_decimal_compare,el_decimal_fraction,el_fraction_decimal,el_decimal_round,decimalAdd,decimalSub,decimalMul,decimalDivInt	PDF37–38: selected place value100000, rounding, 3-by-2 multiplication, mixed-number conversion, fractions and decimals
 MAP	sg-moe-primary-2021-v1	5	mixed,fracMixedAdd,fracMixedSub,fracMul,fracMulInt,el_fraction_decimal,percent	PDF41: selected order of operations, mixed add/subtract, proper-fraction multiplication and percentage
-MAP	sg-moe-primary-2021-v1	6	fracDivInt,fracDiv,fracWholeDiv,el_ratio_terms,el_ratio_fraction,el_proportional_split,proportion	PDF43: selected proper-fraction division and whole-number ratio; algebra not mapped
+MAP	sg-moe-primary-2021-v1	6	fracDivInt,fracDiv,fracWholeDiv,el_ratio_terms,el_ratio_fraction,el_proportional_split,proportion	PDF43: selected proper-fraction division and whole-number ratio
+MAP	sg-moe-primary-2021-v1	6	primaryExpression,primarySimplify,primarySubstitute,primaryEquation	PDF43 algebra1.1–1.5: selected one-letter expressions, no brackets, nonnegative elementary practice, whole coefficients
 RULE	sg-moe-primary-2021-v1	1	add100,sub100	maxGiven=100;maxResult=100;nonnegative=true
 RULE	sg-moe-primary-2021-v1	1	mulIntro	maxResult=40
 RULE	sg-moe-primary-2021-v1	1	add9,sub9,add20,sub20	variedSums=true
