@@ -1,0 +1,7 @@
+# Selected Singapore Primary 2 like-fraction practice
+
+MOE Primary Mathematics syllabus, October 2025 update, page 33 Fractions 2.1: adding and subtracting like fractions within one whole, given denominators at most 12. Source: https://www.moe.gov.sg/api/media/92bff26d-b2b4-4535-b868-b8415c744b91/2021-Primary-Mathematics-Syllabus-P1-to-P6-Updated-October-2025.pdf
+
+The existing finite fraction supplier is enabled for the two selected skills. Original equal denominators are retained, including unreduced operands. Each skill has 286 visible ordered expressions with positive proper-fraction operands; addition stays at most one and subtraction at least zero. Unused visible expressions are selected first, followed by the oldest expression after exhaustion. Reversed addition operands are separate practice expressions, not separate mathematical concepts. IDs and option order do not inflate the expression count. Later grades reviewing these same skills inherit the existing level-rule semantics.
+
+The existing four blank help steps are reused and do not transfer an answer into the problem. Tests independently calculate public operands, verify result boundaries, denominator 12, checker rejection, help blanks, 286-expression exhaustion and repetition, and selected other-country limits. Zero/whole operands, oral and physical representations, languages, devices and the full curriculum remain outside this selected supply change. Private Android UI, learner records, source PDFs, ads, billing, APKs and QA are excluded.

@@ -719,7 +719,7 @@ RULE	sg-moe-primary-2021-v1	2	tables	timesTableMax=10;factors=2,3,4,5,10;variedF
 RULE	sg-moe-primary-2021-v1	2	divide	timesTableMax=10;divisors=2,3,4,5,10;variedFacts=true
 RULE	sg-moe-primary-2021-v1	3	tables	timesTableMax=9;factors=6,7,8,9;variedFacts=true
 RULE	sg-moe-primary-2021-v1	3	divide	timesTableMax=9;divisors=6,7,8,9;variedFacts=true
-RULE	sg-moe-primary-2021-v1	2	fracAddLike,fracSubLike	maxFractionValue=1;maxResult=1;nonnegative=true
+RULE	sg-moe-primary-2021-v1	2	fracAddLike,fracSubLike	maxFractionValue=1;maxResult=1;nonnegative=true;variedFacts=true
 RULE	sg-moe-primary-2021-v1	3	largePlace,el_compare_10000	wholeMaximum=10000
 RULE	sg-moe-primary-2021-v1	3	add1000,sub1000	wholeDigits=4;nonnegative=true
 RULE	sg-moe-primary-2021-v1	3	fracAdd,fracSub	relatedDenominators=true;maxFractionValue=1;maxResult=1;nonnegative=true
