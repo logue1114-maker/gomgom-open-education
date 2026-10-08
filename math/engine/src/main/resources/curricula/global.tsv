@@ -1483,3 +1483,11 @@ MAP	na-nied-primary-2024-v1	2	collectionCount	JP printed p.6 objects through50; 
 RULE	na-nied-primary-2024-v1	2	collectionCount	wholeMaximum=50;maxResult=50;includeZeroCount=true;objectGroupSizes=2,3,5
 MAP	na-nied-primary-2024-v1	3	collectionCount	JP printed p.6 objects through100; learner chooses regrouping2/5/10; written count, oral/physical manipulation remain
 RULE	na-nied-primary-2024-v1	3	collectionCount	wholeMaximum=100;maxResult=100;includeZeroCount=true;objectGroupSizes=2,5,10
+MAP	na-nied-primary-2024-v1	1	numberCompareWords	JP printed p.8; selected verbal comparison/order0-20/ordinal1-10; reading names and oral practice remain
+RULE	na-nied-primary-2024-v1	1	numberCompareWords	wholeMaximum=20;maxResult=20;nonnegative=true
+MAP	na-nied-primary-2024-v1	1	objectCompareWords	JP printed p.8; selected verbal comparison/order0-20/ordinal1-10; reading names and oral practice remain
+RULE	na-nied-primary-2024-v1	1	objectCompareWords	wholeMaximum=20;maxResult=20;nonnegative=true
+MAP	na-nied-primary-2024-v1	1	numberOrder	JP printed p.8; selected verbal comparison/order0-20/ordinal1-10; reading names and oral practice remain
+RULE	na-nied-primary-2024-v1	1	numberOrder	wholeMaximum=20;maxResult=20;nonnegative=true
+MAP	na-nied-primary-2024-v1	1	objectOrdinal	JP printed p.8; selected verbal comparison/order0-20/ordinal1-10; reading names and oral practice remain
+RULE	na-nied-primary-2024-v1	1	objectOrdinal	wholeMaximum=10;maxResult=10;nonnegative=true

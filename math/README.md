@@ -200,3 +200,5 @@ Doubling/halving: [selected inputs and finite supply](DOUBLE_HALF.md).
 Counting steps: [ranges, directions and finite supply](COUNTING_STEPS.md).
 
 Visible collections: [learner grouping and preserved identity](COLLECTION_GROUPING.md).
+
+Primary ordering: [selected comparison, sorting and ordinal foundations](PRIMARY_ORDERING.md).
