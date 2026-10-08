@@ -10,8 +10,8 @@ final class SumFoundations {
     static Question next(Catalog.Skill skill,Random random,CurriculumLimits limits,Map<String,Integer> recent){
         Map<String,Question> candidates=new LinkedHashMap<>();boolean add=skill.family.equals("add"),small=skill.range==9;
         int maximum=limits.wholeMaximum(18);boolean full=!small&&maximum!=18;
-        for(int a=small?0:add?(full?0:1):10;a<=(small?9:full?maximum:add?9:18);a++)for(int b=small||full?0:1;b<=(full?maximum:9);b++){
-            if(add?(small?a+b>9:a+b<10||(full&&a+b>maximum)):b>a||(!small&&!full&&b<=a%10))continue;
+        for(int a=small||full?0:add?1:10;a<=(small?9:full?maximum:add?9:18);a++)for(int b=small||full?0:1;b<=(full?maximum:9);b++){
+            if(add?(small?a+b>9:full?a+b>maximum:a+b<10):b>a||(!small&&!full&&b<=a%10))continue;
             int result=add?a+b:a-b;String op=add?" + ":" - ",original=a+op+b;
             Question base=new Question(skill.id,original,original,String.valueOf(result)).withInputs(a,b);
             if(full)base.withInputs(a,b,maximum,1);
@@ -19,12 +19,15 @@ final class SumFoundations {
             for(int form=1;form<=2;form++){
                 int answer=form==1?a:b;String prompt=form==1?"□"+op+b+" = "+result:a+op+"□ = "+result;
                 String expression;StudyGuide guide=new StudyGuide().transfer(false);
-                if(add){int known=form==1?b:a;expression=result+" - "+known;guide.step("알고 있는 수에서 전체 수까지 이어 세세요.",known+" + "," = "+result,String.valueOf(answer));}
-                else if(form==1){expression=result+" + "+b;guide.step("남은 수와 뺀 수를 더하세요.",result+" + "+b+" = ","",String.valueOf(answer));}
-                else{expression=a+" - "+result;guide.step("전체에서 남은 수를 빼세요.",a+" - "+result+" = ","",String.valueOf(answer));}
+                int known=form==1?b:a;
+                guide.step("등호 왼쪽에 있는 수를 쓰세요.","알고 있는 수 = ","",String.valueOf(known));
+                guide.step("등호 오른쪽 수를 쓰세요.","결과 = ","",String.valueOf(result));
+                if(add){expression=result+" - "+known;guide.step("전체에서 알고 있는 부분을 빼세요.","결과 − 알고 있는 수 = ","",String.valueOf(answer));}
+                else if(form==1){expression=result+" + "+b;guide.step("남은 수와 뺀 수를 더하세요.","결과 + 알고 있는 수 = ","",String.valueOf(answer));}
+                else{expression=a+" - "+result;guide.step("전체에서 남은 수를 빼세요.","알고 있는 수 − 결과 = ","",String.valueOf(answer));}
                 Question q=new Question(skill.id,prompt,expression,String.valueOf(answer));q.stepSupport=false;q.studyGuide=guide;
                 int ceiling=full?maximum:!add&&form==1&&!small?18:9;
-                int floor=!add&&form==1&&!small?10:add&&!small&&!full?1:0;q.withInputs(ceiling,floor);
+                int floor=!add&&form==1&&!small&&!full?10:add&&!small&&!full?1:0;q.withInputs(ceiling,floor);
                 if(limits.allows(q))candidates.put(q.signature(),q);
             }
         }

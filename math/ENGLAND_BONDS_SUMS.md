@@ -1,0 +1,7 @@
+# Selected England Year1 bonds and sums through20
+
+DfE statutory Year1: number bonds and related subtraction facts within20; add/subtract one- and two-digit numbers to20 including0. Source: https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study
+
+Four existing placements: combining/splitting through20 and whole-range addition/subtraction0–20. Finite public expressions:231 combining,462 splitting,693 addition,693 subtraction; missing-term variants are practice expressions, not distinct concepts. All conditions are offered before oldest repeats. The whole-range sum supplier now includes totals/minuends below10, fixing an omission in existing AU/NA selected scopes too; default18 regrouping practice remains unchanged. Missing minuend choices in a whole-range domain start at0, avoiding a too-small choice pool. Blank help has three learner-filled frames for known number/result/inverse relationship, with no prefilled numeric equation or answer transfer. Learner question/draft save formats remain unchanged.
+
+Tests independently solve all four public pools, zero/twenty boundaries, answer/choice validity, exhaustion/repetition and blank help. Existing tests now reflect the accepted whole-range and student-filled relationship contracts. Physical/oral recall, contextual representations and complete statutory outcomes remain partial. No official example questions are copied. Private UI/languages/learner records/ads/billing/APK/QA are excluded.

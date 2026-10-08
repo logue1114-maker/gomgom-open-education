@@ -226,3 +226,5 @@ Fraction error location: [FRACTION_ERROR_PART.md](FRACTION_ERROR_PART.md).
 Selected England Year2–4 facts: [ENGLAND_TABLE_FACTS.md](ENGLAND_TABLE_FACTS.md).
 
 Selected England Year1–2 next-number practice: [ENGLAND_COUNTING.md](ENGLAND_COUNTING.md).
+
+Selected England Year1 bonds/sums: [ENGLAND_BONDS_SUMS.md](ENGLAND_BONDS_SUMS.md).
