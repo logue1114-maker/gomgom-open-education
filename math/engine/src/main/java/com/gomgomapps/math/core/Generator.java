@@ -109,6 +109,7 @@ public final class Generator {
         if(SolidFoundations.supports(s.id))return SolidFoundations.create(s,random);
         if(IndexLaws.supports(s.id))return IndexLaws.create(s,random);
         if(RateFoundations.supports(s.id))return RateFoundations.create(s,random);
+        if(MatrixWholePractice.supports(s.id))return MatrixWholePractice.create(s,random);
         if(MatrixDimensions.supports(s.id))return MatrixDimensions.create(s,random);
         if(CubeFoundations.supports(s.id))return CubeFoundations.create(s,random);
         if(NumberExtensions.supports(s.id))return NumberExtensions.create(s,random);

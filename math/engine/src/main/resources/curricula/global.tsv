@@ -443,7 +443,7 @@ RULE	gh-nacca-core-2019-2023-v1	11	root
 # KICD 2024 revised Mathematical Activities: selected foundations in Grades 1–3.
 # Public viewer text and table captures: evidence/sources/kenya-20261002.
 # Grades 9–12 and remaining outcomes are not yet mapped.
-PACK	ke-kicd-cbc-2024-v1	KE	Kenya CBC — Primary and Grade 7–9 foundations	https://kicd.ac.ke/cbc-materials/curriculum-designs/	Selected Grade 1–9 foundations from KICD Revised 2024; Grade9 currently covers selected integer, cube/root, index, ratio, matrix-entry/addition/subtraction and straight-line/inequality calculations. Other grades and remaining outcomes are not yet mapped.
+PACK	ke-kicd-cbc-2024-v1	KE	Kenya CBC — Primary and Grade 7–9 foundations	https://kicd.ac.ke/cbc-materials/curriculum-designs/	Selected Grade 1–9 foundations from KICD Revised 2024, including whole signed-integer matrix addition/subtraction in Grade9. Remaining outcomes, contextual tasks and senior school are not complete.
 LEVEL	ke-kicd-cbc-2024-v1	1	Grade 1
 LEVEL	ke-kicd-cbc-2024-v1	2	Grade 2
 LEVEL	ke-kicd-cbc-2024-v1	3	Grade 3
@@ -627,15 +627,15 @@ LEVEL	ke-kicd-cbc-2024-v1	9	Grade 9
 MAP	ke-kicd-cbc-2024-v1	9	signedAdd,signedMul	Grade9 July2024 PDF13 1.1: single-operation integer addition/subtraction/multiplication/division; combined expressions and real-life modelling remain
 MAP	ke-kicd-cbc-2024-v1	9	powerLaw,negativePower	Grade9 July2024 PDF17 1.3: selected same-base products and negative integer powers; quotient/power-of-power and exact base-ten logarithms mapped below; real-number/table logarithms and broader contexts remain
 MAP	ke-kicd-cbc-2024-v1	9	el_ratio_terms,el_ratio_fraction,proportion,el_proportional_split	Grade9 July2024 PDF18 1.4: supporting ratio notation, ratio fractions, direct proportions and sharing; selected compound proportions/rates mapped below; broader contexts remain
-MAP	ke-kicd-cbc-2024-v1	9	sec_matrix_element,sec_matrix_add	Grade9 July2024 PDF22 2.1: selected 2x2 entries and addition entries; order/compatibility mapped below; complete-matrix/context tasks remain; no scalar or matrix multiplication
+MAP	ke-kicd-cbc-2024-v1	9	sec_matrix_element,sec_matrix_add	Grade9 July2024 PDF22 2.1: selected 2x2 entries and addition entries; order/compatibility mapped below; full matrix arithmetic mapped below; contextual tasks remain; no scalar or matrix multiplication
 MAP	ke-kicd-cbc-2024-v1	9	linearSlope,linearXIntercept,linearYIntercept,linearValue,sec_line_equation	Grade9 July2024 PDF24 2.2: gradients from two points, selected rational-gradient straight-line values and intercepts; equation formation and real-life modelling remain
 MAP	ke-kicd-cbc-2024-v1	9	linearInequality	Grade9 July2024 PDF26 2.3: one-unknown linear inequalities including reversed signs; number-line and two-variable graphs/context tasks remain
 MAP	ke-kicd-cbc-2024-v1	9	cubeWhole,cubeRootWhole	Grade9 July2024 PDF15 1.2: selected nonnegative whole-number cubes and exact cube roots through base200; prime-factor groups-of-three help included; approximate/table/calculator roots and broader contextual tasks remain
-MAP	ke-kicd-cbc-2024-v1	9	sec_matrix_sub	Grade9 July2024 PDF22 2.1: selected2x2 subtraction entries at all four positions; whole-matrix answers, order/compatibility mapped below; context tasks remain
+MAP	ke-kicd-cbc-2024-v1	9	sec_matrix_sub	Grade9 July2024 PDF22 2.1: selected2x2 subtraction entries at all four positions; full matrix arithmetic and order/compatibility mapped below; context tasks remain
 
 # Selected constant-rate and matrix order/compatibility calculations.
 MAP	ke-kicd-cbc-2024-v1	9	compoundProportion,combinedWorkTime	Grade9 July2024 PDF18 1.4: equal constant per-person rates, changing workers/time/amount, two constant rates for one job; broader contextual modelling remains
-MAP	ke-kicd-cbc-2024-v1	9	matrixOrder,matrixCompatibility	Grade9 July2024 PDF22 2.1: rows-by-columns order and equal-dimension addition/subtraction compatibility; 1-3 rows/1-4 columns, whole-matrix answers and broader contexts remain
+MAP	ke-kicd-cbc-2024-v1	9	matrixOrder,matrixCompatibility	Grade9 July2024 PDF22 2.1: rows-by-columns order and equal-dimension addition/subtraction compatibility; 1-3 rows/1-4 columns, full matrix arithmetic mapped below; broader contexts remain
 MAP	ke-kicd-cbc-2024-v1	9	powerQuotient,powerOfPower,tenPowerLog	Grade9 July2024 PDF17 1.3: same nonzero positive-base quotient exponents, power-of-power exponents, exact base-ten values/arguments and indexed products/quotients; tables/calculators, approximate logarithms and contextual modelling remain
 
 # Selected Grade9 area and volume calculations from the official viewer.
@@ -1345,3 +1345,5 @@ MAP	fr-men-lycee-general-2026-2027-v1	11	quadratic,discriminant,quadraticRootSum
 MAP	fr-men-lycee-general-2026-2027-v1	12	arithmeticSeq,geometricSeq,derivative,limit,integral,sec_count_addition,sec_count_multiplication,permutation,combination,sec_variance,sec_standard_deviation,sec_natural_exp,sec_natural_log,sec_trig_scaled,binomial,binomialMoments,conditionalProbability,expectation,varianceRandom,vectorOperation,positionVector,vectorNorm,vectorDot,planeVectorCircle,vectorLine,planeVectorLine,vectorPlane	BO2019 Terminale spécialité PDF6–21; current2026–2027; selected counting, sequences, continuity limits, polynomial derivatives/integrals and population spread; BO2026 replacement not effective until2027–2028; selected natural exponential, logarithm (Terminale only), rational-angle trig and finite probability foundations; selected coordinate vector components/norm, Première dot/circle, Terminale parametric line/normal-plane numeric components
 RULE	fr-men-lycee-general-2026-2027-v1	10	substitute	
 RULE	fr-men-lycee-general-2026-2027-v1	10	rootWhole	wholeMaximum=200
+
+MAP	ke-kicd-cbc-2024-v1	9	matrixWholeAdd,matrixWholeSub	Grade9 July2024 PDF22 2.1: full 2x2, 2x3, 3x2 and 3x3 signed-integer addition/subtraction; matching-entry help and grid answers; contextual modelling remains
