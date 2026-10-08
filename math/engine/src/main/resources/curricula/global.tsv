@@ -1491,3 +1491,7 @@ MAP	na-nied-primary-2024-v1	1	numberOrder	JP printed p.8; selected verbal compar
 RULE	na-nied-primary-2024-v1	1	numberOrder	wholeMaximum=20;maxResult=20;nonnegative=true
 MAP	na-nied-primary-2024-v1	1	objectOrdinal	JP printed p.8; selected verbal comparison/order0-20/ordinal1-10; reading names and oral practice remain
 RULE	na-nied-primary-2024-v1	1	objectOrdinal	wholeMaximum=10;maxResult=10;nonnegative=true
+MAP	na-nied-primary-2024-v1	1	el_subitise	JP printed p.7 selected screen recognition through6; count verification available in help
+RULE	na-nied-primary-2024-v1	1	el_subitise	wholeMaximum=6;maxResult=6
+MAP	na-nied-primary-2024-v1	2	el_subitise	JP printed p.7 selected appropriately grouped recognition through10; count verification available in help; estimates20/30 remain
+RULE	na-nied-primary-2024-v1	2	el_subitise	wholeMaximum=10;maxResult=10;groupedSubitise=true

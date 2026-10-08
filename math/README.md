@@ -202,3 +202,5 @@ Counting steps: [ranges, directions and finite supply](COUNTING_STEPS.md).
 Visible collections: [learner grouping and preserved identity](COLLECTION_GROUPING.md).
 
 Primary ordering: [selected comparison, sorting and ordinal foundations](PRIMARY_ORDERING.md).
+
+Subitising: [selected Namibia recognition and independent recount](SUBITISING_NA.md).
