@@ -176,7 +176,8 @@ public final class CurriculumLimits {
         }
         if(maxFractionValue!=null){
             // choiceInputs also contains operator/denominator metadata; use the public operands.
-            Matcher fractionOperands=Pattern.compile("^\\(([-0-9/]+)\\)\\s*[+−-]\\s*\\(([-0-9/]+)\\)$").matcher(q.expression);
+            boolean comparison=Set.of("fracCompare","el_fraction_compare").contains(q.skillId);
+            Matcher fractionOperands=Pattern.compile(comparison?"^(\\d+/\\d+)\\s+□\\s+(\\d+/\\d+)$":"^\\(([-0-9/]+)\\)\\s*[+−-]\\s*\\(([-0-9/]+)\\)$").matcher(comparison?q.prompt:q.expression);
             if(!fractionOperands.matches())return false;
             for(int index=1;index<=2;index++){
                 Rational input=Expression.number(fractionOperands.group(index));
@@ -190,7 +191,7 @@ public final class CurriculumLimits {
         if(answerDecimalPlaces!=null)for(String answer:q.answers)if(!fitsDecimalPlaces(answer,answerDecimalPlaces))return false;
         if(decimalPlaces!=null){Matcher decimals=Pattern.compile("\\d+\\.(\\d+)").matcher(givens);while(decimals.find())if(decimals.group(1).length()>decimalPlaces)return false;}
         if(!roundingUnits.isEmpty()){Matcher place=Pattern.compile("(\\d+)의 자리까지").matcher(q.prompt);if(!place.find()||!roundingUnits.contains(Integer.parseInt(place.group(1))))return false;}
-        if(unitFractions){Matcher m=Pattern.compile("(\\d+)\\s*/\\s*\\d+").matcher(q.expression);boolean found=false;while(m.find()){found=true;if(!m.group(1).equals("1"))return false;}if(!found)return false;}
+        if(unitFractions){Matcher m=Pattern.compile("(\\d+)\\s*/\\s*\\d+").matcher(Set.of("fracCompare","el_fraction_compare").contains(q.skillId)?q.prompt:q.expression);boolean found=false;while(m.find()){found=true;if(!m.group(1).equals("1"))return false;}if(!found)return false;}
         if(relatedDenominators){List<Integer> found=new ArrayList<>();Matcher m=FRACTION.matcher(q.expression);while(m.find())found.add(Integer.parseInt(m.group(1)));for(int a:found)for(int b:found)if(a%b!=0&&b%a!=0)return false;}
         if(commonDenominatorFactor){List<Integer> found=new ArrayList<>();Matcher m=FRACTION.matcher(q.prompt);while(m.find())found.add(Integer.parseInt(m.group(1)));if(found.size()<2)return false;for(int i=0;i<found.size();i++)for(int j=i+1;j<found.size();j++){int a=found.get(i),b=found.get(j);while(b!=0){int remainder=a%b;a=b;b=remainder;}if(a<2)return false;}}
         if(!factors.isEmpty()){Matcher m=Pattern.compile("(\\d+)\\s*[×*]\\s*(\\d+)").matcher(operation);if(!m.matches()||(!factors.contains(Integer.parseInt(m.group(1)))&&!factors.contains(Integer.parseInt(m.group(2)))))return false;}
@@ -217,6 +218,7 @@ public final class CurriculumLimits {
     int divisionMinDivisor(){return divisionMinDivisor;}
     int[] percentages(){return percentages.isEmpty()?java.util.stream.IntStream.rangeClosed(1,19).map(i->i*5).toArray():percentages.stream().mapToInt(Integer::intValue).toArray();}
     boolean unitFractions(){return unitFractions;}
+    int fractionComparisonNumeratorMaximum(int denominator){if(maxFractionValue==null)return denominator-1;java.math.BigInteger maximum=maxFractionValue.n.multiply(java.math.BigInteger.valueOf(denominator)).divide(maxFractionValue.d);if(maximum.signum()<1||maximum.bitLength()>31)throw new IllegalArgumentException("Invalid comparison numerator range");return maximum.intValue();}
     boolean hasFractionDenominators(){return !denominators.isEmpty();}
     int[] fractionDenominators(){return denominators.isEmpty()?java.util.stream.IntStream.rangeClosed(2,9).toArray():denominators.stream().sorted().mapToInt(Integer::intValue).toArray();}
     public int minuteStep(){return minuteStep;}

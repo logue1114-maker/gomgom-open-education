@@ -186,7 +186,7 @@ public final class ElementaryBasics {
             case "el_improper_to_mixed": return improperToMixed(skill,random);
             case "el_decimal_place": return decimalPlace(skill,random,limits);
             case "el_decimal_compare": return decimalCompare(skill,random,limits);
-            case "el_fraction_compare": return fractionCompare(skill,random);
+            case "el_fraction_compare": return fractionCompare(skill,random,limits);
             case "el_fraction_common_den": return fractionCommonDen(skill,random);
             case "el_fraction_decimal": return fractionDecimal(skill,random,limits);
             case "el_decimal_fraction": return decimalFraction(skill,random);
@@ -844,10 +844,11 @@ public final class ElementaryBasics {
                 null,null);
     }
 
-    private static Question fractionCompare(Catalog.Skill skill,Random random){
-        int denominator1=n(random,2,9),denominator2=n(random,2,9);
-        while(denominator2==denominator1)denominator2=n(random,2,9);
-        int numerator1=n(random,1,denominator1-1),numerator2=n(random,1,denominator2-1);
+    private static Question fractionCompare(Catalog.Skill skill,Random random,CurriculumLimits limits){
+        int[] allowed=limits.fractionDenominators();if(allowed.length<2)throw new IllegalArgumentException("Two comparison denominators required");
+        int denominator1=allowed[random.nextInt(allowed.length)],denominator2=allowed[random.nextInt(allowed.length)];
+        while(denominator2==denominator1)denominator2=allowed[random.nextInt(allowed.length)];
+        int numerator1=limits.unitFractions()?1:n(random,1,limits.fractionComparisonNumeratorMaximum(denominator1)),numerator2=limits.unitFractions()?1:n(random,1,limits.fractionComparisonNumeratorMaximum(denominator2));
         Rational left=r(numerator1,denominator1),right=r(numerator2,denominator2);
         String answer=left.compareTo(right)==0?"=":left.compareTo(right)>0?">":"<";
         String expression=numerator1+"*"+denominator2+"-"+numerator2+"*"+denominator1;

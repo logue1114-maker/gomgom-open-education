@@ -1,0 +1,9 @@
+# Selected England fraction relations
+
+Official source: https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study
+
+Eight existing-type placements are added together: Year3 unlike-denominator unit comparison; Year4/5/6 equivalent fraction conversion to a given common denominator; Year5 comparison with a nontrivial common denominator factor and both mixed/improper conversion directions; Year6 comparison including improper fractions. Comparison denominators2–12 and Year6 positive values through3 are selected app bounds, not statutory maximums. Year5 comparison includes denominator pairs such as6/9; the selected factor rule does not impose divisibility of one denominator by the other. The existing unrestricted default comparison supply keeps proper operands and denominators2–9.
+
+Comparison unit/magnitude rules read the visible fractions rather than the cross-product expression, which contains no fraction denominators. Existing maxFractionValue meaning for arithmetic is preserved. Mixed conversion uses whole parts1–6/denominators2–9, and common-denominator conversion reuses original proper operands2–9 and generated common multiples. These are numeric practice selections; ordering more than two fractions, diagrams/all equivalent families, tenths/hundredths, mixed arithmetic and all contexts remain incomplete. Existing blank help derives from public givens and cannot transfer answers. The new tests independently solve100 fresh conditions per placement, reconstruct help with poisoned hidden metadata, enforce grade ranges and preserve legacy proper supply. The related Year5 arithmetic regression tests are rerun because the shared magnitude predicate changed.
+
+Private UI, translations, learner data, QA, APKs, ads and billing are excluded.
