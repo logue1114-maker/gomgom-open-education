@@ -1600,3 +1600,7 @@ RULE	england-primary-2021-v1	4	sub1000	wholeDigits=4;minimumWholeDigits=1;minGiv
 MAP	england-primary-2021-v1	5	add1000,sub1000
 RULE	england-primary-2021-v1	5	add1000	wholeDigits=6;minimumWholeDigits=1;minGiven=0;maxGiven=999999;maxResult=1999998;nonnegative=true
 RULE	england-primary-2021-v1	5	sub1000	wholeDigits=6;minimumWholeDigits=1;minGiven=0;maxGiven=999999;maxResult=999999;nonnegative=true
+MAP	england-primary-2021-v1	3	fracAddLike,fracSubLike
+RULE	england-primary-2021-v1	3	fracAddLike,fracSubLike	maxFractionValue=1;maxResult=1;nonnegative=true;variedFacts=true
+# Reset Year3 bounds for existing Year4 onward practice beyond one whole.
+RULE	england-primary-2021-v1	4	fracAddLike,fracSubLike	
