@@ -1897,3 +1897,6 @@ RULE	england-primary-2021-v1	5	convenientNumberAddition,convenientNumberSubtract
 
 MAP	england-primary-2021-v1	5	estimateAdditionCheck,estimateSubtractionCheck	Selected EN-Y5-09 large-number rounding envelopes; contextual accuracy and explanations remain partial
 RULE	england-primary-2021-v1	5	estimateAdditionCheck,estimateSubtractionCheck	wholeMaximum=1000000;minGiven=0;maxGiven=3000001;maxResult=2000000;roundingUnits=10,100,1000,10000,100000,1000000;nonnegative=true
+
+MAP	england-primary-2021-v1	5	twoStepChangeStories	Selected EN-Y5-10 two mixed quantity changes through one million with operation/reason choices; wider methods and justifications remain partial
+RULE	england-primary-2021-v1	5	twoStepChangeStories	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true

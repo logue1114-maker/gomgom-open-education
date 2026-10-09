@@ -1,0 +1,5 @@
+# Large two-step quantity stories
+
+Selected EN-Y5-10: initial, intermediate and final quantities from 0 to 1,000,000; two independently signed changes from 18 fixed magnitudes, in two object contexts. The exact start interval is computed for each context/change/operator segment, keeping all quantities in range. Long indexes avoid eager pools. Existing Grade4's 41,472 conditions remain unchanged.
+
+Four blank help frames ask for operation/reason, intermediate count, second operation/reason and final count. Relations do not insert numeric answers, and no answer is transferred. Six engine tests cover actual400 fresh large stories, all four operator combinations and all magnitudes, independent public arithmetic/poisoned keys, million/zero/malformed boundaries, small-domain full exhaustion/oldest reuse, sampled large indexes and the full prior Grade4 domain. Full large-domain exhaustion, wider methods, free explanations and worldwide coverage are not claimed. UI, locales, native QA, records and APKs remain private.
