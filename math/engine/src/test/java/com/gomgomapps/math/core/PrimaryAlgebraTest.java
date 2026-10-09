@@ -16,7 +16,7 @@ public class PrimaryAlgebraTest {
  }
  @Test public void generatedPublicExpressionsDetermineAnswersWithoutBracketsOrAnswerTransfer(){
   Generator gen=new Generator(new Random(55));Learning.Profile profile=new Learning.Profile();GlobalCurriculum.chooseCountry(profile,"SG");GlobalCurriculum.choosePack(profile,"sg-moe-primary-2021-v1");GlobalCurriculum.Pack pack=GlobalCurriculum.pack(profile);
-  for(var skill:PrimaryAlgebra.SKILLS){Set<String> seen=new LinkedHashSet<>();assertTrue(pack.inGrade(skill.id,6));assertFalse(pack.inGrade(skill.id,5));
+  for(var skill:PrimaryAlgebra.SKILLS){if(skill.id.equals(PrimaryAlgebra.PAIR))continue;Set<String> seen=new LinkedHashSet<>();assertTrue(pack.inGrade(skill.id,6));assertFalse(pack.inGrade(skill.id,5));
    for(int i=0;i<44;i++){
     Question q=gen.next(skill.id,seen,false);assertTrue(seen.add(q.signature()));assertFalse(q.prompt.contains("("));assertTrue(q.expression.isEmpty());
     Matcher m=Pattern.compile("\\d+").matcher(q.prompt);List<Integer> n=new ArrayList<>();while(m.find())n.add(Integer.parseInt(m.group()));List<String> solved;
