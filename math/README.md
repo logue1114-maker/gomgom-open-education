@@ -400,3 +400,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Factor pairs and mental multiplication](FACTOR_PAIR_MENTAL.md): ordered pairs and convenient regrouping.
 
 - [Written single-digit multiplication](WRITTEN_SINGLE_PRODUCTS.md): Year4 two/three-digit operands and existing formal layout.
+
+- [Multiply-and-add contexts](MULTIPLY_ADD_CONTEXTS.md): distribution, extra pencils and complete group connections.

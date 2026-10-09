@@ -1863,3 +1863,7 @@ MAP	england-primary-2021-v1	4	mul2	Selected EN-Y4-16 two-digit by one-digit form
 RULE	england-primary-2021-v1	3	mul2	maxGiven=99
 RULE	england-primary-2021-v1	4	mul2	variedFacts=true
 RULE	england-primary-2021-v1	4	mul3	variedFacts=true
+
+MAP	england-primary-2021-v1	4	multiplyAddBoxStories,allConnectionStories,cordScalingStories	Selected EN-Y4-17 distributive multiplication plus extra objects, complete two-set connections and retained integer cord scaling
+RULE	england-primary-2021-v1	4	multiplyAddBoxStories	wholeMaximum=900
+RULE	england-primary-2021-v1	4	allConnectionStories	wholeMaximum=400

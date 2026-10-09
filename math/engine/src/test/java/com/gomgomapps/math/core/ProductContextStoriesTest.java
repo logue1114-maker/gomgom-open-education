@@ -14,7 +14,7 @@ public class ProductContextStoriesTest {
  @Test public void finiteGradeThreeSupplyExhaustsBeforeOldest(){
   Generator g=new Generator(new Random(136));for(Catalog.Skill skill:ProductContextStories.SKILLS){List<String> recent=new ArrayList<>();Set<String> seen=new HashSet<>();int count=skill.id.equals(ProductContextStories.SCALE)?2079:252;CurriculumLimits limits=GlobalCurriculum.limits("england-primary-2021-v1",skill.id,3);
    for(int i=0;i<count;i++){Question q=g.next(skill.id,recent,false,limits);assertTrue(limits.allows(q));assertNotNull(ProductContextStories.read(q));assertTrue(seen.add(q.signature()));recent.add(q.signature());}assertEquals(recent.get(0),g.next(skill.id,recent,false,limits).signature());
-   Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"GB");GlobalCurriculum.choosePack(p,"england-primary-2021-v1");for(int grade=1;grade<=6;grade++)assertEquals(grade==3,GlobalCurriculum.pack(p).inGrade(skill.id,grade));
+   Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"GB");GlobalCurriculum.choosePack(p,"england-primary-2021-v1");for(int grade=1;grade<=6;grade++)assertEquals(grade==3||grade==4&&skill.id.equals(ProductContextStories.SCALE),GlobalCurriculum.pack(p).inGrade(skill.id,grade));
   }
  }
  @Test public void invalidAndAmbiguousPublicConditionsRejectHiddenAnswers(){
