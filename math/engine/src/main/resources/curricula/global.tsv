@@ -1730,3 +1730,6 @@ MAP	england-primary-2021-v1	6	primaryFormulaContext	Selected EN-Y6-29/31 grouped
 
 MAP	england-primary-2021-v1	2	place10,wholePlaceValue	Selected EN-Y2-02 digit and digit value in two-digit numbers10..99; concrete/pictorial representations remain partial
 RULE	england-primary-2021-v1	2	place10,wholePlaceValue	wholeMaximum=99;minGiven=10;maxGiven=99;maxResult=99;nonnegative=true
+
+RULE	england-primary-2021-v1	3	add1000	wholeDigits=3;minimumWholeDigits=1;minGiven=0;maxGiven=999;maxResult=1998;nonnegative=true
+RULE	england-primary-2021-v1	3	sub1000	wholeDigits=3;minimumWholeDigits=1;minGiven=0;maxGiven=999;maxResult=999;nonnegative=true
