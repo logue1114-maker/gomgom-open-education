@@ -294,3 +294,5 @@ Selected decimal powers of ten: [scope and limits](DECIMAL_POWERS_TEN.md).
 Selected decimal times whole-number products: [scope and limits](DECIMAL_WHOLE_PRODUCTS.md).
 
 Selected decimal written division: [scope and limits](DECIMAL_WRITTEN_DIVISION.md).
+
+Selected Year6 rounding: [scope and limits](YEAR6_DECIMAL_ROUNDING.md).
