@@ -314,3 +314,5 @@ Selected ratio/percentage/share contexts: [scope and limits](RATIO_CONTEXT_STORI
 Elementary substitution blank help: [scope and limits](PRIMARY_ALGEBRA_BLANK_HELP.md).
 
 Selected elementary variable pairs: [scope and limits](PRIMARY_VARIABLE_PAIRS.md).
+
+Complete elementary pair enumeration: [scope and limits](PRIMARY_PAIR_ENUMERATION.md).
