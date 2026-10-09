@@ -1,0 +1,10 @@
+package com.gomgomapps.math.core;
+import java.util.*;import org.junit.Test;import static org.junit.Assert.*;
+public class FractionNumberLineTest {
+ @Test public void everyPublicPairHasIndependentAnswersAndFiveBlankFrames(){int count=0;Checker checker=new Checker();for(int d=2;d<=10;d++)for(int a=1;a<d;a++)for(int b=a+1;b<=d;b++){
+  Question q=FractionNumberLine.make(d,a,b);q.answers=new String[]{"999","999"};q.expression="999";List<String> correct=List.of(a+"/"+d,b+"/"+d);assertTrue(checker.check(q,List.of(),correct).correct());assertEquals(0,checker.check(q,List.of(),List.of("999",correct.get(1))).index);assertEquals(1,checker.check(q,List.of(),List.of(correct.get(0),"999")).index);
+  HelpPlan p=HelpPlan.forQuestion(q);assertEquals(5,p.size());assertFalse(p.canTransfer());assertTrue(p.restore(null,q.id).entries.stream().allMatch(String::isEmpty));String[] input={""+d,""+a,a+"/"+d,""+b,b+"/"+d};for(int i=0;i<5;i++)assertTrue(p.step(i).accepts(input[i]));count++;
+ }assertEquals(165,count);}
+ @Test public void actualGradeThreeSupplyExhaustsAllPairsBeforeOldest(){Generator g=new Generator(new Random(138));List<String> recent=new ArrayList<>();Set<String> seen=new HashSet<>();CurriculumLimits limits=GlobalCurriculum.limits("england-primary-2021-v1",FractionNumberLine.ID,3);for(int i=0;i<165;i++){Question q=g.next(FractionNumberLine.ID,recent,false,limits);assertNotNull(FractionNumberLine.read(q));assertTrue(seen.add(q.signature()));recent.add(q.signature());}assertEquals(recent.get(0),g.next(FractionNumberLine.ID,recent,false,limits).signature());}
+ @Test public void badPublicGeometryCannotUseStoredAnswers(){for(double[] v:List.of(new double[]{0,1,2},new double[]{11,1,2},new double[]{4,3,2},new double[]{4,1,5},new double[]{4,1.5,2},new double[]{4,1,Double.NaN})){Question q=FractionNumberLine.make(4,1,3);q.diagram=new StudyDiagram(FractionNumberLine.ID,v);assertNull(FractionNumberLine.read(q));assertEquals(Checker.Status.INPUT_NEEDED,new Checker().check(q,List.of(),List.of("1/4","3/4")).status);}}
+}

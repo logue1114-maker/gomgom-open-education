@@ -378,3 +378,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Product context stories](PRODUCT_CONTEXT_STORIES.md): equal groups, integer scaling and all-pairs correspondence with student-entered inverse relationships.
 
 - [Year3 fractions of sets](YEAR3_SET_FRACTIONS.md):268 discrete collection conditions and public-quantity checking.
+
+- [Fraction number lines](FRACTION_NUMBER_LINE.md):165 zero-to-one diagrams with two student-written fractions.

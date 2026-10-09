@@ -1827,3 +1827,6 @@ RULE	england-primary-2021-v1	3	outfitPairStories	maxGiven=120;maxResult=120;nonn
 
 MAP	england-primary-2021-v1	3	el_fraction_of_number	Selected EN-Y3-15 unit/non-unit fractions of discrete ungrouped dot collections; learned divisors2,3,4,5,8,10
 RULE	england-primary-2021-v1	3	el_fraction_of_number	denominators=2,3,4,5,8,10;maxGiven=100;maxResult=90;nonnegative=true;quantityRepresentations=objects
+
+MAP	england-primary-2021-v1	3	fractionNumberLine	Selected EN-Y3-16 fractions as numbers on a zero-to-one line; denominator2..10, two public points;165 conditions
+RULE	england-primary-2021-v1	3	fractionNumberLine	maxGiven=10;maxResult=1;nonnegative=true
