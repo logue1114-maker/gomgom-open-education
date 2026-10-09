@@ -418,3 +418,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Roman numerals and recorded years](ROMAN_YEARS.md): ordinary numerals through M and separate recorded-year reading.
 
 - [Larger mental place changes](LARGE_MENTAL_PLACE.md): four-to-six-digit operands and indexed supply.
+
+- [Large mental decomposition](LARGE_MENTAL_DECOMPOSITION.md): two large operands and place-value subtotals.

@@ -1,0 +1,17 @@
+package com.gomgomapps.math.core;
+import java.util.*;import java.util.regex.*;
+/** Split the second public operand into place values; learners enter every subtotal. */
+public final class LargeMentalDecomposition {
+ private LargeMentalDecomposition(){}
+ public static final String ADD="largeMentalDecompositionAdd",SUB="largeMentalDecompositionSub";
+ public static final List<Catalog.Skill> SKILLS=List.of(new Catalog.Skill(ADD,"큰 수를 나눠 더하기",5,1,1,"","largeMental",999999,MentalPlaceCalculations.ADD,"둘째 수를 자리값으로 나눠 차례로 더한다."),new Catalog.Skill(SUB,"큰 수를 나눠 빼기",5,1,1,"","largeMental",999999,MentalPlaceCalculations.SUB,"둘째 수를 자리값으로 나눠 차례로 뺀다."));
+ private static final String[] PLACES={"일","십","백","천","만","십만"};
+ public static boolean supports(String id){return ADD.equals(id)||SUB.equals(id);}
+ static Question make(String id,int a,int b){if(!supports(id)||a<1000||a>999999||b<1000||b>999999||SUB.equals(id)&&a<b)throw new IllegalArgumentException("large mental domain");Question q=new Question(id,a+(ADD.equals(id)?" + ":" - ")+b,"",Integer.toString(ADD.equals(id)?a+b:a-b));q.kind="largeMental";q.labels=new String[]{"답"};q.stepSupport=false;attach(q);return q;}
+ public static int[] read(Question q){if(q==null||!supports(q.skillId)||q.prompt==null)return null;Matcher m=Pattern.compile("([0-9]{4,6}) ([+−-]) ([0-9]{4,6})").matcher(q.prompt);if(!m.matches()||ADD.equals(q.skillId)!=m.group(2).equals("+"))return null;int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(3));if(a<1000||b<1000||SUB.equals(q.skillId)&&a<b)return null;return new int[]{a,b,ADD.equals(q.skillId)?a+b:a-b};}
+ static long count(String id,int maximum){long size=maximum-999L;if(size<1||maximum>999999)throw new IllegalArgumentException("large mental maximum");return ADD.equals(id)?size*size:size*(size+1)/2;}
+ static Question indexed(String id,int maximum,long index){long size=maximum-999L,total=count(id,maximum);if(index<0||index>=total)throw new IllegalArgumentException("large mental index");int a,b;if(ADD.equals(id)){a=1000+(int)(index/size);b=1000+(int)(index%size);}else{long low=0,high=size-1;while(low<high){long mid=(low+high+1)/2;if(mid*(mid+1)/2<=index)low=mid;else high=mid-1;}a=1000+(int)low;b=1000+(int)(index-low*(low+1)/2);}return make(id,a,b);}
+ static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){int max=limits.givenMaximum(999999);return LongIndexedQuestionSupply.choose(count(id,max),i->indexed(id,max,i),random,limits,recent);}
+ public static void attach(Question q){int[] v=read(q);if(v==null)return;StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="large-mental-decomposition-v1";g.step("첫 수를 쓰세요.","시작 수 = ","",""+v[0]);int running=v[0];for(int column=5,power=100000;column>=0;column--,power/=10){int digit=v[1]/power%10;if(digit==0)continue;int part=digit*power;g.step("둘째 수의 "+PLACES[column]+" 자리값을 쓰세요.","자리값 = ","",""+part);running+=ADD.equals(q.skillId)?part:-part;g.step(ADD.equals(q.skillId)?"현재 수에 이 자리값을 더하세요.":"현재 수에서 이 자리값을 빼세요.",ADD.equals(q.skillId)?"현재 수 + 자리값 = ":"현재 수 − 자리값 = ","",""+running);}q.studyGuide=g;}
+ static Checker.Result check(Question q,List<String> answers){int[] v=read(q);if(v==null||answers==null||answers.size()!=1||answers.get(0)==null||!answers.get(0).trim().matches("[0-9]{1,7}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"답 입력 필요");return Integer.parseInt(answers.get(0).trim())==v[2]?new Checker.Result(Checker.Status.CORRECT,-1,"정답"):new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 답 확인");}
+}
