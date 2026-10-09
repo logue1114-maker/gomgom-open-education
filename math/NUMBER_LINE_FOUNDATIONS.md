@@ -9,3 +9,5 @@ Existing Year1 verbal numeric comparison is connected through100, object compari
 Targeted engine verification: `:math:engine:test --tests com.gomgomapps.math.core.NumberLineRelationsTest --tests com.gomgomapps.math.core.PrimaryOrderingTest`. Covers full line-pool exhaustion, all101 answer values, both interval sizes, endpoint help, malformed diagrams, answer-key poisoning, grade connections and protected comparison behavior.
 
 This is partial EN-Y1-04/EN-Y2-03 coverage. Most/least language, other concrete/pictorial representations and line estimation remain. Android rendering, locales, learner records, device checks, advertisements, billing and Play release are private and not proved by engine tests.
+
+The movement frame uses repeated addition of the interval size, so Year1 learners do not need multiplication notation to use this help. Endpoint arithmetic remains the same.

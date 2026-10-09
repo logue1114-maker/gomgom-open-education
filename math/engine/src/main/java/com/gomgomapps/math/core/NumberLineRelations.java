@@ -34,7 +34,7 @@ public final class NumberLineRelations {
         guide.step("숫자가 적힌 첫 눈금의 수를 쓰세요.","기준값 = ","",""+anchor);
         guide.step("눈금 한 칸의 크기를 쓰세요.","한 칸의 크기 = ","",""+v[1]);
         guide.step("첫 숫자 눈금에서 A까지 몇 칸인지 세세요.","칸 수 = ","",""+distance);
-        guide.step("한 칸의 크기와 칸 수를 곱하세요.","한 칸의 크기 × 칸 수 = ","",""+move);
+        guide.step("한 칸의 크기를 칸 수만큼 더하세요.","한 칸의 크기를 칸 수만큼 더하기 = ","",""+move);
         guide.step(v[3]<first?"기준값에서 이동값을 빼세요.":"기준값에 이동값을 더하세요.",v[3]<first?"기준값 − 이동값 = ":"기준값 + 이동값 = ","",""+answer);
         q.studyGuide=guide;
     }
