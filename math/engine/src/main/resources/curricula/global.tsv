@@ -1858,3 +1858,8 @@ RULE	england-primary-2021-v1	4	twoStepChangeStories	wholeMaximum=9999;minGiven=0
 MAP	england-primary-2021-v1	4	factorPairRead,factorPairMental	Selected EN-Y4-15 factor pairs and convenient order/grouping in mental calculations
 RULE	england-primary-2021-v1	4	factorPairRead	wholeMaximum=144
 RULE	england-primary-2021-v1	4	factorPairMental	wholeMaximum=9999
+
+MAP	england-primary-2021-v1	4	mul2	Selected EN-Y4-16 two-digit by one-digit formal written layout; existing mul3 placement retained
+RULE	england-primary-2021-v1	3	mul2	maxGiven=99
+RULE	england-primary-2021-v1	4	mul2	variedFacts=true
+RULE	england-primary-2021-v1	4	mul3	variedFacts=true

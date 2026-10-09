@@ -398,3 +398,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Two-step quantity changes](TWO_STEP_CHANGES.md): learner operation/reason choices, intermediate and final counts.
 
 - [Factor pairs and mental multiplication](FACTOR_PAIR_MENTAL.md): ordered pairs and convenient regrouping.
+
+- [Written single-digit multiplication](WRITTEN_SINGLE_PRODUCTS.md): Year4 two/three-digit operands and existing formal layout.
