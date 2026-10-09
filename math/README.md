@@ -366,3 +366,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year3 missing operands through1000](UPPER_MISSING_NUMBERS.md): streamed finite supply and student inverse steps.
 
 - [Year3 quantity-change stories](QUANTITY_CHANGE_STORIES.md): initial/change/final unknowns and learner-authored inverse steps.
+
+- [Year3 carry-based column multiplication](COLUMN_PRODUCT.md): student carry/ones/tens frames with public-given checking.

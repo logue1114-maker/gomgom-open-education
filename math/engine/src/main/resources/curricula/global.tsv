@@ -1812,3 +1812,6 @@ RULE	england-primary-2021-v1	3	el_missing_add,el_missing_sub	wholeMaximum=1000;m
 
 MAP	england-primary-2021-v1	3	quantityChangeStories	Selected EN-Y3-10 change contexts; initial/change/final unknown with addition/subtraction
 RULE	england-primary-2021-v1	3	quantityChangeStories	wholeMaximum=1000;maxGiven=1000;maxResult=1000;nonnegative=true
+
+MAP	england-primary-2021-v1	3	columnProduct2	Selected EN-Y3-12 written carry-based two-digit multiplication; known factors2,3,4,5,8 and identities0,1
+RULE	england-primary-2021-v1	3	columnProduct2	wholeMaximum=99;maxGiven=99;maxResult=792;nonnegative=true
