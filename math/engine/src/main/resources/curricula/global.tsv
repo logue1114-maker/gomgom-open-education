@@ -1721,3 +1721,5 @@ MAP	england-primary-2021-v1	6	primaryVariablePair	Selected EN-Y6-32 ax+by=c, a/b
 MAP	england-primary-2021-v1	6	primaryPairEnumeration	Selected EN-Y6-33 all nonnegative integer pairs for ax+by=c, a/b1..6/c2..36, at least2 pairs; learner pair list/completeness, wider combinations remain partial
 
 MAP	england-primary-2021-v1	6	primarySequenceBuild,primarySequenceRule	Selected EN-Y6-30 generate three terms and express signed additive rule, terms0..100/delta1..12 both directions; broader generation/descriptions remain partial
+
+MAP	england-primary-2021-v1	6	primarySequenceDescription	Selected EN-Y6-30 composed verbal add/subtract rule, signed terms-100..100/delta1..12 both directions; free prose/wider contexts remain partial
