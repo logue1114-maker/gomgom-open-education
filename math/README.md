@@ -390,3 +390,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Counting backwards through zero](NEGATIVE_COUNTING.md): three student entries, including negative integers.
 
 - [Year4 number lines](YEAR4_NUMBER_LINES.md): four scales through10000, with existing lower-grade domains preserved.
+
+- [Upper practical place-value stories](UPPER_PRACTICAL_PLACE.md): inventory counts through10000 with lower-grade format preserved.

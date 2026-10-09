@@ -1845,3 +1845,6 @@ RULE	england-primary-2021-v1	4	negativeCountBackward	maxGiven=50;maxResult=50
 
 MAP	england-primary-2021-v1	4	numberLineRead	Selected EN-Y4-06 number-line representation through10000; four scales and12221 public geometries, estimation/other representations remain
 RULE	england-primary-2021-v1	4	numberLineRead	wholeMaximum=10000;maxGiven=10000;maxResult=10000;nonnegative=true
+
+MAP	england-primary-2021-v1	4	practicalPlaceStories	Selected EN-Y4-08 inventory context through10000; broader practical number problems remain
+RULE	england-primary-2021-v1	4	practicalPlaceStories	wholeMaximum=10000;minGiven=0;maxGiven=10000;maxResult=10000;nonnegative=true
