@@ -1773,3 +1773,9 @@ RULE	england-primary-2021-v1	3	mentalPlaceAddition,mentalPlaceSubtraction	wholeD
 MAP	england-primary-2021-v1	2	mentalTwoDigitAddition,mentalTwoDigitSubtraction,mentalThreeNumberSum	Selected EN-Y2-09 two-digit split and three single-digit grouping strategies; concrete/pictorial/fluency remain
 RULE	england-primary-2021-v1	2	mentalTwoDigitAddition,mentalTwoDigitSubtraction	wholeDigits=2;secondDigits=2;minGiven=0;maxGiven=99;maxResult=198;nonnegative=true
 RULE	england-primary-2021-v1	2	mentalThreeNumberSum	wholeDigits=1;secondDigits=1;minGiven=0;maxGiven=9;maxResult=27;nonnegative=true
+
+MAP	england-primary-2021-v1	1	numberLineRead,numberCompareWords,objectCompareWords	Selected EN-Y1-04 line0..100 and verbal number/object comparison; most/least and wider representations remain
+RULE	england-primary-2021-v1	1	numberLineRead,numberCompareWords	wholeMaximum=100;maxResult=100;nonnegative=true;includeZeroCount=true
+RULE	england-primary-2021-v1	1	objectCompareWords	wholeMaximum=20;maxResult=20;nonnegative=true;includeZeroCount=true
+MAP	england-primary-2021-v1	2	numberLineRead	Selected EN-Y2-03 exact number-line reading0..100, steps1/10; estimation and wider representations remain
+RULE	england-primary-2021-v1	2	numberLineRead	wholeMaximum=100;maxResult=100;nonnegative=true

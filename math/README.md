@@ -342,3 +342,5 @@ Selected [related calculation facts](RELATED_CALCULATION_FACTS.md) derive a new 
 Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach grouping and boundary steps separately from column arithmetic.
 
 - [Two-digit and three-number mental strategies](MENTAL_SUM_STRATEGIES.md): selected Year2 numeric split/group teaching; broader representations/fluency remain.
+
+- [Number-line foundations](NUMBER_LINE_FOUNDATIONS.md): selected Year1/2 visible line reading and reused verbal comparisons; wider representation/estimation remains.

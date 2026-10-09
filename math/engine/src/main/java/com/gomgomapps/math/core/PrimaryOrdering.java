@@ -14,18 +14,19 @@ public final class PrimaryOrdering {
  public static boolean supports(String id){return SKILLS.stream().anyMatch(s->s.id.equals(id));}
  static Question next(Catalog.Skill s,Random random,CurriculumLimits limits,Map<String,Integer> recent){
   if(s.id.equals("numberOrder")&&limits.wholeMaximum(s.range)>500)return LargeOrderingSupply.next(s,random,limits,recent,limits.wholeMaximum(s.range));
-  int cap=s.id.equals("ordinalName")?10:s.id.equals("objectOrdinal")?30:s.id.equals("numberOrder")?500:20;
-  int maximum=Math.min(cap,limits.wholeMaximum(s.range)),size=conditionCount(s.id,maximum);
+  boolean zero=verbalComparison(s.id)&&limits.includeZeroCount();
+  int cap=s.id.equals("numberCompareWords")?100:s.id.equals("ordinalName")?10:s.id.equals("objectOrdinal")?30:s.id.equals("numberOrder")?500:20;
+  int maximum=Math.min(cap,limits.wholeMaximum(s.range)),size=zero?(maximum+1)*(maximum+1):conditionCount(s.id,maximum);
   // Normal practice selects a fresh public condition directly. Exhaustive selection is only needed
   // near exhaustion or for additional restrictive curriculum rules, not on every phone question.
   for(int attempt=0;attempt<64;attempt++){
-   Question q=make(s.id,conditionAt(s.id,maximum,random.nextInt(size)));
+   int index=random.nextInt(size);Question q=make(s.id,zero?zeroComparison(maximum,random):conditionAt(s.id,maximum,index));
    if(limits.allows(q)&&!recent.containsKey(q.signature()))return finish(q,random);
   }
   // Keep only compact public-condition records while selecting; attach help to the selected item.
   Question selected=null;int oldest=Integer.MAX_VALUE,oldCount=0,start=random.nextInt(size);
   for(int offset=0;offset<size;offset++){
-   Question candidate=make(s.id,conditionAt(s.id,maximum,(start+offset)%size));if(!limits.allows(candidate))continue;
+   int index=(start+offset)%size;Question candidate=make(s.id,zero?new int[]{index/(maximum+1),index%(maximum+1)}:conditionAt(s.id,maximum,index));if(!limits.allows(candidate))continue;
    Integer age=recent.get(candidate.signature());
    if(age==null)return finish(candidate,random);
    if(age<oldest){oldest=age;oldCount=0;}if(age==oldest&&random.nextInt(++oldCount)==0)selected=candidate;
@@ -33,6 +34,9 @@ public final class PrimaryOrdering {
   if(selected==null)throw new IllegalStateException("No primary ordering condition fits curriculum");
   return finish(selected,random);
  }
+ private static int[] zeroComparison(int maximum,Random random){int relation=maximum==0?1:random.nextInt(3);if(relation==1){int value=random.nextInt(maximum+1);return new int[]{value,value};}int low=random.nextInt(maximum),high=low+1+random.nextInt(maximum-low);return relation==0?new int[]{low,high}:new int[]{high,low};}
+ public static boolean verbalComparison(String id){return id.equals("numberCompareWords")||id.equals("objectCompareWords");}
+ static Checker.Result checkComparison(Question q,List<String> answers){double[] v=q.diagram==null?null:q.diagram.values;if(v==null||v.length!=2||!Set.of("primaryNumberPair","primaryObjectPair").contains(q.diagram.type)||Arrays.stream(v).anyMatch(n->!Double.isFinite(n)||n!=(int)n||n<0||n>(q.skillId.equals("objectCompareWords")?20:100))||answers.size()!=1||!answers.get(0).matches("[012]"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"답 입력 필요");return Integer.parseInt(answers.get(0))==Double.compare(v[0],v[1])+1?new Checker.Result(Checker.Status.CORRECT,-1,"정답"):new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 답 확인");}
  private static Question finish(Question q,Random random){
   if(q.skillId.equals("ordinalName")){
    List<String> distractors=new ArrayList<>(q.choiceLabels.keySet());distractors.remove(q.answers[0]);Collections.shuffle(distractors,random);
