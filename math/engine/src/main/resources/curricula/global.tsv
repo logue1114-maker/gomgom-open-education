@@ -1717,5 +1717,7 @@ MAP	england-primary-2021-v1	6	percentageTurnAngle	Selected EN-Y6-26 percentage o
 
 MAP	england-primary-2021-v1	6	primarySubstitute,primaryExpression,primaryEquation	Selected EN-Y6-29/31 one-letter values, expression recognition and whole-coefficient missing-value relations; student-authored general formulae remain partial
 MAP	england-primary-2021-v1	6	el_sequence_10000,el_number_pattern	Selected EN-Y6-30 positive whole-number linear sequences with next/missing terms; generation/description and broader sequences remain partial
-MAP	england-primary-2021-v1	6	primaryVariablePair	Selected EN-Y6-32 ax+by=c, a/b1..6/c2..36, nonnegative integers and at least2 valid pairs; EN-Y6-33 complete enumeration remains missing
+MAP	england-primary-2021-v1	6	primaryVariablePair	Selected EN-Y6-32 ax+by=c, a/b1..6/c2..36, nonnegative integers and at least2 valid pairs; EN-Y6-33 enumeration uses its separate mapped type
 MAP	england-primary-2021-v1	6	primaryPairEnumeration	Selected EN-Y6-33 all nonnegative integer pairs for ax+by=c, a/b1..6/c2..36, at least2 pairs; learner pair list/completeness, wider combinations remain partial
+
+MAP	england-primary-2021-v1	6	primarySequenceBuild,primarySequenceRule	Selected EN-Y6-30 generate three terms and express signed additive rule, terms0..100/delta1..12 both directions; broader generation/descriptions remain partial

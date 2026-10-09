@@ -316,3 +316,5 @@ Elementary substitution blank help: [scope and limits](PRIMARY_ALGEBRA_BLANK_HEL
 Selected elementary variable pairs: [scope and limits](PRIMARY_VARIABLE_PAIRS.md).
 
 Complete elementary pair enumeration: [scope and limits](PRIMARY_PAIR_ENUMERATION.md).
+
+Learner-generated linear sequences: [scope and limits](PRIMARY_LINEAR_SEQUENCES.md).

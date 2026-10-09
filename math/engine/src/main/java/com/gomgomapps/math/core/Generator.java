@@ -74,6 +74,7 @@ public final class Generator {
         if(DecimalRoundingSupply.supports(skillId,limits))q=DecimalRoundingSupply.next(random,limits,previous);
         if(FractionNamesRelations.supports(skillId))q=FractionNamesRelations.next(s,random,limits,previous);
         if(PrimaryAlgebra.supports(skillId))q=PrimaryAlgebra.next(s,random,previous);
+        if(PrimaryLinearSequences.supports(skillId))q=PrimaryLinearSequences.next(s,random,previous);
         if(skillId.equals(PrimaryPairEnumeration.ID))q=PrimaryPairEnumeration.next(random,previous);
         if(limits.variedSums()&&SumFoundations.supports(skillId))q=SumFoundations.next(s,random,limits,previous);
         if(limits.variedFacts()&&Set.of("tables","divide").contains(skillId))q=FactFoundations.next(s,random,limits,previous);
@@ -122,6 +123,7 @@ public final class Generator {
         if(DecimalMeasureStories.supports(s.id))return DecimalMeasureStories.create(s,random,limits);
         if(EnglishNumberWords.supports(s.id))return EnglishNumberWords.next(s,random,limits,Map.of());
         if(PrimaryAlgebra.supports(s.id))return PrimaryAlgebra.next(s,random,Map.of());
+        if(PrimaryLinearSequences.supports(s.id))return PrimaryLinearSequences.next(s,random,Map.of());
         if(s.id.equals(PrimaryPairEnumeration.ID))return PrimaryPairEnumeration.next(random,Map.of());
         if(FractionPieces.supports(s.id))return FractionPieces.next(s,random,limits,Map.of());
         if(FractionFamilies.supports(s.id))return FractionFamilies.next(s,random,limits,Map.of());
