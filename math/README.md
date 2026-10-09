@@ -394,3 +394,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Upper practical place-value stories](UPPER_PRACTICAL_PLACE.md): inventory counts through10000 with lower-grade format preserved.
 
 - [Roman numeral reading](ROMAN_READ.md):100 canonical readings through C with learner-owned group calculations.
+
+- [Two-step quantity changes](TWO_STEP_CHANGES.md): learner operation/reason choices, intermediate and final counts.
