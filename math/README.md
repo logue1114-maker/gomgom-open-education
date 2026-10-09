@@ -374,3 +374,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Student number-word error locations](NUMBER_WORD_FEEDBACK.md): preserve correct words, locate only incorrect tokens/gaps, distinguish input issues from valid different numbers.
 
 - [Mental doubling and halving](DOUBLING_CALCULATION.md): two270-condition units with student-entered intermediate calculations and public-operand checking.
+
+- [Product context stories](PRODUCT_CONTEXT_STORIES.md): equal groups, integer scaling and all-pairs correspondence with student-entered inverse relationships.
