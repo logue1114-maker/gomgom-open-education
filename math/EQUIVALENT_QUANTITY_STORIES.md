@@ -7,3 +7,5 @@ Help reads only visible givens: total, fraction numerator/denominator or display
 Tests cover every reused fraction condition, independently calculated same-quantity anchors in all3forms/bothunits/0/whole, poisoned hidden-answer helpers,150fresh conditions per type, all1001reverse conditions and exhausted oldest selection. Existing fraction-equivalence supply is regressed after extracting its public condition iterator.
 
 Selected EN-Y5-32/33 support only. Arbitrary denominator multiples/recurring decimals, other contexts, reverse fraction representations and full country/device/language coverage remain incomplete. Private UI, language assets, learner records, ads/billing and APKs are excluded.
+
+Korean particle correction preserves stored older prompts through the public reader and normalizes their recent-condition identities. An added regression checks that a saved older condition is not reintroduced as new.
