@@ -7,3 +7,5 @@ Exact decimal numerator conversion uses an exact integer followed by a signed63-
 Official source: https://www.gov.uk/government/publications/national-curriculum-in-england-mathematics-programmes-of-study/national-curriculum-in-england-mathematics-programmes-of-study
 
 Private UI/learner records/QA/APKs/ads/billing excluded.
+
+Decimal-to-fraction error localization reads the original decimal, not answer metadata. If the original place-value denominator is unchanged, mark only the numerator; if the original numerator is unchanged, mark only the denominator. Correct equivalent representations remain accepted; both changed/unlocalized parts are not guessed.
