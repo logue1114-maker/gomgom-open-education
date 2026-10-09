@@ -354,3 +354,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Multiplication and division order](PRODUCT_ORDER.md): numeric products and division comparison with equal and undefined exceptions.
 
 - [Button and plate contexts](BUTTON_PLATE_STORIES.md): total, equal sharing and grouping with student-authored relationship help.
+
+- [English number words through 1,000](UPPER_ENGLISH_NUMBER_WORDS.md): selected Year3 range, existing lower-grade bounds and student place-value blanks.

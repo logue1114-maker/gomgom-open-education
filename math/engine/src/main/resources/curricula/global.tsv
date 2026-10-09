@@ -1794,3 +1794,6 @@ RULE	england-primary-2021-v1	2	productOrder	wholeMaximum=120
 
 MAP	england-primary-2021-v1	2	buttonPlateStories	Selected EN-Y2-15 array and plate stories; total/sharing/grouping with2,5,10 and zero
 RULE	england-primary-2021-v1	2	buttonPlateStories	wholeMaximum=120;maxResult=120;nonnegative=true
+
+MAP	england-primary-2021-v1	3	englishWordsToNumber,numberToEnglishWords	Selected EN-Y3-05 numeral/English word correspondence0..1000; existing Year1/2 bounds retained
+RULE	england-primary-2021-v1	3	englishWordsToNumber,numberToEnglishWords	wholeMaximum=1000;minGiven=0
