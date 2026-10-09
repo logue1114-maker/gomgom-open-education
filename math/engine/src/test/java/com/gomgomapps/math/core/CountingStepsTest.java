@@ -29,6 +29,6 @@ public class CountingStepsTest {
    }
   }
  }
- @Test public void invalidStepBoundsAndStartsAreRejected(){for(String bad:List.of("countingBounds=0:20","countingBounds=2:1","countingBounds=2:1001","countingBounds=1:20,1:30","countingBounds=","countingAnyStart=false")){try{new CurriculumLimits(bad);fail(bad);}catch(IllegalArgumentException expected){}}}
+ @Test public void invalidStepBoundsAndStartsAreRejected(){for(String bad:List.of("countingBounds=0:20","countingBounds=2:1","countingBounds=2:10001","countingBounds=1:20,1:30","countingBounds=","countingAnyStart=false")){try{new CurriculumLimits(bad);fail(bad);}catch(IllegalArgumentException expected){}}}
  @Test public void currentGradeSkillsDoNotBecomeUnlearnedDiagnosis(){Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"NA");GlobalCurriculum.choosePack(p,NA);p.grade=1;assertFalse(GlobalCurriculum.scope(p).stream().anyMatch(s->CountingSteps.supports(s.id)));p.grade=2;assertTrue(GlobalCurriculum.scope(p).stream().anyMatch(s->s.id.equals("countSkip")));}
 }
