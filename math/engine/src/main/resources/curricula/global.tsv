@@ -1907,3 +1907,6 @@ RULE	england-primary-2021-v1	5	firstFiveMultiples	maxGiven=144;maxResult=720;non
 
 MAP	england-primary-2021-v1	5	primeCompositeClassify,primeFactorIdentify	Selected EN-Y5-12 prime/composite classification and prime-factor identification
 RULE	england-primary-2021-v1	5	primeCompositeClassify,primeFactorIdentify	maxGiven=144;maxResult=144;nonnegative=true
+
+MAP	england-primary-2021-v1	5	smallPrimeRecall	Selected EN-Y5-13 recall of primes through19; classification through100 already in primeCompositeClassify
+RULE	england-primary-2021-v1	5	smallPrimeRecall	maxGiven=19;maxResult=19;nonnegative=true

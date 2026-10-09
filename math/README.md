@@ -432,3 +432,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Learner-owned factor list marking](LEARNER_FACTOR_LISTS.md): completeness without exposing missing values or blaming valid entries.
 
 - [Prime vocabulary practice](PRIME_VOCABULARY.md): public-given classification and prime-factor identification.
+
+- [Small-prime recall](PRIME_RECALL.md): learner-owned lists without answer cardinality hints.
