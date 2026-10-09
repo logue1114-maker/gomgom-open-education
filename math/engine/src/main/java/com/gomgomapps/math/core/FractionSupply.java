@@ -9,7 +9,12 @@ final class FractionSupply {
     static Question next(Catalog.Skill skill,Random random,CurriculumLimits limits,Map<String,Integer> recent){
         Map<String,Question> candidates=new LinkedHashMap<>();
         if(skill.id.equals("el_fraction_of_number")){
-            for(int denominator:limits.fractionDenominators())for(int numerator=1;numerator<(limits.unitFractions()?2:denominator);numerator++)for(int parts=limits.unitFractions()?1:2;parts<=(limits.unitFractions()?50:12);parts++)for(String representation:limits.quantityRepresentations()){
+            if(limits.hasQuantityPartsMaximum()&&limits.quantityRepresentations().equals(List.of("number"))){
+                List<int[]> conditions=new ArrayList<>();
+                for(int denominator:limits.fractionDenominators())for(int numerator=1;numerator<(limits.unitFractions()?2:denominator);numerator++)for(int parts=limits.unitFractions()?1:2;parts<=limits.quantityPartsMaximum();parts++)conditions.add(new int[]{numerator,denominator,parts});
+                return IndexedQuestionSupply.choose(conditions.size(),index->{int[] c=conditions.get(index);return QuantityFractionPictures.create(skill,c[0],c[1],c[2],"number");},random,limits,recent);
+            }
+            for(int denominator:limits.fractionDenominators())for(int numerator=1;numerator<(limits.unitFractions()?2:denominator);numerator++)for(int parts=limits.unitFractions()?1:2;parts<=limits.quantityPartsMaximum();parts++)for(String representation:limits.quantityRepresentations()){
                 if(!representation.equals("number")&&denominator*parts>100)continue;
                 include(candidates,QuantityFractionPictures.create(skill,numerator,denominator,parts,representation),limits);
             }

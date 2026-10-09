@@ -29,6 +29,9 @@ public final class CurriculumLimits {
     private final Set<Integer> denominators=new HashSet<>();
     private final Set<String> partFractions=new LinkedHashSet<>();
     private final List<String> quantityRepresentations=new ArrayList<>();
+    private Integer quantityPartsMaximum;
+    boolean hasQuantityPartsMaximum(){return quantityPartsMaximum!=null;}
+    int quantityPartsMaximum(){return quantityPartsMaximum==null?(unitFractions?50:12):quantityPartsMaximum;}
     List<String> quantityRepresentations(){return quantityRepresentations.isEmpty()?List.of("number"):List.copyOf(quantityRepresentations);}
     boolean hasPartFractions(){return !partFractions.isEmpty();}
     private final Set<Integer> factors=new HashSet<>(),divisors=new HashSet<>();
@@ -52,6 +55,7 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "quantityPartsMaximum":quantityPartsMaximum=Integer.valueOf(pair[1]);if(quantityPartsMaximum<2||quantityPartsMaximum>100)throw new IllegalArgumentException("Invalid quantity part range");break;
                 case "quantityRepresentations":for(String value:pair[1].split(",",-1)){if(!Set.of("number","objects","length").contains(value)||quantityRepresentations.contains(value))throw new IllegalArgumentException("Invalid quantity representation");quantityRepresentations.add(value);}break;
                 case "picturePartitions":for(String value:pair[1].split(",",-1)){int n=Integer.parseInt(value);if((n!=2&&n!=4)||picturePartitions.contains(n))throw new IllegalArgumentException("Invalid picture partition");picturePartitions.add(n);}break;
                 case "decompositionParts":for(String value:pair[1].split(",",-1)){int p=Integer.parseInt(value);if((p!=2&&p!=3)||decompositionParts.contains(p))throw new IllegalArgumentException("Invalid decomposition parts");decompositionParts.add(p);}break;

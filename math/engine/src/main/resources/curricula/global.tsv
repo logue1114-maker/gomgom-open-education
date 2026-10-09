@@ -1867,3 +1867,6 @@ RULE	england-primary-2021-v1	4	mul3	variedFacts=true
 MAP	england-primary-2021-v1	4	multiplyAddBoxStories,allConnectionStories,cordScalingStories	Selected EN-Y4-17 distributive multiplication plus extra objects, complete two-set connections and retained integer cord scaling
 RULE	england-primary-2021-v1	4	multiplyAddBoxStories	wholeMaximum=900
 RULE	england-primary-2021-v1	4	allConnectionStories	wholeMaximum=400
+
+MAP	england-primary-2021-v1	4	el_fraction_of_number	Selected EN-Y4-20 whole-number quantity fractions; proper unit and non-unit fractions; wider contexts and explanations remain.
+RULE	england-primary-2021-v1	4	el_fraction_of_number	denominators=2,3,4,5,6,7,8,9,10,11,12;quantityPartsMaximum=100;maxGiven=1200;maxResult=1100;nonnegative=true;answerDomain=integer;quantityRepresentations=number

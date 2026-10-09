@@ -402,3 +402,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Written single-digit multiplication](WRITTEN_SINGLE_PRODUCTS.md): Year4 two/three-digit operands and existing formal layout.
 
 - [Multiply-and-add contexts](MULTIPLY_ADD_CONTEXTS.md): distribution, extra pencils and complete group connections.
+
+- [Year4 fractions of quantities](YEAR4_FRACTION_QUANTITIES.md): selected larger whole quantities and unit/non-unit fractions.
