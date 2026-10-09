@@ -338,3 +338,5 @@ England Year2 arithmetic domains: [scope](ENGLAND_YEAR_TWO_SUMS.md).
 Inverse answer checking: [scope](INVERSE_CALCULATION_CHECK.md).
 
 Selected [related calculation facts](RELATED_CALCULATION_FACTS.md) derive a new blank calculation from a known fact.
+
+Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach grouping and boundary steps separately from column arithmetic.

@@ -1764,3 +1764,8 @@ RULE	england-primary-2021-v1	4	estimateAdditionCheck,estimateSubtractionCheck	wh
 
 MAP	england-primary-2021-v1	2	relatedAdditionFacts,relatedSubtractionFacts	Selected EN-Y2-08 derive100 from facts20; wider fluency/strategies remain
 RULE	england-primary-2021-v1	2	relatedAdditionFacts,relatedSubtractionFacts	minGiven=0;maxGiven=100;maxResult=100;nonnegative=true
+
+MAP	england-primary-2021-v1	2	mentalPlaceAddition,mentalPlaceSubtraction	Selected EN-Y2-09 ones/tens mental groups/bridge; wider representations and two-digit/three-term strategies remain
+RULE	england-primary-2021-v1	2	mentalPlaceAddition,mentalPlaceSubtraction	wholeDigits=2;secondDigits=2;minGiven=0;maxGiven=99;maxResult=189;nonnegative=true
+MAP	england-primary-2021-v1	3	mentalPlaceAddition,mentalPlaceSubtraction	Selected EN-Y3-07 ones/tens/hundreds mental groups/bridge; wider strategies/fluency remain
+RULE	england-primary-2021-v1	3	mentalPlaceAddition,mentalPlaceSubtraction	wholeDigits=3;secondDigits=3;minGiven=0;maxGiven=999;maxResult=1899;nonnegative=true

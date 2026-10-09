@@ -1,0 +1,7 @@
+# Mental place calculations
+
+Selected England Year2/3 addition/subtraction with ones/tens/hundreds. Year2 first operand10..99 and second1..9 or10..90 in tens. Year3 first100..999 and second1..9 or tens10..90 or hundreds100..900. Nonnegative subtraction; addition can reach189/1899. Sample64 recent-aware candidates, not exhaustive finite supply.
+
+Mental teaching is distinct from written column arithmetic. For ones, split the first number into tens and ones, calculate the remainder, or split the second operand to pass through a10 boundary without negative intermediate values. For tens/hundreds, count those groups, change the group count, convert back, and add the unchanged lower-place remainder.6/7/8 optional student relationship blanks; no answer transfer. Main answer stays blank until student input; checker recomputes from public operands, independent of hidden answer/expression.
+
+Four grade links100fresh, all place units/independent arithmetic/public-key poisoning tested. Explicit grouping/carry/borrow/zero/max examples and dependency-only student references are verified. Existing written sums and elementary make-ten teaching preserved. Core/resources/test/docs only; UI/localization/history/QA/APK/ads/billing private. Wider mental strategies, Year2 two arbitrary two-digit operands/three terms, concrete/pictorial representation, fluency effectiveness, physical devices/full curricula/Play remain unfinished.
