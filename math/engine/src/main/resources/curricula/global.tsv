@@ -1744,3 +1744,8 @@ MAP	england-primary-2021-v1	3	countSkip	EN-Y3-01 multiples4/8/50/100 from0; sele
 RULE	england-primary-2021-v1	3	countSkip	wholeMaximum=1000;maxGiven=1000;maxResult=1000;minGiven=0;nonnegative=true;countingBounds=4:1000,8:1000,50:1000,100:1000
 MAP	england-primary-2021-v1	4	countSkip	EN-Y4-01 multiples6/7/9/25/1000 from0; selected next-number practice through1000 except1000-step through10000; oral whole sequences remain
 RULE	england-primary-2021-v1	4	countSkip	wholeMaximum=10000;maxGiven=10000;maxResult=10000;minGiven=0;nonnegative=true;countingBounds=6:1000,7:1000,9:1000,25:1000,1000:10000
+
+# Selected Year2 integer calculation domains; mental/concrete strategy breadth remains partial.
+RULE	england-primary-2021-v1	2	add100	wholeDigits=2;minimumWholeDigits=1;minGiven=0;maxGiven=99;maxResult=198;nonnegative=true
+RULE	england-primary-2021-v1	2	sub100	wholeDigits=2;minimumWholeDigits=1;minGiven=0;maxGiven=99;maxResult=99;nonnegative=true
+RULE	england-primary-2021-v1	2	addThree9	wholeDigits=1;minimumWholeDigits=1;minGiven=0;maxGiven=9;maxResult=27;nonnegative=true
