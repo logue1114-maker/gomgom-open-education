@@ -1712,3 +1712,5 @@ RULE	england-primary-2021-v1	6	percent	variedFacts=true
 
 MAP	england-primary-2021-v1	6	sec_similarity_length	EN-Y6-27 selected integer known/found enlargement scale with corresponding sides; fractional scales/other shapes remain partial
 RULE	england-primary-2021-v1	6	sec_similarity_length	variedFacts=true
+
+MAP	england-primary-2021-v1	6	percentageTurnAngle	Selected EN-Y6-26 percentage of360degree whole-turn measure; other quantity stories already mapped
