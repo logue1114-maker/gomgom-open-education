@@ -382,3 +382,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Fraction number lines](FRACTION_NUMBER_LINE.md):165 zero-to-one diagrams with two student-written fractions.
 
 - [Equivalent fraction pictures](EQUIVALENT_FRACTION_PICTURES.md): two equal-sized shaded wholes and student-entered missing numerator or denominator.
+
+- [Fractional length stories](FRACTION_LENGTH_STORIES.md): used and remaining cord lengths with student-entered like-fraction relationships.
