@@ -173,6 +173,7 @@ public final class Catalog {
         ALL.addAll(FractionNamesRelations.SKILLS);
         ALL.addAll(PrimaryAlgebra.SKILLS);
         ALL.addAll(CountingSteps.SKILLS);
+        ALL.addAll(DecimalCounting.SKILLS);
         ALL.addAll(CollectionGrouping.SKILLS);
         ALL.addAll(PrimaryOrdering.SKILLS);
         ALL.addAll(FractionOrdering.SKILLS);
