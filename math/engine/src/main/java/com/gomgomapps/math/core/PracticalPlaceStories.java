@@ -15,7 +15,7 @@ public final class PracticalPlaceStories {
   q.kind="placeStory";q.labels=new String[]{"전체 수"};q.stepSupport=false;return q;
  }
  static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){
-  int maximum=Math.min(10000,limits.wholeMaximum(1000));if(maximum>1000){Question q=IndexedQuestionSupply.choose(2*(maximum+1),i->makeUpper(i/(maximum+1),i%(maximum+1)),random,limits,recent);attach(q);return q;}
+  int maximum=Math.min(1000000,limits.wholeMaximum(1000));if(maximum>10000){Question q=IndexedQuestionSupply.choose(2*(maximum+1),i->makeMillion(i/(maximum+1),i%(maximum+1)),random,limits,recent);attach(q);return q;}if(maximum>1000){Question q=IndexedQuestionSupply.choose(2*(maximum+1),i->makeUpper(i/(maximum+1),i%(maximum+1)),random,limits,recent);attach(q);return q;}
   Map<String,Question> pool=new LinkedHashMap<>();for(int context=0;context<2;context++)for(int n=0;n<=1000;n++){Question q=make(context,n);if(limits.allows(q))pool.put(q.signature(),q);}
   Question q=FactFoundations.choose(pool,random,recent);attach(q);return q;
  }
@@ -32,11 +32,13 @@ public final class PracticalPlaceStories {
   int k=Integer.parseInt(m.group(2)),h=Integer.parseInt(m.group(3)),t=Integer.parseInt(m.group(4)),o=Integer.parseInt(m.group(5)),n=k*1000+h*100+t*10+o;if(n>10000)return null;return new int[]{k,h,t,o,n};
  }
  static Checker.Result check(Question q,List<String> answers){
+  int[] million=readMillion(q);if(million!=null){if(answers==null||answers.size()!=1||answers.get(0)==null||!answers.get(0).trim().matches("[0-9]{1,7}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 필요");return Integer.parseInt(answers.get(0).trim())==million[6]?new Checker.Result(Checker.Status.CORRECT,-1,"정답"):new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 수 확인");}
   int[] upper=readUpper(q);if(upper!=null){if(answers==null||answers.size()!=1||answers.get(0)==null||!answers.get(0).trim().matches("[0-9]{1,5}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 필요");return Integer.parseInt(answers.get(0).trim())==upper[4]?new Checker.Result(Checker.Status.CORRECT,-1,"정답"):new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 수 확인");}
   int[] v=read(q);if(v==null||answers==null||answers.size()!=1||answers.get(0)==null||!answers.get(0).trim().matches("[0-9]{1,4}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 필요");
   return Integer.parseInt(answers.get(0).trim())==v[3]?new Checker.Result(Checker.Status.CORRECT,-1,"정답"):new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 수 확인");
  }
  public static void attach(Question q){
+  int[] million=readMillion(q);if(million!=null){StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="million-practical-place-v1";String[] names={"십만 묶음","만 묶음","천 묶음","백 묶음","열 묶음","낱개"};int unit=100000;for(int i=0;i<6;i++,unit/=10)g.step(i==5?"낱개의 수를 쓰세요.":names[i]+"에 든 수를 모두 구하세요.",i==5?"낱개 수 = ":names[i]+"의 크기 × 묶음 수 = ","",""+(million[i]*unit));g.step("묶음과 낱개를 모두 더하세요.","각 묶음의 수 + 낱개 수 = ","",""+million[6]);q.studyGuide=g;return;}
   int[] upper=readUpper(q);if(upper!=null){StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="upper-practical-place-v1";
    g.step("큰 상자에 든 수를 모두 구하세요.","큰 상자 하나에 든 수 × 큰 상자 수 = ","",Integer.toString(upper[0]*1000));
    g.step("상자에 든 수를 모두 구하세요.","상자 하나에 든 수 × 상자 수 = ","",Integer.toString(upper[1]*100));
@@ -49,4 +51,6 @@ public final class PracticalPlaceStories {
   g.step("낱개의 수를 쓰세요.","낱개 수 = ","",Integer.toString(v[2]));
   g.step("묶음에 든 수와 낱개를 합쳐 전체 수를 구하세요.","100 × 상자 수 + 10 × 봉지 수 + 낱개 수 = ","",Integer.toString(v[3]));q.studyGuide=g;
  }
+ static Question makeMillion(int context,int number){if(context<0||context>=2||number<0||number>1000000)throw new IllegalArgumentException("Million inventory");StringBuilder prompt=new StringBuilder(OBJECTS.get(context));for(int unit=100000;unit>=1;unit/=10)prompt.append("\n").append(unit).append("개 묶음: ").append(unit==100000?number/unit:number/unit%10).append("개");prompt.append("\n모두 몇 개인가요?");Question q=new Question(ID,prompt.toString(),"",""+number);q.kind="placeStory";q.labels=new String[]{"전체 수"};q.stepSupport=false;return q;}
+ public static int[] readMillion(Question q){if(q==null||!ID.equals(q.skillId)||q.prompt==null)return null;StringBuilder pattern=new StringBuilder("(스티커|색연필)");for(int unit=100000;unit>=1;unit/=10)pattern.append("\\n").append(unit).append("개 묶음: ").append(unit==100000?"(10|[0-9])":"([0-9])").append("개");pattern.append("\\n모두 몇 개인가요\\?");Matcher m=Pattern.compile(pattern.toString()).matcher(q.prompt);if(!m.matches())return null;int[] v=new int[7];int unit=100000;for(int i=0;i<6;i++,unit/=10){v[i]=Integer.parseInt(m.group(i+2));v[6]+=v[i]*unit;}return v[6]<=1000000?v:null;}
 }

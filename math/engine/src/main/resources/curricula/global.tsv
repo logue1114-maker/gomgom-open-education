@@ -1877,3 +1877,10 @@ RULE	england-primary-2021-v1	4	decimalQuantityTotal,decimalQuantityRemaining	dec
 
 MAP	england-primary-2021-v1	5	powerCountForward,powerCountBackward	Selected EN-Y5-02 arbitrary starts0..1000000 with two successive steps of10..1000000; whole spoken sequences and fluency remain
 RULE	england-primary-2021-v1	5	powerCountForward,powerCountBackward	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=3000000;answerDomain=integer
+
+MAP	england-primary-2021-v1	5	practicalPlaceStories,bookStockChanges,temperatureChanges,populationRounding,populationComparison	Selected EN-Y5-05 million inventory, two-day book counts, signed temperatures and rounded/compared populations; broader contexts and explanations remain
+RULE	england-primary-2021-v1	5	practicalPlaceStories	wholeMaximum=1000000;maxGiven=1000000;maxResult=1000000;nonnegative=true
+RULE	england-primary-2021-v1	5	bookStockChanges	maxGiven=1000000;maxResult=3000000;answerDomain=integer
+RULE	england-primary-2021-v1	5	temperatureChanges	maxGiven=60;maxResult=60;answerDomain=integer
+RULE	england-primary-2021-v1	5	populationRounding	maxGiven=1000000;maxResult=1000000
+RULE	england-primary-2021-v1	5	populationComparison	maxGiven=1000000
