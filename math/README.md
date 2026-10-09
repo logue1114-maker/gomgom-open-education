@@ -406,3 +406,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year4 fractions of quantities](YEAR4_FRACTION_QUANTITIES.md): selected larger whole quantities and unit/non-unit fractions.
 
 - [Year4 same-denominator fractions](YEAR4_LIKE_FRACTIONS.md): fresh-pair supply, then oldest.
+
+- [Year4 quarters and halves as decimals](YEAR4_QUARTER_DECIMALS.md): existing conversion practice includes1/4,1/2,3/4.

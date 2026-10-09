@@ -12,7 +12,7 @@ public class FractionSupplyTest {
             for(int i=0;i<100;i++){
                 Question q=g.next(id,recent,i%2==0,limits);if(id.startsWith("el_")||i<80)assertFalse(recent.contains(q.signature()));else assertEquals(recent.get(i-80),q.signature());recent.add(q.signature());assertEquals(Expression.number(q.expression),Expression.number(q.answers[0]));
                 assertTrue(new Checker().check(q,List.of(),List.of(q.answers[0])).correct());assertTrue(limits.allows(q));
-                if(id.startsWith("el_")){assertEquals("decimal",q.answerFormat);assertNotNull(q.diagram);assertNotNull(HelpPlan.forQuestion(q));assertTrue(HelpPlan.forQuestion(q).step(2).accepts(q.answers[0]));}
+                if(id.startsWith("el_")){assertEquals("decimal",q.answerFormat);assertNotNull(q.diagram);HelpPlan help=HelpPlan.forQuestion(q);assertNotNull(help);assertEquals(4,help.size());java.util.regex.Matcher shown=java.util.regex.Pattern.compile("(\\d+)/(\\d+)의 값을 소수로 나타내세요\\.").matcher(q.prompt);assertTrue(shown.matches());assertTrue(help.step(2).accepts(java.math.BigDecimal.ONE.divide(new java.math.BigDecimal(shown.group(2))).toPlainString()));assertTrue(help.step(3).accepts(q.answers[0]));}
                 else{assertEquals(5,q.choiceInputs.length);assertNotEquals(q.choiceInputs[0].d,q.choiceInputs[1].d);}
                 if(!q.choices.isEmpty()){assertEquals(q.choices.size(),new HashSet<>(q.choices).size());assertEquals(q.answers[0],q.choices.get(q.correctChoice));}
             }
