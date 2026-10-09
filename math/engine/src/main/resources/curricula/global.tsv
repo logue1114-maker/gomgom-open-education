@@ -1639,3 +1639,6 @@ RULE	england-primary-2021-v1	3	decimalCountBackward	decimalPlaces=1;wholeMaximum
 MAP	england-primary-2021-v1	4	decimalCountForward,decimalCountBackward	Selected decimal next-number counting0..10; fractions/object divisions/full sequences remain
 RULE	england-primary-2021-v1	4	decimalCountForward	decimalPlaces=2;wholeMaximum=10
 RULE	england-primary-2021-v1	4	decimalCountBackward	decimalPlaces=2;wholeMaximum=10
+
+MAP	england-primary-2021-v1	3	el_fraction_decimal	Selected tenths picture/unit-part decimal relation; object quantities/full fraction sequences remain
+RULE	england-primary-2021-v1	3	el_fraction_decimal	decimalPlaces=1;denominators=10
