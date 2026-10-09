@@ -8,7 +8,7 @@ public final class EnglishNumberWords {
   new Catalog.Skill("numberToEnglishWords","숫자를 영어 수 이름으로 쓰기",1,1,1,"","numberWords",100,"count","숫자를 영어 수 이름으로 직접 쓴다."));
  private static final String[] SMALL={"zero","one","two","three","four","five","six","seven","eight","nine","ten","eleven","twelve","thirteen","fourteen","fifteen","sixteen","seventeen","eighteen","nineteen"};
  private static final String[] TENS={"","","twenty","thirty","forty","fifty","sixty","seventy","eighty","ninety"};
- public static boolean supports(String id){return id.equals("englishWordsToNumber")||id.equals("numberToEnglishWords");}
+ public static boolean supports(String id){return EnglishDecimalWords.supports(id)||id.equals("englishWordsToNumber")||id.equals("numberToEnglishWords");}
  public static String words(int number){
   if(number<0||number>100)throw new IllegalArgumentException("English number scope0–100");
   return number<20?SMALL[number]:number==100?"one hundred":TENS[number/10]+(number%10==0?"":"-"+SMALL[number%10]);
@@ -17,7 +17,8 @@ public final class EnglishNumberWords {
  public static boolean matches(String input,String expected){return normalize(input).equals(normalize(expected));}
  private static String normalize(String value){return value.trim().toLowerCase(Locale.ROOT).replaceAll("[-\u2010\u2011]"," ").replaceAll("\\s+"," ");}
  static Question next(Catalog.Skill skill,Random random,CurriculumLimits limits,Map<String,Integer> recent){
-  int max=Math.min(100,limits.wholeMaximum(100)),min=limits.givenMinimum(0);List<Question> fresh=new ArrayList<>(),old=new ArrayList<>();int oldest=Integer.MAX_VALUE;
+  if(EnglishDecimalWords.supports(skill.id))return EnglishDecimalWords.next(skill,random,limits,recent);
+        int max=Math.min(100,limits.wholeMaximum(100)),min=limits.givenMinimum(0);List<Question> fresh=new ArrayList<>(),old=new ArrayList<>();int oldest=Integer.MAX_VALUE;
   for(int value=min;value<=max;value++){
    Question q=make(skill.id,value);if(!limits.allows(q))continue;Integer age=recent.get(q.signature());
    if(age==null)fresh.add(q);else {if(age<oldest){old.clear();oldest=age;}if(age==oldest)old.add(q);}

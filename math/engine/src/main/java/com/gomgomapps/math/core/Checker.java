@@ -37,7 +37,7 @@ public final class Checker {
                     if(!q.choiceLabels.containsKey(raw))return new Result(Status.INPUT_NEEDED,-1,"분수 이름 선택 필요");
                     if(!raw.equals(q.answers[i]))return new Result(Status.WRONG_ANSWER,i,"이 답 확인");
                 }else if(q.kind.equals("englishNumberWords")){
-                    if(!EnglishNumberWords.matches(raw,q.answers[i]))return new Result(Status.WRONG_ANSWER,i,"이 답 확인");
+                    if(!(EnglishDecimalWords.supports(q.skillId)?EnglishDecimalWords.matches(raw,q.answers[i]):EnglishNumberWords.matches(raw,q.answers[i])))return new Result(Status.WRONG_ANSWER,i,"이 답 확인");
                 }else if(q.kind.equals("symbol")){
                     if(!Arrays.asList("<",">","=").contains(raw))return new Result(Status.INPUT_NEEDED,-1,"비교 기호 선택 필요");
                     if(!raw.equals(q.answers[i]))return new Result(Status.WRONG_ANSWER,i,"이 답 확인");

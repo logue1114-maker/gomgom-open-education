@@ -1663,3 +1663,7 @@ MAP	england-primary-2021-v1	5	el_fraction_decimal	Selected proper tenths/hundred
 RULE	england-primary-2021-v1	5	el_fraction_decimal	decimalPlaces=3;denominators=10,100,1000
 
 MAP	england-primary-2021-v1	5	decimalUnitCount	Selected equal-amount counts between thousandths and tenths/hundredths; full reading/writing and contextual representations remain
+
+MAP	england-primary-2021-v1	5	englishDecimalWordsToNumber,decimalNumberToEnglishWords	Selected full English decimal numerals/words, whole part0..1000000 and one to three fractional places; oral/contextual representations remain
+RULE	england-primary-2021-v1	5	englishDecimalWordsToNumber	wholeMaximum=1000000;decimalPlaces=3
+RULE	england-primary-2021-v1	5	decimalNumberToEnglishWords	wholeMaximum=1000000;decimalPlaces=3

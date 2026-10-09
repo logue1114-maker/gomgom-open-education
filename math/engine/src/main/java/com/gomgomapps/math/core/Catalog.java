@@ -182,6 +182,7 @@ public final class Catalog {
         ALL.addAll(FractionOrdering.SKILLS);
         ALL.addAll(FractionFamilies.SKILLS);
         ALL.addAll(EnglishNumberWords.SKILLS);
+        ALL.addAll(EnglishDecimalWords.SKILLS);
         ALL.addAll(GroupedEstimation.SKILLS);
         ALL.addAll(EqualityFoundations.SKILLS);
         ALL.addAll(ClockReadings.SKILLS);
