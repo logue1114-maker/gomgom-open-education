@@ -26,6 +26,7 @@ public final class Checker {
         if(PowerCounting.supports(q.skillId))return PowerCounting.check(q,answers);
         if(MoneyBasicStories.supports(q.skillId))return MoneyBasicStories.check(q,answers);
         if(WrittenSingleProducts.KIND.equals(q.kind))return WrittenSingleProducts.check(q,answers);
+        if(ShortWrittenDivision.supports(q.skillId))return ShortWrittenDivision.check(q,answers);
         if(LargeWrittenProducts.supports(q.skillId))return LargeWrittenProducts.check(q,answers);
         if(PrimeRecall.supports(q.skillId))return PrimeRecall.check(q,answers);
         if(PrimeVocabulary.supports(q.skillId))return PrimeVocabulary.check(q,answers);

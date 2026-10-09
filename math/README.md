@@ -438,3 +438,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Up-to-four-digit written products](LARGE_WRITTEN_PRODUCTS.md): public operand supply and learner column work.
 
 - [Year5 mental facts](YEAR5_MENTAL_FACTS.md): reuse of established mental calculation practice.
+
+- [Short written division](SHORT_WRITTEN_DIVISION.md): quotient and carried remainders.

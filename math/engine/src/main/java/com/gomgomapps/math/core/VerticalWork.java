@@ -52,7 +52,9 @@ public final class VerticalWork {
         if(op.equals("-")&&a.compareTo(b)<0||op.equals("/")&&(decimal||b.signum()==0)||q.kind.equals("pair")&&(!op.equals("/")||q.answers.length!=2))return null;
         if(op.equals("/")&&!q.kind.equals("pair")&&a.remainder(b).signum()!=0)return null;
         int sa=a.scale(),sb=b.scale();if(op.equals("+")||op.equals("-")){sa=sb=Math.max(sa,sb);a=a.setScale(sa);b=b.setScale(sb);}
-        return new Layout(a.unscaledValue().toString(),b.unscaledValue().toString(),op,sa,sb,decimal);
+        Layout layout=new Layout(a.unscaledValue().toString(),b.unscaledValue().toString(),op,sa,sb,decimal);
+        if(ShortWrittenDivision.supports(q.skillId)){if(ShortWrittenDivision.read(q)==null)return null;layout.rows.removeIf(row->row.id.startsWith("product"));}
+        return layout;
     }
     public static Draft draft(Learning.Session s){if(s.verticalWork==null)s.verticalWork=new Draft();points(s.verticalWork);return s.verticalWork;}
     public static boolean supported(Question q){return FractionWork.supports(q)||DecimalDivision.supports(q)||layout(q)!=null;}
