@@ -364,3 +364,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year3 packs and loose objects](PRACTICAL_PLACE_STORIES.md): base-ten inventories with student numeric steps and public-given checking.
 
 - [Year3 missing operands through1000](UPPER_MISSING_NUMBERS.md): streamed finite supply and student inverse steps.
+
+- [Year3 quantity-change stories](QUANTITY_CHANGE_STORIES.md): initial/change/final unknowns and learner-authored inverse steps.

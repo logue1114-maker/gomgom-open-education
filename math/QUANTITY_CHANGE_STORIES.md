@@ -1,0 +1,7 @@
+# Year3 quantity-change stories
+
+Selected England EN-Y3-10 contexts use stickers and coloured pencils, received or given away, with the initial, change or final count unknown. The whole0..1000 and every part0..whole form6,018,012 distinct public stories across two contexts, two operations and three unknown positions. A64-draw fresh search followed by a streaming exhaustive fallback preserves fresh-before-oldest reuse without retaining millions of Question objects.
+
+Checking reconstructs only the two visible givens and the unknown relationship; hidden answer keys and expression metadata are ignored. Negative quantities, values over1000, no blank, multiple blanks and malformed public text are rejected. Students fill two known quantities and then use the general addition/subtraction relationship. The scaffold never substitutes the numbers into that relationship or transfers its result to the main answer. Direct numeric input avoids fixed answer-choice cues.
+
+Tests cover every whole0..1000 with boundary/interior parts and every context/operation/blank position; independent inverse arithmetic, poisoned keys, student frames/no transfer, actual small-domain streaming exhaustion/oldest,100 fresh normal generated questions and Grade3-only mapping. Existing base-ten inventory tests run as regression. This covers selected single-change contexts, not all multi-step situations, representations or fluency. UI, translations, records, QA and APKs remain private; physical-device and Play evidence are separate.

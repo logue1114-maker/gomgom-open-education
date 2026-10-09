@@ -171,7 +171,7 @@ public final class Catalog {
         ALL.addAll(NumberDecomposition.SKILLS);
         ALL.addAll(FractionPieces.SKILLS);
         ALL.addAll(FractionNamesRelations.SKILLS);
-        ALL.add(PracticalPlaceStories.SKILL);ALL.add(ButtonPlateStories.SKILL);ALL.add(ProductOrder.SKILL);ALL.add(PictureArithmetic.SKILL);ALL.addAll(CalculationOrder.SKILLS);ALL.add(StatementSigns.SKILL);ALL.add(NumberLineRelations.SKILL);ALL.addAll(MentalSumStrategies.SKILLS);ALL.addAll(MentalPlaceCalculations.SKILLS);ALL.addAll(RelatedCalculationFacts.SKILLS);ALL.addAll(EstimateCalculationCheck.SKILLS);ALL.addAll(InverseCalculationCheck.SKILLS);ALL.add(PrimaryFormulaContext.SKILL);ALL.add(PrimaryExpressionWriting.SKILL);ALL.add(LinearSequenceDescription.SKILL);ALL.addAll(PrimaryLinearSequences.SKILLS);ALL.addAll(PrimaryAlgebra.SKILLS);ALL.add(PrimaryPairEnumeration.SKILL);
+        ALL.add(ChangeStories.SKILL);ALL.add(PracticalPlaceStories.SKILL);ALL.add(ButtonPlateStories.SKILL);ALL.add(ProductOrder.SKILL);ALL.add(PictureArithmetic.SKILL);ALL.addAll(CalculationOrder.SKILLS);ALL.add(StatementSigns.SKILL);ALL.add(NumberLineRelations.SKILL);ALL.addAll(MentalSumStrategies.SKILLS);ALL.addAll(MentalPlaceCalculations.SKILLS);ALL.addAll(RelatedCalculationFacts.SKILLS);ALL.addAll(EstimateCalculationCheck.SKILLS);ALL.addAll(InverseCalculationCheck.SKILLS);ALL.add(PrimaryFormulaContext.SKILL);ALL.add(PrimaryExpressionWriting.SKILL);ALL.add(LinearSequenceDescription.SKILL);ALL.addAll(PrimaryLinearSequences.SKILLS);ALL.addAll(PrimaryAlgebra.SKILLS);ALL.add(PrimaryPairEnumeration.SKILL);
         ALL.addAll(CountingSteps.SKILLS);
         ALL.addAll(DecimalCounting.SKILLS);
         ALL.addAll(PowerTenDivision.SKILLS);
