@@ -107,6 +107,7 @@ public final class HelpPlan {
         DecimalUnitRelations.attach(q);
         EnglishDecimalWords.attach(q);
         DecimalMeasureStories.attach(q);
+        MoneyBasicStories.attach(q);
         PercentageNotation.attach(q);
         FractionPercentEquivalence.attach(q);
         EquivalentQuantityStories.attach(q);

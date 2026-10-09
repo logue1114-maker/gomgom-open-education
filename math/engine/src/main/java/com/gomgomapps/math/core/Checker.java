@@ -22,6 +22,7 @@ public final class Checker {
         Result work=checkSteps(q,steps,kinds,false);
         if(!work.correct())return work;
         if(MultiplyAddContexts.supports(q.skillId))return MultiplyAddContexts.check(q,answers);
+        if(MoneyBasicStories.supports(q.skillId))return MoneyBasicStories.check(q,answers);
         if(WrittenSingleProducts.KIND.equals(q.kind))return WrittenSingleProducts.check(q,answers);
         if(FactorPairMental.supports(q.skillId))return FactorPairMental.check(q,answers);
         if(TwoStepChangeStories.ID.equals(q.skillId))return TwoStepChangeStories.check(q,answers);

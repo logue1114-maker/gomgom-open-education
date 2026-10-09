@@ -408,3 +408,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year4 same-denominator fractions](YEAR4_LIKE_FRACTIONS.md): fresh-pair supply, then oldest.
 
 - [Year4 quarters and halves as decimals](YEAR4_QUARTER_DECIMALS.md): existing conversion practice includes1/4,1/2,3/4.
+
+- [Year4 measurement and money](YEAR4_MEASURE_MONEY.md): fractional length, decimal quantities and basic GBP totals/change.

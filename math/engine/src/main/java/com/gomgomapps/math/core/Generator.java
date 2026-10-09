@@ -79,6 +79,7 @@ public final class Generator {
         if(skillId.equals(LinearSequenceDescription.ID))q=LinearSequenceDescription.next(random,previous);
         if(PrimaryLinearSequences.supports(skillId))q=PrimaryLinearSequences.next(s,random,previous);
         if(skillId.equals(PrimaryPairEnumeration.ID))q=PrimaryPairEnumeration.next(random,previous);
+        if(MoneyBasicStories.supports(skillId))q=MoneyBasicStories.next(s,random,limits,previous);
         if(MultiplyAddContexts.supports(skillId))q=MultiplyAddContexts.next(skillId,random,limits,previous);
         else if(WrittenSingleProducts.selected(skillId,limits))q=WrittenSingleProducts.next(skillId,random,limits,previous);
         else if(FactorPairMental.supports(skillId))q=FactorPairMental.next(skillId,random,limits,previous);
@@ -177,6 +178,7 @@ public final class Generator {
         if(FractionPercentEquivalence.supports(s.id))return FractionPercentEquivalence.next(random,limits,Map.of());
         if(PercentageNotation.supports(s.id))return PercentageNotation.next(s,random,limits,Map.of());
         if(DecimalMeasureStories.supports(s.id))return DecimalMeasureStories.create(s,random,limits);
+        if(MoneyBasicStories.supports(s.id))return MoneyBasicStories.next(s,random,limits,Map.of());
         if(EnglishNumberWords.supports(s.id))return EnglishNumberWords.next(s,random,limits,Map.of());
         if(PrimaryAlgebra.supports(s.id))return PrimaryAlgebra.next(s,random,Map.of());
         if(s.id.equals(PrimaryFormulaContext.ID))return PrimaryFormulaContext.next(random,Map.of());

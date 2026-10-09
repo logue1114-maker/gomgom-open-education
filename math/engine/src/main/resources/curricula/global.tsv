@@ -1870,3 +1870,7 @@ RULE	england-primary-2021-v1	4	allConnectionStories	wholeMaximum=400
 
 MAP	england-primary-2021-v1	4	el_fraction_of_number	Selected EN-Y4-20 whole-number quantity fractions; proper unit and non-unit fractions; wider contexts and explanations remain.
 RULE	england-primary-2021-v1	4	el_fraction_of_number	denominators=2,3,4,5,6,7,8,9,10,11,12;quantityPartsMaximum=100;maxGiven=1200;maxResult=1100;nonnegative=true;answerDomain=integer;quantityRepresentations=number
+
+MAP	england-primary-2021-v1	4	fractionLengthUsed,fractionLengthLeft,decimalQuantityTotal,decimalQuantityRemaining,moneyBasicTotal,moneyBasicChange	Selected EN-Y4-27 same-unit fraction length, decimal length/water through two places and GBP totals/change; broader contexts and methods remain
+RULE	england-primary-2021-v1	4	fractionLengthUsed,fractionLengthLeft	maxGiven=12;maxResult=1;nonnegative=true
+RULE	england-primary-2021-v1	4	decimalQuantityTotal,decimalQuantityRemaining	decimalPlaces=2;wholeMaximum=99
