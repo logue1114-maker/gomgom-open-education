@@ -47,6 +47,7 @@ public final class Checker {
                     if(q.kind.equals("factor")&&!factored(raw))return new Result(Status.INPUT_NEEDED,-1,"곱의 꼴로 정리 필요");
                 }else{
                     String input=Expression.normalize(raw);
+                    if("decimalValue".equals(q.answerFormat)&&input.contains("/"))return new Result(Status.INPUT_NEEDED,-1,"소수로 입력 필요");
                     if("fraction".equals(q.answerFormat)&&!input.contains("/"))return new Result(Status.INPUT_NEEDED,-1,"분수로 입력 필요");
                     if("decimal".equals(q.answerFormat)&&(!input.contains(".")||input.contains("/")))return new Result(Status.INPUT_NEEDED,-1,"소수로 입력 필요");
                     input=FunctionWork.numericAnswer(q,input);

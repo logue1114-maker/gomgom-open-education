@@ -262,3 +262,5 @@ Selected decimal conversions: [ENGLAND_DECIMAL_LINKS.md](ENGLAND_DECIMAL_LINKS.m
 Selected tenths/hundredths counting: [scope and remaining work](ENGLAND_DECIMAL_COUNTING.md).
 
 Tenths/hundredths unit-part help: [scope](TENTH_UNIT_RELATIONS.md).
+
+Division by10/100 unit relationships: [scope](POWER_TEN_DIVISION.md).
