@@ -1,0 +1,7 @@
+# Selected decimal times whole-number products
+
+England Year6 EN-Y6-21 reuses existing decimalMul and six public decimal arithmetic fields. A missing grade link and explicit finite rule select one-digit decimals0.00..9.99 times whole numbers0..99:100000displayed conditions, not authored counts or unique answers. Existing supply restricted whole operands to2..9 and random decimal samples. The selected indexed supply includes0/1/two-digit multipliers and chooses unused conditions before exhausted oldest repetition. Other grade rules retain their existing supplier.
+
+Public operands x/y, decimal places p, scaled integer A, integer product r and decimal result v are blank student entries; no result transfers into the main answer. Tests independently check all100000exact values and boundaries, six public helper fields with poisoned hidden answers,150fresh selected conditions and existing decimal arithmetic regressions. A related missing fallback exclusion for the prior DecimalPowerTen strands is fixed: unmapped/default curriculum lists do not claim these reviewed English strands. Registered Year6 mappings remain intact.
+
+Wider whole-number multiplier bounds, full contexts and the separate EN-Y6-22 written division process remain incomplete. Existing seven scaling/quotient division fields are not treated as full written long division. Private UI/localization/learner records/QA/APKs/ads/billing are excluded.

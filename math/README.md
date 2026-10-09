@@ -290,3 +290,5 @@ Selected upper-primary fraction arithmetic: [scope and limits](UPPER_FRACTION_PR
 Selected fraction/division/decimal relationship: [scope and limits](FRACTION_DIVISION_DECIMAL.md).
 
 Selected decimal powers of ten: [scope and limits](DECIMAL_POWERS_TEN.md).
+
+Selected decimal times whole-number products: [scope and limits](DECIMAL_WHOLE_PRODUCTS.md).
