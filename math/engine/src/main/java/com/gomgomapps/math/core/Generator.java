@@ -59,6 +59,7 @@ public final class Generator {
         if(DecimalWrittenDivision.supports(skillId))q=DecimalWrittenDivision.next(random,limits,previous);
         if(DecimalPowerTen.supports(skillId))q=DecimalPowerTen.next(s,random,limits,previous);
         if(PowerTenDivision.supports(skillId))q=PowerTenDivision.next(s,random,limits,previous);
+        if(SimilarShapeSupply.selected(skillId,limits))q=SimilarShapeSupply.next(random,limits,previous);
         if(PercentAmountRelations.selected(skillId,limits))q=PercentAmountRelations.next(skillId,random,limits,previous);
         if(RatioSplitSupply.supports(skillId,limits))q=RatioSplitSupply.next(skillId,random,limits,previous);
         if(RoundedSharingStory.supports(skillId))q=RoundedSharingStory.next(random,limits,previous);
@@ -106,6 +107,7 @@ public final class Generator {
     }
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
         if(ProperFractionProductSupply.supports(s.id,limits))return ProperFractionProductSupply.next(s,random,limits,Map.of());
+        if(SimilarShapeSupply.selected(s.id,limits))return SimilarShapeSupply.next(random,limits,Map.of());
         if(PercentAmountRelations.selected(s.id,limits))return PercentAmountRelations.next(s.id,random,limits,Map.of());
         if(RatioSplitSupply.supports(s.id,limits))return RatioSplitSupply.next(s.id,random,limits,Map.of());
         if(RoundedSharingStory.supports(s.id))return RoundedSharingStory.next(random,limits,Map.of());

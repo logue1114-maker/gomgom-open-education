@@ -304,3 +304,5 @@ Rounded equal-share contexts: [scope and limits](ROUNDED_SHARING_STORY.md).
 Selected Year6 ratios: [scope and limits](YEAR6_RATIO_SPLIT.md).
 
 Selected percentage amounts: [scope and limits](PERCENT_AMOUNT_COMPARISON.md).
+
+Selected similar shape scales: [scope and limits](YEAR6_SHAPE_SCALE.md).
