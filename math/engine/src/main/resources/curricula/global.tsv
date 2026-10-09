@@ -1682,3 +1682,6 @@ MAP	england-primary-2021-v1	5	fractionQuantityStory,decimalQuantityPart,percentQ
 
 MAP	england-primary-2021-v1	6	fracMixedAdd,fracMixedSub	Selected mixed-number sum/difference, wholeparts1..9 and proper fractional parts with denominators2..12; full bounds/representations/context remain
 RULE	england-primary-2021-v1	6	fracMul,fracDivInt	denominators=2,3,4,5,6,7,8,9,10,11,12;variedFacts=true
+
+MAP	england-primary-2021-v1	6	el_fraction_decimal	Selected fraction/division/terminating-decimal relation through3places, values0..1; recurring decimals/full contexts remain
+RULE	england-primary-2021-v1	6	el_fraction_decimal	decimalPlaces=3;denominators=2,4,5,8,10,20,25,40,50,100,125,200,250,500,1000;variedFacts=true

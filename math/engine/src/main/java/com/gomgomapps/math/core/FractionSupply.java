@@ -19,6 +19,12 @@ final class FractionSupply {
                 Question q=new Question(skill.id,"전체를 똑같이 "+denominator+"조각으로 나눈 것 중 "+numerator+"조각을 분수로 나타내세요.",numerator+"/"+denominator,Rational.of(numerator,denominator).toString()).withInputs(numerator,denominator);q.stepSupport=false;if(limits.hasPartFractions())q.answerFormat="fraction";include(candidates,q,limits);
             }
         }else if(skill.id.equals("el_fraction_decimal")){
+            if(limits.variedFacts())for(int denominator:limits.fractionDenominators()){
+                int t=denominator;while(t%2==0)t/=2;while(t%5==0)t/=5;
+                if(t!=1)continue;
+                for(int numerator=0;numerator<=denominator;numerator++)include(candidates,ElementaryBasics.fractionDecimal(skill,numerator,denominator),limits);
+            }
+            else
             for(int places=1;places<=limits.decimalPlaces(2);places++){
                 int denominator=(int)Math.pow(10,places);
                 for(int numerator=1;numerator<denominator;numerator++)include(candidates,ElementaryBasics.fractionDecimal(skill,numerator,denominator),limits);

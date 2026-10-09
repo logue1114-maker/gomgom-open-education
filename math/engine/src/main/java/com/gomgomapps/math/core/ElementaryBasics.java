@@ -883,8 +883,9 @@ public final class ElementaryBasics {
     }
     static Question fractionDecimal(Catalog.Skill skill,int numerator,int denominator){
         Rational answer=r(numerator,denominator);
+        String decimal=answer.decimalText();if(!decimal.contains(".")&&!decimal.contains("/"))decimal+=".0";
         Question question=numberText(skill,numerator+"/"+denominator+"의 값을 소수로 나타내세요.",numerator+"/"+denominator,answer,
-                answer.decimalText(),true,
+                decimal,true,
                 null,
                 denominator<=100?diagram("fraction",new double[]{numerator,denominator},"분자","분모"):null);
         question.answerFormat="decimal";
