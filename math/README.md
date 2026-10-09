@@ -296,3 +296,5 @@ Selected decimal times whole-number products: [scope and limits](DECIMAL_WHOLE_P
 Selected decimal written division: [scope and limits](DECIMAL_WRITTEN_DIVISION.md).
 
 Selected Year6 rounding: [scope and limits](YEAR6_DECIMAL_ROUNDING.md).
+
+Contextual part-whole equivalents: [scope and limits](QUANTITY_RATIO_EQUIVALENCE.md).

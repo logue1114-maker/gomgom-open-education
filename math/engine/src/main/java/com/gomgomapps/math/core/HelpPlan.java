@@ -109,6 +109,7 @@ public final class HelpPlan {
         PercentageNotation.attach(q);
         FractionPercentEquivalence.attach(q);
         EquivalentQuantityStories.attach(q);
+        QuantityRatioEquivalence.attach(q);
         ProperFractionProductSupply.attach(q);
         DecimalPercentReverse.attach(q);
         if(q!=null)RadicalTeaching.attach(q);

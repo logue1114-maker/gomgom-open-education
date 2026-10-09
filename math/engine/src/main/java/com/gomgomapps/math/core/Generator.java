@@ -59,6 +59,7 @@ public final class Generator {
         if(DecimalWrittenDivision.supports(skillId))q=DecimalWrittenDivision.next(random,limits,previous);
         if(DecimalPowerTen.supports(skillId))q=DecimalPowerTen.next(s,random,limits,previous);
         if(PowerTenDivision.supports(skillId))q=PowerTenDivision.next(s,random,limits,previous);
+        if(QuantityRatioEquivalence.supports(skillId))q=QuantityRatioEquivalence.next(random,limits,previous);
         if(EquivalentQuantityStories.supports(skillId))q=EquivalentQuantityStories.next(s,random,limits,previous);
         if(DecimalPercentReverse.supports(skillId))q=DecimalPercentReverse.next(random,limits,previous);
         if(FractionPercentEquivalence.supports(skillId))q=FractionPercentEquivalence.next(random,limits,previous);
@@ -102,6 +103,7 @@ public final class Generator {
     }
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
         if(ProperFractionProductSupply.supports(s.id,limits))return ProperFractionProductSupply.next(s,random,limits,Map.of());
+        if(QuantityRatioEquivalence.supports(s.id))return QuantityRatioEquivalence.next(random,limits,Map.of());
         if(EquivalentQuantityStories.supports(s.id))return EquivalentQuantityStories.next(s,random,limits,Map.of());
         if(DecimalPercentReverse.supports(s.id))return DecimalPercentReverse.next(random,limits,Map.of());
         if(FractionPercentEquivalence.supports(s.id))return FractionPercentEquivalence.next(random,limits,Map.of());
