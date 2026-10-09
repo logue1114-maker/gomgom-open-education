@@ -38,7 +38,7 @@ public final class CurriculumLimits {
     private int minuteStep=5;
     private int metricDecimals=0;
     private Integer maxSecondOperand,maxRegroups,decimalPlaces,answerDecimalPlaces,secondDecimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides;
-    private Integer roundingDecimalPlaces;
+    private final Set<Integer> roundingDecimalTargets=new TreeSet<>();
     private boolean sameDecimalPlaces;
     private final List<Integer> roundingUnits=new ArrayList<>();
     private final List<Integer> percentages=new ArrayList<>();
@@ -82,7 +82,7 @@ public final class CurriculumLimits {
                 case "maxRegroups":maxRegroups=Integer.valueOf(pair[1]);if(maxRegroups<0||maxRegroups>9)throw new IllegalArgumentException("Invalid regrouping limit");break;
                 case "answerDecimalPlaces":case "secondDecimalPlaces":int precision=Integer.parseInt(pair[1]);if(precision<0||precision>4)throw new IllegalArgumentException("Invalid decimal precision");if(pair[0].equals("answerDecimalPlaces"))answerDecimalPlaces=precision;else secondDecimalPlaces=precision;break;
                 case "decimalPlaces":decimalPlaces=Integer.valueOf(pair[1]);if(decimalPlaces<1||decimalPlaces>4)throw new IllegalArgumentException("Invalid decimal places");break;
-                case "roundingDecimalPlaces":roundingDecimalPlaces=Integer.valueOf(pair[1]);if(roundingDecimalPlaces<0||roundingDecimalPlaces>3)throw new IllegalArgumentException("Invalid rounding decimal places");break;
+                case "roundingDecimalPlaces":for(String target:pair[1].split(",")){int places=Integer.parseInt(target);if(places<0||places>3)throw new IllegalArgumentException("Invalid rounding decimal places");roundingDecimalTargets.add(places);}break;
                 case "sameDecimalPlaces":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid same decimal places flag");sameDecimalPlaces=true;break;
                 case "wholeMaximum":wholeMaximum=Integer.valueOf(pair[1]);if(wholeMaximum<1||wholeMaximum>999999999)throw new IllegalArgumentException("Invalid whole-number range");break;
                 case "wholeDigits":case "secondDigits":int digits=Integer.parseInt(pair[1]);if(digits<1||digits>6)throw new IllegalArgumentException("Invalid operand digits");if(pair[0].equals("wholeDigits"))wholeDigits=digits;else secondDigits=digits;break;
@@ -196,7 +196,7 @@ public final class CurriculumLimits {
         }
         if(answerDecimalPlaces!=null)for(String answer:q.answers)if(!fitsDecimalPlaces(answer,answerDecimalPlaces))return false;
         if(decimalPlaces!=null){Matcher decimals=Pattern.compile("\\d+\\.(\\d+)").matcher(givens);while(decimals.find())if(decimals.group(1).length()>decimalPlaces)return false;}
-        if(roundingDecimalPlaces!=null){RoundingRelations.Givens rounded=RoundingRelations.read(q);if(!q.skillId.equals("el_decimal_round")||rounded==null||rounded.decimalPlaces()!=roundingDecimalPlaces)return false;}
+        if(!roundingDecimalTargets.isEmpty()){RoundingRelations.Givens rounded=RoundingRelations.read(q);if(!q.skillId.equals("el_decimal_round")||rounded==null||!roundingDecimalTargets.contains(rounded.decimalPlaces()))return false;}
         if(sameDecimalPlaces){Matcher pair=Pattern.compile("\\d+\\.(\\d+)\\s+□\\s+\\d+\\.(\\d+)").matcher(q.prompt);if(!q.skillId.equals("el_decimal_compare")||!pair.matches()||pair.group(1).length()!=pair.group(2).length())return false;}
         if(!roundingUnits.isEmpty()){Matcher place=Pattern.compile("(\\d+)의 자리까지").matcher(q.prompt);if(!place.find()||!roundingUnits.contains(Integer.parseInt(place.group(1))))return false;}
         if(unitFractions){Matcher m=Pattern.compile("(\\d+)\\s*/\\s*\\d+").matcher(Set.of("fracCompare","el_fraction_compare").contains(q.skillId)?q.prompt:q.expression);boolean found=false;while(m.find()){found=true;if(!m.group(1).equals("1"))return false;}if(!found)return false;}
@@ -236,8 +236,10 @@ public final class CurriculumLimits {
     boolean variedSums(){return variedSums;}
     int decimalPlaces(int defaultPlaces){return decimalPlaces==null?defaultPlaces:decimalPlaces;}
     boolean hasDecimalPlaces(){return decimalPlaces!=null;}
-    int roundingDecimalPlaces(int defaults){return roundingDecimalPlaces==null?defaults:roundingDecimalPlaces;}
-    boolean roundsToWhole(){return roundingDecimalPlaces!=null&&roundingDecimalPlaces==0;}
+    int roundingDecimalPlaces(int defaults){return roundingDecimalTargets.isEmpty()?defaults:roundingDecimalTargets.iterator().next();}
+    List<Integer> roundingDecimalTargets(){return List.copyOf(roundingDecimalTargets);}
+    boolean hasWholeMaximum(){return wholeMaximum!=null;}
+    boolean roundsToWhole(){return roundingDecimalTargets.contains(0);}
     boolean sameDecimalPlaces(){return sameDecimalPlaces;}
     boolean hasWholeDigits(){return wholeDigits!=null;}
     int wholeDigits(int defaults){return wholeDigits==null?defaults:wholeDigits;}

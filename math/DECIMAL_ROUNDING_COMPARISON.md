@@ -7,3 +7,5 @@ The existing el_decimal_compare skill gains a sameDecimalPlaces rule. Both opera
 roundingDecimalPlaces=0 and sameDecimalPlaces=true are explicit England Year4 constraints. Old national limits and unconfigured decimal practice remain unchanged. Shared rounding next-digit extraction avoids BigDecimal.intValueExact, which is unavailable on Android API26, while preserving exactness and the0..9 bound.
 
 These are selected symbolic components of EN-Y4-25 and EN-Y4-26. Full contextual/representation outcomes, three-number ordering and other official ranges are not claimed. Tests exercise all1,000 rounding conditions, carry/tie/zero cases, public-only blank help, fresh100 supply and finite reuse, matched displayed precision, all three comparison signs, and prior rounding/comparison regressions. Private Android UI, translations, learner data and release artifacts are excluded.
+
+The selected Year5 two-target extension and indexed finite generation are described in [Year5 decimal relations](YEAR5_DECIMAL_RELATIONS.md). The Year4 bounds above are preserved.

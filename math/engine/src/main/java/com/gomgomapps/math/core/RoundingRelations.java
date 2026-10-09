@@ -12,7 +12,7 @@ public final class RoundingRelations {
    m=Pattern.compile("(\\d{1,9}) \\+ (\\d{1,9})의 각 수를 (10{1,8})의 자리까지 어림하여 계산하면\\?").matcher(q.prompt);
    if(m.matches())return new Givens(m.group(1),m.group(2),new BigDecimal(m.group(3)),0,"반올림");
   }else if(decimal(q.skillId)){
-   m=Pattern.compile("(\\d{1,2}\\.\\d)을 가장 가까운 정수로 반올림하면\\?").matcher(q.prompt);
+   m=Pattern.compile("(\\d{1,2}\\.\\d{1,2})을 가장 가까운 정수로 반올림하면\\?").matcher(q.prompt);
    if(m.matches())return new Givens(m.group(1),null,BigDecimal.ONE,0,"반올림");
    m=Pattern.compile("(\\d{1,9}(?:\\.\\d{1,6})?)을 소수 (첫째|둘째|셋째) 자리까지 반올림하면\\?").matcher(q.prompt);
    if(m.matches()){int places=List.of("첫째","둘째","셋째").indexOf(m.group(2))+1;return new Givens(m.group(1),null,BigDecimal.ONE.movePointLeft(places),places,"반올림");}

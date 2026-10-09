@@ -10,7 +10,7 @@ public class DecimalPlaceRelationsTest {
   }
  }
  @Test public void gradePlacementAndHundredFreshQuestionsKeepUnreviewedFallbackExcluded(){
-  var pack=GlobalCurriculum.packs("GB").stream().filter(p->p.id.equals("england-primary-2021-v1")).findFirst().orElseThrow();assertTrue(pack.inGrade(DecimalPlaceRelations.ID,4));assertFalse(pack.inGrade(DecimalPlaceRelations.ID,3));assertFalse(pack.inGrade(DecimalPlaceRelations.ID,5));
+  var pack=GlobalCurriculum.packs("GB").stream().filter(p->p.id.equals("england-primary-2021-v1")).findFirst().orElseThrow();assertTrue(pack.inGrade(DecimalPlaceRelations.ID,4));assertFalse(pack.inGrade(DecimalPlaceRelations.ID,3));assertTrue(pack.inGrade(DecimalPlaceRelations.ID,5));assertFalse(pack.inGrade(DecimalPlaceRelations.ID,6));assertEquals(2,GlobalCurriculum.limits(pack.id,DecimalPlaceRelations.ID,4).decimalPlaces(0));assertEquals(3,GlobalCurriculum.limits(pack.id,DecimalPlaceRelations.ID,5).decimalPlaces(0));
   Generator g=new Generator(new Random(80));List<String> recent=new ArrayList<>();var limits=GlobalCurriculum.limits(pack.id,DecimalPlaceRelations.ID,4);for(int i=0;i<100;i++){Question q=g.next(DecimalPlaceRelations.ID,recent,false,limits);assertFalse(recent.contains(q.signature()));recent.add(q.signature());}
  }
  @Test public void unsupportedPromptsDoNotAcquireHelpAndLegacyDigitOnlyQuestionsRemain(){

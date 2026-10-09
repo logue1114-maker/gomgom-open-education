@@ -837,7 +837,7 @@ public final class ElementaryBasics {
     private static Question decimalCompare(Catalog.Skill skill,Random random,CurriculumLimits limits){
         int scale=limits.hasDecimalPlaces()?(int)Math.pow(10,n(random,1,limits.decimalPlaces(2))):random.nextBoolean()?10:100;
         int left=n(random,1,99*scale),right=n(random,1,99*scale);
-        if(limits.sameDecimalPlaces()){
+        if(limits.sameDecimalPlaces()||limits.hasWholeMaximum()){
             int max=Math.toIntExact((limits.wholeMaximum(99)+1L)*scale-1);
             left=n(random,0,max);right=random.nextInt(3)==0?left:random.nextBoolean()?(left/scale)*scale+n(random,0,scale-1):n(random,0,max);
         }
