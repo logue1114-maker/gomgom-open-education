@@ -23,6 +23,7 @@ public final class Checker {
         if(!work.correct())return work;
         if(q.skillId.equals("numberToEnglishWords")||q.skillId.equals("englishWordsToNumber"))return EnglishNumberWords.check(q,answers);
         if(ColumnProduct.supports(q.skillId))return ColumnProduct.check(q,answers);
+        if(FactRelations.supports(q.skillId))return FactRelations.check(q,answers);
         if(ChangeStories.supports(q.skillId))return ChangeStories.check(q,answers);
         if(PracticalPlaceStories.supports(q.skillId))return PracticalPlaceStories.check(q,answers);
         if(ButtonPlateStories.supports(q.skillId))return ButtonPlateStories.check(q,answers);
