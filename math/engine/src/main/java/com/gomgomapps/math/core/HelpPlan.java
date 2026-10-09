@@ -100,6 +100,7 @@ public final class HelpPlan {
         FractionFamilies.attach(q);
         DecimalCounting.attach(q);
         PowerTenDivision.attach(q);
+        DecimalPowerTen.attach(q);
         DecimalPlaceRelations.attach(q);
         DecimalUnitRelations.attach(q);
         EnglishDecimalWords.attach(q);

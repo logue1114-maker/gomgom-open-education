@@ -1,0 +1,14 @@
+package com.gomgomapps.math.core;
+import java.math.BigDecimal;import java.util.*;import java.util.regex.*;
+/** Finite power-of-ten calculations reuse public decimal arithmetic frames. */
+public final class DecimalPowerTen {
+ private DecimalPowerTen(){}
+ public static final String MUL="decimalTimesPowersTen",DIV="decimalDividePowersTen";
+ public static final List<Catalog.Skill> SKILLS=List.of(new Catalog.Skill(MUL,"10·100·1000을 곱하기",6,1,1,"","decimalPowerTen",1000,"decimalMul","자리 단위의 크기 변화를 곱셈으로 계산한다."),new Catalog.Skill(DIV,"10·100·1000으로 나누기",6,1,1,"","decimalPowerTen",1000,"decimalDivInt","자리 단위의 크기 변화를 나눗셈으로 계산한다."));
+ public static boolean supports(String id){return MUL.equals(id)||DIV.equals(id);}
+ static int count(String id,CurriculumLimits limits){int max=limits.wholeMaximum(99);if(max<0||max>99)throw new IllegalArgumentException("Selected decimal power maximum99");return (max+1)*(MUL.equals(id)?3000:111);}
+ static Question at(String id,int index,CurriculumLimits limits){if(!supports(id)||index<0||index>=count(id,limits))throw new IllegalArgumentException("Selected decimal power index");int max=limits.wholeMaximum(99),e,units,p;if(MUL.equals(id)){int block=(max+1)*1000;e=index/block+1;units=index%block;p=3;}else{int block=(max+1)*100;e=1;while(index>=block){index-=block;block/=10;e++;}units=index;p=3-e;}return make(id,BigDecimal.valueOf(units,p).toPlainString(),(int)Math.pow(10,e));}
+ public static Question make(String id,String raw,int power){BigDecimal x=new BigDecimal(raw);if(!supports(id)||!Set.of(10,100,1000).contains(power)||x.signum()<0||x.compareTo(new BigDecimal("99.999"))>0)throw new IllegalArgumentException("Selected decimal power givens");BigDecimal y=BigDecimal.valueOf(power),answer=MUL.equals(id)?x.multiply(y):x.divide(y);if(answer.stripTrailingZeros().scale()>3)throw new IllegalArgumentException("More than three answer decimal places");String op=MUL.equals(id)?" × ":" ÷ ";Question q=new Question(id,raw+op+power,raw+(MUL.equals(id)?" * ":" / ")+power,answer.stripTrailingZeros().toPlainString());q.decimal=true;q.answerFormat="decimalValue";q.stepSupport=false;attach(q);return q.withInputs(Expression.number(raw),Rational.of(power));}
+ static Question next(Catalog.Skill s,Random random,CurriculumLimits limits,Map<String,Integer> recent){return IndexedQuestionSupply.choose(count(s.id,limits),i->at(s.id,i,limits),random,limits,recent);}
+ public static void attach(Question q){if(q==null||!supports(q.skillId)||q.prompt==null)return;Matcher m=Pattern.compile("(\\d+(?:\\.\\d+)?) ([×÷]) (10|100|1000)").matcher(q.prompt);if(!m.matches()||!m.group(2).equals(MUL.equals(q.skillId)?"×":"÷"))return;Question publicOnly=new Question(MUL.equals(q.skillId)?"decimalMul":"decimalDivInt",q.prompt,"","poison");DecimalArithmeticRelations.attach(publicOnly);q.studyGuide=publicOnly.studyGuide;}
+}

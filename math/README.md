@@ -288,3 +288,5 @@ Selected equivalent quantity stories and reverse percent notation: [scope and li
 Selected upper-primary fraction arithmetic: [scope and limits](UPPER_FRACTION_PRODUCTS.md).
 
 Selected fraction/division/decimal relationship: [scope and limits](FRACTION_DIVISION_DECIMAL.md).
+
+Selected decimal powers of ten: [scope and limits](DECIMAL_POWERS_TEN.md).

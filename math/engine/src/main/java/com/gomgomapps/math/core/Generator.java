@@ -55,6 +55,7 @@ public final class Generator {
         if(FractionPieces.supports(skillId))q=FractionPieces.next(s,random,limits,previous);
         if(FractionFamilies.supports(skillId))q=FractionFamilies.next(s,random,limits,previous);
         if(DecimalCounting.supports(skillId))q=DecimalCounting.next(s,random,limits,previous);
+        if(DecimalPowerTen.supports(skillId))q=DecimalPowerTen.next(s,random,limits,previous);
         if(PowerTenDivision.supports(skillId))q=PowerTenDivision.next(s,random,limits,previous);
         if(EquivalentQuantityStories.supports(skillId))q=EquivalentQuantityStories.next(s,random,limits,previous);
         if(DecimalPercentReverse.supports(skillId))q=DecimalPercentReverse.next(random,limits,previous);
@@ -109,6 +110,7 @@ public final class Generator {
         if(FractionPieces.supports(s.id))return FractionPieces.next(s,random,limits,Map.of());
         if(FractionFamilies.supports(s.id))return FractionFamilies.next(s,random,limits,Map.of());
         if(DecimalCounting.supports(s.id))return DecimalCounting.next(s,random,limits,Map.of());
+        if(DecimalPowerTen.supports(s.id))return DecimalPowerTen.next(s,random,limits,Map.of());
         if(PowerTenDivision.supports(s.id))return PowerTenDivision.next(s,random,limits,Map.of());
         if(DecimalPlaceRelations.supports(s.id))return DecimalPlaceRelations.next(random,limits,Map.of());
         if(DecimalRoundingSupply.supports(s.id,limits))return DecimalRoundingSupply.next(random,limits,Map.of());

@@ -1685,3 +1685,7 @@ RULE	england-primary-2021-v1	6	fracMul,fracDivInt	denominators=2,3,4,5,6,7,8,9,1
 
 MAP	england-primary-2021-v1	6	el_fraction_decimal	Selected fraction/division/terminating-decimal relation through3places, values0..1; recurring decimals/full contexts remain
 RULE	england-primary-2021-v1	6	el_fraction_decimal	decimalPlaces=3;denominators=2,4,5,8,10,20,25,40,50,100,125,200,250,500,1000;variedFacts=true
+
+MAP	england-primary-2021-v1	6	decimalDigitValue,decimalTimesPowersTen,decimalDividePowersTen	Selected thousandths digit/value through9.999 and exact multiplication/division by10/100/1000 through99.999 with answers up to3decimal places; wider bounds/context remain
+RULE	england-primary-2021-v1	6	decimalDigitValue	wholeMaximum=9;decimalPlaces=3
+RULE	england-primary-2021-v1	6	decimalTimesPowersTen,decimalDividePowersTen	wholeMaximum=99
