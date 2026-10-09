@@ -1806,3 +1806,6 @@ RULE	england-primary-2021-v1	3	collectionEstimate	wholeMaximum=100;maxResult=100
 
 MAP	england-primary-2021-v1	3	practicalPlaceStories	Selected EN-Y3-06 base-ten inventory stories;100/10 packs and loose objects through1000
 RULE	england-primary-2021-v1	3	practicalPlaceStories	wholeMaximum=1000;maxResult=1000;nonnegative=true
+
+MAP	england-primary-2021-v1	3	el_missing_add,el_missing_sub	Selected EN-Y3-10 inverse missing operands through1000; wider problem contexts remain partial
+RULE	england-primary-2021-v1	3	el_missing_add,el_missing_sub	wholeMaximum=1000;maxGiven=1000;maxResult=1000;minGiven=0;nonnegative=true;variedFacts=true

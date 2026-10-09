@@ -362,3 +362,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year3 collection estimation through100](UPPER_GROUPED_ESTIMATION.md): ungraded student estimates followed by independently checked public counts.
 
 - [Year3 packs and loose objects](PRACTICAL_PLACE_STORIES.md): base-ten inventories with student numeric steps and public-given checking.
+
+- [Year3 missing operands through1000](UPPER_MISSING_NUMBERS.md): streamed finite supply and student inverse steps.
