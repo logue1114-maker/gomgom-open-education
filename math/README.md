@@ -334,3 +334,5 @@ Selected missing-number relations: [scope and limits](MISSING_NUMBER_RELATIONS.m
 England upper-primary counting: [scope](ENGLAND_UPPER_COUNTING.md).
 
 England Year2 arithmetic domains: [scope](ENGLAND_YEAR_TWO_SUMS.md).
+
+Inverse answer checking: [scope](INVERSE_CALCULATION_CHECK.md).

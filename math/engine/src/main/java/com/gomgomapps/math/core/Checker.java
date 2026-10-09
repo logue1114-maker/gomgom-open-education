@@ -21,6 +21,7 @@ public final class Checker {
         if(GroupedEstimation.supports(q.skillId)){Result guard=GroupedEstimation.phaseGuard(q);if(guard!=null)return guard;}
         Result work=checkSteps(q,steps,kinds,false);
         if(!work.correct())return work;
+        if(InverseCalculationCheck.supports(q.skillId))return InverseCalculationCheck.check(q,answers);
         if(MissingNumberSupply.selected(q))return MissingNumberSupply.check(q,answers);
         if(PrimaryFormulaContext.selected(q))return PrimaryFormulaContext.check(q,answers);
         if(PrimaryExpressionWriting.selected(q))return PrimaryExpressionWriting.check(q,answers);

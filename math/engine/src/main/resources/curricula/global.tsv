@@ -1749,3 +1749,9 @@ RULE	england-primary-2021-v1	4	countSkip	wholeMaximum=10000;maxGiven=10000;maxRe
 RULE	england-primary-2021-v1	2	add100	wholeDigits=2;minimumWholeDigits=1;minGiven=0;maxGiven=99;maxResult=198;nonnegative=true
 RULE	england-primary-2021-v1	2	sub100	wholeDigits=2;minimumWholeDigits=1;minGiven=0;maxGiven=99;maxResult=99;nonnegative=true
 RULE	england-primary-2021-v1	2	addThree9	wholeDigits=1;minimumWholeDigits=1;minGiven=0;maxGiven=9;maxResult=27;nonnegative=true
+
+# Proposed answers include correct and erroneous values; inverse value and verdict are both student entries.
+MAP	england-primary-2021-v1	3	inverseAdditionCheck,inverseSubtractionCheck	Selected EN-Y3-09 inverse answer-checking; estimation remains
+RULE	england-primary-2021-v1	3	inverseAdditionCheck,inverseSubtractionCheck	wholeMaximum=999;minGiven=0;maxGiven=2098;maxResult=2098;nonnegative=true
+MAP	england-primary-2021-v1	4	inverseAdditionCheck,inverseSubtractionCheck	Selected EN-Y4-11 inverse answer-checking; estimation and wider operations remain
+RULE	england-primary-2021-v1	4	inverseAdditionCheck,inverseSubtractionCheck	wholeMaximum=9999;minGiven=0;maxGiven=20098;maxResult=20098;nonnegative=true
