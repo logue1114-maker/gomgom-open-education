@@ -420,3 +420,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Larger mental place changes](LARGE_MENTAL_PLACE.md): four-to-six-digit operands and indexed supply.
 
 - [Large mental decomposition](LARGE_MENTAL_DECOMPOSITION.md): two large operands and place-value subtotals.
+
+- [Convenient-number mental arithmetic](CONVENIENT_NUMBER_MENTAL.md): round and compensate with five learner-entered steps.

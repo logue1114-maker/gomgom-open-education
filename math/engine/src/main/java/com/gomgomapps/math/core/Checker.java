@@ -52,6 +52,7 @@ public final class Checker {
         if(PrimaryOrdering.verbalComparison(q.skillId))return PrimaryOrdering.checkComparison(q,answers);
         if(MentalSumStrategies.supports(q.skillId))return MentalSumStrategies.check(q,answers);
         if(MentalPlaceCalculations.supports(q.skillId))return MentalPlaceCalculations.check(q,answers);
+        if(ConvenientNumberMental.supports(q.skillId))return ConvenientNumberMental.check(q,answers);
         if(LargeMentalDecomposition.supports(q.skillId))return LargeMentalDecomposition.check(q,answers);
         if(RelatedCalculationFacts.supports(q.skillId))return RelatedCalculationFacts.check(q,answers);
         if(EstimateCalculationCheck.supports(q.skillId))return EstimateCalculationCheck.check(q,answers);

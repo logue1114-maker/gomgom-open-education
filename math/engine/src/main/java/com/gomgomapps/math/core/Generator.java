@@ -104,6 +104,7 @@ public final class Generator {
         if(NumberLineRelations.supports(skillId))q=NumberLineRelations.next(random,limits,previous);
         if(MentalSumStrategies.supports(skillId))q=MentalSumStrategies.next(s,random,limits,previous);
         if(MentalPlaceCalculations.supports(skillId))q=MentalPlaceCalculations.next(s,random,limits,previous);
+        if(ConvenientNumberMental.supports(skillId))q=ConvenientNumberMental.next(skillId,random,limits,previous);
         if(LargeMentalDecomposition.supports(skillId))q=LargeMentalDecomposition.next(skillId,random,limits,previous);
         if(DoublingCalculation.supports(skillId))q=DoublingCalculation.next(skillId,random,limits,previous);
         if(RelatedCalculationFacts.supports(skillId))q=RelatedCalculationFacts.next(s,random,limits,previous);
@@ -165,6 +166,7 @@ public final class Generator {
         if(NumberLineRelations.supports(s.id))return NumberLineRelations.next(random,limits,Map.of());
         if(MentalSumStrategies.supports(s.id))return MentalSumStrategies.create(s,random,limits);
         if(MentalPlaceCalculations.supports(s.id))return MentalPlaceCalculations.create(s,random,limits);
+        if(ConvenientNumberMental.supports(s.id))return ConvenientNumberMental.next(s.id,random,limits,Map.of());
         if(LargeMentalDecomposition.supports(s.id))return LargeMentalDecomposition.next(s.id,random,limits,Map.of());
         if(DoublingCalculation.supports(s.id))return DoublingCalculation.next(s.id,random,limits,Map.of());
         if(RelatedCalculationFacts.supports(s.id))return RelatedCalculationFacts.create(s,random,limits);
