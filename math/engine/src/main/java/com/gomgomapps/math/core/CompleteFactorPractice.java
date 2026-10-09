@@ -16,6 +16,7 @@ public final class CompleteFactorPractice {
     private static final Pattern COMMON_PROMPT=Pattern.compile("^([0-9]{1,3})와 ([0-9]{1,3})의 공약수를 모두 쓰세요\\.\\n작은 수부터 쓰세요\\.$");
     private static final Pattern MULTIPLE_PROMPT=Pattern.compile("^([0-9]{1,3})의 첫 다섯 배수를 쓰세요\\.\\n양의 배수를 작은 수부터 쓰세요\\.$");
     public static boolean supports(String id){return PAIRS.equals(id)||COMMON.equals(id)||MULTIPLES.equals(id);}
+    public static boolean learnerList(String id){return PAIRS.equals(id)||COMMON.equals(id);}
     /** Only public givens are returned; malformed or out-of-scope prompts are rejected. */
     public static int[] read(Question q){
         if(q==null||!supports(q.skillId)||q.prompt==null)return null;
@@ -57,6 +58,22 @@ public final class CompleteFactorPractice {
     static Checker.Result check(Question q,List<String> answers){
         int[] givens=read(q);if(givens==null||answers==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 필요");
         List<Integer> expected=values(q.skillId,givens);
+        if(learnerList(q.skillId)){
+            int width=PAIRS.equals(q.skillId)?2:1;
+            if(answers.isEmpty()||answers.size()%width!=0)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"수 입력 필요");
+            Set<Integer> seen=new HashSet<>();int previous=0;
+            for(int i=0;i<answers.size();i+=width){
+                for(int j=0;j<width;j++)if(answers.get(i+j)==null||!answers.get(i+j).trim().matches("[0-9]{1,3}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,i+j,"수 입력 필요");
+                int first=Integer.parseInt(answers.get(i).trim());
+                if(first<1)return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"이 수 확인");
+                if(width==2){int second=Integer.parseInt(answers.get(i+1).trim());if(givens[0]%first!=0)return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"이 수 확인");if(first>second)return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"작은 수부터 입력");if(second!=givens[0]/first)return new Checker.Result(Checker.Status.WRONG_ANSWER,i+1,"이 수 확인");}
+                else if(givens[0]%first!=0||givens[1]%first!=0)return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"이 공약수 확인");
+                if(!seen.add(first))return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"중복된 수 확인");
+                if(first<=previous)return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"작은 수부터 입력");previous=first;
+            }
+            if(answers.size()!=expected.size())return new Checker.Result(Checker.Status.WRONG_ANSWER,-1,width==2?"빠진 곱셈짝 확인":"빠진 공약수 확인");
+            return new Checker.Result(Checker.Status.CORRECT,-1,"정답");
+        }
         if(answers.size()!=expected.size())return new Checker.Result(Checker.Status.INPUT_NEEDED,Math.min(answers.size(),expected.size()-1),"모든 수 입력 필요");
         for(int i=0;i<answers.size();i++){
             String raw=answers.get(i);if(raw==null||!raw.trim().matches("[0-9]{1,3}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,i,"수 입력 필요");

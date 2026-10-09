@@ -428,3 +428,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Large two-step quantity stories](LARGE_TWO_STEP_STORIES.md): mixed changes through one million and learner operation/reason choices.
 
 - [Complete factor and multiple lists](COMPLETE_FACTOR_PRACTICE.md): all pairs, common factors and ordered positive multiples through144.
+
+- [Learner-owned factor list marking](LEARNER_FACTOR_LISTS.md): completeness without exposing missing values or blaming valid entries.

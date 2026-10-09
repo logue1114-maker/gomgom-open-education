@@ -1,0 +1,5 @@
+# Learner-owned factor lists
+
+All-factor-pair and all-common-factor marking validates each submitted member and its order before judging completeness. A mathematically valid partial list reports that a pair/factor is missing, with no erroneous field index and no missing value supplied. A duplicate, invalid value or incorrect order identifies the submitted position. Pair marking preserves a valid smaller factor when only its partner is wrong. The first-five-multiples task retains its explicitly requested five answers.
+
+Six engine tests cover every bounded public condition, poisoned hidden keys, ordinary indexed supply, valid partial lists, duplicate/invalid/order/blank-extra inputs and correct full lists. The previous expectation that a valid partial list was merely an input-format failure was changed to mathematical incompleteness. Private Android presentation starts with one learner row regardless of expected list cardinality and stores added rows using existing session data; UI, translations, native QA, records and APKs are not published here. Worldwide completion or Play readiness is not claimed.

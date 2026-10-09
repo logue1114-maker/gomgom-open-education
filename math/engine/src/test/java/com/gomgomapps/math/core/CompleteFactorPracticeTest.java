@@ -54,7 +54,8 @@ public class CompleteFactorPracticeTest {
   assertTrue(c.check(CompleteFactorPractice.make(CompleteFactorPractice.PAIRS,137,0),List.of(),List.of("1","137")).correct());
   assertTrue(c.check(CompleteFactorPractice.make(CompleteFactorPractice.PAIRS,1,0),List.of(),List.of("1","1")).correct());
   assertTrue(c.check(CompleteFactorPractice.make(CompleteFactorPractice.COMMON,13,17),List.of(),List.of("1")).correct());
-  assertEquals(Checker.Status.INPUT_NEEDED,c.check(pair,List.of(),List.of("1","36")).status);
+  assertEquals(Checker.Status.WRONG_ANSWER,c.check(pair,List.of(),List.of("1","36")).status);
+  assertEquals(-1,c.check(pair,List.of(),List.of("1","36")).index);
   assertEquals(2,c.check(pair,List.of(),List.of("1","36","1","36","3","12","4","9","6","6")).index);
   List<String> blank=new ArrayList<>(independentlySolve(CompleteFactorPractice.PAIRS,36,0));blank.set(3,"");assertEquals(3,c.check(pair,List.of(),blank).index);
   assertNull(CompleteFactorPractice.read(new Question(CompleteFactorPractice.PAIRS,"145의 모든 곱셈짝을 쓰세요.\n각 짝은 작은 수부터, 짝의 순서도 작은 수부터 쓰세요.","","1")));
