@@ -1,0 +1,7 @@
+# Factor pairs and convenient mental multiplication
+
+Selected England Year4 EN-Y4-15. Factor-pair practice asks for an ordered pair of positive factors of a number2..144, sorted by the smaller factor; includes primes and equal-factor square pairs. Convenient multiplication presents three factors and a public target10 or100. Learners identify the unique pair forming that target, change the order/grouping, and multiply by the remaining factor. Remaining factors2..99; products stay below10000. This selected method does not cover arbitrary mental strategies or assess fluency/student explanations.
+
+Checking derives from public givens and ignores hidden answer/expression keys. Help uses learner choice and generic blank relations, with no worked numeric substitution and no final answer transfer. Finite indexed supply prioritizes fresh conditions and then the oldest. Tests cover every generated pair and ordered triple, more than100 independent unordered triples, blank/no-transfer frames, all choice positions, prime/square/malformed boundaries, actual200 fresh Generator draws per type and oldest from full public-signature histories. They do not claim full Generator exhaustion or device/worldwide curriculum coverage. Existing Grade2 order comparison is retained.
+
+App UI/translations, learner records, native QA, APKs and monetization stay private. Worldwide coverage, physical devices and Play readiness remain incomplete.

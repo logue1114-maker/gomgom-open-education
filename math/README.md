@@ -396,3 +396,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Roman numeral reading](ROMAN_READ.md):100 canonical readings through C with learner-owned group calculations.
 
 - [Two-step quantity changes](TWO_STEP_CHANGES.md): learner operation/reason choices, intermediate and final counts.
+
+- [Factor pairs and mental multiplication](FACTOR_PAIR_MENTAL.md): ordered pairs and convenient regrouping.
