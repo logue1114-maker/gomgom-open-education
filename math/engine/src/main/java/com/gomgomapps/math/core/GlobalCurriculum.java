@@ -148,7 +148,7 @@ public final class GlobalCurriculum {
     }
     public static List<Catalog.Skill> available(Learning.Profile p){
         Pack pack=pack(p);List<Catalog.Skill> result=new ArrayList<>();
-        for(Catalog.Skill s:Catalog.ALL)if((pack==null&&!EquivalentQuantityStories.supports(s.id)&&!DecimalPercentReverse.supports(s.id)&&!FractionPercentEquivalence.supports(s.id)&&!PercentageNotation.supports(s.id)&&!DecimalMeasureStories.supports(s.id)&&!DecimalUnitRelations.supports(s.id)&&!s.id.equals("decimalOrder")&&!DecimalPlaceRelations.supports(s.id)&&!DecimalPowerTen.supports(s.id)&&!PowerTenDivision.supports(s.id)&&!DecimalCounting.supports(s.id)&&!s.id.equals(WholePlaceRelations.VALUE)&&!EnglishNumberWords.supports(s.id)&&!FractionNamesRelations.supports(s.id)&&!FractionFamilies.supports(s.id))||(pack!=null&&pack.grades.containsKey(s.id))||s.grade==0)result.add(s);
+        for(Catalog.Skill s:Catalog.ALL)if((pack==null&&!EquivalentQuantityStories.supports(s.id)&&!DecimalPercentReverse.supports(s.id)&&!FractionPercentEquivalence.supports(s.id)&&!PercentageNotation.supports(s.id)&&!DecimalMeasureStories.supports(s.id)&&!DecimalUnitRelations.supports(s.id)&&!s.id.equals("decimalOrder")&&!DecimalPlaceRelations.supports(s.id)&&!DecimalWrittenDivision.supports(s.id)&&!DecimalPowerTen.supports(s.id)&&!PowerTenDivision.supports(s.id)&&!DecimalCounting.supports(s.id)&&!s.id.equals(WholePlaceRelations.VALUE)&&!EnglishNumberWords.supports(s.id)&&!FractionNamesRelations.supports(s.id)&&!FractionFamilies.supports(s.id))||(pack!=null&&pack.grades.containsKey(s.id))||s.grade==0)result.add(s);
         if(pack!=null)result.sort(Comparator.comparingInt(s->Math.max(0,pack.grade(s.id))));
         return result;
     }

@@ -101,6 +101,7 @@ public final class HelpPlan {
         DecimalCounting.attach(q);
         PowerTenDivision.attach(q);
         DecimalPowerTen.attach(q);
+        DecimalWrittenDivision.attach(q);
         DecimalPlaceRelations.attach(q);
         DecimalUnitRelations.attach(q);
         EnglishDecimalWords.attach(q);

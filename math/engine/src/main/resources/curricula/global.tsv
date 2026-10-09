@@ -1692,3 +1692,5 @@ RULE	england-primary-2021-v1	6	decimalTimesPowersTen,decimalDividePowersTen	whol
 
 MAP	england-primary-2021-v1	6	decimalMul	Selected one-digit decimals through hundredths times whole numbers0..99; wider whole multiplier bounds/context remain
 RULE	england-primary-2021-v1	6	decimalMul	decimalPlaces=2;integerSecondOperand=true;variedFacts=true
+
+MAP	england-primary-2021-v1	6	decimalWrittenDivision	Selected exact written division, divisors1..12 and quotients0.00..99.99; digit quotient/product/subtraction/bring-down student frames, wider bounds/context remain
