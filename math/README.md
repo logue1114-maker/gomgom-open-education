@@ -380,3 +380,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year3 fractions of sets](YEAR3_SET_FRACTIONS.md):268 discrete collection conditions and public-quantity checking.
 
 - [Fraction number lines](FRACTION_NUMBER_LINE.md):165 zero-to-one diagrams with two student-written fractions.
+
+- [Equivalent fraction pictures](EQUIVALENT_FRACTION_PICTURES.md): two equal-sized shaded wholes and student-entered missing numerator or denominator.

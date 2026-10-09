@@ -1830,3 +1830,6 @@ RULE	england-primary-2021-v1	3	el_fraction_of_number	denominators=2,3,4,5,8,10;m
 
 MAP	england-primary-2021-v1	3	fractionNumberLine	Selected EN-Y3-16 fractions as numbers on a zero-to-one line; denominator2..10, two public points;165 conditions
 RULE	england-primary-2021-v1	3	fractionNumberLine	maxGiven=10;maxResult=1;nonnegative=true
+
+MAP	england-primary-2021-v1	3	equivalentFractionPictures	Selected EN-Y3-17 equal-sized shaded wholes, missing numerator or denominator; denominators2..12 and156 distinct public conditions
+RULE	england-primary-2021-v1	3	equivalentFractionPictures	maxGiven=12;maxResult=12;nonnegative=true
