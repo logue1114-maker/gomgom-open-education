@@ -1,0 +1,7 @@
+# Year3 number-line representation through1,000
+
+Selected England Year3 EN-Y3-04 representation reuses numberLineRead with0..1000 and tick scales1,10,100. A is an unlabelled tick; public neighbouring numbers and the given scale determine its value. The optional five student blanks cover a visible anchor, scale, tick distance, repeated-addition move and final addition/subtraction. Help does not transfer a completed response into the main answer. Hidden answer keys are ignored.
+
+Year1/2 and other default0..100 windows remain unchanged at1012 public conditions. The upper range uses windows beginning on tens and2112 conditions covering every integer0..1000. Each still exhausts before oldest reuse. Fresh upper questions choose among available scales first so the11 hundred-scale conditions are not buried beneath thousands of smaller-scale windows. After a scale exhausts its fresh supply it is omitted until all fresh conditions exhaust; it does not repeat early. This is finite condition variety, not2112 distinct numeric answers.
+
+Independent tests cover the complete domain, oldest reuse, early scale coverage,0/1000 endpoints, malformed/overflowing public geometry, student blanks and grade placement. Lower-grade regression retains the existing domains. This selected representation does not complete estimation, all number representations, practical materials or learning fluency. UI, translations, records, QA and APKs remain private. Tests do not establish physical-device or Play-release readiness.

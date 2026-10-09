@@ -1797,3 +1797,6 @@ RULE	england-primary-2021-v1	2	buttonPlateStories	wholeMaximum=120;maxResult=120
 
 MAP	england-primary-2021-v1	3	englishWordsToNumber,numberToEnglishWords	Selected EN-Y3-05 numeral/English word correspondence0..1000; existing Year1/2 bounds retained
 RULE	england-primary-2021-v1	3	englishWordsToNumber,numberToEnglishWords	wholeMaximum=1000;minGiven=0
+
+MAP	england-primary-2021-v1	3	numberLineRead	Selected EN-Y3-04 number-line representation through1000; estimates and other representations remain
+RULE	england-primary-2021-v1	3	numberLineRead	wholeMaximum=1000;minGiven=0

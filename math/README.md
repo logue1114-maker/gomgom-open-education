@@ -356,3 +356,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Button and plate contexts](BUTTON_PLATE_STORIES.md): total, equal sharing and grouping with student-authored relationship help.
 
 - [English number words through 1,000](UPPER_ENGLISH_NUMBER_WORDS.md): selected Year3 range, existing lower-grade bounds and student place-value blanks.
+
+- [Year3 number lines through1,000](UPPER_NUMBER_LINES.md): public ticks at1/10/100 scales, fresh scale variety and learner-authored help.
