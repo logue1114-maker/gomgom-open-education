@@ -360,3 +360,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year3 number lines through1,000](UPPER_NUMBER_LINES.md): public ticks at1/10/100 scales, fresh scale variety and learner-authored help.
 
 - [Year3 collection estimation through100](UPPER_GROUPED_ESTIMATION.md): ungraded student estimates followed by independently checked public counts.
+
+- [Year3 packs and loose objects](PRACTICAL_PLACE_STORIES.md): base-ten inventories with student numeric steps and public-given checking.

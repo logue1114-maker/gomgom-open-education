@@ -1,0 +1,7 @@
+# Year3 packs and loose objects
+
+Selected England Year3 EN-Y3-06 practice reconstructs total quantities from boxes containing100 objects each, bags containing10 each, and loose objects. Sticker and coloured-pencil contexts cover every quantity0..1000:2002 distinct public inventories. Numbers inside each inventory remain visible givens. This is numeric primary place-value practice, not Year6 literal algebra.
+
+The student fills the box count, bag count, loose-object count and total. Help shows the general relationship100×boxes+10×bags+loose objects; it does not substitute the inventory counts, prefill the response or transfer its final value. Checking derives the result from a valid public inventory, ignoring hidden answer keys. Zero/internal zeros/1000 are supported. Malformed inventories and invalid answer syntax are rejected. Fresh inventory conditions precede oldest reuse; this unit uses direct numeric input without multiple-choice leakage.
+
+Tests independently cover all2002 inventory conditions, arithmetic, poisoned keys, scaffold expectations/no transfer, finite supply exhaustion/oldest reuse and Year3-only curriculum mapping. Existing plate-story tests run as regression coverage. These selected contexts do not prove all practical materials, all word-problem structures or fluency. UI, translations, learner records, QA and APKs remain private. Physical-device and Play-release readiness are separate.

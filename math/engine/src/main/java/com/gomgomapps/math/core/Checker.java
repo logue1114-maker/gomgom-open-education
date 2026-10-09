@@ -22,6 +22,7 @@ public final class Checker {
         Result work=checkSteps(q,steps,kinds,false);
         if(!work.correct())return work;
         if(q.skillId.equals("numberToEnglishWords")||q.skillId.equals("englishWordsToNumber"))return EnglishNumberWords.check(q,answers);
+        if(PracticalPlaceStories.supports(q.skillId))return PracticalPlaceStories.check(q,answers);
         if(ButtonPlateStories.supports(q.skillId))return ButtonPlateStories.check(q,answers);
         if(ProductOrder.supports(q.skillId))return ProductOrder.check(q,answers);
         if(PictureArithmetic.supports(q.skillId))return PictureArithmetic.check(q,answers);
