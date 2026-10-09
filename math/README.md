@@ -384,3 +384,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Equivalent fraction pictures](EQUIVALENT_FRACTION_PICTURES.md): two equal-sized shaded wholes and student-entered missing numerator or denominator.
 
 - [Fractional length stories](FRACTION_LENGTH_STORIES.md): used and remaining cord lengths with student-entered like-fraction relationships.
+
+- [1,000 more or less](THOUSAND_CHANGE.md): arbitrary starts and student-entered change relationships.

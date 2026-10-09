@@ -1836,3 +1836,6 @@ RULE	england-primary-2021-v1	3	equivalentFractionPictures	maxGiven=12;maxResult=
 
 MAP	england-primary-2021-v1	3	fractionLengthUsed,fractionLengthLeft	Selected EN-Y3-20 one-whole length addition/subtraction contexts, denominators2..12;286/363 public conditions
 RULE	england-primary-2021-v1	3	fractionLengthUsed,fractionLengthLeft	maxGiven=12;maxResult=1;nonnegative=true
+
+MAP	england-primary-2021-v1	4	thousandMore,thousandLess	Selected EN-Y4-02 arbitrary start through10000;9001 more and9001 less conditions
+RULE	england-primary-2021-v1	4	thousandMore,thousandLess	maxGiven=10000;maxResult=10000;nonnegative=true

@@ -81,7 +81,7 @@ public final class HelpPlan {
         FactorTeaching.attach(q);
         ColumnArithmeticTeaching.attach(q);
         WholeNumberRelations.attach(q);
-        FractionLengthStories.attach(q);EquivalentFractionPictures.attach(q);FractionNumberLine.attach(q);ProductContextStories.attach(q);DoublingCalculation.attach(q);ColumnProduct.attach(q);ChangeStories.attach(q);PracticalPlaceStories.attach(q);ButtonPlateStories.attach(q);ProductOrder.attach(q);PictureArithmetic.attach(q);CalculationOrder.attach(q);StatementSigns.attach(q);NumberLineRelations.attach(q);MentalSumStrategies.attach(q);MentalPlaceCalculations.attach(q);RelatedCalculationFacts.attach(q);EstimateCalculationCheck.attach(q);InverseCalculationCheck.attach(q);MissingNumberSupply.attach(q);
+        ThousandChange.attach(q);FractionLengthStories.attach(q);EquivalentFractionPictures.attach(q);FractionNumberLine.attach(q);ProductContextStories.attach(q);DoublingCalculation.attach(q);ColumnProduct.attach(q);ChangeStories.attach(q);PracticalPlaceStories.attach(q);ButtonPlateStories.attach(q);ProductOrder.attach(q);PictureArithmetic.attach(q);CalculationOrder.attach(q);StatementSigns.attach(q);NumberLineRelations.attach(q);MentalSumStrategies.attach(q);MentalPlaceCalculations.attach(q);RelatedCalculationFacts.attach(q);EstimateCalculationCheck.attach(q);InverseCalculationCheck.attach(q);MissingNumberSupply.attach(q);
         FactRelations.attach(q);
         RepeatedGroupingRelations.attach(q);
         RoundingRelations.attach(q);
