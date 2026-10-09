@@ -8,7 +8,7 @@ public final class GroupedEstimation {
  public static boolean supports(String id){return ID.equals(id);}
  public static boolean counting(Question q){return supports(q.skillId)&&q.learnerEstimate!=null;}
  static Question next(Catalog.Skill skill,Random random,CurriculumLimits limits,Map<String,Integer> recent){
-  Map<String,Question> pool=new LinkedHashMap<>();int maximum=Math.min(30,limits.wholeMaximum(30));
+  Map<String,Question> pool=new LinkedHashMap<>();int maximum=Math.min(100,limits.wholeMaximum(30));
   for(int n=1;n<=maximum;n++)for(int layout=0;layout<4;layout++){Question q=new Question(ID,"몇 개쯤 될까요?","",""+n);q.kind="estimateCount";q.labels=new String[]{"어림한 수"};q.stepSupport=false;q.diagram=new StudyDiagram("countCollection",new double[]{n,layout},"5");if(limits.allows(q))pool.put(q.signature(),q);}
   return FactFoundations.choose(pool,random,recent);
  }
@@ -25,4 +25,9 @@ public final class GroupedEstimation {
   guide.step("묶음과 남은 동그라미를 모두 세세요.","센 수 = ","",""+n);q.studyGuide=guide;
  }
  static Checker.Result phaseGuard(Question q){return counting(q)?null:new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"어림한 수 먼저 입력");}
+ static Checker.Result checkCount(Question q,List<String> answers){
+  if(q.diagram==null||!q.diagram.type.equals("countCollection")||q.diagram.values.length!=2||!Double.isFinite(q.diagram.values[0])||q.diagram.values[0]!=(int)q.diagram.values[0]||q.diagram.values[0]<1||q.diagram.values[0]>100||!Double.isFinite(q.diagram.values[1])||q.diagram.values[1]!=(int)q.diagram.values[1]||q.diagram.values[1]<0||q.diagram.values[1]>3)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"문제 확인 필요");
+  if(answers.size()!=1||!answers.get(0).trim().matches("[0-9]{1,3}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"답 입력 필요");
+  int count=CollectionGrouping.points(q,0).length;return Integer.parseInt(answers.get(0).trim())==count?new Checker.Result(Checker.Status.CORRECT,-1,"정답"):new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 답 확인");
+ }
 }

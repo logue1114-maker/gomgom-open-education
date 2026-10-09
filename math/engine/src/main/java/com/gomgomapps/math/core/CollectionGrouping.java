@@ -13,6 +13,7 @@ public final class CollectionGrouping {
   Question q=FactFoundations.choose(pool,random,recent);attach(q);return q;
  }
  public static List<Integer> sizes(Question q){if(q==null||q.diagram==null||!(supports(q.skillId)||GroupedEstimation.supports(q.skillId)))return List.of();return Arrays.stream(q.diagram.labels).map(Integer::valueOf).toList();}
+ public static int columns(Question q,int cells){return Math.min(GroupedEstimation.supports(q.skillId)&&q.diagram.values[0]>30?5:10,cells);}
  public static void group(Question q,int size){if(size!=0&&!sizes(q).contains(size))throw new IllegalArgumentException("Group size outside this curriculum");q.collectionGroupSize=size;}
  public static int selected(Question q){return q.collectionGroupSize==null?0:q.collectionGroupSize;}
  /** Normalized positions: one dot per visible object, with no overlap or answer text. */
@@ -21,7 +22,7 @@ public final class CollectionGrouping {
   if(size==0){
    for(int i=0;i<n;i++){int cell=(i*37+variant*23)%100;result[i][0]=.04+(cell%10+.5+(((cell+variant*3)%5)-2)*.07)*.092;result[i][1]=.04+(cell/10+.5+(((cell*3+variant)%5)-2)*.07)*.092;}
   }else{
-   if(!sizes(q).contains(size))throw new IllegalArgumentException("Grouping outside curriculum");int cells=Math.max(1,(n+size-1)/size),columns=Math.min(10,cells),rows=(cells+columns-1)/columns,dotColumns=size>5?5:size,dotRows=(size+dotColumns-1)/dotColumns;
+   if(!sizes(q).contains(size))throw new IllegalArgumentException("Grouping outside curriculum");int cells=Math.max(1,(n+size-1)/size),columns=columns(q,cells),rows=(cells+columns-1)/columns,dotColumns=size>5?5:size,dotRows=(size+dotColumns-1)/dotColumns;
    for(int i=0;i<n;i++){int cell=i/size,index=i%size;result[i][0]=(.04+((cell%columns)+(index%dotColumns+1.0)/(dotColumns+1))*.92/columns);result[i][1]=(.04+((cell/columns)+(index/dotColumns+1.0)/(dotRows+1))*.92/rows);}
   }
   return result;

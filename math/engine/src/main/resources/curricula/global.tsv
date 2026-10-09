@@ -1800,3 +1800,6 @@ RULE	england-primary-2021-v1	3	englishWordsToNumber,numberToEnglishWords	wholeMa
 
 MAP	england-primary-2021-v1	3	numberLineRead	Selected EN-Y3-04 number-line representation through1000; estimates and other representations remain
 RULE	england-primary-2021-v1	3	numberLineRead	wholeMaximum=1000;minGiven=0
+
+MAP	england-primary-2021-v1	3	collectionEstimate	Selected EN-Y3-04 visible collection estimate then count1..100; guess ungraded, other representations/materials remain
+RULE	england-primary-2021-v1	3	collectionEstimate	wholeMaximum=100;maxResult=100
