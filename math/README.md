@@ -404,3 +404,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Multiply-and-add contexts](MULTIPLY_ADD_CONTEXTS.md): distribution, extra pencils and complete group connections.
 
 - [Year4 fractions of quantities](YEAR4_FRACTION_QUANTITIES.md): selected larger whole quantities and unit/non-unit fractions.
+
+- [Year4 same-denominator fractions](YEAR4_LIKE_FRACTIONS.md): fresh-pair supply, then oldest.
