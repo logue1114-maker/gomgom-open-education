@@ -84,6 +84,7 @@ public final class Generator {
         if(MoneyBasicStories.supports(skillId))q=MoneyBasicStories.next(s,random,limits,previous);
         if(MultiplyAddContexts.supports(skillId))q=MultiplyAddContexts.next(skillId,random,limits,previous);
         else if(WrittenSingleProducts.selected(skillId,limits))q=WrittenSingleProducts.next(skillId,random,limits,previous);
+        else if(CompleteFactorPractice.supports(skillId))q=CompleteFactorPractice.next(skillId,random,limits,previous);
         else if(FactorPairMental.supports(skillId))q=FactorPairMental.next(skillId,random,limits,previous);
         else if(TwoStepChangeStories.ID.equals(skillId))q=TwoStepChangeStories.next(random,limits,previous);
         else if(RomanRead.supports(skillId))q=RomanRead.next(skillId,random,limits,previous);
@@ -146,6 +147,7 @@ public final class Generator {
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
         if(MultiplyAddContexts.supports(s.id))return MultiplyAddContexts.next(s.id,random,limits,Map.of());
         if(WrittenSingleProducts.selected(s.id,limits))return WrittenSingleProducts.next(s.id,random,limits,Map.of());
+        if(CompleteFactorPractice.supports(s.id))return CompleteFactorPractice.next(s.id,random,limits,Map.of());
         if(FactorPairMental.supports(s.id))return FactorPairMental.next(s.id,random,limits,Map.of());
         if(TwoStepChangeStories.ID.equals(s.id))return TwoStepChangeStories.next(random,limits,Map.of());
         if(RomanRead.ID.equals(s.id))return RomanRead.next(random,limits,Map.of());

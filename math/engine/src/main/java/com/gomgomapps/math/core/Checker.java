@@ -26,6 +26,7 @@ public final class Checker {
         if(PowerCounting.supports(q.skillId))return PowerCounting.check(q,answers);
         if(MoneyBasicStories.supports(q.skillId))return MoneyBasicStories.check(q,answers);
         if(WrittenSingleProducts.KIND.equals(q.kind))return WrittenSingleProducts.check(q,answers);
+        if(CompleteFactorPractice.supports(q.skillId))return CompleteFactorPractice.check(q,answers);
         if(FactorPairMental.supports(q.skillId))return FactorPairMental.check(q,answers);
         if(TwoStepChangeStories.ID.equals(q.skillId))return TwoStepChangeStories.check(q,answers);
         if(RomanRead.supports(q.skillId))return RomanRead.check(q,answers);

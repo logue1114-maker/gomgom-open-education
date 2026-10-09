@@ -1,0 +1,7 @@
+# Complete factor and multiple lists
+
+Selected England Year5 EN-Y5-11 practice: every factor pair of a positive integer through144 (144 conditions), every common positive factor of two distinct integers through144 (10,296 unordered conditions), and the first five positive multiples of each integer2..144 (143 conditions, results through720). Students enter complete lists in the specified increasing order. Square pairs include the equal factors once. Coprime inputs have the common factor1. Existing ranked-factor and mental grouping exercises are retained.
+
+Ordinary catalog/generator/checker/help/curriculum routes use the same public-given implementation. Hidden answer keys are not the marking authority. Blank relation frames validate the student's entries and do not transfer answers. Indexed supply avoids repeats before exhaustion and then reuses the oldest eligible condition. Placements are reviewed only for this selected England Year5 scope; these types do not automatically enter Korean or generic-country diagnosis.
+
+Four engine tests independently solve every condition, check missing/duplicate/wrong positions and poisoned keys, normal100-fresh supply for each type, full exhaustion/oldest reuse, primes/squares/coprimes and blank non-transferring helper relations. This is bounded basic practice, not all worldwide curricula or every number range. UI, translations, student records, device QA and APKs remain private.

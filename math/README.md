@@ -426,3 +426,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Large-number estimation checks](LARGE_ESTIMATE_CHECK.md): rounding envelopes through one million; range is not exact equality.
 
 - [Large two-step quantity stories](LARGE_TWO_STEP_STORIES.md): mixed changes through one million and learner operation/reason choices.
+
+- [Complete factor and multiple lists](COMPLETE_FACTOR_PRACTICE.md): all pairs, common factors and ordered positive multiples through144.
