@@ -340,3 +340,5 @@ Inverse answer checking: [scope](INVERSE_CALCULATION_CHECK.md).
 Selected [related calculation facts](RELATED_CALCULATION_FACTS.md) derive a new blank calculation from a known fact.
 
 Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach grouping and boundary steps separately from column arithmetic.
+
+- [Two-digit and three-number mental strategies](MENTAL_SUM_STRATEGIES.md): selected Year2 numeric split/group teaching; broader representations/fluency remain.
