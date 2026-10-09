@@ -1675,3 +1675,5 @@ RULE	england-primary-2021-v1	5	decimalAdd	decimalPlaces=3
 RULE	england-primary-2021-v1	5	decimalSub	decimalPlaces=3
 
 MAP	england-primary-2021-v1	5	percentHundredthsFraction,percentDecimal	Selected whole percentages0..100 to denominator100 fractions and decimals; reverse/contextual equivalents remain
+
+MAP	england-primary-2021-v1	5	fractionDecimalPercent	Selected fraction to decimal/percentage pairs with denominators2,4,5,10,20,25,40,50,100,125,200,250,500,1000 and values0..1; full contexts and reverse representations remain

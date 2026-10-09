@@ -55,6 +55,7 @@ public final class Generator {
         if(FractionFamilies.supports(skillId))q=FractionFamilies.next(s,random,limits,previous);
         if(DecimalCounting.supports(skillId))q=DecimalCounting.next(s,random,limits,previous);
         if(PowerTenDivision.supports(skillId))q=PowerTenDivision.next(s,random,limits,previous);
+        if(FractionPercentEquivalence.supports(skillId))q=FractionPercentEquivalence.next(random,limits,previous);
         if(PercentageNotation.supports(skillId))q=PercentageNotation.next(s,random,limits,previous);
         if(DecimalUnitRelations.supports(skillId))q=DecimalUnitRelations.next(random,limits,previous);
         if(DecimalPlaceRelations.supports(skillId))q=DecimalPlaceRelations.next(random,limits,previous);
@@ -94,6 +95,7 @@ public final class Generator {
         Question q=createQuestion(s,limits);WholePlaceRelations.attach(q);ArithmeticTeaching.attach(q);FractionEquationTeaching.attach(q);DecimalTeaching.attach(q);RatioValueTeaching.attach(q);StatisticsAngleTeaching.attach(q);StatisticsSpreadRelations.attach(q);SequenceCalculusRelations.attach(q);LyceeAlgebraRelations.attach(q);HigherFoundationPractice.attach(q);VectorFoundationPractice.attach(q);GeometryCalculationTeaching.attach(q);DivisorMultipleTeaching.attach(q);SimpleGeometryRelations.attach(q);ElementarySplitAngleRelations.attach(q);ElementaryGraphRelations.attach(q);ProportionalPairRelations.attach(q);ScaleRelations.attach(q);HireInterestRelations.attach(q);AnnualChangeRelations.attach(q);PrismSurfaceRelations.attach(q);SectorPerimeterRelations.attach(q);CuboidSurfaceRelations.attach(q);SectorCoefficientRelations.attach(q);SolidSurfaceRelations.attach(q);RoundSolidVolumeRelations.attach(q);SolidFoundationRelations.attach(q);ModeRelations.attach(q);RelativeFrequencyRelations.attach(q);IsoscelesAngleRelations.attach(q);SimilarityMeasureRelations.attach(q);ProbabilityRelations.attach(q);QuadraticValueRelations.attach(q);CircleLengthRelations.attach(q);TrigHeightRelations.attach(q);PolyDivisionRelations.attach(q);AlgebraRelations.attach(q);PolynomialRootRelations.attach(q);QuadraticRangeRelations.attach(q);IntervalRelations.attach(q);CombinedCountingRelations.attach(q);MatrixCalculationRelations.attach(q);CoordinateCalculationRelations.attach(q);LineCircleRelations.attach(q);MovementCircleRelations.attach(q);SetCountRelations.attach(q);SubsetRelations.attach(q);PropositionRelations.attach(q);WorkRateRelations.attach(q);return q;
     }
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
+        if(FractionPercentEquivalence.supports(s.id))return FractionPercentEquivalence.next(random,limits,Map.of());
         if(PercentageNotation.supports(s.id))return PercentageNotation.next(s,random,limits,Map.of());
         if(DecimalMeasureStories.supports(s.id))return DecimalMeasureStories.create(s,random,limits);
         if(EnglishNumberWords.supports(s.id))return EnglishNumberWords.next(s,random,limits,Map.of());

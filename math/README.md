@@ -280,3 +280,5 @@ Full English decimal numerals and words: [scope](ENGLISH_DECIMAL_WORDS.md).
 Selected decimal measurement stories: [scope and limits](DECIMAL_MEASURE_STORIES.md).
 
 Selected percentage notation: [scope and limits](PERCENTAGE_NOTATION.md).
+
+Selected fraction/decimal/percentage equivalence: [scope and limits](FRACTION_PERCENT_EQUIVALENCE.md).

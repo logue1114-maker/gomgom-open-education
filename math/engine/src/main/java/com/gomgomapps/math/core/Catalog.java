@@ -185,6 +185,7 @@ public final class Catalog {
         ALL.addAll(EnglishDecimalWords.SKILLS);
         ALL.addAll(DecimalMeasureStories.SKILLS);
         ALL.addAll(PercentageNotation.SKILLS);
+        ALL.addAll(FractionPercentEquivalence.SKILLS);
         ALL.addAll(GroupedEstimation.SKILLS);
         ALL.addAll(EqualityFoundations.SKILLS);
         ALL.addAll(ClockReadings.SKILLS);
