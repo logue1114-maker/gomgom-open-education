@@ -52,3 +52,5 @@ The included GomGom source code is provided under the MIT License. Contributions
 External build/test dependencies are not bundled: Gradle is Apache-2.0 licensed; JUnit 4.13.2 is EPL-1.0 licensed and resolved from Maven Central. Curriculum source links are recorded in the mapping file; original curriculum documents are not redistributed.
 
 Do not submit student records, API keys, passwords or private information in issues or pull requests.
+
+Selected [estimate calculation checks](math/docs/ESTIMATE_CALCULATION_CHECK_SCOPE.md) distinguish plausibility from exact equality.

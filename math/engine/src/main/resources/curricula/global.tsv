@@ -1755,3 +1755,9 @@ MAP	england-primary-2021-v1	3	inverseAdditionCheck,inverseSubtractionCheck	Selec
 RULE	england-primary-2021-v1	3	inverseAdditionCheck,inverseSubtractionCheck	wholeMaximum=999;minGiven=0;maxGiven=2098;maxResult=2098;nonnegative=true
 MAP	england-primary-2021-v1	4	inverseAdditionCheck,inverseSubtractionCheck	Selected EN-Y4-11 inverse answer-checking; estimation and wider operations remain
 RULE	england-primary-2021-v1	4	inverseAdditionCheck,inverseSubtractionCheck	wholeMaximum=9999;minGiven=0;maxGiven=20098;maxResult=20098;nonnegative=true
+
+# Conservative plus/minus one rounding unit checks plausibility; inside never means exact equality.
+MAP	england-primary-2021-v1	3	estimateAdditionCheck,estimateSubtractionCheck	Selected EN-Y3-09 nearest10/100 addition/subtraction envelope checking; wider contexts/accuracy remain
+RULE	england-primary-2021-v1	3	estimateAdditionCheck,estimateSubtractionCheck	wholeMaximum=999;minGiven=0;maxGiven=2200;maxResult=2200;roundingUnits=10,100;nonnegative=true
+MAP	england-primary-2021-v1	4	estimateAdditionCheck,estimateSubtractionCheck	Selected EN-Y4-11 nearest10/100/1000 addition/subtraction envelope checking; wider contexts/operations remain
+RULE	england-primary-2021-v1	4	estimateAdditionCheck,estimateSubtractionCheck	wholeMaximum=9999;minGiven=0;maxGiven=22000;maxResult=22000;roundingUnits=10,100,1000;nonnegative=true
