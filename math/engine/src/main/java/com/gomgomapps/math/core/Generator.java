@@ -90,6 +90,7 @@ public final class Generator {
         if(NumberLineRelations.supports(skillId))q=NumberLineRelations.next(random,limits,previous);
         if(MentalSumStrategies.supports(skillId))q=MentalSumStrategies.next(s,random,limits,previous);
         if(MentalPlaceCalculations.supports(skillId))q=MentalPlaceCalculations.next(s,random,limits,previous);
+        if(DoublingCalculation.supports(skillId))q=DoublingCalculation.next(skillId,random,limits,previous);
         if(RelatedCalculationFacts.supports(skillId))q=RelatedCalculationFacts.next(s,random,limits,previous);
         if(EstimateCalculationCheck.supports(skillId))q=EstimateCalculationCheck.next(s,random,limits,previous);
         if(InverseCalculationCheck.supports(skillId))q=InverseCalculationCheck.next(s,random,limits,previous);
@@ -138,6 +139,7 @@ public final class Generator {
         if(NumberLineRelations.supports(s.id))return NumberLineRelations.next(random,limits,Map.of());
         if(MentalSumStrategies.supports(s.id))return MentalSumStrategies.create(s,random,limits);
         if(MentalPlaceCalculations.supports(s.id))return MentalPlaceCalculations.create(s,random,limits);
+        if(DoublingCalculation.supports(s.id))return DoublingCalculation.next(s.id,random,limits,Map.of());
         if(RelatedCalculationFacts.supports(s.id))return RelatedCalculationFacts.create(s,random,limits);
         if(EstimateCalculationCheck.supports(s.id))return EstimateCalculationCheck.create(s,random,limits);
         if(InverseCalculationCheck.supports(s.id))return InverseCalculationCheck.create(s,random,limits);
