@@ -84,6 +84,7 @@ public final class Generator {
         if(MoneyBasicStories.supports(skillId))q=MoneyBasicStories.next(s,random,limits,previous);
         if(MultiplyAddContexts.supports(skillId))q=MultiplyAddContexts.next(skillId,random,limits,previous);
         else if(WrittenSingleProducts.selected(skillId,limits))q=WrittenSingleProducts.next(skillId,random,limits,previous);
+        else if(LargeWrittenProducts.supports(skillId))q=LargeWrittenProducts.next(skillId,random,limits,previous);
         else if(PrimeRecall.supports(skillId))q=PrimeRecall.next(random,limits,previous);
         else if(PrimeVocabulary.supports(skillId))q=PrimeVocabulary.next(skillId,random,limits,previous);
         else if(CompleteFactorPractice.supports(skillId))q=CompleteFactorPractice.next(skillId,random,limits,previous);
@@ -149,6 +150,7 @@ public final class Generator {
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
         if(MultiplyAddContexts.supports(s.id))return MultiplyAddContexts.next(s.id,random,limits,Map.of());
         if(WrittenSingleProducts.selected(s.id,limits))return WrittenSingleProducts.next(s.id,random,limits,Map.of());
+        if(LargeWrittenProducts.supports(s.id))return LargeWrittenProducts.next(s.id,random,limits,Map.of());
         if(PrimeRecall.supports(s.id))return PrimeRecall.next(random,limits,Map.of());
         if(PrimeVocabulary.supports(s.id))return PrimeVocabulary.next(s.id,random,limits,Map.of());
         if(CompleteFactorPractice.supports(s.id))return CompleteFactorPractice.next(s.id,random,limits,Map.of());

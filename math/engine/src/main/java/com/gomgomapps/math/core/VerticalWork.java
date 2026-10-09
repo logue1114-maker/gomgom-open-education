@@ -45,7 +45,7 @@ public final class VerticalWork {
         public boolean error(){return !wrong.isEmpty();}
     }
     public static Layout layout(Question q){
-        if(q==null||!Set.of("number","pair",WrittenSingleProducts.KIND).contains(q.kind)||q.prompt==null||q.prompt.length()>240)return null;
+        if(q==null||!Set.of("number","pair",WrittenSingleProducts.KIND,LargeWrittenProducts.KIND).contains(q.kind)||q.prompt==null||q.prompt.length()>240)return null;
         Matcher m=Pattern.compile("^(\\d{1,6}(?:\\.\\d{1,4})?)([+*/-])(\\d{1,6}(?:\\.\\d{1,4})?)$").matcher(Expression.normalize(q.prompt));
         if(!m.matches())return null;
         BigDecimal a=new BigDecimal(m.group(1)),b=new BigDecimal(m.group(3));String op=m.group(2);boolean decimal=m.group(1).contains(".")||m.group(3).contains(".");

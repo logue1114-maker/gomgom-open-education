@@ -3,7 +3,7 @@ import java.util.*;import java.util.regex.*;
 /** Split both factors by place so every elementary product is a table fact. */
 public final class WholeProductRelations {
  private WholeProductRelations(){}
- public static boolean supports(String id){return Set.of("mul2","mul3","mul22","el_mul_3x2").contains(id);}
+ public static boolean supports(String id){return LargeWrittenProducts.supports(id)||Set.of("mul2","mul3","mul22","el_mul_3x2").contains(id);}
  public static void attach(Question q){
   if(q==null||!supports(q.skillId))return;Matcher m=Pattern.compile("^(\\d{1,6})\\s*×\\s*(\\d{1,6})(?:의 값은\\?)?$").matcher(q.prompt);if(!m.matches())return;
   long a=Long.parseLong(m.group(1)),b=Long.parseLong(m.group(2));StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="whole-product-relations-v1";

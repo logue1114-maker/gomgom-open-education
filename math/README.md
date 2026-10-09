@@ -434,3 +434,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Prime vocabulary practice](PRIME_VOCABULARY.md): public-given classification and prime-factor identification.
 
 - [Small-prime recall](PRIME_RECALL.md): learner-owned lists without answer cardinality hints.
+
+- [Up-to-four-digit written products](LARGE_WRITTEN_PRODUCTS.md): public operand supply and learner column work.
