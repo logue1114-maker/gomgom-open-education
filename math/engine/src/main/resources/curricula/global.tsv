@@ -1630,8 +1630,8 @@ RULE	england-primary-2021-v1	5	fractionEquivalentFamily	denominators=2,3,4,5,6,8
 
 MAP	england-primary-2021-v1	4	el_fraction_decimal	Selected decimal notation of tenths/hundredths below one; full ranges remain
 RULE	england-primary-2021-v1	4	el_fraction_decimal	decimalPlaces=2;denominators=10,100
-MAP	england-primary-2021-v1	5	el_decimal_fraction	Selected decimals with up to two fractional places including values below one
-RULE	england-primary-2021-v1	5	el_decimal_fraction	minGiven=0;decimalPlaces=2
+MAP	england-primary-2021-v1	5	el_decimal_fraction	Selected decimals with up to three fractional places including values below one; verbal reading and unit-equivalence tasks remain
+RULE	england-primary-2021-v1	5	el_decimal_fraction	minGiven=0;decimalPlaces=3
 
 MAP	england-primary-2021-v1	3	decimalCountForward,decimalCountBackward	Selected decimal next-number counting0..10; fractions/object divisions/full sequences remain
 RULE	england-primary-2021-v1	3	decimalCountForward	decimalPlaces=1;wholeMaximum=10
@@ -1659,3 +1659,5 @@ RULE	england-primary-2021-v1	5	decimalDigitValue	wholeMaximum=9;decimalPlaces=3
 RULE	england-primary-2021-v1	5	el_decimal_round	decimalPlaces=2;roundingDecimalPlaces=0,1;wholeMaximum=99
 RULE	england-primary-2021-v1	5	el_decimal_compare	decimalPlaces=3;wholeMaximum=99
 RULE	england-primary-2021-v1	5	decimalOrder	decimalPlaces=3;wholeMaximum=99
+MAP	england-primary-2021-v1	5	el_fraction_decimal	Selected proper tenths/hundredths/thousandths to decimals with student unit-part frames; zero/whole quantities, unit equivalence and verbal reading remain
+RULE	england-primary-2021-v1	5	el_fraction_decimal	decimalPlaces=3;denominators=10,100,1000

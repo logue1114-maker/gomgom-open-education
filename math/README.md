@@ -270,3 +270,5 @@ Selected decimal digit and value practice: [scope and limits](DECIMAL_DIGIT_VALU
 Selected same-precision comparison and nearest-whole rounding: [scope](DECIMAL_ROUNDING_COMPARISON.md).
 
 Selected Year5 decimal relations and indexed supply: [scope](YEAR5_DECIMAL_RELATIONS.md).
+
+Selected Year5 fraction/decimal notation through thousandths: [scope and remaining work](YEAR5_FRACTION_DECIMALS.md).
