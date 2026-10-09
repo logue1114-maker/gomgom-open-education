@@ -1733,3 +1733,8 @@ RULE	england-primary-2021-v1	2	place10,wholePlaceValue	wholeMaximum=99;minGiven=
 
 RULE	england-primary-2021-v1	3	add1000	wholeDigits=3;minimumWholeDigits=1;minGiven=0;maxGiven=999;maxResult=1998;nonnegative=true
 RULE	england-primary-2021-v1	3	sub1000	wholeDigits=3;minimumWholeDigits=1;minGiven=0;maxGiven=999;maxResult=999;nonnegative=true
+
+MAP	england-primary-2021-v1	1	el_missing_add,el_missing_sub	Selected EN-Y1-09 missing operands, whole0..20, both equality directions; concrete/pictorial stories remain partial
+RULE	england-primary-2021-v1	1	el_missing_add,el_missing_sub	maxGiven=20;maxResult=20;minGiven=0;nonnegative=true;variedFacts=true
+MAP	england-primary-2021-v1	2	el_missing_add,el_missing_sub	Selected EN-Y2-11 inverse addition/subtraction missing operands, whole0..100; wider inverse checking/context remains partial
+RULE	england-primary-2021-v1	2	el_missing_add,el_missing_sub	maxGiven=100;maxResult=100;minGiven=0;nonnegative=true;variedFacts=true

@@ -79,6 +79,7 @@ public final class Generator {
         if(skillId.equals(LinearSequenceDescription.ID))q=LinearSequenceDescription.next(random,previous);
         if(PrimaryLinearSequences.supports(skillId))q=PrimaryLinearSequences.next(s,random,previous);
         if(skillId.equals(PrimaryPairEnumeration.ID))q=PrimaryPairEnumeration.next(random,previous);
+        if(MissingNumberSupply.supports(skillId,limits))q=MissingNumberSupply.next(s,random,limits,previous);
         if(limits.variedSums()&&SumFoundations.supports(skillId))q=SumFoundations.next(s,random,limits,previous);
         if(limits.variedFacts()&&Set.of("tables","divide").contains(skillId))q=FactFoundations.next(s,random,limits,previous);
         if(skillId.equals("squareWhole")||skillId.equals("rootWhole"))q=SquareFractionFoundations.nextWhole(s,random,limits,previous);
@@ -198,6 +199,7 @@ public final class Generator {
         if(HigherFoundationPractice.supports(s.id))return HigherFoundationPractice.create(s,random);
         if(s.family.startsWith("adv_"))return AdvancedBasics.create(s,random);
         if(s.id.startsWith("sec_"))return SecondaryBasics.create(s,random,limits);
+        if(MissingNumberSupply.supports(s.id,limits))return MissingNumberSupply.create(s,random,limits);
         if(s.id.startsWith("el_"))return ElementaryBasics.create(s,random,limits);
         if(s.family.startsWith("early_"))return EarlyBasics.create(s,random);
         int a=n(1,Math.max(s.range,2)),b=n(1,Math.max(Math.min(s.range,12),2)),c=n(1,9);

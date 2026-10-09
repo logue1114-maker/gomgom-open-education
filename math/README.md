@@ -328,3 +328,5 @@ Elementary total formula: [scope and limits](PRIMARY_FORMULA_CONTEXT.md).
 England Year2 place practice: [scope and limits](ENGLAND_YEAR_TWO_PLACE.md).
 
 England Year3 written sums: [scope and limits](ENGLAND_YEAR_THREE_SUMS.md).
+
+Selected missing-number relations: [scope and limits](MISSING_NUMBER_RELATIONS.md).

@@ -10,7 +10,7 @@ public final class NumberPatternRelations {
  private static Frame pick(String instruction,String result,int expected,String first,String second){Map<String,String> labels=new LinkedHashMap<>();labels.put("0",first);labels.put("1",second);return new Frame(instruction,"",result,""+expected,new int[0],labels);}
  private static int number(String s){return Integer.parseInt(s);}
  public static List<Frame> frames(Question q){
-  if(q==null||!supports(q.skillId)||q.prompt==null)return List.of();
+  if(q==null||MissingNumberSupply.selected(q)||!supports(q.skillId)||q.prompt==null)return List.of();
   try{return switch(q.skillId){case "el_sequence_10000","el_number_pattern","el_repeat_pattern"->sequence(q);case "el_even_odd"->parity(q);default->missing(q);};}catch(ArithmeticException|IllegalArgumentException e){return List.of();}
  }
  private static List<Frame> sequence(Question q){
