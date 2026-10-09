@@ -1706,3 +1706,6 @@ MAP	england-primary-2021-v1	6	roundedSharingStory	Selected EN-Y6-23 equal shares
 MAP	england-primary-2021-v1	6	proportion,el_proportional_split	Selected EN-Y6-25 integer multiplication/division ratio facts1..12 and EN-Y6-28 unequal two-part allocation with ratios1..12/unit1..20; broader contexts remain
 RULE	england-primary-2021-v1	6	proportion	variedFacts=true
 RULE	england-primary-2021-v1	6	el_proportional_split	variedFacts=true
+
+MAP	england-primary-2021-v1	6	percent,percentAmountsCompare	Selected EN-Y6-26 whole percentages0..100 of integer bases0..1000 and comparing amounts from bases10..100; wider measure/context scope remains
+RULE	england-primary-2021-v1	6	percent	variedFacts=true

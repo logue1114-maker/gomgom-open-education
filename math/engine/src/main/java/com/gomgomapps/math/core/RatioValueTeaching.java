@@ -10,10 +10,7 @@ public final class RatioValueTeaching {
  static void attach(Question q){
   if(q==null||!supports(q.skillId))return;
   if(q.skillId.equals("percent")){
-   Matcher m=Pattern.compile("(\\d+)\\*(\\d+)/100").matcher(q.expression);if(!m.matches())return;int base=Integer.parseInt(m.group(1)),percent=Integer.parseInt(m.group(2));Rational rate=Rational.of(percent,100);
-   StudyGuide g=guide();given(g,"전체 수",Integer.toString(base));g.step("문제에서 백분율을 찾아 쓰세요.","백분율 = ","%",Integer.toString(percent));
-   q.studyGuide=g.step("백분율을 100으로 나누어 소수로 나타내세요.","백분율 ÷ 100 = ","",rate.decimalText())
-    .step("전체 수에 계산한 비율을 곱하세요.","전체 수 × 계산한 비율 = ","",Rational.of(base).mul(rate).decimalText());return;
+   PercentAmountRelations.attach(q);return;
   }
   if(q.skillId.equals("proportion")){
    Matcher m=Pattern.compile("(\\d+) : (\\d+) = (\\d+) : x").matcher(q.prompt);if(!m.find())return;int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(2)),c=Integer.parseInt(m.group(3));if(a==0)return;Rational factor=Rational.of(c,a);

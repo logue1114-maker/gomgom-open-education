@@ -302,3 +302,5 @@ Contextual part-whole equivalents: [scope and limits](QUANTITY_RATIO_EQUIVALENCE
 Rounded equal-share contexts: [scope and limits](ROUNDED_SHARING_STORY.md).
 
 Selected Year6 ratios: [scope and limits](YEAR6_RATIO_SPLIT.md).
+
+Selected percentage amounts: [scope and limits](PERCENT_AMOUNT_COMPARISON.md).
