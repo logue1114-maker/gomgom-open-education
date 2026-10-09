@@ -56,6 +56,7 @@ public final class Generator {
         if(DecimalCounting.supports(skillId))q=DecimalCounting.next(s,random,limits,previous);
         if(PowerTenDivision.supports(skillId))q=PowerTenDivision.next(s,random,limits,previous);
         if(DecimalPlaceRelations.supports(skillId))q=DecimalPlaceRelations.next(random,limits,previous);
+        if(DecimalRoundingSupply.supports(skillId,limits))q=DecimalRoundingSupply.next(random,limits,previous);
         if(FractionNamesRelations.supports(skillId))q=FractionNamesRelations.next(s,random,limits,previous);
         if(PrimaryAlgebra.supports(skillId))q=PrimaryAlgebra.next(s,random,previous);
         if(limits.variedSums()&&SumFoundations.supports(skillId))q=SumFoundations.next(s,random,limits,previous);
@@ -98,6 +99,7 @@ public final class Generator {
         if(DecimalCounting.supports(s.id))return DecimalCounting.next(s,random,limits,Map.of());
         if(PowerTenDivision.supports(s.id))return PowerTenDivision.next(s,random,limits,Map.of());
         if(DecimalPlaceRelations.supports(s.id))return DecimalPlaceRelations.next(random,limits,Map.of());
+        if(DecimalRoundingSupply.supports(s.id,limits))return DecimalRoundingSupply.next(random,limits,Map.of());
         if(FractionNamesRelations.supports(s.id))return FractionNamesRelations.next(s,random,limits,Map.of());
         if(NumberDecomposition.supports(s.id))return NumberDecomposition.next(s,random,limits,Map.of());
         if(IrrationalLengths.supports(s.id))return IrrationalLengths.create(s,random);

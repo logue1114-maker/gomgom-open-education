@@ -1651,3 +1651,6 @@ RULE	england-primary-2021-v1	4	tenthsDivideTen	wholeMaximum=9;decimalPlaces=1
 
 MAP	england-primary-2021-v1	4	decimalDigitValue	Selected ones/tenths/hundredths digit and value0.00..9.99; contextual quotient identification remains
 RULE	england-primary-2021-v1	4	decimalDigitValue	wholeMaximum=9;decimalPlaces=2
+MAP	england-primary-2021-v1	4	el_decimal_round,el_decimal_compare	Selected nearest-whole rounding of tenths0.0..99.9 and same-display-precision comparison through hundredths0.00..99.99; contexts/full representations remain
+RULE	england-primary-2021-v1	4	el_decimal_round	decimalPlaces=1;roundingDecimalPlaces=0;wholeMaximum=99
+RULE	england-primary-2021-v1	4	el_decimal_compare	decimalPlaces=2;sameDecimalPlaces=true;wholeMaximum=99

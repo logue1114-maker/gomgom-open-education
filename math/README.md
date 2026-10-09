@@ -266,3 +266,5 @@ Tenths/hundredths unit-part help: [scope](TENTH_UNIT_RELATIONS.md).
 Division by10/100 unit relationships: [scope](POWER_TEN_DIVISION.md).
 
 Selected decimal digit and value practice: [scope and limits](DECIMAL_DIGIT_VALUE.md).
+
+Selected same-precision comparison and nearest-whole rounding: [scope](DECIMAL_ROUNDING_COMPARISON.md).

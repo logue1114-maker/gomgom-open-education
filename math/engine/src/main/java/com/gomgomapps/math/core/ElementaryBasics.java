@@ -837,9 +837,14 @@ public final class ElementaryBasics {
     private static Question decimalCompare(Catalog.Skill skill,Random random,CurriculumLimits limits){
         int scale=limits.hasDecimalPlaces()?(int)Math.pow(10,n(random,1,limits.decimalPlaces(2))):random.nextBoolean()?10:100;
         int left=n(random,1,99*scale),right=n(random,1,99*scale);
+        if(limits.sameDecimalPlaces()){
+            int max=Math.toIntExact((limits.wholeMaximum(99)+1L)*scale-1);
+            left=n(random,0,max);right=random.nextInt(3)==0?left:random.nextBoolean()?(left/scale)*scale+n(random,0,scale-1):n(random,0,max);
+        }
         Rational leftValue=r(left,scale),rightValue=r(right,scale);
         String answer=leftValue.compareTo(rightValue)==0?"=":leftValue.compareTo(rightValue)>0?">":"<";
         String leftText=d(left,scale),rightText=d(right,scale);
+        if(limits.sameDecimalPlaces()){int places=scale==10?1:scale==100?2:scale==1000?3:4;leftText=java.math.BigDecimal.valueOf(left,places).toPlainString();rightText=java.math.BigDecimal.valueOf(right,places).toPlainString();}
         return symbol(skill,leftText+"  □  "+rightText,leftText+"-"+rightText,answer,
                 null,null);
     }
@@ -914,6 +919,7 @@ public final class ElementaryBasics {
     private static Question decimalRounding(Catalog.Skill skill,Random random,CurriculumLimits limits){
         int precision=limits.decimalPlaces(3),scale=(int)Math.pow(10,precision);
         int target=limits.hasDecimalPlaces()?n(random,1,precision-1):(random.nextBoolean()?2:1);
+        target=limits.roundingDecimalPlaces(target);if(target<1||target>=precision)throw new IllegalArgumentException("Rounding target must leave at least one following digit");
         int place=(int)Math.pow(10,precision-target);
         int whole=n(random,1,30),fraction=n(random,1,scale-1);
         int scaled=whole*scale+fraction,remainder=scaled%place;
