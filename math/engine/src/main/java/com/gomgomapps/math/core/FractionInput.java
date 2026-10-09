@@ -15,6 +15,7 @@ public final class FractionInput {
     public static boolean available(Question q){
         if(!q.choices.isEmpty()||!Set.of("number","reduced","equation","system","inequality").contains(q.kind))return false;
         if("fraction".equals(q.answerFormat)||"decimal".equals(q.answerFormat))return true;
+        if(FractionFamilies.supports(q.skillId))return false;
         if(Set.of("el_mixed_to_improper","el_fraction_common_den","el_fraction_of_number").contains(q.skillId))return false;
         Catalog.Skill skill=Catalog.get(q.skillId);String family=skill.family.toLowerCase(Locale.ROOT);
         return skill.grade>=7||family.contains("frac")||Set.of("reduce","mean","percent","trianglearea","trapezoidarea","rhombusarea").contains(family);
@@ -26,6 +27,7 @@ public final class FractionInput {
     public static Map<Integer,Form> forms(Learning.Session s){if(s.answerForms==null)s.answerForms=new LinkedHashMap<>();return s.answerForms;}
     public static Form form(Learning.Session s,int index){
         Form form=forms(s).computeIfAbsent(index,k->new Form(defaultFraction(s.question)));
+        if(FractionFamilies.supports(s.question.skillId))form.fraction=false;
         // An old free-form input must stay visible and editable, even if it cannot be split.
         if(form.fraction&&parts(s.answers.get(index))==null)form.fraction=false;
         return form;

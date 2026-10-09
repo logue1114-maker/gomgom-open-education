@@ -176,6 +176,7 @@ public final class Catalog {
         ALL.addAll(CollectionGrouping.SKILLS);
         ALL.addAll(PrimaryOrdering.SKILLS);
         ALL.addAll(FractionOrdering.SKILLS);
+        ALL.addAll(FractionFamilies.SKILLS);
         ALL.addAll(EnglishNumberWords.SKILLS);
         ALL.addAll(GroupedEstimation.SKILLS);
         ALL.addAll(EqualityFoundations.SKILLS);

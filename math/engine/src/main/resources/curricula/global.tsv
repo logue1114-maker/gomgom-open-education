@@ -1622,3 +1622,8 @@ MAP	england-primary-2021-v1	5	fractionOrder
 RULE	england-primary-2021-v1	5	fractionOrder	commonDenominatorFactor=true;maxFractionValue=1;denominators=2,3,4,5,6,7,8,9,10,11,12
 MAP	england-primary-2021-v1	6	fractionOrder
 RULE	england-primary-2021-v1	6	fractionOrder	maxFractionValue=3;denominators=2,3,4,5,6,7,8,9,10,11,12
+
+MAP	england-primary-2021-v1	4	fractionEquivalentFamily	Selected equal-whole diagram families; full representations remain
+RULE	england-primary-2021-v1	4	fractionEquivalentFamily	denominators=2,3,4,5,6,8,9,10,12,100
+MAP	england-primary-2021-v1	5	fractionEquivalentFamily	Selected visual equivalent fractions including tenths/hundredths
+RULE	england-primary-2021-v1	5	fractionEquivalentFamily	denominators=2,3,4,5,6,8,9,10,12,100
