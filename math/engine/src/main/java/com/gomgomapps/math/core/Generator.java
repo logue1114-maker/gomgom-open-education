@@ -86,7 +86,7 @@ public final class Generator {
         else if(WrittenSingleProducts.selected(skillId,limits))q=WrittenSingleProducts.next(skillId,random,limits,previous);
         else if(FactorPairMental.supports(skillId))q=FactorPairMental.next(skillId,random,limits,previous);
         else if(TwoStepChangeStories.ID.equals(skillId))q=TwoStepChangeStories.next(random,limits,previous);
-        else if(RomanRead.ID.equals(skillId))q=RomanRead.next(random,limits,previous);
+        else if(RomanRead.supports(skillId))q=RomanRead.next(skillId,random,limits,previous);
         else if(NegativeCounting.ID.equals(skillId))q=NegativeCounting.next(random,limits,previous);
         else if(ThousandChange.supports(skillId))q=ThousandChange.next(skillId,random,limits,previous);
         else if(FractionLengthStories.supports(skillId))q=FractionLengthStories.next(skillId,random,limits,previous);

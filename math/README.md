@@ -414,3 +414,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year5 counting in powers of10](YEAR5_POWER_COUNTING.md): arbitrary starts with two forward/backward steps.
 
 - [Year5 practical number stories](YEAR5_NUMBER_STORIES.md): inventory, book counts, temperatures and populations.
+
+- [Roman numerals and recorded years](ROMAN_YEARS.md): ordinary numerals through M and separate recorded-year reading.

@@ -28,7 +28,7 @@ public final class Checker {
         if(WrittenSingleProducts.KIND.equals(q.kind))return WrittenSingleProducts.check(q,answers);
         if(FactorPairMental.supports(q.skillId))return FactorPairMental.check(q,answers);
         if(TwoStepChangeStories.ID.equals(q.skillId))return TwoStepChangeStories.check(q,answers);
-        if(RomanRead.ID.equals(q.skillId))return RomanRead.check(q,answers);
+        if(RomanRead.supports(q.skillId))return RomanRead.check(q,answers);
         if(NegativeCounting.ID.equals(q.skillId))return NegativeCounting.check(q,answers);
         if(ThousandChange.supports(q.skillId))return ThousandChange.check(q,answers);
         if(FractionLengthStories.supports(q.skillId))return FractionLengthStories.check(q,answers);

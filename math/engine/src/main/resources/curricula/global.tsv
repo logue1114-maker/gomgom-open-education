@@ -1884,3 +1884,7 @@ RULE	england-primary-2021-v1	5	bookStockChanges	maxGiven=1000000;maxResult=30000
 RULE	england-primary-2021-v1	5	temperatureChanges	maxGiven=60;maxResult=60;answerDomain=integer
 RULE	england-primary-2021-v1	5	populationRounding	maxGiven=1000000;maxResult=1000000
 RULE	england-primary-2021-v1	5	populationComparison	maxGiven=1000000
+
+MAP	england-primary-2021-v1	5	romanRead,romanYearRead	Selected EN-Y5-06 canonical numeralsI..M and recorded years1..3999, including four-digit years; historical contexts and proficiency remain
+RULE	england-primary-2021-v1	5	romanRead	wholeMaximum=1000;maxResult=1000;nonnegative=true
+RULE	england-primary-2021-v1	5	romanYearRead	wholeMaximum=3999;maxResult=3999;nonnegative=true
