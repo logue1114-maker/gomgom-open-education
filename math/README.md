@@ -282,3 +282,5 @@ Selected decimal measurement stories: [scope and limits](DECIMAL_MEASURE_STORIES
 Selected percentage notation: [scope and limits](PERCENTAGE_NOTATION.md).
 
 Selected fraction/decimal/percentage equivalence: [scope and limits](FRACTION_PERCENT_EQUIVALENCE.md).
+
+Selected equivalent quantity stories and reverse percent notation: [scope and limits](EQUIVALENT_QUANTITY_STORIES.md).

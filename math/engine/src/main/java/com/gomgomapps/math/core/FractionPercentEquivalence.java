@@ -13,7 +13,8 @@ public final class FractionPercentEquivalence {
   if(Arrays.stream(DENOMINATORS).noneMatch(v->v==d)||n<0||n>d)throw new IllegalArgumentException("Selected fraction equivalence scope");BigDecimal v=BigDecimal.valueOf(n).divide(BigDecimal.valueOf(d));
   Question q=new Question(ID,n+"/"+d+"를 소수와 백분율로 나타내세요.","",plain(v),plain(v.movePointRight(2)));q.labels=new String[]{"소수","백분율 (%)"};q.answerFormat="decimalValue";q.decimal=true;q.stepSupport=false;attach(q);return q;
  }
- private static Question at(int index){for(int d:DENOMINATORS){if(index<=d)return make(index,d);index-=d+1;}throw new IllegalArgumentException("Index out of bounds");}
+ static Givens conditionAt(int index){if(index<0)throw new IllegalArgumentException("Index out of bounds");for(int d:DENOMINATORS){if(index<=d)return new Givens(index,d);index-=d+1;}throw new IllegalArgumentException("Index out of bounds");}
+ private static Question at(int index){Givens v=conditionAt(index);return make(v.numerator(),v.denominator());}
  static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){return IndexedQuestionSupply.choose(domainSize(),FractionPercentEquivalence::at,random,limits,recent);}
  public static Givens read(Question q){if(q==null||!supports(q.skillId)||q.prompt==null)return null;Matcher m=Pattern.compile("(\\d{1,4})/(\\d{1,4})를 소수와 백분율로 나타내세요\\.").matcher(q.prompt);if(!m.matches())return null;int n=Integer.parseInt(m.group(1)),d=Integer.parseInt(m.group(2));return n<=d&&Arrays.stream(DENOMINATORS).anyMatch(v->v==d)?new Givens(n,d):null;}
  public static void attach(Question q){
