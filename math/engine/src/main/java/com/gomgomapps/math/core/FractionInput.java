@@ -60,6 +60,7 @@ public final class FractionInput {
      * Zero means no unique part is established, not that the answer is correct. */
     public static int errorPart(Question q,String raw){
         if(q==null||q.prompt==null||invalidPart(raw)!=0)return 0;
+        if(Set.of("fracMul","fracDivInt","fracMixedAdd","fracMixedSub").contains(q.skillId)){FractionWork.Spec visible=FractionWork.original(q);if(visible!=null){String[] pair=parts(raw);java.math.BigInteger n=new java.math.BigInteger(pair[0]),d=new java.math.BigInteger(pair[1]);if(n.multiply(visible.value.d).equals(visible.value.n.multiply(d)))return 0;if(d.equals(visible.value.d))return 1;if(n.equals(visible.value.n))return 2;}return 0;}
         if(PercentageNotation.supports(q.skillId))return PercentageNotation.errorPart(q,raw);
         if(q.skillId.equals("el_decimal_fraction")){
             java.util.regex.Matcher value=java.util.regex.Pattern.compile("(\\d+\\.\\d+)의 값을 분수로 나타내세요\\.").matcher(q.prompt);if(!value.matches())return 0;

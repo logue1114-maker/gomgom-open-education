@@ -1679,3 +1679,6 @@ MAP	england-primary-2021-v1	5	percentHundredthsFraction,percentDecimal	Selected 
 MAP	england-primary-2021-v1	5	fractionDecimalPercent	Selected fraction to decimal/percentage pairs with denominators2,4,5,10,20,25,40,50,100,125,200,250,500,1000 and values0..1; full contexts and reverse representations remain
 
 MAP	england-primary-2021-v1	5	fractionQuantityStory,decimalQuantityPart,percentQuantityStory,decimalToPercentage	Selected same-unit water/ribbon part quantities with fraction/decimal/percent rates0..1 and total10..100, plus thousandths decimals to percent; full contexts and representations remain
+
+MAP	england-primary-2021-v1	6	fracMixedAdd,fracMixedSub	Selected mixed-number sum/difference, wholeparts1..9 and proper fractional parts with denominators2..12; full bounds/representations/context remain
+RULE	england-primary-2021-v1	6	fracMul,fracDivInt	denominators=2,3,4,5,6,7,8,9,10,11,12;variedFacts=true
