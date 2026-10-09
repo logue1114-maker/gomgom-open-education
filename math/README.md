@@ -300,3 +300,5 @@ Selected Year6 rounding: [scope and limits](YEAR6_DECIMAL_ROUNDING.md).
 Contextual part-whole equivalents: [scope and limits](QUANTITY_RATIO_EQUIVALENCE.md).
 
 Rounded equal-share contexts: [scope and limits](ROUNDED_SHARING_STORY.md).
+
+Selected Year6 ratios: [scope and limits](YEAR6_RATIO_SPLIT.md).

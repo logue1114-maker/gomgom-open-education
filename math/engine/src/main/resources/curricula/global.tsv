@@ -1702,3 +1702,7 @@ RULE	england-primary-2021-v1	6	el_decimal_round	decimalPlaces=3;roundingDecimalP
 MAP	england-primary-2021-v1	6	quantityRatioEquivalence,fractionDecimalPercent,percentHundredthsFraction,percentDecimal,decimalToPercentage,fractionQuantityStory,decimalQuantityPart,percentQuantityStory	Selected EN-Y6-24 existing notation/forward water-ribbon quantities plus reverse part-whole contextual decimal-percent equivalents; broader contexts remain
 
 MAP	england-primary-2021-v1	6	roundedSharingStory	Selected EN-Y6-23 equal shares of water/ribbon0.00..99.99 by2..12 rounded to1/2decimal places; broader contexts remain
+
+MAP	england-primary-2021-v1	6	proportion,el_proportional_split	Selected EN-Y6-25 integer multiplication/division ratio facts1..12 and EN-Y6-28 unequal two-part allocation with ratios1..12/unit1..20; broader contexts remain
+RULE	england-primary-2021-v1	6	proportion	variedFacts=true
+RULE	england-primary-2021-v1	6	el_proportional_split	variedFacts=true

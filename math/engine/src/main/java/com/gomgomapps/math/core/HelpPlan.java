@@ -111,6 +111,7 @@ public final class HelpPlan {
         EquivalentQuantityStories.attach(q);
         QuantityRatioEquivalence.attach(q);
         RoundedSharingStory.attach(q);
+        RatioSplitSupply.attach(q);
         ProperFractionProductSupply.attach(q);
         DecimalPercentReverse.attach(q);
         if(q!=null)RadicalTeaching.attach(q);

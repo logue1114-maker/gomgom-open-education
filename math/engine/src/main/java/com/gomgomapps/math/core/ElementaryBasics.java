@@ -1002,15 +1002,12 @@ public final class ElementaryBasics {
 
     private static Question proportionalSplit(Catalog.Skill skill,Random random){
         int first=n(random,1,8),second=n(random,1,8),unit=n(random,2,10),total=(first+second)*unit;
-        String firstExpression=total+"*"+first+"/"+(first+second);
-        String secondExpression=total+"*"+second+"/"+(first+second);
-        return numbers(skill,"전체 "+total+"을 "+first+":"+second+"로 비례배분한 두 부분은?","",
+        Question question=numbers(skill,"전체 "+total+"을 "+first+":"+second+"로 비례배분한 두 부분은?","",
                 labels("첫째 부분","둘째 부분"),
-                guide(step("비의 두 항을 더해 전체 묶음 수를 구합니다.",first+" + "+second+" = ","",first+"+"+second),
-                        step("전체를 한 묶음 수로 나눕니다.",total+" ÷ "+(first+second)+" = ","",total+"/"+(first+second)),
-                        step("첫째 비만큼 곱해 첫째 부분을 구하세요.",(total/(first+second))+" × "+first+" = ","",firstExpression),
-                        step("둘째 비만큼 곱해 둘째 부분을 구하세요.",(total/(first+second))+" × "+second+" = ","",secondExpression)),null,
+                null,null,
                 r(total*first,first+second),r(total*second,first+second));
+        RatioSplitSupply.attach(question);
+        return question;
     }
 
     private static Question shapeSides(Catalog.Skill skill,Random random){

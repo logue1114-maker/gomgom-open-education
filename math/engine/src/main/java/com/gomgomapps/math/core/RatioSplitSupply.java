@@ -1,0 +1,13 @@
+package com.gomgomapps.math.core;
+import java.util.*;import java.util.regex.*;
+/** Explicit selected integer-fact ratio supply; public blank allocation help. */
+public final class RatioSplitSupply {
+ private RatioSplitSupply(){}
+ public static boolean supports(String id){return Set.of("proportion","el_proportional_split").contains(id);}
+ static boolean supports(String id,CurriculumLimits limits){return supports(id)&&limits.variedFacts();}
+ public static int domainSize(String id){return id.equals("proportion")?12*12*23:id.equals("el_proportional_split")?12*11*20:0;}
+ static Question at(String id,int index){if(id.equals("proportion")){int form=index%23,pair=index/23,a=pair/12+1,b=pair%12+1,k=form==0?1:(form+1)/2+1;boolean reverse=form>0&&form%2==0;int leftA=reverse?a*k:a,leftB=reverse?b*k:b,rightA=reverse?a:a*k,answer=reverse?b:b*k;Question q=new Question(id,leftA+" : "+leftB+" = "+rightA+" : x\nx의 값은?","x="+answer,""+answer);q.kind="equation";q.stepSupport=false;RatioValueTeaching.attach(q);return q;}int unit=index%20+1,pair=index/20,a=pair/11+1,b=pair%11+1;if(b>=a)b++;return split(a,b,unit);}
+ static Question split(int a,int b,int unit){int total=(a+b)*unit;Question q=new Question("el_proportional_split","전체 "+total+"을 "+a+":"+b+"로 비례배분한 두 부분은?","",""+(a*unit),""+(b*unit));q.labels=new String[]{"첫째 부분","둘째 부분"};q.stepSupport=false;attach(q);return q;}
+ static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){return IndexedQuestionSupply.choose(domainSize(id),i->at(id,i),random,limits,recent);}
+ public static void attach(Question q){if(q==null||!q.skillId.equals("el_proportional_split")||q.prompt==null)return;Matcher m=Pattern.compile("전체 (\\d+)을 (\\d+):(\\d+)로 비례배분한 두 부분은\\?").matcher(q.prompt);if(!m.matches())return;int total=Integer.parseInt(m.group(1)),a=Integer.parseInt(m.group(2)),b=Integer.parseInt(m.group(3));if(a<=0||b<=0||total<=0)return;Rational unit=Rational.of(total,a+b);StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="ratio-split-public-v1";g.step("문제의 전체 양을 쓰세요.","전체 양 B = ","",""+total);g.step("비의 앞항을 쓰세요.","비의 앞항 a = ","",""+a);g.step("비의 뒤항을 쓰세요.","비의 뒤항 b = ","",""+b);g.step("비의 두 항을 더하세요.","전체 묶음 수 s = a + b = ","",""+(a+b));g.step("전체 양을 전체 묶음 수로 나누세요.","한 묶음의 양 u = B ÷ s = ","",unit.toString());g.step("한 묶음의 양에 비의 앞항을 곱하세요.","첫째 부분 = u × a = ","",unit.mul(Rational.of(a)).toString());g.step("한 묶음의 양에 비의 뒤항을 곱하세요.","둘째 부분 = u × b = ","",unit.mul(Rational.of(b)).toString());q.studyGuide=g;}
+}
