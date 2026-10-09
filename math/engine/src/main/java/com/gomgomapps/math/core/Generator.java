@@ -79,6 +79,7 @@ public final class Generator {
         if(skillId.equals(LinearSequenceDescription.ID))q=LinearSequenceDescription.next(random,previous);
         if(PrimaryLinearSequences.supports(skillId))q=PrimaryLinearSequences.next(s,random,previous);
         if(skillId.equals(PrimaryPairEnumeration.ID))q=PrimaryPairEnumeration.next(random,previous);
+        if(PowerCounting.supports(skillId))q=PowerCounting.next(s,random,limits,previous);
         if(MoneyBasicStories.supports(skillId))q=MoneyBasicStories.next(s,random,limits,previous);
         if(MultiplyAddContexts.supports(skillId))q=MultiplyAddContexts.next(skillId,random,limits,previous);
         else if(WrittenSingleProducts.selected(skillId,limits))q=WrittenSingleProducts.next(skillId,random,limits,previous);

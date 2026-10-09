@@ -1874,3 +1874,6 @@ RULE	england-primary-2021-v1	4	el_fraction_of_number	denominators=2,3,4,5,6,7,8,
 MAP	england-primary-2021-v1	4	fractionLengthUsed,fractionLengthLeft,decimalQuantityTotal,decimalQuantityRemaining,moneyBasicTotal,moneyBasicChange	Selected EN-Y4-27 same-unit fraction length, decimal length/water through two places and GBP totals/change; broader contexts and methods remain
 RULE	england-primary-2021-v1	4	fractionLengthUsed,fractionLengthLeft	maxGiven=12;maxResult=1;nonnegative=true
 RULE	england-primary-2021-v1	4	decimalQuantityTotal,decimalQuantityRemaining	decimalPlaces=2;wholeMaximum=99
+
+MAP	england-primary-2021-v1	5	powerCountForward,powerCountBackward	Selected EN-Y5-02 arbitrary starts0..1000000 with two successive steps of10..1000000; whole spoken sequences and fluency remain
+RULE	england-primary-2021-v1	5	powerCountForward,powerCountBackward	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=3000000;answerDomain=integer

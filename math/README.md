@@ -410,3 +410,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year4 quarters and halves as decimals](YEAR4_QUARTER_DECIMALS.md): existing conversion practice includes1/4,1/2,3/4.
 
 - [Year4 measurement and money](YEAR4_MEASURE_MONEY.md): fractional length, decimal quantities and basic GBP totals/change.
+
+- [Year5 counting in powers of10](YEAR5_POWER_COUNTING.md): arbitrary starts with two forward/backward steps.
