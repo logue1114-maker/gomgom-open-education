@@ -306,3 +306,5 @@ Selected Year6 ratios: [scope and limits](YEAR6_RATIO_SPLIT.md).
 Selected percentage amounts: [scope and limits](PERCENT_AMOUNT_COMPARISON.md).
 
 Selected similar shape scales: [scope and limits](YEAR6_SHAPE_SCALE.md).
+
+Fractional similar shape scales: [scope and limits](FRACTION_SHAPE_SCALE.md).

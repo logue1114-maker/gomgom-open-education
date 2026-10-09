@@ -1,0 +1,5 @@
+# Fractional similarity scales, reduction and corresponding shapes
+
+England EN-Y6-27 selected range:43distinct reduced positive factors from numerator/denominator1..8 (including identity), first side2..50, square/rectangle/triangle and known/found scale forms.12642new displayed conditions; combined with prior1078integer conditions =13720. Context and displayed givens distinguish conditions; this is not authored-question or unique-answer count.
+
+Neutral first-to-second language avoids falsely describing reduction as enlargement. Public-only three blank frames use first side, known factor/second side, then product/quotient. Exact rational answers; no transfer. Noninteger answers use visible fraction fields. Diagram payload exposes only public givens and unknown side labels. Whole/fraction answer modes preserve existing guides and country defaults. Exhaustive arithmetic/identity/reduction/shape/helper checks plus200fresh selected conditions. More general shape/context problems remain PARTIAL; private UI/i18n/records/QA/APK/ads/billing are excluded.
