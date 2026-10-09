@@ -376,3 +376,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Mental doubling and halving](DOUBLING_CALCULATION.md): two270-condition units with student-entered intermediate calculations and public-operand checking.
 
 - [Product context stories](PRODUCT_CONTEXT_STORIES.md): equal groups, integer scaling and all-pairs correspondence with student-entered inverse relationships.
+
+- [Year3 fractions of sets](YEAR3_SET_FRACTIONS.md):268 discrete collection conditions and public-quantity checking.

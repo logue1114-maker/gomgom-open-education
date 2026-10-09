@@ -25,8 +25,8 @@ public final class FractionConceptRelations {
     step(g,"문제의 분자를 쓰세요.","분자 a = ",top);step(g,"문제의 분모를 쓰세요.","분모 b = ",den);step(g,"문제에서 정한 새 분모를 쓰세요.","새 분모 D = ",target);
     step(g,"원래 분모를 새 분모로 바꾸는 배수를 구하세요.","배수 k = D ÷ b = ",target/den);step(g,"분자에도 같은 배수를 곱하세요.","새 분자 n = a × k = ",top*(target/den));g.fractionResult(4,2);break;
    default:
-    m=Pattern.compile("(\\d+)의 (\\d+)/(\\d+)은 얼마인가요\\?").matcher(q.prompt);if(!m.matches())return;
-    long total=number(m,1),num=number(m,2),bottom=number(m,3);if(bottom==0||total%bottom!=0)return;
+    int[] publicValues=QuantityFractionCheck.read(q);if(publicValues==null)return;
+    long total=publicValues[0],num=publicValues[1],bottom=publicValues[2];
     step(g,"전체의 양을 쓰세요.","전체 T = ",total);step(g,"문제의 분자를 쓰세요.","분자 a = ",num);step(g,"문제의 분모를 쓰세요.","분모 b = ",bottom);
     step(g,"전체를 분모만큼 똑같이 나누세요.","한 부분 P = T ÷ b = ",total/bottom);step(g,"한 부분의 양에 필요한 부분의 수를 곱하세요.","필요한 양 = P × a = ",(total/bottom)*num);
   }

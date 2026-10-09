@@ -1824,3 +1824,6 @@ MAP	england-primary-2021-v1	3	boxPencilStories,cordScalingStories,outfitPairStor
 RULE	england-primary-2021-v1	3	boxPencilStories	maxGiven=120;maxResult=120;nonnegative=true
 RULE	england-primary-2021-v1	3	cordScalingStories	maxGiven=990;maxResult=990;nonnegative=true
 RULE	england-primary-2021-v1	3	outfitPairStories	maxGiven=120;maxResult=120;nonnegative=true
+
+MAP	england-primary-2021-v1	3	el_fraction_of_number	Selected EN-Y3-15 unit/non-unit fractions of discrete ungrouped dot collections; learned divisors2,3,4,5,8,10
+RULE	england-primary-2021-v1	3	el_fraction_of_number	denominators=2,3,4,5,8,10;maxGiven=100;maxResult=90;nonnegative=true;quantityRepresentations=objects
