@@ -1,0 +1,16 @@
+package com.gomgomapps.math.core;
+import java.math.*;import java.util.*;import java.util.regex.*;
+/** Approximate equal shares with an explicit requested decimal accuracy. */
+public final class RoundedSharingStory {
+ private RoundedSharingStory(){}
+ public static final String ID="roundedSharingStory";
+ public static final List<Catalog.Skill> SKILLS=List.of(new Catalog.Skill(ID,"나눈 양을 반올림하기",6,1,1,"","roundedSharingStory",100,"el_decimal_round","같이 나눈 양을 계산하고 지정한 자리까지 반올림한다."));
+ public static boolean supports(String id){return ID.equals(id);}
+ public record Givens(BigDecimal total,int divisor,int places,String unit){}
+ public static int domainSize(){return 10000*11*2*2;}
+ public static Question make(int cents,int divisor,int places,String unit){if(cents<0||cents>9999||divisor<2||divisor>12||places<1||places>2||!Set.of("m","L").contains(unit))throw new IllegalArgumentException("Selected rounded sharing scope");String x=BigDecimal.valueOf(cents,2).toPlainString(),position=places==1?"첫째":"둘째";String prompt=unit.equals("L")?"물 "+x+" L를 "+divisor+"명에게 똑같이 나눕니다.\n한 사람이 받는 양을 소수 "+position+" 자리까지 반올림해 L로 쓰세요.":"끈 "+x+" m를 같은 길이 "+divisor+"개로 나눕니다.\n한 조각의 길이를 소수 "+position+" 자리까지 반올림해 m로 쓰세요.";Question q=new Question(ID,prompt,"",BigDecimal.valueOf(cents,2).divide(BigDecimal.valueOf(divisor),places,RoundingMode.HALF_UP).toPlainString());q.answerFormat="decimalValue";q.decimal=true;q.stepSupport=false;attach(q);return q;}
+ static Question at(int index){String unit=index%2==0?"m":"L";index/=2;int p=index%2+1;index/=2;int d=index%11+2;return make(index/11,d,p,unit);}
+ static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){return IndexedQuestionSupply.choose(domainSize(),RoundedSharingStory::at,random,limits,recent);}
+ public static Givens read(Question q){if(q==null||!supports(q.skillId)||q.prompt==null)return null;for(String unit:List.of("m","L")){String regex=unit.equals("L")?"물 (\\d{1,2}\\.\\d{2}) L를 (\\d{1,2})명에게 똑같이 나눕니다.\\n한 사람이 받는 양을 소수 (첫째|둘째) 자리까지 반올림해 L로 쓰세요\\.":"끈 (\\d{1,2}\\.\\d{2}) m를 같은 길이 (\\d{1,2})개로 나눕니다.\\n한 조각의 길이를 소수 (첫째|둘째) 자리까지 반올림해 m로 쓰세요\\.";Matcher m=Pattern.compile(regex).matcher(q.prompt);if(m.matches()){int d=Integer.parseInt(m.group(2));if(d>=2&&d<=12)return new Givens(new BigDecimal(m.group(1)),d,m.group(3).equals("첫째")?1:2,unit);}}return null;}
+ public static void attach(Question q){Givens v=read(q);if(v==null)return;BigDecimal guard=v.total().divide(BigDecimal.valueOf(v.divisor()),v.places()+1,RoundingMode.DOWN);StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="rounded-sharing-story-v1";g.step("문제의 전체 양을 쓰세요.","전체 양 B = ","",v.total().toPlainString());g.step("똑같이 나눌 수를 쓰세요.","나눌 수 d = ","",""+v.divisor());g.step("문제에서 정한 소수 자리 수를 쓰세요.","소수 자리 수 = ","",""+v.places());g.step("전체 양을 나눌 수로 나누세요. 정한 자리의 다음 자리까지 쓰고, 그 아래는 버리세요.","판단할 몫 q = B ÷ d = ","",guard.toPlainString());for(var f:g.frames)f.inputFormat="decimalValue";Question rounded=new Question("el_decimal_round",guard.toPlainString()+"을 소수 "+(v.places()==1?"첫째":"둘째")+" 자리까지 반올림하면?","","poison");RoundingRelations.attach(rounded);g.frames.addAll(rounded.studyGuide.frames.subList(2,rounded.studyGuide.frames.size()));q.studyGuide=g;}
+}

@@ -1700,3 +1700,5 @@ MAP	england-primary-2021-v1	6	el_decimal_round	Selected thousandths0.000..99.999
 RULE	england-primary-2021-v1	6	el_decimal_round	decimalPlaces=3;roundingDecimalPlaces=0,1,2;wholeMaximum=99
 
 MAP	england-primary-2021-v1	6	quantityRatioEquivalence,fractionDecimalPercent,percentHundredthsFraction,percentDecimal,decimalToPercentage,fractionQuantityStory,decimalQuantityPart,percentQuantityStory	Selected EN-Y6-24 existing notation/forward water-ribbon quantities plus reverse part-whole contextual decimal-percent equivalents; broader contexts remain
+
+MAP	england-primary-2021-v1	6	roundedSharingStory	Selected EN-Y6-23 equal shares of water/ribbon0.00..99.99 by2..12 rounded to1/2decimal places; broader contexts remain

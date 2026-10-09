@@ -190,6 +190,7 @@ public final class Catalog {
         ALL.addAll(FractionPercentEquivalence.SKILLS);
         ALL.addAll(EquivalentQuantityStories.SKILLS);
         ALL.addAll(QuantityRatioEquivalence.SKILLS);
+        ALL.addAll(RoundedSharingStory.SKILLS);
         ALL.addAll(DecimalPercentReverse.SKILLS);
         ALL.addAll(GroupedEstimation.SKILLS);
         ALL.addAll(EqualityFoundations.SKILLS);
