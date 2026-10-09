@@ -386,3 +386,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Fractional length stories](FRACTION_LENGTH_STORIES.md): used and remaining cord lengths with student-entered like-fraction relationships.
 
 - [1,000 more or less](THOUSAND_CHANGE.md): arbitrary starts and student-entered change relationships.
+
+- [Counting backwards through zero](NEGATIVE_COUNTING.md): three student entries, including negative integers.

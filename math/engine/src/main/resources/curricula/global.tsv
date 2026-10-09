@@ -1839,3 +1839,6 @@ RULE	england-primary-2021-v1	3	fractionLengthUsed,fractionLengthLeft	maxGiven=12
 
 MAP	england-primary-2021-v1	4	thousandMore,thousandLess	Selected EN-Y4-02 arbitrary start through10000;9001 more and9001 less conditions
 RULE	england-primary-2021-v1	4	thousandMore,thousandLess	maxGiven=10000;maxResult=10000;nonnegative=true
+
+MAP	england-primary-2021-v1	4	negativeCountBackward	Selected EN-Y4-03 backward three-term sequences through zero and in negative range;320 distinct conditions
+RULE	england-primary-2021-v1	4	negativeCountBackward	maxGiven=50;maxResult=50
