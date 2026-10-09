@@ -1894,3 +1894,6 @@ MAP	england-primary-2021-v1	5	largeMentalDecompositionAdd,largeMentalDecompositi
 RULE	england-primary-2021-v1	5	largeMentalDecompositionAdd,largeMentalDecompositionSub	wholeDigits=6;secondDigits=6;minGiven=1000;maxGiven=999999;maxResult=1999998;nonnegative=true
 MAP	england-primary-2021-v1	5	convenientNumberAddition,convenientNumberSubtraction	Selected EN-Y5-08 near-multiple compensation with learner-entered round/gap/correction; explanations and fluency remain
 RULE	england-primary-2021-v1	5	convenientNumberAddition,convenientNumberSubtraction	wholeDigits=6;secondDigits=6;minGiven=0;maxGiven=1000000;maxResult=1999998;nonnegative=true
+
+MAP	england-primary-2021-v1	5	estimateAdditionCheck,estimateSubtractionCheck	Selected EN-Y5-09 large-number rounding envelopes; contextual accuracy and explanations remain partial
+RULE	england-primary-2021-v1	5	estimateAdditionCheck,estimateSubtractionCheck	wholeMaximum=1000000;minGiven=0;maxGiven=3000001;maxResult=2000000;roundingUnits=10,100,1000,10000,100000,1000000;nonnegative=true

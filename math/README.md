@@ -422,3 +422,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Large mental decomposition](LARGE_MENTAL_DECOMPOSITION.md): two large operands and place-value subtotals.
 
 - [Convenient-number mental arithmetic](CONVENIENT_NUMBER_MENTAL.md): round and compensate with five learner-entered steps.
+
+- [Large-number estimation checks](LARGE_ESTIMATE_CHECK.md): rounding envelopes through one million; range is not exact equality.

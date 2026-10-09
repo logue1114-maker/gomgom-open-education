@@ -1,0 +1,5 @@
+# Large-number estimation checks
+
+Selected EN-Y5-09: public operands 0..1,000,000 and rounding units 10..1,000,000. The student calculates the rounded sum or difference, then judges whether a proposed value is within one rounding unit. An inside verdict never proves exact equality. Each pair/unit has three distinct proposals: the estimate, estimate plus unit and estimate plus unit plus one. Large domains use long indexes and triangular subtraction rows; existing Grade3/4 sampling remains.
+
+Seventeen blank help frames reuse public rounding, then ask for estimate, absolute gap and range choice. No answer transfer. Five engine tests cover 300 fresh problems per direction, all units, independent HALF_UP and hidden-key checks, million/zero/tie/range boundaries, actual small-domain exhaustion/oldest reuse, sampled large indexes and preserved Grade3/4. Full huge-domain exhaustion, contextual accuracy, explanations and worldwide coverage are not claimed. UI, locales, native QA, records and APKs remain private.
