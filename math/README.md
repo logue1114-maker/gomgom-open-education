@@ -350,3 +350,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Primary calculation order](CALCULATION_ORDER.md): selected addition swap and subtraction comparison without negative-number input.
 
 - [Pictured arithmetic contexts](PICTURE_ARITHMETIC.md): mixed add/take-away stories and optional learner-authored relationships.
+
+- [Multiplication and division order](PRODUCT_ORDER.md): numeric products and division comparison with equal and undefined exceptions.

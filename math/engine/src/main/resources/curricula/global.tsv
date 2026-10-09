@@ -1788,3 +1788,6 @@ RULE	england-primary-2021-v1	2	additionOrder,subtractionOrder	wholeMaximum=20
 
 MAP	england-primary-2021-v1	2	pictureArithmetic	Selected EN-Y2-07 add/take-away button pictures0..20; measures/concrete/wider contexts remain partial
 RULE	england-primary-2021-v1	2	pictureArithmetic	wholeMaximum=20;maxResult=20;nonnegative=true
+
+MAP	england-primary-2021-v1	2	productOrder	Selected EN-Y2-14 known-factor order comparison; numeric products and division equality/undefined exceptions
+RULE	england-primary-2021-v1	2	productOrder	wholeMaximum=120
