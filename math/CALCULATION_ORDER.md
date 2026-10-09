@@ -1,0 +1,7 @@
+# Primary calculation order
+
+Selected England Year2 EN-Y2-10 practice. Addition: learner evaluates both a+b and b+a with values0..20 and sum at most20. Subtraction: display a-b and b-a, with0<=b<=a<=20; learner compares the subtrahend in the reversed expression against its starting number. No negative result is demanded from a Year2 learner. Equal operands remain a valid special case; the app does not claim every reversed subtraction is impossible.
+
+Each type has231 distinct visible conditions, exhausted before oldest reuse. These are conditions, not231 different numerical answers. While both fresh subtraction outcomes exist, choose an outcome group first to avoid making early practice solvable by always selecting larger. Equality has only21 distinct cases and will eventually exhaust; no promise of perpetual balance. Addition is direct numeric input; subtraction choices are shuffled stable values. Public statements drive checking, not hidden answer keys. Optional learner-filled help does not transfer the answer.
+
+Target tests cover complete finite supply, oldest fallback, both comparison outcomes in early practice, zero/equal operands, malformed swapped statements, wrong second addition value and grade placement. This is selected calculation-order practice, not complete concrete/pictorial/contextual statutory coverage, learning efficacy or device/Play proof. UI/locales/learner records/QA/APK remain private.

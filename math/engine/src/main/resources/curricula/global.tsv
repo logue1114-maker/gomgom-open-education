@@ -1782,3 +1782,6 @@ RULE	england-primary-2021-v1	2	numberLineRead	wholeMaximum=100;maxResult=100;non
 
 MAP	england-primary-2021-v1	1	statementSign	Selected EN-Y1-06 missing +/minus/equality signs; full statement authorship/interpretation remains partial
 RULE	england-primary-2021-v1	1	statementSign	wholeMaximum=20
+
+MAP	england-primary-2021-v1	2	additionOrder,subtractionOrder	Selected EN-Y2-10 calculation-order comparison0..20; broader representations remain partial
+RULE	england-primary-2021-v1	2	additionOrder,subtractionOrder	wholeMaximum=20
