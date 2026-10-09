@@ -7,7 +7,8 @@ public class EnglishNumberWordsTest {
   assertEquals("forty-two",EnglishNumberWords.words(42));assertEquals("eighty-nine",EnglishNumberWords.words(89));assertEquals("one hundred",EnglishNumberWords.words(100));
   Question q=EnglishNumberWords.make("numberToEnglishWords",42);Checker c=new Checker();
   for(String answer:List.of("forty-two"," FORTY TWO ","forty   two"))assertTrue(c.check(q,List.of(),List.of(answer)).correct());
-  for(String wrong:List.of("42","fourty two","fortytwo","forty-three","forty two extra"))assertEquals(Checker.Status.WRONG_ANSWER,c.check(q,List.of(),List.of(wrong)).status);
+  for(String invalid:List.of("42","fourty two","fortytwo","forty two extra"))assertEquals(Checker.Status.INPUT_NEEDED,c.check(q,List.of(),List.of(invalid)).status);
+  assertEquals(Checker.Status.WRONG_ANSWER,c.check(q,List.of(),List.of("forty-three")).status);
   assertEquals(Checker.Status.INPUT_NEEDED,c.check(q,List.of(),List.of(" ")).status);
  }
  @Test public void gradeDomainsExhaustBeforeRepeatingAndDoNotOfferWordAnswers(){

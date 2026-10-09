@@ -370,3 +370,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year3 carry-based column multiplication](COLUMN_PRODUCT.md): student carry/ones/tens frames with public-given checking.
 
 - [Public multiplication/division fact checking](PUBLIC_FACT_CHECKING.md): unique public-equation solutions, zero/ambiguity safeguards and preserved blank student help.
+
+- [Student number-word error locations](NUMBER_WORD_FEEDBACK.md): preserve correct words, locate only incorrect tokens/gaps, distinguish input issues from valid different numbers.
