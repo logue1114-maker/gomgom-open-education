@@ -322,3 +322,5 @@ Learner-generated linear sequences: [scope and limits](PRIMARY_LINEAR_SEQUENCES.
 Composed verbal sequence rules: [scope and limits](LINEAR_SEQUENCE_DESCRIPTION.md).
 
 Direct elementary expression writing: [scope and limits](PRIMARY_EXPRESSION_WRITING.md).
+
+Elementary total formula: [scope and limits](PRIMARY_FORMULA_CONTEXT.md).
