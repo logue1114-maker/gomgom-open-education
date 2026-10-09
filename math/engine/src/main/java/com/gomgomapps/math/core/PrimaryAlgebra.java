@@ -45,7 +45,7 @@ public final class PrimaryAlgebra {
   }else if(q.skillId.equals("primarySubstitute")){
    Matcher m=Pattern.compile("x = (\\d+)\\n(?:(\\d+)x|x ([+−÷]) (\\d+))\\n식의 값을 구하세요.").matcher(q.prompt);if(!m.matches())return;
    int x=Integer.parseInt(m.group(1)),n=Integer.parseInt(m.group(2)!=null?m.group(2):m.group(4));String op=m.group(2)!=null?"×":m.group(3);
-   g.step("x가 나타내는 수를 쓰세요.","x = ","",""+x).step("함께 계산하는 수를 쓰세요.","함께 계산할 수 = ","",""+n).step("문자 대신 수를 넣고 계산하세요.",x+" "+op+" "+n+" = ","",""+(op.equals("+")?x+n:op.equals("−")?x-n:op.equals("×")?x*n:x/n));
+   g.step("x가 나타내는 수를 쓰세요.","x = ","",""+x).step("함께 계산하는 수를 쓰세요.","함께 계산할 수 = ","",""+n).step("문자 대신 수를 넣고 계산하세요.","x의 값 "+op+" 계산할 수 = ","",""+(op.equals("+")?x+n:op.equals("−")?x-n:op.equals("×")?x*n:x/n));
   }else{
    Matcher m=Pattern.compile("(\\d+)x \\+ (\\d+) = (\\d+)\\nx의 값을 구하세요.").matcher(q.prompt);if(!m.matches())return;
    int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(2)),c=Integer.parseInt(m.group(3));if(a==0||(c-b)%a!=0)return;

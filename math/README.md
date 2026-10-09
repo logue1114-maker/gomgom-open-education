@@ -310,3 +310,5 @@ Selected similar shape scales: [scope and limits](YEAR6_SHAPE_SCALE.md).
 Fractional similar shape scales: [scope and limits](FRACTION_SHAPE_SCALE.md).
 
 Selected ratio/percentage/share contexts: [scope and limits](RATIO_CONTEXT_STORIES.md).
+
+Elementary substitution blank help: [scope and limits](PRIMARY_ALGEBRA_BLANK_HELP.md).
