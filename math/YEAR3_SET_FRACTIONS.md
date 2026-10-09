@@ -5,3 +5,5 @@ The existing fraction-of-quantity unit now maps to England Year3 for ungrouped d
 Students enter total, numerator, denominator, the amount in one equal part and required quantity in five blank frames. General relationships retain no question-specific substituted numbers and no final-answer transfer. Main checking and help derive quantities from the public numerical, dot-collection or length statement, ignoring stored keys, expressions and diagram metadata. Nonintegral, malformed and improper conditions are rejected. Numeric equivalent answers remain accepted.
 
 Tests cover all268 actual Year3 conditions, fresh exhaustion, both numerator classes, poisoned internal metadata and every blank-help expectation. Related Year1/2 quantity picture tests guard existing ranges. This selected set practice does not prove all discrete contexts, fraction-writing representations, fluency, worldwide curricula, physical devices or Play release. UI, languages, native QA, student records and APKs remain private.
+
+Quantity help uses plain role names (total count, numerator, denominator, one part) rather than algebraic letters. The student still supplies every numerical value.

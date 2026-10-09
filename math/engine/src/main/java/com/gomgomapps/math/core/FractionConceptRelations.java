@@ -27,8 +27,8 @@ public final class FractionConceptRelations {
    default:
     int[] publicValues=QuantityFractionCheck.read(q);if(publicValues==null)return;
     long total=publicValues[0],num=publicValues[1],bottom=publicValues[2];
-    step(g,"전체의 양을 쓰세요.","전체 T = ",total);step(g,"문제의 분자를 쓰세요.","분자 a = ",num);step(g,"문제의 분모를 쓰세요.","분모 b = ",bottom);
-    step(g,"전체를 분모만큼 똑같이 나누세요.","한 부분 P = T ÷ b = ",total/bottom);step(g,"한 부분의 양에 필요한 부분의 수를 곱하세요.","필요한 양 = P × a = ",(total/bottom)*num);
+    step(g,"전체의 양을 쓰세요.","전체 수 = ",total);step(g,"문제의 분자를 쓰세요.","분자 = ",num);step(g,"문제의 분모를 쓰세요.","분모 = ",bottom);
+    step(g,"전체를 분모만큼 똑같이 나누세요.","전체 수 ÷ 분모 = ",total/bottom);step(g,"한 부분의 양에 필요한 부분의 수를 곱하세요.","한 부분 × 분자 = ",(total/bottom)*num);
   }
   q.studyGuide=g;
  }
