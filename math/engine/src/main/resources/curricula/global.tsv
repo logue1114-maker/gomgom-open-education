@@ -1727,3 +1727,6 @@ MAP	england-primary-2021-v1	6	primarySequenceDescription	Selected EN-Y6-30 compo
 MAP	england-primary-2021-v1	6	primaryWriteExpression	Selected EN-Y6-31 direct one-operation expression writing with x and constants1..100, algebraically equivalent input; wider formula/context work remains partial
 
 MAP	england-primary-2021-v1	6	primaryFormulaContext	Selected EN-Y6-29/31 grouped objects plus loose objects, learner authors ax+b and evaluates specified x; each1..12/loose0..12/x0..20, two stories; wider formula contexts remain partial
+
+MAP	england-primary-2021-v1	2	place10,wholePlaceValue	Selected EN-Y2-02 digit and digit value in two-digit numbers10..99; concrete/pictorial representations remain partial
+RULE	england-primary-2021-v1	2	place10,wholePlaceValue	wholeMaximum=99;minGiven=10;maxGiven=99;maxResult=99;nonnegative=true
