@@ -1888,3 +1888,5 @@ RULE	england-primary-2021-v1	5	populationComparison	maxGiven=1000000
 MAP	england-primary-2021-v1	5	romanRead,romanYearRead	Selected EN-Y5-06 canonical numeralsI..M and recorded years1..3999, including four-digit years; historical contexts and proficiency remain
 RULE	england-primary-2021-v1	5	romanRead	wholeMaximum=1000;maxResult=1000;nonnegative=true
 RULE	england-primary-2021-v1	5	romanYearRead	wholeMaximum=3999;maxResult=3999;nonnegative=true
+MAP	england-primary-2021-v1	5	mentalPlaceAddition,mentalPlaceSubtraction	Selected EN-Y5-08 four-to-six-digit whole numbers with single place-value changes; wider mental strategies and fluency remain
+RULE	england-primary-2021-v1	5	mentalPlaceAddition,mentalPlaceSubtraction	wholeDigits=6;secondDigits=6;minGiven=0;maxGiven=999999;maxResult=1899999;nonnegative=true
