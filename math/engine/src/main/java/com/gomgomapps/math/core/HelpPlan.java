@@ -81,7 +81,7 @@ public final class HelpPlan {
         FactorTeaching.attach(q);
         ColumnArithmeticTeaching.attach(q);
         WholeNumberRelations.attach(q);
-        EstimateCalculationCheck.attach(q);InverseCalculationCheck.attach(q);MissingNumberSupply.attach(q);
+        RelatedCalculationFacts.attach(q);EstimateCalculationCheck.attach(q);InverseCalculationCheck.attach(q);MissingNumberSupply.attach(q);
         FactRelations.attach(q);
         RepeatedGroupingRelations.attach(q);
         RoundingRelations.attach(q);
