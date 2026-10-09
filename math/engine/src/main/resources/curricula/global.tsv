@@ -1848,3 +1848,6 @@ RULE	england-primary-2021-v1	4	numberLineRead	wholeMaximum=10000;maxGiven=10000;
 
 MAP	england-primary-2021-v1	4	practicalPlaceStories	Selected EN-Y4-08 inventory context through10000; broader practical number problems remain
 RULE	england-primary-2021-v1	4	practicalPlaceStories	wholeMaximum=10000;minGiven=0;maxGiven=10000;maxResult=10000;nonnegative=true
+
+MAP	england-primary-2021-v1	4	romanRead	Selected EN-Y4-09 Roman reading I to C; history/zero/place-value comparison remains
+RULE	england-primary-2021-v1	4	romanRead	wholeMaximum=100;minGiven=1;maxGiven=100;maxResult=100;nonnegative=true
