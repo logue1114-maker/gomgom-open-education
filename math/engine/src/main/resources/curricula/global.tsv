@@ -1673,3 +1673,5 @@ RULE	england-primary-2021-v1	5	decimalQuantityTotal	decimalPlaces=3;wholeMaximum
 RULE	england-primary-2021-v1	5	decimalQuantityRemaining	decimalPlaces=3;wholeMaximum=99
 RULE	england-primary-2021-v1	5	decimalAdd	decimalPlaces=3
 RULE	england-primary-2021-v1	5	decimalSub	decimalPlaces=3
+
+MAP	england-primary-2021-v1	5	percentHundredthsFraction,percentDecimal	Selected whole percentages0..100 to denominator100 fractions and decimals; reverse/contextual equivalents remain

@@ -278,3 +278,5 @@ Equal amounts expressed as counts of decimal units: [scope](DECIMAL_UNIT_COUNT.m
 Full English decimal numerals and words: [scope](ENGLISH_DECIMAL_WORDS.md).
 
 Selected decimal measurement stories: [scope and limits](DECIMAL_MEASURE_STORIES.md).
+
+Selected percentage notation: [scope and limits](PERCENTAGE_NOTATION.md).

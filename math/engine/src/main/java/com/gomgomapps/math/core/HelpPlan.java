@@ -104,6 +104,7 @@ public final class HelpPlan {
         DecimalUnitRelations.attach(q);
         EnglishDecimalWords.attach(q);
         DecimalMeasureStories.attach(q);
+        PercentageNotation.attach(q);
         if(q!=null)RadicalTeaching.attach(q);
         if(q!=null&&q.studyGuide!=null&&!q.studyGuide.frames.isEmpty()){
             HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:q.studyGuide.frames)plan.steps.add(new Step(frame));
