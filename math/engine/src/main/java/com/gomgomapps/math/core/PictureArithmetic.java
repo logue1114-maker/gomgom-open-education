@@ -1,0 +1,15 @@
+package com.gomgomapps.math.core;
+import java.util.*;import java.util.regex.*;
+/** Mixed add/take-away contexts with public objects, learner-authored values and no answer transfer. */
+public final class PictureArithmetic {
+ private PictureArithmetic(){}
+ public static final String ID="pictureArithmetic",VERSION="picture-arithmetic-v1";
+ public static final Catalog.Skill SKILL=new Catalog.Skill(ID,"단추 그림으로 계산하기",2,1,1,"","pictureArithmetic",20,"add20,sub20","그림과 문장에서 넣은 수와 꺼낸 수를 구분해 전체 수나 남은 수를 계산한다.");
+ public static boolean supports(String id){return ID.equals(id);}
+ static Map<String,String> relations(){Map<String,String> m=new LinkedHashMap<>();m.put("put","전체 수 = 원래 수 + 더 넣은 수");m.put("take","남은 수 = 처음 수 − 꺼낸 수");return m;}
+ static Question make(boolean put,int a,int b){if(a<0||b<0||a>20||b>20||(put?a+b>20:b>a))throw new IllegalArgumentException("picture arithmetic domain");String prompt="상자에 단추 "+a+"개가 있어요.\n단추 "+b+(put?"개를 더 넣었어요.\n상자에 있는 단추는 모두 몇 개인가요?":"개를 꺼냈어요.\n상자에 남은 단추는 몇 개인가요?");Question q=new Question(ID,prompt,"",""+(put?a+b:a-b));q.kind="pictureArithmetic";q.labels=new String[]{"단추 수"};q.stepSupport=false;q.diagram=new StudyDiagram(put?"putButtons":"takeButtons",new double[]{a,b});return q;}
+ static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){Map<String,Question> pool=new LinkedHashMap<>();for(boolean put:new boolean[]{true,false})for(int a=0;a<=20;a++)for(int b=0;b<=20;b++){if(put?a+b>20:b>a)continue;Question q=make(put,a,b);if(limits.allows(q))pool.put(q.signature(),q);}Question q=FactFoundations.choose(pool,random,recent);attach(q);return q;}
+ public static int[] read(Question q){if(q==null||!supports(q.skillId)||q.diagram==null||q.diagram.values==null||q.diagram.values.length!=2||!Set.of("putButtons","takeButtons").contains(q.diagram.type)||q.prompt==null)return null;boolean put=q.diagram.type.equals("putButtons");double[] n=q.diagram.values;if(Arrays.stream(n).anyMatch(v->!Double.isFinite(v)||v!=(int)v||v<0||v>20))return null;int a=(int)n[0],b=(int)n[1];if(put?a+b>20:b>a)return null;String expected="상자에 단추 "+a+"개가 있어요.\n단추 "+b+(put?"개를 더 넣었어요.\n상자에 있는 단추는 모두 몇 개인가요?":"개를 꺼냈어요.\n상자에 남은 단추는 몇 개인가요?");if(!expected.equals(q.prompt))return null;return new int[]{a,b,put?1:0,put?a+b:a-b};}
+ static Checker.Result check(Question q,List<String> answers){int[] v=read(q);if(v==null||answers.size()!=1||!answers.get(0).trim().matches("[0-9]{1,2}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"단추 수 입력 필요");return Integer.parseInt(answers.get(0).trim())==v[3]?new Checker.Result(Checker.Status.CORRECT,-1,"정답"):new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 단추 수 확인");}
+ public static void attach(Question q){int[] v=read(q);if(v==null)return;boolean put=v[2]==1;StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion=VERSION;g.choice("문장에서 구하는 수의 관계를 고르세요.",relations(),put?"put":"take");g.step("처음 상자에 있던 단추 수를 쓰세요.","처음 단추 수 = ","",""+v[0]);g.step(put?"더 넣은 단추 수를 쓰세요.":"꺼낸 단추 수를 쓰세요.",put?"더 넣은 수 = ":"꺼낸 수 = ","",""+v[1]);g.step("고른 관계식에 맞게 계산하세요.",put?"원래 수 + 더 넣은 수 = ":"처음 수 − 꺼낸 수 = ","",""+v[3]);q.studyGuide=g;}
+}
