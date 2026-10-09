@@ -1779,3 +1779,6 @@ RULE	england-primary-2021-v1	1	numberLineRead,numberCompareWords	wholeMaximum=10
 RULE	england-primary-2021-v1	1	objectCompareWords	wholeMaximum=20;maxResult=20;nonnegative=true;includeZeroCount=true
 MAP	england-primary-2021-v1	2	numberLineRead	Selected EN-Y2-03 exact number-line reading0..100, steps1/10; estimation and wider representations remain
 RULE	england-primary-2021-v1	2	numberLineRead	wholeMaximum=100;maxResult=100;nonnegative=true
+
+MAP	england-primary-2021-v1	1	statementSign	Selected EN-Y1-06 missing +/minus/equality signs; full statement authorship/interpretation remains partial
+RULE	england-primary-2021-v1	1	statementSign	wholeMaximum=20

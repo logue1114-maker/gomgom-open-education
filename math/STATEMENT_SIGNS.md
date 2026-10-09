@@ -1,0 +1,5 @@
+# Primary arithmetic statement signs
+
+Selected England Year1 EN-Y1-06 practice: choose the missing +, minus or equality sign in arithmetic statements within0..20. Both equality directions occur. 1344 distinct visible conditions exhaust before oldest-condition reuse; the only three possible sign answers are not 1344 answer values. Zero numbers occur, but a missing operation before a zero second operand is excluded because both plus/minus could fit. Each generated statement has exactly one fitting offered sign. Choices use stable values with shuffled display order.
+
+Checking parses public arithmetic rather than a stored answer key. Help contains three learner-filled given-number fields and cannot transfer the final sign. This selected recognition task is not full free statement writing, oral interpretation or evidence of learning efficacy. Existing Year2 place-value/number-fact practice is retained. Target engine tests cover finite supply, both equality directions, zero, ambiguous exclusion, malformed arithmetic, grade placement and poisoned keys. UI/localization/device artifacts are private. Play release remains a separate owner.
