@@ -1904,3 +1904,6 @@ RULE	england-primary-2021-v1	5	twoStepChangeStories	wholeMaximum=1000000;minGive
 MAP	england-primary-2021-v1	5	allFactorPairs,allCommonFactors,firstFiveMultiples	Selected EN-Y5-11 complete factor pairs, common factors and ordered positive multiples
 RULE	england-primary-2021-v1	5	allFactorPairs,allCommonFactors	maxGiven=144;maxResult=144;nonnegative=true
 RULE	england-primary-2021-v1	5	firstFiveMultiples	maxGiven=144;maxResult=720;nonnegative=true
+
+MAP	england-primary-2021-v1	5	primeCompositeClassify,primeFactorIdentify	Selected EN-Y5-12 prime/composite classification and prime-factor identification
+RULE	england-primary-2021-v1	5	primeCompositeClassify,primeFactorIdentify	maxGiven=144;maxResult=144;nonnegative=true

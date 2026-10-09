@@ -430,3 +430,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Complete factor and multiple lists](COMPLETE_FACTOR_PRACTICE.md): all pairs, common factors and ordered positive multiples through144.
 
 - [Learner-owned factor list marking](LEARNER_FACTOR_LISTS.md): completeness without exposing missing values or blaming valid entries.
+
+- [Prime vocabulary practice](PRIME_VOCABULARY.md): public-given classification and prime-factor identification.
