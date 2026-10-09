@@ -1,0 +1,17 @@
+package com.gomgomapps.math.core;
+import java.util.*;
+/** Contexts and public arrays for known-factor total/sharing/grouping problems. */
+public final class ButtonPlateStories {
+ private ButtonPlateStories(){}
+ public static final String ID="buttonPlateStories",VERSION="button-plate-stories-v1";
+ public static final Catalog.Skill SKILL=new Catalog.Skill(ID,"접시와 단추 문제",2,1,1,"","buttonPlateStories",120,"tables,divide,mulIntro","그림과 문장에서 전체 수·한 접시 수·접시 수의 관계를 선택한다.");
+ public static boolean supports(String id){return ID.equals(id);}
+ static final Set<Integer> KNOWN=Set.of(2,5,10);
+ static String prompt(int mode,int a,int b){return mode==0?"한 접시에 단추 "+a+"개씩 담겨 있어요.\n접시는 "+b+"개예요.\n단추는 모두 몇 개인가요?":mode==1?"단추 "+a+"개를 접시에 똑같이 나눠 담아요.\n접시는 "+b+"개예요.\n한 접시에 단추를 몇 개씩 담나요?":"단추 "+a+"개를 접시에 담아요.\n한 접시에는 "+b+"개씩 담아요.\n접시는 몇 개 필요한가요?";}
+ static Map<String,String> relations(){Map<String,String> m=new LinkedHashMap<>();m.put("total","전체 수 = 한 접시 수 × 접시 수");m.put("share","한 접시 수 = 전체 수 ÷ 접시 수");m.put("group","접시 수 = 전체 수 ÷ 한 접시 수");return m;}
+ static Question make(int mode,int a,int b){if(mode<0||mode>2||(mode==0?!KNOWN.contains(a)||b<0||b>12:a<0||!KNOWN.contains(b)||a%b!=0||a/b>12))throw new IllegalArgumentException("plate story domain");int result=mode==0?a*b:a/b;Question q=new Question(ID,prompt(mode,a,b),"",""+result);q.kind="buttonPlateStories";q.labels=new String[]{mode==2?"접시 수":"단추 수"};q.stepSupport=false;q.diagram=new StudyDiagram(new String[]{"buttonPlateTotal","buttonPlateShare","buttonPlateGroup"}[mode],new double[]{a,b});return q;}
+ static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){Map<String,Question> pool=new LinkedHashMap<>();for(int mode=0;mode<3;mode++)for(int unit:KNOWN)for(int n=0;n<=12;n++){Question q=make(mode,mode==0?unit:unit*n,mode==0?n:unit);if(limits.allows(q))pool.put(q.signature(),q);}Question q=FactFoundations.choose(pool,random,recent);attach(q);return q;}
+ public static int[] read(Question q){if(q==null||!supports(q.skillId)||q.diagram==null||q.diagram.values==null||q.diagram.values.length!=2)return null;int mode=List.of("buttonPlateTotal","buttonPlateShare","buttonPlateGroup").indexOf(q.diagram.type);if(mode<0)return null;double[] v=q.diagram.values;if(Arrays.stream(v).anyMatch(x->!Double.isFinite(x)||x!=(int)x||x<0||x>120))return null;int a=(int)v[0],b=(int)v[1];if(mode==0?!KNOWN.contains(a)||b>12:!KNOWN.contains(b)||a%b!=0||a/b>12)return null;if(!prompt(mode,a,b).equals(q.prompt))return null;return new int[]{mode,a,b,mode==0?a*b:a/b};}
+ static Checker.Result check(Question q,List<String> answers){int[] v=read(q);if(v==null||answers.size()!=1||!answers.get(0).trim().matches("[0-9]{1,3}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 필요");return Integer.parseInt(answers.get(0).trim())==v[3]?new Checker.Result(Checker.Status.CORRECT,-1,"정답"):new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 수 확인");}
+ public static void attach(Question q){int[] v=read(q);if(v==null)return;int mode=v[0];StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion=VERSION;g.choice("구하려는 수의 관계를 고르세요.",relations(),new String[]{"total","share","group"}[mode]);g.step(mode==0?"한 접시에 담긴 단추 수를 쓰세요.":"전체 단추 수를 쓰세요.",mode==0?"한 접시 수 = ":"전체 수 = ","",""+v[1]);g.step(mode==2?"한 접시에 담을 단추 수를 쓰세요.":"접시 수를 쓰세요.",mode==2?"한 접시 수 = ":"접시 수 = ","",""+v[2]);g.step(mode==0?"같은 수를 접시 수만큼 더해 전체 수를 구하세요.":"고른 관계식에 맞게 계산하세요.",mode==0?"한 접시 수 × 접시 수 = ":mode==1?"전체 수 ÷ 접시 수 = ":"전체 수 ÷ 한 접시 수 = ","",""+v[3]);q.studyGuide=g;}
+}

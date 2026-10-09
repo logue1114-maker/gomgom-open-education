@@ -352,3 +352,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Pictured arithmetic contexts](PICTURE_ARITHMETIC.md): mixed add/take-away stories and optional learner-authored relationships.
 
 - [Multiplication and division order](PRODUCT_ORDER.md): numeric products and division comparison with equal and undefined exceptions.
+
+- [Button and plate contexts](BUTTON_PLATE_STORIES.md): total, equal sharing and grouping with student-authored relationship help.

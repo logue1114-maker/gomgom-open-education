@@ -1791,3 +1791,6 @@ RULE	england-primary-2021-v1	2	pictureArithmetic	wholeMaximum=20;maxResult=20;no
 
 MAP	england-primary-2021-v1	2	productOrder	Selected EN-Y2-14 known-factor order comparison; numeric products and division equality/undefined exceptions
 RULE	england-primary-2021-v1	2	productOrder	wholeMaximum=120
+
+MAP	england-primary-2021-v1	2	buttonPlateStories	Selected EN-Y2-15 array and plate stories; total/sharing/grouping with2,5,10 and zero
+RULE	england-primary-2021-v1	2	buttonPlateStories	wholeMaximum=120;maxResult=120;nonnegative=true

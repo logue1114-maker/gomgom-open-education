@@ -1,0 +1,7 @@
+# Button and plate contexts
+
+Selected England Year2 EN-Y2-15 total/sharing/grouping practice. A mixed unit uses buttons per plate and a given plate count to ask for the total; shares a given total equally among a given plate count; or asks how many plates are needed when each holds a given count. Known factors/divisors2,5,10 and counts/quotients0..12 keep totals at most120. Public stories must exactly agree with the given diagram values. Arrays show given groups; sharing shows loose objects and empty plates; grouping shows loose objects and one sample plate, without a computed plate-count label.
+
+117 public conditions (39 per context) exhaust before oldest reuse. These are not117 unique numeric answers. Optional learner help chooses a number-free relationship, asks for the two given counts and the computed result, and never transfers an answer back to the main response. The total frame explains repeated addition in words while preserving the multiplication relation. Existing general tables/division and object-counting units remain unchanged.
+
+Target tests independently verify all finite conditions, oldest reuse, zero/max cases, public story/diagram mismatch, malformed inputs, poisoned keys, student blanks and grade placement. This selected screen-based array/story subtype does not complete all concrete materials, mental methods, broad contexts or curricula/fluency. Tests are not physical-device, learning-effect or Play-release evidence. UI/translations/learner records/QA/APK remain private.
