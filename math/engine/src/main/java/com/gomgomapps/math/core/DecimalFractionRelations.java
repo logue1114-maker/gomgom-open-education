@@ -17,7 +17,7 @@ public final class DecimalFractionRelations {
   }else{
    Matcher m=Pattern.compile("(\\d+\\.\\d+)의 값을 분수로 나타내세요\\.").matcher(q.prompt);if(!m.matches())return;
    String raw=m.group(1);BigDecimal v=new BigDecimal(raw);int places=raw.length()-raw.indexOf('.')-1;if(places>9)return;
-   long d=1;for(int i=0;i<places;i++)d*=10;long n=v.multiply(BigDecimal.valueOf(d)).longValueExact();
+   long d=1;for(int i=0;i<places;i++)d*=10;java.math.BigInteger numerator=v.multiply(BigDecimal.valueOf(d)).toBigIntegerExact();if(numerator.bitLength()>63)throw new ArithmeticException("BigInteger out of long range");long n=numerator.longValue();
    step(g,"문제의 소수를 쓰세요.","소수 v = ",raw);g.frames.get(0).inputFormat="decimal";
    step(g,"소수점 아래 자릿수를 세어 쓰세요.","소수점 아래 자릿수 p = ",Integer.toString(places));
    step(g,"첫째 자리의 분모는 10입니다. 자릿수가 하나 늘 때마다 분모가 10배가 됩니다.","분모 d = 자릿수 p에 맞는 분모 = ",Long.toString(d));

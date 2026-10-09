@@ -189,7 +189,7 @@ public final class ElementaryBasics {
             case "el_fraction_compare": return fractionCompare(skill,random,limits);
             case "el_fraction_common_den": return fractionCommonDen(skill,random);
             case "el_fraction_decimal": return fractionDecimal(skill,random,limits);
-            case "el_decimal_fraction": return decimalFraction(skill,random);
+            case "el_decimal_fraction": return decimalFraction(skill,random,limits);
             case "el_fraction_of_number": return fractionOfNumber(skill,random);
             case "el_decimal_round": return decimalRounding(skill,random,limits);
             case "el_divisor": return factorGuide(divisor(skill,random));
@@ -886,8 +886,8 @@ public final class ElementaryBasics {
         return question;
     }
 
-    private static Question decimalFraction(Catalog.Skill skill,Random random){
-        int scale=random.nextBoolean()?10:100,whole=n(random,1,99),fraction=n(random,1,scale-1);
+    private static Question decimalFraction(Catalog.Skill skill,Random random,CurriculumLimits limits){
+        int scale=(int)Math.pow(10,n(random,1,limits.decimalPlaces(2))),whole=n(random,limits.givenMinimum(1),limits.givenMaximum(99)),fraction=n(random,1,scale-1);
         int value=whole*scale+fraction;
         Rational answer=r(value,scale);
         String decimal=d(value,scale);
