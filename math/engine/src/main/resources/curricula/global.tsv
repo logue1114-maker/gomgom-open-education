@@ -1842,3 +1842,6 @@ RULE	england-primary-2021-v1	4	thousandMore,thousandLess	maxGiven=10000;maxResul
 
 MAP	england-primary-2021-v1	4	negativeCountBackward	Selected EN-Y4-03 backward three-term sequences through zero and in negative range;320 distinct conditions
 RULE	england-primary-2021-v1	4	negativeCountBackward	maxGiven=50;maxResult=50
+
+MAP	england-primary-2021-v1	4	numberLineRead	Selected EN-Y4-06 number-line representation through10000; four scales and12221 public geometries, estimation/other representations remain
+RULE	england-primary-2021-v1	4	numberLineRead	wholeMaximum=10000;maxGiven=10000;maxResult=10000;nonnegative=true

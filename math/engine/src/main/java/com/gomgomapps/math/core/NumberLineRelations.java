@@ -9,14 +9,14 @@ public final class NumberLineRelations {
     public static final Catalog.Skill SKILL=new Catalog.Skill(ID,"수직선 읽기",1,1,1,"","numberLine",100,"count","숫자 눈금과 한 칸의 크기를 보고 A의 수를 찾는다.");
     public static boolean supports(String id){return ID.equals(id);}
     static Question make(int start,int step,int mark){
-        if(start<0||!(step==1||step==10||step==100)||start+10*step>1000||mark<0||mark>10)throw new IllegalArgumentException("number line domain");
+        if(start<0||!(step==1||step==10||step==100||step==1000)||start+10*step>10000||mark<0||mark>10)throw new IllegalArgumentException("number line domain");
         Question q=new Question(ID,"A가 나타내는 수를 쓰세요.","",""+(start+step*mark));
         q.kind="numberLine";q.stepSupport=false;q.labels=new String[]{"답"};
         // Marker index is public geometry, not a hidden correct-answer number.
         q.diagram=new StudyDiagram("primaryNumberLine",new double[]{start,step,10,mark});return q;
     }
     static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){
-        int maximum=Math.min(1000,limits.wholeMaximum(100));Map<String,Question> pool=new LinkedHashMap<>();
+        int maximum=Math.min(10000,limits.wholeMaximum(100));if(maximum>1000)return upperNext(random,limits,recent,maximum);Map<String,Question> pool=new LinkedHashMap<>();
         // Keep lower-grade windows unchanged. Larger lines start on tens, retaining every value through1000 without tens of thousands of nearly identical windows.
         int stride=maximum>100?10:1;
         for(int step:new int[]{1,10,100})for(int start=0;start+10*step<=maximum;start+=stride)for(int mark=0;mark<=10;mark++){
@@ -29,10 +29,18 @@ public final class NumberLineRelations {
         }
         Question selected=FactFoundations.choose(pool,random,recent);attach(selected);return selected;
     }
+    private static Question upperNext(Random random,CurriculumLimits limits,Map<String,Integer> recent,int maximum){
+        List<Integer> scales=new ArrayList<>(List.of(1,10,100,1000));Collections.shuffle(scales,random);Question oldest=null;int age=Integer.MAX_VALUE;
+        for(int step:scales){int count=(maximum/(10*step))*11;if(count==0)continue;
+            Question candidate=IndexedQuestionSupply.choose(count,i->make((i/11)*10*step,step,i%11),random,limits,recent);
+            Integer seen=recent.get(candidate.signature());if(seen==null){attach(candidate);return candidate;}if(seen<age){age=seen;oldest=candidate;}
+        }
+        if(oldest==null)throw new IllegalStateException("No upper number line matches curriculum");attach(oldest);return oldest;
+    }
     public static int[] read(Question q){
         if(q==null||!supports(q.skillId)||q.diagram==null||!"primaryNumberLine".equals(q.diagram.type)||q.diagram.values.length!=4)return null;
         int[] v=new int[4];for(int i=0;i<4;i++){double value=q.diagram.values[i];if(!Double.isFinite(value)||value!=(int)value)return null;v[i]=(int)value;}
-        return v[0]>=0&&(v[1]==1||v[1]==10||v[1]==100)&&v[2]==10&&(long)v[0]+v[1]*10<=1000&&v[3]>=0&&v[3]<=10?v:null;
+        return v[0]>=0&&(v[1]==1||v[1]==10||v[1]==100||v[1]==1000)&&v[2]==10&&(long)v[0]+v[1]*10<=10000&&v[3]>=0&&v[3]<=10?v:null;
     }
     public static void attach(Question q){
         int[] v=read(q);if(v==null)return;
@@ -47,7 +55,7 @@ public final class NumberLineRelations {
         q.studyGuide=guide;
     }
     static Checker.Result check(Question q,List<String> answers){
-        int[] v=read(q);if(v==null||answers.size()!=1||!answers.get(0).trim().matches("[0-9]{1,4}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"답 입력 필요");
+        int[] v=read(q);if(v==null||answers.size()!=1||!answers.get(0).trim().matches("[0-9]{1,5}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"답 입력 필요");
         return Integer.parseInt(answers.get(0).trim())==v[0]+v[1]*v[3]?new Checker.Result(Checker.Status.CORRECT,-1,"정답"):new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 답 확인");
     }
 }

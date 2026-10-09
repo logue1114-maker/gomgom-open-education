@@ -388,3 +388,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [1,000 more or less](THOUSAND_CHANGE.md): arbitrary starts and student-entered change relationships.
 
 - [Counting backwards through zero](NEGATIVE_COUNTING.md): three student entries, including negative integers.
+
+- [Year4 number lines](YEAR4_NUMBER_LINES.md): four scales through10000, with existing lower-grade domains preserved.
