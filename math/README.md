@@ -272,3 +272,5 @@ Selected same-precision comparison and nearest-whole rounding: [scope](DECIMAL_R
 Selected Year5 decimal relations and indexed supply: [scope](YEAR5_DECIMAL_RELATIONS.md).
 
 Selected Year5 fraction/decimal notation through thousandths: [scope and remaining work](YEAR5_FRACTION_DECIMALS.md).
+
+Equal amounts expressed as counts of decimal units: [scope](DECIMAL_UNIT_COUNT.md).

@@ -55,6 +55,7 @@ public final class Generator {
         if(FractionFamilies.supports(skillId))q=FractionFamilies.next(s,random,limits,previous);
         if(DecimalCounting.supports(skillId))q=DecimalCounting.next(s,random,limits,previous);
         if(PowerTenDivision.supports(skillId))q=PowerTenDivision.next(s,random,limits,previous);
+        if(DecimalUnitRelations.supports(skillId))q=DecimalUnitRelations.next(random,limits,previous);
         if(DecimalPlaceRelations.supports(skillId))q=DecimalPlaceRelations.next(random,limits,previous);
         if(DecimalRoundingSupply.supports(skillId,limits))q=DecimalRoundingSupply.next(random,limits,previous);
         if(FractionNamesRelations.supports(skillId))q=FractionNamesRelations.next(s,random,limits,previous);

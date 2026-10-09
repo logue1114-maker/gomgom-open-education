@@ -1661,3 +1661,5 @@ RULE	england-primary-2021-v1	5	el_decimal_compare	decimalPlaces=3;wholeMaximum=9
 RULE	england-primary-2021-v1	5	decimalOrder	decimalPlaces=3;wholeMaximum=99
 MAP	england-primary-2021-v1	5	el_fraction_decimal	Selected proper tenths/hundredths/thousandths to decimals with student unit-part frames; zero/whole quantities, unit equivalence and verbal reading remain
 RULE	england-primary-2021-v1	5	el_fraction_decimal	decimalPlaces=3;denominators=10,100,1000
+
+MAP	england-primary-2021-v1	5	decimalUnitCount	Selected equal-amount counts between thousandths and tenths/hundredths; full reading/writing and contextual representations remain
