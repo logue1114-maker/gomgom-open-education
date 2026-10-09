@@ -276,3 +276,5 @@ Selected Year5 fraction/decimal notation through thousandths: [scope and remaini
 Equal amounts expressed as counts of decimal units: [scope](DECIMAL_UNIT_COUNT.md).
 
 Full English decimal numerals and words: [scope](ENGLISH_DECIMAL_WORDS.md).
+
+Selected decimal measurement stories: [scope and limits](DECIMAL_MEASURE_STORIES.md).

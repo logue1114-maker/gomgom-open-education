@@ -1667,3 +1667,9 @@ MAP	england-primary-2021-v1	5	decimalUnitCount	Selected equal-amount counts betw
 MAP	england-primary-2021-v1	5	englishDecimalWordsToNumber,decimalNumberToEnglishWords	Selected full English decimal numerals/words, whole part0..1000000 and one to three fractional places; oral/contextual representations remain
 RULE	england-primary-2021-v1	5	englishDecimalWordsToNumber	wholeMaximum=1000000;decimalPlaces=3
 RULE	england-primary-2021-v1	5	decimalNumberToEnglishWords	wholeMaximum=1000000;decimalPlaces=3
+
+MAP	england-primary-2021-v1	5	decimalQuantityTotal,decimalQuantityRemaining	Selected same-unit length/water totals and remaining amounts through3places; wider contextual strategies remain
+RULE	england-primary-2021-v1	5	decimalQuantityTotal	decimalPlaces=3;wholeMaximum=99
+RULE	england-primary-2021-v1	5	decimalQuantityRemaining	decimalPlaces=3;wholeMaximum=99
+RULE	england-primary-2021-v1	5	decimalAdd	decimalPlaces=3
+RULE	england-primary-2021-v1	5	decimalSub	decimalPlaces=3
