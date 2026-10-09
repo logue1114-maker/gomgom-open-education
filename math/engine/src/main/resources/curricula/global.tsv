@@ -1648,3 +1648,6 @@ RULE	england-primary-2021-v1	3	wholeDivideTen	wholeMaximum=9
 MAP	england-primary-2021-v1	4	wholeDivideTen,wholeDivideHundred,tenthsDivideTen	Selected integer0..99 division by10/100 and tenths0.0..9.9 by10; all representations remain
 RULE	england-primary-2021-v1	4	wholeDivideTen,wholeDivideHundred	wholeMaximum=99
 RULE	england-primary-2021-v1	4	tenthsDivideTen	wholeMaximum=9;decimalPlaces=1
+
+MAP	england-primary-2021-v1	4	decimalDigitValue	Selected ones/tenths/hundredths digit and value0.00..9.99; contextual quotient identification remains
+RULE	england-primary-2021-v1	4	decimalDigitValue	wholeMaximum=9;decimalPlaces=2

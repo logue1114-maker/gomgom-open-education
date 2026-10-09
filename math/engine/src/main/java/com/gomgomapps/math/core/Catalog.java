@@ -175,6 +175,7 @@ public final class Catalog {
         ALL.addAll(CountingSteps.SKILLS);
         ALL.addAll(DecimalCounting.SKILLS);
         ALL.addAll(PowerTenDivision.SKILLS);
+        ALL.addAll(DecimalPlaceRelations.SKILLS);
         ALL.addAll(CollectionGrouping.SKILLS);
         ALL.addAll(PrimaryOrdering.SKILLS);
         ALL.addAll(FractionOrdering.SKILLS);
