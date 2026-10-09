@@ -1913,3 +1913,8 @@ RULE	england-primary-2021-v1	5	smallPrimeRecall	maxGiven=19;maxResult=19;nonnega
 
 MAP	england-primary-2021-v1	5	writtenProduct4x1,writtenProduct4x2	Selected EN-Y5-14 up-to-four-digit by one/two-digit written multiplication
 RULE	england-primary-2021-v1	5	writtenProduct4x1,writtenProduct4x2	maxGiven=9999;maxResult=989901;nonnegative=true
+
+MAP	england-primary-2021-v1	5	factorPairMental,mentalDoublingProduct,mentalHalvingQuotient	Selected EN-Y5-15 convenient grouping and repeated doubling/halving from known facts; broader strategies and fluency remain
+RULE	england-primary-2021-v1	5	factorPairMental	wholeMaximum=9999
+RULE	england-primary-2021-v1	5	mentalDoublingProduct	maxGiven=99;maxResult=792;nonnegative=true
+RULE	england-primary-2021-v1	5	mentalHalvingQuotient	maxGiven=792;maxResult=99;nonnegative=true

@@ -11,11 +11,11 @@ public class DoublingCalculationTest {
    assertEquals(mul?n*b:n,value);assertArrayEquals(new String[]{"wrong key"},q.answers);
   }
  }
- @Test public void actualGradeThreeSupplyExhausts270BeforeOldestAndOtherGradesStayUnmapped(){
+ @Test public void actualGradeThreeSupplyExhausts270BeforeOldestAndOtherGradesRetainPlacement(){
   Generator g=new Generator(new Random(135));for(String id:List.of(DoublingCalculation.MULTIPLY,DoublingCalculation.DIVIDE)){
    List<String> recent=new ArrayList<>();Set<String> seen=new HashSet<>();CurriculumLimits limits=GlobalCurriculum.limits("england-primary-2021-v1",id,3);
    for(int i=0;i<270;i++){Question q=g.next(id,recent,false,limits);assertTrue(limits.allows(q));assertNotNull(DoublingCalculation.read(q));assertTrue(seen.add(q.signature()));assertTrue(q.choices.isEmpty());recent.add(q.signature());}assertEquals(recent.get(0),g.next(id,recent,false,limits).signature());
-   Learning.Profile profile=new Learning.Profile();GlobalCurriculum.chooseCountry(profile,"GB");GlobalCurriculum.choosePack(profile,"england-primary-2021-v1");for(int grade=1;grade<=6;grade++)assertEquals(grade==3,GlobalCurriculum.pack(profile).inGrade(id,grade));
+   Learning.Profile profile=new Learning.Profile();GlobalCurriculum.chooseCountry(profile,"GB");GlobalCurriculum.choosePack(profile,"england-primary-2021-v1");for(int grade=1;grade<=6;grade++)assertEquals(grade==3||grade==5,GlobalCurriculum.pack(profile).inGrade(id,grade));
   }
  }
  @Test public void badPublicOperandsDoNotUseHiddenAnswers(){

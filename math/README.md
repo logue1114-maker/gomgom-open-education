@@ -436,3 +436,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Small-prime recall](PRIME_RECALL.md): learner-owned lists without answer cardinality hints.
 
 - [Up-to-four-digit written products](LARGE_WRITTEN_PRODUCTS.md): public operand supply and learner column work.
+
+- [Year5 mental facts](YEAR5_MENTAL_FACTS.md): reuse of established mental calculation practice.
