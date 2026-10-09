@@ -1,0 +1,12 @@
+package com.gomgomapps.math.core;
+import org.junit.Test;import static org.junit.Assert.*;import java.util.*;
+public class PrimaryExpressionWritingTest {
+ @Test public void everyPublicRelationAcceptsEquivalentStudentExpressions(){Checker c=new Checker();
+  for(int op=0;op<4;op++)for(int n=1;n<=100;n++){Question q=PrimaryExpressionWriting.create(op,n);String standard=op==0?"x+"+n:op==1?"x-"+n:op==2?"x×"+n:"x÷"+n;String alternate=op==0?n+"+x":op==1?"x+(-"+n+")":op==2?n+"*x":"(x)/"+n;
+   assertTrue(c.check(q,List.of(),List.of(standard)).correct());assertTrue(c.check(q,List.of(),List.of(alternate)).correct());assertFalse(c.check(q,List.of(),List.of(standard+"+1")).correct());q.answers=new String[]{"999"};assertTrue(c.check(q,List.of(),List.of(alternate)).correct());PrimaryExpressionWriting.attach(q);assertFalse(HelpPlan.forQuestion(q).canTransfer());assertEquals(""+n,q.studyGuide.frames.get(0).expected);assertEquals(""+op,q.studyGuide.frames.get(1).expected);assertEquals("계산할 수 = ",q.studyGuide.frames.get(0).before);
+  }
+  assertTrue(c.check(PrimaryExpressionWriting.create(2,2),List.of(),List.of("x+x")).correct());assertTrue(c.check(PrimaryExpressionWriting.create(3,2),List.of(),List.of("0.5x")).correct());
+ }
+ @Test public void malformedOrUnsafeAlgebraIsInputIssueWithoutAnswerDisclosure(){Question q=PrimaryExpressionWriting.create(0,7);Checker c=new Checker();for(String raw:List.of("","x+","x/0","x/x","y+7","x=7","(","9".repeat(121))){var result=c.check(q,List.of(),List.of(raw));assertEquals(raw,Checker.Status.INPUT_NEEDED,result.status);assertFalse(result.message.contains("7"));}assertEquals(Checker.Status.WRONG_ANSWER,c.check(q,List.of(),List.of("7x")).status);}
+ @Test public void freshDomainAndSelectedMappingKeepChoiceLearningSeparate(){Generator gen=new Generator(new Random(108));Set<String> seen=new LinkedHashSet<>();for(int i=0;i<100;i++){Question q=gen.next(PrimaryExpressionWriting.ID,seen,false);assertTrue(seen.add(q.signature()));assertTrue(q.choices.isEmpty());assertTrue(q.choiceLabels.isEmpty());assertFalse(q.stepSupport);}Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"GB");GlobalCurriculum.choosePack(p,"england-primary-2021-v1");var pack=GlobalCurriculum.pack(p);assertTrue(pack.inGrade(PrimaryExpressionWriting.ID,6));assertFalse(pack.inGrade(PrimaryExpressionWriting.ID,5));assertEquals(4,PrimaryAlgebra.meaning(0,3).choiceLabels.size());}
+}
