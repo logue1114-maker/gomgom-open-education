@@ -1,0 +1,6 @@
+Factors and powers in stories
+=============================
+
+England Year5 adds four applications: choose the unique bag size that divides the bead count and find the number of bags; find the least production total that is a multiple of a batch size and reaches a minimum; multiply a square board tile count by the number of boards; divide the cube block count into exact boxes. Explicitly selected ranges are bead counts2..999 with two sizes2..12, batches2..12 and requirements1..999, square sides1..30 with1..99 boards, cube edges2..30 with exact box sizes2..100. Wider contexts, representations and fluency remain unproven.
+
+Every supplied condition is checked from visible quantities with poisoned saved keys. Empty relation frames require student quantities and calculations, and never transfer the result. Relevant prior references contain only checked student entries; no intermediate answer is prefilled. Tests exhaust the finite supplies, verify exact thresholds versus an additional batch, reject ambiguous/no-factor choices and invalid shapes, preserve fresh100 questions/type, explicit Year5 placement and blank/no-transfer help. Related remainder and primary-power tests stay passing. Android UI, curated English, student records, native QA and APKs remain private.

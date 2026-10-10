@@ -121,6 +121,7 @@ public final class Generator {
         if(limits.variedFacts()&&Set.of("tables","divide").contains(skillId))q=FactFoundations.next(s,random,limits,previous);
         if(!limits.powerNotation()&&(skillId.equals("squareWhole")||skillId.equals("rootWhole")))q=SquareFractionFoundations.nextWhole(s,random,limits,previous);
         if(!limits.powerNotation()&&CubeFoundations.supports(skillId))q=CubeFoundations.nextWhole(s,random,limits,previous);
+        if(FactorPowerStories.supports(skillId))q=FactorPowerStories.next(skillId,random,limits,previous);
         if(PrimaryPowers.added(skillId)||limits.powerNotation()&&Set.of("squareWhole","cubeWhole").contains(skillId))q=PrimaryPowers.next(skillId,random,limits,previous);
         if(skillId.equals("combinedWorkTime"))q=RateFoundations.nextWork(s,random,limits,previous);
         if(skillId.equals("vectorNorm"))q=VectorFoundationPractice.nextNorm(s,random,limits,previous);

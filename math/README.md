@@ -446,3 +446,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year5 powers of ten](YEAR5_POWERS_TEN.md): exact whole/decimal multiplication and division by10/100/1000.
 
 - [Primary squares and cubes](PRIMARY_POWERS.md): superscript notation, calculation and recognising power numbers.
+
+- [Factors and powers in stories](FACTOR_POWER_STORIES.md): exact packing, least production totals, repeated square boards and cube packing.
