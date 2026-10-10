@@ -8,6 +8,10 @@ public final class FractionOrdering {
   new Catalog.Skill("likeFractionOrder","같은 분모의 분수 순서",3,1,3,"","fractionOrdering",12,"fracCompare","같은 분모의 세 분수를 순서대로 고른다."),
   new Catalog.Skill("decimalOrder","소수 순서대로 고르기",5,1,3,"","decimalOrdering",99,"el_decimal_compare","소수 자릿값을 비교해 세 수를 순서대로 고른다."));
  public static boolean supports(String id){return id.equals("fractionOrder")||id.equals("likeFractionOrder")||id.equals("decimalOrder");}
+ static Checker.Result check(Question q,List<String> answers){
+  List<String> original=givens(q);if(original.size()!=3||answers==null||answers.size()!=3)return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"세 자리 선택 필요");
+  try{Set<Rational> distinct=new HashSet<>();for(String v:original)distinct.add(Expression.number(v));if(distinct.size()!=3)return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"문제 확인 필요");List<String> sorted=new ArrayList<>(original);sorted.sort((a,b)->Expression.number(a).compareTo(Expression.number(b))*(q.prompt.startsWith("큰")?-1:1));Set<String> used=new HashSet<>();for(int i=0;i<3;i++){String raw=answers.get(i);if(raw==null||raw.isBlank())return new Checker.Result(Checker.Status.INPUT_NEEDED,i,"자리 선택 필요");if(!original.contains(raw)||!used.add(raw))return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"이 자리 확인");if(!raw.equals(sorted.get(i)))return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"이 자리 확인");}return new Checker.Result(Checker.Status.CORRECT,-1,"계산 확인 완료");}catch(RuntimeException error){return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"문제 확인 필요");}
+ }
  public static List<String> givens(Question q){if(q==null||!supports(q.skillId))return List.of();String value=q.skillId.equals("decimalOrder")?"\\d+(?:\\.\\d{1,3})?":"\\d+/\\d+";String noun=q.skillId.equals("decimalOrder")?"소수":"분수";Matcher m=Pattern.compile("^(작은|큰) "+noun+"부터 고르세요\\.\\n("+value+") · ("+value+") · ("+value+")$").matcher(q.prompt);return m.matches()?List.of(m.group(2),m.group(3),m.group(4)):List.of();}
  static Question create(Catalog.Skill skill,Random random,CurriculumLimits limits){
   if(skill.id.equals("decimalOrder"))return createDecimals(random,limits);

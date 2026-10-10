@@ -4,6 +4,12 @@ import java.math.BigDecimal;import java.util.*;import java.util.regex.*;
 public final class ComparisonRelations {
  private ComparisonRelations(){}
  public static boolean supports(String id){return Set.of("fracCompare","el_fraction_compare","el_decimal_compare").contains(id);}
+ static Checker.Result check(Question q,List<String> answers){
+  if(q==null||q.prompt==null||!supports(q.skillId)||answers==null||answers.size()!=1)return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"비교 기호 선택 필요");
+  String answer=answers.get(0)==null?"":answers.get(0).trim();if(!Set.of("<","=",">").contains(answer))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"비교 기호 선택 필요");
+  String value=q.skillId.equals("el_decimal_compare")?"\\d{1,6}(?:\\.\\d{1,6})?":"\\d{1,6}/\\d{1,6}";Matcher m=Pattern.compile("("+value+")\\s+□\\s+("+value+")").matcher(q.prompt);if(!m.matches())return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"문제 확인 필요");
+  try{if(q.skillId.equals("fracCompare")&&Integer.parseInt(m.group(1).split("/")[1])!=Integer.parseInt(m.group(2).split("/")[1]))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"문제 확인 필요");Rational left=Expression.number(m.group(1)),right=Expression.number(m.group(2));int cmp=left.compareTo(right);String expected=cmp<0?"<":cmp>0?">":"=";boolean same=answer.equals(expected);return new Checker.Result(same?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,same?-1:0,same?"계산 확인 완료":"이 기호 확인");}catch(RuntimeException error){return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"문제 확인 필요");}
+ }
  public static void attach(Question q){
   if(q==null||q.prompt==null||!supports(q.skillId))return;StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="comparison-relations-v1";int cmp;
   if(!q.skillId.equals("el_decimal_compare")){

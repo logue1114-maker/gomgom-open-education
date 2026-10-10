@@ -452,3 +452,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Combined operations and equality](COMBINED_EQUALITY.md): two-step pencil contexts and equal-valued arithmetic sides.
 
 - [Primary scaling and rates](PRIMARY_SCALE_RATES.md): fractional batch sizes and constant-flow quantities or times.
+
+- [Public fraction comparison and ordering](PUBLIC_FRACTION_COMPARISON_ORDER.md): final checks use visible operands and ordering direction.

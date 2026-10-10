@@ -1,0 +1,6 @@
+Public fraction comparison and ordering
+=======================================
+
+Existing England Year5 comparison and ordering placements are retained. Final checking now derives the sign or three-card order from visible operands and direction, ignoring stored answer and expression values. Exact rational comparison preserves equality and rejects invalid public operands, missing selections and repeated ordering cards. Related same-denominator and decimal flows retain their public semantics. Comparison accepts surrounding whitespace and handles a missing symbol as input needed.
+
+Tests exhaust 1986 selected comparison conditions (distinct denominators2..12 with a common factor, fractions at most1), independently cross-multiply, poison stored keys, and verify both wrong alternatives. Normal generators supply100 fresh comparison and100 fresh ordering questions. Ordering includes ascending and descending directions; tests do not claim exhaustive ordering-domain coverage. Existing blank relations/card choices and no-transfer help remain unchanged. Android UI, learner records, native QA and APKs remain private. Broader contexts, physical representations, explanation and fluency are not established by these checks.
