@@ -84,7 +84,7 @@ public final class CurriculumLimits {
                 case "metricDecimals":metricDecimals=Integer.parseInt(pair[1]);if(metricDecimals<0||metricDecimals>3)throw new IllegalArgumentException("Invalid metric decimal precision");break;
                 case "maxSecondOperand":maxSecondOperand=Integer.valueOf(pair[1]);if(maxSecondOperand<1)throw new IllegalArgumentException("Invalid second operand limit");break;
                 case "maxRegroups":maxRegroups=Integer.valueOf(pair[1]);if(maxRegroups<0||maxRegroups>9)throw new IllegalArgumentException("Invalid regrouping limit");break;
-                case "answerDecimalPlaces":case "secondDecimalPlaces":int precision=Integer.parseInt(pair[1]);if(precision<0||precision>4)throw new IllegalArgumentException("Invalid decimal precision");if(pair[0].equals("answerDecimalPlaces"))answerDecimalPlaces=precision;else secondDecimalPlaces=precision;break;
+                case "answerDecimalPlaces":case "secondDecimalPlaces":int precision=Integer.parseInt(pair[1]);if(precision<0||precision>(pair[0].equals("answerDecimalPlaces")?6:4))throw new IllegalArgumentException("Invalid decimal precision");if(pair[0].equals("answerDecimalPlaces"))answerDecimalPlaces=precision;else secondDecimalPlaces=precision;break;
                 case "decimalPlaces":decimalPlaces=Integer.valueOf(pair[1]);if(decimalPlaces<1||decimalPlaces>4)throw new IllegalArgumentException("Invalid decimal places");break;
                 case "roundingDecimalPlaces":for(String target:pair[1].split(",")){int places=Integer.parseInt(target);if(places<0||places>3)throw new IllegalArgumentException("Invalid rounding decimal places");roundingDecimalTargets.add(places);}break;
                 case "sameDecimalPlaces":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid same decimal places flag");sameDecimalPlaces=true;break;
@@ -254,6 +254,7 @@ public final class CurriculumLimits {
     boolean includeZeroCount(){return includeZeroCount;}
     List<Integer> objectGroupSizes(){return objectGroupSizes.isEmpty()?List.of(2,3,4,5,10):List.copyOf(objectGroupSizes);}
     int wholeMaximum(int defaults){return givenMaximum(wholeMaximum==null?defaults:wholeMaximum);}
+    int answerDecimalPlaces(int defaults){return answerDecimalPlaces==null?defaults:answerDecimalPlaces;}
     int[] roundingUnits(){return roundingUnits.isEmpty()?new int[]{10,100,1000}:roundingUnits.stream().mapToInt(Integer::intValue).toArray();}
     int secondOperandMaximum(int defaultMaximum){return maxSecondOperand==null?defaultMaximum:Math.min(defaultMaximum,maxSecondOperand);}
     private static int regroups(long left,long right,boolean addition){
@@ -273,7 +274,7 @@ public final class CurriculumLimits {
         return count;
     }
     private static boolean fitsDecimalPlaces(String value,int places){
-        try{return Expression.number(value).mul(Rational.of(java.math.BigInteger.TEN.pow(places).longValueExact())).isInteger();}
+        try{return Expression.number(value).mul(Expression.number(java.math.BigInteger.TEN.pow(places).toString())).isInteger();}
         catch(RuntimeException error){return false;}
     }
     int givenMinimum(int defaults){return minGiven==null?defaults:minGiven.intValue();}

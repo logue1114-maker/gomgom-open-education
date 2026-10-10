@@ -21,6 +21,7 @@ public final class Checker {
         if(GroupedEstimation.supports(q.skillId)){Result guard=GroupedEstimation.phaseGuard(q);return guard==null?GroupedEstimation.checkCount(q,answers):guard;}
         Result work=checkSteps(q,steps,kinds,false);
         if(!work.correct())return work;
+        if(DecimalPowerTen.supports(q.skillId))return DecimalPowerTen.check(q,answers);
         if(MultiplyAddContexts.supports(q.skillId))return MultiplyAddContexts.check(q,answers);
         if(YearFiveNumberStories.supports(q.skillId))return YearFiveNumberStories.check(q,answers);
         if(PowerCounting.supports(q.skillId))return PowerCounting.check(q,answers);
