@@ -1,0 +1,6 @@
+Combined operations and equality
+===============================
+
+England Year5 adds two selected drills: pencil quantities from equal bags or sharing followed by receiving or using pencils; arithmetic sides made equal by a missing first operand on the right. The story supply covers multiplication/addition, multiplication/subtraction, division/addition and division/subtraction. Bag sizes or student counts2..12, bag counts or initial per-student quantities1..30, changes0..30 with nonnegative results yield35348 distinct contexts. Equality uses first operands1..30, second operands2..12, right known numbers2..12, all16 operation pairs and only whole nonnegative missing values, yielding33648 conditions. Broader modelling, representations and fluency are not completed by these drills.
+
+Every finite condition is checked from public givens with poisoned stored keys and expressions. Empty five-frame relationships require student quantities and calculations; no result transfers to the answer. Only relevant checked student references are shown. Fresh100 conditions/type and four shuffled choice positions are tested; explicit Year5 placement does not become generic Korean diagnosis placement. Android UI, curated English, learner records, APKs and native QA remain private.

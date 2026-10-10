@@ -448,3 +448,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Primary squares and cubes](PRIMARY_POWERS.md): superscript notation, calculation and recognising power numbers.
 
 - [Factors and powers in stories](FACTOR_POWER_STORIES.md): exact packing, least production totals, repeated square boards and cube packing.
+
+- [Combined operations and equality](COMBINED_EQUALITY.md): two-step pencil contexts and equal-valued arithmetic sides.

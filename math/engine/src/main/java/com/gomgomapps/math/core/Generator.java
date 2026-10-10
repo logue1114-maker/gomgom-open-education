@@ -121,6 +121,7 @@ public final class Generator {
         if(limits.variedFacts()&&Set.of("tables","divide").contains(skillId))q=FactFoundations.next(s,random,limits,previous);
         if(!limits.powerNotation()&&(skillId.equals("squareWhole")||skillId.equals("rootWhole")))q=SquareFractionFoundations.nextWhole(s,random,limits,previous);
         if(!limits.powerNotation()&&CubeFoundations.supports(skillId))q=CubeFoundations.nextWhole(s,random,limits,previous);
+        if(CombinedEqualityPractice.supports(skillId))q=CombinedEqualityPractice.next(skillId,random,limits,previous);
         if(FactorPowerStories.supports(skillId))q=FactorPowerStories.next(skillId,random,limits,previous);
         if(PrimaryPowers.added(skillId)||limits.powerNotation()&&Set.of("squareWhole","cubeWhole").contains(skillId))q=PrimaryPowers.next(skillId,random,limits,previous);
         if(skillId.equals("combinedWorkTime"))q=RateFoundations.nextWork(s,random,limits,previous);
@@ -139,7 +140,7 @@ public final class Generator {
         FactorTeaching.attach(q);
         if(q.choiceDiagrams!=null&&!q.choiceDiagrams.isEmpty()){q.choices=new ArrayList<>(q.choiceDiagrams.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
         else if(q.choiceLabels!=null&&!q.choiceLabels.isEmpty()){q.choices=new ArrayList<>(q.choiceLabels.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
-        else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number")&&!EnglishNumberWords.supports(skillId)&&!PercentageNotation.supports(skillId)&&!EquivalentQuantityStories.supports(skillId)&&!DecimalPercentReverse.supports(skillId)){if(EqualityFoundations.selected(s.id))EqualityFoundations.choices(q,random,limits);else if(skillId.equals(WholePlaceRelations.VALUE))WholePlaceRelations.choices(q,random,limits);else Choices.build(q,s,random);}
+        else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number")&&!EnglishNumberWords.supports(skillId)&&!PercentageNotation.supports(skillId)&&!EquivalentQuantityStories.supports(skillId)&&!DecimalPercentReverse.supports(skillId)){if(CombinedEqualityPractice.supports(s.id)||EqualityFoundations.selected(s.id))EqualityFoundations.choices(q,random,limits);else if(skillId.equals(WholePlaceRelations.VALUE))WholePlaceRelations.choices(q,random,limits);else Choices.build(q,s,random);}
         if(multipleChoice&&q.choices.isEmpty()&&(s.id.startsWith("el_")||s.id.startsWith("sec_")||s.family.startsWith("adv_")||s.family.startsWith("early_")))FoundationChoices.build(q,s,random);
         if(multipleChoice&&q.kind.equals("radical")){if(CoordinateDiagonal.supports(s.id))CoordinateDiagonal.choices(q,random);else if(CoordinateTriangle.PERIM.equals(s.id))CoordinateTriangle.choices(q,random);else RadicalQuestions.choices(q,random);}
         limits.constrainChoices(q);
