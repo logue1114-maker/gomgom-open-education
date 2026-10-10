@@ -42,7 +42,8 @@ public final class CurriculumLimits {
     private int metricDecimals=0;
     private Integer maxSecondOperand,maxRegroups,decimalPlaces,answerDecimalPlaces,secondDecimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides;
     private final Set<Integer> roundingDecimalTargets=new TreeSet<>();
-    private boolean sameDecimalPlaces;
+    private boolean sameDecimalPlaces,powerNotation;
+    boolean powerNotation(){return powerNotation;}
     private final List<Integer> roundingUnits=new ArrayList<>();
     private final List<Integer> percentages=new ArrayList<>();
     private String answerDomain="";
@@ -87,6 +88,7 @@ public final class CurriculumLimits {
                 case "answerDecimalPlaces":case "secondDecimalPlaces":int precision=Integer.parseInt(pair[1]);if(precision<0||precision>(pair[0].equals("answerDecimalPlaces")?6:4))throw new IllegalArgumentException("Invalid decimal precision");if(pair[0].equals("answerDecimalPlaces"))answerDecimalPlaces=precision;else secondDecimalPlaces=precision;break;
                 case "decimalPlaces":decimalPlaces=Integer.valueOf(pair[1]);if(decimalPlaces<1||decimalPlaces>4)throw new IllegalArgumentException("Invalid decimal places");break;
                 case "roundingDecimalPlaces":for(String target:pair[1].split(",")){int places=Integer.parseInt(target);if(places<0||places>3)throw new IllegalArgumentException("Invalid rounding decimal places");roundingDecimalTargets.add(places);}break;
+                case "powerNotation":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid power notation flag");powerNotation=true;break;
                 case "sameDecimalPlaces":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid same decimal places flag");sameDecimalPlaces=true;break;
                 case "wholeMaximum":wholeMaximum=Integer.valueOf(pair[1]);if(wholeMaximum<1||wholeMaximum>999999999)throw new IllegalArgumentException("Invalid whole-number range");break;
                 case "wholeDigits":case "secondDigits":int digits=Integer.parseInt(pair[1]);if(digits<1||digits>6)throw new IllegalArgumentException("Invalid operand digits");if(pair[0].equals("wholeDigits"))wholeDigits=digits;else secondDigits=digits;break;

@@ -1,0 +1,6 @@
+Primary squares and cubes
+=========================
+
+England Year5 reuses squareWhole/cubeWhole with visible superscript notation and selected bases0..100. Existing other-grade generation stays separate. recogniseSquareNumber and recogniseCubeNumber ask whether a public number is a square/cube; their finite supplies contain powers with nearby offsets minus2..plus2, within the selected maximum. Each type has at least100 distinct conditions. Classification labels are shuffled; the generator first chooses a power or non-power with equal probability, avoiding a mostly-negative answer pattern. Wider representations, ranges and fluency remain unverified.
+
+The selected checker ignores stored keys and derives results from visible givens. Blank help asks for the base, exponent and student-calculated products. Recognition uses the neighbouring-power relationship b^p <= N < (b+1)^p and the student checks equality with the lower power. No generated intermediate product is prefilled and help never transfers an answer. Core tests cover every supplied condition, poisoned keys, blank help, notation, malformed givens, fresh100 questions/type and shuffled classification positions. Previous cube/square tests remain passing. Android UI, curated English copy, student state, native QA and APKs stay private.

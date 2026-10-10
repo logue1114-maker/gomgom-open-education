@@ -444,3 +444,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Remainders in context](REMAINDER_CONTEXTS.md): packets, leftovers, capacity and exact lengths.
 
 - [Year5 powers of ten](YEAR5_POWERS_TEN.md): exact whole/decimal multiplication and division by10/100/1000.
+
+- [Primary squares and cubes](PRIMARY_POWERS.md): superscript notation, calculation and recognising power numbers.

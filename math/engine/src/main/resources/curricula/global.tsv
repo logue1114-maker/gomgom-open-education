@@ -1927,3 +1927,6 @@ RULE	england-primary-2021-v1	5	completePacketCount,leftoverPencilCount,requiredV
 
 MAP	england-primary-2021-v1	5	decimalTimesPowersTen,decimalDividePowersTen	Selected whole numbers and decimals 0..99.999 multiplied/divided by10/100/1000 with exact answers through6decimal places; larger bounds and contexts remain
 RULE	england-primary-2021-v1	5	decimalTimesPowersTen,decimalDividePowersTen	wholeMaximum=99;answerDecimalPlaces=6
+
+MAP	england-primary-2021-v1	5	squareWhole,cubeWhole,recogniseSquareNumber,recogniseCubeNumber	Selected squares/cubes and superscript notation bases0..100 plus membership near powers; wider representations/fluency remain
+RULE	england-primary-2021-v1	5	squareWhole,cubeWhole	wholeMaximum=100;maxGiven=100;powerNotation=true

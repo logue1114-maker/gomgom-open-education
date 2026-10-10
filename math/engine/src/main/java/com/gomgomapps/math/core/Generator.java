@@ -119,8 +119,9 @@ public final class Generator {
         if(MissingNumberSupply.supports(skillId,limits))q=MissingNumberSupply.next(s,random,limits,previous);
         if(limits.variedSums()&&SumFoundations.supports(skillId))q=SumFoundations.next(s,random,limits,previous);
         if(limits.variedFacts()&&Set.of("tables","divide").contains(skillId))q=FactFoundations.next(s,random,limits,previous);
-        if(skillId.equals("squareWhole")||skillId.equals("rootWhole"))q=SquareFractionFoundations.nextWhole(s,random,limits,previous);
-        if(CubeFoundations.supports(skillId))q=CubeFoundations.nextWhole(s,random,limits,previous);
+        if(!limits.powerNotation()&&(skillId.equals("squareWhole")||skillId.equals("rootWhole")))q=SquareFractionFoundations.nextWhole(s,random,limits,previous);
+        if(!limits.powerNotation()&&CubeFoundations.supports(skillId))q=CubeFoundations.nextWhole(s,random,limits,previous);
+        if(PrimaryPowers.added(skillId)||limits.powerNotation()&&Set.of("squareWhole","cubeWhole").contains(skillId))q=PrimaryPowers.next(skillId,random,limits,previous);
         if(skillId.equals("combinedWorkTime"))q=RateFoundations.nextWork(s,random,limits,previous);
         if(skillId.equals("vectorNorm"))q=VectorFoundationPractice.nextNorm(s,random,limits,previous);
         if(q==null)for(int i=0,accepted=0;i<2048&&accepted<40;i++){

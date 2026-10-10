@@ -69,6 +69,7 @@ public final class HelpPlan {
         steps.add(new Step(instruction,before,after,expected,filled,extra,denominator));
     }
     public static HelpPlan forQuestion(Question q){
+        if(PrimaryPowers.selected(q))PrimaryPowers.attach(q);
         if(q!=null&&StatisticsAngleTeaching.relationships(q.skillId))StatisticsAngleTeaching.attach(q);StatisticsSpreadRelations.attach(q);SequenceCalculusRelations.attach(q);LyceeAlgebraRelations.attach(q);HigherFoundationPractice.attach(q);VectorFoundationPractice.attach(q);MatrixWholePractice.attach(q);ModuloFoundations.attach(q);
         RatioValueTeaching.attach(q);
         SolidVolumeTeaching.attach(q);
