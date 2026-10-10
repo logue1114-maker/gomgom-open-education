@@ -440,3 +440,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year5 mental facts](YEAR5_MENTAL_FACTS.md): reuse of established mental calculation practice.
 
 - [Short written division](SHORT_WRITTEN_DIVISION.md): quotient and carried remainders.
+
+- [Remainders in context](REMAINDER_CONTEXTS.md): packets, leftovers, capacity and exact lengths.

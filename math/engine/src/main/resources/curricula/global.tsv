@@ -1921,3 +1921,6 @@ RULE	england-primary-2021-v1	5	mentalHalvingQuotient	maxGiven=792;maxResult=99;n
 
 MAP	england-primary-2021-v1	5	shortDivision4	Selected EN-Y5-16 up-to-four-digit by one-digit short written division; contextual remainder interpretation remains
 RULE	england-primary-2021-v1	5	shortDivision4	maxGiven=9999;maxResult=4999;nonnegative=true
+
+MAP	england-primary-2021-v1	5	completePacketCount,leftoverPencilCount,requiredVehicleCount,exactSharedLength	Selected EN-Y5-16 contextual remainder: whole packets, leftover items, minimum capacity, exact equal lengths
+RULE	england-primary-2021-v1	5	completePacketCount,leftoverPencilCount,requiredVehicleCount,exactSharedLength	maxGiven=9999;maxResult=9999;nonnegative=true
