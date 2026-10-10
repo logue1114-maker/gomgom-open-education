@@ -1,0 +1,6 @@
+Primary fraction scaling and constant rates
+==========================================
+
+England Year5 adds three selected contexts. Batch scaling uses90 distinct reduced proper/improper factors with denominators2..12 and factors strictly between0 and2. Original flour amounts are denominator times1..100 grams; all resulting gram amounts are whole. This gives9000 distinct conditions, including decreases and increases. Two constant-flow types give an integral rate1..30 litres/minute, initial time2..12 minutes and a different target time1..30 minutes. Ask either the target volume or time for the target volume:9570 conditions each. Wider contexts, fractional outputs, physical representations, explanations and fluency remain unproven.
+
+Checks reconstruct every answer from public quantities and ignore poisoned stored answer/expression values. Empty five-frame relations require learner quantities, one-part/unit calculation and final amount/time; no result transfers to the answer. Relevant references show only checked learner entries. Tests exhaust all28140 conditions, verify fresh100 per type and four shuffled choice positions, reject malformed factors and nonintegral selected rates, and restrict placement to reviewed England Year5. Android UI, curated English, learner records, native QA and APKs stay private.

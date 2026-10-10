@@ -450,3 +450,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Factors and powers in stories](FACTOR_POWER_STORIES.md): exact packing, least production totals, repeated square boards and cube packing.
 
 - [Combined operations and equality](COMBINED_EQUALITY.md): two-step pencil contexts and equal-valued arithmetic sides.
+
+- [Primary scaling and rates](PRIMARY_SCALE_RATES.md): fractional batch sizes and constant-flow quantities or times.

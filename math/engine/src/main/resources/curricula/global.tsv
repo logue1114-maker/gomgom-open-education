@@ -1934,3 +1934,5 @@ RULE	england-primary-2021-v1	5	squareWhole,cubeWhole	wholeMaximum=100;maxGiven=1
 MAP	england-primary-2021-v1	5	factorPackingBags,multipleProductionTarget,squareTileBoards,cubeBlockPacking	Selected factor-based exact packing, least multiple production, repeated square boards and exact cube packing; wider contexts/representations/fluency remain
 
 MAP	england-primary-2021-v1	5	combinedOperationStories,equalOperationSides	Selected EN-Y5-20 two-step multiplication/division then addition/subtraction contexts and equal-valued arithmetic sides; wider modelling, representations and fluency remain partial
+
+MAP	england-primary-2021-v1	5	fractionBatchScaling,constantFlowAmount,constantFlowTime	Selected EN-Y5-21 proper/improper fractional batch scaling with whole gram results and constant integral litres/minute amount/time problems; broader contexts, fractional results and representations remain partial
