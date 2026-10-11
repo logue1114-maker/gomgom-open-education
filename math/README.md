@@ -514,3 +514,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 [Three-digit place steps](THREE_DIGIT_PLACE_STEPS.md): selected Namibia Grade3 stepwise decomposition.
 
 [Primary product steps](PRIMARY_PRODUCT_STEPS.md): repeated addition and tens/ones products.
+
+[Inverse product facts](INVERSE_PRODUCT_FACTS.md): reviewed related multiplication/division facts.

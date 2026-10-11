@@ -2024,3 +2024,6 @@ RULE	na-nied-primary-2024-v1	2	repeatedTwoDigitProduct	wholeMaximum=20;maxGiven=
 MAP	na-nied-primary-2024-v1	3	repeatedTwoDigitProduct,splitTwoDigitProduct	JP printed16: two-digit through50 times1..10 by repeated addition; two-digit times2,3,4,5,10 product100..500 by decomposition
 RULE	na-nied-primary-2024-v1	3	repeatedTwoDigitProduct	wholeMaximum=50;maxGiven=50;maxResult=500;nonnegative=true
 RULE	na-nied-primary-2024-v1	3	splitTwoDigitProduct	maxGiven=99;maxResult=500;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	3	inverseProductFact	JP printed17: selected multiplication/division related facts of2,3,5,10; dividends10..100, table quotients1..10; Grade2 no-division-symbol task remains separate
+RULE	na-nied-primary-2024-v1	3	inverseProductFact	maxGiven=100;maxResult=100;nonnegative=true
