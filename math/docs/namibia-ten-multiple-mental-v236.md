@@ -1,0 +1,7 @@
+# Namibia Grade6 multiples-of-ten mental unit strategy — v236
+
+Official NIED Senior Primary Mathematics2024 printed41/PDF45 competency B5: recognise and use mental calculations multiplying/dividing multiples of10 (examples40×70 and2100÷300). Grade6 whole-number range through1,000,000 on printed40/PDF44.
+
+New reviewed-pack-only tenMultipleProduct/tenMultipleQuotient use positive operands divisible by10, operands/results through1m and exact positive integer quotients. Every admissible public pair appears once in the indexed domain, using prefix counts/binary search without a large question pool. Products separate the greatest power-of-ten divisor of each operand, multiply base values and units, then combine. Quotients divide both operands by their greatest shared power-of-ten unit and divide the resulting values.7/4 empty numeric helper steps;no answer transfer. Public operands determine checks even if stored answers/expression are corrupted.
+
+Tests independently count the full positive domain and sample5000 unique indices per skill including endpoints, verify visible arithmetic and poisoned metadata, official examples/all blank frames/noTransfer and200 varied normal questions per reviewed placement. Zero cases, other mental strategies/powers-of-ten practice in B6, fluency, full curricula/languages/devices/accessibility/release remain separate. APK, UI and learner evidence remain private.
