@@ -21,6 +21,7 @@ public final class Checker {
         if(GroupedEstimation.supports(q.skillId)){Result guard=GroupedEstimation.phaseGuard(q);return guard==null?GroupedEstimation.checkCount(q,answers):guard;}
         Result work=checkSteps(q,steps,kinds,false);
         if(!work.correct())return work;
+        if(CountingCalculations.supports(q.skillId))return CountingCalculations.check(q,answers);
         if(SubtractionPatterns.supports(q.skillId))return SubtractionPatterns.check(q,answers);
         if(GroupFractions.supports(q.skillId))return GroupFractions.check(q,answers);
         if(EqualPartCuts.supports(q.skillId))return EqualPartCuts.check(q,answers);

@@ -1,0 +1,7 @@
+Namibia primary counting calculation strategies
+
+Three normal practice topics teach counting on from the larger addend, counting back to subtract, and counting up from the smaller number to find a difference. Grade 1 stays within 0..20 and uses unit steps. Grade 2 addition stays within 100 and adds a single digit; subtraction stays within 0..99, with small differences (0..9) for counting up. Grade 3 sums stay within 500 and add a single digit; subtraction begins with a three-digit number (100..500). Older learners can count subtraction jumps by hundreds, tens and ones. These are selected digital strategies from NIED Junior Primary Computation printed pages 14..15, not proof of oral or concrete fluency or a completed curriculum.
+
+Help asks learners to enter starting numbers and each counted number. Counting-up help asks them to add the forward jumps. All help fields begin blank; the completed help does not transfer the answer to the main field. The checker calculates from public operands and ignores stored answer keys and expressions. Indexed domains preserve unseen conditions before reuse.
+
+The tests independently count the permitted operand pairs, check every indexed condition, verify the counting path and public-operand results with poisoned stored keys, and exercise normal fresh supply and reviewed curriculum placement. Private Android UI, student data, screenshots, advertising, billing and APK files are excluded.
