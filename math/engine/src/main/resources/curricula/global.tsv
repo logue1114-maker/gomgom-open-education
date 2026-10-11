@@ -2118,3 +2118,6 @@ RULE	na-nied-primary-2024-v1	6	largeMentalDecompositionAdd,largeMentalDecomposit
 
 MAP	na-nied-primary-2024-v1	6	convenientNumberAddition,convenientNumberSubtraction	SP printed41 B1 selected near-multiple compensation strategy; wider strategies and fluency remain
 RULE	na-nied-primary-2024-v1	6	convenientNumberAddition,convenientNumberSubtraction	wholeMaximum=1000000;wholeDigits=7;secondDigits=7;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	countSkip,countBackward	SP printed40 B1/B2 counting within0..1000000; any start for powers of ten, multiples for15/30/45/60
+RULE	na-nied-primary-2024-v1	6	countSkip,countBackward	wholeMaximum=1000000;maxGiven=1000000;maxResult=1000000;minGiven=0;nonnegative=true;countingBounds=10:1000000,100:1000000,1000:1000000,10000:1000000,100000:1000000,15:1000000,30:1000000,45:1000000,60:1000000;countingAnyStartSteps=10,100,1000,10000,100000

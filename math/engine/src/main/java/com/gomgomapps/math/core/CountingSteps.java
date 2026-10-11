@@ -9,8 +9,26 @@ public final class CountingSteps {
   new Catalog.Skill("countSkip","뛰어 세기",1,1,1,"","countSteps",1000,"count","같은 수만큼 건너뛰며 센다."));
  public static boolean supports(String id){return SKILLS.stream().anyMatch(s->s.id.equals(id));}
  static Question next(Catalog.Skill s,Random random,CurriculumLimits limits,Map<String,Integer> recent){
-  Question q=FactFoundations.choose(candidates(s,limits),random,recent);attach(q);return q;
+  Question q=limits.countingBounds().values().stream().anyMatch(max->max>10000)?largeNext(s,random,limits,recent):FactFoundations.choose(candidates(s,limits),random,recent);attach(q);return q;
  }
+ private record Segment(int step,int first,int increment,int count){}
+ private static Question largeNext(Catalog.Skill s,Random random,CurriculumLimits limits,Map<String,Integer> recent){
+  boolean back=s.id.equals("countBackward");List<Segment> segments=new ArrayList<>();int total=0;
+  for(var bound:limits.countingBounds().entrySet()){
+   int step=bound.getKey(),maximum=bound.getValue();if(s.id.equals("countForward")&&step!=1||s.id.equals("countSkip")&&step==1)continue;
+   int increment=limits.countingAnyStart(step)?1:step,first=back?step:0,last=back?maximum:maximum-step,count=(last-first)/increment+1;
+   if(count>0){segments.add(new Segment(step,first,increment,count));total=Math.addExact(total,count);}
+  }
+  if(total==0)throw new IllegalStateException("No counting problem matches curriculum limits");
+  int pivot=random.nextInt(total),oldest=Integer.MAX_VALUE;Question fallback=null;
+  for(int offset=0;offset<total;offset++){
+   int rank=(pivot+offset)%total;Segment chosen=null;for(Segment segment:segments){if(rank<segment.count){chosen=segment;break;}rank-=segment.count;}
+   int start=chosen.first+rank*chosen.increment;Question q=make(s,chosen.step,start,back);if(!limits.allows(q))continue;
+   Integer age=recent.get(q.signature());if(age==null)return q;if(fallback==null||age<oldest){fallback=q;oldest=age;}
+  }
+  if(fallback==null)throw new IllegalStateException("No counting problem matches curriculum limits");return fallback;
+ }
+ private static Question make(Catalog.Skill s,int step,int start,boolean back){Question q=new Question(s.id,step+"씩 "+(back?"거꾸로":"앞으로")+" 세세요.\n"+start+" → □","",""+(back?start-step:start+step));q.stepSupport=false;return q;}
  static Map<String,Question> candidates(Catalog.Skill s,CurriculumLimits limits){
   Map<String,Question> pool=new LinkedHashMap<>();boolean back=s.id.equals("countBackward");
   Map<Integer,Integer> bounds=limits.countingBounds();if(bounds.isEmpty())bounds=Map.of(1,100,2,30,5,100,10,100);
