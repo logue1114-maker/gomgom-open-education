@@ -27,6 +27,7 @@ public final class Checker {
         if(MixedNumberFoundations.supports(q.skillId))return MixedNumberFoundations.check(q,answers);
         if(FractionFamilies.supports(q.skillId))return FractionFamilies.check(q,answers);
         if(DecimalToFractionSupply.ID.equals(q.skillId))return DecimalToFractionSupply.check(q,answers);
+        if(DecimalUnitRelations.supports(q.skillId))return DecimalUnitRelations.check(q,answers);
         if(WholeFractionProducts.supports(q))return WholeFractionProducts.check(q,answers);
         if(PrimaryScaleRates.supports(q.skillId))return PrimaryScaleRates.check(q,answers);
         if(CombinedEqualityPractice.supports(q.skillId))return CombinedEqualityPractice.check(q,answers);

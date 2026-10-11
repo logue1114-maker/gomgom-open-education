@@ -464,3 +464,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Whole fraction products](WHOLE_FRACTION_PRODUCTS.md): proper and mixed fractions multiplied by whole numbers, with given-quantity diagrams.
 
 - [Displayed decimal fractions](PUBLIC_DECIMAL_FRACTIONS.md): preserved precision and checks from displayed values.
+
+- [Fraction and decimal unit counts](FRACTION_DECIMAL_UNITS.md): equivalent tenths, hundredths and thousandths in both notations.
