@@ -5,6 +5,14 @@ import static org.junit.Assert.*;
 
 public class CurriculumTitleTest {
     private static final String SG="sg-moe-primary-2021-v1";
+    @Test public void writtenMillionTitleUsesTheActualGradeLimit(){
+        String na="na-nied-primary-2024-v1";
+        assertEquals("1,000,000까지의 덧셈",GlobalCurriculum.title(na,"add1000",6));
+        assertEquals("1,000,000까지의 뺄셈",GlobalCurriculum.title(na,"sub1000",6));
+        assertEquals("999,999까지의 뺄셈",GlobalCurriculum.title(na,"sub1000",7));
+        Learning.Session s=new Learning.Session();s.educationSystem=na;s.curriculumGrade=1;s.selectedGrades.put("sub1000",6);
+        assertEquals("1,000,000까지의 뺄셈",GlobalCurriculum.title(s,"sub1000"));
+    }
     @Test public void selectedPlacementUsesItsActualRange(){
         assertEquals("1,000까지 수",GlobalCurriculum.title(SG,"place1000",2));
         assertEquals("10,000까지 수",GlobalCurriculum.title(SG,"largePlace",3));

@@ -84,7 +84,8 @@ public final class GlobalCurriculum {
     public static String title(String system,String id,int grade){
         Catalog.Skill skill=Catalog.get(id);
         if((id.equals("add1000")||id.equals("sub1000"))&&limits(system,id,grade).wholeDigits(3)!=3){
-            int maximum=(int)Math.pow(10,limits(system,id,grade).wholeDigits(3))-1;
+            int digitMaximum=(int)Math.pow(10,limits(system,id,grade).wholeDigits(3))-1;
+            int maximum=Math.min(digitMaximum,limits(system,id,grade).givenMaximum(digitMaximum));
             return String.format(Locale.ROOT,"%,d까지의 %s",maximum,id.equals("add1000")?"덧셈":"뺄셈");
         }
         if(limits(system,id,grade).timetables()){if(id.equals("el_time_add"))return "시간표 — 도착 시각";if(id.equals("el_time_difference"))return "시간표 — 걸린 시간";}
