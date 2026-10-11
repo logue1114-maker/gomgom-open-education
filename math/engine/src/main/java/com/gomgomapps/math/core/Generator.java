@@ -103,6 +103,7 @@ public final class Generator {
         if(MoneyBasicStories.supports(skillId))q=MoneyBasicStories.next(s,random,limits,previous);
         if(MultiplyAddContexts.supports(skillId))q=MultiplyAddContexts.next(skillId,random,limits,previous);
         else if(WrittenSingleProducts.selected(skillId,limits))q=WrittenSingleProducts.next(skillId,random,limits,previous);
+        else if(WholePowerTen.supports(skillId))q=WholePowerTen.next(skillId,random,limits,previous);
         else if(TenMultipleMental.supports(skillId))q=TenMultipleMental.next(skillId,random,limits,previous);
         else if(RemainderRepresentations.supports(skillId))q=RemainderRepresentations.next(random,limits,previous);
         else if(RemainderContexts.supports(skillId))q=RemainderContexts.next(skillId,random,limits,previous);
@@ -177,6 +178,7 @@ public final class Generator {
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
         if(MultiplyAddContexts.supports(s.id))return MultiplyAddContexts.next(s.id,random,limits,Map.of());
         if(WrittenSingleProducts.selected(s.id,limits))return WrittenSingleProducts.next(s.id,random,limits,Map.of());
+        if(WholePowerTen.supports(s.id))return WholePowerTen.next(s.id,random,limits,Map.of());
         if(TenMultipleMental.supports(s.id))return TenMultipleMental.next(s.id,random,limits,Map.of());
         if(RemainderRepresentations.supports(s.id))return RemainderRepresentations.next(random,limits,Map.of());
         if(RemainderContexts.supports(s.id))return RemainderContexts.next(s.id,random,limits,Map.of());

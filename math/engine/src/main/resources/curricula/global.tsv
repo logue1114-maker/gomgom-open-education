@@ -2106,3 +2106,6 @@ RULE	na-nied-primary-2024-v1	6	divisionRemainderValue	contextDividendMinimum=100
 
 MAP	na-nied-primary-2024-v1	6	tenMultipleProduct,tenMultipleQuotient	SP printed41 B5 selected whole-number multiples-of-ten mental unit strategy; broader B6 strategies not complete
 RULE	na-nied-primary-2024-v1	6	tenMultipleProduct,tenMultipleQuotient	maxGiven=1000000;maxResult=1000000;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	wholeTimesPowerTen,wholeOverPowerTen	SP printed41 B6 selected whole-number power-of-ten unit strategy;broader mental strategies/fluency remain
+RULE	na-nied-primary-2024-v1	6	wholeTimesPowerTen,wholeOverPowerTen	maxGiven=1000000;maxResult=1000000;answerDecimalPlaces=6;nonnegative=true
