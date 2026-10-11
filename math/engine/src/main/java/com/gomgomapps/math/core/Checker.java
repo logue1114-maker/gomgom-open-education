@@ -5,12 +5,17 @@ import java.util.*;
 public final class Checker {
     public enum Status { CORRECT, WRONG_STEP, WRONG_ANSWER, INPUT_NEEDED }
     public enum StepKind { UNSPECIFIED, PARTIAL, FULL }
+    /** A field index belongs to one input area; answer errors must not open the work editor. */
+    public enum InputTarget { ANSWER, WORK }
     public static final class Result {
         public final Status status;public final int index;public final String message;
         /** Index between equals signs, or -1 when only the whole relation can be judged. */
         public final int part;
+        public final InputTarget inputTarget;
         Result(Status status,int index,String message){this(status,index,message,-1);}
-        Result(Status status,int index,String message,int part){this.status=status;this.index=index;this.message=message;this.part=part;}
+        Result(Status status,int index,String message,int part){this(status,index,message,part,InputTarget.ANSWER);}
+        private Result(Status status,int index,String message,int part,InputTarget inputTarget){this.status=status;this.index=index;this.message=message;this.part=part;this.inputTarget=inputTarget;}
+        private Result forWorkInput(){return new Result(status,index,message,part,InputTarget.WORK);}
         public boolean correct(){return status==Status.CORRECT;}
         public boolean mathematicalError(){return status==Status.WRONG_STEP||status==Status.WRONG_ANSWER;}
     }
@@ -20,7 +25,7 @@ public final class Checker {
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
         if(GroupedEstimation.supports(q.skillId)){Result guard=GroupedEstimation.phaseGuard(q);return guard==null?GroupedEstimation.checkCount(q,answers):guard;}
         Result work=checkSteps(q,steps,kinds,false);
-        if(!work.correct())return work;
+        if(!work.correct())return work.forWorkInput();
         if(CountingCalculations.supports(q.skillId))return CountingCalculations.check(q,answers);
         if(SubtractionPatterns.supports(q.skillId))return SubtractionPatterns.check(q,answers);
         if(GroupFractions.supports(q.skillId))return GroupFractions.check(q,answers);
@@ -149,7 +154,7 @@ public final class Checker {
     }
     /** Checks only the requested work. A successful result never completes the original question. */
     public Result checkSteps(Question q,List<String> steps,List<StepKind> kinds){
-        return checkSteps(q,steps,kinds,true);
+        return checkSteps(q,steps,kinds,true).forWorkInput();
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
         if(q.kind.equals("system"))return LinearSystem.check(q,steps,kinds,requireWork);
