@@ -2027,3 +2027,6 @@ RULE	na-nied-primary-2024-v1	3	splitTwoDigitProduct	maxGiven=99;maxResult=500;no
 
 MAP	na-nied-primary-2024-v1	3	inverseProductFact	JP printed17: selected multiplication/division related facts of2,3,5,10; dividends10..100, table quotients1..10; Grade2 no-division-symbol task remains separate
 RULE	na-nied-primary-2024-v1	3	inverseProductFact	maxGiven=100;maxResult=100;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	2	groupProductLink	JP printed17: selected grouping/sharing through50 linked to1,2,5,10 multiplication; no division notation; concrete actions and fractional remainders remain
+RULE	na-nied-primary-2024-v1	2	groupProductLink	maxGiven=50;maxResult=10;nonnegative=true

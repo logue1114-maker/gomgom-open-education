@@ -516,3 +516,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 [Primary product steps](PRIMARY_PRODUCT_STEPS.md): repeated addition and tens/ones products.
 
 [Inverse product facts](INVERSE_PRODUCT_FACTS.md): reviewed related multiplication/division facts.
+
+[Group product links](GROUP_PRODUCT_LINKS.md): objects linked to missing multiplication factors.

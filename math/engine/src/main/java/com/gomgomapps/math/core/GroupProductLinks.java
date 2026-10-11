@@ -1,0 +1,16 @@
+package com.gomgomapps.math.core;
+import java.util.*;import java.util.regex.*;
+/** Object grouping/sharing linked to missing multiplication factors, without division notation. */
+public final class GroupProductLinks {
+ private GroupProductLinks(){}
+ public static final String ID="groupProductLink";
+ public static final Catalog.Skill SKILL=new Catalog.Skill(ID,"묶음과 곱셈 연결",2,1,1,"",ID,50,"objectShare,objectGroupTotal","물건을 묶거나 똑같이 나누고 곱셈식으로 확인한다.");
+ static final List<int[]> DOMAIN=new ArrayList<>();static{for(int unit:List.of(1,2,5,10))for(int count=1;count<=10;count++)if(unit*count<=50)for(int mode=0;mode<2;mode++)DOMAIN.add(new int[]{unit,count,mode});}
+ public static boolean supports(String id){return ID.equals(id);}
+ static Question make(int unit,int count,int mode){valid(unit,count,mode);int total=unit*count;String story=mode==0?"물건 "+total+"개를 "+unit+"개씩 묶어요.":"물건 "+total+"개를 "+unit+"명이 똑같이 나눠요.";Question q=new Question(ID,story+"\n"+unit+" × □ = "+total,"",""+count);q.kind=ID;q.labels=new String[]{mode==0?"묶음 수":"한 사람 몫"};q.stepSupport=false;attach(q);return q.withInputs(total,unit);}
+ private static void valid(int unit,int count,int mode){if(!List.of(1,2,5,10).contains(unit)||count<1||count>10||unit*count>50||mode<0||mode>1)throw new IllegalArgumentException("group product domain");}
+ public static int[] read(Question q){if(q==null||!supports(q.skillId)||q.prompt==null)return null;Matcher m=Pattern.compile("물건 ([0-9]{1,2})개를 ([0-9]{1,2})(개씩 묶어요\\.|명이 똑같이 나눠요\\.)\n([0-9]{1,2}) × □ = ([0-9]{1,2})").matcher(q.prompt);if(!m.matches())return null;int total=Integer.parseInt(m.group(1)),unit=Integer.parseInt(m.group(2)),mode=m.group(3).startsWith("개")?0:1;if(unit==0||total%unit!=0||Integer.parseInt(m.group(4))!=unit||Integer.parseInt(m.group(5))!=total)return null;int count=total/unit;try{valid(unit,count,mode);}catch(IllegalArgumentException e){return null;}return new int[]{total,unit,count,mode};}
+ static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){return IndexedQuestionSupply.choose(DOMAIN.size(),i->{int[] v=DOMAIN.get(i);return make(v[0],v[1],v[2]);},random,limits,recent);}
+ public static void attach(Question q){int[] v=read(q);if(v==null)return;boolean sharing=v[3]==1;Question objects=new Question(sharing?"objectShare":"objectGroupRemainder",q.prompt.substring(0,q.prompt.indexOf('\n'))+"\n"+(sharing?"한 사람은 몇 개를 받나요?":"묶음 수와 남은 수를 쓰세요."),"",""+v[2]);ObjectGroups.attach(objects);q.studyGuide=objects.studyGuide;for(StudyGuide.Frame frame:q.studyGuide.frames)if(frame.before.equals("남은 수 = "))frame.before="남은 물건 수 = ";q.studyGuide.teachingVersion="group-product-link-v1";q.studyGuide.step(sharing?"사람 수와 한 사람 몫을 곱하면 전체가 됩니다. 빈 수를 쓰세요.":"한 묶음의 수와 묶음 수를 곱하면 전체가 됩니다. 빈 수를 쓰세요.",v[1]+" × "," = "+v[0],""+v[2]);q.diagram=new StudyDiagram("groupProductObjects",new double[]{v[0],v[1],sharing?0:1});}
+ static Checker.Result check(Question q,List<String> answers){int[] v=read(q);if(v==null||answers==null||answers.size()!=1||answers.get(0)==null||!answers.get(0).trim().matches("[0-9]{1,2}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 필요");return Integer.parseInt(answers.get(0).trim())==v[2]?new Checker.Result(Checker.Status.CORRECT,-1,"계산 확인 완료"):new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 계산 확인");}
+}
