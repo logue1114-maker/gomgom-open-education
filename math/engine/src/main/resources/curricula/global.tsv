@@ -1451,7 +1451,7 @@ RULE	na-nied-primary-2024-v1	3	tables	factors=1,2,3,4,5,10;timesTableMax=10;maxR
 RULE	na-nied-primary-2024-v1	4	tables	timesTableMax=10;maxResult=100;variedFacts=true;nonnegative=true
 RULE	na-nied-primary-2024-v1	3	divide	timesTableMax=10;maxGiven=100;maxResult=100;variedFacts=true;nonnegative=true
 RULE	na-nied-primary-2024-v1	4	divide	timesTableMax=10;maxGiven=100;maxResult=100;variedFacts=true;nonnegative=true
-RULE	na-nied-primary-2024-v1	5	divide	timesTableMax=10;maxGiven=100;maxResult=100;variedFacts=true;nonnegative=true
+RULE	na-nied-primary-2024-v1	5	divide	timesTableMax=12;divisionMinQuotient=0;divisionMinDivisor=1;maxGiven=144;maxResult=144;variedFacts=true;nonnegative=true
 RULE	na-nied-primary-2024-v1	3	mul2	factors=2,3,4,5,10;maxGiven=99;maxResult=500;nonnegative=true
 RULE	na-nied-primary-2024-v1	4	mul2,mul3	maxGiven=999;maxResult=10000;nonnegative=true
 RULE	na-nied-primary-2024-v1	2	fractionPart	denominators=2,4;unitFractions=true
@@ -2083,3 +2083,8 @@ RULE	na-nied-primary-2024-v1	1	drawEqualGroups	wholeMaximum=20;maxGiven=20;maxRe
 
 MAP	na-nied-primary-2024-v1	1	addThree9	JP printed14: selected three-addend sums0..20; existing five-step help; more addends, representations and fluency remain
 RULE	na-nied-primary-2024-v1	1	addThree9	wholeMaximum=20;minGiven=0;maxGiven=20;maxResult=20;nonnegative=true
+
+RULE	na-nied-primary-2024-v1	5	tables	timesTableMax=12;maxGiven=144;maxResult=144;variedFacts=true;nonnegative=true
+MAP	na-nied-primary-2024-v1	6	tables,divide	SP printed41: multiplication facts through12x12 and related division facts; selected numeric recall/relations, fluency and broader mental/written methods remain
+RULE	na-nied-primary-2024-v1	6	tables	timesTableMax=12;maxGiven=144;maxResult=144;variedFacts=true;nonnegative=true
+RULE	na-nied-primary-2024-v1	6	divide	timesTableMax=12;divisionMinQuotient=0;divisionMinDivisor=1;maxGiven=144;maxResult=144;variedFacts=true;nonnegative=true
