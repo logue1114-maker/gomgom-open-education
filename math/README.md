@@ -512,3 +512,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 [Addition/subtraction families](ADDITION_SUBTRACTION_FAMILIES.md): whole-part inverse relationships for selected Namibia Grades1–2.
 
 [Three-digit place steps](THREE_DIGIT_PLACE_STEPS.md): selected Namibia Grade3 stepwise decomposition.
+
+[Primary product steps](PRIMARY_PRODUCT_STEPS.md): repeated addition and tens/ones products.

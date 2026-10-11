@@ -196,6 +196,7 @@ public final class Catalog {
         ALL.addAll(AddSubChains.SKILLS);
         ALL.addAll(AddSubFamilies.SKILLS);
         ALL.addAll(ThreeDigitSteps.SKILLS);
+        ALL.addAll(PrimaryProductSteps.SKILLS);
         ALL.addAll(PercentAmountRelations.SKILLS);ALL.addAll(RatioContextStories.SKILLS);
         ALL.addAll(DecimalPercentReverse.SKILLS);
         ALL.addAll(GroupedEstimation.SKILLS);

@@ -2018,3 +2018,9 @@ RULE	na-nied-primary-2024-v1	2	addSubFamily	wholeMaximum=99;minGiven=0;maxGiven=
 MAP	na-nied-primary-2024-v1	3	threeDigitStepAdd,threeDigitStepSub	JP printed pp.14-15: selected stepwise place-value decomposition; addition first0..500, subtraction first100..500, second two/three digits; multi-place generation, other mental strategies remain
 RULE	na-nied-primary-2024-v1	3	threeDigitStepAdd	minGiven=0;maxGiven=500;maxResult=500;nonnegative=true
 RULE	na-nied-primary-2024-v1	3	threeDigitStepSub	minGiven=10;maxGiven=500;maxResult=500;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	2	repeatedTwoDigitProduct	JP printed16: two-digit through20 times1..10 by repeated addition
+RULE	na-nied-primary-2024-v1	2	repeatedTwoDigitProduct	wholeMaximum=20;maxGiven=20;maxResult=200;nonnegative=true
+MAP	na-nied-primary-2024-v1	3	repeatedTwoDigitProduct,splitTwoDigitProduct	JP printed16: two-digit through50 times1..10 by repeated addition; two-digit times2,3,4,5,10 product100..500 by decomposition
+RULE	na-nied-primary-2024-v1	3	repeatedTwoDigitProduct	wholeMaximum=50;maxGiven=50;maxResult=500;nonnegative=true
+RULE	na-nied-primary-2024-v1	3	splitTwoDigitProduct	maxGiven=99;maxResult=500;nonnegative=true

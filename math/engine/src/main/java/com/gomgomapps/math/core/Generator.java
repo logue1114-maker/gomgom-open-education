@@ -66,7 +66,8 @@ public final class Generator {
         if(skillId.equals(RatioContextStories.ANGLE))q=RatioContextStories.nextAngle(random,limits,previous);
         if(PercentAmountRelations.selected(skillId,limits))q=PercentAmountRelations.next(skillId,random,limits,previous);
         if(RatioSplitSupply.supports(skillId,limits))q=RatioSplitSupply.next(skillId,random,limits,previous);
-        if(ThreeDigitSteps.supports(skillId))q=ThreeDigitSteps.next(skillId,random,limits,previous);
+        if(PrimaryProductSteps.supports(skillId))q=PrimaryProductSteps.next(skillId,random,limits,previous);
+        else if(ThreeDigitSteps.supports(skillId))q=ThreeDigitSteps.next(skillId,random,limits,previous);
         else if(AddSubFamilies.supports(skillId))q=AddSubFamilies.next(random,limits,previous);
         else if(AddSubChains.supports(skillId))q=AddSubChains.next(random,limits,previous);
         if(ContextAccuracy.supports(skillId))q=ContextAccuracy.next(random,limits,previous);
@@ -203,6 +204,7 @@ public final class Generator {
         if(s.id.equals(RatioContextStories.ANGLE))return RatioContextStories.nextAngle(random,limits,Map.of());
         if(PercentAmountRelations.selected(s.id,limits))return PercentAmountRelations.next(s.id,random,limits,Map.of());
         if(RatioSplitSupply.supports(s.id,limits))return RatioSplitSupply.next(s.id,random,limits,Map.of());
+        if(PrimaryProductSteps.supports(s.id))return PrimaryProductSteps.next(s.id,random,limits,Map.of());
         if(ThreeDigitSteps.supports(s.id))return ThreeDigitSteps.next(s.id,random,limits,Map.of());
         if(AddSubFamilies.supports(s.id))return AddSubFamilies.next(random,limits,Map.of());
         if(AddSubChains.supports(s.id))return AddSubChains.next(random,limits,Map.of());

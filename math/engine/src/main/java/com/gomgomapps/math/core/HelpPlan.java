@@ -124,6 +124,7 @@ public final class HelpPlan {
         AddSubChains.attach(q);
         AddSubFamilies.attach(q);
         ThreeDigitSteps.attach(q);
+        PrimaryProductSteps.attach(q);
         RatioSplitSupply.attach(q);RatioContextStories.attach(q);PrimaryAlgebra.attach(q);PrimaryPairEnumeration.attach(q);PrimaryLinearSequences.attach(q);LinearSequenceDescription.attach(q);PrimaryExpressionWriting.attach(q);PrimaryFormulaContext.attach(q);
         PercentAmountRelations.attach(q);
         ProperFractionProductSupply.attach(q);
