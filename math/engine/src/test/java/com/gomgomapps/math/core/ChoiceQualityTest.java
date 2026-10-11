@@ -84,12 +84,18 @@ public class ChoiceQualityTest {
         Question q=new Generator(new Random(222)).next("add9",List.of(),true);List<String> options=new ArrayList<>(q.choices);int correct=q.correctChoice;
         Choices.build(q,Catalog.get("add9"),new Random(909));assertEquals(options,q.choices);assertEquals(correct,q.correctChoice);
     }
-    @Test public void everyNumericSkillHasAnActualChoiceRule(){
-        Generator g=new Generator(new Random(541));
-        for(Catalog.Skill skill:Catalog.ALL){boolean numeric=false,hasChoices=false;
-            for(int run=0;run<120;run++){Question q=g.next(skill.id,List.of(),true);numeric|=q.kind.equals("number")&&q.answers.length==1;hasChoices|=!q.choices.isEmpty();}
-            if(numeric)assertTrue("Missing choice rule: "+skill.id,hasChoices);
+    @Test public void choiceModeRetainsAValidTypedAnswerWhenAppropriateOptionsAreUnavailable(){
+        Generator g=new Generator(new Random(541));Checker checker=new Checker();int typed=0,choices=0;
+        for(Catalog.Skill skill:Catalog.ALL)for(int run=0;run<3;run++){
+            Question q=g.next(skill.id,List.of(),true);if(!q.kind.equals("number")||q.answers.length!=1)continue;
+            if(!q.choices.isEmpty()){choices++;continue;}
+            typed++;assertEquals(skill.id,-1,q.correctChoice);assertTrue(skill.id,q.distractorReasons.isEmpty());
+            String answer=q.answers[0];
+            if("fraction".equals(q.answerFormat)&&!answer.contains("/"))answer+="/1";
+            if("decimal".equals(q.answerFormat)&&!answer.contains("."))answer+=".0";
+            assertTrue(skill.id+": "+q.prompt,checker.check(q,List.of(),List.of(answer)).correct());
         }
+        assertTrue("Choice mode must exercise both typed and multiple-choice routes",typed>0&&choices>0);
     }
     @Test public void smallAdditionDoesNotOverproduceOnlyTheLargestResult(){
         Generator g=new Generator(new Random(702));
