@@ -1455,7 +1455,7 @@ RULE	na-nied-primary-2024-v1	5	divide	timesTableMax=10;maxGiven=100;maxResult=10
 RULE	na-nied-primary-2024-v1	3	mul2	factors=2,3,4,5,10;maxGiven=99;maxResult=500;nonnegative=true
 RULE	na-nied-primary-2024-v1	4	mul2,mul3	maxGiven=999;maxResult=10000;nonnegative=true
 RULE	na-nied-primary-2024-v1	2	fractionPart	denominators=2,4;unitFractions=true
-RULE	na-nied-primary-2024-v1	3	fractionPart	denominators=2,3,4
+RULE	na-nied-primary-2024-v1	3	fractionPart	denominators=2,3,4;partFractions=1/2,1/4,3/4,1/3
 RULE	na-nied-primary-2024-v1	4	fractionPart	denominators=2,3,4,5,6,7,8,9,10
 RULE	na-nied-primary-2024-v1	4	fracAddLike,fracSubLike	denominators=2,3,4,5,6,7,8,9,10;maxFractionValue=1;maxResult=1;nonnegative=true
 RULE	na-nied-primary-2024-v1	5	fracAddLike,fracSubLike,el_improper_to_mixed,el_mixed_to_improper	denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
@@ -2033,3 +2033,8 @@ RULE	na-nied-primary-2024-v1	2	groupProductLink	maxGiven=50;maxResult=10;nonnega
 
 MAP	na-nied-primary-2024-v1	3	completePacketCount,exactSharedLength	JP printed17: selected context decisions, complete groups discard leftover; continuous length further divided exactly; dividends10..100, nontrivial divisors2..10; concrete grouping remains
 RULE	na-nied-primary-2024-v1	3	completePacketCount,exactSharedLength	contextDividendMinimum=10;contextDivisorMaximum=10;maxGiven=100;maxResult=100;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	2	fractionNamePicture	JP printed18: selected whole picture naming half/quarter; oral naming remains
+RULE	na-nied-primary-2024-v1	2	fractionNamePicture	denominators=2,4;partFractions=1/2,1/4
+MAP	na-nied-primary-2024-v1	3	fractionNamePicture	JP printed18: selected whole picture naming half/quarter/three quarters/third; group pictures and oral naming remain
+RULE	na-nied-primary-2024-v1	3	fractionNamePicture	denominators=2,3,4;partFractions=1/2,1/4,3/4,1/3
