@@ -225,7 +225,11 @@ public final class CurriculumLimits {
         if(nonnegative&&NEGATIVE.matcher(givens).find())return false;
         if(nonnegativeSubtrahend&&Pattern.compile("-\\s*\\(\\s*-\\d").matcher(q.expression).find())return false;
         if(maxGiven!=null||minGiven!=null){Matcher m=NUMBER.matcher(givens);while(m.find()){double number=Double.parseDouble(m.group());if((maxGiven!=null&&number>maxGiven)||(minGiven!=null&&number<minGiven))return false;}}
-        if(maxResult!=null||nonnegative||!answerDomain.isEmpty())for(String answer:q.answers)if(!allowsAnswer(answer))return false;
+        if(GroupDrawing.ID.equals(q.skillId)){
+            // A drawing response is not a scalar answer. Bound the public total,
+            // while the checker separately validates each student-drawn group.
+            int[] drawn=GroupDrawing.read(q);if(drawn==null||!allowsAnswer(""+(drawn[0]*drawn[1])))return false;
+        }else if(maxResult!=null||nonnegative||!answerDomain.isEmpty())for(String answer:q.answers)if(!allowsAnswer(answer))return false;
         return true;
     }
     private static int[] grouping(String prompt){

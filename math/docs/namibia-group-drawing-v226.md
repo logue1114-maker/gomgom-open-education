@@ -1,0 +1,7 @@
+# Selected Namibia Grade1 learner group drawing
+
+Junior Primary Mathematics printed16 includes drawing groups of objects and finding the total by repeated addition, without requiring the multiplication sign. This selected digital task supplies groups of2/5/10, totals through20,16 public conditions. Learners stamp circles into empty group positions and separately enter the repeated addition total. This is a digital stamping representation, not freehand drawing, concrete manipulation, oral demonstration or whole competency completion.
+
+Drawing marks are serialized student response bits, excluded from public question identity. Ten possible positions per group are initially empty. Any layout with the specified object count per group is valid. The checker reads public counts and validates each drawn group separately from the numeric total, ignoring stored answer/expression metadata. It rejects missing groups, incorrect counts, malformed/oversized marks and incorrect totals. The scalar curriculum bound applies to the public total, not to the encoded drawing. Other curriculum restrictions remain in the common filter.
+
+GroupDrawingTest covers16 finite conditions, arbitrary valid placements, removal/restoration, wrong totals/drawings, malformed masks, grade availability, fresh supply, public-condition limits and serialization. Native/private UI evidence is separate; source tests do not establish all languages/devices, physical learning or release readiness.
