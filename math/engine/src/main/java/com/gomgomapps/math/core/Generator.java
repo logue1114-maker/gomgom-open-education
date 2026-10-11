@@ -34,6 +34,7 @@ public final class Generator {
         Catalog.Skill s=Catalog.get(skillId);Question q=null;
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(EquivalentQuantityStories.identity(FractionNamesRelations.identity(signature)),position++);
         int oldest=Integer.MAX_VALUE;
+        if(ThreeNumberAdditionSupply.selected(skillId,limits))q=ThreeNumberAdditionSupply.next(random,limits,previous);
         if(DecimalToFractionSupply.selected(skillId,limits))q=DecimalToFractionSupply.next(random,limits,previous);
         if(WholeFractionProducts.selected(skillId,limits))q=WholeFractionProducts.next(s,random,limits,previous);
         if(ProperFractionProductSupply.supports(skillId,limits))q=ProperFractionProductSupply.next(s,random,limits,previous);

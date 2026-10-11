@@ -2080,3 +2080,6 @@ RULE	na-nied-primary-2024-v1	3	halvingBasedAddition	wholeMaximum=500;maxGiven=50
 
 MAP	na-nied-primary-2024-v1	1	drawEqualGroups	JP printed16: learner stamps objects in equal groups2/5/10 and adds them; selected totals through20, not freehand/concrete/oral full competency
 RULE	na-nied-primary-2024-v1	1	drawEqualGroups	wholeMaximum=20;maxGiven=20;maxResult=20;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	1	addThree9	JP printed14: selected three-addend sums0..20; existing five-step help; more addends, representations and fluency remain
+RULE	na-nied-primary-2024-v1	1	addThree9	wholeMaximum=20;minGiven=0;maxGiven=20;maxResult=20;nonnegative=true
