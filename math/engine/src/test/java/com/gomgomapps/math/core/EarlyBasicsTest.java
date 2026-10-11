@@ -23,10 +23,10 @@ public class EarlyBasicsTest {
         }
     }
     @Test public void conversionQuestionsRequireTheRequestedWrittenForm(){
-        Question fraction=new Question("el_decimal_fraction","0.5를 분수로 나타내세요.","","1/2");fraction.answerFormat="fraction";
-        Question decimal=new Question("el_fraction_decimal","1/2을 소수로 나타내세요.","","0.5");decimal.answerFormat="decimal";
+        Question fraction=DecimalToFractionSupply.make(0,5,1);
+        Question decimal=new Question("el_fraction_decimal","1/2의 값을 소수로 나타내세요.","","0.5");decimal.answerFormat="decimal";
         Checker checker=new Checker();assertTrue(checker.check(fraction,List.of(),List.of("1/2")).correct());assertEquals(Checker.Status.INPUT_NEEDED,checker.check(fraction,List.of(),List.of("0.5")).status);
         assertTrue(checker.check(decimal,List.of(),List.of("0.5")).correct());assertEquals(Checker.Status.INPUT_NEEDED,checker.check(decimal,List.of(),List.of("1/2")).status);
-        decimal.studyGuide=new StudyGuide().step("나누어 소수로 쓰세요.","1 ÷ 2 = ","","1/2");HelpPlan plan=HelpPlan.forQuestion(decimal);assertTrue(plan.step(0).accepts("0.5"));assertFalse(plan.step(0).accepts("1/2"));assertFalse(plan.step(0).accepts("0.2+0.3"));
+        HelpPlan plan=HelpPlan.forQuestion(decimal);assertEquals(3,plan.size());assertTrue(plan.step(0).accepts("1"));assertTrue(plan.step(1).accepts("2"));assertTrue(plan.step(2).accepts("0.5"));assertFalse(plan.step(2).accepts("1/2"));assertFalse(plan.step(2).accepts("0.2+0.3"));
     }
 }

@@ -13,6 +13,10 @@ public class FractionErrorPartTest {
     }
     @Test public void ambiguousAndIncompleteInputsDoNotAccuseBothParts(){
         for(String raw:List.of("3/4","16/15","","7/","7/0","-/7"))assertEquals(raw,0,FractionInput.errorPart(add(),raw));
-        Question other=new Question("fracAdd","(1/3) + (1/6)","1/3+1/6","1/2");assertEquals(0,FractionInput.errorPart(other,"3/5"));assertFalse(new Checker().check(other,List.of(),List.of("3/5")).correct());
+        Question other=new Question("fracAdd","(1/3) + (1/6)","1/3+1/6","1/2");
+        assertEquals(0,FractionInput.errorPart(other,"4/5"));
+        // The public common-denominator numerator is 3; only the denominator differs.
+        assertEquals(2,FractionInput.errorPart(other,"3/5"));assertFalse(new Checker().check(other,List.of(),List.of("3/5")).correct());
+        assertTrue(new Checker().check(other,List.of(),List.of("3/6")).correct());
     }
 }

@@ -12,7 +12,7 @@ public class ElementarySplitAngleRelationsTest {
             Rational total=Expression.number(m.group(1)),a=Expression.number(m.group(2)),b=Expression.number(m.group(3)),sum=a.add(b),unit=total.div(sum);
             assertEquals(2,q.answers.length);
             assertTrue(new Checker().check(q,List.of(),List.of(unit.mul(a).toString(),unit.mul(b).toString())).correct());
-            verify(q,List.of(a,b,total,sum,unit,unit.mul(a),unit.mul(b)));
+            verify(q,List.of(total,a,b,sum,unit,unit.mul(a),unit.mul(b)));
         }
     }
     @Test public void everyAngleVariantUsesOnlyPublicAngleAndConceptConstants() {
@@ -31,12 +31,12 @@ public class ElementarySplitAngleRelationsTest {
         Question q=new Question("el_proportional_split","전체 35을 2:3로 비례배분한 두 부분은?","","14","21");
         HelpPlan.Draft old=new HelpPlan.Draft();old.questionId=q.id;old.stage=2;old.entries=new ArrayList<>(List.of("5","7",""));
         HelpPlan p=HelpPlan.forQuestion(q);p.restore(old,q.id);assertEquals(0,old.stage);assertEquals("",old.entries.get(0));
-        old.entries.set(0,"2");old.stage=1;old.entries.add("");HelpPlan.Draft restored=HelpPlan.forQuestion(q).restore(old.copy(),q.id);
-        assertEquals(1,restored.stage);assertEquals("2",restored.entries.get(0));assertEquals("",restored.entries.get(1));
+        old.entries.set(0,"35");old.stage=1;old.entries.add("");HelpPlan.Draft restored=HelpPlan.forQuestion(q).restore(old.copy(),q.id);
+        assertEquals(1,restored.stage);assertEquals("35",restored.entries.get(0));assertEquals("",restored.entries.get(1));
     }
     @Test public void nonIntegralOneBundleRemainsExact() {
         Question q=new Question("el_proportional_split","전체 11을 2:3로 비례배분한 두 부분은?","","22/5","33/5");
-        verify(q,List.of(Rational.of(2),Rational.of(3),Rational.of(11),Rational.of(5),Rational.of(11,5),Rational.of(22,5),Rational.of(33,5)));
+        verify(q,List.of(Rational.of(11),Rational.of(2),Rational.of(3),Rational.of(5),Rational.of(11,5),Rational.of(22,5),Rational.of(33,5)));
     }
     private static void verify(Question q,List<Rational> expected) {
         String signature=q.signature();Arrays.fill(q.answers,"999999");HelpPlan p=HelpPlan.forQuestion(q);assertEquals(signature,q.signature());assertFalse(p.canTransfer());assertEquals(expected.size(),p.size());

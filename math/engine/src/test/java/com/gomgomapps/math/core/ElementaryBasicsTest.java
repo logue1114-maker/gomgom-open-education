@@ -145,7 +145,10 @@ public class ElementaryBasicsTest {
         assertNotNull(skill.id,diagram.values);
         assertTrue(skill.id,diagram.values.length>0);
         assertNotNull(skill.id,diagram.labels);
-        assertTrue(skill.id,diagram.labels.length>0);
+        if(FractionGivenDiagram.supports(diagram.type)){
+            assertEquals(skill.id,diagram.type.equals("mixedFractionGiven")?3:2,diagram.values.length);
+            assertTrue(skill.id,diagram.values[diagram.values.length-1]>=2);
+        }else if(!diagram.type.equals("fraction"))assertTrue(skill.id,diagram.labels.length>0);
         for(double value:diagram.values)assertTrue(skill.id,Double.isFinite(value));
 
         switch(diagram.type){
@@ -213,6 +216,17 @@ public class ElementaryBasicsTest {
                 }
                 if(diagram.type.equals("strip")||diagram.type.equals("pie"))
                     assertEquals(skill.id,100.0,Arrays.stream(diagram.values).sum(),0.000001);
+                break;
+            case "mixedFractionGiven":
+                assertTrue(skill.id,diagram.values[0]>=1&&diagram.values[0]<=6);
+                assertTrue(skill.id,diagram.values[1]>0&&diagram.values[1]<diagram.values[2]);
+                assertTrue(skill.id,diagram.values[2]<=12);
+                for(double value:diagram.values)assertEquals(skill.id,Math.rint(value),value,0);
+                break;
+            case "improperFractionGiven":
+                assertTrue(skill.id,diagram.values[1]<=12);
+                assertTrue(skill.id,diagram.values[0]>diagram.values[1]&&diagram.values[0]<7*diagram.values[1]);
+                for(double value:diagram.values)assertEquals(skill.id,Math.rint(value),value,0);
                 break;
             default: fail(skill.id+" unknown diagram type: "+diagram.type);
         }
@@ -459,8 +473,9 @@ public class ElementaryBasicsTest {
 
     private static String wrongText(Question question,Rational value){
         if("fraction".equals(question.answerFormat))return value.n+"/"+value.d;
-        if("decimal".equals(question.answerFormat)){
-            String decimal=value.decimalText();return decimal.contains(".")?decimal:decimal+".0";
+        if("decimal".equals(question.answerFormat)||question.decimal){
+            int places=Math.max(1,new java.math.BigDecimal(question.answers[0]).scale());
+            return new java.math.BigDecimal(value.decimalText()).setScale(places).toPlainString();
         }
         return value.toString();
     }

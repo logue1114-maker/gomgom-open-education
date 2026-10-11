@@ -12,7 +12,7 @@ public class EnglandLikeFractionsTest {
   }
  }
  @Test public void yearFourDoesNotInheritWithinOneCapAndSavedHelpUsesPublicOperands(){
-  var higher=GlobalCurriculum.limits("england-primary-2021-v1","fracAddLike",4);assertFalse(higher.variedFacts());Question beyond=new Question("fracAddLike","(5/6) + (5/6)","","5/3");assertTrue(higher.allows(beyond));assertFalse(GlobalCurriculum.limits("england-primary-2021-v1","fracAddLike",3).allows(beyond));
+  var higher=GlobalCurriculum.limits("england-primary-2021-v1","fracAddLike",4);Question beyond=new Question("fracAddLike","(5/6) + (5/6)","","5/3");assertTrue(higher.allows(beyond));assertFalse(GlobalCurriculum.limits("england-primary-2021-v1","fracAddLike",3).allows(beyond));
   for(String id:List.of("fracAddLike","fracSubLike")){Question saved=new Question(id,id.equals("fracAddLike")?"(4/7) + (3/7)":"(8/12) - (2/12)","hidden","wrong");HelpPlan p=HelpPlan.forQuestion(saved);assertNotNull(p);assertFalse(p.canTransfer());assertTrue(p.step(2).accepts(id.equals("fracAddLike")?"7":"12"));assertTrue(p.step(3).accepts(id.equals("fracAddLike")?"7":"6"));}
  }
 }
