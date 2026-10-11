@@ -24,10 +24,10 @@ public final class NumberWordFeedback {
   boolean correct=decimal?EnglishDecimalWords.matches(raw,expected):EnglishNumberWords.matches(raw,expected);
   if(correct)return new Report(true,false,List.of());
   boolean inputIssue;
-  try{EnglishDecimalWords.numeral(decimal?raw:raw+" point zero");inputIssue=false;}catch(IllegalArgumentException e){inputIssue=true;}
+  try{if(decimal)EnglishDecimalWords.numeral(raw);else if(EnglishNumberWords.numeral(raw)==null)throw new IllegalArgumentException("Invalid English integer");inputIssue=false;}catch(IllegalArgumentException e){inputIssue=true;}
   if(raw.length()>2048)return new Report(false,true,List.of(new Range(0,raw.length())));
   List<Token> actual=tokens(raw,decimal);List<List<Token>> variants=new ArrayList<>();variants.add(tokens(expected,decimal));
-  if(!decimal&&expected.contains(" hundred and "))variants.add(tokens(expected.replace(" hundred and "," hundred "),false));
+  if(!decimal&&expected.contains(" and "))variants.add(tokens(expected.replace(" and "," "),false));
   List<Range> best=null;int bestCost=Integer.MAX_VALUE;
   for(List<Token> target:variants){
    int n=actual.size(),m=target.size();int[][] cost=new int[n+1][m+1];for(int i=0;i<=n;i++)cost[i][0]=i;for(int j=0;j<=m;j++)cost[0][j]=j;

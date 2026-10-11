@@ -1941,3 +1941,10 @@ MAP	england-primary-2021-v1	5	fractionBatchScaling,constantFlowAmount,constantFl
 
 MAP	england-primary-2021-v1	5	fractionSumToMixed	Selected like-denominator sums greater than one; broader representations remain
 RULE	england-primary-2021-v1	5	fractionSumToMixed,el_mixed_to_improper,el_improper_to_mixed	denominators=2,3,4,5,6,7,8,9,10,11,12
+
+MAP	england-primary-2021-v1	4	englishWordsToNumber,numberToEnglishWords	Selected English numeral/word correspondence through10000; lower-year bounds retained
+RULE	england-primary-2021-v1	4	englishWordsToNumber,numberToEnglishWords	wholeMaximum=10000;minGiven=0
+MAP	england-primary-2021-v1	5	englishWordsToNumber,numberToEnglishWords	Selected English numeral/word correspondence through1000000; lower-year bounds retained
+RULE	england-primary-2021-v1	5	englishWordsToNumber,numberToEnglishWords	wholeMaximum=1000000;minGiven=0
+MAP	england-primary-2021-v1	6	englishWordsToNumber,numberToEnglishWords	Selected English numeral/word correspondence through10000000; lower-year bounds retained
+RULE	england-primary-2021-v1	6	englishWordsToNumber,numberToEnglishWords	wholeMaximum=10000000;minGiven=0

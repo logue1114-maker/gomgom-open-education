@@ -476,3 +476,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Public percentage notation](PUBLIC_PERCENTAGE_NOTATION.md): displayed percentage checks preserve denominator100 fractions, decimal answers and100-part meaning help.
 
 - [Expanded fraction equivalents](EXPANDED_FRACTION_PERCENT.md):6234 terminating-decimal fractions including denominator multiples10/25 up1000, with associated part-quantity stories.
+
+- [Large English integer names](LARGE_ENGLISH_NUMBER_WORDS.md): grade-specific reading/writing through ten million with public givens, blank place help and spelling-error underlines.
