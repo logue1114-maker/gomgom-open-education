@@ -2124,3 +2124,6 @@ RULE	na-nied-primary-2024-v1	6	countSkip,countBackward	wholeMaximum=1000000;maxG
 
 MAP	na-nied-primary-2024-v1	6	wholePlaceValue	SP printed40 B4 selected digit value in six-digit whole numbers; named place and digit relations in student help
 RULE	na-nied-primary-2024-v1	6	wholePlaceValue	wholeMaximum=999999;minGiven=100000;maxGiven=999999;maxResult=999999;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	wholeNumberExpand,wholeNumberCombine	SP printed40 B5: place-value expanded notation and ordinary numerals through1000000
+RULE	na-nied-primary-2024-v1	6	wholeNumberExpand,wholeNumberCombine	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
