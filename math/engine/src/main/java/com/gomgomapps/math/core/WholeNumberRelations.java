@@ -26,7 +26,8 @@ public final class WholeNumberRelations {
    g.step("10에서 둘째 수를 빼세요.","10 − 둘째 수 = ","",String.valueOf(10-b)).quantity(10,-b,10);
    g.step("두 곳에 남은 수를 더하세요.","10에서 남은 수 + 처음 남겨 둔 수 = ","",String.valueOf(a-b));
   }else{
-   g.step(add?"두 묶음을 모아 세세요.":"지운 동그라미를 빼고 세세요.",add?"첫 수 + 둘째 수 = ":"첫 수 − 둘째 수 = ","",String.valueOf(add?a+b:a-b));
+   String instruction=add?"두 묶음을 모아 세세요.":b==0?"0을 빼면 처음 수가 그대로 남습니다. 처음 수를 쓰세요.":a==b?"같은 수를 모두 빼면 0이 됩니다. 남은 수를 쓰세요.":"지운 동그라미를 빼고 세세요.";
+   g.step(instruction,add?"첫 수 + 둘째 수 = ":"첫 수 − 둘째 수 = ","",String.valueOf(add?a+b:a-b));
    if(a<=9&&b<=9)g.quantity(a,add?b:-b,10);
   }
   q.studyGuide=g;
