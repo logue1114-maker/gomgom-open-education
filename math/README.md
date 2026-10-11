@@ -482,3 +482,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Public whole rounding checks](PUBLIC_WHOLE_ROUNDING.md): final checking from displayed givens while retaining blank help and existing supply.
 
 - [Signed interval stories](SIGNED_INTERVAL_STORIES.md): temperature and height differences across zero with public checking and blank relation help.
+
+- [Large practical number stories](LARGE_PRACTICAL_NUMBER_STORIES.md): Year6 inventory, stock, population comparison and rounding through ten million; lower-year supply retained.

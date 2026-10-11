@@ -1951,3 +1951,8 @@ RULE	england-primary-2021-v1	6	englishWordsToNumber,numberToEnglishWords	wholeMa
 
 MAP	england-primary-2021-v1	6	negativeCountBackward,temperatureChanges,temperatureInterval,heightInterval	Selected EN-Y6-03 signed counting, temperature changes and intervals between two temperatures/heights relative to sea level, givens -50..50; broader contexts and fluency remain
 RULE	england-primary-2021-v1	6	temperatureInterval,heightInterval	maxGiven=50;maxResult=100;answerDomain=integer
+
+MAP	england-primary-2021-v1	6	practicalPlaceStories,bookStockChanges,populationRounding,populationComparison	Selected EN-Y6-04 inventory, two-day stock, population comparisons/rounding through10000000; existing signed contexts separately mapped; wider contexts and fluency remain
+RULE	england-primary-2021-v1	6	practicalPlaceStories,bookStockChanges	wholeMaximum=10000000;maxGiven=10000000;maxResult=10000000;nonnegative=true;answerDomain=integer
+RULE	england-primary-2021-v1	6	populationRounding	wholeMaximum=10000000;maxGiven=10000000;maxResult=10000000;roundingUnits=10,100,1000,10000,100000,1000000,10000000;nonnegative=true;answerDomain=integer
+RULE	england-primary-2021-v1	6	populationComparison	wholeMaximum=10000000;maxGiven=10000000;nonnegative=true
