@@ -1994,3 +1994,17 @@ RULE	na-nied-primary-2024-v1	2	addSubChain	wholeMaximum=100;minGiven=0;maxGiven=
 
 MAP	na-nied-primary-2024-v1	3	addSubChain	JP printed p.18 section2.5 selected three-term addition/subtraction chains; all inputs/intermediates/results0..500, broader chain lengths/methods remain
 RULE	na-nied-primary-2024-v1	3	addSubChain	wholeMaximum=500;minGiven=0;maxGiven=500;maxResult=500;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	2	mentalPlaceAddition,mentalPlaceSubtraction	JP printed pp.14-15 selected single-place mental changes/decade calculation; other strategies and fluency remain
+RULE	na-nied-primary-2024-v1	2	mentalPlaceAddition	wholeDigits=2;secondDigits=2;minGiven=0;maxGiven=100;maxResult=100;nonnegative=true
+RULE	na-nied-primary-2024-v1	2	mentalPlaceSubtraction	wholeDigits=2;secondDigits=2;minGiven=0;maxGiven=99;maxResult=99;nonnegative=true
+MAP	na-nied-primary-2024-v1	2	mentalTwoDigitAddition,mentalTwoDigitSubtraction	JP printed pp.14-15 selected tens-then-ones stepwise calculation; other decompositions/strategies remain
+RULE	na-nied-primary-2024-v1	2	mentalTwoDigitAddition	wholeDigits=2;secondDigits=2;minGiven=0;maxGiven=100;maxResult=100;nonnegative=true
+RULE	na-nied-primary-2024-v1	2	mentalTwoDigitSubtraction	wholeDigits=2;secondDigits=2;minGiven=0;maxGiven=99;maxResult=99;nonnegative=true
+MAP	na-nied-primary-2024-v1	2	relatedAdditionFacts,relatedSubtractionFacts	JP printed pp.14-15 selected known-number-fact strategies; inverse relationship and all contexts remain
+RULE	na-nied-primary-2024-v1	2	relatedAdditionFacts	minGiven=0;maxGiven=100;maxResult=100;nonnegative=true
+RULE	na-nied-primary-2024-v1	2	relatedSubtractionFacts	minGiven=0;maxGiven=99;maxResult=99;nonnegative=true
+MAP	na-nied-primary-2024-v1	3	mentalPlaceAddition,mentalPlaceSubtraction	JP printed pp.14-15 selected single-place changes to three-digit numbers through500; full multi-place strategies remain
+RULE	na-nied-primary-2024-v1	3	mentalPlaceAddition,mentalPlaceSubtraction	wholeDigits=3;secondDigits=3;minGiven=0;maxGiven=500;maxResult=500;nonnegative=true
+MAP	na-nied-primary-2024-v1	3	mentalTwoDigitAddition,mentalTwoDigitSubtraction	JP printed p.14 selected two-number mental calculation through100; three-digit decomposition not implied
+RULE	na-nied-primary-2024-v1	3	mentalTwoDigitAddition,mentalTwoDigitSubtraction	wholeDigits=2;secondDigits=2;minGiven=0;maxGiven=100;maxResult=100;nonnegative=true
