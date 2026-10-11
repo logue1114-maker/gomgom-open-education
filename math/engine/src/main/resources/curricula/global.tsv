@@ -2031,7 +2031,7 @@ RULE	na-nied-primary-2024-v1	3	inverseProductFact	maxGiven=100;maxResult=100;non
 MAP	na-nied-primary-2024-v1	2	groupProductLink	JP printed17: selected grouping/sharing through50 linked to1,2,5,10 multiplication; no division notation; concrete actions and fractional remainders remain
 RULE	na-nied-primary-2024-v1	2	groupProductLink	maxGiven=50;maxResult=10;nonnegative=true
 
-MAP	na-nied-primary-2024-v1	3	completePacketCount,exactSharedLength	JP printed17: selected context decisions, complete groups discard leftover; continuous length further divided exactly; dividends10..100, nontrivial divisors2..10; concrete grouping remains
+MAP	na-nied-primary-2024-v1	3	completePacketCount,exactSharedLength	JP printed17: selected context decisions, complete groups discard leftover; continuous length further divided exactly; dividends10..100, divisors1..10; concrete grouping remains
 RULE	na-nied-primary-2024-v1	3	completePacketCount,exactSharedLength	contextDividendMinimum=10;contextDivisorMinimum=1;contextDivisorMaximum=10;maxGiven=100;maxResult=100;nonnegative=true
 
 MAP	na-nied-primary-2024-v1	2	fractionNamePicture	JP printed18: selected whole picture naming half/quarter; oral naming remains
@@ -2142,3 +2142,6 @@ RULE	na-nied-primary-2024-v1	6	objectOrdinal	wholeMaximum=30;maxResult=30;nonneg
 
 MAP	na-nied-primary-2024-v1	6	threeNumberEstimate	SP printed40 B8 selected three-term rounded addition; exact sum0..1000000 and rounded sum separately computed
 RULE	na-nied-primary-2024-v1	6	threeNumberEstimate	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=3000000;roundingUnits=10,100,1000,10000,100000;nonnegative=true;answerDomain=integer
+
+MAP	na-nied-primary-2024-v1	6	divisionNotations	SP printed41 B8 selected division sign, long-division bracket and stacked fraction recognition/exact value
+RULE	na-nied-primary-2024-v1	6	divisionNotations	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;contextDivisorMinimum=1;contextDivisorMaximum=99;nonnegative=true

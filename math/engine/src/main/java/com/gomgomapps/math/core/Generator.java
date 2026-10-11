@@ -40,6 +40,7 @@ public final class Generator {
         Catalog.Skill s=Catalog.get(skillId);Question q=null;
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(EquivalentQuantityStories.identity(FractionNamesRelations.identity(signature)),position++);
         int oldest=Integer.MAX_VALUE;
+        if(DivisionNotations.ID.equals(skillId))q=DivisionNotations.next(random,limits,previous);
         if(ThreeNumberEstimation.ID.equals(skillId))q=ThreeNumberEstimation.next(random,limits,previous);
         if(ExpandedWholeNumbers.supports(skillId))q=ExpandedWholeNumbers.next(s,random,limits,previous);
         if(ThreeNumberAdditionSupply.selected(skillId,limits))q=ThreeNumberAdditionSupply.next(random,limits,previous);
@@ -293,6 +294,7 @@ public final class Generator {
         if(PrimaryOrdering.supports(s.id))return PrimaryOrdering.next(s,random,limits,Map.of());
         if(FractionOrdering.supports(s.id))return FractionOrdering.create(s,random,limits);
         if(CollectionGrouping.supports(s.id))return CollectionGrouping.next(s,random,limits,Map.of());
+        if(DivisionNotations.ID.equals(s.id))return DivisionNotations.next(random,limits,Map.of());
         if(ThreeNumberEstimation.ID.equals(s.id))return ThreeNumberEstimation.next(random,limits,Map.of());
         if(ExpandedWholeNumbers.supports(s.id))return ExpandedWholeNumbers.next(s,random,limits,Map.of());
         if(CountingSteps.supports(s.id))return CountingSteps.next(s,random,limits,Map.of());

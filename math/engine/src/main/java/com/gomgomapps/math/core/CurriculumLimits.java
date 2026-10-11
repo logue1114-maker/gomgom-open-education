@@ -126,6 +126,7 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(DivisionNotations.ID.equals(q.skillId)){DivisionNotations.Givens v=DivisionNotations.read(q);if(v==null||v.dividend()<givenMinimum(0)||v.dividend()>givenMaximum(1000000)||v.divisor()<contextDivisorMinimum()||v.divisor()>contextDivisorMaximum())return false;}
         if(Set.of("englishWordsToNumber","numberToEnglishWords").contains(q.skillId)){Integer publicNumber=EnglishNumberWords.publicValue(q);if(publicNumber==null||publicNumber<givenMinimum(0)||publicNumber>wholeMaximum(10000000))return false;}
         if(!quantityRepresentations.isEmpty()&&!q.skillId.equals("el_fraction_of_number"))return false;
         if(!partFractions.isEmpty()){
@@ -187,7 +188,7 @@ public final class CurriculumLimits {
             if(operands.group(2).length()>(secondDigits==null?wholeDigits:secondDigits))return false;
             if(displayed.matches("\\d+ \\+ \\d+ \\+ \\d+")&&wholeDigits!=null&&displayed.substring(displayed.lastIndexOf(' ')+1).length()>wholeDigits)return false;
         }
-        if(contextDivisorMinimum!=null||contextDivisorMaximum!=null||contextDividendMinimum>1){int[] context=RemainderContexts.read(q);if(context==null&&RemainderRepresentations.supports(q.skillId))context=RemainderRepresentations.read(q);if(context==null&&ShortWrittenDivision.supports(q.skillId))context=ShortWrittenDivision.read(q);if(context==null||context[0]<contextDividendMinimum||context[1]<contextDivisorMinimum()||context[1]>contextDivisorMaximum())return false;}
+        if(contextDivisorMinimum!=null||contextDivisorMaximum!=null||contextDividendMinimum>1){int[] context=RemainderContexts.read(q);if(context==null&&RemainderRepresentations.supports(q.skillId))context=RemainderRepresentations.read(q);if(context==null&&ShortWrittenDivision.supports(q.skillId))context=ShortWrittenDivision.read(q);if(context==null&&DivisionNotations.ID.equals(q.skillId)){DivisionNotations.Givens v=DivisionNotations.read(q);if(v!=null)context=new int[]{v.dividend(),v.divisor()};}if(context==null||context[0]<(DivisionNotations.ID.equals(q.skillId)?givenMinimum(0):contextDividendMinimum)||context[1]<contextDivisorMinimum()||context[1]>contextDivisorMaximum())return false;}
         if(polygonSides!=null){Matcher polygon=Pattern.compile("(\\d+)각형").matcher(q.prompt);if(!polygon.find()||Integer.parseInt(polygon.group(1))>polygonSides)return false;}
         if(!allowsDenominators(givens))return false;
         if(!denominators.isEmpty()&&q.diagram!=null&&q.diagram.type.equals("fractionSelection")){

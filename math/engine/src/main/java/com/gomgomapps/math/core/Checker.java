@@ -27,6 +27,7 @@ public final class Checker {
         Result work=checkSteps(q,steps,kinds,false);
         if(!work.correct())return work.forWorkInput();
         if(CountingCalculations.supports(q.skillId))return CountingCalculations.check(q,answers);
+        if(DivisionNotations.ID.equals(q.skillId))return DivisionNotations.check(q,answers);
         if(ThreeNumberEstimation.ID.equals(q.skillId))return ThreeNumberEstimation.check(q,answers);
         if(ExpandedWholeNumbers.supports(q.skillId))return ExpandedWholeNumbers.check(q,answers);
         if(GroupDrawing.ID.equals(q.skillId))return GroupDrawing.check(q,answers);
