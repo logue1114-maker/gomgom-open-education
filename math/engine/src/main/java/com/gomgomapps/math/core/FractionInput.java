@@ -61,6 +61,7 @@ public final class FractionInput {
     /** Localize only when the public like-fraction frame identifies an unchanged part.
      * Zero means no unique part is established, not that the answer is correct. */
     public static int errorPart(Question q,String raw){
+        if(q!=null&&DecimalToFractionSupply.ID.equals(q.skillId))return DecimalToFractionSupply.errorPart(q,raw);
         if(WholeFractionProducts.supports(q))return WholeFractionProducts.errorPart(q,raw);
         if(q!=null&&PublicFractionArithmetic.supports(q.skillId))return PublicFractionArithmetic.errorPart(q,raw);
         if(q!=null&&RemainderContexts.LENGTH.equals(q.skillId))return RemainderContexts.errorPart(q,raw);
@@ -68,11 +69,6 @@ public final class FractionInput {
         if(q==null||q.prompt==null||invalidPart(raw)!=0)return 0;
         if(Set.of("fracMul","fracDivInt","fracMixedAdd","fracMixedSub").contains(q.skillId)){FractionWork.Spec visible=FractionWork.original(q);if(visible!=null){String[] pair=parts(raw);java.math.BigInteger n=new java.math.BigInteger(pair[0]),d=new java.math.BigInteger(pair[1]);if(n.multiply(visible.value.d).equals(visible.value.n.multiply(d)))return 0;if(d.equals(visible.value.d))return 1;if(n.equals(visible.value.n))return 2;}return 0;}
         if(PercentageNotation.supports(q.skillId))return PercentageNotation.errorPart(q,raw);
-        if(q.skillId.equals("el_decimal_fraction")){
-            java.util.regex.Matcher value=java.util.regex.Pattern.compile("(\\d+\\.\\d+)의 값을 분수로 나타내세요\\.").matcher(q.prompt);if(!value.matches())return 0;
-            java.math.BigDecimal v=new java.math.BigDecimal(value.group(1));java.math.BigInteger denominator=java.math.BigInteger.TEN.pow(v.scale()),numerator=v.unscaledValue();String[] pair=parts(raw);java.math.BigInteger n=new java.math.BigInteger(pair[0]),d=new java.math.BigInteger(pair[1]);
-            if(n.multiply(denominator).equals(numerator.multiply(d)))return 0;if(d.equals(denominator))return 1;if(n.equals(numerator))return 2;return 0;
-        }
         if(!Set.of("fracAddLike","fracSubLike").contains(q.skillId))return 0;
         java.util.regex.Matcher m=java.util.regex.Pattern.compile("\\((\\d+)/(\\d+)\\)\\s*([+-])\\s*\\((\\d+)/(\\d+)\\)").matcher(q.prompt.replace('−','-'));
         if(!m.matches()||!m.group(2).equals(m.group(5)))return 0;

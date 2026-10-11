@@ -462,3 +462,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Public fraction arithmetic](PUBLIC_FRACTION_ARITHMETIC.md): displayed-operand checks for existing addition and subtraction topics.
 
 - [Whole fraction products](WHOLE_FRACTION_PRODUCTS.md): proper and mixed fractions multiplied by whole numbers, with given-quantity diagrams.
+
+- [Displayed decimal fractions](PUBLIC_DECIMAL_FRACTIONS.md): preserved precision and checks from displayed values.

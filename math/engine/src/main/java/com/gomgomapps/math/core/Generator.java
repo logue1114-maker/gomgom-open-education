@@ -34,6 +34,7 @@ public final class Generator {
         Catalog.Skill s=Catalog.get(skillId);Question q=null;
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(EquivalentQuantityStories.identity(FractionNamesRelations.identity(signature)),position++);
         int oldest=Integer.MAX_VALUE;
+        if(DecimalToFractionSupply.selected(skillId,limits))q=DecimalToFractionSupply.next(random,limits,previous);
         if(WholeFractionProducts.selected(skillId,limits))q=WholeFractionProducts.next(s,random,limits,previous);
         if(ProperFractionProductSupply.supports(skillId,limits))q=ProperFractionProductSupply.next(s,random,limits,previous);
         if(FractionSupply.supports(skillId,limits))q=FractionSupply.next(s,random,limits,previous);
@@ -190,6 +191,7 @@ public final class Generator {
         if(RelatedCalculationFacts.supports(s.id))return RelatedCalculationFacts.create(s,random,limits);
         if(EstimateCalculationCheck.supports(s.id))return EstimateCalculationCheck.create(s,random,limits);
         if(InverseCalculationCheck.supports(s.id))return InverseCalculationCheck.create(s,random,limits);
+        if(DecimalToFractionSupply.selected(s.id,limits))return DecimalToFractionSupply.next(random,limits,Map.of());
         if(WholeFractionProducts.selected(s.id,limits))return WholeFractionProducts.next(s,random,limits,Map.of());
         if(ProperFractionProductSupply.supports(s.id,limits))return ProperFractionProductSupply.next(s,random,limits,Map.of());
         if(SimilarShapeSupply.selected(s.id,limits))return SimilarShapeSupply.next(random,limits,Map.of());
