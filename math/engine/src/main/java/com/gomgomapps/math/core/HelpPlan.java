@@ -21,14 +21,15 @@ public final class HelpPlan {
         public final boolean general;
         public final Map<String,String> options;
         private String requiredFormat="";
+        private Set<String> acceptedChoices;
         Step(String instruction,String before,String after,int expected,int filled,int extra,int denominator){
             this.instruction=instruction;this.before=before;this.after=after;this.expected=String.valueOf(expected);this.general=false;this.options=Map.of();
             this.filled=filled;this.extra=extra;this.denominator=denominator;
         }
-        Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=frame.pictureFilled==null?-1:frame.pictureFilled;extra=frame.pictureExtra==null?0:frame.pictureExtra;denominator=frame.pictureDenominator==null?0:frame.pictureDenominator;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);requiredFormat=frame.inputFormat==null?"":frame.inputFormat;}
+        Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=frame.pictureFilled==null?-1:frame.pictureFilled;extra=frame.pictureExtra==null?0:frame.pictureExtra;denominator=frame.pictureDenominator==null?0:frame.pictureDenominator;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);requiredFormat=frame.inputFormat==null?"":frame.inputFormat;acceptedChoices=frame.acceptedChoices==null?null:Set.copyOf(frame.acceptedChoices);}
         public boolean accepts(String value){
             if(value==null||value.trim().isEmpty()||value.length()>120)return false;
-            if(!options.isEmpty())return options.containsKey(value.trim())&&value.trim().equals(expected);
+            if(!options.isEmpty())return options.containsKey(value.trim())&&(acceptedChoices==null?value.trim().equals(expected):acceptedChoices.contains(value.trim()));
             if(requiredFormat.equals("fraction")&&!value.contains("/"))return false;
             if(requiredFormat.equals("decimal")&&(!value.contains(".")||value.contains("/")))return false;
             if(requiredFormat.equals("decimalValue")&&value.contains("/"))return false;

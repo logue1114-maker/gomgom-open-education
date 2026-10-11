@@ -23,6 +23,8 @@ public final class StudyGuide implements Serializable {
         public String inputFormat;
         public Integer pictureFilled,pictureExtra,pictureDenominator;
         public Map<String,String> options=new LinkedHashMap<>();
+        /** Null in old frames: their single expected choice remains authoritative. */
+        public java.util.Set<String> acceptedChoices;
         public Frame(){}
         Frame(String instruction,String before,String after,String expected){this.instruction=instruction;this.before=before;this.after=after;this.expected=expected;}
     }
@@ -34,4 +36,8 @@ public final class StudyGuide implements Serializable {
     public StudyGuide radicalResult(int coefficientFrame,int radicandFrame){resultCoefficientFrame=coefficientFrame;resultRadicandFrame=radicandFrame;return this;}
     public StudyGuide radicalSumResult(int addendFrame,int coefficientFrame,int radicandFrame){resultAddendFrame=addendFrame;return radicalResult(coefficientFrame,radicandFrame);}
     public StudyGuide choice(String instruction,Map<String,String> labels,String expected){Frame f=new Frame(instruction,"","",expected);f.options.putAll(labels);frames.add(f);return this;}
+    public StudyGuide choiceAlternatives(String instruction,Map<String,String> labels,java.util.Set<String> accepted){
+        if(accepted==null||accepted.isEmpty()||!labels.keySet().containsAll(accepted))throw new IllegalArgumentException("accepted choices must be displayed");
+        Frame f=new Frame(instruction,"","",accepted.iterator().next());f.options.putAll(labels);f.acceptedChoices=new java.util.LinkedHashSet<>(accepted);frames.add(f);return this;
+    }
 }
