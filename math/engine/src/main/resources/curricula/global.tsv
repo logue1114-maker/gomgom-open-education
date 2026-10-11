@@ -1985,3 +1985,12 @@ MAP	england-primary-2021-v1	6	estimateAdditionCheck,estimateSubtractionCheck	Sel
 RULE	england-primary-2021-v1	6	estimateAdditionCheck,estimateSubtractionCheck	wholeMaximum=10000000;minGiven=0;maxGiven=30000001;maxResult=20000000;roundingUnits=10,100,1000,10000,100000,1000000,10000000;nonnegative=true
 
 MAP	england-primary-2021-v1	6	contextAccuracyChoice	Selected EN-Y6-13 choose rounded measurement report from stated0.1/0.01/0.001 m or L recording unit; wider contexts and learner-authored justification remain
+
+MAP	na-nied-primary-2024-v1	1	addSubChain	JP printed p.18 section2.5 selected three-term addition/subtraction chains; all inputs/intermediates/results0..10, broader chain lengths/methods remain
+RULE	na-nied-primary-2024-v1	1	addSubChain	wholeMaximum=10;minGiven=0;maxGiven=10;maxResult=10;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	2	addSubChain	JP printed p.18 section2.5 selected three-term addition/subtraction chains; all inputs/intermediates/results0..100, broader chain lengths/methods remain
+RULE	na-nied-primary-2024-v1	2	addSubChain	wholeMaximum=100;minGiven=0;maxGiven=100;maxResult=100;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	3	addSubChain	JP printed p.18 section2.5 selected three-term addition/subtraction chains; all inputs/intermediates/results0..500, broader chain lengths/methods remain
+RULE	na-nied-primary-2024-v1	3	addSubChain	wholeMaximum=500;minGiven=0;maxGiven=500;maxResult=500;nonnegative=true

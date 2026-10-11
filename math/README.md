@@ -504,3 +504,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year6 estimate checks](YEAR6_ESTIMATE_CHECK.md): rounding-envelope plausibility through10million.
 
 - [Contextual accuracy](CONTEXT_ACCURACY.md): select a rounded measurement report using its recording unit.
+
+[Addition and subtraction chains](ADDITION_SUBTRACTION_CHAINS.md): selected Namibia Grade 1–3 practice and validation limits.

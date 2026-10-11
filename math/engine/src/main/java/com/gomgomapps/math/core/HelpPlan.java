@@ -121,6 +121,7 @@ public final class HelpPlan {
         QuantityRatioEquivalence.attach(q);
         RoundedSharingStory.attach(q);
         ContextAccuracy.attach(q);
+        AddSubChains.attach(q);
         RatioSplitSupply.attach(q);RatioContextStories.attach(q);PrimaryAlgebra.attach(q);PrimaryPairEnumeration.attach(q);PrimaryLinearSequences.attach(q);LinearSequenceDescription.attach(q);PrimaryExpressionWriting.attach(q);PrimaryFormulaContext.attach(q);
         PercentAmountRelations.attach(q);
         ProperFractionProductSupply.attach(q);
