@@ -61,6 +61,7 @@ public final class FractionInput {
     /** Localize only when the public like-fraction frame identifies an unchanged part.
      * Zero means no unique part is established, not that the answer is correct. */
     public static int errorPart(Question q,String raw){
+        if(WholeFractionProducts.supports(q))return WholeFractionProducts.errorPart(q,raw);
         if(q!=null&&PublicFractionArithmetic.supports(q.skillId))return PublicFractionArithmetic.errorPart(q,raw);
         if(q!=null&&RemainderContexts.LENGTH.equals(q.skillId))return RemainderContexts.errorPart(q,raw);
         if(q!=null&&FractionLengthStories.supports(q.skillId))return FractionLengthStories.errorPart(q,raw);

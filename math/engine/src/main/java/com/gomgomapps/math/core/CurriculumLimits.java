@@ -49,7 +49,8 @@ public final class CurriculumLimits {
     private String answerDomain="";
     private Rational maxFractionValue;
     private Integer minimumWholeDigits;
-    private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables,monicQuadratic;
+    private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables,monicQuadratic,wholeFractionMultiplier;
+    boolean wholeFractionMultiplier(){return wholeFractionMultiplier;}
     private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,commonDenominatorFactor,nonnegativeSubtrahend;
     CurriculumLimits(String definition){
         if(definition.isBlank())return;
@@ -70,6 +71,7 @@ public final class CurriculumLimits {
                 case "percentages":for(String value:pair[1].split(",",-1)){int percent=Integer.parseInt(value);if(percent<1||percent>100||percentages.contains(percent))throw new IllegalArgumentException("Invalid percentage");percentages.add(percent);}break;
                 case "minimumWholeDigits":minimumWholeDigits=Integer.valueOf(pair[1]);if(minimumWholeDigits<1||minimumWholeDigits>6)throw new IllegalArgumentException("Invalid minimum operand digits");break;
                 case "integerSecondOperand":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid integer second operand flag");integerSecondOperand=true;break;
+                case "wholeFractionMultiplier":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid whole fraction multiplier flag");wholeFractionMultiplier=true;break;
                 case "maxFractionValue":maxFractionValue=Expression.number(pair[1]);if(maxFractionValue.compareTo(Rational.ZERO)<=0)throw new IllegalArgumentException("Invalid fraction magnitude");break;
                 case "denominators":for(String value:pair[1].split(",")){int n=Integer.parseInt(value);if(n<2)throw new IllegalArgumentException("Invalid denominator");denominators.add(n);}break;
                 case "partFractions":for(String value:pair[1].split(",",-1)){
