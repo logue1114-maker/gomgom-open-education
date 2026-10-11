@@ -2088,3 +2088,8 @@ RULE	na-nied-primary-2024-v1	5	tables	timesTableMax=12;maxGiven=144;maxResult=14
 MAP	na-nied-primary-2024-v1	6	tables,divide	SP printed41: multiplication facts through12x12 and related division facts; selected numeric recall/relations, fluency and broader mental/written methods remain
 RULE	na-nied-primary-2024-v1	6	tables	timesTableMax=12;maxGiven=144;maxResult=144;variedFacts=true;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	divide	timesTableMax=12;divisionMinQuotient=0;divisionMinDivisor=1;maxGiven=144;maxResult=144;variedFacts=true;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	5	writtenProduct4x2	SP printed27: three-digit by two-digit written products through100000; existing learner column workspace
+RULE	na-nied-primary-2024-v1	5	writtenProduct4x2	maxGiven=999;maxResult=100000;nonnegative=true
+MAP	na-nied-primary-2024-v1	6	writtenProduct4x2	SP printed41: four-digit by two-digit long multiplication; existing learner column workspace
+RULE	na-nied-primary-2024-v1	6	writtenProduct4x2	maxGiven=9999;maxResult=989901;nonnegative=true
