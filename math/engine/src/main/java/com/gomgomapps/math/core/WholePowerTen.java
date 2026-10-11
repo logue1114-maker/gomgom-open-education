@@ -15,7 +15,16 @@ public final class WholePowerTen {
  public static int[] read(Question q){if(q==null||!supports(q.skillId)||q.prompt==null)return null;Matcher m=Pattern.compile("^([0-9]{1,7}) ([×÷]) (10|100|1000|10000|100000|1000000)$").matcher(q.prompt);if(!m.matches()||MUL.equals(q.skillId)!=m.group(2).equals("×"))return null;int a=Integer.parseInt(m.group(1)),p=Integer.parseInt(m.group(3));return a>1000000||MUL.equals(q.skillId)&&(long)a*p>1000000?null:new int[]{a,p};}
  private static BigDecimal answer(int[] v,boolean multiply){return multiply?BigDecimal.valueOf(v[0]).multiply(BigDecimal.valueOf(v[1])):BigDecimal.valueOf(v[0]).divide(BigDecimal.valueOf(v[1]));}
  static Checker.Result check(Question q,List<String> answers){int[] v=read(q);if(v==null||answers==null||answers.size()!=1||answers.get(0)==null||!answers.get(0).trim().matches("[0-9]{1,12}(?:\\.[0-9]{1,12})?"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"답 입력 필요");boolean same=new BigDecimal(answers.get(0).trim()).compareTo(answer(v,MUL.equals(q.skillId)))==0;return new Checker.Result(same?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,same?-1:0,same?"정답":"이 답 확인");}
- static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){return IndexedQuestionSupply.choose(count(id),i->at(id,i),random,limits,recent);}
+ static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){
+  List<Integer> powers=new ArrayList<>();for(int power:POWERS)powers.add(power);Collections.shuffle(powers,random);
+  int givenMax=limits.givenMaximum(1000000);Question oldest=null;int oldestAge=Integer.MAX_VALUE;
+  for(int power:powers){if(power>givenMax)continue;int last=MUL.equals(id)?Math.min(givenMax,1000000/power):givenMax;
+   try{Question q=IndexedQuestionSupply.choose(last+1,i->make(id,i,power),random,limits,recent);Integer age=recent.get(q.signature());if(age==null)return q;if(age<oldestAge){oldest=q;oldestAge=age;}}
+   catch(IllegalStateException noAllowedQuestion){/* Try another scale when this scale has no allowed operands. */}
+  }
+  // Repeat only after every allowed scale has exhausted its unseen operands.
+  if(oldest!=null)return oldest;throw new IllegalStateException("No whole power question matches curriculum limits");
+ }
  private static void step(StudyGuide g,String text,String relation,BigDecimal value,boolean decimal){g.step(text,relation,"",value.stripTrailingZeros().toPlainString());if(decimal)g.frames.get(g.frames.size()-1).inputFormat="decimalValue";}
  public static void attach(Question q){int[] v=read(q);if(v==null)return;boolean mul=MUL.equals(q.skillId);BigDecimal a=BigDecimal.valueOf(v[0]),p=BigDecimal.valueOf(v[1]),unit=BigDecimal.ONE,scaled=mul?p:unit.divide(p);StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="whole-power-ten-units-v1";
   step(g,mul?"곱해지는 수를 쓰세요.":"나누어지는 수를 쓰세요.",mul?"곱해지는 수 x = ":"나누어지는 수 x = ",a,false);
