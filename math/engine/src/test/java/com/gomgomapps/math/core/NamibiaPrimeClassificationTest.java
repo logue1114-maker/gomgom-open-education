@@ -1,0 +1,10 @@
+package com.gomgomapps.math.core;
+import java.util.*;
+import org.junit.Test;
+import static org.junit.Assert.*;
+public class NamibiaPrimeClassificationTest {
+ private GlobalCurriculum.Pack pack(){Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"NA");GlobalCurriculum.choosePack(p,"na-nied-primary-2024-v1");return GlobalCurriculum.pack(p);}
+ private int factors(int n){int count=0;for(int d=1;d<=n;d++)if(n%d==0)count++;return count;}
+ @Test public void ordinaryGradeSixSupplyCoversWholeReviewedRangeBeforeRepeating(){GlobalCurriculum.Pack p=pack();assertTrue(p.inGrade(PrimeVocabulary.CLASSIFY,6));assertFalse(p.inGrade(PrimeVocabulary.FACTOR,6));CurriculumLimits l=GlobalCurriculum.limits(p.id,PrimeVocabulary.CLASSIFY,6);Generator g=new Generator(new Random(260));List<String> recent=new ArrayList<>();Set<Integer> values=new HashSet<>();for(int i=0;i<100;i++){Question q=g.next(PrimeVocabulary.CLASSIFY,recent,false,l);int n=PrimeVocabulary.read(q)[0];assertTrue(n>=1&&n<=100);assertTrue(values.add(n));assertFalse(recent.contains(q.signature()));recent.add(q.signature());}assertEquals(100,values.size());assertEquals(recent.get(0),g.next(PrimeVocabulary.CLASSIFY,recent,false,l).signature());assertTrue(l.allows(PrimeVocabulary.make(PrimeVocabulary.CLASSIFY,100,0)));assertFalse(l.allows(PrimeVocabulary.make(PrimeVocabulary.CLASSIFY,101,0)));}
+ @Test public void allClassificationsAndHelpUseActualFactors(){Checker checker=new Checker();for(int n=1;n<=100;n++){Question q=PrimeVocabulary.make(PrimeVocabulary.CLASSIFY,n,0);q.answers=new String[]{"poison"};q.correctChoice=999;int count=factors(n);String correct=count==1?"0":count==2?"1":"2";for(String choice:List.of("0","1","2"))assertEquals(choice.equals(correct),checker.check(q,List.of(),List.of(choice)).correct());HelpPlan h=HelpPlan.forQuestion(q);assertEquals(2,h.size());assertFalse(h.canTransfer());assertTrue(h.step(0).accepts(""+count));assertFalse(h.step(0).accepts(""+(count+1)));assertTrue(h.step(1).accepts(correct));assertTrue(h.restore(null,q.id).entries.stream().allMatch(String::isEmpty));}}
+}
