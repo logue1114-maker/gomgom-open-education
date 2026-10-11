@@ -39,6 +39,8 @@ public final class CurriculumLimits {
     private int timesTableMax=9;
     private int divisionMinQuotient=1,divisionMinDivisor=2;
     private Integer contextDivisorMaximum;
+    private int contextDividendMinimum=1;
+    int contextDividendMinimum(){return contextDividendMinimum;}
     int contextDivisorMaximum(){return contextDivisorMaximum==null?9:contextDivisorMaximum;}
     private int minuteStep=5;
     private int metricDecimals=0;
@@ -59,6 +61,7 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "contextDividendMinimum":contextDividendMinimum=Integer.parseInt(pair[1]);if(contextDividendMinimum<1||contextDividendMinimum>9999)throw new IllegalArgumentException("Invalid context dividend minimum");break;
                 case "quantityPartsMaximum":quantityPartsMaximum=Integer.valueOf(pair[1]);if(quantityPartsMaximum<2||quantityPartsMaximum>100)throw new IllegalArgumentException("Invalid quantity part range");break;
                 case "quantityRepresentations":for(String value:pair[1].split(",",-1)){if(!Set.of("number","objects","length").contains(value)||quantityRepresentations.contains(value))throw new IllegalArgumentException("Invalid quantity representation");quantityRepresentations.add(value);}break;
                 case "picturePartitions":for(String value:pair[1].split(",",-1)){int n=Integer.parseInt(value);if((n!=2&&n!=4)||picturePartitions.contains(n))throw new IllegalArgumentException("Invalid picture partition");picturePartitions.add(n);}break;
@@ -180,7 +183,7 @@ public final class CurriculumLimits {
             if(operands.group(2).length()>(secondDigits==null?wholeDigits:secondDigits))return false;
             if(displayed.matches("\\d+ \\+ \\d+ \\+ \\d+")&&wholeDigits!=null&&displayed.substring(displayed.lastIndexOf(' ')+1).length()>wholeDigits)return false;
         }
-        if(contextDivisorMaximum!=null){int[] context=RemainderContexts.read(q);if(context==null||context[1]>contextDivisorMaximum)return false;}
+        if(contextDivisorMaximum!=null||contextDividendMinimum>1){int[] context=RemainderContexts.read(q);if(context==null||context[0]<contextDividendMinimum||context[1]>contextDivisorMaximum())return false;}
         if(polygonSides!=null){Matcher polygon=Pattern.compile("(\\d+)각형").matcher(q.prompt);if(!polygon.find()||Integer.parseInt(polygon.group(1))>polygonSides)return false;}
         if(!allowsDenominators(givens))return false;
         if(!denominators.isEmpty()&&q.diagram!=null&&q.diagram.type.equals("fractionSelection")){

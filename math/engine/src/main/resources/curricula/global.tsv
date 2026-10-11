@@ -2030,3 +2030,6 @@ RULE	na-nied-primary-2024-v1	3	inverseProductFact	maxGiven=100;maxResult=100;non
 
 MAP	na-nied-primary-2024-v1	2	groupProductLink	JP printed17: selected grouping/sharing through50 linked to1,2,5,10 multiplication; no division notation; concrete actions and fractional remainders remain
 RULE	na-nied-primary-2024-v1	2	groupProductLink	maxGiven=50;maxResult=10;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	3	completePacketCount,exactSharedLength	JP printed17: selected context decisions, complete groups discard leftover; continuous length further divided exactly; dividends10..100, nontrivial divisors2..10; concrete grouping remains
+RULE	na-nied-primary-2024-v1	3	completePacketCount,exactSharedLength	contextDividendMinimum=10;contextDivisorMaximum=10;maxGiven=100;maxResult=100;nonnegative=true
