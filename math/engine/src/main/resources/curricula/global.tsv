@@ -2093,3 +2093,6 @@ MAP	na-nied-primary-2024-v1	5	writtenProduct4x2	SP printed27: three-digit by two
 RULE	na-nied-primary-2024-v1	5	writtenProduct4x2	maxGiven=999;maxResult=100000;nonnegative=true
 MAP	na-nied-primary-2024-v1	6	writtenProduct4x2	SP printed41: four-digit by two-digit long multiplication; existing learner column workspace
 RULE	na-nied-primary-2024-v1	6	writtenProduct4x2	maxGiven=9999;maxResult=989901;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	5	shortDivision4	SP printed27: three/four-digit dividends by1..10 with or without remainder; existing formal workspace
+RULE	na-nied-primary-2024-v1	5	shortDivision4	contextDividendMinimum=100;maxGiven=9999;maxResult=9999;contextDivisorMinimum=1;contextDivisorMaximum=10;nonnegative=true

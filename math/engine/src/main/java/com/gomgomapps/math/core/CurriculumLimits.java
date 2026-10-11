@@ -185,7 +185,7 @@ public final class CurriculumLimits {
             if(operands.group(2).length()>(secondDigits==null?wholeDigits:secondDigits))return false;
             if(displayed.matches("\\d+ \\+ \\d+ \\+ \\d+")&&wholeDigits!=null&&displayed.substring(displayed.lastIndexOf(' ')+1).length()>wholeDigits)return false;
         }
-        if(contextDivisorMinimum!=null||contextDivisorMaximum!=null||contextDividendMinimum>1){int[] context=RemainderContexts.read(q);if(context==null||context[0]<contextDividendMinimum||context[1]<contextDivisorMinimum()||context[1]>contextDivisorMaximum())return false;}
+        if(contextDivisorMinimum!=null||contextDivisorMaximum!=null||contextDividendMinimum>1){int[] context=RemainderContexts.read(q);if(context==null&&ShortWrittenDivision.ID.equals(q.skillId))context=ShortWrittenDivision.read(q);if(context==null||context[0]<contextDividendMinimum||context[1]<contextDivisorMinimum()||context[1]>contextDivisorMaximum())return false;}
         if(polygonSides!=null){Matcher polygon=Pattern.compile("(\\d+)각형").matcher(q.prompt);if(!polygon.find()||Integer.parseInt(polygon.group(1))>polygonSides)return false;}
         if(!allowsDenominators(givens))return false;
         if(!denominators.isEmpty()&&q.diagram!=null&&q.diagram.type.equals("fractionSelection")){

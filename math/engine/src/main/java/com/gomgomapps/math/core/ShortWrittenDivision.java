@@ -7,20 +7,24 @@ public final class ShortWrittenDivision {
  public static final String ID="shortDivision4";
  public static final String LONG="longDivision4x2";
  public static final String SHORT_TWO="shortDivision4x2";
- public static final Catalog.Skill SKILL=new Catalog.Skill(ID,"한 자리 수로 세로 나눗셈",5,1,1,"","pair",9999,"tables,divide","왼쪽부터 몫을 구하고 남은 수를 다음 자리로 넘긴다.");
+ public static final Catalog.Skill SKILL=new Catalog.Skill(ID,"세로 나눗셈",5,1,1,"","pair",9999,"tables,divide","왼쪽부터 몫을 구하고 남은 수를 다음 자리로 넘긴다.");
  public static final Catalog.Skill LONG_SKILL=new Catalog.Skill(LONG,"두 자리 수로 세로 나눗셈",6,1,1,"","pair",9999,"writtenProduct4x2,shortDivision4","몫을 구하고 곱한 수를 빼며 다음 자리로 내려간다.");
  public static final Catalog.Skill SHORT_TWO_SKILL=new Catalog.Skill(SHORT_TWO,"두 자리 수로 짧은 나눗셈",6,1,1,"","pair",9999,"writtenProduct4x2,shortDivision4","왼쪽부터 몫을 구하고 남은 수를 다음 자리로 넘긴다.");
  public static boolean supports(String id){return ID.equals(id)||LONG.equals(id)||SHORT_TWO.equals(id);}
  public static int[] read(Question q){
   if(q==null||!supports(q.skillId)||!"pair".equals(q.kind)||q.prompt==null)return null;
-  Matcher m=Pattern.compile(ID.equals(q.skillId)?"^([0-9]{1,4}) ÷ ([2-9])$":"^([0-9]{1,4}) ÷ ([1-9][0-9])$").matcher(q.prompt);if(!m.matches())return null;
+  Matcher m=Pattern.compile(ID.equals(q.skillId)?"^([0-9]{1,4}) ÷ ([1-9]|10)$":"^([0-9]{1,4}) ÷ ([1-9][0-9])$").matcher(q.prompt);if(!m.matches())return null;
   int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(2));return a<1?null:new int[]{a,b,a/b,a%b};
  }
  static Question indexed(int index){
   if(index<0||index>=9999*8)throw new IllegalArgumentException("short division index");
   int a=1+index/8,b=2+index%8;Question q=new Question(ID,a+" ÷ "+b,"",new String[]{""+(a/b),""+(a%b)});q.kind="pair";q.labels=new String[]{"몫","나머지"};q.stepSupport=false;return q;
  }
- static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){Question q=IndexedQuestionSupply.choose(9999*8,ShortWrittenDivision::indexed,random,limits,recent);attach(q);return q;}
+ static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){
+  int low=limits.contextDivisorMinimum(),high=Math.min(10,limits.contextDivisorMaximum()),first=Math.max(limits.contextDividendMinimum(),limits.givenMinimum(1)),last=limits.givenMaximum(9999);
+  if(low<1||low>high||first<1||last>9999||first>last)throw new IllegalArgumentException("short division bounds");
+  int width=high-low+1;Question q=IndexedQuestionSupply.choose((last-first+1)*width,i->{int a=first+i/width,b=low+i%width;Question candidate=new Question(ID,a+" ÷ "+b,"",new String[]{""+(a/b),""+(a%b)});candidate.kind="pair";candidate.labels=new String[]{"몫","나머지"};candidate.stepSupport=false;return candidate;},random,limits,recent);attach(q);return q;
+ }
  static Question indexedLong(int index){return indexedTwoDigit(LONG,index);}
  static Question indexedTwoDigit(String id,int index){if(!Set.of(LONG,SHORT_TWO).contains(id)||index<0||index>=9999*90)throw new IllegalArgumentException("two-digit division index");int a=1+index/90,b=10+index%90;Question q=new Question(id,a+" ÷ "+b,"",new String[]{""+(a/b),""+(a%b)});q.kind="pair";q.labels=new String[]{"몫","나머지"};q.stepSupport=false;return q;}
  static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){if(ID.equals(id))return next(random,limits,recent);if(!supports(id))throw new IllegalArgumentException("division skill");Question q=IndexedQuestionSupply.choose(9999*90,i->indexedTwoDigit(id,i),random,limits,recent);attach(q);return q;}
