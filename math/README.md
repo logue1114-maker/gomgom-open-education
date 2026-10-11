@@ -484,3 +484,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Signed interval stories](SIGNED_INTERVAL_STORIES.md): temperature and height differences across zero with public checking and blank relation help.
 
 - [Large practical number stories](LARGE_PRACTICAL_NUMBER_STORIES.md): Year6 inventory, stock, population comparison and rounding through ten million; lower-year supply retained.
+
+- [Year6 written multiplication](YEAR6_WRITTEN_PRODUCTS.md): reuse formal four-digit by two-digit workspace in Year6.
