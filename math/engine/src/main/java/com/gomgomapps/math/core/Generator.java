@@ -66,6 +66,7 @@ public final class Generator {
         if(skillId.equals(RatioContextStories.ANGLE))q=RatioContextStories.nextAngle(random,limits,previous);
         if(PercentAmountRelations.selected(skillId,limits))q=PercentAmountRelations.next(skillId,random,limits,previous);
         if(RatioSplitSupply.supports(skillId,limits))q=RatioSplitSupply.next(skillId,random,limits,previous);
+        if(ContextAccuracy.supports(skillId))q=ContextAccuracy.next(random,limits,previous);
         if(RoundedSharingStory.supports(skillId))q=RoundedSharingStory.next(random,limits,previous);
         if(QuantityRatioEquivalence.supports(skillId))q=QuantityRatioEquivalence.next(random,limits,previous);
         if(EquivalentQuantityStories.supports(skillId))q=EquivalentQuantityStories.next(s,random,limits,previous);
@@ -199,6 +200,7 @@ public final class Generator {
         if(s.id.equals(RatioContextStories.ANGLE))return RatioContextStories.nextAngle(random,limits,Map.of());
         if(PercentAmountRelations.selected(s.id,limits))return PercentAmountRelations.next(s.id,random,limits,Map.of());
         if(RatioSplitSupply.supports(s.id,limits))return RatioSplitSupply.next(s.id,random,limits,Map.of());
+        if(ContextAccuracy.supports(s.id))return ContextAccuracy.next(random,limits,Map.of());
         if(RoundedSharingStory.supports(s.id))return RoundedSharingStory.next(random,limits,Map.of());
         if(QuantityRatioEquivalence.supports(s.id))return QuantityRatioEquivalence.next(random,limits,Map.of());
         if(EquivalentQuantityStories.supports(s.id))return EquivalentQuantityStories.next(s,random,limits,Map.of());
