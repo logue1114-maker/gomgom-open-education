@@ -23,6 +23,7 @@ public final class Checker {
         if(!work.correct())return work;
         if(ComparisonRelations.supports(q.skillId))return ComparisonRelations.check(q,answers);
         if(FractionOrdering.supports(q.skillId))return FractionOrdering.check(q,answers);
+        if(PublicFractionArithmetic.supports(q.skillId))return PublicFractionArithmetic.check(q,answers);
         if(MixedNumberFoundations.supports(q.skillId))return MixedNumberFoundations.check(q,answers);
         if(FractionFamilies.supports(q.skillId))return FractionFamilies.check(q,answers);
         if(PrimaryScaleRates.supports(q.skillId))return PrimaryScaleRates.check(q,answers);
