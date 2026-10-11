@@ -40,6 +40,7 @@ public final class Generator {
         Catalog.Skill s=Catalog.get(skillId);Question q=null;
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(EquivalentQuantityStories.identity(FractionNamesRelations.identity(signature)),position++);
         int oldest=Integer.MAX_VALUE;
+        if(MultipleRecognition.supports(skillId))q=MultipleRecognition.next(random,limits,previous);
         if(DivisionNotations.ID.equals(skillId))q=DivisionNotations.next(random,limits,previous);
         if(ThreeNumberEstimation.ID.equals(skillId))q=ThreeNumberEstimation.next(random,limits,previous);
         if(ExpandedWholeNumbers.supports(skillId))q=ExpandedWholeNumbers.next(s,random,limits,previous);
@@ -193,6 +194,7 @@ public final class Generator {
         if(RemainderContexts.supports(s.id))return RemainderContexts.next(s.id,random,limits,Map.of());
         if(ShortWrittenDivision.supports(s.id))return ShortWrittenDivision.next(s.id,random,limits,Map.of());
         if(LargeWrittenProducts.supports(s.id))return LargeWrittenProducts.next(s.id,random,limits,Map.of());
+        if(MultipleRecognition.supports(s.id))return MultipleRecognition.next(random,limits,Map.of());
         if(PrimeRecall.supports(s.id))return PrimeRecall.next(random,limits,Map.of());
         if(PrimeVocabulary.supports(s.id))return PrimeVocabulary.next(s.id,random,limits,Map.of());
         if(CompleteFactorPractice.supports(s.id))return CompleteFactorPractice.next(s.id,random,limits,Map.of());

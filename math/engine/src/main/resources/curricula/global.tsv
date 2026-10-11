@@ -2149,3 +2149,6 @@ RULE	na-nied-primary-2024-v1	6	threeNumberEstimate	wholeMaximum=1000000;minGiven
 
 MAP	na-nied-primary-2024-v1	6	divisionNotations	SP printed41 B8 selected division sign, long-division bracket and stacked fraction recognition/exact value
 RULE	na-nied-primary-2024-v1	6	divisionNotations	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;contextDivisorMinimum=1;contextDivisorMaximum=99;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	multipleRecognition	SP printed42 B1; recognise multiples of15/30/45/60 within0..360 by checked division/remainder
+RULE	na-nied-primary-2024-v1	6	multipleRecognition	minGiven=0;maxGiven=360;nonnegative=true
