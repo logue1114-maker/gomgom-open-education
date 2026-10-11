@@ -14,6 +14,19 @@ public final class PercentageNotation {
  public static Integer read(Question q){
   if(q==null||q.prompt==null||!supports(q.skillId))return null;Matcher m=Pattern.compile("(\\d{1,3})%를 "+(FRACTION.equals(q.skillId)?"분모가 100인 분수":"소수")+"로 나타내세요\\.").matcher(q.prompt);if(!m.matches())return null;int n=Integer.parseInt(m.group(1));return n<=100?n:null;
  }
+ static Checker.Result check(Question q,List<String> answers){
+  Integer percent=read(q);if(percent==null||answers==null||answers.size()!=1||answers.get(0)==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"답 입력 필요");
+  String raw=Expression.normalize(answers.get(0).trim());if(raw.length()>120)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"수 입력 확인 필요");
+  if(FRACTION.equals(q.skillId)){
+   if(!raw.matches("\\d+/\\d+"))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"분수로 입력 필요");
+   String[] parts=raw.split("/");java.math.BigInteger denominator=new java.math.BigInteger(parts[1]);if(denominator.signum()==0)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"분모 입력 확인 필요");
+   boolean correct=denominator.equals(java.math.BigInteger.valueOf(100))&&new java.math.BigInteger(parts[0]).equals(java.math.BigInteger.valueOf(percent));
+   return new Checker.Result(correct?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,correct?-1:0,correct?"계산 확인 완료":"이 답 확인");
+  }
+  if(!raw.matches("[+-]?\\d+(?:\\.\\d+)?"))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"소수로 입력 필요");
+  boolean correct=new BigDecimal(raw).compareTo(BigDecimal.valueOf(percent,2))==0;
+  return new Checker.Result(correct?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,correct?-1:0,correct?"계산 확인 완료":"이 답 확인");
+ }
  public static void attach(Question q){
   Integer p=read(q);if(p==null)return;StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="percentage-notation-v1";Map<String,String> labels=new LinkedHashMap<>();labels.put("100","100개 중 몇 개인지");labels.put("10","10개 중 몇 개인지");labels.put("1","1개 중 몇 개인지");g.choice("%가 뜻하는 관계를 고르세요.",labels,"100");
   g.step("전체를 같은 크기로 나눈 부분 수를 쓰세요.","분모 d = ","","100");g.step("문제의 백분율에서 부분 수를 쓰세요.","분자 n = ","",p.toString());

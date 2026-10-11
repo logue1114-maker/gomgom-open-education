@@ -472,3 +472,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [English decimal reading](PUBLIC_ENGLISH_DECIMAL_READING.md): public-word numeral checks and balanced precision in both written modes.
 
 - [Decimal mass stories](MASS_DECIMAL_STORIES.md): rice in kg alongside length/volume quantities, with public-quantity checks.
+
+- [Public percentage notation](PUBLIC_PERCENTAGE_NOTATION.md): displayed percentage checks preserve denominator100 fractions, decimal answers and100-part meaning help.
