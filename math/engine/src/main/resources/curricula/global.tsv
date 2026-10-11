@@ -2136,3 +2136,6 @@ RULE	na-nied-primary-2024-v1	6	numberOrder	wholeMaximum=1000000;minGiven=0;maxGi
 
 MAP	na-nied-primary-2024-v1	6	populationRounding	SP printed40 B7 selected rounded population reporting0..1000000; broader real-life estimation remains
 RULE	na-nied-primary-2024-v1	6	populationRounding	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;roundingUnits=10,100,1000,10000,100000;nonnegative=true;answerDomain=integer
+
+MAP	na-nied-primary-2024-v1	6	objectOrdinal	SP printed40 B11 selected marked object position from either direction1..30; broader ordinal contexts remain
+RULE	na-nied-primary-2024-v1	6	objectOrdinal	wholeMaximum=30;maxResult=30;nonnegative=true

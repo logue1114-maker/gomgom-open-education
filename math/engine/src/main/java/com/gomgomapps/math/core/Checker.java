@@ -101,6 +101,7 @@ public final class Checker {
         if(StatementSigns.supports(q.skillId))return StatementSigns.check(q,answers);
         if(NumberLineRelations.supports(q.skillId))return NumberLineRelations.check(q,answers);
         if(WholeCompareRelations.supports(q.skillId))return WholeCompareRelations.check(q,answers);
+        if(q.skillId.equals("objectOrdinal"))return PrimaryOrdering.checkOrdinal(q,answers);
         if(q.skillId.equals("numberOrder"))return PrimaryOrdering.checkOrder(q,answers);
         if(PrimaryOrdering.verbalComparison(q.skillId))return PrimaryOrdering.checkComparison(q,answers);
         if(MentalSumStrategies.supports(q.skillId))return MentalSumStrategies.check(q,answers);
