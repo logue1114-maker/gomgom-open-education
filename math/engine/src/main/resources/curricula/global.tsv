@@ -2127,3 +2127,6 @@ RULE	na-nied-primary-2024-v1	6	wholePlaceValue	wholeMaximum=999999;minGiven=1000
 
 MAP	na-nied-primary-2024-v1	6	wholeNumberExpand,wholeNumberCombine	SP printed40 B5: place-value expanded notation and ordinary numerals through1000000
 RULE	na-nied-primary-2024-v1	6	wholeNumberExpand,wholeNumberCombine	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	englishWordsToNumber,numberToEnglishWords	SP printed40 B3 selected English numeral/word correspondence0..1000000; oral and other language naming remain
+RULE	na-nied-primary-2024-v1	6	englishWordsToNumber,numberToEnglishWords	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;nonnegative=true

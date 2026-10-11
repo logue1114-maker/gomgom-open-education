@@ -126,6 +126,7 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(Set.of("englishWordsToNumber","numberToEnglishWords").contains(q.skillId)){Integer publicNumber=EnglishNumberWords.publicValue(q);if(publicNumber==null||publicNumber<givenMinimum(0)||publicNumber>wholeMaximum(10000000))return false;}
         if(!quantityRepresentations.isEmpty()&&!q.skillId.equals("el_fraction_of_number"))return false;
         if(!partFractions.isEmpty()){
             // Use observable colored cells when present. Keep2/4 separate from1/2:
