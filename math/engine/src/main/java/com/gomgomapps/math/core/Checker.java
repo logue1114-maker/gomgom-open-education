@@ -41,6 +41,7 @@ public final class Checker {
         if(PrimaryPowers.selected(q))return PrimaryPowers.check(q,answers);
         if(DecimalPowerTen.supports(q.skillId))return DecimalPowerTen.check(q,answers);
         if(MultiplyAddContexts.supports(q.skillId))return MultiplyAddContexts.check(q,answers);
+        if(SignedIntervalStories.supports(q.skillId))return SignedIntervalStories.check(q,answers);
         if(YearFiveNumberStories.supports(q.skillId))return YearFiveNumberStories.check(q,answers);
         if(PowerCounting.supports(q.skillId))return PowerCounting.check(q,answers);
         if(MoneyBasicStories.supports(q.skillId))return MoneyBasicStories.check(q,answers);

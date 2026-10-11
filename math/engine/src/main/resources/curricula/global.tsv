@@ -1948,3 +1948,6 @@ MAP	england-primary-2021-v1	5	englishWordsToNumber,numberToEnglishWords	Selected
 RULE	england-primary-2021-v1	5	englishWordsToNumber,numberToEnglishWords	wholeMaximum=1000000;minGiven=0
 MAP	england-primary-2021-v1	6	englishWordsToNumber,numberToEnglishWords	Selected English numeral/word correspondence through10000000; lower-year bounds retained
 RULE	england-primary-2021-v1	6	englishWordsToNumber,numberToEnglishWords	wholeMaximum=10000000;minGiven=0
+
+MAP	england-primary-2021-v1	6	negativeCountBackward,temperatureChanges,temperatureInterval,heightInterval	Selected EN-Y6-03 signed counting, temperature changes and intervals between two temperatures/heights relative to sea level, givens -50..50; broader contexts and fluency remain
+RULE	england-primary-2021-v1	6	temperatureInterval,heightInterval	maxGiven=50;maxResult=100;answerDomain=integer

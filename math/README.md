@@ -480,3 +480,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Large English integer names](LARGE_ENGLISH_NUMBER_WORDS.md): grade-specific reading/writing through ten million with public givens, blank place help and spelling-error underlines.
 
 - [Public whole rounding checks](PUBLIC_WHOLE_ROUNDING.md): final checking from displayed givens while retaining blank help and existing supply.
+
+- [Signed interval stories](SIGNED_INTERVAL_STORIES.md): temperature and height differences across zero with public checking and blank relation help.
