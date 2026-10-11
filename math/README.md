@@ -500,3 +500,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year6 method choice](YEAR6_METHOD_CHOICE.md): learner method/reason selection with both valid strategies accepted.
 
 - [Year6 contextual calculations](YEAR6_CONTEXT_CONNECTIONS.md): four retained basic context families in Grade6.
+
+- [Year6 estimate checks](YEAR6_ESTIMATE_CHECK.md): rounding-envelope plausibility through10million.
