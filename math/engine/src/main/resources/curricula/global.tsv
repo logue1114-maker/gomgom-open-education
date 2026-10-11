@@ -1420,6 +1420,8 @@ MAP	na-nied-primary-2024-v1	6	largePlace,el_compare_10000,el_round	SP p.40; numb
 MAP	na-nied-primary-2024-v1	6	add1000,sub1000,mul22,divide2	SP p.41; selected written operations
 MAP	na-nied-primary-2024-v1	6	mixed,el_divisor,el_multiple	SP p.42; order, factors and multiples
 MAP	na-nied-primary-2024-v1	6	primeCompositeClassify	SP printed42 B4; classify by the number of positive factors within1..100; full factor listing and fluency remain
+MAP	na-nied-primary-2024-v1	6	allPositiveFactors	SP printed42 B3; list every positive factor within1..100 using learner-added inputs; fluency remains
+RULE	na-nied-primary-2024-v1	6	allPositiveFactors	minGiven=1;maxGiven=100;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	primeCompositeClassify	minGiven=1;maxGiven=100;nonnegative=true
 MAP	na-nied-primary-2024-v1	6	reduce,el_fraction_compare,fracAdd,fracSub	SP p.43; selected fractions and related denominators
 MAP	na-nied-primary-2024-v1	6	el_fraction_decimal,el_decimal_fraction,el_decimal_place,el_decimal_compare,el_decimal_round	SP p.44; selected decimal representation and rounding
