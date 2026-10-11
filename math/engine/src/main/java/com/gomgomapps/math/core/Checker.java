@@ -32,6 +32,7 @@ public final class Checker {
         if(EnglishDecimalWords.READ.equals(q.skillId))return EnglishDecimalWords.checkReading(q,answers);
         if(DecimalMeasureStories.supports(q.skillId))return DecimalMeasureStories.check(q,answers);
         if(PercentageNotation.supports(q.skillId))return PercentageNotation.check(q,answers);
+        if(FractionPercentEquivalence.supports(q.skillId))return FractionPercentEquivalence.check(q,answers);
         if(WholeFractionProducts.supports(q))return WholeFractionProducts.check(q,answers);
         if(PrimaryScaleRates.supports(q.skillId))return PrimaryScaleRates.check(q,answers);
         if(CombinedEqualityPractice.supports(q.skillId))return CombinedEqualityPractice.check(q,answers);

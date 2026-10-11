@@ -474,3 +474,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Decimal mass stories](MASS_DECIMAL_STORIES.md): rice in kg alongside length/volume quantities, with public-quantity checks.
 
 - [Public percentage notation](PUBLIC_PERCENTAGE_NOTATION.md): displayed percentage checks preserve denominator100 fractions, decimal answers and100-part meaning help.
+
+- [Expanded fraction equivalents](EXPANDED_FRACTION_PERCENT.md):6234 terminating-decimal fractions including denominator multiples10/25 up1000, with associated part-quantity stories.
