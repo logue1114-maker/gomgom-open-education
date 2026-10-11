@@ -5,7 +5,7 @@ public final class YearFiveNumberStories {
  private YearFiveNumberStories(){}
  public static final String STOCK="bookStockChanges",TEMPERATURE="temperatureChanges",ROUND="populationRounding",COMPARE="populationComparison";
  public static final List<Catalog.Skill> SKILLS=List.of(new Catalog.Skill(STOCK,"책 창고의 수량 변화",5,1,1,"","numberStories",3000000,"powerCountForward,powerCountBackward","매일 같은 수만큼 들어오거나 나가는 책을 센다."),new Catalog.Skill(TEMPERATURE,"시간에 따른 기온 변화",5,1,1,"","numberStories",60,"negativeCountBackward","매시간 같은 만큼 오르거나 내리는 기온을 구한다."),new Catalog.Skill(ROUND,"인구 수 반올림",5,1,1,"","numberStories",1000000,"el_round","보고서에 쓸 인구 수를 주어진 자리까지 반올림한다."));
- public static final Catalog.Skill COMPARE_SKILL=new Catalog.Skill(COMPARE,"두 지역의 인구 비교",5,1,1,"","numberStories",1000000,"el_compare","두 지역의 인구를 비교한다.");
+ public static final Catalog.Skill COMPARE_SKILL=new Catalog.Skill(COMPARE,"두 지역의 인구 비교",5,1,1,"","numberStories",1000000,"el_compare_10000","두 지역의 인구를 비교한다.");
  public static boolean supports(String id){return STOCK.equals(id)||TEMPERATURE.equals(id)||ROUND.equals(id)||COMPARE.equals(id);}
  static int count(String id){return STOCK.equals(id)?10777791:TEMPERATURE.equals(id)?1220:ROUND.equals(id)?5000005:COMPARE.equals(id)?200990101:0;}
  static Question at(String id,int index){if(index<0||index>=count(id))throw new IllegalArgumentException("Story index");
