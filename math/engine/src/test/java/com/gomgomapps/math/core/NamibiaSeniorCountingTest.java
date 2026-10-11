@@ -2,6 +2,17 @@ package com.gomgomapps.math.core;
 import org.junit.Test;import java.util.*;import java.util.regex.*;import static org.junit.Assert.*;
 public class NamibiaSeniorCountingTest {
  private static final String NA="na-nied-primary-2024-v1";
+ @Test public void savedRecentConditionsOfferEveryIntervalBeforeReusingOne(){
+  for(String id:List.of("countSkip","countBackward"))for(int seed:List.of(1,44,91)){
+   CurriculumLimits limits=GlobalCurriculum.limits(NA,id,6);LinkedHashMap<String,Integer> history=new LinkedHashMap<>();Random random=new Random(seed);
+   for(int round=0;round<12;round++){
+    Set<Integer> steps=new HashSet<>();for(int n=0;n<9;n++){
+     Question q=CountingSteps.next(Catalog.get(id),random,limits,history);Matcher m=Pattern.compile("^(\\d+)씩").matcher(q.prompt);assertTrue(m.find());assertTrue("Repeated interval before the full set",steps.add(Integer.parseInt(m.group(1))));assertFalse(history.containsKey(q.signature()));history.put(q.signature(),round*9+n);
+    }
+    assertEquals(Set.of(10,100,1000,10000,100000,15,30,45,60),steps);
+   }
+  }
+ }
  @Test public void seniorSupplyUsesPublicDirectionAndAuthorizedStartingNumbers(){
   for(String id:List.of("countSkip","countBackward")){
    CurriculumLimits limits=GlobalCurriculum.limits(NA,id,6);Set<String> seen=new HashSet<>();Random random=new Random(91);

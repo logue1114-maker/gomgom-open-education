@@ -20,11 +20,17 @@ public final class CountingSteps {
    if(count>0){segments.add(new Segment(step,first,increment,count));total=Math.addExact(total,count);}
   }
   if(total==0)throw new IllegalStateException("No counting problem matches curriculum limits");
-  int pivot=random.nextInt(total),oldest=Integer.MAX_VALUE;Question fallback=null;
-  for(int offset=0;offset<total;offset++){
-   int rank=(pivot+offset)%total;Segment chosen=null;for(Segment segment:segments){if(rank<segment.count){chosen=segment;break;}rank-=segment.count;}
-   int start=chosen.first+rank*chosen.increment;Question q=make(s,chosen.step,start,back);if(!limits.allows(q))continue;
-   Integer age=recent.get(q.signature());if(age==null)return q;if(fallback==null||age<oldest){fallback=q;oldest=age;}
+  Map<Integer,Integer> lastSeen=new HashMap<>();Pattern signature=Pattern.compile("^"+Pattern.quote(s.id)+"\\|(\\d+)씩 (?:앞으로|거꾸로) 세세요\\.\\n\\d+ → □$");
+  for(var entry:recent.entrySet()){Matcher m=signature.matcher(entry.getKey());if(m.matches())try{lastSeen.merge(Integer.parseInt(m.group(1)),entry.getValue(),Math::max);}catch(NumberFormatException ignored){}}
+  Collections.shuffle(segments,random);segments.sort(Comparator.comparingInt(segment->lastSeen.getOrDefault(segment.step,Integer.MIN_VALUE)));
+  int oldest=Integer.MAX_VALUE;Question fallback=null;
+  // Try a fresh condition in the least recently offered interval first.
+  // A depleted interval cannot force repetition while another interval has fresh work.
+  for(Segment chosen:segments){int pivot=random.nextInt(chosen.count);
+   for(int offset=0;offset<chosen.count;offset++){
+    int rank=(pivot+offset)%chosen.count,start=chosen.first+rank*chosen.increment;Question q=make(s,chosen.step,start,back);if(!limits.allows(q))continue;
+    Integer age=recent.get(q.signature());if(age==null)return q;if(fallback==null||age<oldest){fallback=q;oldest=age;}
+   }
   }
   if(fallback==null)throw new IllegalStateException("No counting problem matches curriculum limits");return fallback;
  }
