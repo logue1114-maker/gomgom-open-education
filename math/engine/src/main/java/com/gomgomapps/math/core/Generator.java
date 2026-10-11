@@ -66,7 +66,8 @@ public final class Generator {
         if(skillId.equals(RatioContextStories.ANGLE))q=RatioContextStories.nextAngle(random,limits,previous);
         if(PercentAmountRelations.selected(skillId,limits))q=PercentAmountRelations.next(skillId,random,limits,previous);
         if(RatioSplitSupply.supports(skillId,limits))q=RatioSplitSupply.next(skillId,random,limits,previous);
-        if(GroupProductLinks.supports(skillId))q=GroupProductLinks.next(random,limits,previous);
+        if(EqualPartCuts.supports(skillId))q=EqualPartCuts.next(random,limits,previous);
+        else if(GroupProductLinks.supports(skillId))q=GroupProductLinks.next(random,limits,previous);
         else if(InverseProductFacts.supports(skillId))q=InverseProductFacts.next(random,limits,previous);
         else if(PrimaryProductSteps.supports(skillId))q=PrimaryProductSteps.next(skillId,random,limits,previous);
         else if(ThreeDigitSteps.supports(skillId))q=ThreeDigitSteps.next(skillId,random,limits,previous);
@@ -206,6 +207,7 @@ public final class Generator {
         if(s.id.equals(RatioContextStories.ANGLE))return RatioContextStories.nextAngle(random,limits,Map.of());
         if(PercentAmountRelations.selected(s.id,limits))return PercentAmountRelations.next(s.id,random,limits,Map.of());
         if(RatioSplitSupply.supports(s.id,limits))return RatioSplitSupply.next(s.id,random,limits,Map.of());
+        if(EqualPartCuts.supports(s.id))return EqualPartCuts.next(random,limits,Map.of());
         if(GroupProductLinks.supports(s.id))return GroupProductLinks.next(random,limits,Map.of());
         if(InverseProductFacts.supports(s.id))return InverseProductFacts.next(random,limits,Map.of());
         if(PrimaryProductSteps.supports(s.id))return PrimaryProductSteps.next(s.id,random,limits,Map.of());

@@ -2038,3 +2038,5 @@ MAP	na-nied-primary-2024-v1	2	fractionNamePicture	JP printed18: selected whole p
 RULE	na-nied-primary-2024-v1	2	fractionNamePicture	denominators=2,4;partFractions=1/2,1/4
 MAP	na-nied-primary-2024-v1	3	fractionNamePicture	JP printed18: selected whole picture naming half/quarter/three quarters/third; group pictures and oral naming remain
 RULE	na-nied-primary-2024-v1	3	fractionNamePicture	denominators=2,3,4;partFractions=1/2,1/4,3/4,1/3
+
+MAP	na-nied-primary-2024-v1	1	equalPartCut	JP printed18: selected learner straight cut of rectangle into two equal areas; other objects/concrete cutting remain
