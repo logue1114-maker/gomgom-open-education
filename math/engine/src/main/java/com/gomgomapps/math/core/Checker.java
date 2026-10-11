@@ -74,6 +74,7 @@ public final class Checker {
         if(ProductOrder.supports(q.skillId))return ProductOrder.check(q,answers);
         if(PictureArithmetic.supports(q.skillId))return PictureArithmetic.check(q,answers);
         if(CalculationOrder.supports(q.skillId))return CalculationOrder.check(q,answers);
+        if(q.skillId.equals("mixed"))return MixedOperationOrder.check(q,answers);
         if(StatementSigns.supports(q.skillId))return StatementSigns.check(q,answers);
         if(NumberLineRelations.supports(q.skillId))return NumberLineRelations.check(q,answers);
         if(PrimaryOrdering.verbalComparison(q.skillId))return PrimaryOrdering.checkComparison(q,answers);

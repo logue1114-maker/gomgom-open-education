@@ -494,3 +494,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year6 mental calculation connections](YEAR6_MENTAL_CONNECTIONS.md): eight existing mental topics enabled for Grade6.
 
 - [Year6 number properties](YEAR6_NUMBER_PROPERTIES.md): common-factor lists, common multiples and prime classification.
+
+- [Year6 operation order](YEAR6_OPERATION_ORDER.md): public mixed-expression checking and learner-entered staged help.
