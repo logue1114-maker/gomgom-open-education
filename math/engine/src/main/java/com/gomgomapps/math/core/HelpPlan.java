@@ -94,6 +94,7 @@ public final class HelpPlan {
         MixedOperationOrder.attach(q);
         RepeatedGroupingRelations.attach(q);
         RoundingRelations.attach(q);
+        ThreeNumberEstimation.attach(q);
         ExpandedWholeNumbers.attach(q);
         WholePlaceRelations.attach(q);
         TimeUnitRelations.attach(q);
