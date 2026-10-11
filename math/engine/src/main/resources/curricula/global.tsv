@@ -2032,7 +2032,7 @@ MAP	na-nied-primary-2024-v1	2	groupProductLink	JP printed17: selected grouping/s
 RULE	na-nied-primary-2024-v1	2	groupProductLink	maxGiven=50;maxResult=10;nonnegative=true
 
 MAP	na-nied-primary-2024-v1	3	completePacketCount,exactSharedLength	JP printed17: selected context decisions, complete groups discard leftover; continuous length further divided exactly; dividends10..100, nontrivial divisors2..10; concrete grouping remains
-RULE	na-nied-primary-2024-v1	3	completePacketCount,exactSharedLength	contextDividendMinimum=10;contextDivisorMaximum=10;maxGiven=100;maxResult=100;nonnegative=true
+RULE	na-nied-primary-2024-v1	3	completePacketCount,exactSharedLength	contextDividendMinimum=10;contextDivisorMinimum=1;contextDivisorMaximum=10;maxGiven=100;maxResult=100;nonnegative=true
 
 MAP	na-nied-primary-2024-v1	2	fractionNamePicture	JP printed18: selected whole picture naming half/quarter; oral naming remains
 RULE	na-nied-primary-2024-v1	2	fractionNamePicture	denominators=2,4;partFractions=1/2,1/4
