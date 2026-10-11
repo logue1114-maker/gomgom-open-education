@@ -30,7 +30,14 @@ public class NamibiaPrimaryTest {
             Question q=generator.next(id,List.of(),i%2==0,limits);
             assertEquals(id,q.skillId);assertTrue(id+"/"+grade+": "+q.prompt,limits.allows(q));
             if(GroupedEstimation.supports(id)){Learning.Session session=new Learning.Session();session.question=q;session.answers.add("0");assertTrue(GroupedEstimation.beginCounting(session));}
-            assertTrue(id+"/"+grade,new Checker().check(q,List.of(),Arrays.asList(q.answers)).correct());
+            List<String> input=Arrays.asList(q.answers);
+            if(GroupDrawing.ID.equals(id)){
+                int[] given=GroupDrawing.read(q);String drawing="";
+                for(int group=0;group<given[1];group++)for(int slot=0;slot<given[0];slot++)drawing=GroupDrawing.toggle(q,drawing,group,slot);
+                input=List.of(drawing,""+(given[0]*given[1]));
+                assertFalse(new Checker().check(q,List.of(),Arrays.asList(q.answers)).correct());
+            }
+            assertTrue(id+"/"+grade,new Checker().check(q,List.of(),input).correct());
         }
     }
     @Test public void countingCardsRemainVisibleAndDoNotRepeatFirstHundred(){

@@ -10,7 +10,7 @@ public final class ColumnArithmeticTeaching {
     private static final String[] PLACES={"일의 자리","십의 자리","백의 자리","천의 자리","만의 자리","십만의 자리","백만의 자리"};
     static void attach(Question q){
         if(q==null||!supports(q.skillId))return;
-        Matcher m=Pattern.compile("^([0-9]{1,6})\\s*([+−-])\\s*([0-9]{1,6})$").matcher(q.prompt);if(!m.matches())return;
+        Matcher m=Pattern.compile("^([0-9]{1,7})\\s*([+−-])\\s*([0-9]{1,7})$").matcher(q.prompt);if(!m.matches())return;
         int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(3));boolean add=m.group(2).equals("+");if(!add&&a<b)return;
         if(add!=q.skillId.startsWith("add"))return;
         int width=String.valueOf(Math.max(a,b)).length();StudyGuide guide=new StudyGuide().transfer(false);guide.teachingVersion="column-relations-v1";

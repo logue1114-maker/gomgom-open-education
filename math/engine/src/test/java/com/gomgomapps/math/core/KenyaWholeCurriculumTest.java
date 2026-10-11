@@ -96,6 +96,6 @@ public class KenyaWholeCurriculumTest {
         Learning.beginPractice(s,"practice",List.of("add1000"),10,false,new Random(13),Map.of("add1000",3));s.profile.grade=6;Question q=Learning.ensureQuestion(s,generator);
         List<Long> v=integers(q.prompt);assertTrue(Collections.max(v)<=1000);assertTrue(v.get(0)+v.get(1)<=1000);assertTrue(carries(v)<=1);
         s.profile.currentSkill="addThree100";Diagnosis.begin(s,new Random(14),true);assertFalse(s.session.diagnosticRun.plan.scope.contains("addThree100"));
-        for(String invalid:List.of("wholeMaximum=0","wholeMaximum=1000000000","wholeDigits=0","wholeDigits=7","secondDigits=0","secondDigits=7")){try{new CurriculumLimits(invalid);fail(invalid);}catch(IllegalArgumentException expected){}}
+        for(String invalid:List.of("wholeMaximum=0","wholeMaximum=1000000000","wholeDigits=0","wholeDigits=8","secondDigits=0","secondDigits=8")){try{new CurriculumLimits(invalid);fail(invalid);}catch(IllegalArgumentException expected){}}
     }
 }
