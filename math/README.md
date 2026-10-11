@@ -454,3 +454,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Primary scaling and rates](PRIMARY_SCALE_RATES.md): fractional batch sizes and constant-flow quantities or times.
 
 - [Public fraction comparison and ordering](PUBLIC_FRACTION_COMPARISON_ORDER.md): final checks use visible operands and ordering direction.
+
+- [Public equivalent fraction families](PUBLIC_EQUIVALENT_FAMILIES.md): two missing numerators checked from visible fractions, including tenths and hundredths.
