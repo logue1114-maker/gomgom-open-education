@@ -302,6 +302,7 @@ public final class CurriculumLimits {
         try{return Expression.number(value).mul(Expression.number(java.math.BigInteger.TEN.pow(places).toString())).isInteger();}
         catch(RuntimeException error){return false;}
     }
+    int resultMaximum(int defaults){return maxResult==null?defaults:Math.min(defaults,maxResult.intValue());}
     int givenMinimum(int defaults){return minGiven==null?defaults:minGiven.intValue();}
     int givenMaximum(int defaultMaximum){return maxGiven==null?defaultMaximum:Math.min(defaultMaximum,maxGiven.intValue());}
     int writtenDivisionMaximum(){return maxGiven==null?9999:Math.min(1000000,maxGiven.intValue());}
