@@ -1965,3 +1965,13 @@ RULE	england-primary-2021-v1	6	completePacketCount,leftoverPencilCount,requiredV
 
 MAP	england-primary-2021-v1	6	shortDivision4x2	Selected EN-Y6-07 up-to-four-digit by two-digit short division; quotient and carried remainder frames, existing Year6 contextual interpretation retained
 RULE	england-primary-2021-v1	6	shortDivision4x2	secondDigits=2;maxGiven=9999;maxResult=9999;nonnegative=true
+
+MAP	england-primary-2021-v1	6	mentalPlaceAddition,mentalPlaceSubtraction	Selected EN-Y6-08 single-place changes to four-to-six-digit numbers; existing basic mixed operations retained
+RULE	england-primary-2021-v1	6	mentalPlaceAddition,mentalPlaceSubtraction	wholeDigits=6;secondDigits=6;minGiven=0;maxGiven=999999;maxResult=1899999;nonnegative=true
+MAP	england-primary-2021-v1	6	largeMentalDecompositionAdd,largeMentalDecompositionSub	Selected EN-Y6-08 four-to-six-digit place splitting and student subtotals; fluency remains unverified
+RULE	england-primary-2021-v1	6	largeMentalDecompositionAdd,largeMentalDecompositionSub	wholeDigits=6;secondDigits=6;minGiven=1000;maxGiven=999999;maxResult=1999998;nonnegative=true
+MAP	england-primary-2021-v1	6	convenientNumberAddition,convenientNumberSubtraction	Selected EN-Y6-08 near-multiple compensation with student round/gap/correction
+RULE	england-primary-2021-v1	6	convenientNumberAddition,convenientNumberSubtraction	wholeDigits=6;secondDigits=6;minGiven=0;maxGiven=1000000;maxResult=1999998;nonnegative=true
+MAP	england-primary-2021-v1	6	twoStepChangeStories,factorPairMental	Selected EN-Y6-08 two mixed quantity changes through one million and convenient product grouping; wider mixed large-number expressions remain partial
+RULE	england-primary-2021-v1	6	twoStepChangeStories	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+RULE	england-primary-2021-v1	6	factorPairMental	wholeMaximum=9999

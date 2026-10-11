@@ -10,7 +10,7 @@ public class YearFiveMentalFactsTest {
   GlobalCurriculum.Pack pack=GlobalCurriculum.pack(p);
   for(String id:List.of(FactorPairMental.MENTAL,DoublingCalculation.MULTIPLY,DoublingCalculation.DIVIDE)){
    assertTrue(pack.inGrade(id,5));
-   for(int grade=1;grade<=6;grade++)assertEquals(grade==5||grade==(id.equals(FactorPairMental.MENTAL)?4:3),pack.inGrade(id,grade));
+   for(int grade=1;grade<=6;grade++)assertEquals(grade==5||grade==(id.equals(FactorPairMental.MENTAL)?4:3)||(grade==6&&id.equals(FactorPairMental.MENTAL)),pack.inGrade(id,grade));
   }
   assertFalse(pack.inGrade(FactorPairMental.PAIRS,5));
  }

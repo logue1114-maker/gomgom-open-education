@@ -490,3 +490,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year6 long division](YEAR6_LONG_DIVISION.md): formal two-digit divisors and contextual remainder interpretation.
 
 - [Year6 short division](YEAR6_SHORT_DIVISION.md): two-digit divisors with short quotient/remainder workspace.
+
+- [Year6 mental calculation connections](YEAR6_MENTAL_CONNECTIONS.md): eight existing mental topics enabled for Grade6.
