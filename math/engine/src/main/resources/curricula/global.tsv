@@ -2100,3 +2100,6 @@ RULE	na-nied-primary-2024-v1	5	shortDivision4	contextDividendMinimum=100;maxGive
 MAP	na-nied-primary-2024-v1	6	shortDivision4,longDivision4x2	SP printed41: formal division through1000000; one-digit short and two-digit long methods
 RULE	na-nied-primary-2024-v1	6	shortDivision4	contextDividendMinimum=100;maxGiven=1000000;maxResult=1000000;contextDivisorMinimum=1;contextDivisorMaximum=9;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	longDivision4x2	contextDividendMinimum=100;maxGiven=1000000;maxResult=1000000;contextDivisorMinimum=10;contextDivisorMaximum=99;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	divisionRemainderValue	SP printed41: exact fractional/terminating-decimal quotient from integer quotient and remainder; numbers through1000000
+RULE	na-nied-primary-2024-v1	6	divisionRemainderValue	contextDividendMinimum=100;maxGiven=1000000;maxResult=1000000;contextDivisorMinimum=1;contextDivisorMaximum=99;nonnegative=true

@@ -1,0 +1,7 @@
+# Namibia Grade6 exact remainder representation — v235
+
+NIED Senior Primary Mathematics2024 file, printed41/PDF45: record remainders as fractions or decimals where appropriate (authored row NA-SP-G6-P41-B9), with Grade6 whole-number range through1,000,000 on printed40/PDF44.
+
+New reviewed-pack-only divisionRemainderValue: public division operands; dividend100..1,000,000/divisor1..99. Students enter total, divisor, integer quotient, remainder, divided remainder, choose an exact representation, then add the integer quotient and divided remainder. Seven blank frames, no answer transfer. Fraction always accepted; terminating decimal additionally accepted only when the reduced denominator contains no prime factor other than2/5. Rounded nonterminating decimals rejected. Main exact answer submitted separately. Existing context/short/long/decimal/fraction families and saved guides unchanged.
+
+Tests independently use BigDecimal exact division to classify terminating values; every divisor1..99 and14 dividend boundaries, public-operand answers despite poisoned metadata, equivalent fractions and exact decimals/rounded rejection, all frames/form alternatives, normal varied placement/generation and serialized wrong remainder-fraction draft. Native UI/learner/APK evidence remains private. Broader context selection/notation/fluency/full curricula/all languages/devices/accessibility/release approval remain separate.
