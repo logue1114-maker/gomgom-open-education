@@ -314,7 +314,10 @@ public final class ElementaryBasics {
 
     private static Question compare(Catalog.Skill skill,Random random,CurriculumLimits limits){
         int maximum=limits.wholeMaximum(10000);
-        int left=n(random,Math.min(limits.givenMinimum(100),maximum),maximum),right=n(random,Math.min(limits.givenMinimum(100),maximum),maximum);
+        int minimum=Math.min(limits.givenMinimum(100),maximum),relation=minimum==maximum?1:random.nextInt(3);
+        int left,right;
+        if(relation==1){left=n(random,minimum,maximum);right=left;}
+        else{int low=n(random,minimum,maximum-1),high=n(random,low+1,maximum);left=relation==0?low:high;right=relation==0?high:low;}
         String answer=left==right?"=":left>right?">":"<";
         Question q=symbol(skill,left+"  □  "+right,w(left)+"-"+w(right),answer,null,null);
         WholeCompareRelations.attach(q);return q;

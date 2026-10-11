@@ -100,6 +100,8 @@ public final class Checker {
         if(q.skillId.equals("mixed"))return MixedOperationOrder.check(q,answers);
         if(StatementSigns.supports(q.skillId))return StatementSigns.check(q,answers);
         if(NumberLineRelations.supports(q.skillId))return NumberLineRelations.check(q,answers);
+        if(WholeCompareRelations.supports(q.skillId))return WholeCompareRelations.check(q,answers);
+        if(q.skillId.equals("numberOrder"))return PrimaryOrdering.checkOrder(q,answers);
         if(PrimaryOrdering.verbalComparison(q.skillId))return PrimaryOrdering.checkComparison(q,answers);
         if(MentalSumStrategies.supports(q.skillId))return MentalSumStrategies.check(q,answers);
         if(MentalPlaceCalculations.supports(q.skillId))return MentalPlaceCalculations.check(q,answers);

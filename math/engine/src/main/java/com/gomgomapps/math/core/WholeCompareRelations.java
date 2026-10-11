@@ -33,6 +33,10 @@ public final class WholeCompareRelations {
             return List.copyOf(f);
         }catch(NumberFormatException invalid){return List.of();}
     }
+    static Checker.Result check(Question q,List<String> answers){
+        List<Frame> frames=frames(q);if(frames.isEmpty()||answers==null||answers.size()!=1||answers.get(0)==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"답 입력 필요");
+        String input=Expression.normalize(answers.get(0).trim());if(!Set.of("<",">","=").contains(input))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"비교 기호 입력 필요");boolean correct=input.equals(frames.get(frames.size()-1).expected());return new Checker.Result(correct?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,correct?-1:0,correct?"정답":"이 답 확인");
+    }
     public static void attach(Question q){
         var frames=frames(q);if(frames.isEmpty())return;
         StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="whole-compare-relations-v1";

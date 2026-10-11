@@ -93,6 +93,11 @@ public final class PrimaryOrdering {
   }
   q.stepSupport=false;return q;
  }
+ static Checker.Result checkOrder(Question q,List<String> answers){
+  double[] v=q.diagram==null?null:q.diagram.values;if(v==null||!q.diagram.type.equals("primaryNumberOrder")||v.length!=4||Arrays.stream(v).anyMatch(n->!Double.isFinite(n)||n<0||n>Integer.MAX_VALUE||n!=(int)n)||(v[3]!=0&&v[3]!=1)||!q.prompt.equals(v[3]==0?"작은 수부터 쓰세요.":"큰 수부터 쓰세요.")||answers==null||answers.size()!=3)return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"답 입력 필요");
+  int[] sorted=Arrays.stream(v).limit(3).mapToInt(n->(int)n).sorted().toArray();for(int i=0;i<3;i++){String raw=answers.get(i);if(raw==null||raw.isBlank()||raw.length()>120)return new Checker.Result(Checker.Status.INPUT_NEEDED,i,"답 입력 필요");try{if(!Expression.number(Expression.normalize(raw.trim())).equals(Rational.of(sorted[v[3]==0?i:2-i])))return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"이 답 확인");}catch(RuntimeException invalid){return new Checker.Result(Checker.Status.INPUT_NEEDED,i,"수로 입력 필요");}}
+  return new Checker.Result(Checker.Status.CORRECT,-1,"정답");
+ }
  public static void attach(Question q){
   if(q==null||!supports(q.skillId)||q.diagram==null)return;double[] v=q.diagram.values;StudyGuide guide=new StudyGuide().transfer(false);guide.teachingVersion="primary-ordering-v1";
   if(q.skillId.equals("numberOrder")){
