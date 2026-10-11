@@ -2056,3 +2056,12 @@ RULE	na-nied-primary-2024-v1	2	countBackSubtraction,countUpDifference	wholeMaxim
 MAP	na-nied-primary-2024-v1	3	countOnAddition,countBackSubtraction,countUpDifference	JP printed14-15: explicit count-on/count-back/count-up calculation strategies; oral/concrete fluency not implied
 RULE	na-nied-primary-2024-v1	3	countOnAddition	wholeMaximum=500;maxGiven=500;maxResult=500;nonnegative=true
 RULE	na-nied-primary-2024-v1	3	countBackSubtraction,countUpDifference	wholeMaximum=500;maxGiven=500;maxResult=500;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	1	doubleBasedAddition	JP printed14: doubling as addition strategy; concrete/oral fluency not implied
+RULE	na-nied-primary-2024-v1	1	doubleBasedAddition	wholeMaximum=20;maxGiven=20;maxResult=20;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	2	doubleBasedAddition	JP printed14: doubling as addition strategy; concrete/oral fluency not implied
+RULE	na-nied-primary-2024-v1	2	doubleBasedAddition	wholeMaximum=100;maxGiven=100;maxResult=100;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	3	doubleBasedAddition	JP printed14: doubling as addition strategy; concrete/oral fluency not implied
+RULE	na-nied-primary-2024-v1	3	doubleBasedAddition	wholeMaximum=500;maxGiven=500;maxResult=500;nonnegative=true
