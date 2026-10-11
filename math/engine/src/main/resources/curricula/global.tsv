@@ -1936,3 +1936,6 @@ MAP	england-primary-2021-v1	5	factorPackingBags,multipleProductionTarget,squareT
 MAP	england-primary-2021-v1	5	combinedOperationStories,equalOperationSides	Selected EN-Y5-20 two-step multiplication/division then addition/subtraction contexts and equal-valued arithmetic sides; wider modelling, representations and fluency remain partial
 
 MAP	england-primary-2021-v1	5	fractionBatchScaling,constantFlowAmount,constantFlowTime	Selected EN-Y5-21 proper/improper fractional batch scaling with whole gram results and constant integral litres/minute amount/time problems; broader contexts, fractional results and representations remain partial
+
+MAP	england-primary-2021-v1	5	fractionSumToMixed	Selected like-denominator sums greater than one; broader representations remain
+RULE	england-primary-2021-v1	5	fractionSumToMixed,el_mixed_to_improper,el_improper_to_mixed	denominators=2,3,4,5,6,7,8,9,10,11,12

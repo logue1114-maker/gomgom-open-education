@@ -54,6 +54,7 @@ public final class Generator {
         if(NumberDecomposition.supports(skillId))q=NumberDecomposition.next(s,random,limits,previous);
         if(FractionPieces.supports(skillId))q=FractionPieces.next(s,random,limits,previous);
         if(FractionFamilies.supports(skillId))q=FractionFamilies.next(s,random,limits,previous);
+        if(MixedNumberFoundations.supports(skillId))q=MixedNumberFoundations.next(skillId,random,limits,previous);
         if(DecimalCounting.supports(skillId))q=DecimalCounting.next(s,random,limits,previous);
         if(DecimalWholeProducts.supports(skillId,limits))q=DecimalWholeProducts.next(random,limits,previous);
         if(DecimalWrittenDivision.supports(skillId))q=DecimalWrittenDivision.next(random,limits,previous);

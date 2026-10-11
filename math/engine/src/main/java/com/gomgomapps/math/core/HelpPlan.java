@@ -100,7 +100,7 @@ public final class HelpPlan {
         FractionReductionRelations.attach(q);
         PrimaryFractionRelations.attach(q);
         FractionProductRelations.attach(q);
-        FractionConceptRelations.attach(q);
+        FractionConceptRelations.attach(q);MixedNumberFoundations.attach(q);
         FractionOrdering.attach(q);
         FractionFamilies.attach(q);
         DecimalCounting.attach(q);
