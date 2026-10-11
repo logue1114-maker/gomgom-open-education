@@ -8,6 +8,15 @@ public final class FactorSearchRelations {
     private FactorSearchRelations() {}
     public static final Set<String> IDS=Set.of("el_divisor","el_multiple","el_common_divisor","el_common_multiple");
     public static boolean supports(String id){return IDS.contains(id);}
+    static Checker.Result checkCommonMultiple(Question q,List<String> answers){
+        Matcher m=Pattern.compile("^([0-9]{1,2})과 ([0-9]{1,2})의 ([0-9])번째 공배수는\\?$").matcher(q.prompt==null?"":q.prompt);
+        if(!m.matches())return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 필요");
+        int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(2)),order=Integer.parseInt(m.group(3));
+        if(a<2||a>12||b<2||b>12||order<2||order>4||answers==null||answers.size()!=1||answers.get(0)==null||!answers.get(0).trim().matches("[0-9]{1,4}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 필요");
+        int first=Math.max(a,b);while(first%a!=0||first%b!=0)first++;
+        boolean correct=Integer.parseInt(answers.get(0).trim())==first*order;
+        return new Checker.Result(correct?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,correct?-1:0,correct?"정답":"이 수 확인");
+    }
     public record Frame(String instruction,String before,String result,String expected,int[] prior) {}
     private static int add(List<Frame> f,String instruction,String before,String result,int value,int...prior){
         int index=f.size();f.add(new Frame(instruction,before+" = ",result,Integer.toString(value),prior));return index;

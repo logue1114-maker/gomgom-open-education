@@ -41,7 +41,7 @@ public class CompleteFactorPracticeTest {
   Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"GB");GlobalCurriculum.choosePack(p,"england-primary-2021-v1");GlobalCurriculum.Pack pack=GlobalCurriculum.pack(p);
   Generator generator=new Generator(new Random(162));
   for(String id:List.of(CompleteFactorPractice.PAIRS,CompleteFactorPractice.COMMON,CompleteFactorPractice.MULTIPLES)){
-   assertTrue(pack.inGrade(id,5));assertFalse(pack.inGrade(id,4));assertFalse(pack.inGrade(id,6));assertFalse(Curriculum.inCurriculum(Catalog.get(id),2022));
+   assertTrue(pack.inGrade(id,5));assertFalse(pack.inGrade(id,4));assertEquals(id.equals(CompleteFactorPractice.COMMON),pack.inGrade(id,6));assertFalse(Curriculum.inCurriculum(Catalog.get(id),2022));
    CurriculumLimits limits=GlobalCurriculum.limits(pack.id,id,5);List<String> history=new ArrayList<>();
    for(int i=0;i<100;i++){Question q=generator.next(id,history,false,limits);assertNotNull(CompleteFactorPractice.read(q));assertFalse(history.contains(q.signature()));history.add(q.signature());}
    Map<String,Integer> all=new LinkedHashMap<>();for(int i=0;i<CompleteFactorPractice.count(id);i++)all.put(CompleteFactorPractice.indexed(id,i).signature(),i);

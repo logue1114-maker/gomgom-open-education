@@ -52,6 +52,7 @@ public final class Checker {
         if(PrimeRecall.supports(q.skillId))return PrimeRecall.check(q,answers);
         if(PrimeVocabulary.supports(q.skillId))return PrimeVocabulary.check(q,answers);
         if(CompleteFactorPractice.supports(q.skillId))return CompleteFactorPractice.check(q,answers);
+        if(q.skillId.equals("el_common_multiple"))return FactorSearchRelations.checkCommonMultiple(q,answers);
         if(FactorPairMental.supports(q.skillId))return FactorPairMental.check(q,answers);
         if(TwoStepChangeStories.ID.equals(q.skillId))return TwoStepChangeStories.check(q,answers);
         if(RomanRead.supports(q.skillId))return RomanRead.check(q,answers);

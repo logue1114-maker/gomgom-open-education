@@ -1975,3 +1975,7 @@ RULE	england-primary-2021-v1	6	convenientNumberAddition,convenientNumberSubtract
 MAP	england-primary-2021-v1	6	twoStepChangeStories,factorPairMental	Selected EN-Y6-08 two mixed quantity changes through one million and convenient product grouping; wider mixed large-number expressions remain partial
 RULE	england-primary-2021-v1	6	twoStepChangeStories	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 RULE	england-primary-2021-v1	6	factorPairMental	wholeMaximum=9999
+
+MAP	england-primary-2021-v1	6	allCommonFactors,el_common_multiple,primeCompositeClassify	Selected EN-Y6-09 complete common factors, ordered common multiples and prime/composite classification; existing gcd/lcm retained
+RULE	england-primary-2021-v1	6	allCommonFactors,primeCompositeClassify	maxGiven=144;maxResult=144;nonnegative=true
+RULE	england-primary-2021-v1	6	el_common_multiple	maxGiven=12;maxResult=528;nonnegative=true
