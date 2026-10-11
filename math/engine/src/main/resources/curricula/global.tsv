@@ -2115,3 +2115,6 @@ RULE	na-nied-primary-2024-v1	6	estimateAdditionCheck,estimateSubtractionCheck	wh
 
 MAP	na-nied-primary-2024-v1	6	largeMentalDecompositionAdd,largeMentalDecompositionSub	SP printed41 B1 selected place-value mental strategy throughout0..1000000; other strategies and fluency remain
 RULE	na-nied-primary-2024-v1	6	largeMentalDecompositionAdd,largeMentalDecompositionSub	wholeMaximum=1000000;wholeDigits=7;secondDigits=7;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	convenientNumberAddition,convenientNumberSubtraction	SP printed41 B1 selected near-multiple compensation strategy; wider strategies and fluency remain
+RULE	na-nied-primary-2024-v1	6	convenientNumberAddition,convenientNumberSubtraction	wholeMaximum=1000000;wholeDigits=7;secondDigits=7;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
