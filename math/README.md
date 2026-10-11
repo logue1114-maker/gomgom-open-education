@@ -488,3 +488,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year6 written multiplication](YEAR6_WRITTEN_PRODUCTS.md): reuse formal four-digit by two-digit workspace in Year6.
 
 - [Year6 long division](YEAR6_LONG_DIVISION.md): formal two-digit divisors and contextual remainder interpretation.
+
+- [Year6 short division](YEAR6_SHORT_DIVISION.md): two-digit divisors with short quotient/remainder workspace.

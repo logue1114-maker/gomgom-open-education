@@ -1962,3 +1962,6 @@ RULE	england-primary-2021-v1	6	populationComparison	wholeMaximum=10000000;maxGiv
 MAP	england-primary-2021-v1	6	longDivision4x2,completePacketCount,leftoverPencilCount,requiredVehicleCount,exactSharedLength	Selected EN-Y6-06 four-digit by two-digit formal long division; integer remainder, exact fraction/equal sharing and context floor/ceiling
 RULE	england-primary-2021-v1	6	longDivision4x2	secondDigits=2;maxGiven=9999;maxResult=9999;nonnegative=true
 RULE	england-primary-2021-v1	6	completePacketCount,leftoverPencilCount,requiredVehicleCount,exactSharedLength	contextDivisorMaximum=99;maxGiven=9999;maxResult=9999;nonnegative=true
+
+MAP	england-primary-2021-v1	6	shortDivision4x2	Selected EN-Y6-07 up-to-four-digit by two-digit short division; quotient and carried remainder frames, existing Year6 contextual interpretation retained
+RULE	england-primary-2021-v1	6	shortDivision4x2	secondDigits=2;maxGiven=9999;maxResult=9999;nonnegative=true
