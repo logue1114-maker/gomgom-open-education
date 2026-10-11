@@ -468,3 +468,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Fraction and decimal unit counts](FRACTION_DECIMAL_UNITS.md): equivalent tenths, hundredths and thousandths in both notations.
 
 - [Public decimal rounding](PUBLIC_DECIMAL_ROUNDING.md): final checks derived from the displayed number and target precision.
+
+- [English decimal reading](PUBLIC_ENGLISH_DECIMAL_READING.md): public-word numeral checks and balanced precision in both written modes.

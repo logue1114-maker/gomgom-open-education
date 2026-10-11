@@ -25,8 +25,11 @@ public final class EnglishDecimalWords {
  }
  static Question make(String id,String raw){boolean writing=WRITE.equals(id);Question q=new Question(id,(writing?"이 숫자를 영어 단어로 쓰세요.":"이 영어 수 이름을 숫자로 쓰세요.")+"\n"+(writing?raw:words(raw)),"",writing?words(raw):raw);q.stepSupport=false;if(writing)q.kind="englishNumberWords";else {q.decimal=true;q.answerFormat="decimalValue";}attach(q);return q;}
  static Question next(Catalog.Skill skill,Random random,CurriculumLimits limits,Map<String,Integer> recent){
-  int max=limits.wholeMaximum(1000000),places=limits.decimalPlaces(3);if(max<0||max>1000000||places<1||places>3)throw new IllegalArgumentException("Selected English decimal domain");int sum=0;for(int p=1;p<=places;p++)sum+=(max+1)*(int)Math.pow(10,p);final int count=sum;
-  return IndexedQuestionSupply.choose(count,index->{int scale=10,p=1;while(index>=(max+1)*scale){index-=(max+1)*scale;scale*=10;p++;}return make(skill.id,BigDecimal.valueOf(index,p).toPlainString());},random,limits,recent);
+  int max=limits.wholeMaximum(1000000),places=limits.decimalPlaces(3);if(max<0||max>1000000||places<1||places>3)throw new IllegalArgumentException("Selected English decimal domain");int p=1+random.nextInt(places),count=(max+1)*(int)Math.pow(10,p);
+  return IndexedQuestionSupply.choose(count,index->make(skill.id,BigDecimal.valueOf(index,p).toPlainString()),random,limits,recent);
+ }
+ static Checker.Result checkReading(Question q,List<String> answers){
+  try{if(q.prompt==null||q.prompt.length()>512)throw new IllegalArgumentException();String[] parts=q.prompt.split("\n",-1);if(parts.length!=2||!parts[0].equals("이 영어 수 이름을 숫자로 쓰세요."))throw new IllegalArgumentException();String raw=numeral(parts[1]);if(answers==null||answers.size()!=1||answers.get(0)==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"답 입력 필요");String input=Expression.normalize(answers.get(0).trim());if(input.length()>120||!input.matches("[+-]?\\d+(?:\\.\\d+)?"))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"수로 입력 필요");boolean same=new BigDecimal(input).compareTo(new BigDecimal(raw))==0;return new Checker.Result(same?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,same?-1:0,same?"정답":"이 답 확인");}catch(RuntimeException ex){return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"문제 확인 필요");}
  }
  public static void attach(Question q){
   if(q==null||q.prompt==null||!supports(q.skillId))return;String[] p=q.prompt.split("\n",2);if(p.length!=2)return;boolean writing=WRITE.equals(q.skillId);if(!p[0].equals(writing?"이 숫자를 영어 단어로 쓰세요.":"이 영어 수 이름을 숫자로 쓰세요."))return;
