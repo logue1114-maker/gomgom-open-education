@@ -2109,3 +2109,6 @@ RULE	na-nied-primary-2024-v1	6	tenMultipleProduct,tenMultipleQuotient	maxGiven=1
 
 MAP	na-nied-primary-2024-v1	6	wholeTimesPowerTen,wholeOverPowerTen	SP printed41 B6 selected whole-number power-of-ten unit strategy;broader mental strategies/fluency remain
 RULE	na-nied-primary-2024-v1	6	wholeTimesPowerTen,wholeOverPowerTen	maxGiven=1000000;maxResult=1000000;answerDecimalPlaces=6;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	estimateAdditionCheck,estimateSubtractionCheck	SP printed41 B3 selected rounding-envelope check; plausible estimates do not prove exact equality
+RULE	na-nied-primary-2024-v1	6	estimateAdditionCheck,estimateSubtractionCheck	wholeMaximum=1000000;maxExactResult=1000000;minGiven=0;maxGiven=3000001;maxResult=2000000;roundingUnits=10,100,1000,10000,100000;nonnegative=true

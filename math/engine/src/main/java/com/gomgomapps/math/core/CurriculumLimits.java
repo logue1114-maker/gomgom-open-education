@@ -45,7 +45,7 @@ public final class CurriculumLimits {
     int contextDivisorMinimum(){return contextDivisorMinimum==null?(contextDivisorMaximum()>10?10:2):contextDivisorMinimum;}
     private int minuteStep=5;
     private int metricDecimals=0;
-    private Integer maxSecondOperand,maxRegroups,decimalPlaces,answerDecimalPlaces,secondDecimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides;
+    private Integer maxSecondOperand,maxRegroups,decimalPlaces,answerDecimalPlaces,secondDecimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides,maxExactResult;
     private final Set<Integer> roundingDecimalTargets=new TreeSet<>();
     private boolean sameDecimalPlaces,powerNotation;
     boolean powerNotation(){return powerNotation;}
@@ -101,6 +101,7 @@ public final class CurriculumLimits {
                 case "powerNotation":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid power notation flag");powerNotation=true;break;
                 case "sameDecimalPlaces":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid same decimal places flag");sameDecimalPlaces=true;break;
                 case "wholeMaximum":wholeMaximum=Integer.valueOf(pair[1]);if(wholeMaximum<1||wholeMaximum>999999999)throw new IllegalArgumentException("Invalid whole-number range");break;
+                case "maxExactResult":maxExactResult=Integer.valueOf(pair[1]);if(maxExactResult<0||maxExactResult>20000000)throw new IllegalArgumentException("Invalid exact estimate calculation range");break;
                 case "wholeDigits":case "secondDigits":int digits=Integer.parseInt(pair[1]);if(digits<1||digits>7)throw new IllegalArgumentException("Invalid operand digits");if(pair[0].equals("wholeDigits"))wholeDigits=digits;else secondDigits=digits;break;
                 case "polygonSides":polygonSides=Integer.valueOf(pair[1]);if(polygonSides<3||polygonSides>20)throw new IllegalArgumentException("Invalid polygon side range");break;
                 case "roundingUnits":for(String value:pair[1].split(",")){int unit=Integer.parseInt(value);if(!Set.of(10,100,1000,10000,100000,1000000,10000000,100000000).contains(unit)||roundingUnits.contains(unit))throw new IllegalArgumentException("Invalid rounding unit");roundingUnits.add(unit);}break;
@@ -225,6 +226,12 @@ public final class CurriculumLimits {
         if(nonnegative&&NEGATIVE.matcher(givens).find())return false;
         if(nonnegativeSubtrahend&&Pattern.compile("-\\s*\\(\\s*-\\d").matcher(q.expression).find())return false;
         if(maxGiven!=null||minGiven!=null){Matcher m=NUMBER.matcher(givens);while(m.find()){double number=Double.parseDouble(m.group());if((maxGiven!=null&&number>maxGiven)||(minGiven!=null&&number<minGiven))return false;}}
+        if(maxExactResult!=null){
+            int[] estimate=EstimateCalculationCheck.read(q);if(estimate==null)return false;
+            if(wholeMaximum!=null&&(estimate[0]>wholeMaximum||estimate[1]>wholeMaximum))return false;
+            int exact=EstimateCalculationCheck.ADD.equals(q.skillId)?estimate[0]+estimate[1]:estimate[0]-estimate[1];
+            if(exact>maxExactResult)return false;
+        }
         if(GroupDrawing.ID.equals(q.skillId)){
             // A drawing response is not a scalar answer. Bound the public total,
             // while the checker separately validates each student-drawn group.
@@ -271,6 +278,7 @@ public final class CurriculumLimits {
     boolean includeZeroCount(){return includeZeroCount;}
     List<Integer> objectGroupSizes(){return objectGroupSizes.isEmpty()?List.of(2,3,4,5,10):List.copyOf(objectGroupSizes);}
     int wholeMaximum(int defaults){return givenMaximum(wholeMaximum==null?defaults:wholeMaximum);}
+    int exactResultMaximum(int defaults){return maxExactResult==null?defaults:Math.min(defaults,maxExactResult);}
     int answerDecimalPlaces(int defaults){return answerDecimalPlaces==null?defaults:answerDecimalPlaces;}
     int[] roundingUnits(){return roundingUnits.isEmpty()?new int[]{10,100,1000}:roundingUnits.stream().mapToInt(Integer::intValue).toArray();}
     int secondOperandMaximum(int defaultMaximum){return maxSecondOperand==null?defaultMaximum:Math.min(defaultMaximum,maxSecondOperand);}
