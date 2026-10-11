@@ -10,6 +10,7 @@ public final class WholeNumberRelations {
   Matcher m=Pattern.compile(three?"^\\s*(\\d{1,6})\\s*([+−-])\\s*(\\d{1,6})\\s*([+−-])\\s*(\\d{1,6})\\s*$":"^\\s*(\\d{1,2})\\s*([+−-])\\s*(\\d{1,2})\\s*$").matcher(q.prompt);
   if(!m.matches()||m.group(2).equals("+")!=add||three&&m.group(4).equals("+")!=add)return;
   int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(3)),c=three?Integer.parseInt(m.group(5)):0;if(!add&&(a<b||a-b<c))return;
+  boolean savedOriginal=q.studyGuide!=null&&"whole-number-relations-v1".equals(q.studyGuide.teachingVersion);
   StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="whole-number-relations-v1";
   g.step("첫 수를 쓰세요.","첫 수 = ","",String.valueOf(a));g.step("둘째 수를 쓰세요.","둘째 수 = ","",String.valueOf(b));
   if(three){
@@ -25,6 +26,19 @@ public final class WholeNumberRelations {
    g.step("첫 수에서 10을 빼고 남은 수를 쓰세요.","첫 수 − 10 = ","",String.valueOf(a-10));
    g.step("10에서 둘째 수를 빼세요.","10 − 둘째 수 = ","",String.valueOf(10-b)).quantity(10,-b,10);
    g.step("두 곳에 남은 수를 더하세요.","10에서 남은 수 + 처음 남겨 둔 수 = ","",String.valueOf(a-b));
+  }else if(!add&&!savedOriginal&&a>=10&&a<=20&&b>0&&b<a){
+   g.teachingVersion="whole-subtract-parts-v2";
+   if(b<=9){
+    g.step("첫 수를 10과 나머지로 나누세요. 10을 빼고 남은 수를 쓰세요.","첫 수 − 10 = ","",String.valueOf(a-10));
+    g.step("10에서 둘째 수를 빼세요.","10 − 둘째 수 = ","",String.valueOf(10-b)).quantity(10,-b,10);
+    g.step("두 곳에 남은 수를 더하세요.","10에서 남은 수 + 처음 남겨 둔 수 = ","",String.valueOf(a-b));
+   }else{
+    int tens=b/10*10,ones=b-tens;
+    g.step("둘째 수를 십과 일로 나누세요. 십 자리값을 쓰세요.","십 자리값 = ","",String.valueOf(tens));
+    g.step("둘째 수에서 십 자리값을 빼세요.","둘째 수 − 십 자리값 = ","",String.valueOf(ones));
+    g.step("첫 수에서 십 자리값을 빼세요.","첫 수 − 십 자리값 = ","",String.valueOf(a-tens));
+    g.step("앞에서 남은 수에서 일 자리값을 빼세요.","앞에서 남은 수 − 일 자리값 = ","",String.valueOf(a-b));
+   }
   }else{
    String instruction=add?"두 묶음을 모아 세세요.":b==0?"0을 빼면 처음 수가 그대로 남습니다. 처음 수를 쓰세요.":a==b?"같은 수를 모두 빼면 0이 됩니다. 남은 수를 쓰세요.":"지운 동그라미를 빼고 세세요.";
    g.step(instruction,add?"첫 수 + 둘째 수 = ":"첫 수 − 둘째 수 = ","",String.valueOf(add?a+b:a-b));
