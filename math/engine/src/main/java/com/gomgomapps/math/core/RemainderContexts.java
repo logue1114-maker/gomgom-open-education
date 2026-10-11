@@ -20,7 +20,7 @@ public final class RemainderContexts {
  public static int[] read(Question q){
   if(q==null||!supports(q.skillId)||q.prompt==null)return null;
   String pattern="^"+Pattern.quote(template(q.skillId)).replace("%s","\\E([0-9]{1,4})\\Q")+"$";Matcher m=Pattern.compile(pattern).matcher(q.prompt);if(!m.matches())return null;
-  int n=Integer.parseInt(m.group(1)),d=Integer.parseInt(m.group(2));return n<1||n>9999||d<2||d>9?null:new int[]{n,d,n/d,n%d};
+  int n=Integer.parseInt(m.group(1)),d=Integer.parseInt(m.group(2));return n<1||n>9999||d<2||d>99?null:new int[]{n,d,n/d,n%d};
  }
  public static Rational expected(String id,int n,int d){return Rational.of(id.equals(GROUPS)?n/d:id.equals(LEFT)?n%d:id.equals(VEHICLES)?(n+d-1)/d:n,id.equals(LENGTH)?d:1);}
  static Question indexed(String id,int index){
@@ -28,7 +28,8 @@ public final class RemainderContexts {
   Question q=new Question(id,String.format(Locale.ROOT,template(id),n,d),"",expected(id,n,d).toString());q.labels=new String[]{id.equals(GROUPS)?"묶음 수":id.equals(LEFT)?"남은 개수":id.equals(VEHICLES)?"차량 수":"길이"};q.stepSupport=false;
   if(id.equals(LENGTH)){q.answerFormat="fraction";q.decimal=true;}return q;
  }
- static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){Question q=IndexedQuestionSupply.choose(9999*8,i->indexed(id,i),random,limits,recent);attach(q);return q;}
+ static Question indexedTwoDigit(String id,int index){if(!supports(id)||index<0||index>=9999*90)throw new IllegalArgumentException("two digit remainder context domain");int n=1+index/90,d=10+index%90;Question q=new Question(id,String.format(Locale.ROOT,template(id),n,d),"",expected(id,n,d).toString());q.labels=new String[]{id.equals(GROUPS)?"묶음 수":id.equals(LEFT)?"남은 개수":id.equals(VEHICLES)?"차량 수":"길이"};q.stepSupport=false;if(id.equals(LENGTH)){q.answerFormat="fraction";q.decimal=true;}return q;}
+ static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){boolean two=limits.contextDivisorMaximum()>9;Question q=IndexedQuestionSupply.choose(9999*(two?90:8),i->two?indexedTwoDigit(id,i):indexed(id,i),random,limits,recent);attach(q);return q;}
  static Checker.Result check(Question q,List<String> answers){
   int[] v=read(q);if(v==null||answers==null||answers.size()!=1||answers.get(0)==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"답 입력 필요");
   String raw=Expression.normalize(answers.get(0).trim());if(!raw.matches(q.skillId.equals(LENGTH)?"[0-9]+(?:\\.[0-9]+)?(?:/[0-9]+)?":"[0-9]{1,4}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 필요");

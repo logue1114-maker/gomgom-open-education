@@ -25,7 +25,7 @@ public class RemainderContextsTest {
  }
  @Test public void realYearFiveSupplyFreshAndOnlyYearFivePlacement(){
   Generator g=new Generator(new Random(169));Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"GB");GlobalCurriculum.choosePack(p,"england-primary-2021-v1");
-  for(Catalog.Skill s:RemainderContexts.SKILLS){for(int grade=1;grade<=6;grade++)assertEquals(grade==5,GlobalCurriculum.pack(p).inGrade(s.id,grade));List<String> recent=new ArrayList<>();CurriculumLimits limits=GlobalCurriculum.limits(p.educationSystem,s.id,5);for(int i=0;i<100;i++){Question q=g.next(s.id,recent,false,limits);assertTrue(limits.allows(q));assertFalse(recent.contains(q.signature()));recent.add(q.signature());assertNotNull(RemainderContexts.read(q));assertTrue(q.choices.isEmpty());}}
+  for(Catalog.Skill s:RemainderContexts.SKILLS){for(int grade=1;grade<=6;grade++)assertEquals(grade==5||grade==6,GlobalCurriculum.pack(p).inGrade(s.id,grade));List<String> recent=new ArrayList<>();CurriculumLimits limits=GlobalCurriculum.limits(p.educationSystem,s.id,5);for(int i=0;i<100;i++){Question q=g.next(s.id,recent,false,limits);assertTrue(limits.allows(q));assertFalse(recent.contains(q.signature()));recent.add(q.signature());assertNotNull(RemainderContexts.read(q));assertTrue(q.choices.isEmpty());}}
   Question q=RemainderContexts.indexed(RemainderContexts.VEHICLES,0);q.prompt="corrupt public prompt";assertNull(RemainderContexts.read(q));assertEquals(Checker.Status.INPUT_NEEDED,new Checker().check(q,List.of(),List.of("1")).status);
  }
 }

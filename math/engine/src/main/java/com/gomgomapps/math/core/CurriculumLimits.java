@@ -38,6 +38,8 @@ public final class CurriculumLimits {
     private final Map<Integer,Integer> dividendMaxima=new HashMap<>();
     private int timesTableMax=9;
     private int divisionMinQuotient=1,divisionMinDivisor=2;
+    private Integer contextDivisorMaximum;
+    int contextDivisorMaximum(){return contextDivisorMaximum==null?9:contextDivisorMaximum;}
     private int minuteStep=5;
     private int metricDecimals=0;
     private Integer maxSecondOperand,maxRegroups,decimalPlaces,answerDecimalPlaces,secondDecimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides;
@@ -83,6 +85,7 @@ public final class CurriculumLimits {
                 case "timesTableMax":timesTableMax=Integer.parseInt(pair[1]);if(timesTableMax<2||timesTableMax>20)throw new IllegalArgumentException("Invalid times table range");break;
                 case "divisionMinQuotient":divisionMinQuotient=Integer.parseInt(pair[1]);if(divisionMinQuotient<0||divisionMinQuotient>1)throw new IllegalArgumentException("Invalid minimum quotient");break;
                 case "divisionMinDivisor":divisionMinDivisor=Integer.parseInt(pair[1]);if(divisionMinDivisor<1||divisionMinDivisor>2)throw new IllegalArgumentException("Invalid minimum divisor");break;
+                case "contextDivisorMaximum":contextDivisorMaximum=Integer.parseInt(pair[1]);if(contextDivisorMaximum<2||contextDivisorMaximum>99)throw new IllegalArgumentException("Invalid context divisor range");break;
                 case "minuteStep":minuteStep=Integer.parseInt(pair[1]);if(!Set.of(1,5,15).contains(minuteStep))throw new IllegalArgumentException("Invalid clock minute step");break;
                 case "metricDecimals":metricDecimals=Integer.parseInt(pair[1]);if(metricDecimals<0||metricDecimals>3)throw new IllegalArgumentException("Invalid metric decimal precision");break;
                 case "maxSecondOperand":maxSecondOperand=Integer.valueOf(pair[1]);if(maxSecondOperand<1)throw new IllegalArgumentException("Invalid second operand limit");break;
@@ -177,6 +180,7 @@ public final class CurriculumLimits {
             if(operands.group(2).length()>(secondDigits==null?wholeDigits:secondDigits))return false;
             if(displayed.matches("\\d+ \\+ \\d+ \\+ \\d+")&&wholeDigits!=null&&displayed.substring(displayed.lastIndexOf(' ')+1).length()>wholeDigits)return false;
         }
+        if(contextDivisorMaximum!=null){int[] context=RemainderContexts.read(q);if(context==null||context[1]>contextDivisorMaximum)return false;}
         if(polygonSides!=null){Matcher polygon=Pattern.compile("(\\d+)각형").matcher(q.prompt);if(!polygon.find()||Integer.parseInt(polygon.group(1))>polygonSides)return false;}
         if(!allowsDenominators(givens))return false;
         if(!denominators.isEmpty()&&q.diagram!=null&&q.diagram.type.equals("fractionSelection")){

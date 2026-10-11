@@ -1958,3 +1958,7 @@ MAP	england-primary-2021-v1	6	practicalPlaceStories,bookStockChanges,populationR
 RULE	england-primary-2021-v1	6	practicalPlaceStories,bookStockChanges	wholeMaximum=10000000;maxGiven=10000000;maxResult=10000000;nonnegative=true;answerDomain=integer
 RULE	england-primary-2021-v1	6	populationRounding	wholeMaximum=10000000;maxGiven=10000000;maxResult=10000000;roundingUnits=10,100,1000,10000,100000,1000000,10000000;nonnegative=true;answerDomain=integer
 RULE	england-primary-2021-v1	6	populationComparison	wholeMaximum=10000000;maxGiven=10000000;nonnegative=true
+
+MAP	england-primary-2021-v1	6	longDivision4x2,completePacketCount,leftoverPencilCount,requiredVehicleCount,exactSharedLength	Selected EN-Y6-06 four-digit by two-digit formal long division; integer remainder, exact fraction/equal sharing and context floor/ceiling
+RULE	england-primary-2021-v1	6	longDivision4x2	secondDigits=2;maxGiven=9999;maxResult=9999;nonnegative=true
+RULE	england-primary-2021-v1	6	completePacketCount,leftoverPencilCount,requiredVehicleCount,exactSharedLength	contextDivisorMaximum=99;maxGiven=9999;maxResult=9999;nonnegative=true

@@ -486,3 +486,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Large practical number stories](LARGE_PRACTICAL_NUMBER_STORIES.md): Year6 inventory, stock, population comparison and rounding through ten million; lower-year supply retained.
 
 - [Year6 written multiplication](YEAR6_WRITTEN_PRODUCTS.md): reuse formal four-digit by two-digit workspace in Year6.
+
+- [Year6 long division](YEAR6_LONG_DIVISION.md): formal two-digit divisors and contextual remainder interpretation.
