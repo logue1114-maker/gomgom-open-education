@@ -13,24 +13,30 @@ public final class ShortWrittenDivision {
  public static boolean supports(String id){return ID.equals(id)||LONG.equals(id)||SHORT_TWO.equals(id);}
  public static int[] read(Question q){
   if(q==null||!supports(q.skillId)||!"pair".equals(q.kind)||q.prompt==null)return null;
-  Matcher m=Pattern.compile(ID.equals(q.skillId)?"^([0-9]{1,4}) ÷ ([1-9]|10)$":"^([0-9]{1,4}) ÷ ([1-9][0-9])$").matcher(q.prompt);if(!m.matches())return null;
-  int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(2));return a<1?null:new int[]{a,b,a/b,a%b};
+  String digits=SHORT_TWO.equals(q.skillId)?"{1,4}":"{1,7}";
+  Matcher m=Pattern.compile("^([0-9]"+digits+") ÷ "+(ID.equals(q.skillId)?"([1-9]|10)":"([1-9][0-9])")+"$").matcher(q.prompt);if(!m.matches())return null;
+  int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(2));return a<1||a>1000000?null:new int[]{a,b,a/b,a%b};
  }
  static Question indexed(int index){
   if(index<0||index>=9999*8)throw new IllegalArgumentException("short division index");
   int a=1+index/8,b=2+index%8;Question q=new Question(ID,a+" ÷ "+b,"",new String[]{""+(a/b),""+(a%b)});q.kind="pair";q.labels=new String[]{"몫","나머지"};q.stepSupport=false;return q;
  }
  static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){
-  int low=limits.contextDivisorMinimum(),high=Math.min(10,limits.contextDivisorMaximum()),first=Math.max(limits.contextDividendMinimum(),limits.givenMinimum(1)),last=limits.givenMaximum(9999);
-  if(low<1||low>high||first<1||last>9999||first>last)throw new IllegalArgumentException("short division bounds");
+  int low=limits.contextDivisorMinimum(),high=Math.min(10,limits.contextDivisorMaximum()),first=Math.max(limits.contextDividendMinimum(),limits.givenMinimum(1)),last=limits.writtenDivisionMaximum();
+  if(low<1||low>high||first<1||last>1000000||first>last)throw new IllegalArgumentException("short division bounds");
   int width=high-low+1;Question q=IndexedQuestionSupply.choose((last-first+1)*width,i->{int a=first+i/width,b=low+i%width;Question candidate=new Question(ID,a+" ÷ "+b,"",new String[]{""+(a/b),""+(a%b)});candidate.kind="pair";candidate.labels=new String[]{"몫","나머지"};candidate.stepSupport=false;return candidate;},random,limits,recent);attach(q);return q;
  }
  static Question indexedLong(int index){return indexedTwoDigit(LONG,index);}
  static Question indexedTwoDigit(String id,int index){if(!Set.of(LONG,SHORT_TWO).contains(id)||index<0||index>=9999*90)throw new IllegalArgumentException("two-digit division index");int a=1+index/90,b=10+index%90;Question q=new Question(id,a+" ÷ "+b,"",new String[]{""+(a/b),""+(a%b)});q.kind="pair";q.labels=new String[]{"몫","나머지"};q.stepSupport=false;return q;}
- static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){if(ID.equals(id))return next(random,limits,recent);if(!supports(id))throw new IllegalArgumentException("division skill");Question q=IndexedQuestionSupply.choose(9999*90,i->indexedTwoDigit(id,i),random,limits,recent);attach(q);return q;}
+ static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){if(ID.equals(id))return next(random,limits,recent);if(!supports(id))throw new IllegalArgumentException("division skill");
+  if(SHORT_TWO.equals(id)){Question q=IndexedQuestionSupply.choose(9999*90,i->indexedTwoDigit(id,i),random,limits,recent);attach(q);return q;}
+  int first=Math.max(limits.contextDividendMinimum(),limits.givenMinimum(1)),last=limits.writtenDivisionMaximum();
+  if(first<1||first>last||last>1000000)throw new IllegalArgumentException("long division bounds");
+  Question q=IndexedQuestionSupply.choose((last-first+1)*90,i->{int a=first+i/90,b=10+i%90;Question candidate=new Question(LONG,a+" ÷ "+b,"",new String[]{""+(a/b),""+(a%b)});candidate.kind="pair";candidate.labels=new String[]{"몫","나머지"};candidate.stepSupport=false;return candidate;},random,limits,recent);attach(q);return q;
+ }
  static Checker.Result check(Question q,List<String> answers){
   int[] v=read(q);if(v==null||answers==null||answers.size()!=2)return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"몫과 나머지 입력 필요");
-  for(int i=0;i<2;i++){String s=answers.get(i);if(s==null||!s.trim().matches("[0-9]{1,4}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,i,"수 입력 필요");if(Integer.parseInt(s.trim())!=v[i+2])return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"이 수 확인");}
+  for(int i=0;i<2;i++){String s=answers.get(i);if(s==null||!s.trim().matches(SHORT_TWO.equals(q.skillId)?"[0-9]{1,4}":"[0-9]{1,7}"))return new Checker.Result(Checker.Status.INPUT_NEEDED,i,"수 입력 필요");if(Integer.parseInt(s.trim())!=v[i+2])return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"이 수 확인");}
   return new Checker.Result(Checker.Status.CORRECT,-1,"정답");
  }
  public static void attach(Question q){

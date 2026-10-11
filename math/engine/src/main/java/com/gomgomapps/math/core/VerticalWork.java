@@ -46,7 +46,8 @@ public final class VerticalWork {
     }
     public static Layout layout(Question q){
         if(q==null||!Set.of("number","pair",WrittenSingleProducts.KIND,LargeWrittenProducts.KIND).contains(q.kind)||q.prompt==null||q.prompt.length()>240)return null;
-        Matcher m=Pattern.compile("^(\\d{1,6}(?:\\.\\d{1,4})?)([+*/-])(\\d{1,6}(?:\\.\\d{1,4})?)$").matcher(Expression.normalize(q.prompt));
+        int width=ShortWrittenDivision.supports(q.skillId)?7:6;
+        Matcher m=Pattern.compile("^(\\d{1,"+width+"}(?:\\.\\d{1,4})?)([+*/-])(\\d{1,6}(?:\\.\\d{1,4})?)$").matcher(Expression.normalize(q.prompt));
         if(!m.matches())return null;
         BigDecimal a=new BigDecimal(m.group(1)),b=new BigDecimal(m.group(3));String op=m.group(2);boolean decimal=m.group(1).contains(".")||m.group(3).contains(".");
         if(op.equals("-")&&a.compareTo(b)<0||op.equals("/")&&(decimal||b.signum()==0)||q.kind.equals("pair")&&(!op.equals("/")||q.answers.length!=2))return null;

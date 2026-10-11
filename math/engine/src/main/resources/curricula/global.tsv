@@ -2096,3 +2096,7 @@ RULE	na-nied-primary-2024-v1	6	writtenProduct4x2	maxGiven=9999;maxResult=989901;
 
 MAP	na-nied-primary-2024-v1	5	shortDivision4	SP printed27: three/four-digit dividends by1..10 with or without remainder; existing formal workspace
 RULE	na-nied-primary-2024-v1	5	shortDivision4	contextDividendMinimum=100;maxGiven=9999;maxResult=9999;contextDivisorMinimum=1;contextDivisorMaximum=10;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	shortDivision4,longDivision4x2	SP printed41: formal division through1000000; one-digit short and two-digit long methods
+RULE	na-nied-primary-2024-v1	6	shortDivision4	contextDividendMinimum=100;maxGiven=1000000;maxResult=1000000;contextDivisorMinimum=1;contextDivisorMaximum=9;nonnegative=true
+RULE	na-nied-primary-2024-v1	6	longDivision4x2	contextDividendMinimum=100;maxGiven=1000000;maxResult=1000000;contextDivisorMinimum=10;contextDivisorMaximum=99;nonnegative=true

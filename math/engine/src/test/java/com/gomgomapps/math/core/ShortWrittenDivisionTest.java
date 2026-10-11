@@ -31,6 +31,6 @@ public class ShortWrittenDivisionTest {
   Generator g=new Generator(new Random(168));List<String> recent=new ArrayList<>();CurriculumLimits limits=GlobalCurriculum.limits("england-primary-2021-v1",ShortWrittenDivision.ID,5);
   for(int i=0;i<100;i++){Question q=g.next(ShortWrittenDivision.ID,recent,false,limits);assertFalse(recent.contains(q.signature()));recent.add(q.signature());assertTrue(limits.allows(q));assertNotNull(ShortWrittenDivision.read(q));}
   Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"GB");GlobalCurriculum.choosePack(p,"england-primary-2021-v1");for(int year=1;year<=6;year++)assertEquals(year==5,GlobalCurriculum.pack(p).inGrade(ShortWrittenDivision.ID,year));
-  for(String prompt:List.of("0 ÷ 2","10000 ÷ 2","12 ÷ 0","12 ÷ 11","12 ÷ 100","12 ÷ 4 junk")){Question q=new Question(ShortWrittenDivision.ID,prompt,"",new String[]{"3","0"});q.kind="pair";assertNull(ShortWrittenDivision.read(q));assertNull(VerticalWork.layout(q));}
+  for(String prompt:List.of("0 ÷ 2","1000001 ÷ 2","12 ÷ 0","12 ÷ 11","12 ÷ 100","12 ÷ 4 junk")){Question q=new Question(ShortWrittenDivision.ID,prompt,"",new String[]{"3","0"});q.kind="pair";assertNull(ShortWrittenDivision.read(q));assertNull(VerticalWork.layout(q));}
  }
 }

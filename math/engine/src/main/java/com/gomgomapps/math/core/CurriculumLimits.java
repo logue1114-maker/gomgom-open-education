@@ -185,7 +185,7 @@ public final class CurriculumLimits {
             if(operands.group(2).length()>(secondDigits==null?wholeDigits:secondDigits))return false;
             if(displayed.matches("\\d+ \\+ \\d+ \\+ \\d+")&&wholeDigits!=null&&displayed.substring(displayed.lastIndexOf(' ')+1).length()>wholeDigits)return false;
         }
-        if(contextDivisorMinimum!=null||contextDivisorMaximum!=null||contextDividendMinimum>1){int[] context=RemainderContexts.read(q);if(context==null&&ShortWrittenDivision.ID.equals(q.skillId))context=ShortWrittenDivision.read(q);if(context==null||context[0]<contextDividendMinimum||context[1]<contextDivisorMinimum()||context[1]>contextDivisorMaximum())return false;}
+        if(contextDivisorMinimum!=null||contextDivisorMaximum!=null||contextDividendMinimum>1){int[] context=RemainderContexts.read(q);if(context==null&&ShortWrittenDivision.supports(q.skillId))context=ShortWrittenDivision.read(q);if(context==null||context[0]<contextDividendMinimum||context[1]<contextDivisorMinimum()||context[1]>contextDivisorMaximum())return false;}
         if(polygonSides!=null){Matcher polygon=Pattern.compile("(\\d+)각형").matcher(q.prompt);if(!polygon.find()||Integer.parseInt(polygon.group(1))>polygonSides)return false;}
         if(!allowsDenominators(givens))return false;
         if(!denominators.isEmpty()&&q.diagram!=null&&q.diagram.type.equals("fractionSelection")){
@@ -296,6 +296,7 @@ public final class CurriculumLimits {
     }
     int givenMinimum(int defaults){return minGiven==null?defaults:minGiven.intValue();}
     int givenMaximum(int defaultMaximum){return maxGiven==null?defaultMaximum:Math.min(defaultMaximum,maxGiven.intValue());}
+    int writtenDivisionMaximum(){return maxGiven==null?9999:Math.min(1000000,maxGiven.intValue());}
     private boolean allowsAnswer(String value){
         try{Rational number=Expression.number(value);if(answerDomain.equals("integer")&&!number.d.equals(java.math.BigInteger.ONE))return false;if(nonnegative&&number.compareTo(Rational.of(0))<0)return false;return maxResult==null||number.compareTo(Expression.number(java.math.BigDecimal.valueOf(maxResult).toPlainString()))<=0;}
         catch(RuntimeException e){return maxResult==null&&answerDomain.isEmpty();}
