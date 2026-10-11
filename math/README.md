@@ -510,3 +510,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 [Namibia mental strategies](NAMIBIA_MENTAL_STRATEGIES.md): selected Grade 2–3 connections and scope.
 
 [Addition/subtraction families](ADDITION_SUBTRACTION_FAMILIES.md): whole-part inverse relationships for selected Namibia Grades1–2.
+
+[Three-digit place steps](THREE_DIGIT_PLACE_STEPS.md): selected Namibia Grade3 stepwise decomposition.
