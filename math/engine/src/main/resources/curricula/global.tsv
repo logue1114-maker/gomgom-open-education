@@ -2042,3 +2042,5 @@ RULE	na-nied-primary-2024-v1	3	fractionNamePicture	denominators=2,3,4;partFracti
 MAP	na-nied-primary-2024-v1	1	equalPartCut	JP printed18: selected learner straight cut of rectangle into two equal areas; other objects/concrete cutting remain
 
 MAP	na-nied-primary-2024-v1	3	groupFractionName,groupFractionWrite	JP printed18: group pictures naming and symbols half/quarter/three quarters/third; oral and actual-object teaching remain
+
+MAP	na-nied-primary-2024-v1	3	subtractionPatterns	JP printed15: same-subtrahend related calculations with minuend/result changes; broader exploration remains
