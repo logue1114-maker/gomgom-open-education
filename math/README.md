@@ -470,3 +470,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Public decimal rounding](PUBLIC_DECIMAL_ROUNDING.md): final checks derived from the displayed number and target precision.
 
 - [English decimal reading](PUBLIC_ENGLISH_DECIMAL_READING.md): public-word numeral checks and balanced precision in both written modes.
+
+- [Decimal mass stories](MASS_DECIMAL_STORIES.md): rice in kg alongside length/volume quantities, with public-quantity checks.
