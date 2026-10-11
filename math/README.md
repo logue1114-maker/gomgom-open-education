@@ -466,3 +466,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Displayed decimal fractions](PUBLIC_DECIMAL_FRACTIONS.md): preserved precision and checks from displayed values.
 
 - [Fraction and decimal unit counts](FRACTION_DECIMAL_UNITS.md): equivalent tenths, hundredths and thousandths in both notations.
+
+- [Public decimal rounding](PUBLIC_DECIMAL_ROUNDING.md): final checks derived from the displayed number and target precision.

@@ -7,12 +7,12 @@ public final class RoundingRelations {
  public static boolean decimal(String id){return "el_decimal_round".equals(id);}
  public record Givens(String first,String second,BigDecimal unit,int decimalPlaces,String method){}
  public static Givens read(Question q){
-  if(q==null||!supports(q.skillId))return null;Matcher m;
+  if(q==null||q.prompt==null||!supports(q.skillId))return null;Matcher m;
   if(q.skillId.equals("el_estimate_ops")){
    m=Pattern.compile("(\\d{1,9}) \\+ (\\d{1,9})의 각 수를 (10{1,8})의 자리까지 어림하여 계산하면\\?").matcher(q.prompt);
    if(m.matches())return new Givens(m.group(1),m.group(2),new BigDecimal(m.group(3)),0,"반올림");
   }else if(decimal(q.skillId)){
-   m=Pattern.compile("(\\d{1,2}\\.\\d{1,3})을 가장 가까운 정수로 반올림하면\\?").matcher(q.prompt);
+   m=Pattern.compile("(\\d{1,9}\\.\\d{1,6})을 가장 가까운 정수로 반올림하면\\?").matcher(q.prompt);
    if(m.matches())return new Givens(m.group(1),null,BigDecimal.ONE,0,"반올림");
    m=Pattern.compile("(\\d{1,9}(?:\\.\\d{1,6})?)을 소수 (첫째|둘째|셋째) 자리까지 반올림하면\\?").matcher(q.prompt);
    if(m.matches()){int places=List.of("첫째","둘째","셋째").indexOf(m.group(2))+1;return new Givens(m.group(1),null,BigDecimal.ONE.movePointLeft(places),places,"반올림");}
@@ -20,6 +20,12 @@ public final class RoundingRelations {
    m=Pattern.compile("(\\d{1,9})을 (10{1,8})의 자리까지 (반올림|올림|버림)하면\\?").matcher(q.prompt);
    if(m.matches()&&m.group(3).equals(q.skillId.equals("el_round")?"반올림":q.skillId.equals("el_round_up")?"올림":"버림"))return new Givens(m.group(1),null,new BigDecimal(m.group(2)),0,m.group(3));
   }return null;
+ }
+ static Checker.Result checkDecimal(Question q,List<String> answers){
+  Givens v=read(q);if(v==null||!decimal(q.skillId)||answers==null||answers.size()!=1||answers.get(0)==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"답 입력 필요");
+  String input=Expression.normalize(answers.get(0).trim());if(input.length()>120||!input.matches("[+-]?\\d+(?:\\.\\d+)?"))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"수로 입력 필요");
+  if("decimal".equals(q.answerFormat)&&!input.contains("."))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"소수로 입력 필요");
+  try{BigDecimal expected=new BigDecimal(v.first).setScale(v.decimalPlaces,RoundingMode.HALF_UP);boolean same=new BigDecimal(input).compareTo(expected)==0;return new Checker.Result(same?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,same?-1:0,same?"계산 확인 완료":"이 답 확인");}catch(RuntimeException ex){return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"수 입력 확인 필요");}
  }
  public static void attach(Question q){
   Givens v=read(q);if(v==null)return;StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="rounding-relations-v1";
