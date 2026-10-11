@@ -2068,3 +2068,12 @@ RULE	na-nied-primary-2024-v1	3	doubleBasedAddition	wholeMaximum=500;maxGiven=500
 
 MAP	na-nied-primary-2024-v1	1	pictureArithmetic	JP printed14/15: selected0..20 drawn add/take-away objects; concrete performance and full strategy breadth remain
 RULE	na-nied-primary-2024-v1	1	pictureArithmetic	wholeMaximum=20;maxGiven=20;maxResult=20;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	1	halvingBasedAddition	JP printed14: selected even operands halved, added and doubled; odd-number alternatives, concrete/oral fluency and full competency remain
+RULE	na-nied-primary-2024-v1	1	halvingBasedAddition	wholeMaximum=20;maxGiven=20;maxResult=20;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	2	halvingBasedAddition	JP printed14: selected even operands halved, added and doubled; odd-number alternatives, concrete/oral fluency and full competency remain
+RULE	na-nied-primary-2024-v1	2	halvingBasedAddition	wholeMaximum=100;maxGiven=100;maxResult=100;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	3	halvingBasedAddition	JP printed14: selected even operands halved, added and doubled; odd-number alternatives, concrete/oral fluency and full competency remain
+RULE	na-nied-primary-2024-v1	3	halvingBasedAddition	wholeMaximum=500;maxGiven=500;maxResult=500;nonnegative=true
