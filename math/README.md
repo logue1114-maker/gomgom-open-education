@@ -508,3 +508,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 [Addition and subtraction chains](ADDITION_SUBTRACTION_CHAINS.md): selected Namibia Grade 1–3 practice and validation limits.
 
 [Namibia mental strategies](NAMIBIA_MENTAL_STRATEGIES.md): selected Grade 2–3 connections and scope.
+
+[Addition/subtraction families](ADDITION_SUBTRACTION_FAMILIES.md): whole-part inverse relationships for selected Namibia Grades1–2.

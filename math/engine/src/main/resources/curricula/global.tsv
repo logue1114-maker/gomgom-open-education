@@ -2008,3 +2008,9 @@ MAP	na-nied-primary-2024-v1	3	mentalPlaceAddition,mentalPlaceSubtraction	JP prin
 RULE	na-nied-primary-2024-v1	3	mentalPlaceAddition,mentalPlaceSubtraction	wholeDigits=3;secondDigits=3;minGiven=0;maxGiven=500;maxResult=500;nonnegative=true
 MAP	na-nied-primary-2024-v1	3	mentalTwoDigitAddition,mentalTwoDigitSubtraction	JP printed p.14 selected two-number mental calculation through100; three-digit decomposition not implied
 RULE	na-nied-primary-2024-v1	3	mentalTwoDigitAddition,mentalTwoDigitSubtraction	wholeDigits=2;secondDigits=2;minGiven=0;maxGiven=100;maxResult=100;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	1	addSubFamily	JP printed p.15 section2.2: relate subtraction to addition with the same whole and two parts; other models and fluency remain
+RULE	na-nied-primary-2024-v1	1	addSubFamily	wholeMaximum=20;minGiven=0;maxGiven=20;maxResult=20;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	2	addSubFamily	JP printed p.15 section2.2: relate subtraction to addition with the same whole and two parts; other models and fluency remain
+RULE	na-nied-primary-2024-v1	2	addSubFamily	wholeMaximum=99;minGiven=0;maxGiven=99;maxResult=99;nonnegative=true

@@ -194,6 +194,7 @@ public final class Catalog {
         ALL.addAll(RoundedSharingStory.SKILLS);
         ALL.addAll(ContextAccuracy.SKILLS);
         ALL.addAll(AddSubChains.SKILLS);
+        ALL.addAll(AddSubFamilies.SKILLS);
         ALL.addAll(PercentAmountRelations.SKILLS);ALL.addAll(RatioContextStories.SKILLS);
         ALL.addAll(DecimalPercentReverse.SKILLS);
         ALL.addAll(GroupedEstimation.SKILLS);
