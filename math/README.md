@@ -478,3 +478,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Expanded fraction equivalents](EXPANDED_FRACTION_PERCENT.md):6234 terminating-decimal fractions including denominator multiples10/25 up1000, with associated part-quantity stories.
 
 - [Large English integer names](LARGE_ENGLISH_NUMBER_WORDS.md): grade-specific reading/writing through ten million with public givens, blank place help and spelling-error underlines.
+
+- [Public whole rounding checks](PUBLIC_WHOLE_ROUNDING.md): final checking from displayed givens while retaining blank help and existing supply.

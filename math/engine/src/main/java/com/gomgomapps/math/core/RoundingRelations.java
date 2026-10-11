@@ -27,6 +27,10 @@ public final class RoundingRelations {
   if("decimal".equals(q.answerFormat)&&!input.contains("."))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"소수로 입력 필요");
   try{BigDecimal expected=new BigDecimal(v.first).setScale(v.decimalPlaces,RoundingMode.HALF_UP);boolean same=new BigDecimal(input).compareTo(expected)==0;return new Checker.Result(same?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,same?-1:0,same?"계산 확인 완료":"이 답 확인");}catch(RuntimeException ex){return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"수 입력 확인 필요");}
  }
+ static Checker.Result checkWhole(Question q,List<String> answers){
+  Givens v=read(q);if(v==null||decimal(q.skillId)||answers==null||answers.size()!=1||answers.get(0)==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"답 입력 필요");String input=Expression.normalize(answers.get(0).trim());if(input.length()>120||!input.matches("[+-]?\\d+(?:\\.\\d+)?(?:/[+-]?\\d+)?"))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"수로 입력 필요");
+  try{RoundingMode mode=v.method.equals("올림")?RoundingMode.CEILING:v.method.equals("버림")?RoundingMode.DOWN:RoundingMode.HALF_UP;BigDecimal expected=new BigDecimal(v.first).divide(v.unit,0,mode).multiply(v.unit);if(v.second!=null)expected=expected.add(new BigDecimal(v.second).divide(v.unit,0,mode).multiply(v.unit));boolean same=Expression.number(input).equals(Rational.decimal(expected.toPlainString()));return new Checker.Result(same?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,same?-1:0,same?"계산 확인 완료":"이 답 확인");}catch(RuntimeException ex){return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"수 입력 확인 필요");}
+ }
  public static void attach(Question q){
   Givens v=read(q);if(v==null)return;StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="rounding-relations-v1";
   if(v.second!=null){g.step("어림할 자리의 값을 쓰세요.","어림할 자리 = ","",text(v.unit));BigDecimal left=round(g,v.first,v.unit,"반올림","첫 수 = ",false),right=round(g,v.second,v.unit,"반올림","둘째 수 = ",false);g.step("어림한 두 수를 더하세요.","어림한 첫 수 + 어림한 둘째 수 = ","",text(left.add(right)));}
