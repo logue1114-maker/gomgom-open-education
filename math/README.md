@@ -498,3 +498,5 @@ Selected [mental place calculations](MENTAL_PLACE_CALCULATIONS.md) teach groupin
 - [Year6 operation order](YEAR6_OPERATION_ORDER.md): public mixed-expression checking and learner-entered staged help.
 
 - [Year6 method choice](YEAR6_METHOD_CHOICE.md): learner method/reason selection with both valid strategies accepted.
+
+- [Year6 contextual calculations](YEAR6_CONTEXT_CONNECTIONS.md): four retained basic context families in Grade6.
