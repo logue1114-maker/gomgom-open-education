@@ -32,7 +32,7 @@ public final class GlobalCurriculum {
         public int minGrade(){return levels.isEmpty()?placements.values().stream().flatMap(List::stream).mapToInt(Placement::from).min().orElse(1):levels.firstKey();}
         public List<Integer> levels(){if(!levels.isEmpty())return List.copyOf(levels.keySet());List<Integer> result=new ArrayList<>();for(int g=minGrade();g<=maxGrade();g++)result.add(g);return result;}
         void add(String skill,Placement placement){
-            Catalog.get(skill);List<Placement> list=placements.computeIfAbsent(skill,k->new ArrayList<>());
+            List<Placement> list=placements.computeIfAbsent(skill,k->new ArrayList<>());
             if(list.stream().anyMatch(p->p.from==placement.from&&p.through==placement.through))throw new IllegalArgumentException("Duplicate curriculum placement: "+id+"/"+skill);
             list.add(placement);grades.merge(skill,placement.through,Math::min);
         }
@@ -40,6 +40,8 @@ public final class GlobalCurriculum {
     private static final Map<String,Pack> PACKS=read();
     private static Map<String,Pack> read(){
         Map<String,Pack> packs=new LinkedHashMap<>();
+        // One initialization-local lookup, preserving Catalog.get's first matching ID.
+        Set<String> knownSkills=new HashSet<>();for(Catalog.Skill skill:Catalog.ALL)knownSkills.add(skill.id);
         try(InputStream input=GlobalCurriculum.class.getResourceAsStream("/curricula/global.tsv")){
             if(input==null)throw new IOException("Missing curriculum data");
             for(String line:new String(com.gomgomapps.math.core.StreamBytes.read(input),StandardCharsets.UTF_8).split("\\R")){
@@ -50,7 +52,7 @@ public final class GlobalCurriculum {
                     if(row.length<4||row.length>5||!packs.containsKey(row[1]))throw new IOException("Invalid MAP: "+line);
                     String[] band=row[2].split("-",-1);if(band.length>2)throw new IOException("Invalid grade band: "+line);
                     int from=Integer.parseInt(band[0]),through=Integer.parseInt(band[band.length-1]);
-                    for(String skill:row[3].split(",",-1))packs.get(row[1]).add(skill,new Placement(from,through,row.length==5?row[4]:""));
+                    for(String skill:row[3].split(",",-1)){requireSkill(knownSkills,skill);packs.get(row[1]).add(skill,new Placement(from,through,row.length==5?row[4]:""));}
                 }
                 else if(row[0].equals("LEVEL")){
                     if(row.length!=4||!packs.containsKey(row[1])||row[3].isBlank())throw new IOException("Invalid LEVEL: "+line);
@@ -60,7 +62,7 @@ public final class GlobalCurriculum {
                     if((row.length!=4&&row.length!=5)||!packs.containsKey(row[1]))throw new IOException("Invalid RULE: "+line);
                     Pack pack=packs.get(row[1]);boolean levelled=row.length==5;int from=levelled?Integer.parseInt(row[2]):0;if(from<0||from>16)throw new IOException("Invalid limit grade: "+line);
                     for(String skill:row[levelled?3:2].split(",")){
-                        Catalog.get(skill);CurriculumLimits limits=new CurriculumLimits(row[levelled?4:3]);
+                        requireSkill(knownSkills,skill);CurriculumLimits limits=new CurriculumLimits(row[levelled?4:3]);
                         if(levelled){if(pack.levelLimits.computeIfAbsent(skill,k->new TreeMap<>()).putIfAbsent(from,limits)!=null)throw new IOException("Duplicate level limit: "+line);}
                         else if(pack.limits.putIfAbsent(skill,limits)!=null)throw new IOException("Duplicate limit: "+line);
                     }
@@ -77,6 +79,7 @@ public final class GlobalCurriculum {
         }catch(IOException|IllegalArgumentException e){throw new ExceptionInInitializerError(e);}
         return Collections.unmodifiableMap(packs);
     }
+    private static void requireSkill(Set<String> knownSkills,String id){if(!knownSkills.contains(id))throw new IllegalArgumentException("학습 유형을 찾을 수 없음: "+id);}
     public static List<Pack> packs(String country){return PACKS.values().stream().filter(p->p.country.equals(country)&&!p.archived).toList();}
     public static CurriculumLimits limits(String system,String skill){return limits(system,skill,0);}
     public static CurriculumLimits limits(String system,String skill,int grade){Pack pack=PACKS.get(system);if(pack==null)return CurriculumLimits.NONE;NavigableMap<Integer,CurriculumLimits> byLevel=pack.levelLimits.get(skill);if(byLevel!=null){Map.Entry<Integer,CurriculumLimits> entry=byLevel.floorEntry(grade);return (entry==null?byLevel.firstEntry():entry).getValue();}return pack.limits.getOrDefault(skill,CurriculumLimits.NONE);}
