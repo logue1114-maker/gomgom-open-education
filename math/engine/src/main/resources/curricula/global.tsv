@@ -2234,3 +2234,6 @@ RULE	na-nied-primary-2024-v1	6	decimalQuantityGroups,decimalQuantitySharing	whol
 
 MAP	na-nied-primary-2024-v1	6	decimalGroupsThenRemaining,decimalCombineThenSharing	Senior printed45/PDF49 B4; two ordered operations on decimal quantities, exact finite/fraction answers
 RULE	na-nied-primary-2024-v1	6	decimalGroupsThenRemaining,decimalCombineThenSharing	wholeMaximum=99;decimalPlaces=3;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	pairedNumberTableFill,pairedNumberTableDescription	Senior printed45/PDF49 B5; seven paired values, missing outputs and verbal input-output additive rule
+RULE	na-nied-primary-2024-v1	6	pairedNumberTableFill,pairedNumberTableDescription	wholeMaximum=100;nonnegative=true
