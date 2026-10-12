@@ -107,6 +107,7 @@ public final class HelpPlan {
         LinearEquationRelations.attach(q);
         FractionReductionRelations.attach(q);
         PrimaryFractionRelations.attach(q);
+        WholeFractionSubtraction.attach(q);
         FractionProductRelations.attach(q);
         FractionConceptRelations.attach(q);MixedNumberFoundations.attach(q);
         FractionOrdering.attach(q);
