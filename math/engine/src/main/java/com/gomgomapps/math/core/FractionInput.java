@@ -61,6 +61,7 @@ public final class FractionInput {
     /** Localize only when the public like-fraction frame identifies an unchanged part.
      * Zero means no unique part is established, not that the answer is correct. */
     public static int errorPart(Question q,String raw){
+        if(q!=null&&DecimalTwoStepStories.supports(q.skillId))return DecimalTwoStepStories.errorPart(q,raw);
         if(q!=null&&DecimalMeasureGroups.supports(q.skillId))return DecimalMeasureGroups.errorPart(q,raw);
         if(q!=null&&TwoStepFractionStories.ID.equals(q.skillId))return TwoStepFractionStories.errorPart(q,raw);
         if(q!=null&&QuantityAsFraction.ID.equals(q.skillId))return QuantityAsFraction.errorPart(q,raw);

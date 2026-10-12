@@ -270,6 +270,7 @@ public final class Generator {
         if(DecimalPercentReverse.supports(s.id))return DecimalPercentReverse.next(random,limits,Map.of());
         if(FractionPercentEquivalence.supports(s.id))return FractionPercentEquivalence.next(random,limits,Map.of());
         if(PercentageNotation.supports(s.id))return PercentageNotation.next(s,random,limits,Map.of());
+        if(DecimalTwoStepStories.supports(s.id))return DecimalTwoStepStories.create(s,random,limits);
         if(DecimalMeasureGroups.supports(s.id))return DecimalMeasureGroups.create(s,random,limits);
         if(DecimalMeasureStories.supports(s.id))return DecimalMeasureStories.create(s,random,limits);
         if(MoneyBasicStories.supports(s.id))return MoneyBasicStories.next(s,random,limits,Map.of());

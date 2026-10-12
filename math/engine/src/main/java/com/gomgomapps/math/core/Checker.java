@@ -67,6 +67,7 @@ public final class Checker {
         if(RoundingRelations.decimal(q.skillId))return RoundingRelations.checkDecimal(q,answers);
         if(RoundingRelations.supports(q.skillId))return RoundingRelations.checkWhole(q,answers);
         if(EnglishDecimalWords.READ.equals(q.skillId))return EnglishDecimalWords.checkReading(q,answers);
+        if(DecimalTwoStepStories.supports(q.skillId))return DecimalTwoStepStories.check(q,answers);
         if(DecimalMeasureGroups.supports(q.skillId))return DecimalMeasureGroups.check(q,answers);
         if(DecimalMeasureStories.supports(q.skillId))return DecimalMeasureStories.check(q,answers);
         if(PercentageNotation.supports(q.skillId))return PercentageNotation.check(q,answers);
