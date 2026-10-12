@@ -198,7 +198,7 @@ public final class Catalog {
         ALL.addAll(FractionFamilies.SKILLS);
         ALL.addAll(EnglishNumberWords.SKILLS);
         ALL.addAll(EnglishDecimalWords.SKILLS);
-        ALL.addAll(DecimalMeasureStories.SKILLS);ALL.addAll(DecimalMeasureGroups.SKILLS);ALL.addAll(DecimalTwoStepStories.SKILLS);ALL.addAll(PairedNumberTables.SKILLS);
+        ALL.addAll(DecimalMeasureStories.SKILLS);ALL.addAll(DecimalMeasureGroups.SKILLS);ALL.addAll(DecimalTwoStepStories.SKILLS);ALL.addAll(PairedNumberTables.SKILLS);ALL.add(GeometricMultiplePatterns.SKILL);
         ALL.addAll(MoneyBasicStories.SKILLS);ALL.addAll(PowerCounting.SKILLS);ALL.addAll(SignedIntervalStories.SKILLS);ALL.addAll(YearFiveNumberStories.SKILLS);ALL.add(YearFiveNumberStories.COMPARE_SKILL);
         ALL.addAll(PercentageNotation.SKILLS);
         ALL.addAll(FractionPercentEquivalence.SKILLS);

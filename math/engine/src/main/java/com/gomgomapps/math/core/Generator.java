@@ -84,6 +84,7 @@ public final class Generator {
         if(DecimalWholeProducts.supports(skillId,limits))q=DecimalWholeProducts.next(random,limits,previous);
         if(DecimalWrittenDivision.supports(skillId))q=DecimalWrittenDivision.next(random,limits,previous);
         if(DecimalPowerTen.supports(skillId))q=DecimalPowerTen.next(s,random,limits,previous);
+        if(GeometricMultiplePatterns.supports(skillId))q=GeometricMultiplePatterns.next(random,limits,previous);
         if(PairedNumberTables.supports(skillId))q=PairedNumberTables.next(s,random,limits,previous);
         if(PowerTenDivision.supports(skillId))q=PowerTenDivision.next(s,random,limits,previous);
         if(SimilarShapeSupply.selected(skillId,limits))q=SimilarShapeSupply.next(random,limits,previous);
@@ -271,6 +272,7 @@ public final class Generator {
         if(DecimalPercentReverse.supports(s.id))return DecimalPercentReverse.next(random,limits,Map.of());
         if(FractionPercentEquivalence.supports(s.id))return FractionPercentEquivalence.next(random,limits,Map.of());
         if(PercentageNotation.supports(s.id))return PercentageNotation.next(s,random,limits,Map.of());
+        if(GeometricMultiplePatterns.supports(s.id))return GeometricMultiplePatterns.next(random,limits,Map.of());
         if(PairedNumberTables.supports(s.id))return PairedNumberTables.next(s,random,limits,Map.of());
         if(DecimalTwoStepStories.supports(s.id))return DecimalTwoStepStories.create(s,random,limits);
         if(DecimalMeasureGroups.supports(s.id))return DecimalMeasureGroups.create(s,random,limits);

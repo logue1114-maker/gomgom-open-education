@@ -2237,3 +2237,6 @@ RULE	na-nied-primary-2024-v1	6	decimalGroupsThenRemaining,decimalCombineThenShar
 
 MAP	na-nied-primary-2024-v1	6	pairedNumberTableFill,pairedNumberTableDescription	Senior printed45/PDF49 B5; seven paired values, missing outputs and verbal input-output additive rule
 RULE	na-nied-primary-2024-v1	6	pairedNumberTableFill,pairedNumberTableDescription	wholeMaximum=100;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	drawMultipleShapePattern	Senior printed45/PDF49 B6; draw separate polygons, complete side-count table and verbal multiplication rule
+RULE	na-nied-primary-2024-v1	6	drawMultipleShapePattern	wholeMaximum=100;nonnegative=true
