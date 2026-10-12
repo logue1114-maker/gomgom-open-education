@@ -23,18 +23,31 @@ public final class MixedFractions {
     }
     private static int next(Random r,int lo,int hi){return lo+r.nextInt(hi-lo+1);}
     private static int[] operand(Random random){
-        int den=next(random,2,12),num;do{num=next(random,1,den-1);}while(Generator.gcd(num,den)!=1);
+        return operand(random,false);
+    }
+    private static int[] operand(Random random,boolean originalParts){
+        int den=next(random,2,12),num;do{num=next(random,1,den-1);}while(!originalParts&&Generator.gcd(num,den)!=1);
         return new int[]{next(random,1,9),num,den};
     }
     private static Rational value(int[] part){return Rational.of((long)part[0]*part[2]+part[1],part[2]);}
     private static String display(int[] part){return part[0]+" "+part[1]+"/"+part[2];}
     static Question create(Catalog.Skill skill,Random random){
-        int[] left=operand(random),right=operand(random);boolean subtract=skill.family.equals("fracMixedSub");
+        return create(skill,random,false);
+    }
+    static Question create(Catalog.Skill skill,Random random,boolean originalParts){
+        int[] left=operand(random,originalParts),right=operand(random,originalParts);boolean subtract=skill.family.equals("fracMixedSub");
         if(subtract&&value(left).compareTo(value(right))<0){int[] swap=left;left=right;right=swap;}
         String op=subtract?"-":"+",prompt=display(left)+" "+op+" "+display(right);
         Givens givens=read(prompt);Rational x=givens.left(),y=givens.right(),answer=subtract?x.sub(y):x.add(y);
         Question q=new Question(skill.id,prompt,givens.expression(),answer.toString());
         MixedFractionRelations.attach(q);
         return q.withInputs(x,y,Rational.of(subtract?1:0),Rational.of(left[2]),Rational.of(right[2]));
+    }
+    static Checker.Result check(Question q,List<String> answers){
+        Givens given=read(q.prompt);boolean subtract=q.skillId.equals("fracMixedSub");
+        if(given==null||!given.operator.equals(subtract?"-":"+"))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"문제 확인 필요");
+        Rational value=subtract?given.left().sub(given.right()):given.left().add(given.right());
+        if(value.compareTo(Rational.ZERO)<0)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"문제 확인 필요");
+        return PublicFractionArithmetic.checkValue(q,answers,value);
     }
 }

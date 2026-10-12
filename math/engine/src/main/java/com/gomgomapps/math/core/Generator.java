@@ -345,7 +345,7 @@ public final class Generator {
         if(SurfaceGeometry.supports(s.id))return SurfaceGeometry.create(s,random);
         if(SquareFractionFoundations.SKILLS.contains(s.id))return SquareFractionFoundations.create(s,random,limits);
         if(FractionProducts.SKILLS.contains(s.id))return FractionProducts.create(s,random);
-        if(s.family.startsWith("fracMixed"))return MixedFractions.create(s,random);
+        if(s.family.startsWith("fracMixed"))return MixedFractions.create(s,random,limits.variedFacts());
         if(VectorFoundationPractice.supports(s.id))return VectorFoundationPractice.create(s,random);
         if(HigherFoundationPractice.supports(s.id))return HigherFoundationPractice.create(s,random);
         if(s.family.startsWith("adv_"))return AdvancedBasics.create(s,random);
