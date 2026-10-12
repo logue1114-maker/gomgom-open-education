@@ -2222,3 +2222,6 @@ RULE	na-nied-primary-2024-v1	6	el_decimal_round	wholeMaximum=99;decimalPlaces=2;
 
 # Senior printed45/PDF49 B1; preserve unlike original precision and two to four operands.
 RULE	na-nied-primary-2024-v1	6	decimalAdd,decimalSub	wholeMaximum=99;decimalPlaces=3;variedFacts=true;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	decimalTimesPowersTen,decimalDividePowersTen	Senior printed45/PDF49 B3; calculation and original/resulting digit values for powers10,100,1000
+RULE	na-nied-primary-2024-v1	6	decimalTimesPowersTen,decimalDividePowersTen	wholeMaximum=99;decimalPlaces=3;answerDecimalPlaces=6;variedFacts=true;nonnegative=true
