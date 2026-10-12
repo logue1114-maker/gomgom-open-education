@@ -1490,7 +1490,7 @@ RULE	na-nied-primary-2024-v1	5	el_fraction_decimal	denominators=10,100
 RULE	na-nied-primary-2024-v1	6	el_fraction_decimal	denominators=2,4,5,10,20,25,50,100;decimalPlaces=2;variedFacts=true
 RULE	na-nied-primary-2024-v1	7	el_fraction_decimal	denominators=2,4,5,8,10
 RULE	na-nied-primary-2024-v1	5	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=2;nonnegative=true
-RULE	na-nied-primary-2024-v1	6	el_decimal_place,decimalAdd,decimalSub	decimalPlaces=3;nonnegative=true
+RULE	na-nied-primary-2024-v1	6	el_decimal_place	decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	decimalMul	integerSecondOperand=true;decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	decimalMul	decimalPlaces=2;answerDecimalPlaces=3;nonnegative=true
@@ -2219,3 +2219,6 @@ RULE	na-nied-primary-2024-v1	6	el_decimal_compare	wholeMaximum=99;decimalPlaces=
 
 # Senior printed44/PDF48 B9; two-place decimals rounded to whole numbers or tenths.
 RULE	na-nied-primary-2024-v1	6	el_decimal_round	wholeMaximum=99;decimalPlaces=2;roundingDecimalPlaces=0,1;nonnegative=true
+
+# Senior printed45/PDF49 B1; preserve unlike original precision and two to four operands.
+RULE	na-nied-primary-2024-v1	6	decimalAdd,decimalSub	wholeMaximum=99;decimalPlaces=3;variedFacts=true;nonnegative=true

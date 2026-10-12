@@ -61,6 +61,7 @@ public final class Checker {
         if(FractionFamilies.supports(q.skillId))return FractionFamilies.check(q,answers);
         if(DecimalToFractionSupply.ID.equals(q.skillId))return DecimalToFractionSupply.check(q,answers);
         if(DecimalUnitRelations.supports(q.skillId))return DecimalUnitRelations.check(q,answers);
+        if(DecimalAddSub.supports(q.skillId))return DecimalAddSub.check(q,answers);
         if(RoundingRelations.decimal(q.skillId))return RoundingRelations.checkDecimal(q,answers);
         if(RoundingRelations.supports(q.skillId))return RoundingRelations.checkWhole(q,answers);
         if(EnglishDecimalWords.READ.equals(q.skillId))return EnglishDecimalWords.checkReading(q,answers);

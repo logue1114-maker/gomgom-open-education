@@ -1,0 +1,29 @@
+package com.gomgomapps.math.core;
+import java.math.*;import java.util.*;import java.util.regex.*;
+/** Two to four original decimal operands; no answer key is needed for checking or help. */
+public final class DecimalAddSub {
+ private DecimalAddSub(){}
+ public static boolean supports(String id){return "decimalAdd".equals(id)||"decimalSub".equals(id);}
+ static boolean selected(String id,CurriculumLimits limits){return supports(id)&&limits.variedFacts();}
+ public static List<String> read(Question q){
+  if(q==null||!supports(q.skillId)||q.prompt==null||q.prompt.length()>256)return List.of();String op=q.skillId.equals("decimalAdd")?"+":"−";String normalized=q.prompt.replace('-', '−');String[] raw=normalized.split(Pattern.quote(" "+op+" "),-1);if(raw.length<2||raw.length>4)return List.of();for(String v:raw)if(!v.matches("\\d{1,9}(?:\\.\\d{1,3})?"))return List.of();return List.of(raw);
+ }
+ static BigDecimal result(String id,List<String> values){BigDecimal total=new BigDecimal(values.get(0));for(int i=1;i<values.size();i++)total=id.equals("decimalAdd")?total.add(new BigDecimal(values.get(i))):total.subtract(new BigDecimal(values.get(i)));return total;}
+ static Question make(String id,List<String> values){Question q=new Question(id,String.join(id.equals("decimalAdd")?" + ":" − ",values),"",result(id,values).toPlainString());if(read(q).isEmpty())throw new IllegalArgumentException("Decimal add/sub operands");q.decimal=true;q.answerFormat="decimalValue";q.stepSupport=false;attach(q);return q;}
+ static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){
+  int max=limits.wholeMaximum(99),precision=limits.decimalPlaces(3);if(max<0||max>99||precision<1||precision>3)throw new IllegalArgumentException("Selected decimal add/sub scope");
+  for(int attempt=0;attempt<512;attempt++){int size=2+random.nextInt(3);List<Integer> places=new ArrayList<>();for(int i=0;i<size;i++)places.add(random.nextInt(precision+1));if(new HashSet<>(places).size()==1)places.set(1,(places.get(0)+1)%(precision+1));List<String> values=new ArrayList<>();int remaining=0;
+   for(int i=0;i<size;i++){int p=places.get(i),unit=(int)Math.pow(10,precision-p),bound=(max+1)*(int)Math.pow(10,p);int number=id.equals("decimalSub")&&i>0?random.nextInt(remaining/unit+1):random.nextInt(bound);values.add(BigDecimal.valueOf(number,p).toPlainString());if(i==0)remaining=number*unit;else if(id.equals("decimalSub"))remaining-=number*unit;}
+   Question q=make(id,values);if(limits.allows(q)&&!recent.containsKey(q.signature()))return q;
+  }throw new IllegalStateException("No fresh selected decimal add/sub condition");
+ }
+ static Checker.Result check(Question q,List<String> answers){List<String> original=read(q);if(original.isEmpty()||answers==null||answers.size()!=1||answers.get(0)==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 필요");String raw=Expression.normalize(answers.get(0).trim());if(raw.length()>120||!raw.matches("[+-]?\\d+(?:\\.\\d+)?"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수로 입력 필요");if("decimal".equals(q.answerFormat)&&!raw.contains("."))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"소수로 입력 필요");try{boolean same=new BigDecimal(raw).compareTo(result(q.skillId,original))==0;return new Checker.Result(same?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,same?-1:0,same?"계산 확인 완료":"이 계산 확인");}catch(RuntimeException e){return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 확인 필요");}}
+ public static void attach(Question q){List<String> original=read(q);if(original.isEmpty())return;if(original.size()==2){DecimalArithmeticRelations.attach(q);return;}StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="decimal-add-sub-v1";int p=original.stream().mapToInt(v->new BigDecimal(v).scale()).max().orElse(0);BigDecimal unit=BigDecimal.TEN.pow(p);
+  for(int i=0;i<original.size();i++)step(g,(i+1)+"번째 수를 쓰세요.",(i+1)+"번째 수 = ",original.get(i),true);
+  step(g,"소수 자릿수 중 가장 긴 자릿수를 쓰세요.","옮길 자릿수 = ",Integer.toString(p),false);step(g,"모든 수에 곱할 자릿값 배수를 쓰세요.","자릿값 배수 = ",unit.toPlainString(),false);List<BigDecimal> moved=new ArrayList<>();
+  for(int i=0;i<original.size();i++){BigDecimal value=new BigDecimal(original.get(i)).multiply(unit);moved.add(value);step(g,(i+1)+"번째 수의 소수점을 오른쪽으로 같은 칸만큼 옮기세요.","옮긴 "+(i+1)+"번째 수 = ",value.toPlainString(),false);}
+  BigDecimal running=moved.get(0);for(int i=1;i<moved.size();i++){running=q.skillId.equals("decimalAdd")?running.add(moved.get(i)):running.subtract(moved.get(i));step(g,i==1?(q.skillId.equals("decimalAdd")?"옮긴 첫 수와 둘째 수를 더하세요.":"옮긴 첫 수에서 둘째 수를 빼세요."):(q.skillId.equals("decimalAdd")?"앞의 계산 결과에 다음 수를 더하세요.":"앞의 계산 결과에서 다음 수를 빼세요."),"계산 "+i+"의 결과 = ",running.toPlainString(),false);}
+  step(g,"계산한 값의 소수점을 왼쪽으로 같은 칸만큼 되돌리세요.","소수 결과 = ",running.divide(unit).toPlainString(),true);q.studyGuide=g;
+ }
+ private static void step(StudyGuide g,String instruction,String before,String expected,boolean decimal){g.step(instruction,before,"",expected);if(decimal)g.frames.get(g.frames.size()-1).inputFormat="decimalValue";}
+}

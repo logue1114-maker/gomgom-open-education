@@ -119,6 +119,7 @@ public final class HelpPlan {
         FractionPlacement.attach(q);
         FractionFamilies.attach(q);
         DecimalCounting.attach(q);
+        DecimalAddSub.attach(q);
         PowerTenDivision.attach(q);
         DecimalPowerTen.attach(q);
         DecimalWrittenDivision.attach(q);
