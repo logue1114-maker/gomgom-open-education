@@ -14,7 +14,7 @@ public class DecimalPlaceRelationsTest {
   Generator g=new Generator(new Random(80));List<String> recent=new ArrayList<>();var limits=GlobalCurriculum.limits(pack.id,DecimalPlaceRelations.ID,4);for(int i=0;i<100;i++){Question q=g.next(DecimalPlaceRelations.ID,recent,false,limits);assertFalse(recent.contains(q.signature()));recent.add(q.signature());}
  }
  @Test public void unsupportedPromptsDoNotAcquireHelpAndLegacyDigitOnlyQuestionsRemain(){
-  for(String prompt:List.of("10.00의 일의 자리 숫자와 그 숫자가 나타내는 값을 쓰세요.","4.5의 소수 첫째 자리 숫자와 그 숫자가 나타내는 값을 쓰세요.")){Question q=new Question(DecimalPlaceRelations.ID,prompt,"","0","0");DecimalPlaceRelations.attach(q);assertNull(q.studyGuide);}
+  for(String prompt:List.of("100.00의 일의 자리 숫자와 그 숫자가 나타내는 값을 쓰세요.","4.5000의 소수 첫째 자리 숫자와 그 숫자가 나타내는 값을 쓰세요.")){Question q=new Question(DecimalPlaceRelations.ID,prompt,"","0","0");DecimalPlaceRelations.attach(q);assertNull(q.studyGuide);}
   Question q=new Generator(new Random(81)).next("el_decimal_place",List.of(),false);assertEquals(1,q.answers.length);assertTrue(q.prompt.contains("자리 숫자는?"));
  }
 }

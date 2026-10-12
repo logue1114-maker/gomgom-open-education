@@ -2209,3 +2209,6 @@ RULE	na-nied-primary-2024-v1	6	el_decimal_fraction	minGiven=0;decimalPlaces=2;va
 
 MAP	na-nied-primary-2024-v1	6	fractionDecimalCompare	Senior printed44/PDF48 B6 selected fraction/decimal equivalence recognition; fluent recall remains unproven
 RULE	na-nied-primary-2024-v1	6	fractionDecimalCompare	denominators=2,4,5,10,100;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	decimalDigitValue	Senior printed44/PDF48 B7; digit and value through three fractional places, retaining whole-number range through99
+RULE	na-nied-primary-2024-v1	6	decimalDigitValue	wholeMaximum=99;decimalPlaces=3;variedFacts=true

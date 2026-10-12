@@ -1,27 +1,20 @@
 package com.gomgomapps.math.core;
 import java.math.BigDecimal;import java.util.*;import java.util.regex.*;
-/** Given decimal digits and their values, including the ones position. */
+/** Public decimal digits and their place values, preserving the displayed precision. */
 public final class DecimalPlaceRelations {
  private DecimalPlaceRelations(){}
  public static final String ID="decimalDigitValue";
  public static final List<Catalog.Skill> SKILLS=List.of(new Catalog.Skill(ID,"소수의 자리 숫자와 값",4,1,1,"","decimalPlaceValue",1000,"el_decimal_place","자리 숫자와 그 숫자가 나타내는 양을 구별한다."));
  public static boolean supports(String id){return ID.equals(id);}
- static String place(int p){return p==0?"일의 자리":p==1?"소수 첫째 자리":p==2?"소수 둘째 자리":"소수 셋째 자리";}
- static Map<String,Question> candidates(CurriculumLimits limits){
-  int max=limits.wholeMaximum(9);if(max>9)throw new IllegalArgumentException("Selected decimal digit value maximum is9");Map<String,Question> pool=new LinkedHashMap<>();
-  for(int i=0;i<count(limits);i++){Question q=at(limits,i);if(limits.allows(q))pool.put(q.signature(),q);}return pool;
- }
- private static int count(CurriculumLimits limits){int p=limits.decimalPlaces(2);if(p<2||p>3||limits.wholeMaximum(9)>9)throw new IllegalArgumentException("Selected digit/value scope needs two/three decimal places through9");return (limits.wholeMaximum(9)+1)*(int)Math.pow(10,p)*(p+1);}
- private static Question at(CurriculumLimits limits,int index){int p=limits.decimalPlaces(2),position=index%(p+1),n=index/(p+1);BigDecimal x=BigDecimal.valueOf(n,p),unit=BigDecimal.ONE.movePointLeft(position);int digit=(n/(int)Math.pow(10,p-position))%10;Question q=new Question(ID,x.toPlainString()+"의 "+place(position)+" 숫자와 그 숫자가 나타내는 값을 쓰세요.","",""+digit,unit.multiply(BigDecimal.valueOf(digit)).stripTrailingZeros().toPlainString());q.labels=new String[]{"자리 숫자","숫자의 값"};q.answerFormat="decimalValue";q.decimal=true;q.stepSupport=false;attach(q);return q;}
+ static String place(int p){return p==-1?"십의 자리":p==0?"일의 자리":p==1?"소수 첫째 자리":p==2?"소수 둘째 자리":"소수 셋째 자리";}
+ public record Givens(String raw,int position,int digit,BigDecimal unit,BigDecimal value){}
+ public static Givens read(Question q){if(q==null||!supports(q.skillId)||q.prompt==null)return null;Matcher m=Pattern.compile("(\\d{1,2}\\.\\d{1,3})의 (십의 자리|일의 자리|소수 첫째 자리|소수 둘째 자리|소수 셋째 자리) 숫자와 그 숫자가 나타내는 값을 쓰세요\\.").matcher(q.prompt);if(!m.matches())return null;String raw=m.group(1),p=m.group(2);int pos=p.equals("십의 자리")?-1:p.equals("일의 자리")?0:p.equals("소수 첫째 자리")?1:p.equals("소수 둘째 자리")?2:3;int dot=raw.indexOf('.'),index=pos>0?dot+pos:dot+pos-1;if(index<0||index>=raw.length()||pos==-1&&new BigDecimal(raw).compareTo(BigDecimal.TEN)<0)return null;int digit=raw.charAt(index)-'0';BigDecimal unit=BigDecimal.ONE.movePointLeft(pos);return new Givens(raw,pos,digit,unit,unit.multiply(BigDecimal.valueOf(digit)));}
+ static Map<String,Question> candidates(CurriculumLimits limits){Map<String,Question> pool=new LinkedHashMap<>();for(int i=0;i<count(limits);i++){Question q=at(limits,i);if(limits.allows(q))pool.put(q.signature(),q);}return pool;}
+ static int countFor(int max,int p){int scale=(int)Math.pow(10,p);return (max+1)*scale*(p+1)+Math.max(0,max-9)*scale;}
+ static int count(CurriculumLimits limits){int p=limits.decimalPlaces(2),max=limits.wholeMaximum(9);if(p<1||p>3||max<0||max>99)throw new IllegalArgumentException("Selected digit/value scope through99 and three decimal places");int count=0;for(int places=limits.variedFacts()?1:p;places<=p;places++)count+=countFor(max,places);return count;}
+ static Question at(CurriculumLimits limits,int index){if(index<0||index>=count(limits))throw new IllegalArgumentException("Index out of range");int max=limits.wholeMaximum(9),p=limits.variedFacts()?1:limits.decimalPlaces(2);while(index>=countFor(max,p)){index-=countFor(max,p);p++;}int scale=(int)Math.pow(10,p),small=Math.min(10,max+1)*scale*(p+1),pos,n;if(index<small){pos=index%(p+1);n=index/(p+1);}else{index-=small;pos=index%(p+2)-1;n=10*scale+index/(p+2);}String raw=BigDecimal.valueOf(n,p).toPlainString();Question q=new Question(ID,raw+"의 "+place(pos)+" 숫자와 그 숫자가 나타내는 값을 쓰세요.","","","");Givens v=read(q);if(v==null)throw new IllegalArgumentException("Invalid generated position");q.answers=new String[]{Integer.toString(v.digit),v.value.stripTrailingZeros().toPlainString()};q.labels=new String[]{"자리 숫자","숫자의 값"};q.answerFormat="decimalValue";q.decimal=true;q.stepSupport=false;attach(q);return q;}
  static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){return IndexedQuestionSupply.choose(count(limits),i->at(limits,i),random,limits,recent);}
- public static void attach(Question q){
-  if(q==null||!supports(q.skillId)||q.prompt==null)return;Matcher m=Pattern.compile("(\\d\\.\\d{2,3})의 (일의 자리|소수 첫째 자리|소수 둘째 자리|소수 셋째 자리) 숫자와 그 숫자가 나타내는 값을 쓰세요\\.").matcher(q.prompt);if(!m.matches())return;
-  String raw=m.group(1);int position=m.group(2).equals("일의 자리")?0:m.group(2).equals("소수 첫째 자리")?1:m.group(2).equals("소수 둘째 자리")?2:3;if(position+1>=raw.length())return;int digit=raw.charAt(position==0?0:position+1)-'0';BigDecimal unit=BigDecimal.ONE.movePointLeft(position);
-  StudyGuide guide=new StudyGuide().transfer(false);guide.teachingVersion="decimal-digit-value-v1";
-  step(guide,"문제의 소수를 쓰세요.","소수 x = ",raw);
-  step(guide,"문제에서 지정한 자리의 숫자를 쓰세요.","자리 숫자 a = ",""+digit);
-  step(guide,"일의 자리에서 오른쪽으로 한 자리 옮길 때마다 한 단위를 10으로 나눕니다. 지정한 자리의 한 단위 크기를 쓰세요.","자리 단위 u = ",unit.toPlainString());
-  step(guide,"자리 숫자에 그 자리의 한 단위 크기를 곱하세요.","숫자의 값 v = a × u = ",unit.multiply(BigDecimal.valueOf(digit)).toPlainString());q.studyGuide=guide;
- }
+ static Checker.Result check(Question q,List<String> answers){Givens v=read(q);if(v==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"문제 확인 필요");if(answers==null||answers.size()!=2)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"답 입력 필요");for(int i=0;i<2;i++){String raw=answers.get(i);if(raw==null||raw.length()>120||!raw.trim().matches("[+-]?\\d+(?:\\.\\d+)?"))return new Checker.Result(Checker.Status.INPUT_NEEDED,i,"수로 입력 필요");try{if(new BigDecimal(raw.trim()).compareTo(i==0?BigDecimal.valueOf(v.digit):v.value)!=0)return new Checker.Result(Checker.Status.WRONG_ANSWER,i,"이 답 확인");}catch(RuntimeException e){return new Checker.Result(Checker.Status.INPUT_NEEDED,i,"수 입력 확인 필요");}}return new Checker.Result(Checker.Status.CORRECT,-1,"계산 확인 완료");}
+ public static void attach(Question q){Givens v=read(q);if(v==null)return;StudyGuide guide=new StudyGuide().transfer(false);guide.teachingVersion="decimal-digit-value-v1";step(guide,"문제의 소수를 쓰세요.","소수 x = ",v.raw);step(guide,"문제에서 지정한 자리의 숫자를 쓰세요.","자리 숫자 a = ",Integer.toString(v.digit));step(guide,v.position<0?"일의 자리에서 왼쪽으로 한 자리 옮길 때마다 한 단위가 10배가 됩니다. 지정한 자리의 한 단위 크기를 쓰세요.":"일의 자리에서 오른쪽으로 한 자리 옮길 때마다 한 단위를 10으로 나눕니다. 지정한 자리의 한 단위 크기를 쓰세요.","자리 단위 u = ",v.unit.toPlainString());step(guide,"자리 숫자에 그 자리의 한 단위 크기를 곱하세요.","숫자의 값 v = a × u = ",v.value.toPlainString());q.studyGuide=guide;}
  private static void step(StudyGuide guide,String text,String before,String value){guide.step(text,before,"",value);guide.frames.get(guide.frames.size()-1).inputFormat="decimalValue";}
 }
