@@ -2164,3 +2164,6 @@ RULE	na-nied-primary-2024-v1	6	associativeAddition,associativeMultiplication	min
 
 MAP	na-nied-primary-2024-v1	6	distributiveAddition,distributiveSubtraction	SP printed42 B7; multiply both terms of addition/subtraction, separate products and total, both factor positions within0..1000000
 RULE	na-nied-primary-2024-v1	6	distributiveAddition,distributiveSubtraction	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	wholeOperationOrder	SP printed42 B8; public calculation sequence: brackets, fraction of, multiplication/division and addition/subtraction left to right; whole intermediates0..1000000
+RULE	na-nied-primary-2024-v1	6	wholeOperationOrder	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
