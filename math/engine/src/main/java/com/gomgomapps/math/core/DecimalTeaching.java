@@ -2,5 +2,5 @@ package com.gomgomapps.math.core;
 /** Decimal teaching delegates to blank relationships from the public problem. */
 final class DecimalTeaching {
  private DecimalTeaching(){}
- static void attach(Question q){if(q!=null&&DecimalAddSub.supports(q.skillId))DecimalAddSub.attach(q);else DecimalArithmeticRelations.attach(q);}
+ static void attach(Question q){if(q!=null&&DecimalAddSub.supports(q.skillId))DecimalAddSub.attach(q);else if(DecimalWholeQuotients.read(q)!=null)DecimalWholeQuotients.attach(q);else DecimalArithmeticRelations.attach(q);}
 }

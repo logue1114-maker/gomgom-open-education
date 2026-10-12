@@ -1,10 +1,14 @@
 package com.gomgomapps.math.core;
-import java.math.BigDecimal;import java.util.*;
-/** Selected one-digit decimals times whole numbers, using existing arithmetic teaching. */
+import java.math.BigDecimal;import java.util.*;import java.util.regex.*;
+/** Decimal/whole products keep original precision; the older hundredths domain remains available. */
 public final class DecimalWholeProducts {
  private DecimalWholeProducts(){}
  public static boolean supports(String id){return "decimalMul".equals(id);}
  static boolean supports(String id,CurriculumLimits limits){return supports(id)&&limits.variedFacts()&&limits.integerSecondOperand();}
- public static Question make(int hundredths,int whole){if(hundredths<0||hundredths>999||whole<0||whole>99)throw new IllegalArgumentException("Selected decimal/whole scope");BigDecimal x=BigDecimal.valueOf(hundredths,2),answer=x.multiply(BigDecimal.valueOf(whole));String raw=x.toPlainString();Question q=new Question("decimalMul",raw+" × "+whole,raw+" * "+whole,answer.stripTrailingZeros().toPlainString());q.decimal=true;q.stepSupport=false;q.answerFormat="decimalValue";DecimalArithmeticRelations.attach(q);return q.withInputs(Expression.number(raw),Rational.of(whole));}
- static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){return IndexedQuestionSupply.choose(100000,i->make(i/100,i%100),random,limits,recent);}
+ public record Givens(String raw,int whole){}
+ public static Givens read(Question q){if(q==null||!supports(q.skillId)||q.prompt==null)return null;Matcher m=Pattern.compile("(\\d{1,2}\\.\\d{1,3}) [×*] (\\d{1,2})").matcher(q.prompt);return m.matches()?new Givens(m.group(1),Integer.parseInt(m.group(2))):null;}
+ public static Question make(int hundredths,int whole){if(hundredths<0||hundredths>999||whole<0||whole>99)throw new IllegalArgumentException("Selected legacy decimal/whole scope");return make(BigDecimal.valueOf(hundredths,2).toPlainString(),whole);}
+ public static Question make(String raw,int whole){Question probe=new Question("decimalMul",raw+" × "+whole,"","0");if(read(probe)==null)throw new IllegalArgumentException("Selected decimal/whole scope");BigDecimal x=new BigDecimal(raw),answer=x.multiply(BigDecimal.valueOf(whole));Question q=new Question("decimalMul",probe.prompt,raw+" * "+whole,answer.stripTrailingZeros().toPlainString());q.decimal=true;q.stepSupport=false;q.answerFormat="decimalValue";DecimalArithmeticRelations.attach(q);return q.withInputs(Expression.number(raw),Rational.of(whole));}
+ static Question next(Random random,CurriculumLimits limits,Map<String,Integer> recent){int max=limits.wholeMaximum(9),precision=limits.decimalPlaces(2);if(max<0||max>99||precision<1||precision>3)throw new IllegalArgumentException("Selected decimal/whole supply scope");int p=precision==3?1+random.nextInt(3):precision,count=(max+1)*(int)Math.pow(10,p)*100;return IndexedQuestionSupply.choose(count,i->make(BigDecimal.valueOf(i/100,p).toPlainString(),i%100),random,limits,recent);}
+ static Checker.Result check(Question q,List<String> answers){Givens v=read(q);if(v==null||answers==null||answers.size()!=1||answers.get(0)==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수 입력 필요");String input=Expression.normalize(answers.get(0).trim());if(input.length()>120||!input.matches("[+-]?\\d+(?:\\.\\d+)?"))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"수로 입력 필요");if("decimal".equals(q.answerFormat)&&!input.contains("."))return new Checker.Result(Checker.Status.INPUT_NEEDED,0,"소수로 입력 필요");boolean same=new BigDecimal(input).compareTo(new BigDecimal(v.raw).multiply(BigDecimal.valueOf(v.whole)))==0;return new Checker.Result(same?Checker.Status.CORRECT:Checker.Status.WRONG_ANSWER,same?-1:0,same?"계산 확인 완료":"이 계산 확인");}
 }
