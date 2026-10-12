@@ -2173,3 +2173,6 @@ RULE	na-nied-primary-2024-v1	6	contextCalculationMethods	minGiven=0;maxGiven=100
 
 MAP	na-nied-primary-2024-v1	6	equivalentFractionScaling	SP printed43 B1; same given positive factor applied to both numerator and denominator; selected practice numbers0..100, denominator1..100, factors2..12; not an official domain bound or full fractions completion
 RULE	na-nied-primary-2024-v1	6	equivalentFractionScaling	minGiven=0;maxGiven=100;maxResult=1200;nonnegative=true
+
+RULE	na-nied-primary-2024-v1	6	reduce	variedFacts=true;minGiven=0;maxGiven=120;maxResult=120;nonnegative=true
+# NA6 printed43 B2 selected reduction practice0..120 /1..120 includes existing visible operands through108, improper, zero and already-lowest fractions; practice bounds are not official upper bounds.
