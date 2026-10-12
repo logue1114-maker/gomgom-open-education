@@ -2244,3 +2244,5 @@ RULE	na-nied-primary-2024-v1	6	drawMultipleShapePattern	wholeMaximum=100;nonnega
 MAP	na-nied-primary-2024-v1	7	englishWordsToNumber,numberToEnglishWords,wholePlaceValue	Senior printed52/PDF56 B1; whole-number learning objective0..1000000; English reading/writing and digit values, oral production remains separate
 RULE	na-nied-primary-2024-v1	7	englishWordsToNumber,numberToEnglishWords	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	wholePlaceValue	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	numberOrder	Senior printed52/PDF56 B3; random whole numbers ascending and descending within0..1000000
+RULE	na-nied-primary-2024-v1	7	numberOrder	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
