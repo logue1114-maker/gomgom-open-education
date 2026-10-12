@@ -1490,7 +1490,7 @@ RULE	na-nied-primary-2024-v1	5	el_fraction_decimal	denominators=10,100
 RULE	na-nied-primary-2024-v1	6	el_fraction_decimal	denominators=2,4,5,10,20,25,50,100;decimalPlaces=2;variedFacts=true
 RULE	na-nied-primary-2024-v1	7	el_fraction_decimal	denominators=2,4,5,8,10
 RULE	na-nied-primary-2024-v1	5	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=2;nonnegative=true
-RULE	na-nied-primary-2024-v1	6	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=3;nonnegative=true
+RULE	na-nied-primary-2024-v1	6	el_decimal_place,decimalAdd,decimalSub	decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	decimalMul	integerSecondOperand=true;decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	decimalMul	decimalPlaces=2;answerDecimalPlaces=3;nonnegative=true
@@ -2212,3 +2212,7 @@ RULE	na-nied-primary-2024-v1	6	fractionDecimalCompare	denominators=2,4,5,10,100;
 
 MAP	na-nied-primary-2024-v1	6	decimalDigitValue	Senior printed44/PDF48 B7; digit and value through three fractional places, retaining whole-number range through99
 RULE	na-nied-primary-2024-v1	6	decimalDigitValue	wholeMaximum=99;decimalPlaces=3;variedFacts=true
+
+MAP	na-nied-primary-2024-v1	6	englishDecimalWordsToNumber,decimalNumberToEnglishWords,decimalOrder	Senior printed44/PDF48 B8; selected English decimal reading/writing and three-number ordering
+RULE	na-nied-primary-2024-v1	6	englishDecimalWordsToNumber,decimalNumberToEnglishWords,decimalOrder	wholeMaximum=99;decimalPlaces=3;nonnegative=true
+RULE	na-nied-primary-2024-v1	6	el_decimal_compare	wholeMaximum=99;decimalPlaces=3;nonnegative=true
