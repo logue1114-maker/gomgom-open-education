@@ -157,6 +157,7 @@ public final class Generator {
         if(InverseCalculationCheck.supports(skillId))q=InverseCalculationCheck.next(s,random,limits,previous);
         if(MissingNumberSupply.supports(skillId,limits))q=MissingNumberSupply.next(s,random,limits,previous);
         if(limits.variedSums()&&SumFoundations.supports(skillId))q=SumFoundations.next(s,random,limits,previous);
+        if(FractionComparisonSupply.selected(skillId,limits))q=FractionComparisonSupply.next(skillId,random,limits,previous);
         if(FractionReductionSupply.selected(skillId,limits))q=FractionReductionSupply.next(random,limits,previous);
         if(limits.variedFacts()&&Set.of("tables","divide").contains(skillId))q=FactFoundations.next(s,random,limits,previous);
         if(!limits.powerNotation()&&(skillId.equals("squareWhole")||skillId.equals("rootWhole")))q=SquareFractionFoundations.nextWhole(s,random,limits,previous);
@@ -206,6 +207,7 @@ public final class Generator {
         if(WholeOperationOrder.ID.equals(s.id))return WholeOperationOrder.next(random,limits,Map.of());
         if(DistributiveArithmetic.supports(s.id))return DistributiveArithmetic.next(s.id,random,limits,Map.of());
         if(AssociativeArithmetic.supports(s.id))return AssociativeArithmetic.next(s.id,random,limits,Map.of());
+        if(FractionComparisonSupply.selected(s.id,limits))return FractionComparisonSupply.next(s.id,random,limits,Map.of());
         if(FractionReductionSupply.selected(s.id,limits))return FractionReductionSupply.next(random,limits,Map.of());
         if(EquivalentFractionScaling.ID.equals(s.id))return EquivalentFractionScaling.next(random,limits,Map.of());
         if(CommutativeArithmetic.supports(s.id))return CommutativeArithmetic.next(s.id,random,limits,Map.of());
