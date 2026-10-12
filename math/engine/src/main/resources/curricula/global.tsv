@@ -2216,3 +2216,6 @@ RULE	na-nied-primary-2024-v1	6	decimalDigitValue	wholeMaximum=99;decimalPlaces=3
 MAP	na-nied-primary-2024-v1	6	englishDecimalWordsToNumber,decimalNumberToEnglishWords,decimalOrder	Senior printed44/PDF48 B8; selected English decimal reading/writing and three-number ordering
 RULE	na-nied-primary-2024-v1	6	englishDecimalWordsToNumber,decimalNumberToEnglishWords,decimalOrder	wholeMaximum=99;decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	el_decimal_compare	wholeMaximum=99;decimalPlaces=3;nonnegative=true
+
+# Senior printed44/PDF48 B9; two-place decimals rounded to whole numbers or tenths.
+RULE	na-nied-primary-2024-v1	6	el_decimal_round	wholeMaximum=99;decimalPlaces=2;roundingDecimalPlaces=0,1;nonnegative=true

@@ -1,0 +1,16 @@
+package com.gomgomapps.math.core;
+import java.math.*;import java.util.*;import org.junit.Test;import static org.junit.Assert.*;
+public class NamibiaDecimalRoundingTest {
+ private CurriculumLimits limits(){return GlobalCurriculum.limits("na-nied-primary-2024-v1","el_decimal_round",6);}
+ @Test public void normalNaSixRouteUsesBothPublicRoundingTargets(){
+  var p=GlobalCurriculum.packs("NA").stream().filter(x->x.id.equals("na-nied-primary-2024-v1")).findFirst().orElseThrow();assertTrue(p.inGrade("el_decimal_round",6));assertEquals(20000,DecimalRoundingSupply.count(limits()));Generator g=new Generator(new Random(291));List<String> recent=new ArrayList<>();Set<Integer> targets=new HashSet<>();
+  for(int i=0;i<200;i++){Question q=g.next("el_decimal_round",recent,false,limits());assertFalse(recent.contains(q.signature()));recent.add(q.signature());RoundingRelations.Givens v=RoundingRelations.read(q);assertNotNull(v);BigDecimal original=new BigDecimal(v.first());assertEquals(2,original.scale());assertTrue(original.signum()>=0&&original.compareTo(new BigDecimal("100"))<0);targets.add(v.decimalPlaces());q.answers[0]="poison";q.expression="poison";assertTrue(new Checker().check(q,List.of(),List.of(original.setScale(v.decimalPlaces(),RoundingMode.HALF_UP).toPlainString())).correct());assertFalse(HelpPlan.forQuestion(q).canTransfer());}assertEquals(Set.of(0,1),targets);
+ }
+ @Test public void everyHundredthHasBothTargetsIncludingZeroTieAndCarry(){
+  for(int i=0;i<20000;i++){Question q=DecimalRoundingSupply.at(limits(),i);RoundingRelations.Givens v=RoundingRelations.read(q);BigDecimal original=new BigDecimal(v.first());String answer=original.setScale(v.decimalPlaces(),RoundingMode.HALF_UP).toPlainString();q.answers[0]="poison";q.expression="poison";assertTrue(q.prompt,new Checker().check(q,List.of(),List.of(answer)).correct());assertFalse(new Checker().check(q,List.of(),List.of(new BigDecimal(answer).add(BigDecimal.ONE).toPlainString())).correct());}
+  Question carry=DecimalRoundingSupply.at(limits(),19999);assertEquals("99.99",RoundingRelations.read(carry).first());assertTrue(new Checker().check(carry,List.of(),List.of("100.0")).correct());assertEquals(Checker.Status.INPUT_NEEDED,new Checker().check(carry,List.of(),List.of("100")).status);
+ }
+ @Test public void publicHelpKeepsOriginalDigitsAndNoTransferForZeroTieAndCarry(){
+  for(String raw:List.of("0.00","0.05","0.50","9.95","99.99"))for(int target:List.of(0,1)){Question q=new Question("el_decimal_round",raw+(target==0?"을 가장 가까운 정수로 반올림하면?":"을 소수 첫째 자리까지 반올림하면?"),"poison","poison");q.answerFormat=target==0?"decimalValue":"decimal";HelpPlan plan=HelpPlan.forQuestion(q);BigDecimal original=new BigDecimal(raw),unit=BigDecimal.ONE.movePointLeft(target),base=original.divideToIntegralValue(unit).multiply(unit);int digit=original.subtract(base).movePointRight(target+1).intValue();List<String> entries=new ArrayList<>(List.of(raw));if(target>0)entries.add("1");entries.addAll(List.of(unit.toPlainString(),Integer.toString(digit),digit>=5?"raise":"keep",base.toPlainString(),digit>=5?unit.toPlainString():"0",original.setScale(target,RoundingMode.HALF_UP).toPlainString()));assertEquals(entries.size(),plan.size());assertFalse(plan.canTransfer());for(int i=0;i<entries.size();i++)assertTrue(q.prompt+" helper "+i,plan.step(i).accepts(entries.get(i)));}
+ }
+}
