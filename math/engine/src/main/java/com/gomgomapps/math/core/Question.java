@@ -24,6 +24,8 @@ public final class Question implements Serializable {
     public Integer collectionGroupSize;
     /** Student's estimate, retained across regrouping and restore; excluded from public identity. */
     public String learnerEstimate;
+    /** Optional learner choice for context practice; old saves have no selection. */
+    public String calculationMethod;
     /** Given assumptions, never inferred from the student's work. Null in older serialized questions. */
     public Set<String> nonzeroVariables=new LinkedHashSet<>();
     /** Public givens used in scalar function work; never populated from the student's answer. */

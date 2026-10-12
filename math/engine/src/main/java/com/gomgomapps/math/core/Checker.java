@@ -24,6 +24,7 @@ public final class Checker {
     }
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
         if(GroupedEstimation.supports(q.skillId)){Result guard=GroupedEstimation.phaseGuard(q);return guard==null?GroupedEstimation.checkCount(q,answers):guard;}
+        if(ContextCalculationMethods.ID.equals(q.skillId)){if("written".equals(q.calculationMethod)){Result written=checkSteps(q,steps,kinds,false);if(!written.correct())return written.forWorkInput();}return ContextCalculationMethods.check(q,answers);}
         Result work=checkSteps(q,steps,kinds,false);
         if(!work.correct())return work.forWorkInput();
         if(CountingCalculations.supports(q.skillId))return CountingCalculations.check(q,answers);
@@ -175,6 +176,7 @@ public final class Checker {
         return checkSteps(q,steps,kinds,true).forWorkInput();
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
+        if(ContextCalculationMethods.ID.equals(q.skillId)){Question publicQuestion=ContextCalculationMethods.workQuestion(q);if(publicQuestion==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");q=publicQuestion;}
         if(q.kind.equals("system"))return LinearSystem.check(q,steps,kinds,requireWork);
         if(q.kind.equals("inequality"))return LinearInequality.check(q,steps,kinds,requireWork);
         if(q.kind.equals("algebra"))return Algebra.check(q,steps,kinds,requireWork);
