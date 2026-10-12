@@ -110,6 +110,7 @@ public final class HelpPlan {
         FractionProductRelations.attach(q);
         FractionConceptRelations.attach(q);MixedNumberFoundations.attach(q);
         FractionOrdering.attach(q);
+        MixedFractionComparison.attach(q);
         FractionFamilies.attach(q);
         DecimalCounting.attach(q);
         PowerTenDivision.attach(q);

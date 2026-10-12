@@ -199,7 +199,7 @@ public final class CurriculumLimits {
             if(!operands.matches()||!Expression.number(operands.group(1)).d.equals(java.math.BigInteger.ONE))return false;
         }
         if(maxFractionValue!=null&&FractionOrdering.supports(q.skillId)){
-            List<String> inputs=FractionOrdering.givens(q);if(inputs.size()!=3)return false;for(String input:inputs)if(Expression.number(input).compareTo(maxFractionValue)>0)return false;
+            List<String> inputs=FractionOrdering.givens(q);if(inputs.size()!=3)return false;for(String input:inputs)if(FractionOrdering.value(q,input).compareTo(maxFractionValue)>0)return false;
         }else if(maxFractionValue!=null){
             // choiceInputs also contains operator/denominator metadata; use the public operands.
             boolean comparison=Set.of("fracCompare","el_fraction_compare").contains(q.skillId);
