@@ -80,6 +80,7 @@ public final class Learning {
         public List<float[]> scratch=new ArrayList<>();
         public List<float[]> pendingInk=new ArrayList<>();
         public int inkTarget=-1000;
+        public boolean inkManualOnly;
         public int inkPart,answerFocus;
         public Map<Integer,FractionInput.Form> answerForms=new LinkedHashMap<>();
         public RadicalAnswerFrame.Draft radicalAnswerDraft;
@@ -91,6 +92,8 @@ public final class Learning {
         public boolean choices;
         public Review.Work reviewWork;
         public HelpPlan.Draft conceptHelp;
+        public String fractionPlacementQuestionId;
+        public int fractionPlacementStartTick;
         public int rechecked;
         public Diagnosis.Run diagnosticRun;
         public Map<String,Deferred.Work> deferred=new LinkedHashMap<>();

@@ -44,6 +44,7 @@ public final class Checker {
         if(AddSubFamilies.supports(q.skillId))return AddSubFamilies.check(q,answers);
         if(AddSubChains.supports(q.skillId))return AddSubChains.check(q,answers);
         if(ContextAccuracy.supports(q.skillId))return ContextAccuracy.check(q,answers);
+        if(FractionPlacement.ID.equals(q.skillId))return FractionPlacement.check(q,answers);
         if(MixedFractionComparison.ID.equals(q.skillId))return MixedFractionComparison.check(q,answers);
         if(ComparisonRelations.supports(q.skillId))return ComparisonRelations.check(q,answers);
         if(FractionOrdering.supports(q.skillId))return FractionOrdering.check(q,answers);
