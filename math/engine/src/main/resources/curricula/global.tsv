@@ -1463,7 +1463,7 @@ RULE	na-nied-primary-2024-v1	3	fractionPart	denominators=2,3,4;partFractions=1/2
 RULE	na-nied-primary-2024-v1	4	fractionPart	denominators=2,3,4,5,6,7,8,9,10
 RULE	na-nied-primary-2024-v1	4	fracAddLike,fracSubLike	denominators=2,3,4,5,6,7,8,9,10;maxFractionValue=1;maxResult=1;nonnegative=true
 RULE	na-nied-primary-2024-v1	5	fracAddLike,fracSubLike,el_improper_to_mixed,el_mixed_to_improper	denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
-RULE	na-nied-primary-2024-v1	6	fracAdd,fracSub	relatedDenominators=true;nonnegative=true
+RULE	na-nied-primary-2024-v1	6	fracAdd,fracSub	relatedDenominators=true;nonnegative=true;variedFacts=true
 RULE	na-nied-primary-2024-v1	7	fracAdd,fracSub,fracMul,fracDiv,fracDivInt,el_fraction_compare	denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
 RULE	na-nied-primary-2024-v1	4	el_compare_10000	wholeMaximum=9999
 RULE	na-nied-primary-2024-v1	5	el_compare_10000	wholeMaximum=99999
