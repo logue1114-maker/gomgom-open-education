@@ -41,8 +41,8 @@ public final class Choices {
         for(Rational v:options){
             if(v.equals(pool.answer)){q.correctChoice=q.choices.size();q.distractorReasons.add("정답");}
             else q.distractorReasons.add(pool.wrong.get(v));
-            String text=q.decimal?v.decimalText():v.toString();
-            if(q.decimal&&!text.contains("."))text+=".0";
+            String text="fraction".equals(q.answerFormat)?v.n+"/"+v.d:q.decimal?v.decimalText():v.toString();
+            if(q.decimal&&!"fraction".equals(q.answerFormat)&&!text.contains("."))text+=".0";
             q.choices.add(text);
         }
     }
@@ -97,6 +97,7 @@ public final class Choices {
                 case "fracAddLike","fracAdd" -> between(v,0,2);
                 case "fracMixedAdd" -> between(v,0,20);
                 case "fracMixedSub" -> between(v,0,10);
+                case "quantityAsFraction" -> between(v,0,100);
                 case "fracDiv" -> between(v,0,12);
                 case "gcd" -> v.isInteger()&&between(v,1,Math.min(i(0),i(1)));
                 case "lcm" -> v.isInteger()&&between(v,Math.max(i(0),i(1)),i(0)*i(1));
@@ -117,6 +118,8 @@ public final class Choices {
         }
         void placeErrors(Rational step,String reason){for(int sign:new int[]{-1,1})add(answer.add(step.mul(Rational.of(sign))),reason);}
         void collect(){
+            if(QuantityAsFraction.ID.equals(skill.id)){long a=i(0),b=i(1);if(a>0)add(Rational.of(b,a),"비교 순서를 반대로 읽음");add(Rational.of(a+1,b),"첫 수량을 한 수 크게 읽음");if(a>0)add(Rational.of(a-1,b),"첫 수량을 한 수 작게 읽음");add(Rational.of(a+2,b),"첫 수량을 두 수 크게 읽음");if(b<100)add(Rational.of(a,b+1),"둘째 수량을 한 수 크게 읽음");if(b>1)add(Rational.of(a,b-1),"둘째 수량을 한 수 작게 읽음");add(Rational.of(a+b,b),"두 수량을 더한 값을 분자로 씀");if(b<100)add(Rational.of(1,b+1),"수량을 반영하지 않은 단위분수");for(int delta=1;delta<=3;delta++)placeErrors(Rational.of(delta),"나눗셈 결과를 잘못 계산함");return;}
+
             if(FunctionConcepts.supports(skill.id)){FunctionConcepts.errors(q).forEach(this::add);return;}
             if(FunctionContexts.supports(skill.id)){FunctionContexts.errors(q).forEach(this::add);return;}
             if(PopulationDensity.supports(skill.id)){PopulationDensity.errors(q).forEach(this::add);return;}

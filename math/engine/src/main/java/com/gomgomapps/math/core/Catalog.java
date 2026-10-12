@@ -69,6 +69,7 @@ public final class Catalog {
         add("fracMixedSub","대분수의 뺄셈",5,1,5,"fracMixedSub",12,"el_mixed_to_improper,fracSub","대분수를 가분수로 바꾸고 분모를 같게 하여 뺀다.");
         add("fracWholeSub","자연수에서 분수 빼기",5,1,5,"fracWholeSub",12,"fractionPart,fracSubLike","자연수를 같은 분모의 분수로 바꾼 뒤 분자끼리 뺀다.");
         add("unitFractionWhole","단위분수 부분에서 전체 구하기",5,1,5,"unitFractionWhole",12000,"fractionPart,tables","단위분수 부분의 양에 분모를 곱해 전체 양을 구한다.");
+        add("quantityAsFraction","수량을 다른 수량의 분수로 나타내기",5,1,5,"quantityAsFraction",100,"fractionPart,reduce","같은 단위의 첫 수량을 분자에, 기준인 둘째 수량을 분모에 쓴다.");
         add("fracMul","분수의 곱셈",5,2,2,"fracMul",12,"reduce,tables","분자끼리, 분모끼리 곱한다. 공약수로 먼저 약분할 수 있다.");
         add("fracMulInt","분수와 자연수의 곱셈",5,2,2,"fracMulInt",12,"reduce,tables","자연수를 분모가 1인 분수로 쓰고 곱한다.");
         add("fracMixedMul","대분수의 곱셈",5,2,2,"fracMixedMul",12,"el_mixed_to_improper,fracMul","대분수를 가분수로 바꾸고 분자끼리, 분모끼리 곱한다.");
