@@ -108,6 +108,7 @@ public final class HelpPlan {
         FractionReductionRelations.attach(q);
         PrimaryFractionRelations.attach(q);
         WholeFractionSubtraction.attach(q);
+        UnitFractionWhole.attach(q);
         FractionProductRelations.attach(q);
         FractionConceptRelations.attach(q);MixedNumberFoundations.attach(q);
         FractionOrdering.attach(q);

@@ -57,6 +57,7 @@ public final class Generator {
         if(ProperFractionProductSupply.supports(skillId,limits))q=ProperFractionProductSupply.next(s,random,limits,previous);
         if(FractionSupply.supports(skillId,limits))q=FractionSupply.next(s,random,limits,previous);
         if(WholeFractionSubtraction.ID.equals(skillId))q=WholeFractionSubtraction.next(random,limits,previous);
+        if(UnitFractionWhole.ID.equals(skillId))q=UnitFractionWhole.next(random,limits,previous);
         if(skillId.equals("el_common_divisor"))q=CommonFactorSupply.next(random,limits,previous);
         if(skillId.equals(PolygonConstruction.ID))q=PolygonConstruction.next(s,random,previous);
         if(ClockFaces.supports(skillId))q=ClockFaces.next(s,random,limits,previous);
