@@ -29,6 +29,10 @@ public final class Question implements Serializable {
     /** Independent optional inverse-check draft; never changes the question identity or answer. */
     public String inverseProposal,inverseValue,inverseVerdict;
     public boolean inverseChecked;
+    /** Separate optional rounding draft; inverse and original work remain independent. */
+    public String estimateProposal,estimateFirst,estimateSecond,estimateValue,estimateDifference,estimateVerdict;
+    public int estimateUnit;
+    public boolean estimateChecked;
     /** Given assumptions, never inferred from the student's work. Null in older serialized questions. */
     public Set<String> nonzeroVariables=new LinkedHashSet<>();
     /** Public givens used in scalar function work; never populated from the student's answer. */
