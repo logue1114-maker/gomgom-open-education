@@ -40,6 +40,7 @@ public final class Generator {
         Catalog.Skill s=Catalog.get(skillId);Question q=null;
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(EquivalentQuantityStories.identity(FractionNamesRelations.identity(signature)),position++);
         int oldest=Integer.MAX_VALUE;
+        if(CommonMultipleLists.supports(skillId))q=CommonMultipleLists.next(random,limits,previous);
         if(MultipleRecognition.supports(skillId))q=MultipleRecognition.next(random,limits,previous);
         if(DivisionNotations.ID.equals(skillId))q=DivisionNotations.next(random,limits,previous);
         if(ThreeNumberEstimation.ID.equals(skillId))q=ThreeNumberEstimation.next(random,limits,previous);
@@ -173,7 +174,7 @@ public final class Generator {
         FactorTeaching.attach(q);
         if(q.choiceDiagrams!=null&&!q.choiceDiagrams.isEmpty()){q.choices=new ArrayList<>(q.choiceDiagrams.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
         else if(q.choiceLabels!=null&&!q.choiceLabels.isEmpty()){q.choices=new ArrayList<>(q.choiceLabels.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
-        else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number")&&!EnglishNumberWords.supports(skillId)&&!PercentageNotation.supports(skillId)&&!EquivalentQuantityStories.supports(skillId)&&!DecimalPercentReverse.supports(skillId)){if(PrimaryScaleRates.supports(s.id)||CombinedEqualityPractice.supports(s.id)||EqualityFoundations.selected(s.id))EqualityFoundations.choices(q,random,limits);else if(skillId.equals(WholePlaceRelations.VALUE))WholePlaceRelations.choices(q,random,limits);else Choices.build(q,s,random);}
+        else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number")&&!CommonMultipleLists.supports(skillId)&&!EnglishNumberWords.supports(skillId)&&!PercentageNotation.supports(skillId)&&!EquivalentQuantityStories.supports(skillId)&&!DecimalPercentReverse.supports(skillId)){if(PrimaryScaleRates.supports(s.id)||CombinedEqualityPractice.supports(s.id)||EqualityFoundations.selected(s.id))EqualityFoundations.choices(q,random,limits);else if(skillId.equals(WholePlaceRelations.VALUE))WholePlaceRelations.choices(q,random,limits);else Choices.build(q,s,random);}
         if(multipleChoice&&q.choices.isEmpty()&&(s.id.startsWith("el_")||s.id.startsWith("sec_")||s.family.startsWith("adv_")||s.family.startsWith("early_")))FoundationChoices.build(q,s,random);
         if(multipleChoice&&q.kind.equals("radical")){if(CoordinateDiagonal.supports(s.id))CoordinateDiagonal.choices(q,random);else if(CoordinateTriangle.PERIM.equals(s.id))CoordinateTriangle.choices(q,random);else RadicalQuestions.choices(q,random);}
         limits.constrainChoices(q);
@@ -194,6 +195,7 @@ public final class Generator {
         if(RemainderContexts.supports(s.id))return RemainderContexts.next(s.id,random,limits,Map.of());
         if(ShortWrittenDivision.supports(s.id))return ShortWrittenDivision.next(s.id,random,limits,Map.of());
         if(LargeWrittenProducts.supports(s.id))return LargeWrittenProducts.next(s.id,random,limits,Map.of());
+        if(CommonMultipleLists.supports(s.id))return CommonMultipleLists.next(random,limits,Map.of());
         if(MultipleRecognition.supports(s.id))return MultipleRecognition.next(random,limits,Map.of());
         if(PrimeRecall.supports(s.id))return PrimeRecall.next(random,limits,Map.of());
         if(PrimeVocabulary.supports(s.id))return PrimeVocabulary.next(s.id,random,limits,Map.of());

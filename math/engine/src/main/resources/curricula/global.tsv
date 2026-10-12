@@ -2152,3 +2152,6 @@ RULE	na-nied-primary-2024-v1	6	divisionNotations	wholeMaximum=1000000;minGiven=0
 
 MAP	na-nied-primary-2024-v1	6	multipleRecognition	SP printed42 B1; recognise multiples of15/30/45/60 within0..360 by checked division/remainder
 RULE	na-nied-primary-2024-v1	6	multipleRecognition	minGiven=0;maxGiven=360;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	commonMultiplesWithin100	SP printed42 B2; complete positive common multiple lists through100 for two numbers1..12, including none
+RULE	na-nied-primary-2024-v1	6	commonMultiplesWithin100	minGiven=1;maxGiven=100;maxResult=100;nonnegative=true
