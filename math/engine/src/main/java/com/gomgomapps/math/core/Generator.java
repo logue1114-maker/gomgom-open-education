@@ -40,7 +40,8 @@ public final class Generator {
         Catalog.Skill s=Catalog.get(skillId);Question q=null;
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(EquivalentQuantityStories.identity(FractionNamesRelations.identity(signature)),position++);
         int oldest=Integer.MAX_VALUE;
-        if(AssociativeArithmetic.supports(skillId))q=AssociativeArithmetic.next(skillId,random,limits,previous);
+        if(DistributiveArithmetic.supports(skillId))q=DistributiveArithmetic.next(skillId,random,limits,previous);
+        else if(AssociativeArithmetic.supports(skillId))q=AssociativeArithmetic.next(skillId,random,limits,previous);
         if(CommutativeArithmetic.supports(skillId))q=CommutativeArithmetic.next(skillId,random,limits,previous);
         if(CommonMultipleLists.supports(skillId))q=CommonMultipleLists.next(random,limits,previous);
         if(MultipleRecognition.supports(skillId))q=MultipleRecognition.next(random,limits,previous);
@@ -197,6 +198,7 @@ public final class Generator {
         if(RemainderContexts.supports(s.id))return RemainderContexts.next(s.id,random,limits,Map.of());
         if(ShortWrittenDivision.supports(s.id))return ShortWrittenDivision.next(s.id,random,limits,Map.of());
         if(LargeWrittenProducts.supports(s.id))return LargeWrittenProducts.next(s.id,random,limits,Map.of());
+        if(DistributiveArithmetic.supports(s.id))return DistributiveArithmetic.next(s.id,random,limits,Map.of());
         if(AssociativeArithmetic.supports(s.id))return AssociativeArithmetic.next(s.id,random,limits,Map.of());
         if(CommutativeArithmetic.supports(s.id))return CommutativeArithmetic.next(s.id,random,limits,Map.of());
         if(CommonMultipleLists.supports(s.id))return CommonMultipleLists.next(random,limits,Map.of());

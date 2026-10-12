@@ -74,6 +74,7 @@ public final class Checker {
         if(RemainderContexts.supports(q.skillId))return RemainderContexts.check(q,answers);
         if(ShortWrittenDivision.supports(q.skillId))return ShortWrittenDivision.check(q,answers);
         if(LargeWrittenProducts.supports(q.skillId))return LargeWrittenProducts.check(q,answers);
+        if(DistributiveArithmetic.supports(q.skillId))return DistributiveArithmetic.check(q,answers);
         if(AssociativeArithmetic.supports(q.skillId))return AssociativeArithmetic.check(q,answers);
         if(CommutativeArithmetic.supports(q.skillId))return CommutativeArithmetic.check(q,answers);
         if(CommonMultipleLists.supports(q.skillId))return CommonMultipleLists.check(q,answers);

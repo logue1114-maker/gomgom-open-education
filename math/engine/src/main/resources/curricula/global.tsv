@@ -2161,3 +2161,6 @@ RULE	na-nied-primary-2024-v1	6	commutativeAddition,commutativeMultiplication	min
 
 MAP	na-nied-primary-2024-v1	6	associativeAddition,associativeMultiplication	SP printed42 B6; preserve three operand order, regroup both directions, inner/total values within0..1000000
 RULE	na-nied-primary-2024-v1	6	associativeAddition,associativeMultiplication	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	distributiveAddition,distributiveSubtraction	SP printed42 B7; multiply both terms of addition/subtraction, separate products and total, both factor positions within0..1000000
+RULE	na-nied-primary-2024-v1	6	distributiveAddition,distributiveSubtraction	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
