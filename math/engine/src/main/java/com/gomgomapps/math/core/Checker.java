@@ -48,6 +48,7 @@ public final class Checker {
         if(MixedFractionComparison.ID.equals(q.skillId))return MixedFractionComparison.check(q,answers);
         if(ComparisonRelations.supports(q.skillId))return ComparisonRelations.check(q,answers);
         if(FractionOrdering.supports(q.skillId))return FractionOrdering.check(q,answers);
+        if(FractionDecimalComparison.ID.equals(q.skillId))return FractionDecimalComparison.check(q,answers);
         if(FractionToDecimalCheck.ID.equals(q.skillId))return FractionToDecimalCheck.check(q,answers);
         if(PublicFractionArithmetic.supports(q.skillId))return PublicFractionArithmetic.check(q,answers);
         if(UnitFractionWhole.ID.equals(q.skillId))return UnitFractionWhole.check(q,answers);

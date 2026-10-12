@@ -111,6 +111,7 @@ public final class HelpPlan {
         UnitFractionWhole.attach(q);
         QuantityAsFraction.attach(q);
         TwoStepFractionStories.attach(q);
+        FractionDecimalComparison.attach(q);
         FractionProductRelations.attach(q);
         FractionConceptRelations.attach(q);MixedNumberFoundations.attach(q);
         FractionOrdering.attach(q);

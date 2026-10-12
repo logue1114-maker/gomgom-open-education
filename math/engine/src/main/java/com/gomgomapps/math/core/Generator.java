@@ -58,6 +58,7 @@ public final class Generator {
         if(FractionSupply.supports(skillId,limits))q=FractionSupply.next(s,random,limits,previous);
         if(WholeFractionSubtraction.ID.equals(skillId))q=WholeFractionSubtraction.next(random,limits,previous);
         if(UnitFractionWhole.ID.equals(skillId))q=UnitFractionWhole.next(random,limits,previous);
+        if(FractionDecimalComparison.ID.equals(skillId))q=FractionDecimalComparison.next(random,limits,previous);
         if(TwoStepFractionStories.ID.equals(skillId))q=TwoStepFractionStories.next(random,limits,previous);
         if(QuantityAsFraction.ID.equals(skillId))q=QuantityAsFraction.next(random,limits,previous);
         if(skillId.equals("el_common_divisor"))q=CommonFactorSupply.next(random,limits,previous);
