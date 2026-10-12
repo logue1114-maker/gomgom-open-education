@@ -2204,3 +2204,5 @@ RULE	na-nied-primary-2024-v1	6	el_fraction_of_number	denominators=2,3,4,5,6,7,8,
 
 MAP	na-nied-primary-2024-v1	6	twoStepFractionStory	Senior printed44/PDF48 B3; fraction-of-quantity then subtraction or addition in original contexts
 RULE	na-nied-primary-2024-v1	6	twoStepFractionStory	nonnegative=true
+
+RULE	na-nied-primary-2024-v1	6	el_decimal_fraction	minGiven=0;decimalPlaces=2;variedFacts=true;reducedDecimalFraction=true
