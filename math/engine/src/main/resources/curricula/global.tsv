@@ -1459,7 +1459,7 @@ RULE	na-nied-primary-2024-v1	3	add1000,sub1000	maxGiven=500;maxResult=500;nonneg
 RULE	na-nied-primary-2024-v1	4	add1000,sub1000	wholeDigits=4;secondDigits=4;maxGiven=9999;maxResult=9999;nonnegative=true
 RULE	na-nied-primary-2024-v1	5	add1000,sub1000	wholeDigits=5;secondDigits=5;maxGiven=99999;maxResult=99999;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	add1000,sub1000	wholeDigits=7;secondDigits=7;minimumWholeDigits=1;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
-RULE	na-nied-primary-2024-v1	7	add1000,sub1000	wholeDigits=6;secondDigits=6;maxGiven=999999;maxResult=999999;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	add1000,sub1000	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 RULE	na-nied-primary-2024-v1	2	tables	factors=1,2,5,10;timesTableMax=10;maxResult=100;nonnegative=true
 RULE	na-nied-primary-2024-v1	3	tables	factors=1,2,3,4,5,10;timesTableMax=10;maxResult=100;variedFacts=true;nonnegative=true
 RULE	na-nied-primary-2024-v1	4	tables	timesTableMax=10;maxResult=100;variedFacts=true;nonnegative=true

@@ -64,6 +64,7 @@ public final class Checker {
         if(DecimalAddSub.supports(q.skillId))return DecimalAddSub.check(q,answers);
         if(DecimalWholeProducts.read(q)!=null)return DecimalWholeProducts.check(q,answers);
         if(DecimalWholeQuotients.read(q)!=null)return DecimalWholeQuotients.check(q,answers);
+        if("boundedWholeAddSub".equals(q.kind))return BoundedWholeAddSub.check(q,answers);
         if(RoundingRelations.decimal(q.skillId))return RoundingRelations.checkDecimal(q,answers);
         if(RoundingRelations.supports(q.skillId))return RoundingRelations.checkWhole(q,answers);
         if(EnglishDecimalWords.READ.equals(q.skillId))return EnglishDecimalWords.checkReading(q,answers);
