@@ -50,6 +50,7 @@ public final class Checker {
         if(FractionOrdering.supports(q.skillId))return FractionOrdering.check(q,answers);
         if(PublicFractionArithmetic.supports(q.skillId))return PublicFractionArithmetic.check(q,answers);
         if(UnitFractionWhole.ID.equals(q.skillId))return UnitFractionWhole.check(q,answers);
+        if(TwoStepFractionStories.ID.equals(q.skillId))return TwoStepFractionStories.check(q,answers);
         if(QuantityAsFraction.ID.equals(q.skillId))return QuantityAsFraction.check(q,answers);
         if(MixedFractionRelations.supports(q.skillId))return MixedFractions.check(q,answers);
         if(MixedNumberFoundations.supports(q.skillId))return MixedNumberFoundations.check(q,answers);
