@@ -2228,3 +2228,6 @@ RULE	na-nied-primary-2024-v1	6	decimalTimesPowersTen,decimalDividePowersTen	whol
 
 MAP	na-nied-primary-2024-v1	6	decimalQuantityTotal,decimalQuantityRemaining	Senior printed45/PDF49 B4; same-unit length/volume/mass totals and remaining quantities; multiplication/division contexts remain
 RULE	na-nied-primary-2024-v1	6	decimalQuantityTotal,decimalQuantityRemaining	wholeMaximum=99;decimalPlaces=3;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	decimalQuantityGroups,decimalQuantitySharing	Senior printed45/PDF49 B4; equal-group decimal quantity products and exact sharing; multistep contexts remain
+RULE	na-nied-primary-2024-v1	6	decimalQuantityGroups,decimalQuantitySharing	wholeMaximum=99;decimalPlaces=3;nonnegative=true
