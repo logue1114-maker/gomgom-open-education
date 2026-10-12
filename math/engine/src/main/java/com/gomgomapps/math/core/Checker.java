@@ -112,6 +112,7 @@ public final class Checker {
         if(EquivalentFractionPictures.ID.equals(q.skillId))return EquivalentFractionPictures.check(q,answers);
         if(FractionNumberLine.ID.equals(q.skillId))return FractionNumberLine.check(q,answers);
         if(QuantityFractionCheck.ID.equals(q.skillId))return QuantityFractionCheck.check(q,answers);
+        if(WholePlaceRelations.supports(q.skillId))return WholePlaceRelations.check(q,answers);
         if(NumberWordFeedback.writing(q))return NumberWordFeedback.check(q,answers);
         if(q.skillId.equals("englishWordsToNumber"))return EnglishNumberWords.check(q,answers);
         if(ProductContextStories.supports(q.skillId))return ProductContextStories.check(q,answers);

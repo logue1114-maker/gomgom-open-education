@@ -98,7 +98,7 @@ public final class GlobalCurriculum {
         }
         if(id.equals("place1000")||id.equals("largePlace")){
             int maximum=limits(system,id,grade).wholeMaximum(skill.range);
-            if(maximum!=skill.range)return String.format(Locale.ROOT,"%,d까지 수",maximum);
+            if(maximum!=skill.range)return String.format(Locale.ROOT,"%,d까지 수의 자리 숫자",maximum);
         }
         return skill.title;
     }

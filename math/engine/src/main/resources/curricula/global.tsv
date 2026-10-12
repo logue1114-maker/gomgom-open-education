@@ -1453,7 +1453,7 @@ RULE	na-nied-primary-2024-v1	3	place100	wholeMaximum=1000
 RULE	na-nied-primary-2024-v1	4	place1000	wholeMaximum=9999
 RULE	na-nied-primary-2024-v1	5	largePlace	wholeMaximum=99999
 RULE	na-nied-primary-2024-v1	6	largePlace	wholeMaximum=999999
-RULE	na-nied-primary-2024-v1	7	largePlace	wholeMaximum=999999
+RULE	na-nied-primary-2024-v1	7	largePlace	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 RULE	na-nied-primary-2024-v1	2	add100,sub100	maxGiven=100;maxResult=100;nonnegative=true
 RULE	na-nied-primary-2024-v1	3	add1000,sub1000	maxGiven=500;maxResult=500;nonnegative=true
 RULE	na-nied-primary-2024-v1	4	add1000,sub1000	wholeDigits=4;secondDigits=4;maxGiven=9999;maxResult=9999;nonnegative=true
@@ -2240,3 +2240,7 @@ RULE	na-nied-primary-2024-v1	6	pairedNumberTableFill,pairedNumberTableDescriptio
 
 MAP	na-nied-primary-2024-v1	6	drawMultipleShapePattern	Senior printed45/PDF49 B6; draw separate polygons, complete side-count table and verbal multiplication rule
 RULE	na-nied-primary-2024-v1	6	drawMultipleShapePattern	wholeMaximum=100;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	7	englishWordsToNumber,numberToEnglishWords,wholePlaceValue	Senior printed52/PDF56 B1; whole-number learning objective0..1000000; English reading/writing and digit values, oral production remains separate
+RULE	na-nied-primary-2024-v1	7	englishWordsToNumber,numberToEnglishWords	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	wholePlaceValue	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
