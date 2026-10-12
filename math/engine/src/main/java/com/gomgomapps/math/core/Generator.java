@@ -41,6 +41,7 @@ public final class Generator {
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(EquivalentQuantityStories.identity(FractionNamesRelations.identity(signature)),position++);
         int oldest=Integer.MAX_VALUE;
         if(BoundedWholeAddSub.selected(skillId,limits))q=BoundedWholeAddSub.next(skillId,random,limits,previous);
+        if(BoundedWholeProduct.selected(skillId,limits))q=BoundedWholeProduct.next(random,limits,previous);
         if(ContextCalculationMethods.ID.equals(skillId))q=ContextCalculationMethods.next(random,limits,previous);
         else if(WholeOperationOrder.ID.equals(skillId))q=WholeOperationOrder.next(random,limits,previous);
         else if(DistributiveArithmetic.supports(skillId))q=DistributiveArithmetic.next(skillId,random,limits,previous);

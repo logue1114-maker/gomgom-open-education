@@ -2246,3 +2246,5 @@ RULE	na-nied-primary-2024-v1	7	englishWordsToNumber,numberToEnglishWords	wholeMa
 RULE	na-nied-primary-2024-v1	7	wholePlaceValue	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 MAP	na-nied-primary-2024-v1	7	numberOrder	Senior printed52/PDF56 B3; random whole numbers ascending and descending within0..1000000
 RULE	na-nied-primary-2024-v1	7	numberOrder	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	mul22	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+RULE	na-nied-primary-2024-v1	5	mul22	
