@@ -2155,3 +2155,6 @@ RULE	na-nied-primary-2024-v1	6	multipleRecognition	minGiven=0;maxGiven=360;nonne
 
 MAP	na-nied-primary-2024-v1	6	commonMultiplesWithin100	SP printed42 B2; complete positive common multiple lists through100 for two numbers1..12, including none
 RULE	na-nied-primary-2024-v1	6	commonMultiplesWithin100	minGiven=1;maxGiven=100;maxResult=100;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	commutativeAddition,commutativeMultiplication	SP printed42 B5; swap both operands and calculate within0..1000000; wider fluency remains
+RULE	na-nied-primary-2024-v1	6	commutativeAddition,commutativeMultiplication	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
