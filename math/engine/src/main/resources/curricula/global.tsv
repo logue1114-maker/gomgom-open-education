@@ -2225,3 +2225,6 @@ RULE	na-nied-primary-2024-v1	6	decimalAdd,decimalSub	wholeMaximum=99;decimalPlac
 
 MAP	na-nied-primary-2024-v1	6	decimalTimesPowersTen,decimalDividePowersTen	Senior printed45/PDF49 B3; calculation and original/resulting digit values for powers10,100,1000
 RULE	na-nied-primary-2024-v1	6	decimalTimesPowersTen,decimalDividePowersTen	wholeMaximum=99;decimalPlaces=3;answerDecimalPlaces=6;variedFacts=true;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	decimalQuantityTotal,decimalQuantityRemaining	Senior printed45/PDF49 B4; same-unit length/volume/mass totals and remaining quantities; multiplication/division contexts remain
+RULE	na-nied-primary-2024-v1	6	decimalQuantityTotal,decimalQuantityRemaining	wholeMaximum=99;decimalPlaces=3;nonnegative=true
