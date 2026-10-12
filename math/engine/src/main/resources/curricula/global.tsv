@@ -2170,3 +2170,6 @@ RULE	na-nied-primary-2024-v1	6	wholeOperationOrder	minGiven=0;maxGiven=1000000;m
 
 MAP	na-nied-primary-2024-v1	6	contextCalculationMethods	SP printed42 B9; selected one-step whole-number book contexts and optional mental/learner-authored written method choice; broader contexts and strategy fluency remain
 RULE	na-nied-primary-2024-v1	6	contextCalculationMethods	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	6	equivalentFractionScaling	SP printed43 B1; same given positive factor applied to both numerator and denominator; selected practice numbers0..100, denominator1..100, factors2..12; not an official domain bound or full fractions completion
+RULE	na-nied-primary-2024-v1	6	equivalentFractionScaling	minGiven=0;maxGiven=100;maxResult=1200;nonnegative=true

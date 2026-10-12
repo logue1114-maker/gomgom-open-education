@@ -44,7 +44,8 @@ public final class Generator {
         else if(WholeOperationOrder.ID.equals(skillId))q=WholeOperationOrder.next(random,limits,previous);
         else if(DistributiveArithmetic.supports(skillId))q=DistributiveArithmetic.next(skillId,random,limits,previous);
         else if(AssociativeArithmetic.supports(skillId))q=AssociativeArithmetic.next(skillId,random,limits,previous);
-        if(CommutativeArithmetic.supports(skillId))q=CommutativeArithmetic.next(skillId,random,limits,previous);
+        if(EquivalentFractionScaling.ID.equals(skillId))q=EquivalentFractionScaling.next(random,limits,previous);
+        else if(CommutativeArithmetic.supports(skillId))q=CommutativeArithmetic.next(skillId,random,limits,previous);
         if(CommonMultipleLists.supports(skillId))q=CommonMultipleLists.next(random,limits,previous);
         if(MultipleRecognition.supports(skillId))q=MultipleRecognition.next(random,limits,previous);
         if(DivisionNotations.ID.equals(skillId))q=DivisionNotations.next(random,limits,previous);
@@ -204,6 +205,7 @@ public final class Generator {
         if(WholeOperationOrder.ID.equals(s.id))return WholeOperationOrder.next(random,limits,Map.of());
         if(DistributiveArithmetic.supports(s.id))return DistributiveArithmetic.next(s.id,random,limits,Map.of());
         if(AssociativeArithmetic.supports(s.id))return AssociativeArithmetic.next(s.id,random,limits,Map.of());
+        if(EquivalentFractionScaling.ID.equals(s.id))return EquivalentFractionScaling.next(random,limits,Map.of());
         if(CommutativeArithmetic.supports(s.id))return CommutativeArithmetic.next(s.id,random,limits,Map.of());
         if(CommonMultipleLists.supports(s.id))return CommonMultipleLists.next(random,limits,Map.of());
         if(MultipleRecognition.supports(s.id))return MultipleRecognition.next(random,limits,Map.of());
