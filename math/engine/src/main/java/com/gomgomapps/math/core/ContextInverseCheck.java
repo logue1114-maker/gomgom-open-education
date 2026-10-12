@@ -1,0 +1,10 @@
+package com.gomgomapps.math.core;
+/** Optional inverse verification of the learner's own unsubmitted context answer. */
+public final class ContextInverseCheck {
+ private ContextInverseCheck(){}
+ public record Plan(String formula,Rational recovered,int original,boolean available){}
+ public enum Status { INPUT_NEEDED, WRONG_VALUE, WRONG_COMPARISON, CONSISTENT, INCONSISTENT, UNAVAILABLE }
+ public static Plan plan(Question q,String proposal){var g=ContextCalculationMethods.read(q);if(g==null||proposal==null||!proposal.trim().matches("[0-9]{1,7}"))return null;int p=Integer.parseInt(proposal.trim());if(p>1000000)return null;if(g.operation()==2&&g.b()==0)return new Plan("",Rational.ZERO,g.a(),false);String op=new String[]{"−","+","÷","×"}[g.operation()];Rational recovered=switch(g.operation()){case 0->Rational.of(p).sub(Rational.of(g.b()));case 1->Rational.of(p).add(Rational.of(g.b()));case 2->Rational.of(p).div(Rational.of(g.b()));default->Rational.of(p).mul(Rational.of(g.b()));};return new Plan(p+" "+op+" "+g.b(),recovered,g.a(),true);}
+ public static Status check(Question q,String proposal,String value,String verdict){Plan p=plan(q,proposal);if(p==null)return Status.INPUT_NEEDED;if(!p.available)return Status.UNAVAILABLE;if(value==null||value.trim().isEmpty()||value.length()>40)return Status.INPUT_NEEDED;try{if(!Expression.number(value).equals(p.recovered))return Status.WRONG_VALUE;}catch(RuntimeException ex){return Status.INPUT_NEEDED;}if(!"same".equals(verdict)&&!"different".equals(verdict))return Status.INPUT_NEEDED;boolean same=p.recovered.equals(Rational.of(p.original));if(same!="same".equals(verdict))return Status.WRONG_COMPARISON;return same?Status.CONSISTENT:Status.INCONSISTENT;}
+ public static String message(Status s){return switch(s){case INPUT_NEEDED->"검산값과 비교 결과 입력 필요";case WRONG_VALUE->"검산값 다시 확인";case WRONG_COMPARISON->"처음 수와 같은지 다시 확인";case CONSISTENT->"역연산 값이 처음 수와 같습니다.";case INCONSISTENT->"처음 수와 다릅니다. 원래 답을 다시 확인하세요.";case UNAVAILABLE->"0으로 곱한 계산은 나눗셈으로 검산할 수 없습니다. 원래 계산으로 확인하세요.";};}
+}

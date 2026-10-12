@@ -26,6 +26,9 @@ public final class Question implements Serializable {
     public String learnerEstimate;
     /** Optional learner choice for context practice; old saves have no selection. */
     public String calculationMethod;
+    /** Independent optional inverse-check draft; never changes the question identity or answer. */
+    public String inverseProposal,inverseValue,inverseVerdict;
+    public boolean inverseChecked;
     /** Given assumptions, never inferred from the student's work. Null in older serialized questions. */
     public Set<String> nonzeroVariables=new LinkedHashSet<>();
     /** Public givens used in scalar function work; never populated from the student's answer. */
