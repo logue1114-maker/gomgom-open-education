@@ -1478,7 +1478,7 @@ RULE	na-nied-primary-2024-v1	7	fracAdd,fracSub,fracMul,fracDiv,fracDivInt,el_fra
 RULE	na-nied-primary-2024-v1	4	el_compare_10000	wholeMaximum=9999
 RULE	na-nied-primary-2024-v1	5	el_compare_10000	wholeMaximum=99999
 RULE	na-nied-primary-2024-v1	6	el_compare_10000	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;nonnegative=true
-RULE	na-nied-primary-2024-v1	7	el_compare_10000	wholeMaximum=999999
+RULE	na-nied-primary-2024-v1	7	el_compare_10000	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;nonnegative=true
 RULE	na-nied-primary-2024-v1	4	el_round	wholeMaximum=9999;roundingUnits=10,100,1000
 RULE	na-nied-primary-2024-v1	5	el_round	wholeMaximum=99999;roundingUnits=10,100,1000,10000
 RULE	na-nied-primary-2024-v1	6	el_round	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;roundingUnits=10,100,1000,10000,100000;nonnegative=true
