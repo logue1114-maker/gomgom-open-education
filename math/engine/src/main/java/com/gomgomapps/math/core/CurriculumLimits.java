@@ -47,9 +47,10 @@ public final class CurriculumLimits {
     private int metricDecimals=0;
     private Integer maxSecondOperand,maxRegroups,decimalPlaces,answerDecimalPlaces,secondDecimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides,maxExactResult;
     private final Set<Integer> roundingDecimalTargets=new TreeSet<>();
-    private boolean sameDecimalPlaces,powerNotation,reducedDecimalFraction;
+    private boolean sameDecimalPlaces,powerNotation,powerRecognitionRange,reducedDecimalFraction;
     boolean reducedDecimalFraction(){return reducedDecimalFraction;}
     boolean powerNotation(){return powerNotation;}
+    boolean powerRecognitionRange(){return powerRecognitionRange;}
     private final List<Integer> roundingUnits=new ArrayList<>();
     private final List<Integer> percentages=new ArrayList<>();
     private String answerDomain="";
@@ -101,6 +102,7 @@ public final class CurriculumLimits {
                 case "decimalPlaces":decimalPlaces=Integer.valueOf(pair[1]);if(decimalPlaces<1||decimalPlaces>4)throw new IllegalArgumentException("Invalid decimal places");break;
                 case "roundingDecimalPlaces":for(String target:pair[1].split(",")){int places=Integer.parseInt(target);if(places<0||places>3)throw new IllegalArgumentException("Invalid rounding decimal places");roundingDecimalTargets.add(places);}break;
                 case "powerNotation":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid power notation flag");powerNotation=true;break;
+                case "powerRecognitionRange":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid power recognition range flag");powerRecognitionRange=true;break;
                 case "sameDecimalPlaces":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid same decimal places flag");sameDecimalPlaces=true;break;
                 case "wholeMaximum":wholeMaximum=Integer.valueOf(pair[1]);if(wholeMaximum<1||wholeMaximum>999999999)throw new IllegalArgumentException("Invalid whole-number range");break;
                 case "maxExactResult":maxExactResult=Integer.valueOf(pair[1]);if(maxExactResult<0||maxExactResult>20000000)throw new IllegalArgumentException("Invalid exact estimate calculation range");break;

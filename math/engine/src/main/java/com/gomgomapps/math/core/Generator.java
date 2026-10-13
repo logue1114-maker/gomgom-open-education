@@ -139,6 +139,7 @@ public final class Generator {
         else if(RemainderContexts.supports(skillId))q=RemainderContexts.next(skillId,random,limits,previous);
         else if(ShortWrittenDivision.supports(skillId))q=ShortWrittenDivision.next(skillId,random,limits,previous);
         else if(LargeWrittenProducts.supports(skillId))q=LargeWrittenProducts.next(skillId,random,limits,previous);
+        else if(PowerNumberLists.supports(skillId))q=PowerNumberLists.next(skillId,random,limits,previous);
         else if(PrimeRecall.supports(skillId))q=PrimeRecall.next(random,limits,previous);
         else if(PrimeVocabulary.supports(skillId))q=PrimeVocabulary.next(skillId,random,limits,previous);
         else if(CompleteFactorPractice.supports(skillId))q=CompleteFactorPractice.next(skillId,random,limits,previous);
@@ -229,6 +230,7 @@ public final class Generator {
         if(CommutativeArithmetic.supports(s.id))return CommutativeArithmetic.next(s.id,random,limits,Map.of());
         if(CommonMultipleLists.supports(s.id))return CommonMultipleLists.next(random,limits,Map.of());
         if(MultipleRecognition.supports(s.id))return MultipleRecognition.next(random,limits,Map.of());
+        if(PowerNumberLists.supports(s.id))return PowerNumberLists.next(s.id,random,limits,Map.of());
         if(PrimeRecall.supports(s.id))return PrimeRecall.next(random,limits,Map.of());
         if(PrimeVocabulary.supports(s.id))return PrimeVocabulary.next(s.id,random,limits,Map.of());
         if(CompleteFactorPractice.supports(s.id))return CompleteFactorPractice.next(s.id,random,limits,Map.of());

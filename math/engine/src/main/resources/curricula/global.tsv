@@ -2280,3 +2280,8 @@ RULE	na-nied-primary-2024-v1	7	divisibilityRules	wholeMaximum=1000000;minGiven=0
 MAP	na-nied-primary-2024-v1	7	smallPrimeRecall,primeCompositeClassify	SP printed53 B3; recognise and list primes below100; learner-added list rows, selected classification0..99; fluency remains unverified
 RULE	na-nied-primary-2024-v1	7	smallPrimeRecall	minGiven=2;maxGiven=99;maxResult=99;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	primeCompositeClassify	minGiven=0;maxGiven=99;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	listSquareNumbers,listCubeNumbers,recogniseSquareNumber,recogniseCubeNumber	SP printed53 B4; recognise square/cube numbers and list powers from explicitly stated bases0..upper<=10; fluency remains unverified
+RULE	na-nied-primary-2024-v1	7	listSquareNumbers	minGiven=0;maxGiven=10;maxResult=100;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	listCubeNumbers	minGiven=0;maxGiven=10;maxResult=1000;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	recogniseSquareNumber	powerRecognitionRange=true;minGiven=0;maxGiven=100;maxResult=1;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	recogniseCubeNumber	powerRecognitionRange=true;minGiven=0;maxGiven=1000;maxResult=1;nonnegative=true

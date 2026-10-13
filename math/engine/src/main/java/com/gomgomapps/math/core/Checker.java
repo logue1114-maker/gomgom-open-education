@@ -103,6 +103,7 @@ public final class Checker {
         if(CommutativeArithmetic.supports(q.skillId))return CommutativeArithmetic.check(q,answers);
         if(CommonMultipleLists.supports(q.skillId))return CommonMultipleLists.check(q,answers);
         if(MultipleRecognition.supports(q.skillId))return MultipleRecognition.check(q,answers);
+        if(PowerNumberLists.supports(q.skillId))return PowerNumberLists.check(q,answers);
         if(PrimeRecall.supports(q.skillId))return PrimeRecall.check(q,answers);
         if(PrimeVocabulary.supports(q.skillId))return PrimeVocabulary.check(q,answers);
         if(CompleteFactorPractice.supports(q.skillId))return CompleteFactorPractice.check(q,answers);
