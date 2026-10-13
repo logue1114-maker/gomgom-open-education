@@ -1,0 +1,13 @@
+package com.gomgomapps.math.core;
+import java.math.BigInteger;import java.util.*;import java.util.regex.*;
+/** Whole divided by a publicly written fraction; distinct from B6 operand roles. */
+public final class PrimaryWholeFractionDivision {
+ private PrimaryWholeFractionDivision(){}
+ private static final String K="([0-9]+)",F="([0-9]+)\\s*/\\s*([0-9]+)";
+ private static final List<Pattern> PATTERNS=List.of(Pattern.compile("^\\s*"+K+"\\s*÷\\s*"+F+"\\s*$"),Pattern.compile("^\\s*"+K+"\\s*[/÷]\\s*\\(\\s*"+F+"\\s*\\)\\s*$"),Pattern.compile("^\\s*\\(\\s*"+K+"\\s*\\)\\s*[/÷]\\s*\\(\\s*"+F+"\\s*\\)\\s*$"),Pattern.compile("^\\s*\\(\\s*"+K+"\\s*\\)\\s*÷\\s*"+F+"\\s*$"));
+ public static final class Givens {public final BigInteger k,c,d;private Givens(BigInteger k,BigInteger c,BigInteger d){this.k=k;this.c=c;this.d=d;}}
+ public static boolean supports(String id){return "fracWholeDiv".equals(id);}
+ public static Givens read(Question q){if(q==null||!supports(q.skillId)||q.prompt==null||q.prompt.length()>1024)return null;for(Pattern p:PATTERNS){Matcher m=p.matcher(q.prompt);if(!m.matches())continue;try{BigInteger k=new BigInteger(m.group(1)),c=new BigInteger(m.group(2)),d=new BigInteger(m.group(3));if(c.signum()<=0||d.signum()<=0)return null;new Rational(k,BigInteger.ONE);new Rational(c,d);return new Givens(k,c,d);}catch(RuntimeException invalid){return null;}}return null;}
+ static Checker.Result check(Question q,List<String> answers){Givens g=read(q);if(g==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"문제 확인 필요");if(answers!=null&&answers.size()==1&&answers.get(0)!=null){String input=Expression.normalize(answers.get(0).trim());if(!input.isEmpty()&&"decimalValue".equals(q.answerFormat)&&input.contains("/"))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"소수로 입력 필요");if(!input.isEmpty()&&"hundredthsFraction".equals(q.answerFormat)&&!PercentageNotation.hundredths(input))return new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 답 확인");}try{return PublicFractionArithmetic.checkValue(q,answers,new Rational(g.k,BigInteger.ONE).div(new Rational(g.c,g.d)));}catch(RuntimeException invalid){return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"문제 확인 필요");}}
+ public static int errorPart(Question q,String raw){Givens g=read(q);if(g==null||raw==null||raw.length()>120||FractionInput.invalidPart(raw)!=0)return 0;try{Rational v=new Rational(g.k,BigInteger.ONE).div(new Rational(g.c,g.d));String[]parts=FractionInput.parts(raw);BigInteger n=new BigInteger(parts[0]),d=new BigInteger(parts[1]);if(n.multiply(v.d).equals(v.n.multiply(d)))return 0;if(d.equals(v.d))return 1;if(n.equals(v.n))return 2;return 0;}catch(RuntimeException invalid){return 0;}}
+}
