@@ -1,0 +1,12 @@
+package com.gomgomapps.math.core;
+import java.util.*;import org.junit.Test;import static org.junit.Assert.*;
+public class GradeSevenWholeFractionProductScopeTest {
+ @Test public void actualRouteUsesExistingFlagPublicOperandsBothOrdersAndBlankHelp(){
+  Learning.Profile p=new Learning.Profile();GlobalCurriculum.chooseCountry(p,"NA");GlobalCurriculum.choosePack(p,"na-nied-primary-2024-v1");assertTrue(GlobalCurriculum.pack(p).inGrade("fracMulInt",7));CurriculumLimits l=GlobalCurriculum.limits("na-nied-primary-2024-v1","fracMulInt",7);assertTrue(WholeFractionProducts.selected("fracMulInt",l));Generator g=new Generator(new Random(350));List<String>recent=new ArrayList<>();Set<Boolean>orders=new HashSet<>();
+  for(int i=0;i<100;i++){Question q=g.next("fracMulInt",recent,false,l);assertTrue(l.allows(q));assertFalse(recent.contains(q.signature()));recent.add(q.signature());var v=WholeFractionProducts.givens(q);assertNotNull(v);boolean reverse=v.left.denominator==1;orders.add(reverse);var fraction=reverse?v.right:v.left;var whole=reverse?v.left:v.right;assertTrue(fraction.denominator>=2&&fraction.denominator<=12);assertTrue(fraction.numerator>=1&&fraction.numerator<fraction.denominator);assertTrue(whole.whole>=1&&whole.whole<=12);assertEquals("fraction",q.answerFormat);assertFalse(q.stepSupport);Rational expected=Rational.of(fraction.numerator,fraction.denominator).mul(Rational.of(whole.whole));q.answers=new String[]{"poison"};q.expression="poison";assertTrue(new Checker().check(q,List.of(),List.of(expected.n+"/"+expected.d)).correct());HelpPlan h=HelpPlan.forQuestion(q);assertEquals(9,h.size());assertFalse(h.canTransfer());
+  }assertEquals(Set.of(false,true),orders);
+ }
+ @Test public void originalTwelveAndDerivedProductPreserveNa6AndLegacyFlagBoundaries(){
+  CurriculumLimits next=GlobalCurriculum.limits("na-nied-primary-2024-v1","fracMulInt",7),old=GlobalCurriculum.limits("na-nied-primary-2024-v1","fracMulInt",6);Question q=WholeFractionProducts.make("fracMulInt",0,11,12,12,false);assertTrue(next.allows(q));assertTrue(old.allows(q));assertTrue(new Checker().check(q,List.of(),List.of("132/12")).correct());assertTrue(new Checker().check(q,List.of(),List.of("11/1")).correct());HelpPlan h=HelpPlan.forQuestion(q);assertTrue(h.step(4).accepts("132"));assertTrue(h.step(5).accepts("12"));assertFalse(h.canTransfer());assertFalse(WholeFractionProducts.selected("fracMulInt",new CurriculumLimits("")));assertEquals(5,Catalog.get("fracMulInt").grade);
+ }
+}

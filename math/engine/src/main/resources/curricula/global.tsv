@@ -2303,3 +2303,5 @@ MAP	na-nied-primary-2024-v1	7	mixedFractionOrder	SP printed54 B2; selected three
 RULE	na-nied-primary-2024-v1	7	mixedFractionOrder	denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
 MAP	na-nied-primary-2024-v1	7	fracMixedAdd,fracMixedSub	SP printed54 B3; selected existing positive mixed-number whole parts1..9 and original denominators2..12 with common-denominator work; not full B3 scope or an official upper bound
 RULE	na-nied-primary-2024-v1	7	fracMixedAdd,fracMixedSub	denominators=2,3,4,5,6,7,8,9,10,11,12;nonnegative=true;variedFacts=true
+MAP	na-nied-primary-2024-v1	7	fracMulInt	SP printed54 B4; selected existing proper fraction by positive whole multiplier1..12, original denominators2..12 and both operand orders; not full B4 scope or official upper bounds
+RULE	na-nied-primary-2024-v1	7	fracMulInt	wholeFractionMultiplier=true;denominators=2,3,4,5,6,7,8,9,10,11,12;nonnegative=true;variedFacts=true
