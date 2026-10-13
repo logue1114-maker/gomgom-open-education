@@ -1491,7 +1491,7 @@ RULE	na-nied-primary-2024-v1	6	mixed	nonnegative=true
 RULE	na-nied-primary-2024-v1	7	mixed	nonnegative=true
 RULE	na-nied-primary-2024-v1	5	el_fraction_decimal	denominators=10,100
 RULE	na-nied-primary-2024-v1	6	el_fraction_decimal	denominators=2,4,5,10,20,25,50,100;decimalPlaces=2;variedFacts=true
-RULE	na-nied-primary-2024-v1	7	el_fraction_decimal	denominators=2,4,5,8,10
+RULE	na-nied-primary-2024-v1	7	el_fraction_decimal	denominators=2,3,4,5,6,7,8,9,10,11,12;fractionDecimalDivision=true;nonnegative=true
 RULE	na-nied-primary-2024-v1	5	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=2;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	el_decimal_place	decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=3;nonnegative=true

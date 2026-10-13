@@ -28,6 +28,7 @@ public final class HelpPlan {
         }
         Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=frame.pictureFilled==null?-1:frame.pictureFilled;extra=frame.pictureExtra==null?0:frame.pictureExtra;denominator=frame.pictureDenominator==null?0:frame.pictureDenominator;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);requiredFormat=frame.inputFormat==null?"":frame.inputFormat;acceptedChoices=frame.acceptedChoices==null?null:Set.copyOf(frame.acceptedChoices);}
         public boolean accepts(String value){
+            if(requiredFormat.equals("fractionDecimalExact")){Rational actual=FractionDecimalDivision.decimalInput(value),target=FractionDecimalDivision.decimalInput(expected.contains(".")?expected:expected+".0");return actual!=null&&actual.equals(target);}
             if(requiredFormat.equals("threeStepQuantityExact")){Rational actual=ThreeStepFractionContexts.numericInput(value),target=ThreeStepFractionContexts.numericInput(expected);return actual!=null&&actual.equals(target);}
             if(requiredFormat.equals("quantityExact")){Rational actual=QuantityFractionCheck.numericInput(value),target=QuantityFractionCheck.numericInput(expected);return actual!=null&&actual.equals(target);}
             if(value==null||value.trim().isEmpty()||value.length()>120)return false;
@@ -72,6 +73,7 @@ public final class HelpPlan {
         steps.add(new Step(instruction,before,after,expected,filled,extra,denominator));
     }
     public static HelpPlan forQuestion(Question q){
+        if(q!=null&&FractionToDecimalCheck.ID.equals(q.skillId)){StudyGuide visible=FractionDecimalDivision.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&ThreeStepFractionContexts.supports(q.skillId)){StudyGuide visible=ThreeStepFractionContexts.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&QuantityFractionCheck.ID.equals(q.skillId)){StudyGuide visible=QuantityFractionCheck.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&QuantityAsFraction.ID.equals(q.skillId)){StudyGuide visible=QuantityAsFraction.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.resultNumeratorFrame=visible.resultNumeratorFrame;plan.resultDenominatorFrame=visible.resultDenominatorFrame;plan.transfer=false;return plan;}
