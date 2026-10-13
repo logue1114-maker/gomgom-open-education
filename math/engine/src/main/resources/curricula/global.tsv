@@ -2293,3 +2293,5 @@ RULE	na-nied-primary-2024-v1	7	gcd	factorExtremaRange=true;minGiven=0;maxGiven=1
 RULE	na-nied-primary-2024-v1	7	lcm	factorExtremaRange=true;minGiven=0;maxGiven=1000000;maxResult=1000000000000;nonnegative=true
 MAP	na-nied-primary-2024-v1	7	threeStepWholeContexts	SP printed53 B8/B9; selected four whole-number contexts requiring three dependent operations; learner mental/written strategy and manual final submission, not whole-context proficiency
 RULE	na-nied-primary-2024-v1	7	threeStepWholeContexts	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	mixedFractionCompare	SP printed54 B1; selected mixed/improper relationship-sign comparison; positive whole parts1..6 and original denominators2..10, not full B1 scope
+RULE	na-nied-primary-2024-v1	7	mixedFractionCompare	denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
