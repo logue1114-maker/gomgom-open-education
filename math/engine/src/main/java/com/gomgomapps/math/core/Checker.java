@@ -80,6 +80,7 @@ public final class Checker {
         if(FractionPercentEquivalence.supports(q.skillId))return FractionPercentEquivalence.check(q,answers);
         if(WholeFractionProducts.supports(q))return WholeFractionProducts.check(q,answers);
         if("fracMixedMul".equals(q.skillId))return FractionProducts.checkMixedMultiplication(q,answers);
+        if(PrimaryFractionDivision.supports(q.skillId))return PrimaryFractionDivision.check(q,answers);
         if(PrimaryScaleRates.supports(q.skillId))return PrimaryScaleRates.check(q,answers);
         if(CombinedEqualityPractice.supports(q.skillId))return CombinedEqualityPractice.check(q,answers);
         if(FactorPowerStories.supports(q.skillId))return FactorPowerStories.check(q,answers);

@@ -6,6 +6,7 @@ public final class PrimaryFractionRelations {
  public static boolean supports(String id){return Set.of("fracAddLike","fracSubLike","fracAdd","fracSub","fracMul","fracDiv").contains(id);}
  public static void attach(Question q){
   if(q==null||!supports(q.skillId)||q.prompt==null)return;
+  if("fracDiv".equals(q.skillId)){attachPublicDivision(q);return;}
   Matcher m=Pattern.compile("\\((\\d+)/(\\d+)\\)\\s*([+*/×÷-])\\s*\\((\\d+)/(\\d+)\\)").matcher(q.prompt.replace('−','-'));if(!m.matches())return;
   long a=Long.parseLong(m.group(1)),b=Long.parseLong(m.group(2)),c=Long.parseLong(m.group(4)),d=Long.parseLong(m.group(5));String op=m.group(3);
   boolean add=op.equals("+"),sub=op.equals("-"),div=op.equals("/")||op.equals("÷"),like=q.skillId.endsWith("Like");
@@ -39,5 +40,23 @@ public final class PrimaryFractionRelations {
   q.studyGuide=g.fractionResult(g.frames.size()-2,g.frames.size()-1);
  }
  private static long gcd(long a,long b){while(b!=0){long r=a%b;a=b;b=r;}return a;}
+ private static void attachPublicDivision(Question q){
+  PrimaryFractionDivision.Givens p=PrimaryFractionDivision.read(q);if(p==null)return;
+  StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="primary-fraction-relations-v1";
+  java.math.BigInteger n=p.a.multiply(p.d),d=p.b.multiply(p.c),common=n.gcd(d);
+  divisionStep(g,"첫 번째 분수의 분자를 쓰세요.","첫 분자 a = ",p.a);
+  divisionStep(g,"첫 번째 분수의 분모를 쓰세요.","첫 분모 b = ",p.b);
+  divisionStep(g,"두 번째 분수의 분자를 쓰세요.","둘째 분자 c = ",p.c);
+  divisionStep(g,"두 번째 분수의 분모를 쓰세요.","둘째 분모 d = ",p.d);
+  divisionStep(g,"나누는 분수를 뒤집어 역수의 분자를 쓰세요.","역수의 분자 e = d = ",p.d);
+  divisionStep(g,"역수의 분모에 원래 분자를 쓰세요.","역수의 분모 f = c = ",p.c);
+  divisionStep(g,"분자끼리 곱하세요.","계산한 분자 N = a × e = ",n);
+  divisionStep(g,"분모끼리 곱하세요.","계산한 분모 D = b × f = ",d);
+  divisionStep(g,"계산한 분자와 분모를 모두 나눌 수 있는 가장 큰 수를 구하세요.","최대공약수 g = gcd(N, D) = ",common);
+  divisionStep(g,"계산한 분자를 최대공약수로 나누세요.","최종 분자 = N ÷ g = ",n.divide(common));
+  divisionStep(g,"분모도 같은 최대공약수로 나누세요.","최종 분모 = D ÷ g = ",d.divide(common));
+  q.studyGuide=g.fractionResult(9,10);
+ }
+ private static void divisionStep(StudyGuide g,String instruction,String before,java.math.BigInteger value){g.step(instruction,before,"",value.toString());}
  private static void step(StudyGuide g,String instruction,String before,long value){g.step(instruction,before,"",Long.toString(value));}
 }
