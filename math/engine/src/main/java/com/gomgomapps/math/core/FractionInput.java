@@ -68,6 +68,7 @@ public final class FractionInput {
         if(q!=null&&DecimalToFractionSupply.ID.equals(q.skillId))return DecimalToFractionSupply.errorPart(q,raw);
         if(WholeFractionProducts.supports(q))return WholeFractionProducts.errorPart(q,raw);
         if(q!=null&&PrimaryWholeFractionDivision.supports(q.skillId))return PrimaryWholeFractionDivision.errorPart(q,raw);
+        if(q!=null&&FractionOperationOrder.supports(q.skillId))return FractionOperationOrder.errorPart(q,raw);
         if(q!=null&&PublicFractionArithmetic.supports(q.skillId))return PublicFractionArithmetic.errorPart(q,raw);
         if(q!=null&&RemainderContexts.LENGTH.equals(q.skillId))return RemainderContexts.errorPart(q,raw);
         if(q!=null&&FractionLengthStories.supports(q.skillId))return FractionLengthStories.errorPart(q,raw);

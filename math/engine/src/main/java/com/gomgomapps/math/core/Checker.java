@@ -82,6 +82,7 @@ public final class Checker {
         if("fracMixedMul".equals(q.skillId))return FractionProducts.checkMixedMultiplication(q,answers);
         if(PrimaryFractionDivision.supports(q.skillId))return PrimaryFractionDivision.check(q,answers);
         if(PrimaryWholeFractionDivision.supports(q.skillId))return PrimaryWholeFractionDivision.check(q,answers);
+        if(FractionOperationOrder.supports(q.skillId))return FractionOperationOrder.check(q,answers);
         if(PrimaryScaleRates.supports(q.skillId))return PrimaryScaleRates.check(q,answers);
         if(CombinedEqualityPractice.supports(q.skillId))return CombinedEqualityPractice.check(q,answers);
         if(FactorPowerStories.supports(q.skillId))return FactorPowerStories.check(q,answers);
@@ -209,6 +210,8 @@ public final class Checker {
         return checkSteps(q,steps,kinds,true).forWorkInput();
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
+        Rational fractionExpected=null;
+        if(FractionOperationOrder.supports(q.skillId)){FractionOperationOrder.Plan publicPlan=FractionOperationOrder.read(q);if(publicPlan==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");fractionExpected=publicPlan.value();q=FractionOperationOrder.workQuestion(q);}
         if(ThreeStepWholeContexts.supports(q.skillId)){Question publicQuestion=ThreeStepWholeContexts.workQuestion(q);if(publicQuestion==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");q=publicQuestion;}
         if(ContextCalculationMethods.ID.equals(q.skillId)){Question publicQuestion=ContextCalculationMethods.workQuestion(q);if(publicQuestion==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");q=publicQuestion;}
         if(BoundedWholeProduct.KIND.equals(q.kind)){Question publicQuestion=BoundedWholeProduct.workQuestion(q);if(publicQuestion==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");q=publicQuestion;}
@@ -243,7 +246,7 @@ public final class Checker {
                 }
                 if(!q.stepSupport||previous==null||previous.isEmpty())
                     return new Result(Status.INPUT_NEEDED,i,"이 문제는 부분 계산으로 확인");
-                String anchor=Expression.normalize(previous);
+                String anchor=fractionExpected==null?Expression.normalize(previous):"";
                 if(anchor.contains("=")){
                     Expression.Relation relation=Expression.equationRelation(anchor,normalized);
                     if(relation==Expression.Relation.SAME){previous=normalized;continue;}
@@ -253,7 +256,7 @@ public final class Checker {
                 }
                 int leadingEquals=normalized.startsWith("=")?1:0;
                 if(leadingEquals==1)normalized=normalized.substring(1);
-                Expression.Poly expected=Expression.parse(anchor);
+                Expression.Poly expected=fractionExpected==null?Expression.parse(anchor):new Expression.Poly(fractionExpected);
                 String[] chain=normalized.split("=",-1);
                 List<Expression.Poly> parsed=new ArrayList<>();
                 for(int part=0;part<chain.length;part++){

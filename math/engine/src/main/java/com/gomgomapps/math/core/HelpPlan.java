@@ -70,6 +70,7 @@ public final class HelpPlan {
         steps.add(new Step(instruction,before,after,expected,filled,extra,denominator));
     }
     public static HelpPlan forQuestion(Question q){
+        if(q!=null&&FractionOperationOrder.supports(q.skillId)){StudyGuide visible=FractionOperationOrder.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         DoubleBasedAddition.attach(q);
         HalvingBasedAddition.attach(q);
         if(q!=null&&(q.skillId.equals("englishWordsToNumber")||q.skillId.equals("numberToEnglishWords")))EnglishNumberWords.attach(q);
