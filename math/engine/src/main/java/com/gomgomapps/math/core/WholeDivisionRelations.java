@@ -6,7 +6,7 @@ public final class WholeDivisionRelations {
  public static boolean supports(String id){return Set.of("divide2","remainder","el_div_2x2_rem","el_div_3x2_rem").contains(id);}
  public static boolean remainder(String id){return supports(id)&&!id.equals("divide2");}
  public static void attach(Question q){
-  if(q==null||!supports(q.skillId))return;Matcher m=Pattern.compile("^(\\d{1,6})\\s*÷\\s*(\\d{1,6})(?:의 몫과 나머지는\\?)?$").matcher(q.prompt);if(!m.matches())return;
+  if(q==null||!supports(q.skillId))return;Matcher m=Pattern.compile("^(\\d{1,7})\\s*÷\\s*(\\d{1,7})(?:의 몫과 나머지는\\?)?$").matcher(q.prompt);if(!m.matches())return;
   int a=Integer.parseInt(m.group(1)),b=Integer.parseInt(m.group(2));if(b==0||!remainder(q.skillId)&&a%b!=0)return;
   StudyGuide g=new StudyGuide().transfer(false);g.teachingVersion="whole-division-relations-v1";
   g.step("나누어지는 수를 쓰세요.","나누어지는 수 = ","",String.valueOf(a)).step("나누는 수를 쓰세요.","나누는 수 = ","",String.valueOf(b));

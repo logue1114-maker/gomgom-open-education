@@ -87,6 +87,7 @@ public final class GlobalCurriculum {
     public static String title(String system,String id,int grade){
         Catalog.Skill skill=Catalog.get(id);
         if(BoundedWholeProduct.selected(id,limits(system,id,grade)))return "자연수 곱셈";
+        if(BoundedWholeDivision.selected(id,limits(system,id,grade)))return "몫과 나머지 구하기";
         if((id.equals("add1000")||id.equals("sub1000"))&&limits(system,id,grade).wholeDigits(3)!=3){
             int digitMaximum=(int)Math.pow(10,limits(system,id,grade).wholeDigits(3))-1;
             int maximum=Math.min(digitMaximum,limits(system,id,grade).givenMaximum(digitMaximum));

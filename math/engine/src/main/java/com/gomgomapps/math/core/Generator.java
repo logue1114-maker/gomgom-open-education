@@ -42,6 +42,7 @@ public final class Generator {
         int oldest=Integer.MAX_VALUE;
         if(BoundedWholeAddSub.selected(skillId,limits))q=BoundedWholeAddSub.next(skillId,random,limits,previous);
         if(BoundedWholeProduct.selected(skillId,limits))q=BoundedWholeProduct.next(random,limits,previous);
+        if(BoundedWholeDivision.selected(skillId,limits))q=BoundedWholeDivision.next(random,limits,previous);
         if(ContextCalculationMethods.ID.equals(skillId))q=ContextCalculationMethods.next(random,limits,previous);
         else if(WholeOperationOrder.ID.equals(skillId))q=WholeOperationOrder.next(random,limits,previous);
         else if(DistributiveArithmetic.supports(skillId))q=DistributiveArithmetic.next(skillId,random,limits,previous);

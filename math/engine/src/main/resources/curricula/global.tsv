@@ -2248,3 +2248,6 @@ MAP	na-nied-primary-2024-v1	7	numberOrder	Senior printed52/PDF56 B3; random whol
 RULE	na-nied-primary-2024-v1	7	numberOrder	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	mul22	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 RULE	na-nied-primary-2024-v1	5	mul22	
+MAP	na-nied-primary-2024-v1	7	remainder	Senior printed52/PDF56 B5; general whole quotient and remainder through1000000
+RULE	na-nied-primary-2024-v1	3	remainder	
+RULE	na-nied-primary-2024-v1	7	remainder	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
