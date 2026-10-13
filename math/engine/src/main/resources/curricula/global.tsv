@@ -2183,6 +2183,8 @@ RULE	na-nied-primary-2024-v1	6	distributiveAddition,distributiveSubtraction	minG
 
 MAP	na-nied-primary-2024-v1	6	wholeOperationOrder	SP printed42 B8; public calculation sequence: brackets, fraction of, multiplication/division and addition/subtraction left to right; whole intermediates0..1000000
 RULE	na-nied-primary-2024-v1	6	wholeOperationOrder	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	wholeOperationOrder	SP printed52 B9; BODMAS public calculation sequence with brackets and of, equal-priority operations left to right; selected two-to-four-operation whole intermediates0..1000000, broader expressions remain
+RULE	na-nied-primary-2024-v1	7	wholeOperationOrder	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 
 MAP	na-nied-primary-2024-v1	6	contextCalculationMethods	SP printed42 B9; selected one-step whole-number book contexts and optional mental/learner-authored written method choice; broader contexts and strategy fluency remain
 RULE	na-nied-primary-2024-v1	6	contextCalculationMethods	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
