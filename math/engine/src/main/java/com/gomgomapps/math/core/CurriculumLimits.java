@@ -165,11 +165,12 @@ public final class CurriculumLimits {
             catch(RuntimeException error){return false;}
         }
         String givens=q.prompt+"\n"+q.expression;
+        if(ThreeStepFractionContexts.supports(q.skillId)){if(ThreeStepFractionContexts.read(q)==null)return false;givens=q.prompt;}
         if(QuantityFractionCheck.ID.equals(q.skillId)){if(QuantityFractionCheck.readGeneral(q)==null)return false;givens=q.prompt;}
         if(ThreeStepWholeContexts.supports(q.skillId)){var visible=ThreeStepWholeContexts.read(q);if(visible==null)return false;givens=Arrays.toString(visible.operands());}
         if(WholeFactorExtrema.selected(q)){WholeFactorExtrema.Givens visible=WholeFactorExtrema.read(q);if(visible==null)return false;givens=visible.a()+" "+visible.b();}
         if(PrimeFactorProducts.supports(q.skillId)){int original=PrimeFactorProducts.read(q);if(original<1)return false;givens=""+original;}
-        String operation=q.expression.isBlank()?q.prompt.trim():q.expression;
+        String operation=ThreeStepFractionContexts.supports(q.skillId)?ThreeStepFractionContexts.read(q).expression():(q.expression.isBlank()?q.prompt.trim():q.expression);
         if(FactFoundations.blank(q))operation=q.prompt.replace("□",q.answers[0]).split(" = ",2)[0];
         boolean repeated=Catalog.get(q.skillId).family.equals("repeat");
         int[] grouping=repeated?grouping(q.prompt):null;
@@ -258,6 +259,9 @@ public final class CurriculumLimits {
             var visible=ThreeStepWholeContexts.read(q);if(visible==null)return false;
             for(int value:visible.operands())if(wholeMaximum!=null&&value>wholeMaximum)return false;
             for(long value:visible.intermediates())if(!allowsAnswer(""+value))return false;
+        }else if(ThreeStepFractionContexts.supports(q.skillId)){
+            var visible=ThreeStepFractionContexts.read(q);if(visible==null)return false;
+            for(Rational value:visible.intermediates())if(!allowsAnswer(value.toString()))return false;
         }else if(WholeFactorExtrema.selected(q)){
             WholeFactorExtrema.Givens visible=WholeFactorExtrema.read(q);if(visible==null||(wholeMaximum!=null&&(visible.a()>wholeMaximum||visible.b()>wholeMaximum)))return false;
             if(!WholeFactorExtrema.undefined(q)&&!allowsAnswer(""+WholeFactorExtrema.value(q.skillId,visible)))return false;

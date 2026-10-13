@@ -25,6 +25,7 @@ public final class Checker {
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
         if(GroupedEstimation.supports(q.skillId)){Result guard=GroupedEstimation.phaseGuard(q);return guard==null?GroupedEstimation.checkCount(q,answers):guard;}
         if(ThreeStepWholeContexts.supports(q.skillId)){if("written".equals(q.calculationMethod)){Result written=checkSteps(q,steps,kinds,false);if(!written.correct())return written.forWorkInput();}return ThreeStepWholeContexts.check(q,answers);}
+        if(ThreeStepFractionContexts.supports(q.skillId)){if("written".equals(q.calculationMethod)){boolean full=false;for(int i=0;i<steps.size();i++)if(kinds!=null&&i<kinds.size()&&kinds.get(i)==StepKind.FULL&&steps.get(i)!=null&&!steps.get(i).isBlank()){full=true;break;}if(!full)return new Result(Status.INPUT_NEEDED,-1,"전체 풀이 식 입력 필요").forWorkInput();Result written=checkSteps(q,steps,kinds,true);if(!written.correct())return written.forWorkInput();}return ThreeStepFractionContexts.check(q,answers);}
         if(ContextCalculationMethods.ID.equals(q.skillId)){if("written".equals(q.calculationMethod)){Result written=checkSteps(q,steps,kinds,false);if(!written.correct())return written.forWorkInput();}return ContextCalculationMethods.check(q,answers);}
         Result work=checkSteps(q,steps,kinds,false);
         if(!work.correct())return work.forWorkInput();
@@ -211,6 +212,7 @@ public final class Checker {
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
         Rational fractionExpected=null;
+        if(ThreeStepFractionContexts.supports(q.skillId)){ThreeStepFractionContexts.Givens visible=ThreeStepFractionContexts.read(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");fractionExpected=visible.value();q=ThreeStepFractionContexts.workQuestion(q);}
         if(QuantityFractionCheck.ID.equals(q.skillId)){QuantityFractionCheck.Givens publicValues=QuantityFractionCheck.readGeneral(q);if(publicValues==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");fractionExpected=publicValues.value();q=QuantityFractionCheck.workQuestion(q);}
         if(FractionOperationOrder.supports(q.skillId)){FractionOperationOrder.Plan publicPlan=FractionOperationOrder.read(q);if(publicPlan==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");fractionExpected=publicPlan.value();q=FractionOperationOrder.workQuestion(q);}
         if(ThreeStepWholeContexts.supports(q.skillId)){Question publicQuestion=ThreeStepWholeContexts.workQuestion(q);if(publicQuestion==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");q=publicQuestion;}
