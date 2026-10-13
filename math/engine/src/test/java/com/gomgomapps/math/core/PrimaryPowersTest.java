@@ -1,6 +1,20 @@
 package com.gomgomapps.math.core;
 import java.util.*;import org.junit.Test;import static org.junit.Assert.*;
 public class PrimaryPowersTest {
+ @Test public void firstTwentyFullRangeQuestionsIncludeBothKindsAndSkipEmptyPositivePools(){
+  for(String id:List.of(PrimaryPowers.SQUARE,PrimaryPowers.CUBE))for(int seed:new int[]{340,341,342}){
+   CurriculumLimits limits=GlobalCurriculum.limits("na-nied-primary-2024-v1",id,7);Map<String,Integer> recent=new LinkedHashMap<>();int yes=0,no=0;Random random=new Random(seed);
+   for(int i=0;i<20;i++){Question q=PrimaryPowers.next(id,random,limits,recent);assertFalse(recent.containsKey(q.signature()));recent.put(q.signature(),i);int[] v=PrimaryPowers.read(q);int b=0;while(PrimaryPowers.power(b,v[1])<v[0])b++;if(PrimaryPowers.power(b,v[1])==v[0])yes++;else no++;}
+   assertTrue("positive practice",yes>=4);assertTrue("negative practice",no>=4);
+  }
+  Random positiveCoin=new Random(){@Override public boolean nextBoolean(){return true;}@Override public int nextInt(int bound){return 0;}};
+  for(String id:List.of(PrimaryPowers.SQUARE,PrimaryPowers.CUBE)){
+   int minimum=PrimaryPowers.SQUARE.equals(id)?2:50,maximum=PrimaryPowers.SQUARE.equals(id)?3:60;
+   CurriculumLimits limits=new CurriculumLimits("powerRecognitionRange=true;minGiven="+minimum+";maxGiven="+maximum+";maxResult=1;nonnegative=true");Map<String,Integer> recent=new LinkedHashMap<>();
+   for(int i=minimum;i<=maximum;i++){Question q=PrimaryPowers.next(id,positiveCoin,limits,recent);assertTrue(limits.allows(q));assertFalse(recent.containsKey(q.signature()));assertTrue(new Checker().check(q,List.of(),List.of("0")).correct());recent.put(q.signature(),i-minimum);}
+   assertEquals(0,(int)recent.get(PrimaryPowers.next(id,positiveCoin,limits,recent).signature()));
+  }
+ }
  static final List<String> IDS=List.of("squareWhole","cubeWhole",PrimaryPowers.SQUARE,PrimaryPowers.CUBE);
  @Test public void finiteDomainsAndPublicChecking(){for(String id:IDS){assertTrue(PrimaryPowers.count(id)>=100);for(int i=0;i<PrimaryPowers.count(id);i++){Question q=PrimaryPowers.at(id,i);int[] g=PrimaryPowers.read(q);long value=g[1]==2?(long)g[0]*g[0]:(long)g[0]*g[0]*g[0];String expected;if(PrimaryPowers.added(id)){int b=0;while((g[1]==2?(long)b*b:(long)b*b*b)<g[0])b++;expected=(g[1]==2?(long)b*b:(long)b*b*b)==g[0]?"1":"0";}else expected=""+value;q.answers=new String[]{"poison"};q.expression="poison";assertTrue(new Checker().check(q,List.of(),List.of(expected)).correct());assertFalse(new Checker().check(q,List.of(),List.of(PrimaryPowers.added(id)?expected.equals("1")?"0":"1":""+(value+1))).correct());assertEquals(Checker.Status.INPUT_NEEDED,new Checker().check(q,List.of(),List.of("abc")).status);}}}
  @Test public void notationAndBlankRelationships(){for(String id:IDS){Question q=PrimaryPowers.at(id,10);int[] g=PrimaryPowers.read(q);HelpPlan plan=HelpPlan.forQuestion(q);assertFalse(plan.canTransfer());List<String> values=new ArrayList<>();if(PrimaryPowers.added(id)){int b=PrimaryPowers.lower(g[0],g[1]);values.add(""+g[0]);values.add(""+b);values.add(""+PrimaryPowers.power(b,g[1]));if(PrimaryPowers.power(b,g[1])!=g[0])values.add(""+PrimaryPowers.power(b+1,g[1]));values.add(PrimaryPowers.answer(id,g[0],g[1]));assertEquals(PrimaryPowers.power(b,g[1])==g[0]?4:5,plan.size());}else{assertTrue(q.prompt.endsWith(g[1]==2?"²":"³"));values.add(""+g[0]);values.add(""+g[1]);values.add(""+PrimaryPowers.power(g[0],2));if(g[1]==3)values.add(""+PrimaryPowers.power(g[0],3));}for(int i=0;i<plan.size();i++){assertTrue(plan.step(i).accepts(values.get(i)));assertFalse(plan.step(i).accepts(""));}if(!PrimaryPowers.added(id))assertEquals("두 수의 곱 B = a × a = ",plan.step(2).before);}}

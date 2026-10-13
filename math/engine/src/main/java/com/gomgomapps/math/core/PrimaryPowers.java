@@ -19,7 +19,14 @@ public final class PrimaryPowers {
  static Question at(String id,int index){if(index<0||index>=count(id))throw new IllegalArgumentException("Primary power index");int e=exponent(id),n=added(id)?DOMAINS.get(id).get(index):index;Question q=new Question(id,added(id)?n+"은 "+(e==2?"제곱수":"세제곱수")+"인가요?":n+(e==2?"²":"³"),added(id)?"":n+"^"+e,answer(id,n,e));q.stepSupport=false;if(added(id))q.choiceLabels=labels(e);attach(q);return q.withInputs(n);}
  static Question recognition(String id,int n){if(!added(id))throw new IllegalArgumentException("Power recognition skill");int e=exponent(id);Question q=new Question(id,n+"은 "+(e==2?"제곱수":"세제곱수")+"인가요?","",answer(id,n,e));if(read(q)==null)throw new IllegalArgumentException("Power recognition range");q.stepSupport=false;q.choiceLabels=labels(e);attach(q);return q.withInputs(n);}
  static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){
-  if(added(id)&&limits.powerRecognitionRange()){int maximum=limits.givenMaximum(exponent(id)==2?10000:1000000);return IndexedQuestionSupply.choose(maximum+1,i->recognition(id,i),random,limits,recent);}
+  if(added(id)&&limits.powerRecognitionRange()){
+   int e=exponent(id),maximum=limits.givenMaximum(e==2?10000:1000000);
+   if(random.nextBoolean()){
+    List<Integer> bases=new ArrayList<>();for(int b=0;b<=lower(maximum,e);b++)if(limits.allows(recognition(id,(int)power(b,e))))bases.add(b);
+    if(!bases.isEmpty()){Question positive=IndexedQuestionSupply.choose(bases.size(),i->recognition(id,(int)power(bases.get(i),e)),random,limits,recent);if(!recent.containsKey(positive.signature()))return positive;}
+   }
+   return IndexedQuestionSupply.choose(maximum+1,i->recognition(id,i),random,limits,recent);
+  }
   if(added(id)){boolean wantPower=random.nextBoolean();List<Integer> indices=new ArrayList<>();List<Integer> domain=DOMAINS.get(id);int e=exponent(id);for(int i=0;i<domain.size();i++){int n=domain.get(i);if((power(lower(n,e),e)==n)==wantPower)indices.add(i);}Question q=IndexedQuestionSupply.choose(indices.size(),i->at(id,indices.get(i)),random,limits,recent);if(q!=null&&!recent.containsKey(q.signature()))return q;}
   return IndexedQuestionSupply.choose(count(id),i->at(id,i),random,limits,recent);
  }
