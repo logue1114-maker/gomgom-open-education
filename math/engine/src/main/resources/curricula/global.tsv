@@ -2311,3 +2311,5 @@ MAP	na-nied-primary-2024-v1	7	fracWholeDiv	SP printed54 B7; selected existing wh
 RULE	na-nied-primary-2024-v1	7	fracWholeDiv	denominators=2,3,4,5,6,7,8,9,10,11,12;nonnegative=true
 MAP	na-nied-primary-2024-v1	7	fracCombined	SP printed54 B8; existing four selected combined-fraction supply patterns with general public arithmetic/order check and variable blank help; supplier denominators2..20 and numerators1..29 are not general input bounds or full B8 proof
 RULE	na-nied-primary-2024-v1	7	fracCombined	
+MAP	na-nied-primary-2024-v1	7	quantityAsFraction	SP printed54 B9; ordered compatible public quantities including min/hour conversion; selected same-unit0..100/1..100 and min0..100/hour1..12 supply are implementation bounds, not official or general public input bounds
+RULE	na-nied-primary-2024-v1	7	quantityAsFraction	nonnegative=true;quantityUnitConversions=true

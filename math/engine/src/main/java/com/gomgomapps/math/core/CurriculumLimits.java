@@ -57,7 +57,8 @@ public final class CurriculumLimits {
     private String answerDomain="";
     private Rational maxFractionValue;
     private Integer minimumWholeDigits;
-    private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables,monicQuadratic,wholeFractionMultiplier;
+    private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables,monicQuadratic,wholeFractionMultiplier,quantityUnitConversions;
+    boolean quantityUnitConversions(){return quantityUnitConversions;}
     boolean wholeFractionMultiplier(){return wholeFractionMultiplier;}
     private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,commonDenominatorFactor,nonnegativeSubtrahend;
     CurriculumLimits(String definition){
@@ -65,6 +66,7 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "quantityUnitConversions":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid quantity unit conversion flag");quantityUnitConversions=Boolean.parseBoolean(pair[1]);break;
                 case "reducedDecimalFraction":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid reduced decimal fraction flag");reducedDecimalFraction=Boolean.parseBoolean(pair[1]);break;
                 case "contextDividendMinimum":contextDividendMinimum=Integer.parseInt(pair[1]);if(contextDividendMinimum<1||contextDividendMinimum>9999)throw new IllegalArgumentException("Invalid context dividend minimum");break;
                 case "quantityPartsMaximum":quantityPartsMaximum=Integer.valueOf(pair[1]);if(quantityPartsMaximum<2||quantityPartsMaximum>100)throw new IllegalArgumentException("Invalid quantity part range");break;
