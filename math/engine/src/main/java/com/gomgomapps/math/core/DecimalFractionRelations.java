@@ -12,6 +12,7 @@ public final class DecimalFractionRelations {
    FractionDecimalDivision.Givens v=FractionDecimalDivision.read(q);if(!v.rounded()&&(v.denominator().equals(java.math.BigInteger.TEN)||v.denominator().equals(java.math.BigInteger.valueOf(100)))&&v.numerator().compareTo(v.denominator())<=0)q.diagram=new StudyDiagram("fraction",new double[]{v.numerator().doubleValue(),v.denominator().doubleValue()});
    q.studyGuide=visible;return;
   }else{
+   StudyGuide visible=DecimalToFractionSupply.guide(q);if(visible!=null){q.studyGuide=visible;return;}
    Matcher m=Pattern.compile("(\\d+\\.\\d+)의 값을 (?:기약)?분수로 나타내세요\\.").matcher(q.prompt);if(!m.matches())return;
    String raw=m.group(1);BigDecimal v=new BigDecimal(raw);int places=raw.length()-raw.indexOf('.')-1;if(places>9)return;
    long d=1;for(int i=0;i<places;i++)d*=10;java.math.BigInteger numerator=v.multiply(BigDecimal.valueOf(d)).toBigIntegerExact();if(numerator.bitLength()>63)throw new ArithmeticException("BigInteger out of long range");long n=numerator.longValue();

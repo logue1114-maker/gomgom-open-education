@@ -2219,6 +2219,7 @@ MAP	na-nied-primary-2024-v1	6	twoStepFractionStory	Senior printed44/PDF48 B3; fr
 RULE	na-nied-primary-2024-v1	6	twoStepFractionStory	nonnegative=true
 
 RULE	na-nied-primary-2024-v1	6	el_decimal_fraction	minGiven=0;decimalPlaces=2;variedFacts=true;reducedDecimalFraction=true
+RULE	na-nied-primary-2024-v1	7	el_decimal_fraction	minGiven=0;decimalPlaces=3;variedFacts=true;reducedDecimalFraction=true
 
 MAP	na-nied-primary-2024-v1	6	fractionDecimalCompare	Senior printed44/PDF48 B6 selected fraction/decimal equivalence recognition; fluent recall remains unproven
 RULE	na-nied-primary-2024-v1	6	fractionDecimalCompare	denominators=2,4,5,10,100;nonnegative=true

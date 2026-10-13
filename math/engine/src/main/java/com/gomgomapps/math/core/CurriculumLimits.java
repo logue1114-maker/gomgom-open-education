@@ -168,13 +168,14 @@ public final class CurriculumLimits {
             catch(RuntimeException error){return false;}
         }
         String givens=q.prompt+"\n"+q.expression;
+        DecimalToFractionSupply.Givens decimalFraction=null;if(DecimalToFractionSupply.ID.equals(q.skillId)){decimalFraction=DecimalToFractionSupply.readGeneral(q);if(decimalFraction==null)return false;givens=decimalFraction.raw();}
         FractionDecimalDivision.Givens fractionDecimal=null;if(FractionToDecimalCheck.ID.equals(q.skillId)){fractionDecimal=FractionDecimalDivision.read(q);if(fractionDecimal==null)return false;givens=q.prompt;}
         if(ThreeStepFractionContexts.supports(q.skillId)){if(ThreeStepFractionContexts.read(q)==null)return false;givens=q.prompt;}
         if(QuantityFractionCheck.ID.equals(q.skillId)){if(QuantityFractionCheck.readGeneral(q)==null)return false;givens=q.prompt;}
         if(ThreeStepWholeContexts.supports(q.skillId)){var visible=ThreeStepWholeContexts.read(q);if(visible==null)return false;givens=Arrays.toString(visible.operands());}
         if(WholeFactorExtrema.selected(q)){WholeFactorExtrema.Givens visible=WholeFactorExtrema.read(q);if(visible==null)return false;givens=visible.a()+" "+visible.b();}
         if(PrimeFactorProducts.supports(q.skillId)){int original=PrimeFactorProducts.read(q);if(original<1)return false;givens=""+original;}
-        String operation=fractionDecimal!=null?fractionDecimal.rawNumerator()+"/"+fractionDecimal.rawDenominator():ThreeStepFractionContexts.supports(q.skillId)?ThreeStepFractionContexts.read(q).expression():(q.expression.isBlank()?q.prompt.trim():q.expression);
+        String operation=decimalFraction!=null?decimalFraction.raw():fractionDecimal!=null?fractionDecimal.rawNumerator()+"/"+fractionDecimal.rawDenominator():ThreeStepFractionContexts.supports(q.skillId)?ThreeStepFractionContexts.read(q).expression():(q.expression.isBlank()?q.prompt.trim():q.expression);
         if(FactFoundations.blank(q))operation=q.prompt.replace("□",q.answers[0]).split(" = ",2)[0];
         boolean repeated=Catalog.get(q.skillId).family.equals("repeat");
         int[] grouping=repeated?grouping(q.prompt):null;
@@ -218,7 +219,8 @@ public final class CurriculumLimits {
             Matcher operands=Pattern.compile("^-?\\d+(?:\\.\\d+)?\\s*[+*/×÷−-]\\s*(-?\\d+(?:\\.\\d+)?)$").matcher(q.expression);
             if(!operands.matches()||!Expression.number(operands.group(1)).d.equals(java.math.BigInteger.ONE))return false;
         }
-        if(maxFractionValue!=null&&fractionDecimal!=null){if(fractionDecimal.exact().compareTo(maxFractionValue)>0)return false;}
+        if(maxFractionValue!=null&&decimalFraction!=null){if(decimalFraction.value().compareTo(maxFractionValue)>0)return false;}
+        else if(maxFractionValue!=null&&fractionDecimal!=null){if(fractionDecimal.exact().compareTo(maxFractionValue)>0)return false;}
         else if(maxFractionValue!=null&&FractionOrdering.supports(q.skillId)){
             List<String> inputs=FractionOrdering.givens(q);if(inputs.size()!=3)return false;for(String input:inputs)if(FractionOrdering.value(q,input).compareTo(maxFractionValue)>0)return false;
         }else if(maxFractionValue!=null){
@@ -235,7 +237,7 @@ public final class CurriculumLimits {
             Matcher operands=Pattern.compile("^-?\\d+(?:\\.\\d+)?\\s*[+*/×÷−-]\\s*(-?\\d+(?:\\.\\d+)?)$").matcher(q.expression);
             if(!operands.matches()||!fitsDecimalPlaces(operands.group(1),secondDecimalPlaces))return false;
         }
-        if(answerDecimalPlaces!=null){if(fractionDecimal!=null){if(!fitsDecimalPlaces(fractionDecimal.value().decimalText(),answerDecimalPlaces))return false;}else for(String answer:q.answers)if(!fitsDecimalPlaces(answer,answerDecimalPlaces))return false;}
+        if(answerDecimalPlaces!=null){if(decimalFraction!=null){if(!fitsDecimalPlaces(decimalFraction.value().decimalText(),answerDecimalPlaces))return false;}else if(fractionDecimal!=null){if(!fitsDecimalPlaces(fractionDecimal.value().decimalText(),answerDecimalPlaces))return false;}else for(String answer:q.answers)if(!fitsDecimalPlaces(answer,answerDecimalPlaces))return false;}
         if(decimalPlaces!=null){Matcher decimals=Pattern.compile("\\d+\\.(\\d+)").matcher(givens);while(decimals.find())if(decimals.group(1).length()>decimalPlaces)return false;}
         if(!roundingDecimalTargets.isEmpty()){RoundingRelations.Givens rounded=RoundingRelations.read(q);if(!q.skillId.equals("el_decimal_round")||rounded==null||!roundingDecimalTargets.contains(rounded.decimalPlaces()))return false;}
         if(sameDecimalPlaces){Matcher pair=Pattern.compile("\\d+\\.(\\d+)\\s+□\\s+\\d+\\.(\\d+)").matcher(q.prompt);if(!q.skillId.equals("el_decimal_compare")||!pair.matches()||pair.group(1).length()!=pair.group(2).length())return false;}
@@ -261,7 +263,8 @@ public final class CurriculumLimits {
             int exact=EstimateCalculationCheck.ADD.equals(q.skillId)?estimate[0]+estimate[1]:estimate[0]-estimate[1];
             if(exact>maxExactResult)return false;
         }
-        if(fractionDecimal!=null){if(!allowsAnswer(fractionDecimal.value().toString()))return false;}
+        if(decimalFraction!=null){if(!allowsAnswer(decimalFraction.value().toString()))return false;}
+        else if(fractionDecimal!=null){if(!allowsAnswer(fractionDecimal.value().toString()))return false;}
         else if(ThreeStepWholeContexts.supports(q.skillId)){
             var visible=ThreeStepWholeContexts.read(q);if(visible==null)return false;
             for(int value:visible.operands())if(wholeMaximum!=null&&value>wholeMaximum)return false;
