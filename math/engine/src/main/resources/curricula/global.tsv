@@ -2259,3 +2259,7 @@ RULE	na-nied-primary-2024-v1	5	mul22
 MAP	na-nied-primary-2024-v1	7	remainder	Senior printed52/PDF56 B5; general whole quotient and remainder through1000000
 RULE	na-nied-primary-2024-v1	3	remainder	
 RULE	na-nied-primary-2024-v1	7	remainder	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	7	additionIdentity,subtractionIdentity	SP printed52 B7; find0 preserving addition or subtracting0, then apply to another whole number0..1000000; subtraction never reverses operands
+MAP	na-nied-primary-2024-v1	7	multiplicationIdentity	SP printed52 B8; find1 preserving multiplication and apply in either factor position0..1000000
+RULE	na-nied-primary-2024-v1	7	additionIdentity,subtractionIdentity,multiplicationIdentity	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true

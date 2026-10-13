@@ -99,6 +99,7 @@ public final class Checker {
         if(DistributiveArithmetic.supports(q.skillId))return DistributiveArithmetic.check(q,answers);
         if(AssociativeArithmetic.supports(q.skillId))return AssociativeArithmetic.check(q,answers);
         if(EquivalentFractionScaling.ID.equals(q.skillId))return EquivalentFractionScaling.check(q,answers);
+        if(IdentityArithmetic.supports(q.skillId))return IdentityArithmetic.check(q,answers);
         if(CommutativeArithmetic.supports(q.skillId))return CommutativeArithmetic.check(q,answers);
         if(CommonMultipleLists.supports(q.skillId))return CommonMultipleLists.check(q,answers);
         if(MultipleRecognition.supports(q.skillId))return MultipleRecognition.check(q,answers);
