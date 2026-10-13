@@ -44,6 +44,14 @@ public final class FractionProducts {
         // Unreduced givens are intentional; do not simplify the question's original numbers.
         return (mixed?next(r,1,9)+" ":"")+num+"/"+den;
     }
+    static Checker.Result checkMixedMultiplication(Question q,List<String> answers){
+        Givens p=read(q.prompt);if(p==null||!p.operator.equals("*")||(!p.left.mixed()&&!p.right.mixed()))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"문제 확인 필요");
+        if(answers!=null&&answers.size()==1&&answers.get(0)!=null){String input=Expression.normalize(answers.get(0).trim());
+            if(!input.isEmpty()&&"decimalValue".equals(q.answerFormat)&&input.contains("/"))return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"소수로 입력 필요");
+            if(!input.isEmpty()&&"hundredthsFraction".equals(q.answerFormat)&&!PercentageNotation.hundredths(input))return new Checker.Result(Checker.Status.WRONG_ANSWER,0,"이 답 확인");
+        }
+        return PublicFractionArithmetic.checkValue(q,answers,p.left.value().mul(p.right.value()));
+    }
     static Question create(Catalog.Skill skill,Random random){
         String left,right;boolean division=skill.id.equals("fracWholeDiv")||skill.id.equals("fracMixedDiv");
         if(skill.id.equals("fracWholeDiv")){left=String.valueOf(next(random,1,12));right=fraction(random,false);}

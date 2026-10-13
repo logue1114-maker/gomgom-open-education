@@ -1,6 +1,11 @@
 package com.gomgomapps.math.core;
 import java.util.*;import org.junit.Test;import static org.junit.Assert.*;
 public class FractionErrorPartTest {
+    @Test public void mixedProductPublicPartsLocalizeWithoutChangingStudentBodyRaw(){
+        Question q=new Question("fracMixedMul","3 1/2 × 2 1/3","poison","999");String prompt=q.prompt;List<String>body=new ArrayList<>(List.of("50/6","49/7","50/7","98/12"));List<String>before=List.copyOf(body);
+        assertEquals(1,FractionInput.errorPart(q,body.get(0)));assertEquals(2,FractionInput.errorPart(q,body.get(1)));assertEquals(0,FractionInput.errorPart(q,body.get(2)));assertEquals(0,FractionInput.errorPart(q,body.get(3)));assertTrue(new Checker().check(q,List.of(),List.of(body.get(3))).correct());
+        assertEquals(before,body);assertEquals(prompt,q.prompt);assertEquals("poison",q.expression);assertArrayEquals(new String[]{"999"},q.answers);
+    }
     private Question add(){return new Question("fracAddLike","(4/7) + (3/7)","4/7+3/7","1");}
     @Test public void unchangedPublicPartLocalizesWithoutSupplyingOrMutatingAnAnswer(){
         Question q=add();String signature=q.signature();assertEquals(1,FractionInput.errorPart(q,"8/7"));assertEquals(2,FractionInput.errorPart(q,"7/8"));assertEquals(signature,q.signature());
