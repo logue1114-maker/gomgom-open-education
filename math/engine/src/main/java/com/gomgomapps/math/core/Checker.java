@@ -141,6 +141,7 @@ public final class Checker {
         if(ConvenientNumberMental.supports(q.skillId))return ConvenientNumberMental.check(q,answers);
         if(LargeMentalDecomposition.supports(q.skillId))return LargeMentalDecomposition.check(q,answers);
         if(RelatedCalculationFacts.supports(q.skillId))return RelatedCalculationFacts.check(q,answers);
+        if(DivisibilityRules.ID.equals(q.skillId))return DivisibilityRules.check(q,answers);
         if(WholeApproximationContexts.ID.equals(q.skillId))return WholeApproximationContexts.check(q,answers);
         if(EstimateCalculationCheck.supports(q.skillId))return EstimateCalculationCheck.check(q,answers);
         if(InverseCalculationCheck.supports(q.skillId))return InverseCalculationCheck.check(q,answers);

@@ -2272,3 +2272,6 @@ RULE	na-nied-primary-2024-v1	7	estimateAdditionCheck,estimateSubtractionCheck	wh
 
 MAP	na-nied-primary-2024-v1	7	wholeApproximationContext	SP printed52 B10 selected report quantities and explicit rounding order; wider real-life strategies remain partial
 RULE	na-nied-primary-2024-v1	7	wholeApproximationContext	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=1100000;roundingUnits=10,100,1000,10000,100000;nonnegative=true
+
+MAP	na-nied-primary-2024-v1	7	divisibilityRules	SP printed53 B2 selected last-digit2/5 and digit-sum3 tests for factor/multiple relations0..1000000; wider reasoning remains partial
+RULE	na-nied-primary-2024-v1	7	divisibilityRules	wholeMaximum=1000000;minGiven=0;maxGiven=1000000;maxResult=54;nonnegative=true

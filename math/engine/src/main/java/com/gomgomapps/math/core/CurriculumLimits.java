@@ -232,7 +232,10 @@ public final class CurriculumLimits {
         if(!dividendMaxima.isEmpty()){Matcher m=Pattern.compile("(\\d+)\\s*[÷/]\\s*(\\d+)").matcher(operation);if(!m.matches())return false;Integer maximum=dividendMaxima.get(Integer.parseInt(m.group(2)));if(maximum==null||Long.parseLong(m.group(1))>maximum)return false;}
         if(nonnegative&&NEGATIVE.matcher(givens).find())return false;
         if(nonnegativeSubtrahend&&Pattern.compile("-\\s*\\(\\s*-\\d").matcher(q.expression).find())return false;
-        if(maxGiven!=null||minGiven!=null){Matcher m=NUMBER.matcher(givens);while(m.find()){double number=Double.parseDouble(m.group());if((maxGiven!=null&&number>maxGiven)||(minGiven!=null&&number<minGiven))return false;}}
+        if(DivisibilityRules.ID.equals(q.skillId)){
+            DivisibilityRules.Givens visible=DivisibilityRules.read(q);if(visible==null)return false;
+            int number=visible.number();if((wholeMaximum!=null&&number>wholeMaximum)||(maxGiven!=null&&number>maxGiven)||(minGiven!=null&&number<minGiven))return false;
+        }else if(maxGiven!=null||minGiven!=null){Matcher m=NUMBER.matcher(givens);while(m.find()){double number=Double.parseDouble(m.group());if((maxGiven!=null&&number>maxGiven)||(minGiven!=null&&number<minGiven))return false;}}
         if(maxExactResult!=null){
             int[] estimate=EstimateCalculationCheck.read(q);if(estimate==null)return false;
             if(wholeMaximum!=null&&(estimate[0]>wholeMaximum||estimate[1]>wholeMaximum))return false;
