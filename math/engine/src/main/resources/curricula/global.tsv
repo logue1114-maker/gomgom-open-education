@@ -2295,3 +2295,9 @@ MAP	na-nied-primary-2024-v1	7	threeStepWholeContexts	SP printed53 B8/B9; selecte
 RULE	na-nied-primary-2024-v1	7	threeStepWholeContexts	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 MAP	na-nied-primary-2024-v1	7	mixedFractionCompare	SP printed54 B1; selected mixed/improper relationship-sign comparison; positive whole parts1..6 and original denominators2..10, not full B1 scope
 RULE	na-nied-primary-2024-v1	7	mixedFractionCompare	denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	fractionOrder	SP printed54 B2; selected three distinct positive original cards in ascending/descending order; denominators2..10; positive original fractions with values up to 1, not full B2 scope
+RULE	na-nied-primary-2024-v1	7	fractionOrder	maxFractionValue=1;denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	likeFractionOrder	SP printed54 B2; selected three distinct positive original cards in ascending/descending order; denominators2..10; positive original fractions with values up to 1, not full B2 scope
+RULE	na-nied-primary-2024-v1	7	likeFractionOrder	maxFractionValue=1;denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	mixedFractionOrder	SP printed54 B2; selected three distinct positive original cards in ascending/descending order; denominators2..10; mixed/improper whole parts1..6, not full B2 scope
+RULE	na-nied-primary-2024-v1	7	mixedFractionOrder	denominators=2,3,4,5,6,7,8,9,10;nonnegative=true

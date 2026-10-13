@@ -1,6 +1,14 @@
 package com.gomgomapps.math.core;
 import java.util.*;import org.junit.Test;import static org.junit.Assert.*;
 public class FractionOrderingTest {
+ @Test public void sameDenominatorUsesActualInclusiveNumeratorCapacity(){
+  Catalog.Skill skill=Catalog.get("likeFractionOrder");CurriculumLimits thirds=new CurriculumLimits("denominators=3;maxFractionValue=1");Question q=FractionOrdering.create(skill,new Random(348),thirds);assertEquals(Set.of("1/3","2/3","3/3"),new HashSet<>(FractionOrdering.givens(q)));assertTrue(thirds.allows(q));assertTrue(new Checker().check(q,List.of(),Arrays.asList(q.answers)).correct());assertFalse(HelpPlan.forQuestion(q).canTransfer());
+  CurriculumLimits half=new CurriculumLimits("denominators=2,3,4,6;maxFractionValue=1/2");Random r=new Random(348);for(int i=0;i<30;i++){q=FractionOrdering.create(skill,r,half);assertEquals(Set.of("1/6","2/6","3/6"),new HashSet<>(FractionOrdering.givens(q)));assertTrue(half.allows(q));}
+  CurriculumLimits quarter=new CurriculumLimits("denominators=2,3,4,6,12;maxFractionValue=1/4");for(int i=0;i<30;i++){q=FractionOrdering.create(skill,r,quarter);assertEquals(Set.of("1/12","2/12","3/12"),new HashSet<>(FractionOrdering.givens(q)));assertTrue(quarter.allows(q));}
+ }
+ @Test public void impossibleSameDenominatorDomainsRejectBeforeSampling(){
+  for(String rules:List.of("denominators=3","denominators=2,3,4;maxFractionValue=1/2","denominators=2,3,4,6;unitFractions=true"))try{FractionOrdering.create(Catalog.get("likeFractionOrder"),new Random(348),new CurriculumLimits(rules));fail(rules);}catch(IllegalArgumentException expected){}
+ }
  @Test public void fourPlacementsHaveFreshIndependentlySortedPublicFractions(){
   var pack=GlobalCurriculum.packs("GB").stream().filter(p->p.id.equals("england-primary-2021-v1")).findFirst().orElseThrow();
   for(int grade:new int[]{3,5,6})for(String id:List.of("fractionOrder","likeFractionOrder")){
