@@ -2301,3 +2301,5 @@ MAP	na-nied-primary-2024-v1	7	likeFractionOrder	SP printed54 B2; selected three 
 RULE	na-nied-primary-2024-v1	7	likeFractionOrder	maxFractionValue=1;denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
 MAP	na-nied-primary-2024-v1	7	mixedFractionOrder	SP printed54 B2; selected three distinct positive original cards in ascending/descending order; denominators2..10; mixed/improper whole parts1..6, not full B2 scope
 RULE	na-nied-primary-2024-v1	7	mixedFractionOrder	denominators=2,3,4,5,6,7,8,9,10;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	fracMixedAdd,fracMixedSub	SP printed54 B3; selected existing positive mixed-number whole parts1..9 and original denominators2..12 with common-denominator work; not full B3 scope or an official upper bound
+RULE	na-nied-primary-2024-v1	7	fracMixedAdd,fracMixedSub	denominators=2,3,4,5,6,7,8,9,10,11,12;nonnegative=true;variedFacts=true
