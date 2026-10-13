@@ -199,6 +199,7 @@ public final class Checker {
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
         if(ContextCalculationMethods.ID.equals(q.skillId)){Question publicQuestion=ContextCalculationMethods.workQuestion(q);if(publicQuestion==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");q=publicQuestion;}
+        if(BoundedWholeProduct.KIND.equals(q.kind)){Question publicQuestion=BoundedWholeProduct.workQuestion(q);if(publicQuestion==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");q=publicQuestion;}
         if(q.kind.equals("system"))return LinearSystem.check(q,steps,kinds,requireWork);
         if(q.kind.equals("inequality"))return LinearInequality.check(q,steps,kinds,requireWork);
         if(q.kind.equals("algebra"))return Algebra.check(q,steps,kinds,requireWork);
