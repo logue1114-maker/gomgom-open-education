@@ -57,7 +57,8 @@ public final class CurriculumLimits {
     private String answerDomain="";
     private Rational maxFractionValue;
     private Integer minimumWholeDigits;
-    private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables,monicQuadratic,wholeFractionMultiplier,quantityUnitConversions;
+    private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables,monicQuadratic,wholeFractionMultiplier,quantityUnitConversions,quantityRationalParts;
+    boolean quantityRationalParts(){return quantityRationalParts;}
     boolean quantityUnitConversions(){return quantityUnitConversions;}
     boolean wholeFractionMultiplier(){return wholeFractionMultiplier;}
     private Double maxResult,maxGiven,minGiven;private boolean nonnegative,unitFractions,relatedDenominators,commonDenominatorFactor,nonnegativeSubtrahend;
@@ -66,6 +67,7 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "quantityRationalParts":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid rational quantity part flag");quantityRationalParts=Boolean.parseBoolean(pair[1]);break;
                 case "quantityUnitConversions":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid quantity unit conversion flag");quantityUnitConversions=Boolean.parseBoolean(pair[1]);break;
                 case "reducedDecimalFraction":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid reduced decimal fraction flag");reducedDecimalFraction=Boolean.parseBoolean(pair[1]);break;
                 case "contextDividendMinimum":contextDividendMinimum=Integer.parseInt(pair[1]);if(contextDividendMinimum<1||contextDividendMinimum>9999)throw new IllegalArgumentException("Invalid context dividend minimum");break;
@@ -163,6 +165,7 @@ public final class CurriculumLimits {
             catch(RuntimeException error){return false;}
         }
         String givens=q.prompt+"\n"+q.expression;
+        if(QuantityFractionCheck.ID.equals(q.skillId)){if(QuantityFractionCheck.readGeneral(q)==null)return false;givens=q.prompt;}
         if(ThreeStepWholeContexts.supports(q.skillId)){var visible=ThreeStepWholeContexts.read(q);if(visible==null)return false;givens=Arrays.toString(visible.operands());}
         if(WholeFactorExtrema.selected(q)){WholeFactorExtrema.Givens visible=WholeFactorExtrema.read(q);if(visible==null)return false;givens=visible.a()+" "+visible.b();}
         if(PrimeFactorProducts.supports(q.skillId)){int original=PrimeFactorProducts.read(q);if(original<1)return false;givens=""+original;}
@@ -261,6 +264,8 @@ public final class CurriculumLimits {
         }else if(PrimeFactorProducts.supports(q.skillId)){
             // Product notation is not a scalar answer: bound the visible original.
             int original=PrimeFactorProducts.read(q);if(original<1||(wholeMaximum!=null&&original>wholeMaximum)||!allowsAnswer(""+original))return false;
+        }else if(QuantityFractionCheck.ID.equals(q.skillId)){
+            var visible=QuantityFractionCheck.readGeneral(q);if(visible==null||!allowsAnswer(visible.value().toString()))return false;
         }else if(GroupDrawing.ID.equals(q.skillId)){
             // A drawing response is not a scalar answer. Bound the public total,
             // while the checker separately validates each student-drawn group.

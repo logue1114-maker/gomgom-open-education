@@ -211,6 +211,7 @@ public final class Checker {
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
         Rational fractionExpected=null;
+        if(QuantityFractionCheck.ID.equals(q.skillId)){QuantityFractionCheck.Givens publicValues=QuantityFractionCheck.readGeneral(q);if(publicValues==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");fractionExpected=publicValues.value();q=QuantityFractionCheck.workQuestion(q);}
         if(FractionOperationOrder.supports(q.skillId)){FractionOperationOrder.Plan publicPlan=FractionOperationOrder.read(q);if(publicPlan==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");fractionExpected=publicPlan.value();q=FractionOperationOrder.workQuestion(q);}
         if(ThreeStepWholeContexts.supports(q.skillId)){Question publicQuestion=ThreeStepWholeContexts.workQuestion(q);if(publicQuestion==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");q=publicQuestion;}
         if(ContextCalculationMethods.ID.equals(q.skillId)){Question publicQuestion=ContextCalculationMethods.workQuestion(q);if(publicQuestion==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");q=publicQuestion;}

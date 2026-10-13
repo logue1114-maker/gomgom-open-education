@@ -2313,3 +2313,5 @@ MAP	na-nied-primary-2024-v1	7	fracCombined	SP printed54 B8; existing four select
 RULE	na-nied-primary-2024-v1	7	fracCombined	
 MAP	na-nied-primary-2024-v1	7	quantityAsFraction	SP printed54 B9; ordered compatible public quantities including min/hour conversion; selected same-unit0..100/1..100 and min0..100/hour1..12 supply are implementation bounds, not official or general public input bounds
 RULE	na-nied-primary-2024-v1	7	quantityAsFraction	nonnegative=true;quantityUnitConversions=true
+MAP	na-nied-primary-2024-v1	7	el_fraction_of_number	SP printed54 B10; public exact fractional parts of quantities, including nonintegral results; selected normal totals0..100 and fraction denominators2..12/numerators0..2den are supply bounds, not official or general public input bounds
+RULE	na-nied-primary-2024-v1	7	el_fraction_of_number	denominators=2,3,4,5,6,7,8,9,10,11,12;quantityRepresentations=number;quantityRationalParts=true;nonnegative=true

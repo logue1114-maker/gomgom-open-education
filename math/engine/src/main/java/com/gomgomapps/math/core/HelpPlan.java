@@ -28,6 +28,7 @@ public final class HelpPlan {
         }
         Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=frame.pictureFilled==null?-1:frame.pictureFilled;extra=frame.pictureExtra==null?0:frame.pictureExtra;denominator=frame.pictureDenominator==null?0:frame.pictureDenominator;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);requiredFormat=frame.inputFormat==null?"":frame.inputFormat;acceptedChoices=frame.acceptedChoices==null?null:Set.copyOf(frame.acceptedChoices);}
         public boolean accepts(String value){
+            if(requiredFormat.equals("quantityExact")){Rational actual=QuantityFractionCheck.numericInput(value),target=QuantityFractionCheck.numericInput(expected);return actual!=null&&actual.equals(target);}
             if(value==null||value.trim().isEmpty()||value.length()>120)return false;
             if(!options.isEmpty())return options.containsKey(value.trim())&&(acceptedChoices==null?value.trim().equals(expected):acceptedChoices.contains(value.trim()));
             if(requiredFormat.equals("fraction")&&!value.contains("/"))return false;
@@ -70,6 +71,7 @@ public final class HelpPlan {
         steps.add(new Step(instruction,before,after,expected,filled,extra,denominator));
     }
     public static HelpPlan forQuestion(Question q){
+        if(q!=null&&QuantityFractionCheck.ID.equals(q.skillId)){StudyGuide visible=QuantityFractionCheck.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&QuantityAsFraction.ID.equals(q.skillId)){StudyGuide visible=QuantityAsFraction.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.resultNumeratorFrame=visible.resultNumeratorFrame;plan.resultDenominatorFrame=visible.resultDenominatorFrame;plan.transfer=false;return plan;}
         if(q!=null&&FractionOperationOrder.supports(q.skillId)){StudyGuide visible=FractionOperationOrder.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         DoubleBasedAddition.attach(q);

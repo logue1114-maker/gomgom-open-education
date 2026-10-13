@@ -9,6 +9,10 @@ final class FractionSupply {
     static Question next(Catalog.Skill skill,Random random,CurriculumLimits limits,Map<String,Integer> recent){
         Map<String,Question> candidates=new LinkedHashMap<>();
         if(skill.id.equals("el_fraction_of_number")){
+            if(limits.quantityRationalParts()){
+                int[] denominators=limits.fractionDenominators();int count=0;for(int d:denominators)count=Math.addExact(count,Math.multiplyExact(101,Math.addExact(Math.multiplyExact(2,d),1)));
+                return IndexedQuestionSupply.choose(count,index->{for(int d:denominators){int width=2*d+1,segment=101*width;if(index<segment){int total=index/width,n=index%width;String expression=total+"*("+n+"/"+d+")";Rational value=Rational.of((long)total*n,d);Question q=new Question(skill.id,total+"의 "+n+"/"+d+"은 얼마인가요?",expression,value.toString()).withInputs(total,n,d);q.decimal=!value.isInteger();q.studyGuide=QuantityFractionCheck.guide(q);return q;}index-=segment;}throw new IllegalArgumentException("Rational quantity index");},random,limits,recent);
+            }
             if(limits.hasQuantityPartsMaximum()&&limits.quantityRepresentations().equals(List.of("number"))){
                 List<int[]> conditions=new ArrayList<>();
                 for(int denominator:limits.fractionDenominators())for(int numerator=1;numerator<(limits.unitFractions()?2:denominator);numerator++)for(int parts=limits.unitFractions()?1:2;parts<=limits.quantityPartsMaximum();parts++)conditions.add(new int[]{numerator,denominator,parts});

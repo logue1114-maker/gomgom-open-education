@@ -16,6 +16,7 @@ public final class FractionInput {
         if(UnitFractionWhole.ID.equals(q.skillId)||PrimaryScaleRates.supports(q.skillId)||MixedNumberFoundations.supports(q.skillId))return false;
         if(!q.choices.isEmpty()||!Set.of("number","reduced","equation","system","inequality").contains(q.kind))return false;
         if("fraction".equals(q.answerFormat)||"decimal".equals(q.answerFormat))return true;
+        if(QuantityFractionCheck.ID.equals(q.skillId)){QuantityFractionCheck.Givens value=QuantityFractionCheck.readGeneral(q);return value!=null&&!value.value().isInteger();}
         if(FractionFamilies.supports(q.skillId))return false;
         if(Set.of("el_mixed_to_improper","el_fraction_common_den","el_fraction_of_number").contains(q.skillId))return false;
         Catalog.Skill skill=Catalog.get(q.skillId);String family=skill.family.toLowerCase(Locale.ROOT);
@@ -61,6 +62,7 @@ public final class FractionInput {
     /** Localize only when the public like-fraction frame identifies an unchanged part.
      * Zero means no unique part is established, not that the answer is correct. */
     public static int errorPart(Question q,String raw){
+        if(q!=null&&QuantityFractionCheck.ID.equals(q.skillId))return QuantityFractionCheck.errorPart(q,raw);
         if(q!=null&&DecimalTwoStepStories.supports(q.skillId))return DecimalTwoStepStories.errorPart(q,raw);
         if(q!=null&&DecimalMeasureGroups.supports(q.skillId))return DecimalMeasureGroups.errorPart(q,raw);
         if(q!=null&&TwoStepFractionStories.ID.equals(q.skillId))return TwoStepFractionStories.errorPart(q,raw);
