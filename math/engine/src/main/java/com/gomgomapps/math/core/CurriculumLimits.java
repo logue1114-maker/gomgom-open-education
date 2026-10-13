@@ -248,7 +248,7 @@ public final class CurriculumLimits {
             // A drawing response is not a scalar answer. Bound the public total,
             // while the checker separately validates each student-drawn group.
             int[] drawn=GroupDrawing.read(q);if(drawn==null||!allowsAnswer(""+(drawn[0]*drawn[1])))return false;
-        }else if(maxResult!=null||nonnegative||!answerDomain.isEmpty())for(String answer:q.answers)if(!(CommonMultipleLists.NONE.equals(answer)&&CommonMultipleLists.noneExpected(q))&&!allowsAnswer(answer))return false;
+        }else if(maxResult!=null||nonnegative||!answerDomain.isEmpty())for(String answer:q.answers)if(!((CommonMultipleLists.NONE.equals(answer)&&CommonMultipleLists.noneExpected(q))||(PrimeFactorLists.NONE.equals(answer)&&PrimeFactorLists.noneExpected(q)))&&!allowsAnswer(answer))return false;
         return true;
     }
     private static int[] grouping(String prompt){

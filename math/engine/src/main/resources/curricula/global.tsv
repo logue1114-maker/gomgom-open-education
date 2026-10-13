@@ -2285,3 +2285,5 @@ RULE	na-nied-primary-2024-v1	7	listSquareNumbers	minGiven=0;maxGiven=10;maxResul
 RULE	na-nied-primary-2024-v1	7	listCubeNumbers	minGiven=0;maxGiven=10;maxResult=1000;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	recogniseSquareNumber	powerRecognitionRange=true;minGiven=0;maxGiven=100;maxResult=1;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	recogniseCubeNumber	powerRecognitionRange=true;minGiven=0;maxGiven=1000;maxResult=1;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	distinctPrimeFactorList	SP printed53 B5; complete distinct prime factors of positive originals1..99, explicit none for1; separate from B6 product of repeated prime factors and legacy exponent-sum practice
+RULE	na-nied-primary-2024-v1	7	distinctPrimeFactorList	minGiven=1;maxGiven=99;maxResult=99;nonnegative=true
