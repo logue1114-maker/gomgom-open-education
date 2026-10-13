@@ -140,6 +140,7 @@ public final class Generator {
         else if(ShortWrittenDivision.supports(skillId))q=ShortWrittenDivision.next(skillId,random,limits,previous);
         else if(LargeWrittenProducts.supports(skillId))q=LargeWrittenProducts.next(skillId,random,limits,previous);
         else if(PowerNumberLists.supports(skillId))q=PowerNumberLists.next(skillId,random,limits,previous);
+        else if(WholeFactorExtrema.supports(skillId)&&limits.factorExtremaRange())q=WholeFactorExtrema.next(skillId,random,limits,previous);
         else if(PrimeFactorProducts.supports(skillId))q=PrimeFactorProducts.next(random,limits,previous);
         else if(PrimeFactorLists.supports(skillId))q=PrimeFactorLists.next(random,limits,previous);
         else if(PrimeRecall.supports(skillId))q=PrimeRecall.next(random,limits,previous);
@@ -233,6 +234,7 @@ public final class Generator {
         if(CommonMultipleLists.supports(s.id))return CommonMultipleLists.next(random,limits,Map.of());
         if(MultipleRecognition.supports(s.id))return MultipleRecognition.next(random,limits,Map.of());
         if(PowerNumberLists.supports(s.id))return PowerNumberLists.next(s.id,random,limits,Map.of());
+        if(WholeFactorExtrema.supports(s.id)&&limits.factorExtremaRange())return WholeFactorExtrema.next(s.id,random,limits,Map.of());
         if(PrimeFactorProducts.supports(s.id))return PrimeFactorProducts.next(random,limits,Map.of());
         if(PrimeFactorLists.supports(s.id))return PrimeFactorLists.next(random,limits,Map.of());
         if(PrimeRecall.supports(s.id))return PrimeRecall.next(random,limits,Map.of());

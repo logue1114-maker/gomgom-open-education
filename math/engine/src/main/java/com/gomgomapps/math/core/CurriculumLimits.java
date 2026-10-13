@@ -47,7 +47,8 @@ public final class CurriculumLimits {
     private int metricDecimals=0;
     private Integer maxSecondOperand,maxRegroups,decimalPlaces,answerDecimalPlaces,secondDecimalPlaces,wholeMaximum,wholeDigits,secondDigits,polygonSides,maxExactResult;
     private final Set<Integer> roundingDecimalTargets=new TreeSet<>();
-    private boolean sameDecimalPlaces,powerNotation,powerRecognitionRange,reducedDecimalFraction;
+    private boolean sameDecimalPlaces,powerNotation,powerRecognitionRange,reducedDecimalFraction,factorExtremaRange;
+    boolean factorExtremaRange(){return factorExtremaRange;}
     boolean reducedDecimalFraction(){return reducedDecimalFraction;}
     boolean powerNotation(){return powerNotation;}
     boolean powerRecognitionRange(){return powerRecognitionRange;}
@@ -112,6 +113,7 @@ public final class CurriculumLimits {
                 case "dividendMaxima":for(String bound:pair[1].split(",")){String[] values=bound.split(":",-1);if(values.length!=2)throw new IllegalArgumentException("Invalid dividend bound");int divisor=Integer.parseInt(values[0]),maximum=Integer.parseInt(values[1]);if(divisor<1||maximum<1||dividendMaxima.putIfAbsent(divisor,maximum)!=null)throw new IllegalArgumentException("Invalid dividend bound");}break;
                 case "answerDomain":if(!Set.of("integer","rational").contains(pair[1]))throw new IllegalArgumentException("Invalid answer domain");answerDomain=pair[1];break;
                 case "maxResult":maxResult=Double.valueOf(pair[1]);if(!Double.isFinite(maxResult)||maxResult<=0)throw new IllegalArgumentException("Invalid result range");break;
+                case "factorExtremaRange":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid factor extrema range flag");factorExtremaRange=true;break;
                 case "maxGiven":maxGiven=Double.valueOf(pair[1]);if(!Double.isFinite(maxGiven)||maxGiven<=0)throw new IllegalArgumentException("Invalid input range");break;
                 case "minGiven":minGiven=Double.valueOf(pair[1]);if(!Double.isFinite(minGiven)||minGiven<0)throw new IllegalArgumentException("Invalid minimum input");break;
                 case "unitFractions":if(!pair[1].equals("true"))throw new IllegalArgumentException("Invalid unit fraction flag");unitFractions=true;break;
@@ -159,6 +161,7 @@ public final class CurriculumLimits {
             catch(RuntimeException error){return false;}
         }
         String givens=q.prompt+"\n"+q.expression;
+        if(WholeFactorExtrema.selected(q)){WholeFactorExtrema.Givens visible=WholeFactorExtrema.read(q);if(visible==null)return false;givens=visible.a()+" "+visible.b();}
         if(PrimeFactorProducts.supports(q.skillId)){int original=PrimeFactorProducts.read(q);if(original<1)return false;givens=""+original;}
         String operation=q.expression.isBlank()?q.prompt.trim():q.expression;
         if(FactFoundations.blank(q))operation=q.prompt.replace("□",q.answers[0]).split(" = ",2)[0];
@@ -245,7 +248,10 @@ public final class CurriculumLimits {
             int exact=EstimateCalculationCheck.ADD.equals(q.skillId)?estimate[0]+estimate[1]:estimate[0]-estimate[1];
             if(exact>maxExactResult)return false;
         }
-        if(PrimeFactorProducts.supports(q.skillId)){
+        if(WholeFactorExtrema.selected(q)){
+            WholeFactorExtrema.Givens visible=WholeFactorExtrema.read(q);if(visible==null||(wholeMaximum!=null&&(visible.a()>wholeMaximum||visible.b()>wholeMaximum)))return false;
+            if(!WholeFactorExtrema.undefined(q)&&!allowsAnswer(""+WholeFactorExtrema.value(q.skillId,visible)))return false;
+        }else if(PrimeFactorProducts.supports(q.skillId)){
             // Product notation is not a scalar answer: bound the visible original.
             int original=PrimeFactorProducts.read(q);if(original<1||(wholeMaximum!=null&&original>wholeMaximum)||!allowsAnswer(""+original))return false;
         }else if(GroupDrawing.ID.equals(q.skillId)){
