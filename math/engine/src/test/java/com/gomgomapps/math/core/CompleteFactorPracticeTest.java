@@ -14,7 +14,7 @@ public class CompleteFactorPracticeTest {
  @Test public void everyPublicConditionHasACompleteUniqueAnswerIndependentOfStoredKeys(){
   Checker checker=new Checker();
   for(String id:List.of(CompleteFactorPractice.PAIRS,CompleteFactorPractice.COMMON,CompleteFactorPractice.MULTIPLES)){
-   Set<String> signatures=new HashSet<>();int independentCount=id.equals(CompleteFactorPractice.COMMON)?144*143/2:id.equals(CompleteFactorPractice.PAIRS)?144:143;
+   Set<String> signatures=new HashSet<>();int independentCount=id.equals(CompleteFactorPractice.COMMON)?144*143/2:144;
    assertEquals(independentCount,CompleteFactorPractice.count(id));assertTrue(independentCount>=100);
    for(int index=0;index<independentCount;index++){
     Question q=CompleteFactorPractice.indexed(id,index);assertTrue(signatures.add(q.signature()));
@@ -60,5 +60,11 @@ public class CompleteFactorPracticeTest {
   List<String> blank=new ArrayList<>(independentlySolve(CompleteFactorPractice.PAIRS,36,0));blank.set(3,"");assertEquals(3,c.check(pair,List.of(),blank).index);
   assertNull(CompleteFactorPractice.read(new Question(CompleteFactorPractice.PAIRS,"145의 모든 곱셈짝을 쓰세요.\n각 짝은 작은 수부터, 짝의 순서도 작은 수부터 쓰세요.","","1")));
   assertNull(CompleteFactorPractice.read(new Question(CompleteFactorPractice.COMMON,"12와 12의 공약수를 모두 쓰세요.\n작은 수부터 쓰세요.","","1")));
+ }
+ @Test public void positiveOneMultiplesAndReviewedBoundedSupply(){
+  Question one=CompleteFactorPractice.make(CompleteFactorPractice.MULTIPLES,1,0);assertArrayEquals(new int[]{1},CompleteFactorPractice.read(one));Checker checker=new Checker();one.answers=new String[]{"poison"};one.expression="poison";assertTrue(checker.check(one,List.of(),List.of("1","2","3","4","5")).correct());assertEquals(0,checker.check(one,List.of(),List.of("0","1","2","3","4")).index);assertEquals(4,checker.check(one,List.of(),List.of("1","2","3","4","6")).index);CompleteFactorPractice.attach(one);HelpPlan help=HelpPlan.forQuestion(one);assertFalse(help.canTransfer());assertEquals(10,help.size());assertTrue(help.restore(null,one.id).entries.stream().allMatch(String::isEmpty));for(int k=1;k<=5;k++){assertTrue(help.step((k-1)*2).accepts(""+k));assertTrue(help.step((k-1)*2+1).accepts(""+k));}
+  assertNull(CompleteFactorPractice.read(new Question(CompleteFactorPractice.MULTIPLES,"0의 첫 다섯 배수를 쓰세요.\n양의 배수를 작은 수부터 쓰세요.","","0")));
+  CurriculumLimits limits=new CurriculumLimits("minGiven=1;maxGiven=99;maxResult=495;nonnegative=true");Set<String> independent=new HashSet<>();for(int n=1;n<=99;n++)independent.add(CompleteFactorPractice.make(CompleteFactorPractice.MULTIPLES,n,0).signature());Map<String,Integer>recent=new LinkedHashMap<>();Random pinned=new Random(){@Override public int nextInt(int bound){return 0;}};String first=null;
+  while(recent.size()<99){Question q=CompleteFactorPractice.next(CompleteFactorPractice.MULTIPLES,pinned,limits,recent);assertTrue(limits.allows(q));assertTrue(independent.contains(q.signature()));assertFalse(recent.containsKey(q.signature()));if(first==null)first=q.signature();recent.put(q.signature(),recent.size());}assertEquals(independent,recent.keySet());assertEquals(first,CompleteFactorPractice.next(CompleteFactorPractice.MULTIPLES,pinned,limits,recent).signature());recent.put(first,99);assertEquals(1,(int)recent.get(CompleteFactorPractice.next(CompleteFactorPractice.MULTIPLES,pinned,limits,recent).signature()));
  }
 }

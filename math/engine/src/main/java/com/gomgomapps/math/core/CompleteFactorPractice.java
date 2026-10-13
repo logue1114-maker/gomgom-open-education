@@ -25,7 +25,7 @@ public final class CompleteFactorPractice {
         Matcher m=(FACTORS.equals(q.skillId)?FACTOR_PROMPT:PAIRS.equals(q.skillId)?PAIR_PROMPT:COMMON.equals(q.skillId)?COMMON_PROMPT:MULTIPLE_PROMPT).matcher(q.prompt);
         if(!m.matches())return null;
         int a=Integer.parseInt(m.group(1));
-        if(a<1||a>(FACTORS.equals(q.skillId)?100:MAXIMUM)||MULTIPLES.equals(q.skillId)&&a<2)return null;
+        if(a<1||a>(FACTORS.equals(q.skillId)?100:MAXIMUM))return null;
         if(COMMON.equals(q.skillId)){int b=Integer.parseInt(m.group(2));return b>a&&b<=MAXIMUM?new int[]{a,b}:null;}
         return new int[]{a};
     }
@@ -48,10 +48,10 @@ public final class CompleteFactorPractice {
             (FACTORS.equals(id)?"약수 ":COMMON.equals(id)?"공약수 ":"배수 ")+(i+1);
         q.stepSupport=false;return q;
     }
-    static int count(String id){if(!supports(id))throw new IllegalArgumentException("factor practice skill");return FACTORS.equals(id)?100:COMMON.equals(id)?MAXIMUM*(MAXIMUM-1)/2:MULTIPLES.equals(id)?MAXIMUM-1:MAXIMUM;}
+    static int count(String id){if(!supports(id))throw new IllegalArgumentException("factor practice skill");return FACTORS.equals(id)?100:COMMON.equals(id)?MAXIMUM*(MAXIMUM-1)/2:MAXIMUM;}
     static Question indexed(String id,int index){
         if(index<0||index>=count(id))throw new IllegalArgumentException("factor practice index");
-        if(!COMMON.equals(id))return make(id,index+(MULTIPLES.equals(id)?2:1),0);
+        if(!COMMON.equals(id))return make(id,index+1,0);
         for(int a=1;a<MAXIMUM;a++){int row=MAXIMUM-a;if(index<row)return make(id,a,a+1+index);index-=row;}
         throw new IllegalArgumentException("factor practice index");
     }

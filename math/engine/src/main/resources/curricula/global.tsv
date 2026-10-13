@@ -1438,6 +1438,9 @@ MAP	na-nied-primary-2024-v1	6	el_fraction_decimal,el_decimal_fraction,el_decimal
 MAP	na-nied-primary-2024-v1	6	decimalAdd,decimalSub,decimalMul,decimalDivInt	SP p.45; decimal/whole calculations
 MAP	na-nied-primary-2024-v1	7	largePlace,el_compare_10000,el_round,add1000,sub1000,mul22,divide2,mixed	SP p.52; whole-number operations through1000000
 MAP	na-nied-primary-2024-v1	7	el_divisor,el_multiple,sec_prime_factor,gcd,lcm,squareWhole,cubeWhole	SP p.53; selected factors/primes/squares/cubes
+MAP	na-nied-primary-2024-v1	7	allPositiveFactors,firstFiveMultiples	SP printed53 B1; every positive factor and first five positive multiples of selected givens1..99; wider multiples strategies and fluency remain partial
+RULE	na-nied-primary-2024-v1	7	allPositiveFactors	minGiven=1;maxGiven=99;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	firstFiveMultiples	minGiven=1;maxGiven=99;maxResult=495;nonnegative=true
 MAP	na-nied-primary-2024-v1	7	fracAdd,fracSub,fracMul,fracDiv,fracDivInt,el_fraction_compare	SP p.54; selected common-fraction arithmetic
 MAP	na-nied-primary-2024-v1	7	el_fraction_decimal,el_decimal_fraction,decimalAdd,decimalSub,decimalMul,decimalDiv,decimalDivInt	SP p.55; selected up-to-three-place decimal calculations
 MAP	na-nied-primary-2024-v1	7	percent	SP p.56; percentage of a quantity
