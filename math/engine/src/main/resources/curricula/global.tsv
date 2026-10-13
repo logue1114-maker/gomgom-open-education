@@ -2167,12 +2167,18 @@ MAP	na-nied-primary-2024-v1	6	commonMultiplesWithin100	SP printed42 B2; complete
 RULE	na-nied-primary-2024-v1	6	commonMultiplesWithin100	minGiven=1;maxGiven=100;maxResult=100;nonnegative=true
 
 MAP	na-nied-primary-2024-v1	6	commutativeAddition,commutativeMultiplication	SP printed42 B5; swap both operands and calculate within0..1000000; wider fluency remains
+MAP	na-nied-primary-2024-v1	7	commutativeAddition,commutativeMultiplication	SP printed52 B6; apply addition and multiplication commutativity to whole-number calculations within0..1000000
+RULE	na-nied-primary-2024-v1	7	commutativeAddition,commutativeMultiplication	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	commutativeAddition,commutativeMultiplication	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 
 MAP	na-nied-primary-2024-v1	6	associativeAddition,associativeMultiplication	SP printed42 B6; preserve three operand order, regroup both directions, inner/total values within0..1000000
+MAP	na-nied-primary-2024-v1	7	associativeAddition,associativeMultiplication	SP printed52 B6; regroup addition and multiplication while preserving operands and calculating inner and total values within0..1000000
+RULE	na-nied-primary-2024-v1	7	associativeAddition,associativeMultiplication	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	associativeAddition,associativeMultiplication	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 
 MAP	na-nied-primary-2024-v1	6	distributiveAddition,distributiveSubtraction	SP printed42 B7; multiply both terms of addition/subtraction, separate products and total, both factor positions within0..1000000
+MAP	na-nied-primary-2024-v1	7	distributiveAddition,distributiveSubtraction	SP printed52 B6; distribute multiplication over addition and subtraction, calculate both products and total within0..1000000
+RULE	na-nied-primary-2024-v1	7	distributiveAddition,distributiveSubtraction	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	distributiveAddition,distributiveSubtraction	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 
 MAP	na-nied-primary-2024-v1	6	wholeOperationOrder	SP printed42 B8; public calculation sequence: brackets, fraction of, multiplication/division and addition/subtraction left to right; whole intermediates0..1000000
