@@ -2287,3 +2287,5 @@ RULE	na-nied-primary-2024-v1	7	recogniseSquareNumber	powerRecognitionRange=true;
 RULE	na-nied-primary-2024-v1	7	recogniseCubeNumber	powerRecognitionRange=true;minGiven=0;maxGiven=1000;maxResult=1;nonnegative=true
 MAP	na-nied-primary-2024-v1	7	distinctPrimeFactorList	SP printed53 B5; complete distinct prime factors of positive originals1..99, explicit none for1; separate from B6 product of repeated prime factors and legacy exponent-sum practice
 RULE	na-nied-primary-2024-v1	7	distinctPrimeFactorList	minGiven=1;maxGiven=99;maxResult=99;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	primeFactorProduct	SP printed53 B6; learner prime-factor product with repeated factors or prime powers; selected general Grade7 whole-number domain1..1000000, not B5 distinct list<100 or exponent sum
+RULE	na-nied-primary-2024-v1	7	primeFactorProduct	minGiven=1;maxGiven=1000000;maxResult=1000000;nonnegative=true

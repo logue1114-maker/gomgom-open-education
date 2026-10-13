@@ -104,6 +104,7 @@ public final class Checker {
         if(CommonMultipleLists.supports(q.skillId))return CommonMultipleLists.check(q,answers);
         if(MultipleRecognition.supports(q.skillId))return MultipleRecognition.check(q,answers);
         if(PowerNumberLists.supports(q.skillId))return PowerNumberLists.check(q,answers);
+        if(PrimeFactorProducts.supports(q.skillId))return PrimeFactorProducts.check(q,answers);
         if(PrimeFactorLists.supports(q.skillId))return PrimeFactorLists.check(q,answers);
         if(PrimeRecall.supports(q.skillId))return PrimeRecall.check(q,answers);
         if(PrimeVocabulary.supports(q.skillId))return PrimeVocabulary.check(q,answers);

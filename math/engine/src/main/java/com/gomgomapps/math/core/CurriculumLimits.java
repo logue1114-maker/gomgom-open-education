@@ -159,6 +159,7 @@ public final class CurriculumLimits {
             catch(RuntimeException error){return false;}
         }
         String givens=q.prompt+"\n"+q.expression;
+        if(PrimeFactorProducts.supports(q.skillId)){int original=PrimeFactorProducts.read(q);if(original<1)return false;givens=""+original;}
         String operation=q.expression.isBlank()?q.prompt.trim():q.expression;
         if(FactFoundations.blank(q))operation=q.prompt.replace("□",q.answers[0]).split(" = ",2)[0];
         boolean repeated=Catalog.get(q.skillId).family.equals("repeat");
@@ -244,7 +245,10 @@ public final class CurriculumLimits {
             int exact=EstimateCalculationCheck.ADD.equals(q.skillId)?estimate[0]+estimate[1]:estimate[0]-estimate[1];
             if(exact>maxExactResult)return false;
         }
-        if(GroupDrawing.ID.equals(q.skillId)){
+        if(PrimeFactorProducts.supports(q.skillId)){
+            // Product notation is not a scalar answer: bound the visible original.
+            int original=PrimeFactorProducts.read(q);if(original<1||(wholeMaximum!=null&&original>wholeMaximum)||!allowsAnswer(""+original))return false;
+        }else if(GroupDrawing.ID.equals(q.skillId)){
             // A drawing response is not a scalar answer. Bound the public total,
             // while the checker separately validates each student-drawn group.
             int[] drawn=GroupDrawing.read(q);if(drawn==null||!allowsAnswer(""+(drawn[0]*drawn[1])))return false;
