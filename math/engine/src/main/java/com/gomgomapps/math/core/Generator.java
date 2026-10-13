@@ -166,6 +166,7 @@ public final class Generator {
         if(LargeMentalDecomposition.supports(skillId))q=LargeMentalDecomposition.next(skillId,random,limits,previous);
         if(DoublingCalculation.supports(skillId))q=DoublingCalculation.next(skillId,random,limits,previous);
         if(RelatedCalculationFacts.supports(skillId))q=RelatedCalculationFacts.next(s,random,limits,previous);
+        if(WholeApproximationContexts.ID.equals(skillId))q=WholeApproximationContexts.next(random,limits,previous);
         if(EstimateCalculationCheck.supports(skillId))q=EstimateCalculationCheck.next(s,random,limits,previous);
         if(InverseCalculationCheck.supports(skillId))q=InverseCalculationCheck.next(s,random,limits,previous);
         if(MissingNumberSupply.supports(skillId,limits))q=MissingNumberSupply.next(s,random,limits,previous);
@@ -254,6 +255,7 @@ public final class Generator {
         if(LargeMentalDecomposition.supports(s.id))return LargeMentalDecomposition.next(s.id,random,limits,Map.of());
         if(DoublingCalculation.supports(s.id))return DoublingCalculation.next(s.id,random,limits,Map.of());
         if(RelatedCalculationFacts.supports(s.id))return RelatedCalculationFacts.create(s,random,limits);
+        if(WholeApproximationContexts.ID.equals(s.id))return WholeApproximationContexts.create(random,limits);
         if(EstimateCalculationCheck.supports(s.id))return EstimateCalculationCheck.create(s,random,limits);
         if(InverseCalculationCheck.supports(s.id))return InverseCalculationCheck.create(s,random,limits);
         if(DecimalToFractionSupply.selected(s.id,limits))return DecimalToFractionSupply.next(random,limits,Map.of());

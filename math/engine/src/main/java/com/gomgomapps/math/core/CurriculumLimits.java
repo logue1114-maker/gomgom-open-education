@@ -220,7 +220,10 @@ public final class CurriculumLimits {
         if(decimalPlaces!=null){Matcher decimals=Pattern.compile("\\d+\\.(\\d+)").matcher(givens);while(decimals.find())if(decimals.group(1).length()>decimalPlaces)return false;}
         if(!roundingDecimalTargets.isEmpty()){RoundingRelations.Givens rounded=RoundingRelations.read(q);if(!q.skillId.equals("el_decimal_round")||rounded==null||!roundingDecimalTargets.contains(rounded.decimalPlaces()))return false;}
         if(sameDecimalPlaces){Matcher pair=Pattern.compile("\\d+\\.(\\d+)\\s+□\\s+\\d+\\.(\\d+)").matcher(q.prompt);if(!q.skillId.equals("el_decimal_compare")||!pair.matches()||pair.group(1).length()!=pair.group(2).length())return false;}
-        if(!roundingUnits.isEmpty()){Matcher place=Pattern.compile("(\\d+)의 자리까지").matcher(q.prompt);if(!place.find()||!roundingUnits.contains(Integer.parseInt(place.group(1))))return false;}
+        if(!roundingUnits.isEmpty()){
+            if(WholeApproximationContexts.ID.equals(q.skillId)){var report=WholeApproximationContexts.read(q);if(report==null||!roundingUnits.contains(report.unit()))return false;}
+            else{Matcher place=Pattern.compile("(\\d+)의 자리까지").matcher(q.prompt);if(!place.find()||!roundingUnits.contains(Integer.parseInt(place.group(1))))return false;}
+        }
         if(unitFractions){Matcher m=Pattern.compile("(\\d+)\\s*/\\s*\\d+").matcher(Set.of("fracCompare","el_fraction_compare").contains(q.skillId)?q.prompt:q.expression);boolean found=false;while(m.find()){found=true;if(!m.group(1).equals("1"))return false;}if(!found)return false;}
         if(relatedDenominators){List<Integer> found=new ArrayList<>();Matcher m=FRACTION.matcher(q.prompt);while(m.find()){int denominator=Integer.parseInt(m.group(1));if(denominator==0)return false;found.add(denominator);}if(found.size()<2)return false;for(int a:found)for(int b:found)if(a%b!=0&&b%a!=0)return false;}
         if(commonDenominatorFactor){List<Integer> found=new ArrayList<>();Matcher m=FRACTION.matcher(q.prompt);while(m.find())found.add(Integer.parseInt(m.group(1)));if(found.size()<2)return false;int common=found.get(0);for(int i=1;i<found.size();i++){int b=found.get(i);while(b!=0){int remainder=common%b;common=b;b=remainder;}}if(common<2)return false;}
