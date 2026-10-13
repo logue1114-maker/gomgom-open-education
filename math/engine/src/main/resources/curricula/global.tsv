@@ -2291,3 +2291,5 @@ MAP	na-nied-primary-2024-v1	7	primeFactorProduct	SP printed53 B6; learner prime-
 RULE	na-nied-primary-2024-v1	7	primeFactorProduct	minGiven=1;maxGiven=1000000;maxResult=1000000;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	gcd	factorExtremaRange=true;minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	lcm	factorExtremaRange=true;minGiven=0;maxGiven=1000000;maxResult=1000000000000;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	threeStepWholeContexts	SP printed53 B8/B9; selected four whole-number contexts requiring three dependent operations; learner mental/written strategy and manual final submission, not whole-context proficiency
+RULE	na-nied-primary-2024-v1	7	threeStepWholeContexts	minGiven=0;maxGiven=1000000;maxResult=1000000;nonnegative=true
