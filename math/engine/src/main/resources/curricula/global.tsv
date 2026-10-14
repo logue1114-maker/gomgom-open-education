@@ -2320,3 +2320,5 @@ MAP	na-nied-primary-2024-v1	7	threeStepFractionContexts	SP printed54 B11; three 
 RULE	na-nied-primary-2024-v1	7	threeStepFractionContexts	denominators=2,3,4,5,6,7,8,9,10,11,12;nonnegative=true
 MAP	na-nied-primary-2024-v1	7	fractionDecimalRecall	SP printed55/PDF59 B3; direct recall of exact decimal equivalents including recurring thirds and finite eighths; selected raw denominators2,3,4,5,8,10/numerators0..denominator do not bound general public mathematics or prove full recall fluency
 RULE	na-nied-primary-2024-v1	7	fractionDecimalRecall	denominators=2,3,4,5,8,10;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	percentageMeaning	SP printed55/PDF59 B4; parts per hundred definition and direct percentage symbol use in two typed answers; selected integer parts0..100 do not constrain general finite decimal parts or percentages above100 or prove full competency
+RULE	na-nied-primary-2024-v1	7	percentageMeaning	minGiven=0;maxGiven=100;answerDomain=integer;nonnegative=true

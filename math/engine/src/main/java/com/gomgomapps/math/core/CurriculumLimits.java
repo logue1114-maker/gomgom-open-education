@@ -139,6 +139,7 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(q!=null&&PercentageMeaning.supports(q.skillId))return allowsPercentageMeaning(q);
         if(DivisionNotations.ID.equals(q.skillId)){DivisionNotations.Givens v=DivisionNotations.read(q);if(v==null||v.dividend()<givenMinimum(0)||v.dividend()>givenMaximum(1000000)||v.divisor()<contextDivisorMinimum()||v.divisor()>contextDivisorMaximum())return false;}
         if(Set.of("englishWordsToNumber","numberToEnglishWords").contains(q.skillId)){Integer publicNumber=EnglishNumberWords.publicValue(q);if(publicNumber==null||publicNumber<givenMinimum(0)||publicNumber>wholeMaximum(10000000))return false;}
         if(!quantityRepresentations.isEmpty()&&!q.skillId.equals("el_fraction_of_number"))return false;
@@ -291,6 +292,27 @@ public final class CurriculumLimits {
         }else if(maxResult!=null||nonnegative||!answerDomain.isEmpty())for(String answer:q.answers)if(!((CommonMultipleLists.NONE.equals(answer)&&CommonMultipleLists.noneExpected(q))||(PrimeFactorLists.NONE.equals(answer)&&PrimeFactorLists.noneExpected(q)))&&!allowsAnswer(answer))return false;
         return true;
     }
+    /** The denominator100 is the definition, not a variable supply operand. */
+    private boolean allowsPercentageMeaning(Question q){
+        PercentageMeaning.Givens g=PercentageMeaning.read(q);if(g==null)return false;
+        Rational p=g.percent(),basis=Rational.of(100);
+        if(maxGiven!=null&&compareDecimalLimit(p,maxGiven)>0||minGiven!=null&&compareDecimalLimit(p,minGiven)<0)return false;
+        if(wholeMaximum!=null&&p.compareTo(Rational.of(wholeMaximum))>0)return false;
+        String[] raw=g.rawPercent().split("\\.",-1);int whole=raw[0].length();
+        if(wholeDigits!=null&&whole>wholeDigits||minimumWholeDigits!=null&&whole<minimumWholeDigits||secondDigits!=null&&3>secondDigits)return false;
+        if(decimalPlaces!=null&&raw.length==2&&raw[1].length()>decimalPlaces)return false;
+        if(!percentages.isEmpty()&&(!p.isInteger()||p.n.bitLength()>31||!percentages.contains(p.intValue())))return false;
+        if(!denominators.isEmpty()&&!denominators.contains(100)||unitFractions&&!p.equals(Rational.ONE))return false;
+        if(maxFractionValue!=null&&g.ratio().compareTo(maxFractionValue)>0)return false;
+        for(Rational answer:List.of(basis,p)){
+            if(answerDomain.equals("integer")&&!answer.isInteger()||nonnegative&&answer.compareTo(Rational.ZERO)<0)return false;
+            if(maxResult!=null&&compareDecimalLimit(answer,maxResult)>0)return false;
+            if(answerDecimalPlaces!=null&&!answer.mul(new Rational(java.math.BigInteger.TEN.pow(answerDecimalPlaces),java.math.BigInteger.ONE)).isInteger())return false;
+        }
+        // These declared operation constraints do not describe a definition/notation task.
+        return partFractions.isEmpty()&&quantityRepresentations.isEmpty()&&factors.isEmpty()&&divisors.isEmpty()&&dividendMaxima.isEmpty()&&!monicQuadratic&&!integerSecondOperand&&!relatedDenominators&&!commonDenominatorFactor&&!nonnegativeSubtrahend&&maxSecondOperand==null&&maxRegroups==null&&secondDecimalPlaces==null&&polygonSides==null&&maxExactResult==null&&roundingDecimalTargets.isEmpty()&&roundingUnits.isEmpty()&&!sameDecimalPlaces;
+    }
+    private static int compareDecimalLimit(Rational number,double limit){return new java.math.BigDecimal(number.n).compareTo(java.math.BigDecimal.valueOf(limit).multiply(new java.math.BigDecimal(number.d)));}
     private static int[] grouping(String prompt){
         Matcher m=Pattern.compile("(\\d+)씩 (\\d+)묶음은 모두 얼마인가요\\?").matcher(prompt);
         if(m.matches())return new int[]{Integer.parseInt(m.group(1)),Integer.parseInt(m.group(2))};
