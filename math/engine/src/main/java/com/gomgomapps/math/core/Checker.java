@@ -23,6 +23,7 @@ public final class Checker {
         return check(q,steps,answers,Collections.emptyList());
     }
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
+        if(DecimalAddSub.supports(q.skillId)){Question visible=DecimalAddSub.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return DecimalAddSub.check(q,answers);}
         if(FractionDecimalRecall.supports(q.skillId))return FractionDecimalRecall.check(q,answers);
         if(FractionDecimalPercentRecall.supports(q.skillId))return FractionDecimalPercentRecall.check(q,answers);
         if(PercentageMeaning.supports(q.skillId))return PercentageMeaning.check(q,answers);
@@ -67,7 +68,6 @@ public final class Checker {
         if(FractionFamilies.supports(q.skillId))return FractionFamilies.check(q,answers);
         if(DecimalToFractionSupply.ID.equals(q.skillId))return DecimalToFractionSupply.check(q,answers);
         if(DecimalUnitRelations.supports(q.skillId))return DecimalUnitRelations.check(q,answers);
-        if(DecimalAddSub.supports(q.skillId))return DecimalAddSub.check(q,answers);
         if(DecimalWholeProducts.read(q)!=null)return DecimalWholeProducts.check(q,answers);
         if(DecimalWholeQuotients.read(q)!=null)return DecimalWholeQuotients.check(q,answers);
         if("boundedWholeAddSub".equals(q.kind))return BoundedWholeAddSub.check(q,answers);
@@ -215,6 +215,7 @@ public final class Checker {
         return checkSteps(q,steps,kinds,true).forWorkInput();
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
+        if(DecimalAddSub.supports(q.skillId)){Question visible=DecimalAddSub.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
         Rational fractionExpected=null;
         if(ThreeStepFractionContexts.supports(q.skillId)){ThreeStepFractionContexts.Givens visible=ThreeStepFractionContexts.read(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");fractionExpected=visible.value();q=ThreeStepFractionContexts.workQuestion(q);}
         if(QuantityFractionCheck.ID.equals(q.skillId)){QuantityFractionCheck.Givens publicValues=QuantityFractionCheck.readGeneral(q);if(publicValues==null)return new Result(Status.INPUT_NEEDED,-1,"문제 조건 확인 필요");fractionExpected=publicValues.value();q=QuantityFractionCheck.workQuestion(q);}

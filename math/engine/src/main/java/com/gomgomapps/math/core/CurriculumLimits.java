@@ -59,6 +59,8 @@ public final class CurriculumLimits {
     private Integer minimumWholeDigits;
     private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables,monicQuadratic,wholeFractionMultiplier,quantityUnitConversions,quantityRationalParts;
     private boolean fractionDecimalDivision;
+    private boolean decimalDirectAnswers;
+    boolean decimalDirectAnswers(){return decimalDirectAnswers;}
     boolean fractionDecimalDivision(){return fractionDecimalDivision;}
     boolean quantityRationalParts(){return quantityRationalParts;}
     boolean quantityUnitConversions(){return quantityUnitConversions;}
@@ -69,6 +71,7 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "decimalDirectAnswers":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid direct decimal answer flag");decimalDirectAnswers=Boolean.parseBoolean(pair[1]);break;
                 case "fractionDecimalDivision":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid fraction decimal division flag");fractionDecimalDivision=Boolean.parseBoolean(pair[1]);break;
                 case "quantityRationalParts":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid rational quantity part flag");quantityRationalParts=Boolean.parseBoolean(pair[1]);break;
                 case "quantityUnitConversions":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid quantity unit conversion flag");quantityUnitConversions=Boolean.parseBoolean(pair[1]);break;
@@ -139,6 +142,7 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(q!=null&&DecimalAddSub.supports(q.skillId))return allowsDecimalAddSub(q);
         if(q!=null&&FractionDecimalPercentRecall.supports(q.skillId))return allowsFractionDecimalPercentRecall(q);
         if(q!=null&&RepresentationConversions.supports(q.skillId))return allowsRepresentationConversion(q);
         if(q!=null&&PercentageMeaning.supports(q.skillId))return allowsPercentageMeaning(q);
@@ -337,6 +341,18 @@ public final class CurriculumLimits {
         if(!percentages.isEmpty()){Rational percent=g.value().mul(Rational.of(100));if(!percent.isInteger()||percent.n.bitLength()>31||!percentages.contains(percent.intValue()))return false;}
         return partFractions.isEmpty()&&quantityRepresentations.isEmpty()&&factors.isEmpty()&&divisors.isEmpty()&&dividendMaxima.isEmpty()&&!monicQuadratic&&!integerSecondOperand&&!relatedDenominators&&!commonDenominatorFactor&&!nonnegativeSubtrahend&&maxSecondOperand==null&&maxRegroups==null&&secondDecimalPlaces==null&&polygonSides==null&&maxExactResult==null&&roundingDecimalTargets.isEmpty()&&roundingUnits.isEmpty()&&!sameDecimalPlaces;
     }
+    private boolean allowsDecimalAddSub(Question q){
+        List<String> raw=DecimalAddSub.read(q);if(raw.isEmpty())return false;List<java.math.BigDecimal> values=new ArrayList<>();for(String text:raw)values.add(new java.math.BigDecimal(text));java.math.BigDecimal result=DecimalAddSub.value(q);
+        for(int i=0;i<values.size();i++){java.math.BigDecimal x=values.get(i);int digits=raw.get(i).split("\\.",-1)[0].length();if(decimalPlaces!=null&&x.scale()>decimalPlaces||wholeMaximum!=null&&x.toBigInteger().compareTo(java.math.BigInteger.valueOf(wholeMaximum))>0||maxGiven!=null&&x.compareTo(java.math.BigDecimal.valueOf(maxGiven))>0||minGiven!=null&&x.compareTo(java.math.BigDecimal.valueOf(minGiven))<0||wholeDigits!=null&&digits>(i==0||secondDigits==null?wholeDigits:secondDigits)||minimumWholeDigits!=null&&digits<minimumWholeDigits)return false;}
+        if(secondDigits!=null&&wholeDigits==null)for(int i=1;i<raw.size();i++)if(raw.get(i).split("\\.",-1)[0].length()>secondDigits)return false;
+        if(secondDecimalPlaces!=null)for(int i=1;i<values.size();i++)if(values.get(i).scale()>secondDecimalPlaces)return false;
+        if(integerSecondOperand&&values.get(1).stripTrailingZeros().scale()>0)return false;
+        if(answerDomain.equals("integer")&&result.stripTrailingZeros().scale()>0||nonnegative&&result.signum()<0||maxResult!=null&&result.compareTo(java.math.BigDecimal.valueOf(maxResult))>0||answerDecimalPlaces!=null&&result.stripTrailingZeros().scale()>answerDecimalPlaces)return false;
+        if(maxSecondOperand!=null)for(int i=1;i<values.size();i++)if(values.get(i).compareTo(java.math.BigDecimal.valueOf(maxSecondOperand))>0)return false;
+        if(maxRegroups!=null){int places=values.stream().mapToInt(java.math.BigDecimal::scale).max().orElse(0);java.math.BigDecimal unit=java.math.BigDecimal.TEN.pow(places);java.math.BigInteger running=values.get(0).multiply(unit).toBigIntegerExact();for(int i=1;i<values.size();i++){java.math.BigInteger next=values.get(i).multiply(unit).toBigIntegerExact();if(running.signum()<0||decimalRegroups(running,next,q.skillId.equals("decimalAdd"))>maxRegroups)return false;running=q.skillId.equals("decimalAdd")?running.add(next):running.subtract(next);}}
+        return denominators.isEmpty()&&partFractions.isEmpty()&&quantityRepresentations.isEmpty()&&factors.isEmpty()&&divisors.isEmpty()&&dividendMaxima.isEmpty()&&percentages.isEmpty()&&maxFractionValue==null&&!unitFractions&&!relatedDenominators&&!commonDenominatorFactor&&!monicQuadratic&&!nonnegativeSubtrahend&&polygonSides==null&&maxExactResult==null&&roundingDecimalTargets.isEmpty()&&roundingUnits.isEmpty()&&!sameDecimalPlaces;
+    }
+    private static int decimalRegroups(java.math.BigInteger left,java.math.BigInteger right,boolean addition){int count=0,carry=0;while(left.signum()>0||right.signum()>0){int digit=addition?left.mod(java.math.BigInteger.TEN).intValue()+right.mod(java.math.BigInteger.TEN).intValue()+carry:left.mod(java.math.BigInteger.TEN).intValue()-right.mod(java.math.BigInteger.TEN).intValue()-carry;carry=addition?(digit>=10?1:0):(digit<0?1:0);count+=carry;left=left.divide(java.math.BigInteger.TEN);right=right.divide(java.math.BigInteger.TEN);}return count;}
     private static int compareDecimalLimit(Rational number,double limit){return new java.math.BigDecimal(number.n).compareTo(java.math.BigDecimal.valueOf(limit).multiply(new java.math.BigDecimal(number.d)));}
     private static int[] grouping(String prompt){
         Matcher m=Pattern.compile("(\\d+)씩 (\\d+)묶음은 모두 얼마인가요\\?").matcher(prompt);

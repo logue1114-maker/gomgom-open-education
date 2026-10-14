@@ -1494,7 +1494,7 @@ RULE	na-nied-primary-2024-v1	6	el_fraction_decimal	denominators=2,4,5,10,20,25,5
 RULE	na-nied-primary-2024-v1	7	el_fraction_decimal	denominators=2,3,4,5,6,7,8,9,10,11,12;fractionDecimalDivision=true;nonnegative=true
 RULE	na-nied-primary-2024-v1	5	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=2;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	el_decimal_place	decimalPlaces=3;nonnegative=true
-RULE	na-nied-primary-2024-v1	7	el_decimal_place,el_decimal_compare,decimalAdd,decimalSub	decimalPlaces=3;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	el_decimal_place,el_decimal_compare	decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	decimalMul	integerSecondOperand=true;decimalPlaces=3;nonnegative=true;wholeMaximum=99;variedFacts=true
 RULE	na-nied-primary-2024-v1	7	decimalMul	decimalPlaces=2;answerDecimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	decimalDivInt	decimalPlaces=3;nonnegative=true;wholeMaximum=99;variedFacts=true
@@ -2326,3 +2326,4 @@ MAP	na-nied-primary-2024-v1	7	conversionFractionDecimal,conversionFractionPercen
 RULE	na-nied-primary-2024-v1	7	conversionFractionDecimal,conversionFractionPercent,conversionDecimalFraction,conversionDecimalPercent,conversionPercentFraction,conversionPercentDecimal	maxFractionValue=2;nonnegative=true
 MAP	na-nied-primary-2024-v1	7	fractionDecimalPercentRecall	SP printed55/PDF59 B6; direct recall of decimal and numeric percentage equivalents for familiar fractions; selected original denominators2,4,5,10,20,25,50,100/numerators0..denominator do not constrain general recurring or above-one equivalents or prove recall fluency
 RULE	na-nied-primary-2024-v1	7	fractionDecimalPercentRecall	denominators=2,4,5,10,20,25,50,100;maxFractionValue=1;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	decimalAdd,decimalSub	wholeMaximum=99;decimalPlaces=3;variedFacts=true;nonnegative=true;decimalDirectAnswers=true
