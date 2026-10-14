@@ -62,6 +62,8 @@ public final class CurriculumLimits {
     private boolean decimalDirectAnswers;
     private boolean includeWholeDecimalProducts;
     private boolean wholeDecimalQuotients;
+    private boolean decimalDivisorQuotients;
+    boolean decimalDivisorQuotients(){return decimalDivisorQuotients;}
     private Integer wholeDivisorMaximum;
     boolean wholeDecimalQuotients(){return wholeDecimalQuotients;}
     int wholeDivisorMaximum(){return wholeDivisorMaximum==null?99:wholeDivisorMaximum;}
@@ -81,6 +83,7 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "decimalDivisorQuotients":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid decimal divisor quotient flag");decimalDivisorQuotients=Boolean.parseBoolean(pair[1]);break;
                 case "wholeDecimalQuotients":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid whole decimal quotient flag");wholeDecimalQuotients=Boolean.parseBoolean(pair[1]);break;
                 case "wholeDivisorMaximum":wholeDivisorMaximum=Integer.valueOf(pair[1]);if(wholeDivisorMaximum<1||wholeDivisorMaximum>99)throw new IllegalArgumentException("Invalid selected whole divisor range");break;
                 case "includeWholeDecimalProducts":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid whole decimal product flag");includeWholeDecimalProducts=Boolean.parseBoolean(pair[1]);break;
@@ -157,6 +160,7 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(q!=null&&DecimalDivisorQuotients.supports(q.skillId))return allowsDecimalDivisorQuotients(q);
         if(q!=null&&DecimalWholeQuotients.supports(q.skillId))return allowsDecimalQuotients(q);
         if(q!=null&&DecimalWholeProducts.supports(q.skillId))return allowsDecimalProducts(q);
         if(q!=null&&DecimalAddSub.supports(q.skillId))return allowsDecimalAddSub(q);
@@ -357,6 +361,15 @@ public final class CurriculumLimits {
         for(Rational answer:List.of(g.value(),g.value().mul(Rational.of(100)))){if(answerDomain.equals("integer")&&!answer.isInteger()||nonnegative&&answer.compareTo(Rational.ZERO)<0||maxResult!=null&&compareDecimalLimit(answer,maxResult)>0)return false;if(answerDecimalPlaces!=null&&!answer.mul(new Rational(java.math.BigInteger.TEN.pow(answerDecimalPlaces),java.math.BigInteger.ONE)).isInteger())return false;}
         if(!percentages.isEmpty()){Rational percent=g.value().mul(Rational.of(100));if(!percent.isInteger()||percent.n.bitLength()>31||!percentages.contains(percent.intValue()))return false;}
         return partFractions.isEmpty()&&quantityRepresentations.isEmpty()&&factors.isEmpty()&&divisors.isEmpty()&&dividendMaxima.isEmpty()&&!monicQuadratic&&!integerSecondOperand&&!relatedDenominators&&!commonDenominatorFactor&&!nonnegativeSubtrahend&&maxSecondOperand==null&&maxRegroups==null&&secondDecimalPlaces==null&&polygonSides==null&&maxExactResult==null&&roundingDecimalTargets.isEmpty()&&roundingUnits.isEmpty()&&!sameDecimalPlaces;
+    }
+    private boolean allowsDecimalDivisorQuotients(Question q){
+        DecimalDivisorQuotients.Originals original=DecimalDivisorQuotients.readGeneral(q);if(original==null)return false;java.math.BigDecimal left=original.left(),right=original.right();Rational result=original.value();
+        if(decimalDivisorQuotients&&!original.finitePossible())return false;
+        List<String> raw=List.of(original.leftRaw(),original.rightRaw());List<java.math.BigDecimal> values=List.of(left,right);
+        for(int i=0;i<2;i++){java.math.BigDecimal x=values.get(i);int digits=raw.get(i).split("\\.",-1)[0].length();int precision=i==1&&secondDecimalPlaces!=null?secondDecimalPlaces:decimalPlaces==null?12:decimalPlaces;if(x.scale()>precision||wholeMaximum!=null&&x.toBigInteger().compareTo(java.math.BigInteger.valueOf(wholeMaximum))>0||maxGiven!=null&&x.compareTo(java.math.BigDecimal.valueOf(maxGiven))>0||minGiven!=null&&x.compareTo(java.math.BigDecimal.valueOf(minGiven))<0||wholeDigits!=null&&digits>(i==0||secondDigits==null?wholeDigits:secondDigits)||minimumWholeDigits!=null&&digits<minimumWholeDigits)return false;}
+        if(secondDigits!=null&&original.rightRaw().split("\\.",-1)[0].length()>secondDigits||integerSecondOperand&&right.stripTrailingZeros().scale()>0||maxSecondOperand!=null&&right.compareTo(java.math.BigDecimal.valueOf(maxSecondOperand))>0)return false;
+        if(answerDomain.equals("integer")&&!result.isInteger()||nonnegative&&result.compareTo(Rational.ZERO)<0||maxResult!=null&&compareDecimalLimit(result,maxResult)>0||answerDecimalPlaces!=null&&!result.mul(new Rational(java.math.BigInteger.TEN.pow(answerDecimalPlaces),java.math.BigInteger.ONE)).isInteger())return false;
+        return denominators.isEmpty()&&partFractions.isEmpty()&&quantityRepresentations.isEmpty()&&factors.isEmpty()&&divisors.isEmpty()&&dividendMaxima.isEmpty()&&percentages.isEmpty()&&maxFractionValue==null&&!unitFractions&&!relatedDenominators&&!commonDenominatorFactor&&!monicQuadratic&&!nonnegativeSubtrahend&&maxRegroups==null&&polygonSides==null&&maxExactResult==null&&roundingDecimalTargets.isEmpty()&&roundingUnits.isEmpty()&&!sameDecimalPlaces&&!includeWholeDecimalProducts&&wholeProductDecimalPlaces==null&&wholeProductMaximum==null&&wholeMultiplierMaximum==null&&!wholeDecimalQuotients&&wholeDivisorMaximum==null;
     }
     private boolean allowsDecimalQuotients(Question q){
         DecimalWholeQuotients.Originals original=DecimalWholeQuotients.readGeneral(q);if(original==null)return false;java.math.BigDecimal left=original.dividend(),right=new java.math.BigDecimal(original.divisor());Rational result=original.value();

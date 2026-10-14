@@ -1502,7 +1502,7 @@ RULE	na-nied-primary-2024-v1	7	decimalDivInt	decimalPlaces=3;nonnegative=true;wh
 RULE	na-nied-primary-2024-v1	7	squareWhole,cubeWhole	maxGiven=10;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	sec_prime_factor	maxGiven=99;nonnegative=true
 RULE	na-nied-primary-2024-v1	4	fracCompare	denominators=2,3,4,5,6,7,8,9,10
-RULE	na-nied-primary-2024-v1	7	decimalDiv	decimalPlaces=3;secondDecimalPlaces=1;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	decimalDiv	decimalPlaces=3;secondDecimalPlaces=1;nonnegative=true;decimalDivisorQuotients=true;decimalDirectAnswers=true
 
 MAP	na-nied-primary-2024-v1	1	objectGroupTotal,objectShare,objectGroupRemainder	JP printed pp.16–17: selected equal groups and sharing with objects; no operation signs; oral acting, full numeric ranges and all strategies remain
 RULE	na-nied-primary-2024-v1	1	objectGroupTotal	wholeMaximum=20;maxResult=20;objectGroupSizes=2,5,10

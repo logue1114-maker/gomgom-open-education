@@ -119,6 +119,7 @@ public final class Generator {
         if(DecimalPlaceRelations.supports(skillId))q=DecimalPlaceRelations.next(random,limits,previous);
         if(DecimalRoundingSupply.supports(skillId,limits))q=DecimalRoundingSupply.next(random,limits,previous);
         if(DecimalAddSub.selected(skillId,limits))q=DecimalAddSub.next(skillId,random,limits,previous);
+        if(DecimalDivisorQuotients.selected(skillId,limits))q=DecimalDivisorQuotients.next(random,limits,previous);
         if(DecimalWholeQuotients.selectedNaSeven(skillId,limits))q=DecimalWholeQuotients.nextNaSeven(random,limits,previous);else if(DecimalWholeQuotients.selected(skillId,limits))q=DecimalWholeQuotients.next(random,limits,previous);
         if(CountingCalculations.supports(skillId))q=CountingCalculations.next(s,random,limits,previous);
         if(GroupDrawing.ID.equals(skillId))q=GroupDrawing.next(random,limits,previous);
@@ -207,7 +208,7 @@ public final class Generator {
         FactorTeaching.attach(q);
         if(q.choiceDiagrams!=null&&!q.choiceDiagrams.isEmpty()){q.choices=new ArrayList<>(q.choiceDiagrams.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
         else if(q.choiceLabels!=null&&!q.choiceLabels.isEmpty()){q.choices=new ArrayList<>(q.choiceLabels.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
-        else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number")&&!(DecimalAddSub.supports(skillId)&&limits.decimalDirectAnswers())&&!(DecimalWholeProducts.supports(skillId)&&limits.includeWholeDecimalProducts()&&limits.decimalDirectAnswers())&&!RepresentationConversions.supports(skillId)&&!CommonMultipleLists.supports(skillId)&&!EnglishNumberWords.supports(skillId)&&!PercentageNotation.supports(skillId)&&!EquivalentQuantityStories.supports(skillId)&&!DecimalPercentReverse.supports(skillId)){if(PrimaryScaleRates.supports(s.id)||CombinedEqualityPractice.supports(s.id)||EqualityFoundations.selected(s.id))EqualityFoundations.choices(q,random,limits);else if(skillId.equals(WholePlaceRelations.VALUE))WholePlaceRelations.choices(q,random,limits);else Choices.build(q,s,random);}
+        else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number")&&!(DecimalDivisorQuotients.selected(skillId,limits)&&limits.decimalDirectAnswers())&&!(DecimalAddSub.supports(skillId)&&limits.decimalDirectAnswers())&&!(DecimalWholeProducts.supports(skillId)&&limits.includeWholeDecimalProducts()&&limits.decimalDirectAnswers())&&!RepresentationConversions.supports(skillId)&&!CommonMultipleLists.supports(skillId)&&!EnglishNumberWords.supports(skillId)&&!PercentageNotation.supports(skillId)&&!EquivalentQuantityStories.supports(skillId)&&!DecimalPercentReverse.supports(skillId)){if(PrimaryScaleRates.supports(s.id)||CombinedEqualityPractice.supports(s.id)||EqualityFoundations.selected(s.id))EqualityFoundations.choices(q,random,limits);else if(skillId.equals(WholePlaceRelations.VALUE))WholePlaceRelations.choices(q,random,limits);else Choices.build(q,s,random);}
         if(multipleChoice&&q.choices.isEmpty()&&!RepresentationConversions.supports(skillId)&&(s.id.startsWith("el_")||s.id.startsWith("sec_")||s.family.startsWith("adv_")||s.family.startsWith("early_")))FoundationChoices.build(q,s,random);
         if(multipleChoice&&q.kind.equals("radical")){if(CoordinateDiagonal.supports(s.id))CoordinateDiagonal.choices(q,random);else if(CoordinateTriangle.PERIM.equals(s.id))CoordinateTriangle.choices(q,random);else RadicalQuestions.choices(q,random);}
         limits.constrainChoices(q);
@@ -324,6 +325,7 @@ public final class Generator {
         if(DecimalPlaceRelations.supports(s.id))return DecimalPlaceRelations.next(random,limits,Map.of());
         if(DecimalRoundingSupply.supports(s.id,limits))return DecimalRoundingSupply.next(random,limits,Map.of());
         if(DecimalAddSub.selected(s.id,limits))return DecimalAddSub.next(s.id,random,limits,Map.of());
+        if(DecimalDivisorQuotients.selected(s.id,limits))return DecimalDivisorQuotients.next(random,limits,Map.of());
         if(DecimalWholeQuotients.selectedNaSeven(s.id,limits))return DecimalWholeQuotients.nextNaSeven(random,limits,Map.of());
         if(DecimalWholeQuotients.selected(s.id,limits))return DecimalWholeQuotients.next(random,limits,Map.of());
         if(CountingCalculations.supports(s.id))return CountingCalculations.next(s,random,limits,Map.of());
