@@ -23,6 +23,7 @@ public final class Checker {
         return check(q,steps,answers,Collections.emptyList());
     }
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
+        if(PublicDecimalContexts.supports(q.skillId)){Question visible=PublicDecimalContexts.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");if(!"mental".equals(q.calculationMethod)){Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();}return PublicDecimalContexts.check(q,answers);}
         if(DecimalDivisorQuotients.supports(q.skillId)){Question visible=DecimalDivisorQuotients.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return DecimalDivisorQuotients.check(q,answers);}
         if(DecimalWholeQuotients.supports(q.skillId)){Question visible=DecimalWholeQuotients.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return DecimalWholeQuotients.check(q,answers);}
         if(DecimalWholeProducts.supports(q.skillId)){Question visible=DecimalWholeProducts.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return DecimalWholeProducts.check(q,answers);}
@@ -79,9 +80,6 @@ public final class Checker {
         if(EnglishDecimalWords.READ.equals(q.skillId))return EnglishDecimalWords.checkReading(q,answers);
         if(GeometricMultiplePatterns.supports(q.skillId))return GeometricMultiplePatterns.check(q,answers);
         if(PairedNumberTables.supports(q.skillId))return PairedNumberTables.check(q,answers);
-        if(DecimalTwoStepStories.supports(q.skillId))return DecimalTwoStepStories.check(q,answers);
-        if(DecimalMeasureGroups.supports(q.skillId))return DecimalMeasureGroups.check(q,answers);
-        if(DecimalMeasureStories.supports(q.skillId))return DecimalMeasureStories.check(q,answers);
         if(PercentageNotation.supports(q.skillId))return PercentageNotation.check(q,answers);
         if(FractionPercentEquivalence.supports(q.skillId))return FractionPercentEquivalence.check(q,answers);
         if(WholeFractionProducts.supports(q))return WholeFractionProducts.check(q,answers);
@@ -216,6 +214,7 @@ public final class Checker {
         return checkSteps(q,steps,kinds,true).forWorkInput();
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
+        if(PublicDecimalContexts.supports(q.skillId)){Question visible=PublicDecimalContexts.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
         if(DecimalDivisorQuotients.supports(q.skillId)){Question visible=DecimalDivisorQuotients.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
         if(DecimalWholeQuotients.supports(q.skillId)){Question visible=DecimalWholeQuotients.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
         if(DecimalWholeProducts.supports(q.skillId)){Question visible=DecimalWholeProducts.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}

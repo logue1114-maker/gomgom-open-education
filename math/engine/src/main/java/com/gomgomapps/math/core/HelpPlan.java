@@ -24,6 +24,7 @@ public final class HelpPlan {
         private boolean decimalAddSub;
         private boolean decimalProduct;
         private boolean decimalQuotient;
+        private boolean decimalContext;
         private Set<String> acceptedChoices;
         Step(String instruction,String before,String after,int expected,int filled,int extra,int denominator){
             this.instruction=instruction;this.before=before;this.after=after;this.expected=String.valueOf(expected);this.general=false;this.options=Map.of();
@@ -31,6 +32,7 @@ public final class HelpPlan {
         }
         Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=frame.pictureFilled==null?-1:frame.pictureFilled;extra=frame.pictureExtra==null?0:frame.pictureExtra;denominator=frame.pictureDenominator==null?0:frame.pictureDenominator;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);requiredFormat=frame.inputFormat==null?"":frame.inputFormat;acceptedChoices=frame.acceptedChoices==null?null:Set.copyOf(frame.acceptedChoices);}
         public boolean accepts(String value){
+            if(decimalContext)return PublicDecimalContexts.acceptsStep(value,expected,requiredFormat);
             if(decimalQuotient)return DecimalWholeQuotients.acceptsStep(value,expected,requiredFormat);
             if(decimalProduct)return DecimalWholeProducts.acceptsStep(value,expected,requiredFormat);
             if(decimalAddSub)return DecimalAddSub.acceptsStep(value,expected,requiredFormat);
@@ -85,6 +87,7 @@ public final class HelpPlan {
         steps.add(new Step(instruction,before,after,expected,filled,extra,denominator));
     }
     public static HelpPlan forQuestion(Question q){
+        if(q!=null&&PublicDecimalContexts.supports(q.skillId)){StudyGuide visible=PublicDecimalContexts.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames){Step step=new Step(frame);step.decimalContext=step.options.isEmpty();plan.steps.add(step);}plan.teachingVersion=visible.teachingVersion;plan.resultNumeratorFrame=visible.resultNumeratorFrame;plan.resultDenominatorFrame=visible.resultDenominatorFrame;plan.decimalQuotient=true;plan.transfer=false;return plan;}
         if(q!=null&&DecimalDivisorQuotients.supports(q.skillId)){StudyGuide visible=DecimalDivisorQuotients.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames){Step step=new Step(frame);step.decimalQuotient=true;plan.steps.add(step);}plan.teachingVersion=visible.teachingVersion;plan.resultNumeratorFrame=visible.resultNumeratorFrame;plan.resultDenominatorFrame=visible.resultDenominatorFrame;plan.decimalQuotient=true;plan.transfer=false;return plan;}
         if(q!=null&&DecimalWholeQuotients.supports(q.skillId)){StudyGuide visible=DecimalWholeQuotients.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames){Step step=new Step(frame);step.decimalQuotient=true;plan.steps.add(step);}plan.teachingVersion=visible.teachingVersion;plan.resultNumeratorFrame=visible.resultNumeratorFrame;plan.resultDenominatorFrame=visible.resultDenominatorFrame;plan.decimalQuotient=true;plan.transfer=false;return plan;}
         if(q!=null&&DecimalWholeProducts.supports(q.skillId)){StudyGuide visible=DecimalWholeProducts.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames){Step step=new Step(frame);step.decimalProduct=true;plan.steps.add(step);}plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}

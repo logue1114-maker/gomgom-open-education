@@ -60,6 +60,10 @@ public final class CurriculumLimits {
     private boolean integerSecondOperand,variedFacts,variedSums,includeZeroCount,timetables,monicQuadratic,wholeFractionMultiplier,quantityUnitConversions,quantityRationalParts;
     private boolean fractionDecimalDivision;
     private boolean decimalDirectAnswers;
+    private boolean decimalContextMethods;
+    private Integer decimalContextCountMaximum;
+    boolean decimalContextMethods(){return decimalContextMethods;}
+    int decimalContextCountMaximum(){return decimalContextCountMaximum==null?99:decimalContextCountMaximum;}
     private boolean includeWholeDecimalProducts;
     private boolean wholeDecimalQuotients;
     private boolean decimalDivisorQuotients;
@@ -89,6 +93,8 @@ public final class CurriculumLimits {
                 case "includeWholeDecimalProducts":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid whole decimal product flag");includeWholeDecimalProducts=Boolean.parseBoolean(pair[1]);break;
                 case "wholeProductDecimalPlaces":wholeProductDecimalPlaces=Integer.valueOf(pair[1]);if(wholeProductDecimalPlaces<1||wholeProductDecimalPlaces>3)throw new IllegalArgumentException("Invalid selected whole product precision");break;
                 case "wholeProductMaximum":case "wholeMultiplierMaximum":int productMaximum=Integer.parseInt(pair[1]);if(productMaximum<0||productMaximum>99)throw new IllegalArgumentException("Invalid selected whole product range");if(pair[0].equals("wholeProductMaximum"))wholeProductMaximum=productMaximum;else wholeMultiplierMaximum=productMaximum;break;
+                case "decimalContextMethods":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid decimal context method flag");decimalContextMethods=Boolean.parseBoolean(pair[1]);break;
+                case "decimalContextCountMaximum":decimalContextCountMaximum=Integer.valueOf(pair[1]);if(decimalContextCountMaximum<1||decimalContextCountMaximum>99)throw new IllegalArgumentException("Invalid selected decimal context count");break;
                 case "decimalDirectAnswers":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid direct decimal answer flag");decimalDirectAnswers=Boolean.parseBoolean(pair[1]);break;
                 case "fractionDecimalDivision":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid fraction decimal division flag");fractionDecimalDivision=Boolean.parseBoolean(pair[1]);break;
                 case "quantityRationalParts":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid rational quantity part flag");quantityRationalParts=Boolean.parseBoolean(pair[1]);break;
@@ -160,6 +166,7 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(q!=null&&PublicDecimalContexts.supports(q.skillId))return allowsPublicDecimalContexts(q);
         if(q!=null&&DecimalDivisorQuotients.supports(q.skillId))return allowsDecimalDivisorQuotients(q);
         if(q!=null&&DecimalWholeQuotients.supports(q.skillId))return allowsDecimalQuotients(q);
         if(q!=null&&DecimalWholeProducts.supports(q.skillId))return allowsDecimalProducts(q);
@@ -361,6 +368,21 @@ public final class CurriculumLimits {
         for(Rational answer:List.of(g.value(),g.value().mul(Rational.of(100)))){if(answerDomain.equals("integer")&&!answer.isInteger()||nonnegative&&answer.compareTo(Rational.ZERO)<0||maxResult!=null&&compareDecimalLimit(answer,maxResult)>0)return false;if(answerDecimalPlaces!=null&&!answer.mul(new Rational(java.math.BigInteger.TEN.pow(answerDecimalPlaces),java.math.BigInteger.ONE)).isInteger())return false;}
         if(!percentages.isEmpty()){Rational percent=g.value().mul(Rational.of(100));if(!percent.isInteger()||percent.n.bitLength()>31||!percentages.contains(percent.intValue()))return false;}
         return partFractions.isEmpty()&&quantityRepresentations.isEmpty()&&factors.isEmpty()&&divisors.isEmpty()&&dividendMaxima.isEmpty()&&!monicQuadratic&&!integerSecondOperand&&!relatedDenominators&&!commonDenominatorFactor&&!nonnegativeSubtrahend&&maxSecondOperand==null&&maxRegroups==null&&secondDecimalPlaces==null&&polygonSides==null&&maxExactResult==null&&roundingDecimalTargets.isEmpty()&&roundingUnits.isEmpty()&&!sameDecimalPlaces;
+    }
+    private boolean allowsPublicDecimalContexts(Question q){
+        PublicDecimalContexts.Givens g=PublicDecimalContexts.readGeneral(q);if(g==null)return false;
+        List<String> raw=new ArrayList<>();raw.add(g.firstRaw());if(g.secondRaw()!=null)raw.add(g.secondRaw());
+        for(int i=0;i<raw.size();i++){
+            java.math.BigDecimal x=new java.math.BigDecimal(raw.get(i));int digits=raw.get(i).split("\\.",-1)[0].length();int precision=i==1&&secondDecimalPlaces!=null?secondDecimalPlaces:decimalPlaces==null?3:decimalPlaces;
+            if(x.scale()>precision||wholeMaximum!=null&&x.toBigInteger().compareTo(java.math.BigInteger.valueOf(wholeMaximum))>0||maxGiven!=null&&x.compareTo(java.math.BigDecimal.valueOf(maxGiven))>0||minGiven!=null&&x.compareTo(java.math.BigDecimal.valueOf(minGiven))<0||wholeDigits!=null&&digits>(i==0||secondDigits==null?wholeDigits:secondDigits)||minimumWholeDigits!=null&&digits<minimumWholeDigits)return false;
+        }
+        if(g.count()!=null){
+            int digits=g.countRaw().length();if(decimalContextCountMaximum!=null&&g.count().compareTo(java.math.BigInteger.valueOf(decimalContextCountMaximum))>0||maxGiven!=null&&compareDecimalLimit(new Rational(g.count(),java.math.BigInteger.ONE),maxGiven)>0||minGiven!=null&&compareDecimalLimit(new Rational(g.count(),java.math.BigInteger.ONE),minGiven)<0||g.secondRaw()==null&&wholeDigits!=null&&digits>(secondDigits==null?wholeDigits:secondDigits)||g.secondRaw()==null&&minimumWholeDigits!=null&&digits<minimumWholeDigits)return false;
+        }else if(decimalContextCountMaximum!=null&&!decimalContextMethods)return false;
+        String second=g.secondRaw()!=null?g.secondRaw():g.countRaw();if(secondDigits!=null&&second!=null&&second.split("\\.",-1)[0].length()>secondDigits||integerSecondOperand&&second!=null&&new java.math.BigDecimal(second).stripTrailingZeros().scale()>0||maxSecondOperand!=null&&second!=null&&new java.math.BigDecimal(second).compareTo(java.math.BigDecimal.valueOf(maxSecondOperand))>0)return false;
+        if(sameDecimalPlaces&&(g.secondRaw()==null||new java.math.BigDecimal(g.firstRaw()).scale()!=new java.math.BigDecimal(g.secondRaw()).scale()))return false;
+        Rational result=g.value();if(answerDomain.equals("integer")&&!result.isInteger()||nonnegative&&result.compareTo(Rational.ZERO)<0||maxResult!=null&&compareDecimalLimit(result,maxResult)>0||answerDecimalPlaces!=null&&!result.mul(new Rational(java.math.BigInteger.TEN.pow(answerDecimalPlaces),java.math.BigInteger.ONE)).isInteger())return false;
+        return denominators.isEmpty()&&partFractions.isEmpty()&&quantityRepresentations.isEmpty()&&factors.isEmpty()&&divisors.isEmpty()&&dividendMaxima.isEmpty()&&percentages.isEmpty()&&maxFractionValue==null&&!unitFractions&&!relatedDenominators&&!commonDenominatorFactor&&!monicQuadratic&&!nonnegativeSubtrahend&&maxRegroups==null&&polygonSides==null&&maxExactResult==null&&roundingDecimalTargets.isEmpty()&&roundingUnits.isEmpty()&&!includeWholeDecimalProducts&&wholeProductDecimalPlaces==null&&wholeProductMaximum==null&&wholeMultiplierMaximum==null&&!wholeDecimalQuotients&&wholeDivisorMaximum==null&&!decimalDivisorQuotients;
     }
     private boolean allowsDecimalDivisorQuotients(Question q){
         DecimalDivisorQuotients.Originals original=DecimalDivisorQuotients.readGeneral(q);if(original==null)return false;java.math.BigDecimal left=original.left(),right=original.right();Rational result=original.value();

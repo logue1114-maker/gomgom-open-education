@@ -13,6 +13,7 @@ public final class FractionInput {
         public Form(boolean fraction){this.fraction=fraction;}
     }
     public static boolean available(Question q){
+        if(q!=null&&PublicDecimalContexts.supports(q.skillId)){var v=PublicDecimalContexts.readGeneral(q);return v!=null&&q.choices.isEmpty()&&("fraction".equals(q.answerFormat)||!Set.of("decimal","decimalValue").contains(q.answerFormat)&&!v.value().isInteger());}
         if(q!=null&&RepresentationConversions.supports(q.skillId))return RepresentationConversions.fractionTarget(q);
         if(UnitFractionWhole.ID.equals(q.skillId)||PrimaryScaleRates.supports(q.skillId)||MixedNumberFoundations.supports(q.skillId))return false;
         if(!q.choices.isEmpty()||!Set.of("number","reduced","equation","system","inequality").contains(q.kind))return false;
@@ -25,6 +26,7 @@ public final class FractionInput {
         return skill.grade>=7||family.contains("frac")||Set.of("reduce","mean","percent","trianglearea","trapezoidarea","rhombusarea").contains(family);
     }
     public static boolean defaultFraction(Question q){
+        if(q!=null&&PublicDecimalContexts.supports(q.skillId)){var v=PublicDecimalContexts.readGeneral(q);return v!=null&&available(q)&&("fraction".equals(q.answerFormat)||!v.finitePossible());}
         if(q!=null&&RepresentationConversions.supports(q.skillId))return RepresentationConversions.fractionTarget(q);
         String family=Catalog.get(q.skillId).family.toLowerCase(Locale.ROOT);
         return available(q)&&("fraction".equals(q.answerFormat)||!"decimal".equals(q.answerFormat)&&(CoordinateTriangle.AREA.equals(q.skillId)||CoordinateAltitudeArea.ID.equals(q.skillId)||CoordinateObliqueArea.ID.equals(q.skillId)||family.contains("frac")||Set.of("reduce","rational","probability").contains(family)));
@@ -65,11 +67,10 @@ public final class FractionInput {
     /** Localize only when the public like-fraction frame identifies an unchanged part.
      * Zero means no unique part is established, not that the answer is correct. */
     public static int errorPart(Question q,String raw){
+        if(q!=null&&PublicDecimalContexts.supports(q.skillId))return PublicDecimalContexts.errorPart(q,raw);
         if(q!=null&&RepresentationConversions.supports(q.skillId))return RepresentationConversions.errorPart(q,raw);
         if(q!=null&&ThreeStepFractionContexts.supports(q.skillId))return ThreeStepFractionContexts.errorPart(q,raw);
         if(q!=null&&QuantityFractionCheck.ID.equals(q.skillId))return QuantityFractionCheck.errorPart(q,raw);
-        if(q!=null&&DecimalTwoStepStories.supports(q.skillId))return DecimalTwoStepStories.errorPart(q,raw);
-        if(q!=null&&DecimalMeasureGroups.supports(q.skillId))return DecimalMeasureGroups.errorPart(q,raw);
         if(q!=null&&TwoStepFractionStories.ID.equals(q.skillId))return TwoStepFractionStories.errorPart(q,raw);
         if(q!=null&&QuantityAsFraction.ID.equals(q.skillId))return QuantityAsFraction.errorPart(q,raw);
         if(q!=null&&DecimalToFractionSupply.ID.equals(q.skillId))return DecimalToFractionSupply.errorPart(q,raw);
