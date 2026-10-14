@@ -2318,3 +2318,5 @@ MAP	na-nied-primary-2024-v1	7	el_fraction_of_number	SP printed54 B10; public exa
 RULE	na-nied-primary-2024-v1	7	el_fraction_of_number	denominators=2,3,4,5,6,7,8,9,10,11,12;quantityRepresentations=number;quantityRationalParts=true;nonnegative=true
 MAP	na-nied-primary-2024-v1	7	threeStepFractionContexts	SP printed54 B11; three dependent public fraction quantity contexts with operation/reason and usable mental/written strategies; selected totals1..100/denominators2..12 and context supply bounds do not constrain general public mathematics or prove full B11 proficiency
 RULE	na-nied-primary-2024-v1	7	threeStepFractionContexts	denominators=2,3,4,5,6,7,8,9,10,11,12;nonnegative=true
+MAP	na-nied-primary-2024-v1	7	fractionDecimalRecall	SP printed55/PDF59 B3; direct recall of exact decimal equivalents including recurring thirds and finite eighths; selected raw denominators2,3,4,5,8,10/numerators0..denominator do not bound general public mathematics or prove full recall fluency
+RULE	na-nied-primary-2024-v1	7	fractionDecimalRecall	denominators=2,3,4,5,8,10;nonnegative=true

@@ -23,6 +23,7 @@ public final class Checker {
         return check(q,steps,answers,Collections.emptyList());
     }
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
+        if(FractionDecimalRecall.supports(q.skillId))return FractionDecimalRecall.check(q,answers);
         if(GroupedEstimation.supports(q.skillId)){Result guard=GroupedEstimation.phaseGuard(q);return guard==null?GroupedEstimation.checkCount(q,answers):guard;}
         if(ThreeStepWholeContexts.supports(q.skillId)){if("written".equals(q.calculationMethod)){Result written=checkSteps(q,steps,kinds,false);if(!written.correct())return written.forWorkInput();}return ThreeStepWholeContexts.check(q,answers);}
         if(ThreeStepFractionContexts.supports(q.skillId)){if("written".equals(q.calculationMethod)){boolean full=false;for(int i=0;i<steps.size();i++)if(kinds!=null&&i<kinds.size()&&kinds.get(i)==StepKind.FULL&&steps.get(i)!=null&&!steps.get(i).isBlank()){full=true;break;}if(!full)return new Result(Status.INPUT_NEEDED,-1,"전체 풀이 식 입력 필요").forWorkInput();Result written=checkSteps(q,steps,kinds,true);if(!written.correct())return written.forWorkInput();}return ThreeStepFractionContexts.check(q,answers);}

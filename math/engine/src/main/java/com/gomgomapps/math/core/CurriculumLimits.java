@@ -168,6 +168,7 @@ public final class CurriculumLimits {
             catch(RuntimeException error){return false;}
         }
         String givens=q.prompt+"\n"+q.expression;
+        FractionDecimalRecall.Givens recall=null;if(FractionDecimalRecall.supports(q.skillId)){recall=FractionDecimalRecall.read(q);if(recall==null)return false;givens=q.prompt;}
         DecimalToFractionSupply.Givens decimalFraction=null;if(DecimalToFractionSupply.ID.equals(q.skillId)){decimalFraction=DecimalToFractionSupply.readGeneral(q);if(decimalFraction==null)return false;givens=decimalFraction.raw();}
         FractionDecimalDivision.Givens fractionDecimal=null;if(FractionToDecimalCheck.ID.equals(q.skillId)){fractionDecimal=FractionDecimalDivision.read(q);if(fractionDecimal==null)return false;givens=q.prompt;}
         if(ThreeStepFractionContexts.supports(q.skillId)){if(ThreeStepFractionContexts.read(q)==null)return false;givens=q.prompt;}
@@ -175,7 +176,7 @@ public final class CurriculumLimits {
         if(ThreeStepWholeContexts.supports(q.skillId)){var visible=ThreeStepWholeContexts.read(q);if(visible==null)return false;givens=Arrays.toString(visible.operands());}
         if(WholeFactorExtrema.selected(q)){WholeFactorExtrema.Givens visible=WholeFactorExtrema.read(q);if(visible==null)return false;givens=visible.a()+" "+visible.b();}
         if(PrimeFactorProducts.supports(q.skillId)){int original=PrimeFactorProducts.read(q);if(original<1)return false;givens=""+original;}
-        String operation=decimalFraction!=null?decimalFraction.raw():fractionDecimal!=null?fractionDecimal.rawNumerator()+"/"+fractionDecimal.rawDenominator():ThreeStepFractionContexts.supports(q.skillId)?ThreeStepFractionContexts.read(q).expression():(q.expression.isBlank()?q.prompt.trim():q.expression);
+        String operation=recall!=null?recall.rawNumerator()+"/"+recall.rawDenominator():decimalFraction!=null?decimalFraction.raw():fractionDecimal!=null?fractionDecimal.rawNumerator()+"/"+fractionDecimal.rawDenominator():ThreeStepFractionContexts.supports(q.skillId)?ThreeStepFractionContexts.read(q).expression():(q.expression.isBlank()?q.prompt.trim():q.expression);
         if(FactFoundations.blank(q))operation=q.prompt.replace("□",q.answers[0]).split(" = ",2)[0];
         boolean repeated=Catalog.get(q.skillId).family.equals("repeat");
         int[] grouping=repeated?grouping(q.prompt):null;
@@ -210,7 +211,8 @@ public final class CurriculumLimits {
         }
         if(contextDivisorMinimum!=null||contextDivisorMaximum!=null||contextDividendMinimum>1){int[] context=RemainderContexts.read(q);if(context==null&&RemainderRepresentations.supports(q.skillId))context=RemainderRepresentations.read(q);if(context==null&&ShortWrittenDivision.supports(q.skillId))context=ShortWrittenDivision.read(q);if(context==null&&DivisionNotations.ID.equals(q.skillId)){DivisionNotations.Givens v=DivisionNotations.read(q);if(v!=null)context=new int[]{v.dividend(),v.divisor()};}if(context==null||context[0]<(DivisionNotations.ID.equals(q.skillId)?givenMinimum(0):contextDividendMinimum)||context[1]<contextDivisorMinimum()||context[1]>contextDivisorMaximum())return false;}
         if(polygonSides!=null){Matcher polygon=Pattern.compile("(\\d+)각형").matcher(q.prompt);if(!polygon.find()||Integer.parseInt(polygon.group(1))>polygonSides)return false;}
-        if(fractionDecimal!=null){if(!denominators.isEmpty()&&(fractionDecimal.denominator().bitLength()>31||!denominators.contains(fractionDecimal.denominator().intValue())))return false;}
+        if(recall!=null){if(!denominators.isEmpty()&&(recall.denominator().bitLength()>31||!denominators.contains(recall.denominator().intValue())))return false;}
+        else if(fractionDecimal!=null){if(!denominators.isEmpty()&&(fractionDecimal.denominator().bitLength()>31||!denominators.contains(fractionDecimal.denominator().intValue())))return false;}
         else if(!allowsDenominators(givens))return false;
         if(!denominators.isEmpty()&&q.diagram!=null&&q.diagram.type.equals("fractionSelection")){
             if(q.diagram.values.length<2||q.diagram.values[0]!=Math.rint(q.diagram.values[0])||!denominators.contains((int)q.diagram.values[0]))return false;
@@ -219,7 +221,8 @@ public final class CurriculumLimits {
             Matcher operands=Pattern.compile("^-?\\d+(?:\\.\\d+)?\\s*[+*/×÷−-]\\s*(-?\\d+(?:\\.\\d+)?)$").matcher(q.expression);
             if(!operands.matches()||!Expression.number(operands.group(1)).d.equals(java.math.BigInteger.ONE))return false;
         }
-        if(maxFractionValue!=null&&decimalFraction!=null){if(decimalFraction.value().compareTo(maxFractionValue)>0)return false;}
+        if(maxFractionValue!=null&&recall!=null){if(recall.value().compareTo(maxFractionValue)>0)return false;}
+        else if(maxFractionValue!=null&&decimalFraction!=null){if(decimalFraction.value().compareTo(maxFractionValue)>0)return false;}
         else if(maxFractionValue!=null&&fractionDecimal!=null){if(fractionDecimal.exact().compareTo(maxFractionValue)>0)return false;}
         else if(maxFractionValue!=null&&FractionOrdering.supports(q.skillId)){
             List<String> inputs=FractionOrdering.givens(q);if(inputs.size()!=3)return false;for(String input:inputs)if(FractionOrdering.value(q,input).compareTo(maxFractionValue)>0)return false;
@@ -237,7 +240,7 @@ public final class CurriculumLimits {
             Matcher operands=Pattern.compile("^-?\\d+(?:\\.\\d+)?\\s*[+*/×÷−-]\\s*(-?\\d+(?:\\.\\d+)?)$").matcher(q.expression);
             if(!operands.matches()||!fitsDecimalPlaces(operands.group(1),secondDecimalPlaces))return false;
         }
-        if(answerDecimalPlaces!=null){if(decimalFraction!=null){if(!fitsDecimalPlaces(decimalFraction.value().decimalText(),answerDecimalPlaces))return false;}else if(fractionDecimal!=null){if(!fitsDecimalPlaces(fractionDecimal.value().decimalText(),answerDecimalPlaces))return false;}else for(String answer:q.answers)if(!fitsDecimalPlaces(answer,answerDecimalPlaces))return false;}
+        if(answerDecimalPlaces!=null){if(recall!=null){if(!recall.finitePossible()||!fitsDecimalPlaces(recall.value().decimalText(),answerDecimalPlaces))return false;}else if(decimalFraction!=null){if(!fitsDecimalPlaces(decimalFraction.value().decimalText(),answerDecimalPlaces))return false;}else if(fractionDecimal!=null){if(!fitsDecimalPlaces(fractionDecimal.value().decimalText(),answerDecimalPlaces))return false;}else for(String answer:q.answers)if(!fitsDecimalPlaces(answer,answerDecimalPlaces))return false;}
         if(decimalPlaces!=null){Matcher decimals=Pattern.compile("\\d+\\.(\\d+)").matcher(givens);while(decimals.find())if(decimals.group(1).length()>decimalPlaces)return false;}
         if(!roundingDecimalTargets.isEmpty()){RoundingRelations.Givens rounded=RoundingRelations.read(q);if(!q.skillId.equals("el_decimal_round")||rounded==null||!roundingDecimalTargets.contains(rounded.decimalPlaces()))return false;}
         if(sameDecimalPlaces){Matcher pair=Pattern.compile("\\d+\\.(\\d+)\\s+□\\s+\\d+\\.(\\d+)").matcher(q.prompt);if(!q.skillId.equals("el_decimal_compare")||!pair.matches()||pair.group(1).length()!=pair.group(2).length())return false;}
@@ -245,7 +248,7 @@ public final class CurriculumLimits {
             if(WholeApproximationContexts.ID.equals(q.skillId)){var report=WholeApproximationContexts.read(q);if(report==null||!roundingUnits.contains(report.unit()))return false;}
             else{Matcher place=Pattern.compile("(\\d+)의 자리까지").matcher(q.prompt);if(!place.find()||!roundingUnits.contains(Integer.parseInt(place.group(1))))return false;}
         }
-        if(unitFractions){Matcher m=Pattern.compile("(\\d+)\\s*/\\s*\\d+").matcher(fractionDecimal!=null?operation:Set.of("fracCompare","el_fraction_compare").contains(q.skillId)?q.prompt:q.expression);boolean found=false;while(m.find()){found=true;if(!m.group(1).equals("1"))return false;}if(!found)return false;}
+        if(unitFractions){Matcher m=Pattern.compile("(\\d+)\\s*/\\s*\\d+").matcher(recall!=null||fractionDecimal!=null?operation:Set.of("fracCompare","el_fraction_compare").contains(q.skillId)?q.prompt:q.expression);boolean found=false;while(m.find()){found=true;if(!m.group(1).equals("1"))return false;}if(!found)return false;}
         if(relatedDenominators){List<Integer> found=new ArrayList<>();Matcher m=FRACTION.matcher(q.prompt);while(m.find()){int denominator=Integer.parseInt(m.group(1));if(denominator==0)return false;found.add(denominator);}if(found.size()<2)return false;for(int a:found)for(int b:found)if(a%b!=0&&b%a!=0)return false;}
         if(commonDenominatorFactor){List<Integer> found=new ArrayList<>();Matcher m=FRACTION.matcher(q.prompt);while(m.find())found.add(Integer.parseInt(m.group(1)));if(found.size()<2)return false;int common=found.get(0);for(int i=1;i<found.size();i++){int b=found.get(i);while(b!=0){int remainder=common%b;common=b;b=remainder;}}if(common<2)return false;}
         if(!factors.isEmpty()){Matcher m=Pattern.compile("(\\d+)\\s*[×*]\\s*(\\d+)").matcher(operation);if(!m.matches()||(!factors.contains(Integer.parseInt(m.group(1)))&&!factors.contains(Integer.parseInt(m.group(2)))))return false;}
@@ -263,7 +266,8 @@ public final class CurriculumLimits {
             int exact=EstimateCalculationCheck.ADD.equals(q.skillId)?estimate[0]+estimate[1]:estimate[0]-estimate[1];
             if(exact>maxExactResult)return false;
         }
-        if(decimalFraction!=null){if(!allowsAnswer(decimalFraction.value().toString()))return false;}
+        if(recall!=null){if(!allowsAnswer(recall.value().toString()))return false;}
+        else if(decimalFraction!=null){if(!allowsAnswer(decimalFraction.value().toString()))return false;}
         else if(fractionDecimal!=null){if(!allowsAnswer(fractionDecimal.value().toString()))return false;}
         else if(ThreeStepWholeContexts.supports(q.skillId)){
             var visible=ThreeStepWholeContexts.read(q);if(visible==null)return false;

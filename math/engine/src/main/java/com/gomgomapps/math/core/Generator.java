@@ -45,6 +45,7 @@ public final class Generator {
         if(BoundedWholeDivision.selected(skillId,limits))q=BoundedWholeDivision.next(random,limits,previous);
         if(ThreeStepWholeContexts.supports(skillId))q=ThreeStepWholeContexts.next(random,limits,previous);
         else if(ThreeStepFractionContexts.supports(skillId))q=ThreeStepFractionContexts.next(random,limits,previous);
+        else if(FractionDecimalRecall.supports(skillId))q=FractionDecimalRecall.next(random,limits,previous);
         else if(ContextCalculationMethods.ID.equals(skillId))q=ContextCalculationMethods.next(random,limits,previous);
         else if(WholeOperationOrder.ID.equals(skillId))q=WholeOperationOrder.next(random,limits,previous);
         else if(DistributiveArithmetic.supports(skillId))q=DistributiveArithmetic.next(skillId,random,limits,previous);
@@ -226,6 +227,7 @@ public final class Generator {
         if(LargeWrittenProducts.supports(s.id))return LargeWrittenProducts.next(s.id,random,limits,Map.of());
         if(ThreeStepWholeContexts.supports(s.id))return ThreeStepWholeContexts.next(random,limits,Map.of());
         if(ThreeStepFractionContexts.supports(s.id))return ThreeStepFractionContexts.next(random,limits,Map.of());
+        if(FractionDecimalRecall.supports(s.id))return FractionDecimalRecall.next(random,limits,Map.of());
         if(ContextCalculationMethods.ID.equals(s.id))return ContextCalculationMethods.next(random,limits,Map.of());
         if(WholeOperationOrder.ID.equals(s.id))return WholeOperationOrder.next(random,limits,Map.of());
         if(DistributiveArithmetic.supports(s.id))return DistributiveArithmetic.next(s.id,random,limits,Map.of());
