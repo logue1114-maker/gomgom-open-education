@@ -73,6 +73,10 @@ public final class KoreanFoundationStudy {
     public static void recordFinish(Learning.State state,Learning.Session session,boolean independent,boolean hadError,boolean skip,LocalDate day){
         if(session.question==null||state.diagnostics==null)return;
         String id=session.question.skillId;
+        if(hadError||skip||!independent){
+            Diagnosis.UnitScreen current=currentLearnedUnit(state,session,id);
+            if(current!=null&&!current.reasons.containsKey(id))flagged(state,current,id,hadError?"wrong":skip?"unable":"help",day);
+        }
         for(Diagnosis.Plan plan:state.diagnostics.values()){
             if(!plan.unitScreening||plan.unitScreens==null||!Objects.equals(plan.educationSystem,session.educationSystem))continue;
             for(Diagnosis.UnitScreen screen:plan.unitScreens.values()){
@@ -93,5 +97,26 @@ public final class KoreanFoundationStudy {
                 if(screen.recoveredSkills.containsAll(screen.reasons.keySet()))screen.status=Diagnosis.UnitStatus.RECENTLY_CHECKED;
             }
         }
+    }
+
+    /** A new ordinary-practice gap belongs only to the current frozen, still-learned unit. */
+    private static Diagnosis.UnitScreen currentLearnedUnit(Learning.State state,Learning.Session session,String id){
+        if("foundationStudy".equals(session.mode)||"foundationRecheck".equals(session.mode))return null;
+        if(!Diagnosis.foundationAscending(state.profile)||!"KR".equals(GlobalCurriculum.country(session))||!"kr-national".equals(GlobalCurriculum.system(session)))return null;
+        if(session.diagnosticRun!=null&&session.diagnosticRun.plan!=null&&session.diagnosticRun.plan.curriculum!=Curriculum.version(state.profile))return null;
+        try{
+            Diagnosis.Plan plan=Diagnosis.currentPlan(state);
+            if(plan==null||!plan.unitScreening||!plan.foundationAscending||plan.unitScreens==null||
+                plan.curriculum!=Curriculum.version(state.profile)||!Objects.equals(plan.key,Diagnosis.scopeKey(state.profile))||!plan.scope.contains(id))return null;
+            String system=plan.educationSystem==null||plan.educationSystem.isBlank()?"kr-national":plan.educationSystem;
+            if(!system.equals(GlobalCurriculum.system(session)))return null;
+            for(KoreanFoundationUnits.Unit unit:KoreanFoundationUnits.learned(state.profile))if(unit.members().contains(id)){
+                Diagnosis.UnitScreen screen=plan.unitScreens.get(unit.key());
+                if(screen!=null&&Objects.equals(screen.planKey,plan.key)&&screen.members.contains(id))return screen;
+            }
+        }catch(IllegalArgumentException invalidScope){
+            // An invalid/stale endpoint must not relabel the problem or block its normal submission.
+        }
+        return null;
     }
 }

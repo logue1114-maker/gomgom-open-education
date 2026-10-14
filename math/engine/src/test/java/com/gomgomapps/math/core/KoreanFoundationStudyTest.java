@@ -93,4 +93,43 @@ public class KoreanFoundationStudyTest {
         try{KoreanFoundationStudy.beginEasier(state,random);fail("Excluded foundations must not return");}catch(IllegalArgumentException expected){}
         assertFalse(state.session.queue.contains("join9"));
     }
+    @Test public void normalPracticeHelpWrongAndSkipAddOnlyTheCurrentLearnedUnitAndSurviveColdSnapshot(){
+        Random random=new Random(37301);Learning.State state=student();Learning.beginDiagnostic(state,random);Diagnosis.Plan plan=Diagnosis.currentPlan(state);
+        Diagnosis.UnitScreen screen=Diagnosis.screens(plan).stream().filter(u->u.members.contains("split9")).findFirst().orElseThrow();assertFalse(screen.representatives.contains("split9"));
+        Learning.State archivedCopy=LearningSnapshot.capture(state);Diagnosis.Plan archived=Diagnosis.currentPlan(archivedCopy);archived.key="archived:"+archived.key;for(Diagnosis.UnitScreen old:Diagnosis.screens(archived))old.planKey=archived.key;state.diagnostics.put(archived.key,archived);
+        Learning.beginPractice(state,"practice",List.of("split9"),1,false,random);next(state,random);Review.helpUsed(state,DAY);Review.Track alreadyPending=Review.track(state.progress("split9"));long generation=alreadyPending.generation,eligibleAfter=alreadyPending.eligibleAfter;correct(state,random);assertEquals(generation,alreadyPending.generation);assertEquals(eligibleAfter,alreadyPending.eligibleAfter);
+        Learning.beginPractice(state,"practice",List.of("sub9"),1,false,random);next(state,random);Learning.markError(state,DAY);correct(state,random);
+        Learning.beginPractice(state,"practice",List.of("join9"),1,false,random);next(state,random);Learning.finishQuestion(state,true,DAY,random);
+        assertEquals(Map.of("split9","help","sub9","wrong","join9","unable"),screen.reasons);assertEquals(Diagnosis.UnitStatus.NEEDS_STUDY,screen.status);assertTrue(Diagnosis.studyUnits(state).contains(screen));
+        assertEquals(1,state.progress("split9").assisted);assertEquals(1,state.progress("sub9").corrected);assertEquals(1,state.progress("join9").skipped);assertTrue(Review.track(state.progress("join9")).failed.isEmpty());assertFalse(state.progress("sub9").weak());
+        assertTrue(Diagnosis.screens(archived).stream().allMatch(u->u.reasons.isEmpty()));assertTrue(Diagnosis.screens(plan).stream().filter(u->!u.key.equals(screen.key)).allMatch(u->u.reasons.isEmpty()));
+        Learning.State cold=LearningSnapshot.capture(state);Diagnosis.UnitScreen restored=Diagnosis.currentPlan(cold).unitScreens.get(screen.key);assertEquals(screen.reasons,restored.reasons);assertEquals(screen.flaggedAt,restored.flaggedAt);assertNotSame(screen,restored);assertTrue(Diagnosis.studyUnits(cold).contains(restored));
+    }
+    @Test public void aNewNormalPracticeGapStillNeedsTwoFreshSpacedIndependentChecksToRecover(){
+        Random random=new Random(37302);Learning.State state=student();Learning.beginDiagnostic(state,random);Diagnosis.Plan plan=Diagnosis.currentPlan(state);Diagnosis.UnitScreen screen=Diagnosis.screens(plan).stream().filter(u->u.members.contains("split9")).findFirst().orElseThrow();
+        Learning.beginPractice(state,"practice",List.of("split9"),1,false,random);next(state,random);Review.helpUsed(state,DAY);correct(state,random);assertEquals("help",screen.reasons.get("split9"));
+        Learning.beginPractice(state,"practice",List.of("split9"),1,false,random);correct(state,random);assertEquals(Diagnosis.UnitStatus.NEEDS_STUDY,screen.status);assertFalse(screen.recoveredSkills.contains("split9"));
+        Learning.beginPractice(state,"practice",List.of("split9"),1,false,random);next(state,random);Review.helpUsed(state,DAY);correct(state,random);assertEquals(Diagnosis.UnitStatus.NEEDS_STUDY,screen.status);
+        Diagnosis.beginRecheck(state,screen,random);Set<String> signatures=new HashSet<>();while(!state.session.finished){Question q=next(state,random);if(q.skillId.equals("split9"))assertTrue(signatures.add(q.signature()));correct(state,random);}
+        assertEquals(2,signatures.size());assertEquals(2,screen.freshRechecks.get("split9").size());assertTrue(screen.recoveredSkills.contains("split9"));assertEquals(Diagnosis.UnitStatus.RECENTLY_CHECKED,screen.status);assertTrue(Diagnosis.studyUnits(state).contains(screen));assertEquals("help",screen.reasons.get("split9"));
+    }
+    @Test public void normalPracticeCannotAddForeignExcludedFutureOrStaleUnitGaps(){
+        for(String boundary:List.of("excluded","future","foreign-system","foreign-country","inactive","secondary","wrong-version","session-old-version","wrong-members","no-current-plan")){
+            Random random=new Random(37303);Learning.State state=student();Learning.beginDiagnostic(state,random);Diagnosis.Plan plan=Diagnosis.currentPlan(state);String id=boundary.equals("future")?"add20":"split9";
+            Learning.beginPractice(state,"practice",List.of(id),1,false,random);next(state,random);
+            switch(boundary){
+                case "excluded" -> state.profile.excluded.add(id);
+                case "foreign-system" -> state.session.educationSystem="na-nied-primary-2024-v1";
+                case "foreign-country" -> state.session.countryCode="NA";
+                case "inactive" -> state.profile.foundationAscending=false;
+                case "secondary" -> state.profile.grade=7;
+                case "wrong-version" -> plan.curriculum=2015;
+                case "session-old-version" -> {Diagnosis.Plan origin=new Diagnosis.Plan();origin.curriculum=2015;state.session.diagnosticRun=new Diagnosis.Run(origin,false,1);}
+                case "wrong-members" -> {for(Diagnosis.UnitScreen screen:Diagnosis.screens(plan))screen.members.remove(id);}
+                case "no-current-plan" -> state.diagnostics.clear();
+            }
+            Review.helpUsed(state,DAY);correct(state,random);assertTrue(boundary,Diagnosis.screens(plan).stream().allMatch(u->u.reasons.isEmpty()));
+            if(boundary.equals("no-current-plan"))assertTrue(state.diagnostics.isEmpty());
+        }
+    }
 }
