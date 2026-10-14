@@ -1496,7 +1496,7 @@ RULE	na-nied-primary-2024-v1	5	el_decimal_place,el_decimal_compare,decimalAdd,de
 RULE	na-nied-primary-2024-v1	6	el_decimal_place	decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	el_decimal_place,el_decimal_compare	decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	6	decimalMul	integerSecondOperand=true;decimalPlaces=3;nonnegative=true;wholeMaximum=99;variedFacts=true
-RULE	na-nied-primary-2024-v1	7	decimalMul	decimalPlaces=2;answerDecimalPlaces=3;nonnegative=true
+RULE	na-nied-primary-2024-v1	7	decimalMul	decimalPlaces=2;answerDecimalPlaces=3;nonnegative=true;includeWholeDecimalProducts=true;wholeProductDecimalPlaces=3;wholeProductMaximum=99;wholeMultiplierMaximum=99;decimalDirectAnswers=true
 RULE	na-nied-primary-2024-v1	6	decimalDivInt	decimalPlaces=3;nonnegative=true;wholeMaximum=99;variedFacts=true
 RULE	na-nied-primary-2024-v1	7	decimalDivInt	decimalPlaces=3;nonnegative=true
 RULE	na-nied-primary-2024-v1	7	squareWhole,cubeWhole	maxGiven=10;nonnegative=true
