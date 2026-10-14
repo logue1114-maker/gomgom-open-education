@@ -61,6 +61,10 @@ public final class CurriculumLimits {
     private boolean fractionDecimalDivision;
     private boolean decimalDirectAnswers;
     private boolean includeWholeDecimalProducts;
+    private boolean wholeDecimalQuotients;
+    private Integer wholeDivisorMaximum;
+    boolean wholeDecimalQuotients(){return wholeDecimalQuotients;}
+    int wholeDivisorMaximum(){return wholeDivisorMaximum==null?99:wholeDivisorMaximum;}
     private Integer wholeProductDecimalPlaces,wholeProductMaximum,wholeMultiplierMaximum;
     boolean includeWholeDecimalProducts(){return includeWholeDecimalProducts;}
     int wholeProductDecimalPlaces(){return wholeProductDecimalPlaces==null?3:wholeProductDecimalPlaces;}
@@ -77,6 +81,8 @@ public final class CurriculumLimits {
         for(String option:definition.split(";")){
             String[] pair=option.split("=",2);if(pair.length!=2)throw new IllegalArgumentException("Invalid curriculum limit");
             switch(pair[0]){
+                case "wholeDecimalQuotients":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid whole decimal quotient flag");wholeDecimalQuotients=Boolean.parseBoolean(pair[1]);break;
+                case "wholeDivisorMaximum":wholeDivisorMaximum=Integer.valueOf(pair[1]);if(wholeDivisorMaximum<1||wholeDivisorMaximum>99)throw new IllegalArgumentException("Invalid selected whole divisor range");break;
                 case "includeWholeDecimalProducts":if(!Set.of("true","false").contains(pair[1]))throw new IllegalArgumentException("Invalid whole decimal product flag");includeWholeDecimalProducts=Boolean.parseBoolean(pair[1]);break;
                 case "wholeProductDecimalPlaces":wholeProductDecimalPlaces=Integer.valueOf(pair[1]);if(wholeProductDecimalPlaces<1||wholeProductDecimalPlaces>3)throw new IllegalArgumentException("Invalid selected whole product precision");break;
                 case "wholeProductMaximum":case "wholeMultiplierMaximum":int productMaximum=Integer.parseInt(pair[1]);if(productMaximum<0||productMaximum>99)throw new IllegalArgumentException("Invalid selected whole product range");if(pair[0].equals("wholeProductMaximum"))wholeProductMaximum=productMaximum;else wholeMultiplierMaximum=productMaximum;break;
@@ -151,6 +157,7 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(q!=null&&DecimalWholeQuotients.supports(q.skillId))return allowsDecimalQuotients(q);
         if(q!=null&&DecimalWholeProducts.supports(q.skillId))return allowsDecimalProducts(q);
         if(q!=null&&DecimalAddSub.supports(q.skillId))return allowsDecimalAddSub(q);
         if(q!=null&&FractionDecimalPercentRecall.supports(q.skillId))return allowsFractionDecimalPercentRecall(q);
@@ -350,6 +357,14 @@ public final class CurriculumLimits {
         for(Rational answer:List.of(g.value(),g.value().mul(Rational.of(100)))){if(answerDomain.equals("integer")&&!answer.isInteger()||nonnegative&&answer.compareTo(Rational.ZERO)<0||maxResult!=null&&compareDecimalLimit(answer,maxResult)>0)return false;if(answerDecimalPlaces!=null&&!answer.mul(new Rational(java.math.BigInteger.TEN.pow(answerDecimalPlaces),java.math.BigInteger.ONE)).isInteger())return false;}
         if(!percentages.isEmpty()){Rational percent=g.value().mul(Rational.of(100));if(!percent.isInteger()||percent.n.bitLength()>31||!percentages.contains(percent.intValue()))return false;}
         return partFractions.isEmpty()&&quantityRepresentations.isEmpty()&&factors.isEmpty()&&divisors.isEmpty()&&dividendMaxima.isEmpty()&&!monicQuadratic&&!integerSecondOperand&&!relatedDenominators&&!commonDenominatorFactor&&!nonnegativeSubtrahend&&maxSecondOperand==null&&maxRegroups==null&&secondDecimalPlaces==null&&polygonSides==null&&maxExactResult==null&&roundingDecimalTargets.isEmpty()&&roundingUnits.isEmpty()&&!sameDecimalPlaces;
+    }
+    private boolean allowsDecimalQuotients(Question q){
+        DecimalWholeQuotients.Originals original=DecimalWholeQuotients.readGeneral(q);if(original==null)return false;java.math.BigDecimal left=original.dividend(),right=new java.math.BigDecimal(original.divisor());Rational result=original.value();
+        if(wholeDivisorMaximum!=null&&!wholeDecimalQuotients||wholeDecimalQuotients&&original.divisor().compareTo(java.math.BigInteger.valueOf(wholeDivisorMaximum()))>0)return false;
+        if(decimalPlaces!=null&&left.scale()>decimalPlaces||wholeMaximum!=null&&left.toBigInteger().compareTo(java.math.BigInteger.valueOf(wholeMaximum))>0||wholeDigits!=null&&(original.raw().split("\\.",-1)[0].length()>wholeDigits||original.divisorRaw().length()>(secondDigits==null?wholeDigits:secondDigits))||secondDigits!=null&&original.divisorRaw().length()>secondDigits||minimumWholeDigits!=null&&(original.raw().split("\\.",-1)[0].length()<minimumWholeDigits||original.divisorRaw().length()<minimumWholeDigits))return false;
+        for(java.math.BigDecimal input:List.of(left,right))if(maxGiven!=null&&input.compareTo(java.math.BigDecimal.valueOf(maxGiven))>0||minGiven!=null&&input.compareTo(java.math.BigDecimal.valueOf(minGiven))<0)return false;
+        if(maxSecondOperand!=null&&original.divisor().compareTo(java.math.BigInteger.valueOf(maxSecondOperand))>0||answerDomain.equals("integer")&&!result.isInteger()||nonnegative&&result.compareTo(Rational.ZERO)<0||maxResult!=null&&compareDecimalLimit(result,maxResult)>0||answerDecimalPlaces!=null&&!result.mul(new Rational(java.math.BigInteger.TEN.pow(answerDecimalPlaces),java.math.BigInteger.ONE)).isInteger())return false;
+        return denominators.isEmpty()&&partFractions.isEmpty()&&quantityRepresentations.isEmpty()&&factors.isEmpty()&&divisors.isEmpty()&&dividendMaxima.isEmpty()&&percentages.isEmpty()&&maxFractionValue==null&&!unitFractions&&!relatedDenominators&&!commonDenominatorFactor&&!monicQuadratic&&!nonnegativeSubtrahend&&maxRegroups==null&&polygonSides==null&&maxExactResult==null&&roundingDecimalTargets.isEmpty()&&roundingUnits.isEmpty()&&!sameDecimalPlaces&&!includeWholeDecimalProducts&&wholeProductDecimalPlaces==null&&wholeProductMaximum==null&&wholeMultiplierMaximum==null;
     }
     private boolean allowsDecimalProducts(Question q){
         DecimalWholeProducts.Originals original=DecimalWholeProducts.readGeneral(q);if(original==null)return false;boolean wholeScope=includeWholeDecimalProducts&&original.wholeRight();

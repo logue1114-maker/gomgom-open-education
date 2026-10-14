@@ -119,7 +119,7 @@ public final class Generator {
         if(DecimalPlaceRelations.supports(skillId))q=DecimalPlaceRelations.next(random,limits,previous);
         if(DecimalRoundingSupply.supports(skillId,limits))q=DecimalRoundingSupply.next(random,limits,previous);
         if(DecimalAddSub.selected(skillId,limits))q=DecimalAddSub.next(skillId,random,limits,previous);
-        if(DecimalWholeQuotients.selected(skillId,limits))q=DecimalWholeQuotients.next(random,limits,previous);
+        if(DecimalWholeQuotients.selectedNaSeven(skillId,limits))q=DecimalWholeQuotients.nextNaSeven(random,limits,previous);else if(DecimalWholeQuotients.selected(skillId,limits))q=DecimalWholeQuotients.next(random,limits,previous);
         if(CountingCalculations.supports(skillId))q=CountingCalculations.next(s,random,limits,previous);
         if(GroupDrawing.ID.equals(skillId))q=GroupDrawing.next(random,limits,previous);
         if(HalvingBasedAddition.ID.equals(skillId))q=HalvingBasedAddition.next(random,limits,previous);
@@ -324,6 +324,7 @@ public final class Generator {
         if(DecimalPlaceRelations.supports(s.id))return DecimalPlaceRelations.next(random,limits,Map.of());
         if(DecimalRoundingSupply.supports(s.id,limits))return DecimalRoundingSupply.next(random,limits,Map.of());
         if(DecimalAddSub.selected(s.id,limits))return DecimalAddSub.next(s.id,random,limits,Map.of());
+        if(DecimalWholeQuotients.selectedNaSeven(s.id,limits))return DecimalWholeQuotients.nextNaSeven(random,limits,Map.of());
         if(DecimalWholeQuotients.selected(s.id,limits))return DecimalWholeQuotients.next(random,limits,Map.of());
         if(CountingCalculations.supports(s.id))return CountingCalculations.next(s,random,limits,Map.of());
         if(GroupDrawing.ID.equals(s.id))return GroupDrawing.next(random,limits,Map.of());

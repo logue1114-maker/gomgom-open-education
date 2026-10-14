@@ -23,6 +23,7 @@ public final class Checker {
         return check(q,steps,answers,Collections.emptyList());
     }
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
+        if(DecimalWholeQuotients.supports(q.skillId)){Question visible=DecimalWholeQuotients.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return DecimalWholeQuotients.check(q,answers);}
         if(DecimalWholeProducts.supports(q.skillId)){Question visible=DecimalWholeProducts.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return DecimalWholeProducts.check(q,answers);}
         if(DecimalAddSub.supports(q.skillId)){Question visible=DecimalAddSub.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return DecimalAddSub.check(q,answers);}
         if(FractionDecimalRecall.supports(q.skillId))return FractionDecimalRecall.check(q,answers);
@@ -69,7 +70,6 @@ public final class Checker {
         if(FractionFamilies.supports(q.skillId))return FractionFamilies.check(q,answers);
         if(DecimalToFractionSupply.ID.equals(q.skillId))return DecimalToFractionSupply.check(q,answers);
         if(DecimalUnitRelations.supports(q.skillId))return DecimalUnitRelations.check(q,answers);
-        if(DecimalWholeQuotients.read(q)!=null)return DecimalWholeQuotients.check(q,answers);
         if("boundedWholeAddSub".equals(q.kind))return BoundedWholeAddSub.check(q,answers);
         if(BoundedWholeProduct.KIND.equals(q.kind))return BoundedWholeProduct.check(q,answers);
         if(BoundedWholeDivision.KIND.equals(q.kind))return BoundedWholeDivision.check(q,answers);
@@ -215,6 +215,7 @@ public final class Checker {
         return checkSteps(q,steps,kinds,true).forWorkInput();
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
+        if(DecimalWholeQuotients.supports(q.skillId)){Question visible=DecimalWholeQuotients.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
         if(DecimalWholeProducts.supports(q.skillId)){Question visible=DecimalWholeProducts.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
         if(DecimalAddSub.supports(q.skillId)){Question visible=DecimalAddSub.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
         Rational fractionExpected=null;

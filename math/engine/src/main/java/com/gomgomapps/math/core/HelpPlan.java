@@ -23,6 +23,7 @@ public final class HelpPlan {
         private String requiredFormat="";
         private boolean decimalAddSub;
         private boolean decimalProduct;
+        private boolean decimalQuotient;
         private Set<String> acceptedChoices;
         Step(String instruction,String before,String after,int expected,int filled,int extra,int denominator){
             this.instruction=instruction;this.before=before;this.after=after;this.expected=String.valueOf(expected);this.general=false;this.options=Map.of();
@@ -30,6 +31,7 @@ public final class HelpPlan {
         }
         Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=frame.pictureFilled==null?-1:frame.pictureFilled;extra=frame.pictureExtra==null?0:frame.pictureExtra;denominator=frame.pictureDenominator==null?0:frame.pictureDenominator;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);requiredFormat=frame.inputFormat==null?"":frame.inputFormat;acceptedChoices=frame.acceptedChoices==null?null:Set.copyOf(frame.acceptedChoices);}
         public boolean accepts(String value){
+            if(decimalQuotient)return DecimalWholeQuotients.acceptsStep(value,expected,requiredFormat);
             if(decimalProduct)return DecimalWholeProducts.acceptsStep(value,expected,requiredFormat);
             if(decimalAddSub)return DecimalAddSub.acceptsStep(value,expected,requiredFormat);
             if(requiredFormat.equals(FractionDecimalPercentRecall.ID))return FractionDecimalPercentRecall.acceptsStep(value,expected);
@@ -54,6 +56,7 @@ public final class HelpPlan {
     private final int answerDenominator;
     private boolean transfer=true;
     private boolean conversionFraction;
+    private boolean decimalQuotient;
     private String teachingVersion;
     private Integer resultNumeratorFrame,resultDenominatorFrame;
     private Integer resultCoefficientFrame,resultRadicandFrame;
@@ -68,7 +71,7 @@ public final class HelpPlan {
         if(draft.stage!=size()||draft.entries.size()<size())throw new IllegalStateException("도움 계산 완료 필요");
         String value=draft.entries.get(size()-1);
         if(!step(size()-1).accepts(value))throw new IllegalStateException("마지막 입력 확인 필요");
-        if(resultNumeratorFrame!=null&&resultDenominatorFrame!=null){String numerator=draft.entries.get(resultNumeratorFrame),denominator=draft.entries.get(resultDenominatorFrame);if(!step(resultNumeratorFrame).accepts(numerator)||!step(resultDenominatorFrame).accepts(denominator))throw new IllegalStateException("분수 입력 확인 필요");if(conversionFraction)return RepresentationConversions.integerInput(numerator).n+"/"+RepresentationConversions.integerInput(denominator).n;String fraction=Expression.number(numerator)+"/"+Expression.number(denominator);if(resultWholeFrame!=null){String whole=draft.entries.get(resultWholeFrame);if(!step(resultWholeFrame).accepts(whole))throw new IllegalStateException("자연수 부분 확인 필요");return Expression.number(whole)+" "+fraction;}return fraction;}
+        if(resultNumeratorFrame!=null&&resultDenominatorFrame!=null){String numerator=draft.entries.get(resultNumeratorFrame),denominator=draft.entries.get(resultDenominatorFrame);if(!step(resultNumeratorFrame).accepts(numerator)||!step(resultDenominatorFrame).accepts(denominator))throw new IllegalStateException("분수 입력 확인 필요");if(decimalQuotient)return DecimalWholeQuotients.numericInput(numerator).n+"/"+DecimalWholeQuotients.numericInput(denominator).n;if(conversionFraction)return RepresentationConversions.integerInput(numerator).n+"/"+RepresentationConversions.integerInput(denominator).n;String fraction=Expression.number(numerator)+"/"+Expression.number(denominator);if(resultWholeFrame!=null){String whole=draft.entries.get(resultWholeFrame);if(!step(resultWholeFrame).accepts(whole))throw new IllegalStateException("자연수 부분 확인 필요");return Expression.number(whole)+" "+fraction;}return fraction;}
         if(resultCoefficientFrame!=null&&resultRadicandFrame!=null){
             String coefficient=draft.entries.get(resultCoefficientFrame),radicand=draft.entries.get(resultRadicandFrame);
             if(!step(resultCoefficientFrame).accepts(coefficient)||!step(resultRadicandFrame).accepts(radicand))throw new IllegalStateException("근호 입력 확인 필요");
@@ -82,6 +85,7 @@ public final class HelpPlan {
         steps.add(new Step(instruction,before,after,expected,filled,extra,denominator));
     }
     public static HelpPlan forQuestion(Question q){
+        if(q!=null&&DecimalWholeQuotients.supports(q.skillId)){StudyGuide visible=DecimalWholeQuotients.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames){Step step=new Step(frame);step.decimalQuotient=true;plan.steps.add(step);}plan.teachingVersion=visible.teachingVersion;plan.resultNumeratorFrame=visible.resultNumeratorFrame;plan.resultDenominatorFrame=visible.resultDenominatorFrame;plan.decimalQuotient=true;plan.transfer=false;return plan;}
         if(q!=null&&DecimalWholeProducts.supports(q.skillId)){StudyGuide visible=DecimalWholeProducts.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames){Step step=new Step(frame);step.decimalProduct=true;plan.steps.add(step);}plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&DecimalAddSub.supports(q.skillId)){StudyGuide visible=DecimalAddSub.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames){Step step=new Step(frame);step.decimalAddSub=true;plan.steps.add(step);}plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&FractionDecimalPercentRecall.supports(q.skillId)){StudyGuide visible=FractionDecimalPercentRecall.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
