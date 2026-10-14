@@ -24,6 +24,7 @@ public final class Checker {
     }
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
         if(FractionDecimalRecall.supports(q.skillId))return FractionDecimalRecall.check(q,answers);
+        if(FractionDecimalPercentRecall.supports(q.skillId))return FractionDecimalPercentRecall.check(q,answers);
         if(PercentageMeaning.supports(q.skillId))return PercentageMeaning.check(q,answers);
         if(RepresentationConversions.supports(q.skillId))return RepresentationConversions.check(q,answers);
         if(GroupedEstimation.supports(q.skillId)){Result guard=GroupedEstimation.phaseGuard(q);return guard==null?GroupedEstimation.checkCount(q,answers):guard;}

@@ -28,6 +28,7 @@ public final class HelpPlan {
         }
         Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=frame.pictureFilled==null?-1:frame.pictureFilled;extra=frame.pictureExtra==null?0:frame.pictureExtra;denominator=frame.pictureDenominator==null?0:frame.pictureDenominator;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);requiredFormat=frame.inputFormat==null?"":frame.inputFormat;acceptedChoices=frame.acceptedChoices==null?null:Set.copyOf(frame.acceptedChoices);}
         public boolean accepts(String value){
+            if(requiredFormat.equals(FractionDecimalPercentRecall.ID))return FractionDecimalPercentRecall.acceptsStep(value,expected);
             if(Set.of("convDecimal","convPercent","convInteger").contains(requiredFormat))return RepresentationConversions.acceptsStep(value,expected,requiredFormat);
             if(requiredFormat.equals("percentageNumeric")||requiredFormat.equals("percentageSymbol")){Rational actual=requiredFormat.equals("percentageSymbol")?PercentageMeaning.symbolInput(value):PercentageMeaning.numericInput(value),target=PercentageMeaning.numericInput(expected);return actual!=null&&actual.equals(target);}
             if(requiredFormat.equals("exactDecimalRecall")){Rational actual=FractionDecimalRecall.exactInput(value),target=FractionDecimalRecall.target(expected);return actual!=null&&actual.equals(target);}
@@ -77,6 +78,7 @@ public final class HelpPlan {
         steps.add(new Step(instruction,before,after,expected,filled,extra,denominator));
     }
     public static HelpPlan forQuestion(Question q){
+        if(q!=null&&FractionDecimalPercentRecall.supports(q.skillId)){StudyGuide visible=FractionDecimalPercentRecall.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&RepresentationConversions.supports(q.skillId)){StudyGuide visible=RepresentationConversions.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.resultNumeratorFrame=visible.resultNumeratorFrame;plan.resultDenominatorFrame=visible.resultDenominatorFrame;plan.conversionFraction=visible.resultNumeratorFrame!=null;plan.transfer=false;return plan;}
         if(q!=null&&PercentageMeaning.supports(q.skillId)){StudyGuide visible=PercentageMeaning.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&FractionDecimalRecall.supports(q.skillId)){StudyGuide visible=FractionDecimalRecall.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}

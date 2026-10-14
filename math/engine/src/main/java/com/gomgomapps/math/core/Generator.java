@@ -46,6 +46,7 @@ public final class Generator {
         if(ThreeStepWholeContexts.supports(skillId))q=ThreeStepWholeContexts.next(random,limits,previous);
         else if(ThreeStepFractionContexts.supports(skillId))q=ThreeStepFractionContexts.next(random,limits,previous);
         else if(FractionDecimalRecall.supports(skillId))q=FractionDecimalRecall.next(random,limits,previous);
+        else if(FractionDecimalPercentRecall.supports(skillId))q=FractionDecimalPercentRecall.next(random,limits,previous);
         else if(PercentageMeaning.supports(skillId))q=PercentageMeaning.next(random,limits,previous);
         else if(RepresentationConversions.supports(skillId))q=RepresentationConversions.next(skillId,random,limits,previous);
         else if(ContextCalculationMethods.ID.equals(skillId))q=ContextCalculationMethods.next(random,limits,previous);
@@ -230,6 +231,7 @@ public final class Generator {
         if(ThreeStepWholeContexts.supports(s.id))return ThreeStepWholeContexts.next(random,limits,Map.of());
         if(ThreeStepFractionContexts.supports(s.id))return ThreeStepFractionContexts.next(random,limits,Map.of());
         if(FractionDecimalRecall.supports(s.id))return FractionDecimalRecall.next(random,limits,Map.of());
+        if(FractionDecimalPercentRecall.supports(s.id))return FractionDecimalPercentRecall.next(random,limits,Map.of());
         if(PercentageMeaning.supports(s.id))return PercentageMeaning.next(random,limits,Map.of());
         if(RepresentationConversions.supports(s.id))return RepresentationConversions.next(s.id,random,limits,Map.of());
         if(ContextCalculationMethods.ID.equals(s.id))return ContextCalculationMethods.next(random,limits,Map.of());
