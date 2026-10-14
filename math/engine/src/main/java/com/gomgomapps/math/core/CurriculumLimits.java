@@ -139,6 +139,7 @@ public final class CurriculumLimits {
         if(minimumWholeDigits!=null&&(wholeDigits==null||minimumWholeDigits>wholeDigits||(secondDigits!=null&&minimumWholeDigits>secondDigits)))throw new IllegalArgumentException("Minimum digits exceed operand bounds");
     }
     public boolean allows(Question q){
+        if(q!=null&&RepresentationConversions.supports(q.skillId))return allowsRepresentationConversion(q);
         if(q!=null&&PercentageMeaning.supports(q.skillId))return allowsPercentageMeaning(q);
         if(DivisionNotations.ID.equals(q.skillId)){DivisionNotations.Givens v=DivisionNotations.read(q);if(v==null||v.dividend()<givenMinimum(0)||v.dividend()>givenMaximum(1000000)||v.divisor()<contextDivisorMinimum()||v.divisor()>contextDivisorMaximum())return false;}
         if(Set.of("englishWordsToNumber","numberToEnglishWords").contains(q.skillId)){Integer publicNumber=EnglishNumberWords.publicValue(q);if(publicNumber==null||publicNumber<givenMinimum(0)||publicNumber>wholeMaximum(10000000))return false;}
@@ -310,6 +311,19 @@ public final class CurriculumLimits {
             if(answerDecimalPlaces!=null&&!answer.mul(new Rational(java.math.BigInteger.TEN.pow(answerDecimalPlaces),java.math.BigInteger.ONE)).isInteger())return false;
         }
         // These declared operation constraints do not describe a definition/notation task.
+        return partFractions.isEmpty()&&quantityRepresentations.isEmpty()&&factors.isEmpty()&&divisors.isEmpty()&&dividendMaxima.isEmpty()&&!monicQuadratic&&!integerSecondOperand&&!relatedDenominators&&!commonDenominatorFactor&&!nonnegativeSubtrahend&&maxSecondOperand==null&&maxRegroups==null&&secondDecimalPlaces==null&&polygonSides==null&&maxExactResult==null&&roundingDecimalTargets.isEmpty()&&roundingUnits.isEmpty()&&!sameDecimalPlaces;
+    }
+    private boolean allowsRepresentationConversion(Question q){
+        RepresentationConversions.Givens g=RepresentationConversions.read(q);if(g==null)return false;Rational result=g.target().equals("percent")?g.value().mul(Rational.of(100)):g.value();
+        List<Rational> operands=new ArrayList<>();java.math.BigInteger denominator=g.value().d;
+        if(g.source().equals("fraction")){String[] raw=g.raw().split("/");operands.add(RepresentationConversions.integerInput(raw[0]));operands.add(RepresentationConversions.integerInput(raw[1]));denominator=new java.math.BigInteger(raw[1]);if(wholeDigits!=null&&(raw[0].length()>wholeDigits||raw[1].length()>(secondDigits==null?wholeDigits:secondDigits))||secondDigits!=null&&raw[1].length()>secondDigits||minimumWholeDigits!=null&&(raw[0].length()<minimumWholeDigits||raw[1].length()<minimumWholeDigits))return false;}
+        else{operands.add(g.source().equals("percent")?g.value().mul(Rational.of(100)):g.value());String number=g.raw().replace("%","").trim();int dot=number.indexOf('.'),at=number.indexOf('('),whole=dot<0?number.length():dot;int places=dot<0?0:(at<0?number.length():at)-dot-1;if(decimalPlaces!=null&&places>decimalPlaces||wholeDigits!=null&&whole>wholeDigits||minimumWholeDigits!=null&&whole<minimumWholeDigits||secondDigits!=null)return false;}
+        for(Rational input:operands)if(maxGiven!=null&&compareDecimalLimit(input,maxGiven)>0||minGiven!=null&&compareDecimalLimit(input,minGiven)<0||wholeMaximum!=null&&input.compareTo(Rational.of(wholeMaximum))>0||nonnegative&&input.compareTo(Rational.ZERO)<0)return false;
+        if(!denominators.isEmpty()&&(denominator.bitLength()>31||!denominators.contains(denominator.intValue())))return false;
+        if(unitFractions&&!g.value().n.equals(java.math.BigInteger.ONE)||maxFractionValue!=null&&g.value().compareTo(maxFractionValue)>0)return false;
+        if(answerDomain.equals("integer")&&!result.isInteger()||nonnegative&&result.compareTo(Rational.ZERO)<0||maxResult!=null&&compareDecimalLimit(result,maxResult)>0)return false;
+        if(answerDecimalPlaces!=null&&!result.mul(new Rational(java.math.BigInteger.TEN.pow(answerDecimalPlaces),java.math.BigInteger.ONE)).isInteger())return false;
+        if(!percentages.isEmpty()){Rational p=g.value().mul(Rational.of(100));if(!p.isInteger()||p.n.bitLength()>31||!percentages.contains(p.intValue()))return false;}
         return partFractions.isEmpty()&&quantityRepresentations.isEmpty()&&factors.isEmpty()&&divisors.isEmpty()&&dividendMaxima.isEmpty()&&!monicQuadratic&&!integerSecondOperand&&!relatedDenominators&&!commonDenominatorFactor&&!nonnegativeSubtrahend&&maxSecondOperand==null&&maxRegroups==null&&secondDecimalPlaces==null&&polygonSides==null&&maxExactResult==null&&roundingDecimalTargets.isEmpty()&&roundingUnits.isEmpty()&&!sameDecimalPlaces;
     }
     private static int compareDecimalLimit(Rational number,double limit){return new java.math.BigDecimal(number.n).compareTo(java.math.BigDecimal.valueOf(limit).multiply(new java.math.BigDecimal(number.d)));}

@@ -47,6 +47,7 @@ public final class Generator {
         else if(ThreeStepFractionContexts.supports(skillId))q=ThreeStepFractionContexts.next(random,limits,previous);
         else if(FractionDecimalRecall.supports(skillId))q=FractionDecimalRecall.next(random,limits,previous);
         else if(PercentageMeaning.supports(skillId))q=PercentageMeaning.next(random,limits,previous);
+        else if(RepresentationConversions.supports(skillId))q=RepresentationConversions.next(skillId,random,limits,previous);
         else if(ContextCalculationMethods.ID.equals(skillId))q=ContextCalculationMethods.next(random,limits,previous);
         else if(WholeOperationOrder.ID.equals(skillId))q=WholeOperationOrder.next(random,limits,previous);
         else if(DistributiveArithmetic.supports(skillId))q=DistributiveArithmetic.next(skillId,random,limits,previous);
@@ -205,8 +206,8 @@ public final class Generator {
         FactorTeaching.attach(q);
         if(q.choiceDiagrams!=null&&!q.choiceDiagrams.isEmpty()){q.choices=new ArrayList<>(q.choiceDiagrams.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
         else if(q.choiceLabels!=null&&!q.choiceLabels.isEmpty()){q.choices=new ArrayList<>(q.choiceLabels.keySet());Collections.shuffle(q.choices,random);q.correctChoice=q.choices.indexOf(q.answers[0]);}
-        else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number")&&!CommonMultipleLists.supports(skillId)&&!EnglishNumberWords.supports(skillId)&&!PercentageNotation.supports(skillId)&&!EquivalentQuantityStories.supports(skillId)&&!DecimalPercentReverse.supports(skillId)){if(PrimaryScaleRates.supports(s.id)||CombinedEqualityPractice.supports(s.id)||EqualityFoundations.selected(s.id))EqualityFoundations.choices(q,random,limits);else if(skillId.equals(WholePlaceRelations.VALUE))WholePlaceRelations.choices(q,random,limits);else Choices.build(q,s,random);}
-        if(multipleChoice&&q.choices.isEmpty()&&(s.id.startsWith("el_")||s.id.startsWith("sec_")||s.family.startsWith("adv_")||s.family.startsWith("early_")))FoundationChoices.build(q,s,random);
+        else if(multipleChoice&&q.answers.length==1&&q.kind.equals("number")&&!RepresentationConversions.supports(skillId)&&!CommonMultipleLists.supports(skillId)&&!EnglishNumberWords.supports(skillId)&&!PercentageNotation.supports(skillId)&&!EquivalentQuantityStories.supports(skillId)&&!DecimalPercentReverse.supports(skillId)){if(PrimaryScaleRates.supports(s.id)||CombinedEqualityPractice.supports(s.id)||EqualityFoundations.selected(s.id))EqualityFoundations.choices(q,random,limits);else if(skillId.equals(WholePlaceRelations.VALUE))WholePlaceRelations.choices(q,random,limits);else Choices.build(q,s,random);}
+        if(multipleChoice&&q.choices.isEmpty()&&!RepresentationConversions.supports(skillId)&&(s.id.startsWith("el_")||s.id.startsWith("sec_")||s.family.startsWith("adv_")||s.family.startsWith("early_")))FoundationChoices.build(q,s,random);
         if(multipleChoice&&q.kind.equals("radical")){if(CoordinateDiagonal.supports(s.id))CoordinateDiagonal.choices(q,random);else if(CoordinateTriangle.PERIM.equals(s.id))CoordinateTriangle.choices(q,random);else RadicalQuestions.choices(q,random);}
         limits.constrainChoices(q);
         return q;
@@ -230,6 +231,7 @@ public final class Generator {
         if(ThreeStepFractionContexts.supports(s.id))return ThreeStepFractionContexts.next(random,limits,Map.of());
         if(FractionDecimalRecall.supports(s.id))return FractionDecimalRecall.next(random,limits,Map.of());
         if(PercentageMeaning.supports(s.id))return PercentageMeaning.next(random,limits,Map.of());
+        if(RepresentationConversions.supports(s.id))return RepresentationConversions.next(s.id,random,limits,Map.of());
         if(ContextCalculationMethods.ID.equals(s.id))return ContextCalculationMethods.next(random,limits,Map.of());
         if(WholeOperationOrder.ID.equals(s.id))return WholeOperationOrder.next(random,limits,Map.of());
         if(DistributiveArithmetic.supports(s.id))return DistributiveArithmetic.next(s.id,random,limits,Map.of());
