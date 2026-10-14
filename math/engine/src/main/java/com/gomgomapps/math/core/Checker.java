@@ -23,6 +23,7 @@ public final class Checker {
         return check(q,steps,answers,Collections.emptyList());
     }
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
+        if(KoreanFirstTermArithmetic.supports(q.skillId)){Question visible=KoreanFirstTermArithmetic.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return KoreanFirstTermArithmetic.check(q,answers);}
         if(PublicDecimalContexts.supports(q.skillId)){Question visible=PublicDecimalContexts.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");if(!"mental".equals(q.calculationMethod)){Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();}return PublicDecimalContexts.check(q,answers);}
         if(DecimalDivisorQuotients.supports(q.skillId)){Question visible=DecimalDivisorQuotients.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return DecimalDivisorQuotients.check(q,answers);}
         if(DecimalWholeQuotients.supports(q.skillId)){Question visible=DecimalWholeQuotients.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return DecimalWholeQuotients.check(q,answers);}
@@ -214,6 +215,7 @@ public final class Checker {
         return checkSteps(q,steps,kinds,true).forWorkInput();
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
+        if(KoreanFirstTermArithmetic.supports(q.skillId)){Question visible=KoreanFirstTermArithmetic.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
         if(PublicDecimalContexts.supports(q.skillId)){Question visible=PublicDecimalContexts.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
         if(DecimalDivisorQuotients.supports(q.skillId)){Question visible=DecimalDivisorQuotients.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
         if(DecimalWholeQuotients.supports(q.skillId)){Question visible=DecimalWholeQuotients.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}

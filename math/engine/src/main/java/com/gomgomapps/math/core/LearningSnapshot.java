@@ -14,6 +14,7 @@ public final class LearningSnapshot {
         Deferred.sync(state);
         return (Learning.State)new Copy().value(state);
     }
+    static Diagnosis.Plan copyPlan(Diagnosis.Plan plan){return (Diagnosis.Plan)new Copy().value(plan);}
 
     private static final class Copy {
         private final IdentityHashMap<Object,Object> copies=new IdentityHashMap<>();

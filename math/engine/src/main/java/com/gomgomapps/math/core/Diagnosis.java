@@ -285,5 +285,10 @@ public final class Diagnosis {
             s.queue.clear();s.target=s.completed+run.phaseSize;state.diagnostics.put(plan.key,plan);
             if(run.phaseSize==0){s.finished=true;plan.initialRoundFinished=true;}
         }
+        if(foundationAscending(state.profile)&&currentPlan(state)==null&&state.diagnostics.values().stream().anyMatch(p->p.unitScreening)){
+            Plan fresh;
+            try{fresh=create(state.profile);}catch(IllegalArgumentException invalidEndpoint){return;}
+            KoreanFoundationPlanUpgrade.apply(state,fresh);
+        }
     }
 }

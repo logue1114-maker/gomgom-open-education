@@ -22,6 +22,7 @@ public final class Curriculum {
     }
     /** Version-specific additions stay available for chosen practice, but never enter older-course diagnosis. */
     public static boolean inCurriculum(Catalog.Skill skill,int version){
+        if(KoreanFirstTermArithmetic.supports(skill.id))return version==2022;
         if(WholePowerTen.supports(skill.id))return false;
         if(TenMultipleMental.supports(skill.id))return false;
         if(RemainderRepresentations.supports(skill.id))return false; // Reviewed Namibia placement only.

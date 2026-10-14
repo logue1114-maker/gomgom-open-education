@@ -7,6 +7,7 @@ public final class Choices {
     private Choices(){}
     public static void build(Question q,Catalog.Skill skill,Random random){
         if(!q.choices.isEmpty()||q.answers.length!=1||!q.kind.equals("number"))return;
+        if(KoreanFirstTermArithmetic.supports(skill.id)){KoreanFirstTermArithmetic.choices(q,random);return;}
         if(DotCollections.supports(skill.id)){DotCollections.choices(q,random);return;}
         if(ModuloFoundations.supports(skill.id)){ModuloFoundations.choices(q,random);return;}
         if(CountingPatterns.supports(skill.id)){CountingPatterns.choices(q,random);return;}

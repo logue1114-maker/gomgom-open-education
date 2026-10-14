@@ -44,7 +44,7 @@ public final class KoreanFoundationUnits {
    rows.removeIf(row->row.grade==3||row.grade==4||row.grade==1&&row.term==2||row.grade==2&&row.term==1);
    rows.addAll(List.of(
     d(1,2,1,"100까지의 수","place10","place10"),d(1,2,2,"덧셈과 뺄셈(1)","addThree9,subThree9","addThree9,subThree9"),d(1,2,3,"모양과 시각","earlyShapes,earlyClock","earlyShapes,earlyClock"),
-    d(1,2,4,"덧셈과 뺄셈(2)","add20,sub20","add20,sub20"),d(1,2,5,"규칙 찾기","earlyPattern","earlyPattern"),d(1,2,6,"덧셈과 뺄셈(3)","",""),
+    d(1,2,4,"덧셈과 뺄셈(2)","add20,sub20","add20,sub20"),d(1,2,5,"규칙 찾기","earlyPattern","earlyPattern"),d(1,2,6,"덧셈과 뺄셈(3)","krNoCarryAdd,krNoBorrowSub","krNoCarryAdd,krNoBorrowSub"),
     d(2,1,1,"세 자리 수","place100","place100"),d(2,1,2,"여러 가지 도형","el_shape_sides,el_shape_classify","el_shape_classify"),d(2,1,3,"덧셈과 뺄셈","add100,sub100,addThree100,subThree100","add100,sub100"),
     d(2,1,4,"길이 재기","",""),d(2,1,5,"분류하기","earlyClassify","earlyClassify"),d(2,1,6,"곱셈","mulIntro","mulIntro"),
     d(3,1,1,"덧셈과 뺄셈","add1000,sub1000","add1000,sub1000"),d(3,1,2,"평면도형","",""),
