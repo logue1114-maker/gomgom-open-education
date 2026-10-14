@@ -25,7 +25,7 @@ public final class KoreanFoundationStudy {
         Diagnosis.Plan plan=state.diagnostics.get(current.foundationPlanKey);
         Diagnosis.UnitScreen screen=plan==null?null:plan.unitScreens.get(current.foundationUnitKey);
         if(screen==null)throw new IllegalArgumentException("공부할 단원 선택 필요");
-        String lower=foundation(state,plan,current.question.skillId);
+        String lower=foundation(state,plan,current.question.skillId,true);
         if(lower==null)throw new IllegalArgumentException("이 문제의 개념부터 확인 필요");
         return begin(state,screen,random,false,lower);
     }
@@ -56,12 +56,15 @@ public final class KoreanFoundationStudy {
     }
 
     private static String foundation(Learning.State state,Diagnosis.Plan plan,String target){
+        return foundation(state,plan,target,false);
+    }
+    private static String foundation(Learning.State state,Diagnosis.Plan plan,String target,boolean learnerRequested){
         List<String> prerequisites=Catalog.foundationOrder(target);
         Set<String> learned=new HashSet<>(KoreanFoundationUnits.scope(state.profile));
         for(int i=prerequisites.size()-1;i>=0;i--){
             String id=prerequisites.get(i);if(!plan.scope.contains(id)||!learned.contains(id))continue;
             Learning.Progress p=state.progress.get(id);
-            if(p!=null&&p.review!=null&&p.review.recent&&!p.review.pending&&p.review.cleanRun>=2)continue;
+            if(!learnerRequested&&p!=null&&p.review!=null&&p.review.recent&&!p.review.pending&&p.review.cleanRun>=2)continue;
             return id;
         }
         return null;

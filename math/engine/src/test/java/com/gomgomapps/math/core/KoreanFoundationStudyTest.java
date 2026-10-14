@@ -75,4 +75,22 @@ public class KoreanFoundationStudyTest {
         Diagnosis.beginStudy(state,screen,random);String priorWarm=state.session.queue.get(0);assertNotEquals("add9",priorWarm);state.profile.excluded.add(priorWarm);
         Diagnosis.beginStudy(state,screen,random);assertFalse(state.session.queue.contains(priorWarm));assertEquals("add9",state.session.queue.get(2));assertEquals(Diagnosis.UnitStatus.NEEDS_STUDY,screen.status);
     }
+    @Test public void learnerCanReturnToRecentlyConfirmedFoundationsWithoutLosingTheOriginalTarget(){
+        Random random=new Random(37201);Learning.State state=student();Learning.beginDiagnostic(state,random);Diagnosis.Plan plan=Diagnosis.currentPlan(state);
+        Diagnosis.UnitScreen screen=Diagnosis.screens(plan).stream().filter(u->u.representatives.contains("add9")).findFirst().orElseThrow();KoreanFoundationStudy.flagged(state,screen,"add9","unable",DAY);
+        for(String id:List.of("count","join9")){Review.Track track=Review.track(state.progress(id));track.recent=true;track.pending=false;track.cleanRun=2;}
+        Diagnosis.beginStudy(state,screen,random);assertEquals("add9",next(state,random).skillId);
+        KoreanFoundationStudy.beginEasier(state,random);assertEquals("add9",state.session.queue.get(2));assertEquals("join9",next(state,random).skillId);assertEquals(screen.key,state.session.foundationUnitKey);
+        KoreanFoundationStudy.beginEasier(state,random);assertEquals("add9",state.session.queue.get(2));assertEquals("count",next(state,random).skillId);assertEquals(screen.key,state.session.foundationUnitKey);
+        assertTrue(Review.track(state.progress("count")).recent);assertFalse(Review.track(state.progress("count")).pending);
+    }
+    @Test public void explicitEasierRequestStillRespectsTheLearnersExcludedScope(){
+        Random random=new Random(37202);Learning.State state=student();Learning.beginDiagnostic(state,random);Diagnosis.Plan plan=Diagnosis.currentPlan(state);
+        Diagnosis.UnitScreen screen=Diagnosis.screens(plan).stream().filter(u->u.representatives.contains("add9")).findFirst().orElseThrow();KoreanFoundationStudy.flagged(state,screen,"add9","unable",DAY);
+        Review.Track known=Review.track(state.progress("count"));known.recent=true;known.pending=false;known.cleanRun=2;
+        state.profile.excluded.add("join9");Diagnosis.beginStudy(state,screen,random);assertEquals("add9",next(state,random).skillId);
+        state.profile.excluded.add("count");
+        try{KoreanFoundationStudy.beginEasier(state,random);fail("Excluded foundations must not return");}catch(IllegalArgumentException expected){}
+        assertFalse(state.session.queue.contains("join9"));
+    }
 }
