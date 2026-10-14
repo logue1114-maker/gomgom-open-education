@@ -12,7 +12,10 @@ public final class HelpPlan {
         public String teachingVersion;
         public int stage;
         public List<String> entries=new ArrayList<>();
-        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);return d;}
+        public List<Integer> foundationCounted=new ArrayList<>();
+        public int foundationCountedStage=-1;
+        public boolean foundationChecked;
+        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;return d;}
     }
     public static final class Step {
         public final String instruction,before,after;
@@ -85,6 +88,11 @@ public final class HelpPlan {
     }
     private void add(String instruction,String before,String after,int expected,int filled,int extra,int denominator){
         steps.add(new Step(instruction,before,after,expected,filled,extra,denominator));
+    }
+    public static HelpPlan forFoundation(Question q){
+        StudyGuide guide=FoundationTeaching.guide(q);if(guide==null)return null;
+        HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:guide.frames)plan.steps.add(new Step(frame));
+        plan.teachingVersion=guide.teachingVersion;plan.transfer=false;return plan;
     }
     public static HelpPlan forQuestion(Question q){
         if(q!=null&&PublicDecimalContexts.supports(q.skillId)){StudyGuide visible=PublicDecimalContexts.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames){Step step=new Step(frame);step.decimalContext=step.options.isEmpty();plan.steps.add(step);}plan.teachingVersion=visible.teachingVersion;plan.resultNumeratorFrame=visible.resultNumeratorFrame;plan.resultDenominatorFrame=visible.resultDenominatorFrame;plan.decimalQuotient=true;plan.transfer=false;return plan;}
@@ -227,6 +235,7 @@ public final class HelpPlan {
         if(draft==null||!questionId.equals(draft.questionId)){draft=new Draft();draft.questionId=questionId;}
         if(!Objects.equals(teachingVersion,draft.teachingVersion)){
             draft.teachingVersion=teachingVersion;draft.stage=0;draft.entries=new ArrayList<>();
+            draft.foundationCounted=new ArrayList<>();draft.foundationCountedStage=-1;draft.foundationChecked=false;
         }
         if(draft.entries==null)draft.entries=new ArrayList<>();
         int valid=0;while(valid<Math.min(draft.stage,size())&&valid<draft.entries.size()&&step(valid).accepts(draft.entries.get(valid)))valid++;
