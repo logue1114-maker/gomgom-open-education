@@ -74,6 +74,7 @@ public final class LearningSnapshot {
         if(source instanceof StudyGuide.Frame)return new StudyGuide.Frame();
         if(source instanceof StudyDiagram d)return new StudyDiagram(d.type,d.values,d.labels);
         if(source instanceof Diagnosis.Plan)return new Diagnosis.Plan();
+        if(source instanceof Diagnosis.UnitScreen)return new Diagnosis.UnitScreen();
         if(source instanceof Diagnosis.Run r)return new Diagnosis.Run(null,r.standalone,r.limit);
         if(source instanceof Diagnosis.Probe p)return new Diagnosis.Probe(p.skillId,p.reviewGrade,p.followUp);
         if(source instanceof Deferred.Work)return new Deferred.Work();

@@ -128,14 +128,14 @@ public final class GlobalCurriculum {
     private static String selectionKey(Learning.Profile p){return p.countryCode+"|"+p.educationSystem;}
     private static void rememberSelection(Learning.Profile p){
         Learning.CurriculumSelection s=new Learning.CurriculumSelection();
-        s.grade=p.grade;s.term=p.term;s.schoolYear=p.schoolYear;s.curriculum=p.curriculum;s.currentSkill=p.currentSkill;s.ready=p.ready;s.diagnosed=p.diagnosed;
+        s.grade=p.grade;s.term=p.term;s.schoolYear=p.schoolYear;s.curriculum=p.curriculum;s.currentSkill=p.currentSkill;s.ready=p.ready;s.diagnosed=p.diagnosed;s.foundationAscending=p.foundationAscending;s.lastLearnedSkill=p.lastLearnedSkill;
         s.learnedSkills.addAll(p.learnedSkills);s.excluded.addAll(p.excluded);s.learnedCourses.addAll(p.learnedCourses);
         p.curriculumSelections.put(selectionKey(p),s);p.countryEducationSystems.put(p.countryCode,p.educationSystem);
     }
     private static void recallSelection(Learning.Profile p){
         Learning.CurriculumSelection s=p.curriculumSelections.get(selectionKey(p));
-        if(s==null){p.currentSkill="";p.learnedSkills.clear();p.learnedCourses.clear();p.excluded.clear();p.diagnosed=false;p.ready=false;return;}
-        p.grade=s.grade;p.term=s.term;p.schoolYear=s.schoolYear;p.curriculum=s.curriculum;p.currentSkill=s.currentSkill;p.ready=s.ready;p.diagnosed=s.diagnosed;
+        if(s==null){p.currentSkill="";p.learnedSkills.clear();p.learnedCourses.clear();p.excluded.clear();p.diagnosed=false;p.ready=false;p.foundationAscending=false;p.lastLearnedSkill="";return;}
+        p.grade=s.grade;p.term=s.term;p.schoolYear=s.schoolYear;p.curriculum=s.curriculum;p.currentSkill=s.currentSkill;p.ready=s.ready;p.diagnosed=s.diagnosed;p.foundationAscending=s.foundationAscending;p.lastLearnedSkill=s.lastLearnedSkill==null?"":s.lastLearnedSkill;
         p.learnedSkills=new LinkedHashSet<>(s.learnedSkills);p.excluded=new LinkedHashSet<>(s.excluded);p.learnedCourses=new LinkedHashSet<>(s.learnedCourses);
     }
     public static void chooseCountry(Learning.Profile p,String country){

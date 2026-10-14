@@ -8,7 +8,7 @@ import java.util.*;
 public final class Review {
     private Review(){}
     public static final int GAP=2,RECOVERY_CHECKS=2,EVENT_LIMIT=32;
-    public enum Outcome { FIRST_CORRECT, FIRST_WRONG, CORRECTED, CORRECTION_WRONG, RECHECK_CORRECT, RECHECK_WRONG, HELP_USED, ASSISTED_CORRECT, SKIPPED, INPUT_UNCERTAIN }
+    public enum Outcome { FIRST_CORRECT, FIRST_WRONG, CORRECTED, CORRECTION_WRONG, RECHECK_CORRECT, RECHECK_WRONG, HELP_USED, ASSISTED_CORRECT, SKIPPED, INPUT_UNCERTAIN, STUDY_REQUESTED }
     public enum Status { UNKNOWN, RECHECK, PRACTICE, RECENT }
     public static final class Event implements Serializable {
         private static final long serialVersionUID=1L;
@@ -101,6 +101,20 @@ public final class Review {
     public static void inputIssue(Learning.State state,String reason,LocalDate day){
         Learning.Session s=state.session;if(s==null||s.question==null||s.advancePending||s.finished&&!Deferred.active(s))return;
         open(state,day);if(s.reviewWork.inputIssues.add(reason))event(state,Outcome.INPUT_UNCERTAIN,reason,day);
+    }
+    /** An explicit study request schedules fresh checks without inventing failed answers. */
+    public static void requestRecheck(Learning.State state,String id,String reason,LocalDate day){
+        Track t=track(state.progress(id));
+        Learning.Session s=state.session;
+        if(s!=null&&s.question!=null&&id.equals(s.question.skillId)){
+            open(state,day);event(state,Outcome.STUDY_REQUESTED,reason,day);
+        }
+        if(t.pending)return;
+        t.pending=true;t.legacy=false;t.recent=false;t.generation++;
+        t.sourceId=s!=null&&s.question!=null&&id.equals(s.question.skillId)?s.question.id:"";
+        t.recoveryChecks=0;t.spacedSuccesses=0;t.cleanRun=0;t.checked.clear();
+        t.updatedDay=day.toEpochDay();t.dueDay=t.updatedDay;t.eligibleAfter=state.reviewSequence+GAP;
+        state.progress(id).reviewDay=t.dueDay;sync(state,id,t);
     }
     /** Mark explicit concept help without inventing a mathematical error. */
     public static void helpUsed(Learning.State state,LocalDate day){

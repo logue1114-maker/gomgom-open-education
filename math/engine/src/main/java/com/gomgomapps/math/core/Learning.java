@@ -17,6 +17,9 @@ public final class Learning {
         public Set<String> learnedSkills=new LinkedHashSet<>();
         public Set<String> excluded=new HashSet<>(),learnedCourses=new HashSet<>();
         public boolean ready,diagnosed;
+        /** Explicit Korean elementary foundation order; absent in old saves means the prior order. */
+        public boolean foundationAscending;
+        public String lastLearnedSkill="";
         /** Remember each curriculum's chosen scope without moving shared study records. */
         public Map<String,CurriculumSelection> curriculumSelections=new LinkedHashMap<>();
         public Map<String,String> countryEducationSystems=new LinkedHashMap<>();
@@ -27,6 +30,9 @@ public final class Learning {
         public String currentSkill="";
         public Set<String> learnedSkills=new LinkedHashSet<>(),excluded=new LinkedHashSet<>(),learnedCourses=new LinkedHashSet<>();
         public boolean ready,diagnosed;
+        /** Explicit Korean elementary foundation order; absent in old saves means the prior order. */
+        public boolean foundationAscending;
+        public String lastLearnedSkill="";
     }
     public static int defaultTerm(LocalDate date){return date.getMonthValue()>=8||date.getMonthValue()<=2?2:1;}
     public static final class Progress implements Serializable {
@@ -66,6 +72,9 @@ public final class Learning {
         public String id=UUID.randomUUID().toString(),mode;
         public String countryCode,educationSystem,languageTag;
         public String plannedCurrentSkill;
+        public String foundationPlanKey,foundationUnitKey;
+        public boolean foundationRecheck;
+        public List<String> foundationStudyPath=new ArrayList<>();
         public int curriculumGrade;
         public int target,completed,correct,corrected,assisted,skipped,stageGrade,stageAnswered;
         public boolean finished,recorded,advancePending,hadError;
@@ -113,6 +122,7 @@ public final class Learning {
         }
     }
     public static List<Catalog.Skill> diagnosticScope(Profile p){
+        if(Diagnosis.foundationAscending(p)){List<Catalog.Skill> screened=new ArrayList<>();for(String id:KoreanFoundationUnits.scope(p))screened.add(Catalog.get(id));return screened;}
         if(GlobalCurriculum.foreign(p))return GlobalCurriculum.scope(p);
         Curriculum.restoreProfile(p);int version=Curriculum.version(p);
         List<Catalog.Skill> list=new ArrayList<>();Catalog.Skill current=p.currentSkill.isEmpty()?null:Catalog.get(p.currentSkill);
@@ -206,7 +216,7 @@ public final class Learning {
         if(TimedStudy.finishIfDue(state,day))return null;
         if(s.question!=null&&!s.advancePending){Review.open(state,day);return s.question;}
         if(TimedStudy.enabled(s)&&s.queue.isEmpty())refillTimed(state,s,new Random());
-        String next=Diagnosis.nextSkill(s);if(next==null){if(s.queue.isEmpty())return null;next=s.queue.remove(0);String due=Review.nextDue(state,s.selected,day);if(due!=null&&!s.mode.equals("diagnostic")&&!s.mode.equals("daily")&&!TimedStudy.enabled(s))next=due;}
+        String next=Diagnosis.nextSkill(s);if(next==null){if(s.queue.isEmpty())return null;next=s.queue.remove(0);String due=Review.nextDue(state,s.selected,day);if(due!=null&&!s.mode.equals("diagnostic")&&!s.mode.equals("daily")&&!s.mode.equals("foundationStudy")&&!s.mode.equals("foundationRecheck")&&!TimedStudy.enabled(s))next=due;}
         int questionGrade=s.diagnosticRun!=null&&s.diagnosticRun.current!=null?s.diagnosticRun.current.reviewGrade:s.selectedGrades.getOrDefault(next,s.curriculumGrade);
         s.question=generator.next(next,Review.avoid(state,next),s.choices&&!s.mode.equals("diagnostic")&&(s.diagnosticRun==null||s.diagnosticRun.current==null),GlobalCurriculum.limits(s.educationSystem,next,questionGrade));
         state.recent.addLast(s.question.signature());while(state.recent.size()>160)state.recent.removeFirst();
@@ -228,7 +238,7 @@ public final class Learning {
         LearningEvaluation.record(p,independent);
         boolean probing=s.diagnosticRun!=null&&s.diagnosticRun.current!=null;
         Review.finish(state,skip,!independent,day);
-        if(skip){Deferred.rememberSkip(s);p.skipped++;s.skipped++;p.consecutive=0;}
+        if(skip){if(!Diagnosis.screening(s))Deferred.rememberSkip(s);p.skipped++;s.skipped++;p.consecutive=0;}
         else {
             if(assisted){p.assisted++;s.assisted++;p.consecutive=0;}
             else if(s.hadError){p.corrected++;s.corrected++;p.consecutive=0;}
@@ -236,7 +246,8 @@ public final class Learning {
         }
         if(!skip)state.daily.merge(day.toString(),1,Integer::sum);
         s.completed++;s.advancePending=true;
-        if(probing)Diagnosis.record(state,s,independent,s.hadError,skip,random);
+        if(probing)Diagnosis.record(state,s,independent,s.hadError,skip,random,day);
+        else KoreanFoundationStudy.recordFinish(state,s,independent,s.hadError,skip,day);
         if(TimedStudy.enabled(s))TimedStudy.finishIfDue(state,day);
         else if(!s.mode.equals("diagnostic")&&s.completed>=s.target)s.finished=true;
         if(s.finished&&!s.recorded){state.history.add(new Summary(s,day));while(state.history.size()>200)state.history.remove(0);s.recorded=true;}
