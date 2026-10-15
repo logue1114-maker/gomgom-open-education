@@ -152,12 +152,42 @@ public final class KoreanPolygons {
         for(int i=0;i<stage&&i<entries.size();i++){StudyGuide.Frame f=h.frames.get(i);String raw=entries.get(i);if(!f.options.isEmpty()&&raw!=null&&f.expected.equals(raw.trim()))out.put("확인한 조건 "+(i+1)+" = ",f.options.get(raw.trim()));}return out;
     }
     public static String feedback(Question q,int stage,String raw){
-        StudyGuide h=guide(q);if(h==null||raw==null||stage<0||stage>=h.frames.size())return null;StudyGuide.Frame f=h.frames.get(stage);raw=raw.trim();
+        StudyGuide h=guide(q);if(h==null||raw==null||raw.length()>120||stage<0||stage>=h.frames.size())return null;StudyGuide.Frame f=h.frames.get(stage);raw=raw.trim();
         if(!f.options.containsKey(raw)||f.expected.equals(raw))return null;Givens g=read(q);
-        if(IDENTIFY.equals(g.kind))return "처음과 끝이 이어졌는지, 경계에 휘어진 부분이 있는지 각각 살펴보세요. 두 조건을 함께 비교하세요.";
-        if(NAME.equals(g.kind))return "변과 꼭짓점을 한 번씩 빠짐없이 세어 보세요. 변의 수와 도형의 이름을 연결하세요.";
-        if(REGULAR.equals(g.kind))return "길이가 같은 변만 있어도, 같은 크기의 각만 있어도 충분하지 않아요. 두 조건을 따로 비교한 뒤 함께 판단하세요.";
-        return "기준 꼭짓점 자신은 선분의 다른 끝점이 아니에요. 바로 이웃한 꼭짓점과 잇는 선분은 변이므로 대각선에서 제외하세요.";
+        if(IDENTIFY.equals(g.kind)){
+            String ends=g.labels.get(0)+"와 "+g.labels.get(g.labels.size()-1);
+            if(stage==1)return g.closed?"경계는 마지막 꼭짓점에서 처음 꼭짓점까지 이어져 있습니다. 경계 전체를 따라가며 끊어진 곳이 있는지 살펴보세요.":"양 끝점 "+ends+" 사이가 이어져 있지 않습니다. 곧은 부분으로만 되어 있어도 열려 있으면 다각형이 아닙니다.";
+            if(stage==2)return g.curvedEdges.isEmpty()?"이 그림의 경계는 모두 곧은 선분입니다. 길이가 아니라 휘어진 부분이 있는지 비교하세요.":"경계 "+edgeLabel(g,g.curvedEdges.iterator().next())+"에 휘어진 부분이 있습니다. 다각형의 경계는 선분으로만 이루어져야 합니다.";
+            if(!g.closed)return "양 끝점 "+ends+" 사이가 열려 있습니다. 다각형은 선분으로만 이루어져 닫힌 도형이어야 합니다.";
+            if(!g.curvedEdges.isEmpty())return "경계는 닫혀 있지만 "+edgeLabel(g,g.curvedEdges.iterator().next())+"에 휘어진 부분이 있습니다. 닫혀 있다는 조건과 선분이라는 조건을 모두 확인하세요.";
+            return "경계가 닫혀 있고 모든 부분이 곧은 선분입니다. 다각형의 두 조건을 원래 그림에서 각각 확인하세요.";
+        }
+        if(NAME.equals(g.kind))return "이 그림에는 변과 꼭짓점이 각각 "+g.vertices.size()+"개 있습니다. 한 곳에서 시작해 한 번씩 센 뒤 변의 수와 이름을 연결하세요.";
+        if(REGULAR.equals(g.kind)){
+            if(stage==2)return sideComparison(g)+" 모든 변의 길이를 비교해야 합니다.";
+            if(stage==3)return angleComparison(g)+" 모든 각의 크기를 비교해야 합니다.";
+            if(!g.equalSides)return sideComparison(g)+(g.equalAngles?" 각의 크기가 모두 같아도 변의 길이가 다르면 정다각형이 아닙니다.":" 정다각형은 모든 변의 길이와 모든 각의 크기가 각각 같아야 합니다.");
+            if(!g.equalAngles)return angleComparison(g)+" 변의 길이가 모두 같아도 각의 크기가 다르면 정다각형이 아닙니다.";
+            return "모든 변의 길이가 "+sideText(g,0)+" cm로 같고, 모든 각의 크기도 "+angleText(g,0)+"°로 같습니다. 두 조건을 함께 적용해 판단하세요.";
+        }
+        int n=g.vertices.size();String origin=g.labels.get(g.origin),previous=g.labels.get((g.origin+n-1)%n),next=g.labels.get((g.origin+1)%n);
+        if(stage==1)return "기준 꼭짓점 "+origin+" 자신은 선분의 다른 끝점이 아니며, 이웃한 "+previous+"와 "+next+"에 이으면 변입니다. 자신과 두 이웃을 모두 제외해야 합니다.";
+        Set<Integer> selected=new LinkedHashSet<>();for(String token:raw.split(","))selected.add(Integer.parseInt(token));
+        String omitted=null;for(int end:g.diagonalEnds)if(!selected.contains(end)){omitted=g.labels.get(end);break;}
+        String compare=omitted==null?" 자신과 이웃을 제외하고 실제 연결한 끝점을 확인하세요.":" 빠뜨린 꼭짓점 "+omitted+"도 기준 꼭짓점의 이웃인지 살펴보세요.";
+        if(selected.contains(g.origin))return "기준 꼭짓점 "+origin+" 자신은 선분의 다른 끝점이 아닙니다."+compare;
+        for(int neighbor:new int[]{(g.origin+n-1)%n,(g.origin+1)%n})if(selected.contains(neighbor))return "꼭짓점 "+origin+"와 "+g.labels.get(neighbor)+"는 이웃하므로 이으면 변입니다."+compare;
+        for(int end:g.diagonalEnds)if(!selected.contains(end))return "꼭짓점 "+g.labels.get(end)+"도 "+origin+" 자신이나 이웃한 꼭짓점이 아닙니다. 빠뜨린 연결이 있는지 원래 그림에서 확인하세요.";
+        return null;
+    }
+    private static String edgeLabel(Givens g,int edge){return g.labels.get(edge)+g.labels.get((edge+1)%g.vertices.size());}
+    private static String sideComparison(Givens g){
+        String first=sideText(g,0);for(int i=1;i<g.edgeCount();i++)if(!first.equals(sideText(g,i)))return "변 "+edgeLabel(g,0)+"의 길이는 "+first+" cm이고 변 "+edgeLabel(g,i)+"의 길이는 "+sideText(g,i)+" cm입니다.";
+        return "모든 변의 길이가 "+first+" cm로 같습니다.";
+    }
+    private static String angleComparison(Givens g){
+        String first=angleText(g,0);for(int i=1;i<g.vertices.size();i++)if(!first.equals(angleText(g,i)))return "각 "+g.labels.get(0)+"의 크기는 "+first+"°이고 각 "+g.labels.get(i)+"의 크기는 "+angleText(g,i)+"°입니다.";
+        return "모든 각의 크기가 "+first+"°로 같습니다.";
     }
     /** Intrinsic pairwise distances remove translation, rotation, reflection and uniform scale. */
     public static String identity(Question q){
