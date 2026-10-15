@@ -220,7 +220,8 @@ public final class Learning {
         if(TimedStudy.enabled(s)&&s.queue.isEmpty())refillTimed(state,s,new Random());
         String next=Diagnosis.nextSkill(s);if(next==null){if(s.queue.isEmpty())return null;next=s.queue.remove(0);String due=Review.nextDue(state,s.selected,day);if(due!=null&&!s.mode.equals("diagnostic")&&!s.mode.equals("daily")&&!s.mode.equals("foundationStudy")&&!s.mode.equals("foundationRecheck")&&!s.mode.equals(CountArithmeticBreak.MODE)&&!TimedStudy.enabled(s))next=due;}
         int questionGrade=s.diagnosticRun!=null&&s.diagnosticRun.current!=null?s.diagnosticRun.current.reviewGrade:s.selectedGrades.getOrDefault(next,s.curriculumGrade);
-        s.question=generator.next(next,Review.avoid(state,next),s.choices&&!s.mode.equals("diagnostic")&&(s.diagnosticRun==null||s.diagnosticRun.current==null),GlobalCurriculum.limits(s.educationSystem,next,questionGrade));
+        CurriculumLimits limits=KoreanFoundationStudy.questionLimits(state,s,next,GlobalCurriculum.limits(s.educationSystem,next,questionGrade));
+        s.question=generator.next(next,Review.avoid(state,next),s.choices&&!s.mode.equals("diagnostic")&&(s.diagnosticRun==null||s.diagnosticRun.current==null),limits);
         state.recent.addLast(s.question.signature());while(state.recent.size()>160)state.recent.removeFirst();
         QuestionHistory.record(state,next,s.question.signature());
         s.steps.clear();s.stepKinds.clear();s.answers.clear();for(String ignored:s.question.answers)s.answers.add("");FractionInput.forms(s).clear();s.radicalAnswerDraft=null;s.verticalWork=null;s.conceptHelp=null;s.countReturnHelpPending=false;s.countReturnHelpScopeKey=null;s.countReturnHelpQuestionId=null;s.answerFocus=0;s.inkPart=0;s.scratch.clear();s.pendingInk.clear();s.scratchAspect=0;s.inkAspect=0;s.inkTarget=-1000;s.hadError=false;s.advancePending=false;s.reviewWork=null;Review.openFresh(state,day);return s.question;

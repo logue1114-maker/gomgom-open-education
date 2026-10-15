@@ -7,6 +7,26 @@ import java.util.*;
 public final class KoreanFoundationStudy {
     private KoreanFoundationStudy(){}
 
+    private static final CurriculumLimits RULE_WARMUP_LIMITS=new CurriculumLimits("maxGiven=20;maxResult=20;nonnegative=true;answerDomain=integer");
+
+    /** Reduce arithmetic load only for new prerequisite questions in this Korean rules lesson. */
+    static CurriculumLimits questionLimits(Learning.State state,Learning.Session session,String id,CurriculumLimits baseline){
+        if(baseline!=CurriculumLimits.NONE||session==null||!"el_number_pattern".equals(id)||
+            !Set.of("foundationStudy","foundationRecheck").contains(session.mode==null?"":session.mode)||
+            !"KR".equals(session.countryCode)||!"kr-national".equals(session.educationSystem)||
+            !"KR|2022|4|2|3".equals(session.foundationUnitKey)||session.foundationPlanKey==null||
+            session.selected==null||!session.selected.contains(id)||state==null||state.diagnostics==null)return baseline;
+        Diagnosis.Plan plan=state.diagnostics.get(session.foundationPlanKey);
+        if(plan==null||!plan.unitScreening||plan.curriculum!=2022||!"kr-national".equals(plan.educationSystem)||
+            !Objects.equals(plan.key,session.foundationPlanKey)||plan.scope==null||!plan.scope.contains(id)||plan.unitScreens==null)return baseline;
+        Diagnosis.UnitScreen unit=plan.unitScreens.get(session.foundationUnitKey);
+        if(unit==null||!Objects.equals(unit.key,session.foundationUnitKey)||!Objects.equals(unit.planKey,plan.key)||
+            unit.members==null||unit.representatives==null)return baseline;
+        for(String target:unit.representatives)if(KoreanRulesRelations.supports(target)&&unit.members.contains(target)&&
+            plan.scope.contains(target)&&session.selected.contains(target)&&Catalog.foundationOrder(target).contains(id))return RULE_WARMUP_LIMITS;
+        return baseline;
+    }
+
     public static void flagged(Learning.State state,Diagnosis.UnitScreen screen,String id,String reason,LocalDate day){
         project(state,screen,id,reason);
         Review.requestRecheck(state,id,reason,day);
