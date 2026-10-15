@@ -16,13 +16,16 @@ public final class HelpPlan {
         public List<String> oldCountEntries=new ArrayList<>();
         public int oldCountStage;
         public String oldCountTeachingVersion;
+        /** Separate work for exact arithmetic inside a COUNT step; never parent answers. */
+        public Map<Integer,Draft> countArithmeticLessons=new LinkedHashMap<>();
+        public boolean countArithmeticOpen,countObjectsOpen,countRemovalConfirmed;
         public List<Integer> foundationCounted=new ArrayList<>();
         public List<Integer> foundationRemoved=new ArrayList<>();
         public int foundationCountedStage=-1;
         public boolean foundationChecked;
         public int planeVertex=-1,planeVisitStage=-1;
         public List<Integer> planeVisited=new ArrayList<>();
-        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.oldCountEntries=oldCountEntries==null?new ArrayList<>():new ArrayList<>(oldCountEntries);d.oldCountStage=oldCountStage;d.oldCountTeachingVersion=oldCountTeachingVersion;d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);return d;}
+        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.oldCountEntries=oldCountEntries==null?new ArrayList<>():new ArrayList<>(oldCountEntries);d.oldCountStage=oldCountStage;d.oldCountTeachingVersion=oldCountTeachingVersion;d.countArithmeticOpen=countArithmeticOpen;d.countObjectsOpen=countObjectsOpen;d.countRemovalConfirmed=countRemovalConfirmed;d.countArithmeticLessons=new LinkedHashMap<>();if(countArithmeticLessons!=null)for(var entry:countArithmeticLessons.entrySet())if(entry.getValue()!=null)d.countArithmeticLessons.put(entry.getKey(),entry.getValue().copy());d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);return d;}
     }
     public static final class Step {
         public final String instruction,before,after;
@@ -99,6 +102,11 @@ public final class HelpPlan {
     }
     public static HelpPlan forFoundation(Question q){
         StudyGuide guide=FoundationTeaching.guide(q);if(guide==null)guide=FoundationRemovalTeaching.guide(q);if(guide==null)return null;
+        HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:guide.frames)plan.steps.add(new Step(frame));
+        plan.teachingVersion=guide.teachingVersion;plan.transfer=false;return plan;
+    }
+    public static HelpPlan forCountArithmetic(Question q,int parentStage){
+        StudyGuide guide=KoreanCountArithmeticTeaching.guide(q,parentStage);if(guide==null)return null;
         HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:guide.frames)plan.steps.add(new Step(frame));
         plan.teachingVersion=guide.teachingVersion;plan.transfer=false;return plan;
     }

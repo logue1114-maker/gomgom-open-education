@@ -3,6 +3,7 @@ package com.gomgomapps.math.core;
 import org.junit.Test;
 import static org.junit.Assert.*;
 import java.io.*;
+import java.math.BigInteger;
 import java.util.*;
 
 public class KoreanLargeNumbersTest {
@@ -144,5 +145,61 @@ public class KoreanLargeNumbersTest {
         assertEquals(Checker.Status.WRONG_STEP,KoreanLargeNumbers.checkWork(zero,List.of("1=1")).status);
         assertEquals(Checker.Status.INPUT_NEEDED,KoreanLargeNumbers.check(compare(10000,20000),List.of("1")).status);
         assertEquals(Checker.Status.WRONG_ANSWER,KoreanLargeNumbers.check(compare(10000,20000),List.of(">")).status);
+    }
+
+    @Test public void everyCountSupplyIndexHasFourLegalExactTermsAndReachesBothKindsOfRegrouping()throws Exception{
+        java.lang.reflect.Method indexed=KoreanLargeNumbers.class.getDeclaredMethod("indexed",String.class,int.class);indexed.setAccessible(true);
+        int count=KoreanLargeNumbers.supplySize(KoreanLargeNumbers.COUNT);assertEquals(6912,count);
+        Set<String> steps=new HashSet<>(),facts=new HashSet<>(),coverage=new HashSet<>();
+        for(int index=0;index<count;index++){
+            Question q=(Question)indexed.invoke(null,KoreanLargeNumbers.COUNT,index);KoreanLargeNumbers.Givens g=KoreanLargeNumbers.read(q);assertNotNull("index "+index,g);
+            assertTrue(g.first()>=10000);facts.add(q.signature());
+            int family=index/128/2/9;long unit=new long[]{10000,100000000,1000000000000L}[family];
+            assertEquals(0,g.step()%unit);assertTrue(g.step()/unit>=1&&g.step()/unit<=9);steps.add(unit+":"+g.step()/unit+":"+g.decreasing());
+            BigInteger first=BigInteger.valueOf(g.first()),delta=BigInteger.valueOf(g.step()).multiply(BigInteger.valueOf(g.decreasing()?-1:1));
+            for(int term=0;term<=3;term++){
+                BigInteger exact=first.add(delta.multiply(BigInteger.valueOf(term)));assertTrue("negative index "+index,exact.signum()>=0);assertTrue("overflow index "+index,exact.compareTo(BigInteger.valueOf(KoreanLargeNumbers.MAX))<=0);
+                if(term==3)assertEquals(exact.toString(),g.answerKey());
+            }
+            KoreanLargeCountTeaching.Model model=KoreanLargeCountTeaching.model(q);assertNotNull(model);
+            long reconstructed=model.current();
+            if(model.remainder()==0)coverage.add("zero-lower");if(g.first()>KoreanLargeNumbers.MAX-100000000000000L)coverage.add("near-max");
+            for(KoreanLargeCountTeaching.Column column:model.columns()){
+                reconstructed+=(column.resultGroup()-column.currentGroup())*column.unit();
+                if(column.regrouped())coverage.add(model.addition()?"base-carry":"base-borrow");
+            }
+            assertEquals(g.value(),reconstructed);
+            for(int stage=0;stage<model.actions().size();stage++)if(model.actions().get(stage).arithmetic()){
+                KoreanCountArithmeticTeaching.Model nested=KoreanCountArithmeticTeaching.model(q,stage);assertNotNull(nested);
+                for(KoreanCountArithmeticTeaching.Action action:nested.actions()){
+                    if(action.role().equals("carry"))coverage.add("decimal-carry");
+                    if(action.role().equals("borrowDonor"))coverage.add("decimal-borrow");
+                }
+            }
+        }
+        assertEquals(54,steps.size());assertTrue(facts.size()>3000);assertTrue(facts.size()<=count);
+        assertEquals(Set.of("base-carry","base-borrow","decimal-carry","decimal-borrow","zero-lower","near-max"),coverage);
+    }
+
+    @Test public void countNormalDrawsReachTheNewBoundaryFactsAndExhaustedHistoryUsesItsOldestFact()throws Exception{
+        Map<String,Integer> seen=new LinkedHashMap<>();Random random=new Random(38002);boolean baseCarry=false,baseBorrow=false,decimalBoundary=false;
+        for(int i=0;i<320;i++){
+            Question q=KoreanLargeNumbers.next(KoreanLargeNumbers.COUNT,random,CurriculumLimits.NONE,seen);assertFalse(seen.containsKey(q.signature()));seen.put(q.signature(),i);
+            KoreanLargeCountTeaching.Model model=KoreanLargeCountTeaching.model(q);
+            for(KoreanLargeCountTeaching.Column column:model.columns()){
+                baseCarry|=model.addition()&&column.regrouped();baseBorrow|=!model.addition()&&column.regrouped();
+                decimalBoundary|=column.currentGroup()>=98&&column.currentGroup()<=1010;
+            }
+        }
+        assertTrue(baseCarry);assertTrue(baseBorrow);assertTrue(decimalBoundary);
+        java.lang.reflect.Method indexed=KoreanLargeNumbers.class.getDeclaredMethod("indexed",String.class,int.class);indexed.setAccessible(true);
+        Map<String,Integer> all=new LinkedHashMap<>();
+        for(int index=0;index<KoreanLargeNumbers.supplySize(KoreanLargeNumbers.COUNT);index++){
+            Question q=(Question)indexed.invoke(null,KoreanLargeNumbers.COUNT,index);all.putIfAbsent(q.signature(),index+10);
+        }
+        Question oldest=(Question)indexed.invoke(null,KoreanLargeNumbers.COUNT,100);all.put(oldest.signature(),-1);
+        Question drawn=KoreanLargeNumbers.next(KoreanLargeNumbers.COUNT,new Random(38003),CurriculumLimits.NONE,all);assertEquals(oldest.signature(),drawn.signature());
+        Question restored=cold(drawn);assertEquals(drawn.signature(),restored.signature());assertEquals(KoreanLargeNumbers.read(drawn),KoreanLargeNumbers.read(restored));
+        assertEquals(KoreanLargeCountTeaching.VERSION,KoreanLargeNumbers.guide(restored).teachingVersion);assertFalse(KoreanLargeNumbers.guide(restored).transfer);
     }
 }

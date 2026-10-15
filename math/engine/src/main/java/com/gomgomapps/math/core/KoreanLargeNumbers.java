@@ -213,9 +213,24 @@ public final class KoreanLargeNumbers {
             long base=NUMBERS.get(index/3),delta=POWERS[(index/3)%16];long small=base+delta<=MAX?base:Math.max(0,base-delta),big=base+delta<=MAX?base+delta:base;
             return make(new Givens(id,index%3==0?small:big,index%3==2?small:big,1,0,false));
         }
-        int offset=index%128;index/=128;boolean down=index%2==1;index/=2;long step=(index%9+1)*POWERS[(index/9+1)*4];
-        long start=step*3+(offset+1)*10000L;if(start>MAX)start=MAX-step*3-offset*10000L;
-        return make(new Givens(id,start,0,1,step,down));
+        int offset=index%128;index/=128;boolean down=index%2==1;index/=2;long unit=POWERS[(index/9+1)*4],step=(index%9+1)*unit;
+        long anchor=countAnchor(offset,unit,step);
+        return make(new Givens(id,anchor+(down?3*step:0),0,1,step,down));
+    }
+    /** Anchor is the smallest of the four visible/required terms, not a new source restriction. */
+    private static long countAnchor(int offset,long unit,long step){
+        long room=MAX-3*step,anchor;
+        if(offset<64)anchor=3*step+(offset+1)*10000L;
+        else if(offset<96){
+            int[] boundary={8,9,10,18,19,20,98,99,100,108,109,110,998,999,1000,1008,1009,1010,9990,9991,9992,9993,9994,9995,9996,9997,9998,9999,10000,10001,10002,10003};
+            anchor=boundary[offset-64]*unit+(offset%2==0?0:3400);
+        }else if(unit==1000000000000L){
+            // There is no representable 10000조. Vary exact lower places near the legal end.
+            anchor=room-(offset-96)*10000L;
+        }else if(offset<112){
+            anchor=(10000L-(2*(offset-96)+1))*unit+(offset%2==0?0:3400);
+        }else anchor=room-(offset-112)*unit;
+        return Math.min(anchor,room);
     }
     public static Question next(String id,Random random,CurriculumLimits limits,Map<String,Integer> recent){
         if(!supports(id))throw new IllegalArgumentException("Unsupported Korean large-number task");
