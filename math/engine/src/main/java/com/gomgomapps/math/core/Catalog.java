@@ -58,6 +58,11 @@ public final class Catalog {
         add("mul3","세 자리와 한 자리의 곱",3,2,1,"mul",999,"mul2,add1000","각 자릿값에 따라 곱한 뒤 합한다.");
         add("remainder","몫과 나머지",3,2,2,"remainder",99,"divide,mul2,sub100","나누어지는 수 = 나누는 수 × 몫 + 나머지이며 나머지는 나누는 수보다 작다.");
         add("fracCompare","분수의 크기 비교",3,2,4,"fracCompare",9,"fractionPart","분모가 같으면 분자가 큰 분수가 더 크다.");
+        add("krLargeRead","만·억·조 읽기",4,1,1,"krLargeRead",9999,"place1000","오른쪽부터 네 자리씩 나누고 만·억·조 단위로 읽는다.");
+        add("krLargeWrite","만·억·조를 숫자로 쓰기",4,1,1,"krLargeWrite",9999,"krLargeRead","읽은 수를 네 자리 묶음에 놓고 비어 있는 자리는 0으로 쓴다.");
+        add("krLargePlace","큰 수의 자리 숫자와 값",4,1,1,"krLargePlace",9999,"krLargeRead","자리 숫자와 그 숫자가 나타내는 값을 구별한다.");
+        add("krLargeCompare","만·억·조의 크기 비교",4,1,1,"krLargeCompare",9999,"krLargePlace","자릿수가 같으면 왼쪽부터 처음 다른 자리의 숫자를 비교한다.");
+        add("krLargeCount","만·억·조씩 뛰어 세기",4,1,1,"krLargeCount",9999,"krLargePlace","일정한 단위만큼 커지거나 작아지는 수를 차례대로 구한다.");
         add("largePlace","큰 수의 자릿값",4,1,1,"place",99999,"place1000","각 자리의 수는 왼쪽으로 한 칸 갈 때마다 10배가 된다.");
         add("wholePlaceValue","자리 숫자가 나타내는 값",3,1,1,"placeValue",99999,"place100","자리 숫자와 자리의 값을 곱한다.");
         add("largePlaceTrillion","억·조의 자릿값",4,1,1,"largePlaceExact",9,"largePlace","억과 조 단위에서 자리 숫자와 자릿값을 구분한다.");

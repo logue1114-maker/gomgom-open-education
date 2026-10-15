@@ -12,6 +12,16 @@ final class KoreanFoundationPlanUpgrade {
             after.reviewGrade==2&&after.term==1&&after.unit==4&&after.members.stream().allMatch(KoreanCentimeterMeasurement::supports)||
             after.reviewGrade==3&&after.term==1&&after.unit==2&&after.members.stream().allMatch(KoreanPlaneFoundations::supports);
     }
+    /** Keep the old five-digit member and its evidence; add only the reviewed 2022 large-number checks. */
+    private static boolean largeNumberAddition(Diagnosis.Plan plan,Diagnosis.UnitScreen before,Diagnosis.UnitScreen after){
+        Set<String> added=Set.of(KoreanLargeNumbers.READ,KoreanLargeNumbers.WRITE,KoreanLargeNumbers.PLACE,KoreanLargeNumbers.COMPARE,KoreanLargeNumbers.COUNT);
+        Set<String> members=new HashSet<>(added);members.add("largePlace");
+        return plan.curriculum==2022&&after.reviewGrade==4&&after.term==1&&after.unit==1&&
+            before.members.equals(List.of("largePlace"))&&before.representatives.isEmpty()&&before.completedRepresentatives.isEmpty()&&
+            new HashSet<>(after.members).equals(members)&&new HashSet<>(after.representatives).equals(added)&&
+            before.members.containsAll(before.reasons.keySet())&&before.members.containsAll(before.flaggedAt.keySet())&&
+            before.members.containsAll(before.recoveredSkills)&&before.members.containsAll(before.freshRechecks.keySet());
+    }
     private static boolean compatible(Diagnosis.Plan old,Diagnosis.Plan fresh){
         if(!old.unitScreening||!old.foundationAscending||old.legacy||old.key.equals(fresh.key)||
             old.actualGrade!=fresh.actualGrade||old.term!=fresh.term||old.schoolYear!=fresh.schoolYear||old.curriculum!=fresh.curriculum||
@@ -24,10 +34,12 @@ final class KoreanFoundationPlanUpgrade {
             if(before.members.equals(after.members)&&before.representatives.equals(after.representatives)){
                 for(String id:before.members)if(!Objects.equals(old.placements.get(id),fresh.placements.get(id)))return false;
             }else{
-                if(!before.members.isEmpty()||!before.representatives.isEmpty()||!before.completedRepresentatives.isEmpty()||
+                if(largeNumberAddition(old,before,after)){
+                    for(String id:before.members)if(!Objects.equals(old.placements.get(id),fresh.placements.get(id)))return false;
+                }else if(!before.members.isEmpty()||!before.representatives.isEmpty()||!before.completedRepresentatives.isEmpty()||
                     !before.reasons.isEmpty()||!before.flaggedAt.isEmpty()||!before.recoveredSkills.isEmpty()||!before.freshRechecks.isEmpty()||
                     before.status!=Diagnosis.UnitStatus.UNCHECKED||after.members.isEmpty()||!supportedAddition(after))return false;
-                added.addAll(after.members);
+                Set<String> difference=new HashSet<>(after.members);difference.removeAll(before.members);added.addAll(difference);
             }
         }
         Set<String> difference=new HashSet<>(fresh.scope);difference.removeAll(old.scope);
@@ -62,7 +74,10 @@ final class KoreanFoundationPlanUpgrade {
         Diagnosis.Plan next=LearningSnapshot.copyPlan(old);next.key=fresh.key;next.scope=new ArrayList<>(fresh.scope);next.placements=new LinkedHashMap<>(fresh.placements);
         for(var entry:fresh.unitScreens.entrySet()){
             Diagnosis.UnitScreen target=next.unitScreens.get(entry.getKey());
-            if(target.members.isEmpty()&&!entry.getValue().members.isEmpty()){target=entry.getValue();next.unitScreens.put(entry.getKey(),target);}
+            if(!target.members.equals(entry.getValue().members)){
+                target.members=new ArrayList<>(entry.getValue().members);target.representatives=new ArrayList<>(entry.getValue().representatives);target.label=entry.getValue().label;
+                target.status=target.reasons.keySet().stream().anyMatch(id->!target.recoveredSkills.contains(id))?Diagnosis.UnitStatus.NEEDS_STUDY:Diagnosis.UnitStatus.UNCHECKED;
+            }
             target.planKey=next.key;
         }
         for(var entry:fresh.checks.entrySet())next.checks.putIfAbsent(entry.getKey(),entry.getValue());
