@@ -19,7 +19,7 @@ public class KoreanFoundationAscendingTest {
  @Test public void RevisedPublisherUnitsDoNotIncludeLaterDecimalsOrExcludeAlreadyStudiedFractions(){
   Learning.State s=student(true);s.profile.lastLearnedSkill=unit(s.profile,4,1,5).endpointSkill();
   Set<String> scope=new HashSet<>(KoreanFoundationUnits.scope(s.profile));assertTrue(scope.containsAll(List.of("fracAddLike","fracSubLike")));assertFalse(scope.contains("el_bar_graph"));assertFalse(scope.contains("decimalAdd"));
-  assertEquals(List.of("decimalAdd","decimalSub"),unit(s.profile,4,2,1).representatives());assertTrue(unit(s.profile,4,2,3).representatives().isEmpty());
+  assertEquals(List.of("decimalAdd","decimalSub"),unit(s.profile,4,2,1).representatives());assertEquals(List.of("krNumberRule","krFigureRule","krCalculationRule","krEqualRelation","krEqualFill"),unit(s.profile,4,2,3).representatives());
   assertTrue(unit(s.profile,3,2,2).members().contains("el_circle_diameter"));assertTrue(unit(s.profile,3,2,3).members().contains("remainder"));assertTrue(unit(s.profile,3,2,4).members().contains("el_mass_add_sub"));assertTrue(unit(s.profile,3,2,5).members().contains("fracCompare"));
   assertTrue(unit(s.profile,1,2,3).members().contains("earlyClock"));assertFalse(unit(s.profile,1,2,5).members().contains("earlyClock"));assertTrue(unit(s.profile,1,2,4).members().contains("add20"));assertFalse(unit(s.profile,2,1,2).members().contains("el_even_odd"));assertTrue(unit(s.profile,2,1,2).members().contains("el_shape_classify"));
   s.profile.lastLearnedSkill=unit(s.profile,3,2,1).endpointSkill();Learning.beginDiagnostic(s,new Random(3706));assertEquals(Integer.valueOf(3),Diagnosis.currentPlan(s).placements.get("mul22"));assertEquals(Integer.valueOf(0),Diagnosis.currentPlan(s).placements.get("count"));

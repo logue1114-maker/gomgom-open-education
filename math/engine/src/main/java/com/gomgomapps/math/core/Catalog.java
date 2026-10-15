@@ -79,6 +79,11 @@ public final class Catalog {
         add("fracSubLike","분모가 같은 분수의 뺄셈",4,2,1,"fracSubLike",9,"fractionPart,sub20","분모를 유지하고 분자끼리 뺀다.");
         add("decimalAdd","소수의 덧셈",4,2,3,"decimalAdd",99,"add100","소수점을 맞추어 같은 자리끼리 더한다.");
         add("decimalSub","소수의 뺄셈",4,2,3,"decimalSub",99,"sub100","소수점을 맞추어 같은 자리끼리 뺀다.");
+        add("krNumberRule","수 배열의 규칙",4,2,3,"krNumberRule",9999,"el_number_pattern","이웃한 수의 변화를 다른 두 수에서도 확인해 다음 수를 구한다.");
+        add("krFigureRule","모양 배열의 규칙",4,2,3,"krFigureRule",24,"count,el_number_pattern","도형의 개수를 세고 같은 수만큼 늘어나는지 비교한다.");
+        add("krCalculationRule","계산식 배열의 규칙",4,2,3,"krCalculationRule",9999,"add100,sub100,tables","배열에서 달라지는 수와 계산 결과의 변화를 비교한다.");
+        add("krEqualRelation","등호와 같은 양",4,2,3,"krEqualRelation",99,"add100,sub100","등호 양쪽의 양을 각각 구하고 같은지 비교한다.");
+        add("krEqualFill","같은 양의 식 완성",4,2,3,"krEqualFill",99,"krEqualRelation","양쪽의 값이 같도록 빈 수를 구하고 원래 식에 넣어 확인한다.");
         add("mixed","자연수의 혼합 계산",5,1,1,"mixed",30,"add100,sub100,tables,divide","괄호 안을 먼저 계산하고 곱셈·나눗셈을 덧셈·뺄셈보다 먼저 한다.");
         add("gcd","최대공약수",5,1,2,"gcd",60,"divide","두 수의 공통인 약수 중 가장 큰 수를 찾는다.");
         add("lcm","최소공배수",5,1,2,"lcm",30,"gcd","두 수의 공통인 배수 중 가장 작은 양의 수를 찾는다.");

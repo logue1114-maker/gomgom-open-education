@@ -7,6 +7,7 @@ public final class WorkAnswer {
     private WorkAnswer(){}
     public static List<String> writtenAnswers(Question question,List<String> steps,List<Checker.StepKind> kinds){
         if(KoreanLargeNumbers.supports(question.skillId))return List.of();
+        if(KoreanRulesRelations.supports(question.skillId))return List.of();
         if(KoreanTriangleClassification.supports(question.skillId))return List.of();
         if(KoreanPlaneMovement.supports(question.skillId))return List.of();
         if(KoreanPlaneFoundations.supports(question.skillId))return List.of();
@@ -31,6 +32,7 @@ public final class WorkAnswer {
     }
     public static String writtenAnswer(Question question,List<String> steps,List<Checker.StepKind> kinds){
         if(KoreanLargeNumbers.supports(question.skillId))return "";
+        if(KoreanRulesRelations.supports(question.skillId))return "";
         if(KoreanTriangleClassification.supports(question.skillId))return "";
         if(KoreanPlaneMovement.supports(question.skillId))return "";
         if(KoreanPlaneFoundations.supports(question.skillId))return "";

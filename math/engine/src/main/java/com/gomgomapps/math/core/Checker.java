@@ -24,6 +24,7 @@ public final class Checker {
     }
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
         if(KoreanLargeNumbers.supports(q.skillId)){Result work=KoreanLargeNumbers.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanLargeNumbers.check(q,answers);}
+        if(KoreanRulesRelations.supports(q.skillId)){Result work=KoreanRulesRelations.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanRulesRelations.check(q,answers);}
         if(KoreanTriangleClassification.supports(q.skillId)){Result work=KoreanTriangleClassification.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanTriangleClassification.check(q,answers);}
         if(KoreanPlaneMovement.supports(q.skillId)){Result work=KoreanPlaneMovement.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanPlaneMovement.check(q,answers);}
         if(KoreanPlaneFoundations.supports(q.skillId)){Result work=KoreanPlaneFoundations.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanPlaneFoundations.check(q,answers);}
@@ -221,6 +222,7 @@ public final class Checker {
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
         if(KoreanLargeNumbers.supports(q.skillId))return KoreanLargeNumbers.checkWork(q,steps);
+        if(KoreanRulesRelations.supports(q.skillId))return KoreanRulesRelations.checkWork(q,steps);
         if(KoreanTriangleClassification.supports(q.skillId))return KoreanTriangleClassification.checkWork(q,steps);
         if(KoreanPlaneMovement.supports(q.skillId))return KoreanPlaneMovement.checkWork(q,steps);
         if(KoreanPlaneFoundations.supports(q.skillId))return KoreanPlaneFoundations.checkWork(q,steps);
