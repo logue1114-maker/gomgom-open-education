@@ -74,6 +74,8 @@ public final class Learning {
         public String plannedCurrentSkill;
         public String foundationPlanKey,foundationUnitKey;
         public boolean foundationRecheck;
+        public String countReturnSessionId,countReturnQuestionId,countReturnScopeKey,countReturnHelpScopeKey,countReturnHelpQuestionId;
+        public boolean countReturnHelpPending;
         public List<String> foundationStudyPath=new ArrayList<>();
         public int curriculumGrade;
         public int target,completed,correct,corrected,assisted,skipped,stageGrade,stageAnswered;
@@ -216,12 +218,12 @@ public final class Learning {
         if(TimedStudy.finishIfDue(state,day))return null;
         if(s.question!=null&&!s.advancePending){Review.open(state,day);return s.question;}
         if(TimedStudy.enabled(s)&&s.queue.isEmpty())refillTimed(state,s,new Random());
-        String next=Diagnosis.nextSkill(s);if(next==null){if(s.queue.isEmpty())return null;next=s.queue.remove(0);String due=Review.nextDue(state,s.selected,day);if(due!=null&&!s.mode.equals("diagnostic")&&!s.mode.equals("daily")&&!s.mode.equals("foundationStudy")&&!s.mode.equals("foundationRecheck")&&!TimedStudy.enabled(s))next=due;}
+        String next=Diagnosis.nextSkill(s);if(next==null){if(s.queue.isEmpty())return null;next=s.queue.remove(0);String due=Review.nextDue(state,s.selected,day);if(due!=null&&!s.mode.equals("diagnostic")&&!s.mode.equals("daily")&&!s.mode.equals("foundationStudy")&&!s.mode.equals("foundationRecheck")&&!s.mode.equals(CountArithmeticBreak.MODE)&&!TimedStudy.enabled(s))next=due;}
         int questionGrade=s.diagnosticRun!=null&&s.diagnosticRun.current!=null?s.diagnosticRun.current.reviewGrade:s.selectedGrades.getOrDefault(next,s.curriculumGrade);
         s.question=generator.next(next,Review.avoid(state,next),s.choices&&!s.mode.equals("diagnostic")&&(s.diagnosticRun==null||s.diagnosticRun.current==null),GlobalCurriculum.limits(s.educationSystem,next,questionGrade));
         state.recent.addLast(s.question.signature());while(state.recent.size()>160)state.recent.removeFirst();
         QuestionHistory.record(state,next,s.question.signature());
-        s.steps.clear();s.stepKinds.clear();s.answers.clear();for(String ignored:s.question.answers)s.answers.add("");FractionInput.forms(s).clear();s.radicalAnswerDraft=null;s.verticalWork=null;s.conceptHelp=null;s.answerFocus=0;s.inkPart=0;s.scratch.clear();s.pendingInk.clear();s.scratchAspect=0;s.inkAspect=0;s.inkTarget=-1000;s.hadError=false;s.advancePending=false;s.reviewWork=null;Review.openFresh(state,day);return s.question;
+        s.steps.clear();s.stepKinds.clear();s.answers.clear();for(String ignored:s.question.answers)s.answers.add("");FractionInput.forms(s).clear();s.radicalAnswerDraft=null;s.verticalWork=null;s.conceptHelp=null;s.countReturnHelpPending=false;s.countReturnHelpScopeKey=null;s.countReturnHelpQuestionId=null;s.answerFocus=0;s.inkPart=0;s.scratch.clear();s.pendingInk.clear();s.scratchAspect=0;s.inkAspect=0;s.inkTarget=-1000;s.hadError=false;s.advancePending=false;s.reviewWork=null;Review.openFresh(state,day);return s.question;
     }
     public static void markError(State state){markError(state,LocalDate.now());}
     public static void markError(State state,LocalDate day){if(state.session!=null&&state.session.question!=null&&!state.session.advancePending&&(!state.session.finished||Deferred.active(state.session))){state.session.hadError=true;Review.error(state,day);}}

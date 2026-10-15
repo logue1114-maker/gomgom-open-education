@@ -159,7 +159,8 @@ public final class KoreanLargeNumbers {
     private static Map<String,String> unitOptions(){Map<String,String> out=new LinkedHashMap<>();out.put("1","일·십·백·천 묶음");out.put("10000","만 묶음");out.put("100000000","억 묶음");out.put("1000000000000","조 묶음");return out;}
     private static void step(StudyGuide h,String instruction,String before,String after,long expected){h.step(instruction,before,after,Long.toString(expected));}
     public static StudyGuide guide(Question q){
-        Givens g=read(q);if(g==null)return null;StudyGuide h=new StudyGuide().transfer(false);h.teachingVersion=VERSION;
+        Givens g=read(q);if(g==null)return null;if(COUNT.equals(g.kind))return KoreanLargeCountTeaching.guide(q);
+        StudyGuide h=new StudyGuide().transfer(false);h.teachingVersion=VERSION;
         if(READ.equals(g.kind)||WRITE.equals(g.kind)){
             int top=topGroup(g.first);h.choice("네 자리씩 묶을 때 가장 왼쪽 묶음의 단위를 고르세요.",unitOptions(),Long.toString(POWERS[top*4]));
             for(int i=top;i>=0;i--){String label=i==0?"마지막 네 자리":GROUPS[i]+" 묶음";
@@ -181,15 +182,11 @@ public final class KoreanLargeNumbers {
                 step(h,"같은 자리의 숫자를 오른쪽 수에서 쓰세요.",placeName(p)+"의 자리 · 오른쪽 숫자 = ","",g.second/p%10);
             }else{Map<String,String> why=new LinkedHashMap<>();why.put("digits","자릿수가 다름");why.put("same","모든 자리의 숫자가 같음");h.choice("두 수를 비교할 때 확인한 관계를 고르세요.",why,g.first==g.second?"same":"digits");}
             Map<String,String> signs=new LinkedHashMap<>();for(String s:List.of("<","=",">"))signs.put(s,s);h.choice("자릿수가 다르면 자릿수를, 같으면 왼쪽부터 처음 다른 숫자를 비교하여 기호를 고르세요.",signs,g.answerKey());
-        }else{
-            Map<String,String> direction=new LinkedHashMap<>();direction.put("up","커짐");direction.put("down","작아짐");h.choice("앞의 세 수를 보고 수가 커지는지 작아지는지 고르세요.",direction,g.decreasing?"down":"up");
-            step(h,"문장에 적힌 한 번에 뛰어 세는 수를 숫자로 쓰세요.","한 번에 뛰는 수 = ","",g.step);
-            step(h,"빈칸 바로 앞에 보이는 수를 쓰세요.","빈칸 앞의 수 = ","",g.first+(g.decreasing?-2:2)*g.step);
-            step(h,"방향과 단위를 생각하며 한 번만 더 뛰어 세세요. 자리 경계를 넘으면 묶음도 바뀝니다.","빈칸의 수 = ","",g.value());
         }return h;
     }
     public static void attach(Question q){if(q!=null&&supports(q.skillId))q.studyGuide=guide(q);}
     public static Map<String,String> references(Question q,int stage,List<String> entries){
+        if(q!=null&&COUNT.equals(q.skillId))return KoreanLargeCountTeaching.references(q,stage,entries);
         StudyGuide h=guide(q);if(h==null||entries==null||stage<1||stage>=h.frames.size())return Map.of();Map<String,String> out=new LinkedHashMap<>();Givens g=read(q);
         // Retain at most the two preceding checked small actions, never derive/display the final answer.
         for(int i=Math.max(0,stage-2);i<stage;i++){

@@ -12,13 +12,17 @@ public final class HelpPlan {
         public String teachingVersion;
         public int stage;
         public List<String> entries=new ArrayList<>();
+        /** Real v1 COUNT entries are retained for reading, never reused as new teaching answers. */
+        public List<String> oldCountEntries=new ArrayList<>();
+        public int oldCountStage;
+        public String oldCountTeachingVersion;
         public List<Integer> foundationCounted=new ArrayList<>();
         public List<Integer> foundationRemoved=new ArrayList<>();
         public int foundationCountedStage=-1;
         public boolean foundationChecked;
         public int planeVertex=-1,planeVisitStage=-1;
         public List<Integer> planeVisited=new ArrayList<>();
-        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);return d;}
+        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.oldCountEntries=oldCountEntries==null?new ArrayList<>():new ArrayList<>(oldCountEntries);d.oldCountStage=oldCountStage;d.oldCountTeachingVersion=oldCountTeachingVersion;d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);return d;}
     }
     public static final class Step {
         public final String instruction,before,after;
@@ -65,6 +69,7 @@ public final class HelpPlan {
     private boolean transfer=true;
     private boolean conversionFraction;
     private boolean decimalQuotient;
+    private boolean largeCountTeaching;
     private String teachingVersion;
     private Integer resultNumeratorFrame,resultDenominatorFrame;
     private Integer resultCoefficientFrame,resultRadicandFrame;
@@ -98,7 +103,7 @@ public final class HelpPlan {
         plan.teachingVersion=guide.teachingVersion;plan.transfer=false;return plan;
     }
     public static HelpPlan forQuestion(Question q){
-        if(q!=null&&KoreanLargeNumbers.supports(q.skillId)){StudyGuide visible=KoreanLargeNumbers.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
+        if(q!=null&&KoreanLargeNumbers.supports(q.skillId)){StudyGuide visible=KoreanLargeNumbers.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.largeCountTeaching=KoreanLargeNumbers.COUNT.equals(q.skillId)&&KoreanLargeCountTeaching.VERSION.equals(visible.teachingVersion);plan.transfer=false;return plan;}
         if(q!=null&&KoreanPlaneFoundations.supports(q.skillId)){StudyGuide visible=KoreanPlaneFoundations.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&KoreanCentimeterMeasurement.supports(q.skillId)){StudyGuide visible=KoreanCentimeterMeasurement.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&KoreanFirstTermArithmetic.supports(q.skillId)){StudyGuide visible=KoreanFirstTermArithmetic.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
@@ -241,6 +246,10 @@ public final class HelpPlan {
     public Draft restore(Draft draft,String questionId){
         if(draft==null||!questionId.equals(draft.questionId)){draft=new Draft();draft.questionId=questionId;}
         if(!Objects.equals(teachingVersion,draft.teachingVersion)){
+            if(largeCountTeaching&&KoreanLargeCountTeaching.VERSION.equals(teachingVersion)&&KoreanLargeNumbers.VERSION.equals(draft.teachingVersion)){
+                draft.oldCountEntries=draft.entries==null?new ArrayList<>():new ArrayList<>(draft.entries);
+                draft.oldCountStage=draft.stage;draft.oldCountTeachingVersion=draft.teachingVersion;
+            }
             draft.teachingVersion=teachingVersion;draft.stage=0;draft.entries=new ArrayList<>();
             draft.foundationCounted=new ArrayList<>();draft.foundationCountedStage=-1;draft.foundationChecked=false;
             draft.foundationRemoved=new ArrayList<>();

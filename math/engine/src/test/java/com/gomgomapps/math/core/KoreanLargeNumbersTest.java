@@ -72,11 +72,14 @@ public class KoreanLargeNumbersTest {
 
     @Test public void teachingConnectsGroupsAndZerosToTheOriginalAnswerWithoutTransferOrReferencePrefill(){
         for(Question q:List.of(number(KoreanLargeNumbers.READ,KoreanLargeNumbers.MAX),number(KoreanLargeNumbers.WRITE,100000001),place(100000001,10000),compare(9007199254740992L,9007199254740993L),count(99990000,10000,false))){
-            StudyGuide guide=KoreanLargeNumbers.guide(q);assertFalse(guide.transfer);assertEquals(KoreanLargeNumbers.VERSION,guide.teachingVersion);assertTrue(guide.frames.size()>=3&&guide.frames.size()<=6);
+            StudyGuide guide=KoreanLargeNumbers.guide(q);assertFalse(guide.transfer);
+            boolean count=KoreanLargeNumbers.COUNT.equals(q.skillId);
+            assertEquals(count?KoreanLargeCountTeaching.VERSION:KoreanLargeNumbers.VERSION,guide.teachingVersion);
+            if(count)assertEquals(KoreanLargeCountTeaching.model(q).actions().size(),guide.frames.size());else assertTrue(guide.frames.size()>=3&&guide.frames.size()<=6);
             List<String> inputs=expected(guide);
             for(int stage=0;stage<guide.frames.size();stage++){
                 assertTrue(new HelpPlan.Step(guide.frames.get(stage)).accepts(inputs.get(stage)));
-                Map<String,String> refs=KoreanLargeNumbers.references(q,stage,inputs);assertTrue(refs.size()<=2);
+                Map<String,String> refs=KoreanLargeNumbers.references(q,stage,inputs);assertTrue(refs.size()<=(count?4:2));
                 if(stage==guide.frames.size()-1)assertFalse(refs.containsValue(KoreanLargeNumbers.read(q).answerKey()));
                 assertTrue(KoreanLargeNumbers.references(q,stage,Collections.nCopies(inputs.size(),"wrong")).isEmpty());
             }
