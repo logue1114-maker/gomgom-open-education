@@ -8,6 +8,7 @@ public final class KoreanTriangleClassification {
     private KoreanTriangleClassification(){}
     public static final String SIDES="krTriangleSides",ANGLES="krTriangleAngles",PROPERTIES="krTriangleProperties";
     public static final String TYPE="krTriangleClassification",VERSION="korean-triangle-classification-v1";
+    public static final String FOLD_VERSION="korean-triangle-properties-fold-v2",FOLD_FORMAT="triangleFoldAction";
     public record Vertex(double x,double y) implements Serializable {}
     /** sides are AB, BC, CA. Known angles are annotations, not measured/rounded solutions. */
     public record Givens(String kind,List<Vertex> vertices,List<String> labels,List<Double> sides,
@@ -73,7 +74,7 @@ public final class KoreanTriangleClassification {
     public static Checker.Result checkWork(Question q,List<String> steps){if(read(q)==null)return new Checker.Result(Checker.Status.INPUT_NEEDED,-1,"문제 확인 필요");if(steps!=null)for(int i=0;i<steps.size();i++)if(steps.get(i)!=null&&!steps.get(i).isBlank())return new Checker.Result(Checker.Status.WRONG_STEP,i,"계산식 대신 삼각형의 변과 각을 살펴보세요.");return new Checker.Result(Checker.Status.CORRECT,-1,"그림으로 확인");}
     private static Map<String,String> map(String... pairs){Map<String,String> out=new LinkedHashMap<>();for(int i=0;i<pairs.length;i+=2)out.put(pairs[i],pairs[i+1]);return out;}
     public static StudyGuide guide(Question q){
-        Givens g=read(q);if(g==null)return null;StudyGuide h=new StudyGuide().transfer(false);h.teachingVersion=VERSION;
+        Givens g=read(q);if(g==null)return null;StudyGuide h=new StudyGuide().transfer(false);h.teachingVersion=PROPERTIES.equals(g.kind)?FOLD_VERSION:VERSION;
         if(SIDES.equals(g.kind)){
             h.choice("세 변을 하나씩 눌러 길이를 비교하세요. 몇 개의 변을 비교했나요?",map("one","한 변","two","두 변","three","세 변"),"three");
             int count=g.answerKey.equals("equilateralIsosceles")?3:g.answerKey.equals("isoscelesOnly")?2:0;
@@ -84,17 +85,30 @@ public final class KoreanTriangleClassification {
             h.choice("세 꼭짓점에 종이의 직각 모서리를 맞대어 비교하세요.",map("acute","세 각이 모두 직각보다 작음","right","직각인 각이 있음","obtuse","직각보다 큰 각이 있음"),g.answerKey);
         }else{
             String a=g.labels.get(0),b=g.labels.get(1),c=g.labels.get(2);
-            h.choice("문장에 직접 주어진 같은 변의 조건을 빠짐없이 나타낸 것을 고르세요.",map("abAc","변 "+a+b+"와 변 "+a+c,"abBc","변 "+a+b+"와 변 "+b+c,"all","세 변 모두"),g.form.equals("equilateral")?"all":"abAc");
-            if(g.form.equals("equilateral"))h.choice("정삼각형의 세 각 각각의 크기에 관한 성질을 고르세요.",map("all60","세 각은 각각 60도","all90","세 각은 각각 90도","all180","세 각은 각각 180도"),"all60");
-            else h.choice("두 밑각의 크기를 비교할 때 사용할 성질을 고르세요.",map("baseEqual","같은 길이의 두 변에 마주 보는 두 각은 같음","all60","길이가 같은 두 변이 있으면 세 각은 언제나 각각 60도","oneRight","길이가 같은 두 변 사이의 각은 언제나 직각"),"baseEqual");
-            h.step("그림에 주어진 각의 크기를 쓰세요.","각 "+b+" = ","도",Integer.toString(g.knownAngle));
+            h.choice("문장에 주어진 같은 변의 조건을 모두 고르세요.",map("abAc","변 "+a+b+"와 변 "+a+c,"abBc","변 "+a+b+"와 변 "+b+c,"all","세 변 모두"),g.form.equals("equilateral")?"all":"abAc");
+            h.step(g.form.equals("equilateral")?"꼭짓점 "+a+", "+b+"에서 각각 접고 겹친 두 각을 눌러 살펴보세요.":"꼭짓점 "+a+"에서 접고 겹친 두 각을 눌러 살펴보세요.","","","ok");h.frames.get(1).inputFormat=FOLD_FORMAT;
+            if(g.form.equals("equilateral")){
+                h.choice("두 번의 접기로 크기가 같음을 확인한 각을 모두 고르세요.",map("basePair","각 "+b+"와 각 "+c,"apexKnown","각 "+a+"와 각 "+b,"allAngles","각 "+a+", 각 "+b+", 각 "+c),"allAngles");
+                h.step("삼각형의 세 각의 합은 180도입니다. 세 각이 같을 때 한 각은 몇 도인가요?","180 ÷ 3 = ","도","60");
+            }else{
+                h.choice("꼭짓점 "+a+"에서 접었을 때 서로 겹친 두 각을 고르세요.",map("basePair","각 "+b+"와 각 "+c,"apexKnown","각 "+a+"와 각 "+b,"apexTarget","각 "+a+"와 각 "+c),"basePair");
+                h.choice("겹친 두 밑각의 크기에 맞는 성질을 고르세요.",map("baseEqual","같은 길이의 두 변에 마주 보는 두 각은 같음","all60","길이가 같은 두 변이 있으면 세 각은 언제나 각각 60도","oneRight","길이가 같은 두 변 사이의 각은 언제나 직각"),"baseEqual");
+            }
         }
         h.choice(PROPERTIES.equals(g.kind)?"비교 도구를 덮고 성질을 떠올려 구할 각의 크기를 고르세요.":"비교 도구를 덮고 삼각형의 이름을 고르세요.",options(g),g.answerKey);return h;
     }
     public static void attach(Question q){if(q!=null&&supports(q.skillId))q.studyGuide=guide(q);}
+    /** Read-only description of real saved v1 entries; never used to complete the new lesson. */
+    public static StudyGuide previousPropertiesGuide(Question q){
+        Givens g=read(q);if(g==null||!PROPERTIES.equals(g.kind))return null;String a=g.labels.get(0),b=g.labels.get(1),c=g.labels.get(2);StudyGuide h=new StudyGuide().transfer(false);h.teachingVersion=VERSION;
+        h.choice("문장에 직접 주어진 같은 변의 조건을 빠짐없이 나타낸 것을 고르세요.",map("abAc","변 "+a+b+"와 변 "+a+c,"abBc","변 "+a+b+"와 변 "+b+c,"all","세 변 모두"),g.form.equals("equilateral")?"all":"abAc");
+        if(g.form.equals("equilateral"))h.choice("정삼각형의 세 각 각각의 크기에 관한 성질을 고르세요.",map("all60","세 각은 각각 60도","all90","세 각은 각각 90도","all180","세 각은 각각 180도"),"all60");
+        else h.choice("두 밑각의 크기를 비교할 때 사용할 성질을 고르세요.",map("baseEqual","같은 길이의 두 변에 마주 보는 두 각은 같음","all60","길이가 같은 두 변이 있으면 세 각은 언제나 각각 60도","oneRight","길이가 같은 두 변 사이의 각은 언제나 직각"),"baseEqual");
+        h.step("그림에 주어진 각의 크기를 쓰세요.","각 "+b+" = ","도",Integer.toString(g.knownAngle));h.choice("비교 도구를 덮고 성질을 떠올려 구할 각의 크기를 고르세요.",options(g),g.answerKey);return h;
+    }
     public static StudyDiagram picture(Question q,int stage){StudyGuide h=guide(q);if(h==null||stage<0||stage>=h.frames.size()-1)return null;return new StudyDiagram(TYPE,q.diagram.values,q.diagram.labels);}
     public static List<Integer> inspectionVertices(Question q,int stage){Givens g=read(q);return g!=null&&ANGLES.equals(g.kind)&&stage==1?List.of(0,1,2):List.of();}
-    public static Map<String,String> references(Question q,int stage,List<String> entries){StudyGuide h=guide(q);if(h==null||entries==null||stage<=0||stage>=h.frames.size())return Map.of();Map<String,String> out=new LinkedHashMap<>();String[] labels={"비교한 조건 = ","확인한 성질 = ","주어진 각 = "};for(int i=0;i<Math.min(stage,h.frames.size()-1)&&i<entries.size();i++){String raw=entries.get(i);StudyGuide.Frame f=h.frames.get(i);if(raw!=null&&new HelpPlan.Step(f).accepts(raw))out.put(labels[i],f.options.isEmpty()?raw:f.options.get(raw.trim()));}return Collections.unmodifiableMap(out);}
+    public static Map<String,String> references(Question q,int stage,List<String> entries){StudyGuide h=guide(q);if(h==null||entries==null||stage<=0||stage>=h.frames.size())return Map.of();Map<String,String> out=new LinkedHashMap<>();String[] labels=PROPERTIES.equals(q.skillId)?new String[]{"같은 변 = ","접기 = ","같은 각 = ","확인한 성질 = "}:new String[]{"비교한 조건 = ","확인한 성질 = ","주어진 각 = "};for(int i=0;i<Math.min(stage,h.frames.size()-1)&&i<entries.size();i++){String raw=entries.get(i);StudyGuide.Frame f=h.frames.get(i);if(!FOLD_FORMAT.equals(f.inputFormat)&&raw!=null&&new HelpPlan.Step(f).accepts(raw))out.put(labels[i],f.options.isEmpty()?raw:f.options.get(raw.trim()));}return Collections.unmodifiableMap(out);}
     private static int gcd(int a,int b){while(b!=0){int n=a%b;a=b;b=n;}return a;}
     public static String identity(Question q){Givens g=read(q);if(g==null)return null;if(PROPERTIES.equals(g.kind))return g.kind+"|"+g.form+"|base:"+g.knownAngle;int[] s=g.sides.stream().mapToInt(Double::intValue).sorted().toArray();int d=gcd(gcd(s[0],s[1]),s[2]);return g.kind+"|"+(s[0]/d)+":"+(s[1]/d)+":"+(s[2]/d);}
     /** A representative drawing must remain distinguishable with the elementary visual tools. */

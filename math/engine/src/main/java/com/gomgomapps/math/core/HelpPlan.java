@@ -30,7 +30,12 @@ public final class HelpPlan {
         /** Visits to this triangle's sides or corners, independently from answer fields. */
         public List<Integer> triangleVisited=new ArrayList<>();
         public int triangleVertex=-1,triangleVisitStage=-1;
-        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.oldCountEntries=oldCountEntries==null?new ArrayList<>():new ArrayList<>(oldCountEntries);d.oldCountStage=oldCountStage;d.oldCountTeachingVersion=oldCountTeachingVersion;d.countArithmeticOpen=countArithmeticOpen;d.countObjectsOpen=countObjectsOpen;d.countRemovalConfirmed=countRemovalConfirmed;d.countArithmeticLessons=new LinkedHashMap<>();if(countArithmeticLessons!=null)for(var entry:countArithmeticLessons.entrySet())if(entry.getValue()!=null)d.countArithmeticLessons.put(entry.getKey(),entry.getValue().copy());d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.movementActions=movementActions==null?new ArrayList<>():new ArrayList<>(movementActions);d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);d.triangleVisited=triangleVisited==null?new ArrayList<>():new ArrayList<>(triangleVisited);d.triangleVertex=triangleVertex;d.triangleVisitStage=triangleVisitStage;return d;}
+        public List<String> triangleFoldActions=new ArrayList<>();
+        /** Preserve the previous four-frame properties lesson without reusing its answers. */
+        public List<String> oldTriangleEntries=new ArrayList<>();
+        public int oldTriangleStage;
+        public String oldTriangleTeachingVersion;
+        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.oldCountEntries=oldCountEntries==null?new ArrayList<>():new ArrayList<>(oldCountEntries);d.oldCountStage=oldCountStage;d.oldCountTeachingVersion=oldCountTeachingVersion;d.countArithmeticOpen=countArithmeticOpen;d.countObjectsOpen=countObjectsOpen;d.countRemovalConfirmed=countRemovalConfirmed;d.countArithmeticLessons=new LinkedHashMap<>();if(countArithmeticLessons!=null)for(var entry:countArithmeticLessons.entrySet())if(entry.getValue()!=null)d.countArithmeticLessons.put(entry.getKey(),entry.getValue().copy());d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.movementActions=movementActions==null?new ArrayList<>():new ArrayList<>(movementActions);d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);d.triangleVisited=triangleVisited==null?new ArrayList<>():new ArrayList<>(triangleVisited);d.triangleVertex=triangleVertex;d.triangleVisitStage=triangleVisitStage;d.triangleFoldActions=triangleFoldActions==null?new ArrayList<>():new ArrayList<>(triangleFoldActions);d.oldTriangleEntries=oldTriangleEntries==null?new ArrayList<>():new ArrayList<>(oldTriangleEntries);d.oldTriangleStage=oldTriangleStage;d.oldTriangleTeachingVersion=oldTriangleTeachingVersion;return d;}
     }
     public static final class Step {
         public final String instruction,before,after;
@@ -50,6 +55,7 @@ public final class HelpPlan {
         }
         Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=frame.pictureFilled==null?-1:frame.pictureFilled;extra=frame.pictureExtra==null?0:frame.pictureExtra;denominator=frame.pictureDenominator==null?0:frame.pictureDenominator;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);requiredFormat=frame.inputFormat==null?"":frame.inputFormat;acceptedChoices=frame.acceptedChoices==null?null:Set.copyOf(frame.acceptedChoices);}
         public boolean accepts(String value){
+            if(requiredFormat.equals(KoreanTriangleClassification.FOLD_FORMAT))return "ok".equals(value);
             if(requiredFormat.equals("planeMovementAction"))return "ok".equals(value);
             if(decimalContext)return PublicDecimalContexts.acceptsStep(value,expected,requiredFormat);
             if(decimalQuotient)return DecimalWholeQuotients.acceptsStep(value,expected,requiredFormat);
@@ -262,6 +268,10 @@ public final class HelpPlan {
     public Draft restore(Draft draft,String questionId){
         if(draft==null||!questionId.equals(draft.questionId)){draft=new Draft();draft.questionId=questionId;}
         if(!Objects.equals(teachingVersion,draft.teachingVersion)){
+            if(KoreanTriangleClassification.FOLD_VERSION.equals(teachingVersion)&&KoreanTriangleClassification.VERSION.equals(draft.teachingVersion)){
+                draft.oldTriangleEntries=draft.entries==null?new ArrayList<>():new ArrayList<>(draft.entries);
+                draft.oldTriangleStage=draft.stage;draft.oldTriangleTeachingVersion=draft.teachingVersion;
+            }
             if(largeCountTeaching&&KoreanLargeCountTeaching.VERSION.equals(teachingVersion)&&KoreanLargeNumbers.VERSION.equals(draft.teachingVersion)){
                 draft.oldCountEntries=draft.entries==null?new ArrayList<>():new ArrayList<>(draft.entries);
                 draft.oldCountStage=draft.stage;draft.oldCountTeachingVersion=draft.teachingVersion;
@@ -271,6 +281,7 @@ public final class HelpPlan {
             draft.foundationRemoved=new ArrayList<>();
             draft.planeVertex=-1;draft.planeVisitStage=-1;draft.planeVisited=new ArrayList<>();draft.movementActions=new ArrayList<>();
             draft.triangleVertex=-1;draft.triangleVisitStage=-1;draft.triangleVisited=new ArrayList<>();
+            draft.triangleFoldActions=new ArrayList<>();
         }
         if(draft.entries==null)draft.entries=new ArrayList<>();
         int valid=0;while(valid<Math.min(draft.stage,size())&&valid<draft.entries.size()&&step(valid).accepts(draft.entries.get(valid)))valid++;

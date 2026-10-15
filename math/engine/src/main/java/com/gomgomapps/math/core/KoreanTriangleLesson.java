@@ -29,6 +29,13 @@ public final class KoreanTriangleLesson {
         if(gate>=0&&d.stage>gate&&!inspected(q,d)){
             d.stage=gate;while(d.entries.size()<=gate)d.entries.add("");d.entries.set(gate,"");
         }
+        if(KoreanTriangleFold.supports(q.skillId)){
+            if(d.triangleFoldActions==null)d.triangleFoldActions=new ArrayList<>();
+            var folded=foldState(q,d);if(folded==null)d.triangleFoldActions=new ArrayList<>();
+            if(d.stage>KoreanTriangleFold.FOLD_STAGE&&!KoreanTriangleFold.complete(q,foldState(q,d))){
+                d.stage=KoreanTriangleFold.FOLD_STAGE;while(d.entries.size()<=d.stage)d.entries.add("");d.entries.set(d.stage,"");
+            }
+        }
     }
     public static boolean visit(Question q,HelpPlan.Draft d,int index){
         if(!bound(q,d)||inspectionStage(q)<0||d.stage!=inspectionStage(q)||index<0||index>2)return false;
@@ -41,7 +48,14 @@ public final class KoreanTriangleLesson {
         HelpPlan plan=HelpPlan.forQuestion(q);int stage=d.stage;
         if(stage<0||stage>=plan.size())return false;
         while(d.entries.size()<=stage)d.entries.add("");d.entries.set(stage,value==null?"":value);
-        if(stage==inspectionStage(q)&&!inspected(q,d)||!plan.step(stage).accepts(value))return false;
+        if(stage==inspectionStage(q)&&!inspected(q,d)||KoreanTriangleFold.supports(q.skillId)&&stage==KoreanTriangleFold.FOLD_STAGE&&!KoreanTriangleFold.complete(q,foldState(q,d))||!plan.step(stage).accepts(value))return false;
         d.stage++;while(d.entries.size()<=d.stage)d.entries.add("");return true;
+    }
+    public static KoreanTriangleFold.State foldState(Question q,HelpPlan.Draft d){return !bound(q,d)?null:KoreanTriangleFold.restore(q,d.questionId,d.teachingVersion,d.triangleFoldActions);}
+    public static boolean foldAction(Question q,HelpPlan.Draft d,String action,int index){
+        if(!bound(q,d)||d.stage!=KoreanTriangleFold.FOLD_STAGE||!KoreanTriangleFold.supports(q.skillId))return false;
+        var current=foldState(q,d);if(current==null)return false;
+        var next=switch(action){case "axis"->KoreanTriangleFold.selectAxis(q,current,index);case "fold"->KoreanTriangleFold.advanceFold(q,current);case "unfold"->KoreanTriangleFold.unfold(q,current);case "angle"->KoreanTriangleFold.observe(q,current,index);case "reset"->KoreanTriangleFold.reset(q);default->null;};
+        if(next==null)return false;d.triangleFoldActions=new ArrayList<>(next.actions());return true;
     }
 }
