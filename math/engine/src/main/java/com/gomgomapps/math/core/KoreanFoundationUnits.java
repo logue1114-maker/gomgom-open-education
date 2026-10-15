@@ -36,7 +36,7 @@ public final class KoreanFoundationUnits {
    d(6,1,1,"분수의 나눗셈","fracDivInt","fracDivInt"),d(6,1,2,"각기둥과 각뿔","prismElements","prismElements"),d(6,1,3,"소수의 나눗셈","decimalDivInt","decimalDivInt"),
    d(6,1,4,"비와 비율","percent","percent"),d(6,1,5,"여러 가지 그래프","el_strip_graph,el_circle_graph","el_strip_graph,el_circle_graph"),d(6,1,6,"직육면체의 겉넓이와 부피","el_rect_prism_surface,el_cube_surface,el_rect_prism_volume,el_cube_volume","el_rect_prism_surface,el_rect_prism_volume"),
    d(6,2,1,"분수의 나눗셈","fracDiv,fracMixedDiv","fracDiv,fracMixedDiv"),
-   d(6,2,version==2022?2:3,"공간과 입체","",""),d(6,2,version==2022?3:2,"소수의 나눗셈","decimalDiv","decimalDiv"),
+   d(6,2,version==2022?2:3,"공간과 입체",version==2022?"krStackCount,krStackTop,krStackFront,krStackSide,krStackReconstruct":"",version==2022?"krStackCount,krStackTop,krStackFront,krStackSide,krStackReconstruct":""),d(6,2,version==2022?3:2,"소수의 나눗셈","decimalDiv","decimalDiv"),
    d(6,2,4,"비례식과 비례배분","proportion,el_proportional_split","proportion,el_proportional_split"),d(6,2,5,"원의 둘레와 넓이","el_circle_circumference,el_circle_area","el_circle_circumference,el_circle_area"),d(6,2,6,"원기둥·원뿔·구","","")));
   if(version==2022){
    // Reference contents: https://aidt.m-teacher.co.kr/elem-math3.html and elem-math4.html.

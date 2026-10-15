@@ -23,6 +23,7 @@ public final class Checker {
         return check(q,steps,answers,Collections.emptyList());
     }
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
+        if(KoreanSpatialSolids.supports(q.skillId)){Result work=KoreanSpatialSolids.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanSpatialSolids.check(q,answers);}
         if(KoreanPolygons.supports(q.skillId)){Result work=KoreanPolygons.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanPolygons.check(q,answers);}
         if(KoreanLargeNumbers.supports(q.skillId)){Result work=KoreanLargeNumbers.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanLargeNumbers.check(q,answers);}
         if(KoreanRulesRelations.supports(q.skillId)){Result work=KoreanRulesRelations.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanRulesRelations.check(q,answers);}
@@ -222,6 +223,7 @@ public final class Checker {
         return checkSteps(q,steps,kinds,true).forWorkInput();
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
+        if(KoreanSpatialSolids.supports(q.skillId))return KoreanSpatialSolids.checkWork(q,steps);
         if(KoreanPolygons.supports(q.skillId))return KoreanPolygons.checkWork(q,steps);
         if(KoreanLargeNumbers.supports(q.skillId))return KoreanLargeNumbers.checkWork(q,steps);
         if(KoreanRulesRelations.supports(q.skillId))return KoreanRulesRelations.checkWork(q,steps);

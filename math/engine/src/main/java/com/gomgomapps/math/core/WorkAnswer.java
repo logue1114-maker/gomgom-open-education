@@ -6,6 +6,7 @@ import java.util.List;
 public final class WorkAnswer {
     private WorkAnswer(){}
     public static List<String> writtenAnswers(Question question,List<String> steps,List<Checker.StepKind> kinds){
+        if(KoreanSpatialSolids.supports(question.skillId))return List.of();
         if(KoreanPolygons.supports(question.skillId))return List.of();
         if(KoreanLargeNumbers.supports(question.skillId))return List.of();
         if(KoreanRulesRelations.supports(question.skillId))return List.of();
@@ -32,6 +33,7 @@ public final class WorkAnswer {
         List<String> result=List.of(answers);return checker.check(question,steps,result,kinds).correct()?result:List.of();
     }
     public static String writtenAnswer(Question question,List<String> steps,List<Checker.StepKind> kinds){
+        if(KoreanSpatialSolids.supports(question.skillId))return "";
         if(KoreanPolygons.supports(question.skillId))return "";
         if(KoreanLargeNumbers.supports(question.skillId))return "";
         if(KoreanRulesRelations.supports(question.skillId))return "";

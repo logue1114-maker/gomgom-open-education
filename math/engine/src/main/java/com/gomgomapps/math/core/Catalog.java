@@ -21,6 +21,11 @@ public final class Catalog {
     private static void add(String id,String title,int grade,int term,int unit,String family,int range,String pre,String concept){add(id,title,grade,term,unit,"",family,range,pre,concept);}
     private static void add(String id,String title,int grade,int term,int unit,String course,String family,int range,String pre,String concept){ALL.add(new Skill(id,title,grade,term,unit,course,family,range,pre,concept));}
     static {
+        add("krStackCount","쌓기나무의 전체 개수",6,2,2,"krStackCount",18,"count,earlyStacks","바닥의 각 자리에 쌓인 나무를 세고 모든 자리의 개수를 합한다.");
+        add("krStackTop","쌓기나무를 위에서 본 모양",6,2,2,"krStackTop",18,"earlyStacks,earlyShapes","높이에 관계없이 나무가 놓인 바닥 자리를 위에서 본 모양으로 나타낸다.");
+        add("krStackFront","쌓기나무를 앞에서 본 모양",6,2,2,"krStackFront",18,"krStackTop","같은 시선에 놓인 기둥을 겹쳐 보고 가장 높은 곳까지의 윤곽을 나타낸다.");
+        add("krStackSide","쌓기나무를 오른쪽에서 본 모양",6,2,2,"krStackSide",18,"krStackFront","앞에서 뒤로 놓인 각 줄을 오른쪽에서 보고 높이의 윤곽을 나타낸다.");
+        add("krStackReconstruct","세 방향의 모양으로 쌓기 추측",6,2,2,"krStackReconstruct",18,"krStackTop,krStackFront,krStackSide","위·앞·오른쪽에서 본 모양을 모두 만족하는 쌓기를 찾고, 다른 쌓기도 같은 모양이 될 수 있는지 살펴본다.");
         add("count","수 세기",0,1,1,"count",9,"","물체 하나에 수 하나를 대응해 센다.");
         add("compare","수의 크기 비교",0,1,2,"compare",9,"count","수직선에서 오른쪽에 있는 수가 더 크다.");
         add("join9","수 모으기",1,1,3,"join",9,"count","두 부분을 모으면 전체가 된다.");
