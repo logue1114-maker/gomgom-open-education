@@ -9,7 +9,8 @@ final class KoreanFoundationPlanUpgrade {
     private static String key(Diagnosis.Probe p){return p.unitKey+"|"+p.skillId;}
     private static boolean supportedAddition(Diagnosis.UnitScreen after){
         return after.members.stream().allMatch(KoreanFirstTermArithmetic::supports)||
-            after.reviewGrade==2&&after.term==1&&after.unit==4&&after.members.stream().allMatch(KoreanCentimeterMeasurement::supports);
+            after.reviewGrade==2&&after.term==1&&after.unit==4&&after.members.stream().allMatch(KoreanCentimeterMeasurement::supports)||
+            after.reviewGrade==3&&after.term==1&&after.unit==2&&after.members.stream().allMatch(KoreanPlaneFoundations::supports);
     }
     private static boolean compatible(Diagnosis.Plan old,Diagnosis.Plan fresh){
         if(!old.unitScreening||!old.foundationAscending||old.legacy||old.key.equals(fresh.key)||

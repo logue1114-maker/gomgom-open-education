@@ -6,6 +6,7 @@ import java.util.List;
 public final class WorkAnswer {
     private WorkAnswer(){}
     public static List<String> writtenAnswers(Question question,List<String> steps,List<Checker.StepKind> kinds){
+        if(KoreanPlaneFoundations.supports(question.skillId))return List.of();
         if(KoreanCentimeterMeasurement.supports(question.skillId)){String one=writtenAnswer(question,steps,kinds);return one.isEmpty()?List.of():List.of(one);}
         if(KoreanFirstTermArithmetic.supports(question.skillId)){String one=writtenAnswer(question,steps,kinds);return one.isEmpty()?List.of():List.of(one);}
         if(PublicDecimalContexts.supports(question.skillId)){String one=writtenAnswer(question,steps,kinds);return one.isEmpty()?List.of():List.of(one);}
@@ -26,6 +27,7 @@ public final class WorkAnswer {
         List<String> result=List.of(answers);return checker.check(question,steps,result,kinds).correct()?result:List.of();
     }
     public static String writtenAnswer(Question question,List<String> steps,List<Checker.StepKind> kinds){
+        if(KoreanPlaneFoundations.supports(question.skillId))return "";
         if(KoreanCentimeterMeasurement.supports(question.skillId)){if(KoreanCentimeterMeasurement.read(question)==null)return "";}
         else if(KoreanFirstTermArithmetic.supports(question.skillId)){if(KoreanFirstTermArithmetic.read(question)==null)return "";}
         else if(PublicDecimalContexts.supports(question.skillId)){if(PublicDecimalContexts.readGeneral(question)==null)return "";}

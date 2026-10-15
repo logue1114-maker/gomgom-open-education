@@ -38,6 +38,10 @@ public final class Catalog {
         add("krMeasureCm","자로 길이 재기",2,1,4,"krMeasureCm",30,"count,earlyLength","막대의 한 끝을 자의 0 눈금에 맞추고 1cm 간격을 세어 길이를 잰다.");
         add("krApproxCm","약 몇 cm인지 알아보기",2,1,4,"krApproxCm",30,"krMeasureCm","물체 끝이 두 cm 눈금 사이에 있으면 더 가까운 눈금을 보고 약 몇 cm인지 나타낸다.");
         add("krMeasureUnits","기준 블록으로 길이 재기",2,1,4,"krMeasureUnits",36,"count,earlyLength","같은 기준 블록의 길이를 빈틈없이 이어 놓고 몇 단위인지 센다.");
+        add("krLineForms","선분·반직선·직선 구별",3,1,2,"krLineForms",128,"earlyShapes","멈춘 끝과 계속 뻗는 방향을 보고 선분·반직선·직선을 구별한다.");
+        add("krRightAngle","직각 알아보기",3,1,2,"krRightAngle",128,"krLineForms","각의 꼭짓점을 찾고 종이 모서리를 맞대어 직각인지 알아본다.");
+        add("krRightTriangle","직각삼각형 구별",3,1,2,"krRightTriangle",128,"krRightAngle","삼각형의 세 각을 살펴 직각이 있는 삼각형을 구별한다.");
+        add("krSquareRectangle","직사각형·정사각형 구별",3,1,2,"krSquareRectangle",128,"krRightAngle,el_shape_sides","네 각의 직각 여부와 네 변의 길이를 살펴 해당하는 이름을 모두 고른다.");
         add("place100","세 자리 수",2,1,1,"place",999,"place10","오른쪽부터 일·십·백의 자리이다.");
         add("add100","두 자리 덧셈",2,1,3,"add",99,"add20","같은 자리끼리 더하고 10이 되면 받아올린다.");
         add("sub100","두 자리 뺄셈",2,1,3,"sub",99,"sub20","같은 자리끼리 빼고 부족하면 윗자리에서 받아내린다.");

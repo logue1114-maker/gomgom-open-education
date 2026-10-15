@@ -24,6 +24,8 @@ public final class Review {
         private static final long serialVersionUID=1L;
         public List<Event> events=new ArrayList<>();
         public Set<String> failed=new LinkedHashSet<>(),checked=new LinkedHashSet<>();
+        /** Optional history for the three intrinsic line facts; not used by other families. */
+        public Set<String> finiteFailedHistory,finiteQuestionIds;
         public boolean pending,practice,legacy,recent;
         public int recoveryChecks,rechecked,spacedSuccesses,cleanRun;
         public boolean diagramHistoryRenewed;
@@ -60,6 +62,15 @@ public final class Review {
     private static boolean ready(Learning.State state,Track t,LocalDate day){
         long now=day.toEpochDay();return (t.pending||t.recent)&&t.dueDay<=now&&(state.reviewSequence>=t.eligibleAfter||now>t.updatedDay);
     }
+    private static boolean finiteLine(Learning.Session s){return s!=null&&s.question!=null&&KoreanPlaneFoundations.LINE.equals(s.question.skillId)&&KoreanPlaneFoundations.read(s.question)!=null;}
+    private static void rememberFinite(Track t){
+        if(t.finiteFailedHistory==null)t.finiteFailedHistory=new LinkedHashSet<>();
+        if(t.finiteQuestionIds==null)t.finiteQuestionIds=new LinkedHashSet<>();
+        t.finiteFailedHistory.addAll(t.failed);
+        if(t.sourceId!=null&&!t.sourceId.isBlank())t.finiteQuestionIds.add(t.sourceId);
+        for(Event event:t.events)if(event.outcome!=Outcome.INPUT_UNCERTAIN)t.finiteQuestionIds.add(event.questionId);
+        if(!t.pending&&t.recent&&t.checked.size()>1){String last=null;for(String signature:t.checked)last=signature;t.checked.clear();if(last!=null)t.checked.add(last);}
+    }
     public static boolean due(Learning.State state,String id,LocalDate day){Learning.Progress p=state.progress.get(id);return p!=null&&ready(state,track(p),day);}
     public static String nextDue(Learning.State state,Collection<String> selected,LocalDate day){
         String best=null;for(String id:selected)if(due(state,id,day)){
@@ -92,7 +103,10 @@ public final class Review {
                 t.recoveryChecks=0;t.cleanRun=0;t.checked.clear();t.checked.add(s.question.signature());
             }
         }
-        w.recheck=fresh&&!Deferred.active(s)&&ready(state,t,day)&&!t.failed.contains(s.question.signature())&&!t.checked.contains(s.question.signature());
+        boolean finite=finiteLine(s),lineTopic=KoreanPlaneFoundations.LINE.equals(s.question.skillId);
+        if(finite)rememberFinite(t);
+        w.recheck=fresh&&!Deferred.active(s)&&ready(state,t,day)&&!t.checked.contains(s.question.signature())&&
+            (finite?!t.finiteQuestionIds.contains(s.question.id):!lineTopic&&!t.failed.contains(s.question.signature()));
     }
     private static void event(Learning.State state,Outcome outcome,String reason,LocalDate day){
         Learning.Session s=state.session;Track t=track(state.progress(s.question.skillId));
@@ -121,6 +135,7 @@ public final class Review {
         Learning.Session s=state.session;if(s==null||s.question==null||s.advancePending||s.finished&&!Deferred.active(s))return;
         open(state,day);Work w=s.reviewWork;if(w.helpUsed)return;w.helpUsed=true;
         event(state,Outcome.HELP_USED,"",day);
+        if(finiteLine(s)){Track finiteTrack=track(state.progress(s.question.skillId));rememberFinite(finiteTrack);finiteTrack.finiteQuestionIds.add(s.question.id);}
         if(w.errorRecorded)return;
         Track t=track(state.progress(s.question.skillId));
         t.pending=true;t.legacy=false;t.recent=false;t.generation++;t.sourceId=s.question.id;
@@ -133,6 +148,7 @@ public final class Review {
         Track t=track(state.progress(s.question.skillId));w.errorRecorded=true;
         event(state,Deferred.active(s)?Outcome.CORRECTION_WRONG:w.recheck?Outcome.RECHECK_WRONG:Outcome.FIRST_WRONG,"",day);
         t.failed.add(s.question.signature());while(t.failed.size()>6)t.failed.remove(t.failed.iterator().next());
+        if(finiteLine(s)){rememberFinite(t);t.finiteQuestionIds.add(s.question.id);}
         t.practice=t.practice||t.failed.size()>=2;t.pending=true;t.legacy=false;t.recent=false;
         t.generation++;t.sourceId=s.question.id;t.recoveryChecks=0;t.spacedSuccesses=0;t.cleanRun=0;t.checked.clear();
         t.updatedDay=day.toEpochDay();t.dueDay=t.updatedDay;t.eligibleAfter=state.reviewSequence+GAP+(Deferred.active(s)?0:1);
@@ -141,6 +157,8 @@ public final class Review {
     public static void finish(Learning.State state,boolean skip,boolean correction,LocalDate day){
         Learning.Session s=state.session;open(state,day);Work w=s.reviewWork;if(w.finished)return;
         Track t=track(state.progress(s.question.skillId));
+        boolean finite=finiteLine(s),lineTopic=KoreanPlaneFoundations.LINE.equals(s.question.skillId),newFiniteId=false;
+        if(finite){rememberFinite(t);newFiniteId=!t.finiteQuestionIds.contains(s.question.id);t.finiteQuestionIds.add(s.question.id);}
         // Legacy in-progress work carries a confirmed error bit, but no invented past event.
         if(s.hadError&&!w.errorRecorded)error(state,day);
         if(!Deferred.active(s))state.reviewSequence++;
@@ -153,14 +171,17 @@ public final class Review {
             if(!t.recent&&!t.pending){t.pending=true;t.dueDay=day.toEpochDay();t.updatedDay=t.dueDay;t.eligibleAfter=state.reviewSequence+GAP;t.sourceId=s.question.id;}
         }else{
             t.cleanRun++;
-            boolean checked=w.recheck&&w.generation==t.generation&&
+            boolean checked=w.recheck&&w.generation==t.generation&&(!finite||!Deferred.active(s))&&
                 (w.issuedAfter>=t.eligibleAfter||day.toEpochDay()>t.updatedDay)&&
-                !t.failed.contains(s.question.signature())&&!t.checked.contains(s.question.signature());
+                !t.checked.contains(s.question.signature())&&(finite?newFiniteId:!lineTopic&&!t.failed.contains(s.question.signature()));
             event(state,checked?Outcome.RECHECK_CORRECT:Outcome.FIRST_CORRECT,"",day);
             if(checked){
                 t.rechecked++;s.rechecked++;t.checked.add(s.question.signature());while(t.checked.size()>6)t.checked.remove(t.checked.iterator().next());
                 if(t.pending){t.recoveryChecks++;if(t.recoveryChecks>=RECOVERY_CHECKS){t.pending=false;t.practice=false;t.legacy=false;t.recent=true;t.failed.clear();t.spacedSuccesses=0;}}
                 else {t.recent=true;t.spacedSuccesses++;}
+                // A recovery needs two different facts. Later due rounds remember only the last
+                // successful fact, leaving another fact available in this three-fact domain.
+                if(finite&&!t.pending){t.checked.clear();t.checked.add(s.question.signature());}
                 t.updatedDay=day.toEpochDay();t.eligibleAfter=state.reviewSequence+GAP;
                 t.dueDay=t.updatedDay+(t.pending?0:Math.min(14,1L<<Math.min(t.spacedSuccesses,3)));
             }else if(!t.pending){t.recent=true;t.legacy=false;if(t.dueDay==0)t.dueDay=day.toEpochDay()+1;}
@@ -169,6 +190,10 @@ public final class Review {
     }
     public static boolean diagnosticRecent(Learning.State state,String id){
         Track t=track(state.progress(id));if(t.cleanRun<2)return false;
+        if(KoreanPlaneFoundations.LINE.equals(id)){
+            if(!finiteLine(state.session)||!id.equals(state.session.question.skillId)||t.pending)return false;
+            rememberFinite(t);return t.recent;
+        }
         t.pending=false;t.practice=false;t.legacy=false;t.recent=true;t.failed.clear();t.recoveryChecks=0;
         t.dueDay=state.progress(id).lastDay+1;t.updatedDay=state.progress(id).lastDay;t.eligibleAfter=state.reviewSequence+GAP;sync(state,id,t);
         return true;
