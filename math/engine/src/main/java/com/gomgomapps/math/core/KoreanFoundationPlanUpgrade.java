@@ -7,6 +7,10 @@ final class KoreanFoundationPlanUpgrade {
     private KoreanFoundationPlanUpgrade(){}
     private static String system(String value){return value==null||value.isBlank()?"kr-national":value;}
     private static String key(Diagnosis.Probe p){return p.unitKey+"|"+p.skillId;}
+    private static boolean supportedAddition(Diagnosis.UnitScreen after){
+        return after.members.stream().allMatch(KoreanFirstTermArithmetic::supports)||
+            after.reviewGrade==2&&after.term==1&&after.unit==4&&after.members.stream().allMatch(KoreanCentimeterMeasurement::supports);
+    }
     private static boolean compatible(Diagnosis.Plan old,Diagnosis.Plan fresh){
         if(!old.unitScreening||!old.foundationAscending||old.legacy||old.key.equals(fresh.key)||
             old.actualGrade!=fresh.actualGrade||old.term!=fresh.term||old.schoolYear!=fresh.schoolYear||old.curriculum!=fresh.curriculum||
@@ -21,7 +25,7 @@ final class KoreanFoundationPlanUpgrade {
             }else{
                 if(!before.members.isEmpty()||!before.representatives.isEmpty()||!before.completedRepresentatives.isEmpty()||
                     !before.reasons.isEmpty()||!before.flaggedAt.isEmpty()||!before.recoveredSkills.isEmpty()||!before.freshRechecks.isEmpty()||
-                    before.status!=Diagnosis.UnitStatus.UNCHECKED||after.members.isEmpty()||!after.members.stream().allMatch(KoreanFirstTermArithmetic::supports))return false;
+                    before.status!=Diagnosis.UnitStatus.UNCHECKED||after.members.isEmpty()||!supportedAddition(after))return false;
                 added.addAll(after.members);
             }
         }
@@ -37,13 +41,18 @@ final class KoreanFoundationPlanUpgrade {
     }
     static void apply(Learning.State state,Diagnosis.Plan fresh){
         List<Diagnosis.Plan> candidates=state.diagnostics.values().stream().filter(p->compatible(p,fresh)).toList();
-        if(candidates.size()!=1)return;
-        Diagnosis.Plan old=candidates.get(0);
+        // Earlier additive upgrades keep their immutable ancestor plans in the archive.
+        // Prefer only a unique most-supported scope; equal or incomparable candidates stay ambiguous.
+        List<Diagnosis.Plan> newest=candidates.stream().filter(p->candidates.stream().noneMatch(other->
+            other.scope.size()>p.scope.size()&&other.scope.containsAll(p.scope))).toList();
+        if(newest.size()!=1)return;
+        Diagnosis.Plan old=newest.get(0);
         Set<Learning.Session> sessions=Collections.newSetFromMap(new IdentityHashMap<>());
         if(state.session!=null)sessions.add(state.session);sessions.addAll(state.savedSessions.values());
         Set<Diagnosis.Run> runs=Collections.newSetFromMap(new IdentityHashMap<>());
         for(Learning.Session session:sessions){
-            Diagnosis.Run run=session.diagnosticRun;if(session.finished||run==null||run.plan!=old)continue;
+            Diagnosis.Run run=session.diagnosticRun;if(session.finished||run==null)continue;
+            if(run.plan!=old){if(candidates.contains(run.plan))return;continue;}
             if(!"KR".equals(GlobalCurriculum.country(session))||!"kr-national".equals(GlobalCurriculum.system(session)))return;
             List<Diagnosis.Probe> probes=new ArrayList<>(run.scheduled);if(run.current!=null)probes.add(run.current);
             for(Diagnosis.Probe probe:probes){Diagnosis.Probe expected=fresh.checks.get(key(probe));if(expected==null||expected.reviewGrade!=probe.reviewGrade||old.checks.get(key(probe))!=probe)return;}

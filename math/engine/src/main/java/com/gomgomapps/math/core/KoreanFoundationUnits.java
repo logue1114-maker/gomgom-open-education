@@ -46,7 +46,7 @@ public final class KoreanFoundationUnits {
     d(1,2,1,"100까지의 수","place10","place10"),d(1,2,2,"덧셈과 뺄셈(1)","addThree9,subThree9","addThree9,subThree9"),d(1,2,3,"모양과 시각","earlyShapes,earlyClock","earlyShapes,earlyClock"),
     d(1,2,4,"덧셈과 뺄셈(2)","add20,sub20","add20,sub20"),d(1,2,5,"규칙 찾기","earlyPattern","earlyPattern"),d(1,2,6,"덧셈과 뺄셈(3)","krNoCarryAdd,krNoBorrowSub","krNoCarryAdd,krNoBorrowSub"),
     d(2,1,1,"세 자리 수","place100","place100"),d(2,1,2,"여러 가지 도형","el_shape_sides,el_shape_classify","el_shape_classify"),d(2,1,3,"덧셈과 뺄셈","add100,sub100,addThree100,subThree100","add100,sub100"),
-    d(2,1,4,"길이 재기","",""),d(2,1,5,"분류하기","earlyClassify","earlyClassify"),d(2,1,6,"곱셈","mulIntro","mulIntro"),
+    d(2,1,4,"길이 재기","krMeasureUnits,krMeasureCm,krApproxCm","krMeasureUnits,krMeasureCm,krApproxCm"),d(2,1,5,"분류하기","earlyClassify","earlyClassify"),d(2,1,6,"곱셈","mulIntro","mulIntro"),
     d(3,1,1,"덧셈과 뺄셈","add1000,sub1000","add1000,sub1000"),d(3,1,2,"평면도형","",""),
     d(3,1,3,"나눗셈","divide","divide"),d(3,1,4,"곱셈","mul2","mul2"),d(3,1,5,"길이와 시간","el_length_mm_cm,el_length_km_m,el_time_to_seconds","el_length_mm_cm,el_time_to_seconds"),d(3,1,6,"분수와 소수","fractionPart","fractionPart"),
     d(3,2,1,"곱셈","mul3,mul22","mul3,mul22"),d(3,2,2,"원","el_circle_radius,el_circle_diameter","el_circle_diameter"),d(3,2,3,"나눗셈","remainder","remainder"),

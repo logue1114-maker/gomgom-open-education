@@ -35,6 +35,9 @@ public final class Catalog {
         add("sub20","받아내림 뺄셈",1,2,2,"sub",19,"sub9","십의 자리 1을 일의 자리 10으로 바꿀 수 있다.");
         add("krNoCarryAdd","받아올림 없는 두 자리 덧셈",1,2,6,"krNoCarryAdd",99,"place10,add9","일끼리 더하고 십 묶음끼리 더한 뒤 합친다.");
         add("krNoBorrowSub","받아내림 없는 두 자리 뺄셈",1,2,6,"krNoBorrowSub",99,"place10,sub9","일끼리 빼고 십 묶음끼리 뺀 뒤 합친다.");
+        add("krMeasureCm","자로 길이 재기",2,1,4,"krMeasureCm",30,"count,earlyLength","막대의 한 끝을 자의 0 눈금에 맞추고 1cm 간격을 세어 길이를 잰다.");
+        add("krApproxCm","약 몇 cm인지 알아보기",2,1,4,"krApproxCm",30,"krMeasureCm","물체 끝이 두 cm 눈금 사이에 있으면 더 가까운 눈금을 보고 약 몇 cm인지 나타낸다.");
+        add("krMeasureUnits","기준 블록으로 길이 재기",2,1,4,"krMeasureUnits",36,"count,earlyLength","같은 기준 블록의 길이를 빈틈없이 이어 놓고 몇 단위인지 센다.");
         add("place100","세 자리 수",2,1,1,"place",999,"place10","오른쪽부터 일·십·백의 자리이다.");
         add("add100","두 자리 덧셈",2,1,3,"add",99,"add20","같은 자리끼리 더하고 10이 되면 받아올린다.");
         add("sub100","두 자리 뺄셈",2,1,3,"sub",99,"sub20","같은 자리끼리 빼고 부족하면 윗자리에서 받아내린다.");
