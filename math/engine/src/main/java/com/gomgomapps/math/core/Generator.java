@@ -41,7 +41,8 @@ public final class Generator {
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(EquivalentQuantityStories.identity(FractionNamesRelations.identity(signature)),position++);
         int oldest=Integer.MAX_VALUE;
         if(KoreanLargeNumbers.supports(skillId))q=KoreanLargeNumbers.next(skillId,random,limits,previous);
-        if(KoreanPlaneFoundations.supports(skillId))q=KoreanPlaneFoundations.next(skillId,random,limits,previous);
+        if(KoreanPlaneMovement.supports(skillId))q=KoreanPlaneMovement.next(skillId,random,limits,previous);
+        else if(KoreanPlaneFoundations.supports(skillId))q=KoreanPlaneFoundations.next(skillId,random,limits,previous);
         if(KoreanCentimeterMeasurement.supports(skillId))q=KoreanCentimeterMeasurement.next(skillId,random,limits,previous);
         if(KoreanFirstTermArithmetic.supports(skillId))q=KoreanFirstTermArithmetic.next(skillId,random,limits,previous);
         if(BoundedWholeAddSub.selected(skillId,limits))q=BoundedWholeAddSub.next(skillId,random,limits,previous);
@@ -227,6 +228,7 @@ public final class Generator {
     }
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
         if(KoreanLargeNumbers.supports(s.id))return KoreanLargeNumbers.next(s.id,random,limits,Map.of());
+        if(KoreanPlaneMovement.supports(s.id))return KoreanPlaneMovement.next(s.id,random,limits,Map.of());
         if(KoreanPlaneFoundations.supports(s.id))return KoreanPlaneFoundations.next(s.id,random,limits,Map.of());
         if(KoreanCentimeterMeasurement.supports(s.id))return KoreanCentimeterMeasurement.next(s.id,random,limits,Map.of());
         if(KoreanFirstTermArithmetic.supports(s.id))return KoreanFirstTermArithmetic.next(s.id,random,limits,Map.of());

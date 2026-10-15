@@ -25,7 +25,9 @@ public final class HelpPlan {
         public boolean foundationChecked;
         public int planeVertex=-1,planeVisitStage=-1;
         public List<Integer> planeVisited=new ArrayList<>();
-        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.oldCountEntries=oldCountEntries==null?new ArrayList<>():new ArrayList<>(oldCountEntries);d.oldCountStage=oldCountStage;d.oldCountTeachingVersion=oldCountTeachingVersion;d.countArithmeticOpen=countArithmeticOpen;d.countObjectsOpen=countObjectsOpen;d.countRemovalConfirmed=countRemovalConfirmed;d.countArithmeticLessons=new LinkedHashMap<>();if(countArithmeticLessons!=null)for(var entry:countArithmeticLessons.entrySet())if(entry.getValue()!=null)d.countArithmeticLessons.put(entry.getKey(),entry.getValue().copy());d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);return d;}
+        /** Separate student movement trace. No geometry or answer is copied to the original task. */
+        public List<String> movementActions=new ArrayList<>();
+        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.oldCountEntries=oldCountEntries==null?new ArrayList<>():new ArrayList<>(oldCountEntries);d.oldCountStage=oldCountStage;d.oldCountTeachingVersion=oldCountTeachingVersion;d.countArithmeticOpen=countArithmeticOpen;d.countObjectsOpen=countObjectsOpen;d.countRemovalConfirmed=countRemovalConfirmed;d.countArithmeticLessons=new LinkedHashMap<>();if(countArithmeticLessons!=null)for(var entry:countArithmeticLessons.entrySet())if(entry.getValue()!=null)d.countArithmeticLessons.put(entry.getKey(),entry.getValue().copy());d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.movementActions=movementActions==null?new ArrayList<>():new ArrayList<>(movementActions);d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);return d;}
     }
     public static final class Step {
         public final String instruction,before,after;
@@ -45,6 +47,7 @@ public final class HelpPlan {
         }
         Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=frame.pictureFilled==null?-1:frame.pictureFilled;extra=frame.pictureExtra==null?0:frame.pictureExtra;denominator=frame.pictureDenominator==null?0:frame.pictureDenominator;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);requiredFormat=frame.inputFormat==null?"":frame.inputFormat;acceptedChoices=frame.acceptedChoices==null?null:Set.copyOf(frame.acceptedChoices);}
         public boolean accepts(String value){
+            if(requiredFormat.equals("planeMovementAction"))return "ok".equals(value);
             if(decimalContext)return PublicDecimalContexts.acceptsStep(value,expected,requiredFormat);
             if(decimalQuotient)return DecimalWholeQuotients.acceptsStep(value,expected,requiredFormat);
             if(decimalProduct)return DecimalWholeProducts.acceptsStep(value,expected,requiredFormat);
@@ -112,6 +115,7 @@ public final class HelpPlan {
     }
     public static HelpPlan forQuestion(Question q){
         if(q!=null&&KoreanLargeNumbers.supports(q.skillId)){StudyGuide visible=KoreanLargeNumbers.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.largeCountTeaching=KoreanLargeNumbers.COUNT.equals(q.skillId)&&KoreanLargeCountTeaching.VERSION.equals(visible.teachingVersion);plan.transfer=false;return plan;}
+        if(q!=null&&KoreanPlaneMovement.supports(q.skillId)){StudyGuide visible=KoreanPlaneMovement.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&KoreanPlaneFoundations.supports(q.skillId)){StudyGuide visible=KoreanPlaneFoundations.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&KoreanCentimeterMeasurement.supports(q.skillId)){StudyGuide visible=KoreanCentimeterMeasurement.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&KoreanFirstTermArithmetic.supports(q.skillId)){StudyGuide visible=KoreanFirstTermArithmetic.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
@@ -261,7 +265,7 @@ public final class HelpPlan {
             draft.teachingVersion=teachingVersion;draft.stage=0;draft.entries=new ArrayList<>();
             draft.foundationCounted=new ArrayList<>();draft.foundationCountedStage=-1;draft.foundationChecked=false;
             draft.foundationRemoved=new ArrayList<>();
-            draft.planeVertex=-1;draft.planeVisitStage=-1;draft.planeVisited=new ArrayList<>();
+            draft.planeVertex=-1;draft.planeVisitStage=-1;draft.planeVisited=new ArrayList<>();draft.movementActions=new ArrayList<>();
         }
         if(draft.entries==null)draft.entries=new ArrayList<>();
         int valid=0;while(valid<Math.min(draft.stage,size())&&valid<draft.entries.size()&&step(valid).accepts(draft.entries.get(valid)))valid++;

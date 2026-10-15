@@ -24,6 +24,7 @@ public final class Checker {
     }
     public Result check(Question q,List<String> steps,List<String> answers,List<StepKind> kinds){
         if(KoreanLargeNumbers.supports(q.skillId)){Result work=KoreanLargeNumbers.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanLargeNumbers.check(q,answers);}
+        if(KoreanPlaneMovement.supports(q.skillId)){Result work=KoreanPlaneMovement.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanPlaneMovement.check(q,answers);}
         if(KoreanPlaneFoundations.supports(q.skillId)){Result work=KoreanPlaneFoundations.checkWork(q,steps);if(!work.correct())return work.forWorkInput();return KoreanPlaneFoundations.check(q,answers);}
         if(KoreanCentimeterMeasurement.supports(q.skillId)){Question visible=KoreanCentimeterMeasurement.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return KoreanCentimeterMeasurement.check(q,answers);}
         if(KoreanFirstTermArithmetic.supports(q.skillId)){Question visible=KoreanFirstTermArithmetic.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");Result work=checkSteps(visible,steps,kinds,false);if(!work.correct())return work.forWorkInput();return KoreanFirstTermArithmetic.check(q,answers);}
@@ -219,6 +220,7 @@ public final class Checker {
     }
     private Result checkSteps(Question q,List<String> steps,List<StepKind> kinds,boolean requireWork){
         if(KoreanLargeNumbers.supports(q.skillId))return KoreanLargeNumbers.checkWork(q,steps);
+        if(KoreanPlaneMovement.supports(q.skillId))return KoreanPlaneMovement.checkWork(q,steps);
         if(KoreanPlaneFoundations.supports(q.skillId))return KoreanPlaneFoundations.checkWork(q,steps);
         if(KoreanCentimeterMeasurement.supports(q.skillId)){Question visible=KoreanCentimeterMeasurement.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
         if(KoreanFirstTermArithmetic.supports(q.skillId)){Question visible=KoreanFirstTermArithmetic.workQuestion(q);if(visible==null)return new Result(Status.INPUT_NEEDED,-1,"문제 확인 필요");q=visible;}
