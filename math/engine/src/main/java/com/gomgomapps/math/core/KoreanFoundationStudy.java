@@ -8,9 +8,45 @@ public final class KoreanFoundationStudy {
     private KoreanFoundationStudy(){}
 
     public static void flagged(Learning.State state,Diagnosis.UnitScreen screen,String id,String reason,LocalDate day){
+        project(state,screen,id,reason);
+        Review.requestRecheck(state,id,reason,day);
+    }
+
+    private static void project(Learning.State state,Diagnosis.UnitScreen screen,String id,String reason){
         screen.reasons.put(id,reason);screen.flaggedAt.put(id,state.reviewSequence);
         screen.recoveredSkills.remove(id);screen.freshRechecks.remove(id);screen.status=Diagnosis.UnitStatus.NEEDS_STUDY;
-        Review.requestRecheck(state,id,reason,day);
+    }
+
+    /** Reflect only the active question's already-recorded intervention, without a new review event. */
+    static void recordIntervention(Learning.State state){
+        Learning.Session session=state.session;
+        if(session==null||session.question==null||session.finished||session.advancePending||Deferred.active(session)||
+            "diagnostic".equals(session.mode)||session.diagnosticRun!=null&&session.diagnosticRun.current!=null)return;
+        Review.Work work=session.reviewWork;
+        if(work==null||work.finished||!Objects.equals(work.questionId,session.question.id)||!work.errorRecorded&&!work.helpUsed)return;
+        String id=session.question.skillId;
+        Learning.Progress progress=state.progress.get(id);Review.Track track=progress==null?null:progress.review;
+        if(track==null||!track.pending||!Objects.equals(track.sourceId,session.question.id))return;
+        Diagnosis.UnitScreen screen=currentLearnedUnit(state,session,id);
+        if(screen==null)return;
+        // Never retarget a restored intervention after the learner changes the learned scope.
+        if(!sameProjectionScope(work,screen))return;
+        String reason=work.errorRecorded?"wrong":"help";
+        if(projected(session,screen,id)&&reason.equals(work.foundationReason))return;
+        project(state,screen,id,reason);
+        work.foundationPlanKey=screen.planKey;work.foundationUnitKey=screen.key;work.foundationReason=reason;
+    }
+
+    private static boolean projected(Learning.Session session,Diagnosis.UnitScreen screen,String id){
+        Review.Work work=session.reviewWork;
+        return work!=null&&Objects.equals(work.questionId,session.question.id)&&
+            Objects.equals(work.foundationPlanKey,screen.planKey)&&Objects.equals(work.foundationUnitKey,screen.key)&&
+            work.foundationReason!=null&&work.foundationReason.equals(screen.reasons.get(id))&&screen.flaggedAt.containsKey(id);
+    }
+
+    private static boolean sameProjectionScope(Review.Work work,Diagnosis.UnitScreen screen){
+        return work==null||((work.foundationPlanKey==null||work.foundationPlanKey.isBlank()||work.foundationPlanKey.equals(screen.planKey))&&
+            (work.foundationUnitKey==null||work.foundationUnitKey.isBlank()||work.foundationUnitKey.equals(screen.key)));
     }
 
     public static Learning.Session beginStudy(Learning.State state,Diagnosis.UnitScreen screen,Random random){
@@ -75,7 +111,7 @@ public final class KoreanFoundationStudy {
         String id=session.question.skillId;
         if(hadError||skip||!independent){
             Diagnosis.UnitScreen current=currentLearnedUnit(state,session,id);
-            if(current!=null&&!current.reasons.containsKey(id))flagged(state,current,id,hadError?"wrong":skip?"unable":"help",day);
+            if(current!=null&&sameProjectionScope(session.reviewWork,current)&&!current.reasons.containsKey(id))flagged(state,current,id,hadError?"wrong":skip?"unable":"help",day);
         }
         for(Diagnosis.Plan plan:state.diagnostics.values()){
             if(!plan.unitScreening||plan.unitScreens==null||!Objects.equals(plan.educationSystem,session.educationSystem))continue;
@@ -83,6 +119,9 @@ public final class KoreanFoundationStudy {
                 boolean ownStudy=Objects.equals(plan.key,session.foundationPlanKey)&&Objects.equals(screen.key,session.foundationUnitKey);
                 if(!screen.reasons.containsKey(id)&&!ownStudy)continue;
                 if(hadError||skip||!independent){
+                    // Review.finish increments the sequence; the same question is not a new gap.
+                    if(!sameProjectionScope(session.reviewWork,screen))continue;
+                    if(projected(session,screen,id))continue;
                     if(screen.flaggedAt.getOrDefault(id,-1L)!=state.reviewSequence)flagged(state,screen,id,hadError?"wrong":skip?"unable":"help",day);
                     continue;
                 }

@@ -36,6 +36,8 @@ public final class Review {
     public static final class Work implements Serializable {
         private static final long serialVersionUID=1L;
         public String questionId,sourceId="";
+        /** Optional projection stamp; absent in older in-progress saves (UID stays 1). */
+        public String foundationPlanKey,foundationUnitKey,foundationReason;
         public long generation,issuedAfter;
         public boolean recheck,errorRecorded,helpUsed,finished;
         public Set<String> inputIssues=new HashSet<>();
@@ -53,6 +55,7 @@ public final class Review {
             Track t=track(p);if(old){t.legacy=true;t.pending=true;}
         }
         for(var entry:state.progress.entrySet())sync(state,entry.getKey(),track(entry.getValue()));
+        KoreanFoundationStudy.recordIntervention(state);
     }
     public static Status status(Learning.Progress p){
         Track t=track(p);return t.practice?Status.PRACTICE:t.pending||t.legacy?Status.RECHECK:t.recent?Status.RECENT:Status.UNKNOWN;
@@ -91,7 +94,9 @@ public final class Review {
     static void openFresh(Learning.State state,LocalDate day){open(state,day,true);}
     private static void open(Learning.State state,LocalDate day,boolean fresh){
         Learning.Session s=state.session;if(s==null||s.question==null)return;
-        if(s.reviewWork!=null&&s.question.id.equals(s.reviewWork.questionId))return;
+        if(s.reviewWork!=null&&s.question.id.equals(s.reviewWork.questionId)){
+            KoreanFoundationStudy.recordIntervention(state);return;
+        }
         Work w=new Work();w.questionId=s.question.id;w.issuedAfter=state.reviewSequence;s.reviewWork=w;
         Track t=track(state.progress(s.question.skillId));w.generation=t.generation;w.sourceId=t.sourceId;
         if(fresh&&s.question.hasDiagramSignature()&&!t.diagramHistoryRenewed){
@@ -142,6 +147,7 @@ public final class Review {
         t.recoveryChecks=0;t.spacedSuccesses=0;t.cleanRun=0;t.checked.clear();
         t.updatedDay=day.toEpochDay();t.dueDay=t.updatedDay;t.eligibleAfter=state.reviewSequence+GAP+1;
         sync(state,s.question.skillId,t);
+        KoreanFoundationStudy.recordIntervention(state);
     }
     public static void error(Learning.State state,LocalDate day){
         Learning.Session s=state.session;open(state,day);Work w=s.reviewWork;if(w.errorRecorded)return;
@@ -153,6 +159,7 @@ public final class Review {
         t.generation++;t.sourceId=s.question.id;t.recoveryChecks=0;t.spacedSuccesses=0;t.cleanRun=0;t.checked.clear();
         t.updatedDay=day.toEpochDay();t.dueDay=t.updatedDay;t.eligibleAfter=state.reviewSequence+GAP+(Deferred.active(s)?0:1);
         sync(state,s.question.skillId,t);
+        KoreanFoundationStudy.recordIntervention(state);
     }
     public static void finish(Learning.State state,boolean skip,boolean correction,LocalDate day){
         Learning.Session s=state.session;open(state,day);Work w=s.reviewWork;if(w.finished)return;
