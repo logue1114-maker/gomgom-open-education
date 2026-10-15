@@ -79,6 +79,10 @@ public final class Catalog {
         add("fracSubLike","분모가 같은 분수의 뺄셈",4,2,1,"fracSubLike",9,"fractionPart,sub20","분모를 유지하고 분자끼리 뺀다.");
         add("decimalAdd","소수의 덧셈",4,2,3,"decimalAdd",99,"add100","소수점을 맞추어 같은 자리끼리 더한다.");
         add("decimalSub","소수의 뺄셈",4,2,3,"decimalSub",99,"sub100","소수점을 맞추어 같은 자리끼리 뺀다.");
+        add("krPolygonIdentify","다각형의 조건",4,2,6,"krPolygonIdentify",8,"earlyShapes,el_shape_sides","곧은 선분으로만 이루어져 닫힌 도형인지 실제 경계를 따라 확인한다.");
+        add("krPolygonName","변과 꼭짓점으로 다각형 이름",4,2,6,"krPolygonName",8,"krPolygonIdentify,el_shape_sides","변과 꼭짓점을 한 번씩 세어 다각형의 이름과 연결한다.");
+        add("krRegularPolygon","정다각형의 두 조건",4,2,6,"krRegularPolygon",8,"krPolygonName,krRightAngle","변의 길이가 모두 같고 각의 크기도 모두 같아야 정다각형임을 비교한다.");
+        add("krPolygonDiagonals","한 꼭짓점에서 대각선 잇기",4,2,6,"krPolygonDiagonals",8,"krPolygonName,krLineForms","자신과 이웃을 제외한 꼭짓점을 실제로 연결하여 한 꼭짓점에서의 대각선을 확인한다.");
         add("krNumberRule","수 배열의 규칙",4,2,3,"krNumberRule",9999,"el_number_pattern","이웃한 수의 변화를 다른 두 수에서도 확인해 다음 수를 구한다.");
         add("krFigureRule","모양 배열의 규칙",4,2,3,"krFigureRule",24,"count,el_number_pattern","도형의 개수를 세고 같은 수만큼 늘어나는지 비교한다.");
         add("krCalculationRule","계산식 배열의 규칙",4,2,3,"krCalculationRule",9999,"add100,sub100,tables","배열에서 달라지는 수와 계산 결과의 변화를 비교한다.");

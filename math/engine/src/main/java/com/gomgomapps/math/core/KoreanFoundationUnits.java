@@ -54,7 +54,7 @@ public final class KoreanFoundationUnits {
     d(4,1,1,"큰 수","largePlace,krLargeRead,krLargeWrite,krLargePlace,krLargeCompare,krLargeCount","krLargeRead,krLargeWrite,krLargePlace,krLargeCompare,krLargeCount"),d(4,1,2,"각도","angleKinds,el_shape_angle,el_triangle_angle_sum,el_quadrilateral_angle_sum","angleKinds,el_shape_angle"),d(4,1,3,"곱셈과 나눗셈","mul22,divide2,el_div_2x2_rem,el_div_3x2_rem","mul22,divide2"),
     d(4,1,4,"평면도형의 이동","krPlaneSlide,krPlaneFlip,krPlaneTurn","krPlaneSlide,krPlaneFlip,krPlaneTurn"),d(4,1,5,"분수의 덧셈과 뺄셈","fracAddLike,fracSubLike","fracAddLike,fracSubLike"),d(4,1,6,"막대그래프","el_bar_graph","el_bar_graph"),
     d(4,2,1,"소수의 덧셈과 뺄셈","decimalAdd,decimalSub,el_decimal_place,el_decimal_compare","decimalAdd,decimalSub"),d(4,2,2,"삼각형","krTriangleSides,krTriangleAngles,krTriangleProperties","krTriangleSides,krTriangleAngles,krTriangleProperties"),d(4,2,3,"규칙 찾기와 식 만들기","krNumberRule,krFigureRule,krCalculationRule,krEqualRelation,krEqualFill","krNumberRule,krFigureRule,krCalculationRule,krEqualRelation,krEqualFill"),
-    d(4,2,4,"사각형","linePairs","linePairs"),d(4,2,5,"꺾은선그래프","el_line_graph","el_line_graph"),d(4,2,6,"다각형","","")));
+    d(4,2,4,"사각형","linePairs","linePairs"),d(4,2,5,"꺾은선그래프","el_line_graph","el_line_graph"),d(4,2,6,"다각형","krPolygonIdentify,krPolygonName,krRegularPolygon,krPolygonDiagonals","krPolygonIdentify,krPolygonName,krRegularPolygon,krPolygonDiagonals")));
   }
   rows.sort(Comparator.comparingInt(r->r.grade*100+r.term*10+r.unit));return rows;
  }

@@ -6,6 +6,7 @@ import java.util.*;
 public final class Choices {
     private Choices(){}
     public static void build(Question q,Catalog.Skill skill,Random random){
+        if(KoreanPolygons.supports(skill.id)){KoreanPolygons.choices(q,random);return;}
         if(KoreanLargeNumbers.supports(skill.id)){KoreanLargeNumbers.choices(q,random);return;}
         if(KoreanRulesRelations.supports(skill.id)){KoreanRulesRelations.choices(q,random);return;}
         if(KoreanTriangleClassification.supports(skill.id)){KoreanTriangleClassification.choices(q,random);return;}
