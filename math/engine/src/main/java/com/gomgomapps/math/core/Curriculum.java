@@ -23,6 +23,7 @@ public final class Curriculum {
     /** Version-specific additions stay available for chosen practice, but never enter older-course diagnosis. */
     public static boolean inCurriculum(Catalog.Skill skill,int version){
         if(KoreanLargeNumbers.supports(skill.id))return version==2022;
+        if(KoreanTriangleClassification.supports(skill.id))return version==2022;
         if(KoreanPlaneMovement.supports(skill.id))return version==2022;
         if(KoreanPlaneFoundations.supports(skill.id))return version==2022;
         if(KoreanCentimeterMeasurement.supports(skill.id))return version==2022;

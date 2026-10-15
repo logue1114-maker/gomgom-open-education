@@ -38,6 +38,9 @@ public final class Catalog {
         add("krMeasureCm","자로 길이 재기",2,1,4,"krMeasureCm",30,"count,earlyLength","막대의 한 끝을 자의 0 눈금에 맞추고 1cm 간격을 세어 길이를 잰다.");
         add("krApproxCm","약 몇 cm인지 알아보기",2,1,4,"krApproxCm",30,"krMeasureCm","물체 끝이 두 cm 눈금 사이에 있으면 더 가까운 눈금을 보고 약 몇 cm인지 나타낸다.");
         add("krMeasureUnits","기준 블록으로 길이 재기",2,1,4,"krMeasureUnits",36,"count,earlyLength","같은 기준 블록의 길이를 빈틈없이 이어 놓고 몇 단위인지 센다.");
+        add("krTriangleSides","변의 길이로 삼각형 분류",4,2,2,"krTriangleSides",128,"earlyShapes,el_shape_sides","세 변의 길이를 비교하고 정삼각형도 이등변삼각형의 조건을 만족하는지 확인한다.");
+        add("krTriangleAngles","각의 크기로 삼각형 분류",4,2,2,"krTriangleAngles",128,"krRightAngle,angleKinds","세 각을 직각과 비교하여 예각삼각형·직각삼각형·둔각삼각형으로 분류한다.");
+        add("krTriangleProperties","이등변·정삼각형의 성질",4,2,2,"krTriangleProperties",128,"krTriangleSides,krTriangleAngles","같은 길이의 변에 마주 보는 각과 정삼각형의 세 각을 살펴본다.");
         add("krPlaneSlide","도형 밀기",4,1,4,"krPlaneSlide",128,"earlyShapes","도형의 모양과 방향을 유지하며 주어진 방향과 칸 수만큼 민다.");
         add("krPlaneFlip","도형 뒤집기",4,1,4,"krPlaneFlip",128,"krPlaneSlide","기준선을 사이에 두고 뒤집은 도형을 살펴본다.");
         add("krPlaneTurn","도형 돌리기",4,1,4,"krPlaneTurn",128,"krPlaneFlip,angleKinds","표시된 중심을 기준으로 도형을 주어진 방향과 각도만큼 돌린다.");

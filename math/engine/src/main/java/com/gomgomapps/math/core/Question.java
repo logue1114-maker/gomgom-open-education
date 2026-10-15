@@ -59,6 +59,7 @@ public final class Question implements Serializable {
     void usePictureChoiceSignature(){signatureVersion=2;}
     public String signature(){
         if(KoreanLargeNumbers.supports(skillId)){String value=KoreanLargeNumbers.identity(this);if(value!=null)return value;}
+        if(KoreanTriangleClassification.supports(skillId)){String triangle=KoreanTriangleClassification.identity(this);if(triangle!=null)return triangle;}
         if(KoreanPlaneMovement.supports(skillId)){String movement=KoreanPlaneMovement.identity(this);if(movement!=null)return movement;}
         if(KoreanPlaneFoundations.supports(skillId)){String geometry=KoreanPlaneFoundations.identity(this);if(geometry!=null)return geometry;}
         if(KoreanCentimeterMeasurement.supports(skillId)){String measurement=KoreanCentimeterMeasurement.identity(this);if(measurement!=null)return measurement;}

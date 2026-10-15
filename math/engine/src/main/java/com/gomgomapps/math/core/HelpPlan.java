@@ -27,7 +27,10 @@ public final class HelpPlan {
         public List<Integer> planeVisited=new ArrayList<>();
         /** Separate student movement trace. No geometry or answer is copied to the original task. */
         public List<String> movementActions=new ArrayList<>();
-        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.oldCountEntries=oldCountEntries==null?new ArrayList<>():new ArrayList<>(oldCountEntries);d.oldCountStage=oldCountStage;d.oldCountTeachingVersion=oldCountTeachingVersion;d.countArithmeticOpen=countArithmeticOpen;d.countObjectsOpen=countObjectsOpen;d.countRemovalConfirmed=countRemovalConfirmed;d.countArithmeticLessons=new LinkedHashMap<>();if(countArithmeticLessons!=null)for(var entry:countArithmeticLessons.entrySet())if(entry.getValue()!=null)d.countArithmeticLessons.put(entry.getKey(),entry.getValue().copy());d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.movementActions=movementActions==null?new ArrayList<>():new ArrayList<>(movementActions);d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);return d;}
+        /** Visits to this triangle's sides or corners, independently from answer fields. */
+        public List<Integer> triangleVisited=new ArrayList<>();
+        public int triangleVertex=-1,triangleVisitStage=-1;
+        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.oldCountEntries=oldCountEntries==null?new ArrayList<>():new ArrayList<>(oldCountEntries);d.oldCountStage=oldCountStage;d.oldCountTeachingVersion=oldCountTeachingVersion;d.countArithmeticOpen=countArithmeticOpen;d.countObjectsOpen=countObjectsOpen;d.countRemovalConfirmed=countRemovalConfirmed;d.countArithmeticLessons=new LinkedHashMap<>();if(countArithmeticLessons!=null)for(var entry:countArithmeticLessons.entrySet())if(entry.getValue()!=null)d.countArithmeticLessons.put(entry.getKey(),entry.getValue().copy());d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.movementActions=movementActions==null?new ArrayList<>():new ArrayList<>(movementActions);d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);d.triangleVisited=triangleVisited==null?new ArrayList<>():new ArrayList<>(triangleVisited);d.triangleVertex=triangleVertex;d.triangleVisitStage=triangleVisitStage;return d;}
     }
     public static final class Step {
         public final String instruction,before,after;
@@ -114,6 +117,7 @@ public final class HelpPlan {
         plan.teachingVersion=guide.teachingVersion;plan.transfer=false;return plan;
     }
     public static HelpPlan forQuestion(Question q){
+        if(q!=null&&KoreanTriangleClassification.supports(q.skillId)){StudyGuide visible=KoreanTriangleClassification.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&KoreanLargeNumbers.supports(q.skillId)){StudyGuide visible=KoreanLargeNumbers.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.largeCountTeaching=KoreanLargeNumbers.COUNT.equals(q.skillId)&&KoreanLargeCountTeaching.VERSION.equals(visible.teachingVersion);plan.transfer=false;return plan;}
         if(q!=null&&KoreanPlaneMovement.supports(q.skillId)){StudyGuide visible=KoreanPlaneMovement.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&KoreanPlaneFoundations.supports(q.skillId)){StudyGuide visible=KoreanPlaneFoundations.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
@@ -266,6 +270,7 @@ public final class HelpPlan {
             draft.foundationCounted=new ArrayList<>();draft.foundationCountedStage=-1;draft.foundationChecked=false;
             draft.foundationRemoved=new ArrayList<>();
             draft.planeVertex=-1;draft.planeVisitStage=-1;draft.planeVisited=new ArrayList<>();draft.movementActions=new ArrayList<>();
+            draft.triangleVertex=-1;draft.triangleVisitStage=-1;draft.triangleVisited=new ArrayList<>();
         }
         if(draft.entries==null)draft.entries=new ArrayList<>();
         int valid=0;while(valid<Math.min(draft.stage,size())&&valid<draft.entries.size()&&step(valid).accepts(draft.entries.get(valid)))valid++;

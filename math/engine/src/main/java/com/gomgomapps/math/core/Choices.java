@@ -7,6 +7,7 @@ public final class Choices {
     private Choices(){}
     public static void build(Question q,Catalog.Skill skill,Random random){
         if(KoreanLargeNumbers.supports(skill.id)){KoreanLargeNumbers.choices(q,random);return;}
+        if(KoreanTriangleClassification.supports(skill.id)){KoreanTriangleClassification.choices(q,random);return;}
         if(KoreanPlaneMovement.supports(skill.id)){KoreanPlaneMovement.choices(q,random);return;}
         if(KoreanPlaneFoundations.supports(skill.id)){KoreanPlaneFoundations.choices(q,random);return;}
         if(KoreanCentimeterMeasurement.supports(skill.id)){KoreanCentimeterMeasurement.choices(q,random);return;}
