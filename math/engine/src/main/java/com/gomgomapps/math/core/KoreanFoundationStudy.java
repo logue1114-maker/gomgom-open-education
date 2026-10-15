@@ -22,8 +22,10 @@ public final class KoreanFoundationStudy {
         Diagnosis.UnitScreen unit=plan.unitScreens.get(session.foundationUnitKey);
         if(unit==null||!Objects.equals(unit.key,session.foundationUnitKey)||!Objects.equals(unit.planKey,plan.key)||
             unit.members==null||unit.representatives==null)return baseline;
+        Learning.Session context=KoreanFoundationDetour.supplyContext(state,session);
+        if(context==null)return baseline;
         for(String target:unit.representatives)if(KoreanRulesRelations.supports(target)&&unit.members.contains(target)&&
-            plan.scope.contains(target)&&session.selected.contains(target)&&Catalog.foundationOrder(target).contains(id))return RULE_WARMUP_LIMITS;
+            plan.scope.contains(target)&&context.selected.contains(target)&&Catalog.foundationOrder(target).contains(id))return RULE_WARMUP_LIMITS;
         return baseline;
     }
 
@@ -76,14 +78,7 @@ public final class KoreanFoundationStudy {
         return begin(state,screen,random,true,null);
     }
     public static Learning.Session beginEasier(Learning.State state,Random random){
-        Learning.Session current=state.session;
-        if(current==null||current.foundationPlanKey==null||current.question==null)throw new IllegalArgumentException("공부할 단원 선택 필요");
-        Diagnosis.Plan plan=state.diagnostics.get(current.foundationPlanKey);
-        Diagnosis.UnitScreen screen=plan==null?null:plan.unitScreens.get(current.foundationUnitKey);
-        if(screen==null)throw new IllegalArgumentException("공부할 단원 선택 필요");
-        String lower=foundation(state,plan,current.question.skillId,true);
-        if(lower==null)throw new IllegalArgumentException("이 문제의 개념부터 확인 필요");
-        return begin(state,screen,random,false,lower);
+        return KoreanFoundationDetour.begin(state,random);
     }
 
     private static Learning.Session begin(Learning.State state,Diagnosis.UnitScreen screen,Random random,boolean recheck,String easier){

@@ -80,8 +80,12 @@ public class KoreanFoundationStudyTest {
         Diagnosis.UnitScreen screen=Diagnosis.screens(plan).stream().filter(u->u.representatives.contains("add9")).findFirst().orElseThrow();KoreanFoundationStudy.flagged(state,screen,"add9","unable",DAY);
         for(String id:List.of("count","join9")){Review.Track track=Review.track(state.progress(id));track.recent=true;track.pending=false;track.cleanRun=2;}
         Diagnosis.beginStudy(state,screen,random);assertEquals("add9",next(state,random).skillId);
-        KoreanFoundationStudy.beginEasier(state,random);assertEquals("add9",state.session.queue.get(2));assertEquals("join9",next(state,random).skillId);assertEquals(screen.key,state.session.foundationUnitKey);
-        KoreanFoundationStudy.beginEasier(state,random);assertEquals("add9",state.session.queue.get(2));assertEquals("count",next(state,random).skillId);assertEquals(screen.key,state.session.foundationUnitKey);
+        Learning.Session original=state.session;String originalQuestion=original.question.id;
+        KoreanFoundationStudy.beginEasier(state,random);Learning.Session first=state.session;
+        assertEquals(List.of("join9","join9"),first.queue);assertEquals("join9",next(state,random).skillId);assertEquals(screen.key,first.foundationUnitKey);
+        KoreanFoundationStudy.beginEasier(state,random);assertEquals(List.of("count","count"),state.session.queue);assertEquals("count",next(state,random).skillId);assertEquals(screen.key,state.session.foundationUnitKey);
+        assertTrue(KoreanFoundationDetour.returnToQuestion(state,false));assertSame(first,state.session);
+        assertTrue(KoreanFoundationDetour.returnToQuestion(state,false));assertSame(original,state.session);assertEquals(originalQuestion,state.session.question.id);
         assertTrue(Review.track(state.progress("count")).recent);assertFalse(Review.track(state.progress("count")).pending);
     }
     @Test public void explicitEasierRequestStillRespectsTheLearnersExcludedScope(){
@@ -89,9 +93,10 @@ public class KoreanFoundationStudyTest {
         Diagnosis.UnitScreen screen=Diagnosis.screens(plan).stream().filter(u->u.representatives.contains("add9")).findFirst().orElseThrow();KoreanFoundationStudy.flagged(state,screen,"add9","unable",DAY);
         Review.Track known=Review.track(state.progress("count"));known.recent=true;known.pending=false;known.cleanRun=2;
         state.profile.excluded.add("join9");Diagnosis.beginStudy(state,screen,random);assertEquals("add9",next(state,random).skillId);
-        state.profile.excluded.add("count");
+        state.profile.excluded.add("count");Learning.Session parent=state.session;List<String> queue=new ArrayList<>(parent.queue);
+        assertFalse(KoreanFoundationDetour.available(state));
         try{KoreanFoundationStudy.beginEasier(state,random);fail("Excluded foundations must not return");}catch(IllegalArgumentException expected){}
-        assertFalse(state.session.queue.contains("join9"));
+        assertSame(parent,state.session);assertEquals(queue,parent.queue);assertFalse(state.session.queue.contains("join9"));
     }
     @Test public void normalPracticeHelpWrongAndSkipAddOnlyTheCurrentLearnedUnitAndSurviveColdSnapshot(){
         Random random=new Random(37301);Learning.State state=student();Learning.beginDiagnostic(state,random);Diagnosis.Plan plan=Diagnosis.currentPlan(state);

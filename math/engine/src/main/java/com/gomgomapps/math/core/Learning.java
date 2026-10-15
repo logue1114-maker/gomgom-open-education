@@ -73,6 +73,7 @@ public final class Learning {
         public String countryCode,educationSystem,languageTag;
         public String plannedCurrentSkill;
         public String foundationPlanKey,foundationUnitKey;
+        public String foundationReturnSessionId,foundationReturnQuestionId,foundationReturnScopeKey;
         public boolean foundationRecheck;
         public String countReturnSessionId,countReturnQuestionId,countReturnScopeKey,countReturnHelpScopeKey,countReturnHelpQuestionId;
         public boolean countReturnHelpPending;
