@@ -24,7 +24,7 @@ public final class Review {
         private static final long serialVersionUID=1L;
         public List<Event> events=new ArrayList<>();
         public Set<String> failed=new LinkedHashSet<>(),checked=new LinkedHashSet<>();
-        /** Optional history for the three intrinsic line facts; not used by other families. */
+        /** Optional history for public-validated line/round-solid finite facts; other families keep their prior policy. */
         public Set<String> finiteFailedHistory,finiteQuestionIds;
         public boolean pending,practice,legacy,recent;
         public int recoveryChecks,rechecked,spacedSuccesses,cleanRun;
@@ -65,7 +65,8 @@ public final class Review {
     private static boolean ready(Learning.State state,Track t,LocalDate day){
         long now=day.toEpochDay();return (t.pending||t.recent)&&t.dueDay<=now&&(state.reviewSequence>=t.eligibleAfter||now>t.updatedDay);
     }
-    private static boolean finiteLine(Learning.Session s){return s!=null&&s.question!=null&&KoreanPlaneFoundations.LINE.equals(s.question.skillId)&&KoreanPlaneFoundations.read(s.question)!=null;}
+    private static boolean finiteTopic(String id){return KoreanPlaneFoundations.LINE.equals(id)||KoreanRoundSolids.supports(id);}
+    private static boolean finitePublic(Learning.Session s){return s!=null&&s.question!=null&&(KoreanPlaneFoundations.LINE.equals(s.question.skillId)&&KoreanPlaneFoundations.read(s.question)!=null||KoreanRoundSolids.supports(s.question.skillId)&&KoreanRoundSolids.read(s.question)!=null);}
     private static void rememberFinite(Track t){
         if(t.finiteFailedHistory==null)t.finiteFailedHistory=new LinkedHashSet<>();
         if(t.finiteQuestionIds==null)t.finiteQuestionIds=new LinkedHashSet<>();
@@ -108,7 +109,7 @@ public final class Review {
                 t.recoveryChecks=0;t.cleanRun=0;t.checked.clear();t.checked.add(s.question.signature());
             }
         }
-        boolean finite=finiteLine(s),lineTopic=KoreanPlaneFoundations.LINE.equals(s.question.skillId);
+        boolean finite=finitePublic(s),lineTopic=finiteTopic(s.question.skillId);
         if(finite)rememberFinite(t);
         w.recheck=fresh&&!Deferred.active(s)&&ready(state,t,day)&&!t.checked.contains(s.question.signature())&&
             (finite?!t.finiteQuestionIds.contains(s.question.id):!lineTopic&&!t.failed.contains(s.question.signature()));
@@ -140,7 +141,7 @@ public final class Review {
         Learning.Session s=state.session;if(s==null||s.question==null||s.advancePending||s.finished&&!Deferred.active(s))return;
         open(state,day);Work w=s.reviewWork;if(w.helpUsed)return;w.helpUsed=true;
         event(state,Outcome.HELP_USED,"",day);
-        if(finiteLine(s)){Track finiteTrack=track(state.progress(s.question.skillId));rememberFinite(finiteTrack);finiteTrack.finiteQuestionIds.add(s.question.id);}
+        if(finitePublic(s)){Track finiteTrack=track(state.progress(s.question.skillId));rememberFinite(finiteTrack);finiteTrack.finiteQuestionIds.add(s.question.id);}
         if(w.errorRecorded)return;
         Track t=track(state.progress(s.question.skillId));
         t.pending=true;t.legacy=false;t.recent=false;t.generation++;t.sourceId=s.question.id;
@@ -154,7 +155,7 @@ public final class Review {
         Track t=track(state.progress(s.question.skillId));w.errorRecorded=true;
         event(state,Deferred.active(s)?Outcome.CORRECTION_WRONG:w.recheck?Outcome.RECHECK_WRONG:Outcome.FIRST_WRONG,"",day);
         t.failed.add(s.question.signature());while(t.failed.size()>6)t.failed.remove(t.failed.iterator().next());
-        if(finiteLine(s)){rememberFinite(t);t.finiteQuestionIds.add(s.question.id);}
+        if(finitePublic(s)){rememberFinite(t);t.finiteQuestionIds.add(s.question.id);}
         t.practice=t.practice||t.failed.size()>=2;t.pending=true;t.legacy=false;t.recent=false;
         t.generation++;t.sourceId=s.question.id;t.recoveryChecks=0;t.spacedSuccesses=0;t.cleanRun=0;t.checked.clear();
         t.updatedDay=day.toEpochDay();t.dueDay=t.updatedDay;t.eligibleAfter=state.reviewSequence+GAP+(Deferred.active(s)?0:1);
@@ -164,7 +165,7 @@ public final class Review {
     public static void finish(Learning.State state,boolean skip,boolean correction,LocalDate day){
         Learning.Session s=state.session;open(state,day);Work w=s.reviewWork;if(w.finished)return;
         Track t=track(state.progress(s.question.skillId));
-        boolean finite=finiteLine(s),lineTopic=KoreanPlaneFoundations.LINE.equals(s.question.skillId),newFiniteId=false;
+        boolean finite=finitePublic(s),lineTopic=finiteTopic(s.question.skillId),newFiniteId=false;
         if(finite){rememberFinite(t);newFiniteId=!t.finiteQuestionIds.contains(s.question.id);t.finiteQuestionIds.add(s.question.id);}
         // Legacy in-progress work carries a confirmed error bit, but no invented past event.
         if(s.hadError&&!w.errorRecorded)error(state,day);
@@ -187,7 +188,7 @@ public final class Review {
                 if(t.pending){t.recoveryChecks++;if(t.recoveryChecks>=RECOVERY_CHECKS){t.pending=false;t.practice=false;t.legacy=false;t.recent=true;t.failed.clear();t.spacedSuccesses=0;}}
                 else {t.recent=true;t.spacedSuccesses++;}
                 // A recovery needs two different facts. Later due rounds remember only the last
-                // successful fact, leaving another fact available in this three-fact domain.
+                // successful fact, leaving another fact available in these small finite domains.
                 if(finite&&!t.pending){t.checked.clear();t.checked.add(s.question.signature());}
                 t.updatedDay=day.toEpochDay();t.eligibleAfter=state.reviewSequence+GAP;
                 t.dueDay=t.updatedDay+(t.pending?0:Math.min(14,1L<<Math.min(t.spacedSuccesses,3)));
@@ -197,8 +198,8 @@ public final class Review {
     }
     public static boolean diagnosticRecent(Learning.State state,String id){
         Track t=track(state.progress(id));if(t.cleanRun<2)return false;
-        if(KoreanPlaneFoundations.LINE.equals(id)){
-            if(!finiteLine(state.session)||!id.equals(state.session.question.skillId)||t.pending)return false;
+        if(finiteTopic(id)){
+            if(!finitePublic(state.session)||!id.equals(state.session.question.skillId)||t.pending)return false;
             rememberFinite(t);return t.recent;
         }
         t.pending=false;t.practice=false;t.legacy=false;t.recent=true;t.failed.clear();t.recoveryChecks=0;

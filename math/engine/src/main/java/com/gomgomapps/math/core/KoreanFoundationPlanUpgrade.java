@@ -15,7 +15,8 @@ final class KoreanFoundationPlanUpgrade {
             after.reviewGrade==4&&after.term==2&&after.unit==2&&after.members.stream().allMatch(KoreanTriangleClassification::supports)||
             after.reviewGrade==4&&after.term==2&&after.unit==3&&after.members.stream().allMatch(KoreanRulesRelations::supports)||
             after.reviewGrade==4&&after.term==2&&after.unit==6&&after.members.stream().allMatch(KoreanPolygons::supports)||
-            after.reviewGrade==6&&after.term==2&&after.unit==2&&after.members.stream().allMatch(KoreanSpatialSolids::supports);
+            after.reviewGrade==6&&after.term==2&&after.unit==2&&after.members.stream().allMatch(KoreanSpatialSolids::supports)||
+            after.reviewGrade==6&&after.term==2&&after.unit==6&&"KR|2022|6|2|6".equals(after.key)&&after.members.stream().allMatch(KoreanRoundSolids::supports);
     }
     /** Keep the old five-digit member and its evidence; add only the reviewed 2022 large-number checks. */
     private static boolean largeNumberAddition(Diagnosis.Plan plan,Diagnosis.UnitScreen before,Diagnosis.UnitScreen after){

@@ -27,7 +27,7 @@ public class KoreanSpatialPlanUpgradeTest {
         Learning.Profile p=student().profile;p.lastLearnedSkill="unit:KR|2022|6|2|1";assertTrue(KoreanFoundationUnits.scope(p).stream().noneMatch(KoreanSpatialSolids::supports));
         p.lastLearnedSkill="unit:"+UNIT;var unit=KoreanFoundationUnits.learned(p).stream().filter(x->x.key().equals(UNIT)).findFirst().orElseThrow();assertEquals(KoreanSpatialSolids.IDS,unit.representatives());
         p.excluded.add(KoreanSpatialSolids.FRONT);assertFalse(KoreanFoundationUnits.scope(p).contains(KoreanSpatialSolids.FRONT));p.excluded.clear();assertTrue(KoreanFoundationUnits.scope(p).contains(KoreanSpatialSolids.FRONT));
-        p.lastLearnedSkill="unit:KR|2022|6|2|5";assertTrue(KoreanFoundationUnits.missingRepresentatives(p).isEmpty());p.lastLearnedSkill="unit:KR|2022|6|2|6";assertEquals(List.of("KR|2022|6|2|6"),KoreanFoundationUnits.missingRepresentatives(p).stream().map(KoreanFoundationUnits.Unit::key).toList());
+        p.lastLearnedSkill="unit:KR|2022|6|2|5";assertTrue(KoreanFoundationUnits.missingRepresentatives(p).isEmpty());p.lastLearnedSkill="unit:KR|2022|6|2|6";assertTrue("Round-solid representatives now cover the formerly empty endpoint",KoreanFoundationUnits.missingRepresentatives(p).isEmpty());assertTrue(KoreanFoundationUnits.scope(p).containsAll(KoreanRoundSolids.IDS));
         p.curriculum=2015;p.lastLearnedSkill="unit:KR|2015|6|2|3";assertTrue(KoreanFoundationUnits.scope(p).stream().noneMatch(KoreanSpatialSolids::supports));
         p.curriculum=2022;p.countryCode="NA";p.educationSystem="na-nied-primary-2024-v1";assertTrue(KoreanFoundationUnits.available(p).isEmpty());
     }

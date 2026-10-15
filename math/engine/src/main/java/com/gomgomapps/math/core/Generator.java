@@ -40,6 +40,7 @@ public final class Generator {
         Catalog.Skill s=Catalog.get(skillId);Question q=null;
         Map<String,Integer> previous=new HashMap<>();int position=0;for(String signature:recent)previous.put(EquivalentQuantityStories.identity(FractionNamesRelations.identity(signature)),position++);
         int oldest=Integer.MAX_VALUE;
+        if(KoreanRoundSolids.supports(skillId))q=KoreanRoundSolids.next(skillId,random,limits,previous);
         if(KoreanSpatialSolids.supports(skillId))q=KoreanSpatialSolids.next(skillId,random,limits,previous);
         if(KoreanPolygons.supports(skillId))q=KoreanPolygons.next(skillId,random,limits,previous);
         if(KoreanRulesRelations.supports(skillId))q=KoreanRulesRelations.next(skillId,random,limits,previous);
@@ -231,6 +232,7 @@ public final class Generator {
         Question q=createQuestion(s,limits);WholePlaceRelations.attach(q);ArithmeticTeaching.attach(q);FractionEquationTeaching.attach(q);DecimalTeaching.attach(q);RatioValueTeaching.attach(q);StatisticsAngleTeaching.attach(q);StatisticsSpreadRelations.attach(q);SequenceCalculusRelations.attach(q);LyceeAlgebraRelations.attach(q);HigherFoundationPractice.attach(q);VectorFoundationPractice.attach(q);GeometryCalculationTeaching.attach(q);DivisorMultipleTeaching.attach(q);SimpleGeometryRelations.attach(q);ElementarySplitAngleRelations.attach(q);ElementaryGraphRelations.attach(q);ProportionalPairRelations.attach(q);ScaleRelations.attach(q);HireInterestRelations.attach(q);AnnualChangeRelations.attach(q);PrismSurfaceRelations.attach(q);SectorPerimeterRelations.attach(q);CuboidSurfaceRelations.attach(q);SectorCoefficientRelations.attach(q);SolidSurfaceRelations.attach(q);RoundSolidVolumeRelations.attach(q);SolidFoundationRelations.attach(q);ModeRelations.attach(q);RelativeFrequencyRelations.attach(q);IsoscelesAngleRelations.attach(q);SimilarityMeasureRelations.attach(q);ProbabilityRelations.attach(q);QuadraticValueRelations.attach(q);CircleLengthRelations.attach(q);TrigHeightRelations.attach(q);PolyDivisionRelations.attach(q);AlgebraRelations.attach(q);PolynomialRootRelations.attach(q);QuadraticRangeRelations.attach(q);IntervalRelations.attach(q);CombinedCountingRelations.attach(q);MatrixCalculationRelations.attach(q);CoordinateCalculationRelations.attach(q);LineCircleRelations.attach(q);MovementCircleRelations.attach(q);SetCountRelations.attach(q);SubsetRelations.attach(q);PropositionRelations.attach(q);WorkRateRelations.attach(q);return q;
     }
     private Question createQuestion(Catalog.Skill s,CurriculumLimits limits){
+        if(KoreanRoundSolids.supports(s.id))return KoreanRoundSolids.next(s.id,random,limits,Map.of());
         if(KoreanSpatialSolids.supports(s.id))return KoreanSpatialSolids.next(s.id,random,limits,Map.of());
         if(KoreanPolygons.supports(s.id))return KoreanPolygons.next(s.id,random,limits,Map.of());
         if(KoreanLargeNumbers.supports(s.id))return KoreanLargeNumbers.next(s.id,random,limits,Map.of());

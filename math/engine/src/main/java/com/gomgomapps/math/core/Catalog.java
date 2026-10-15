@@ -21,6 +21,9 @@ public final class Catalog {
     private static void add(String id,String title,int grade,int term,int unit,String family,int range,String pre,String concept){add(id,title,grade,term,unit,"",family,range,pre,concept);}
     private static void add(String id,String title,int grade,int term,int unit,String course,String family,int range,String pre,String concept){ALL.add(new Skill(id,title,grade,term,unit,course,family,range,pre,concept));}
     static {
+        add(KoreanRoundSolids.IDENTIFY,"원기둥·원뿔·구 구분",6,2,6,KoreanRoundSolids.IDENTIFY,18,"earlySolids,prismElements","밑면과 옆면을 살펴 원기둥·원뿔·구를 구분한다.");
+        add(KoreanRoundSolids.PROPERTIES,"원기둥·원뿔·구의 성질",6,2,6,KoreanRoundSolids.PROPERTIES,18,"roundSolidIdentify","밑면과 높이, 꼭짓점과 구의 중심을 살펴 성질을 비교한다.");
+        add(KoreanRoundSolids.NET,"원기둥 전개도 만들기",6,2,6,KoreanRoundSolids.NET,18,"roundSolidIdentify,el_circle_circumference","같은 원 두 개와 옆면 직사각형을 알맞게 붙여 원기둥의 전개도를 만든다.");
         add("krStackCount","쌓기나무의 전체 개수",6,2,2,"krStackCount",18,"count,earlyStacks","바닥의 각 자리에 쌓인 나무를 세고 모든 자리의 개수를 합한다.");
         add("krStackTop","쌓기나무를 위에서 본 모양",6,2,2,"krStackTop",18,"earlyStacks,earlyShapes","높이에 관계없이 나무가 놓인 바닥 자리를 위에서 본 모양으로 나타낸다.");
         add("krStackFront","쌓기나무를 앞에서 본 모양",6,2,2,"krStackFront",18,"krStackTop","같은 시선에 놓인 기둥을 겹쳐 보고 가장 높은 곳까지의 윤곽을 나타낸다.");

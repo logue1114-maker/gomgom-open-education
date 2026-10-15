@@ -58,6 +58,7 @@ public final class Question implements Serializable {
     /** New picture tasks identify visible geometry, never hidden answer keys or shuffled button positions. */
     void usePictureChoiceSignature(){signatureVersion=2;}
     public String signature(){
+        if(KoreanRoundSolids.supports(skillId)){String round=KoreanRoundSolids.identity(this);if(round!=null)return round;}
         if(KoreanSpatialSolids.supports(skillId)){String spatial=KoreanSpatialSolids.identity(this);if(spatial!=null)return spatial;}
         if(KoreanPolygons.supports(skillId)){String polygon=KoreanPolygons.identity(this);if(polygon!=null)return polygon;}
         if(KoreanLargeNumbers.supports(skillId)){String value=KoreanLargeNumbers.identity(this);if(value!=null)return value;}

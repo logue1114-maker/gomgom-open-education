@@ -52,4 +52,24 @@ public class KoreanFoundationPlanUpgradeTest {
         assertEquals("help",Diagnosis.currentPlan(s).unitScreens.get("KR|2022|1|2|6").reasons.get("krNoCarryAdd"));assertFalse(Curriculum.inCurriculum(Catalog.get("krNoCarryAdd"),2015));
         s.profile.curriculum=2015;assertTrue(KoreanFoundationUnits.available(s.profile).stream().noneMatch(u->u.members().contains("krNoCarryAdd")));
     }
+
+    @Test public void roundSolidAdditionKeepsFinishedRoundAndActiveQuestionWhileAddingOnlyThreeChecks(){
+        Learning.State s=student();s.profile.lastLearnedSkill="unit:KR|2022|6|2|6";Random r=new Random(394);
+        Learning.beginDiagnostic(s,r);while(!s.session.finished){Learning.ensureQuestion(s,new Generator(r),DAY);Learning.finishQuestion(s,true,DAY,r);}
+        Learning.Session finished=s.session;Diagnosis.Plan finishedPlan=finished.diagnosticRun.plan;int finishedDone=finished.completed;
+        Learning.beginDiagnostic(s,r);Question q=Learning.ensureQuestion(s,new Generator(r),DAY);Diagnosis.Run run=s.session.diagnosticRun;Diagnosis.Plan old=run.plan;Diagnosis.Probe active=run.current;assertNotSame("Restart creates a new active plan, leaving the finished run frozen",finishedPlan,old);
+        // Reconstruct the v393 empty last unit with the exact same endpoint; not a claim about device bytes.
+        s.diagnostics.remove(old.key);old.scope.removeIf(KoreanRoundSolids::supports);old.placements.keySet().removeIf(KoreanRoundSolids::supports);
+        Diagnosis.UnitScreen empty=old.unitScreens.get("KR|2022|6|2|6");empty.members.clear();empty.representatives.clear();empty.label="초등 6학년 · 2학기 · 원기둥·원뿔·구 · 핵심 문제 미지원";
+        Set<String> removed=new HashSet<>();for(var e:old.checks.entrySet())if(KoreanRoundSolids.supports(e.getValue().skillId))removed.add(e.getKey());old.checks.keySet().removeAll(removed);old.pending.removeAll(removed);old.untested.removeAll(removed);
+        List<String> ids=new ArrayList<>(old.scope);Collections.sort(ids);old.key=Curriculum.MAPPING_VERSION+"|"+old.schoolYear+"|"+old.curriculum+"|"+old.actualGrade+"|"+old.term+"||"+String.join(",",ids)+"|foundation-unit-screen-v2|units-"+KoreanFoundationUnits.MAPPING_VERSION+"|"+old.lastLearnedSkill;
+        for(Diagnosis.UnitScreen unit:Diagnosis.screens(old))unit.planKey=old.key;s.diagnostics.put(old.key,old);
+        int remaining=Diagnosis.remainingChecks(old),history=s.history.size();s.session.answers.set(0,"888");s.session.steps.add("1=2");s.session.stepKinds.add(Checker.StepKind.FULL);
+        HelpPlan.Draft help=new HelpPlan.Draft();help.questionId=q.id;help.entries.add("777");s.session.conceptHelp=help;Learning.markError(s,DAY);Review.Track track=Review.track(s.progress(q.skillId));long generation=track.generation;Review.Work work=s.session.reviewWork;
+        Diagnosis.migrate(s);Diagnosis.Plan next=Diagnosis.currentPlan(s);assertNotNull(next);assertNotSame(old,next);assertEquals(remaining+3,Diagnosis.remainingChecks(next));assertEquals(remaining,Diagnosis.remainingChecks(old));assertSame("Completed run keeps its own pre-restart plan",finishedPlan,finished.diagnosticRun.plan);assertEquals("Completed count is not rewritten",finishedDone,finished.completed);
+        assertSame(q,s.session.question);assertEquals("888",s.session.answers.get(0));assertEquals(List.of("1=2"),s.session.steps);assertSame(help,s.session.conceptHelp);assertEquals(List.of("777"),help.entries);assertSame(work,s.session.reviewWork);assertSame(track,Review.track(s.progress(q.skillId)));assertEquals(generation,track.generation);assertTrue(track.pending);assertEquals(history,s.history.size());
+        assertSame(next,run.plan);assertNotSame(active,run.current);assertEquals(active.skillId,run.current.skillId);assertTrue(run.current.reserved);assertSame(old,s.diagnostics.get(old.key));
+        Diagnosis.UnitScreen added=next.unitScreens.get("KR|2022|6|2|6");assertEquals(KoreanRoundSolids.IDS,added.members);assertEquals(KoreanRoundSolids.IDS,added.representatives);assertTrue(added.completedRepresentatives.isEmpty());assertTrue(added.reasons.isEmpty());assertEquals(Diagnosis.UnitStatus.UNCHECKED,added.status);
+        Learning.State cold=LearningSnapshot.capture(s);assertSame(Diagnosis.currentPlan(cold),cold.session.diagnosticRun.plan);assertEquals("888",cold.session.answers.get(0));assertEquals(List.of("777"),cold.session.conceptHelp.entries);Diagnosis.migrate(cold);assertEquals(remaining+3,Diagnosis.remainingChecks(Diagnosis.currentPlan(cold)));
+    }
 }

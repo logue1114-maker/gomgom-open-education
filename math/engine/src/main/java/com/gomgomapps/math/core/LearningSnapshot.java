@@ -70,6 +70,8 @@ public final class LearningSnapshot {
         if(source instanceof Review.Track)return new Review.Track();
         if(source instanceof Review.Work)return new Review.Work();
         if(source instanceof HelpPlan.Draft)return new HelpPlan.Draft();
+        if(source instanceof TenExchangeLesson.Draft d)return d.copy();
+        if(source instanceof MeaningFoundationLesson.Draft)return new MeaningFoundationLesson.Draft();
         if(source instanceof RadicalAnswerFrame.Draft)return new RadicalAnswerFrame.Draft();
         if(source instanceof StudyGuide)return new StudyGuide();
         if(source instanceof StudyGuide.Frame)return new StudyGuide.Frame();
