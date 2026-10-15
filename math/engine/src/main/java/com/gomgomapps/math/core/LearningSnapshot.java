@@ -52,7 +52,7 @@ public final class LearningSnapshot {
     }
 
     private static boolean immutable(Object value){
-        return value instanceof String||value instanceof Boolean||value instanceof Byte||value instanceof Short||value instanceof Integer||value instanceof Long||value instanceof Float||value instanceof Double||value instanceof Character||value instanceof Enum<?>||value instanceof Rational||value instanceof NumberBond||value instanceof Review.Event;
+        return value instanceof String||value instanceof Boolean||value instanceof Byte||value instanceof Short||value instanceof Integer||value instanceof Long||value instanceof Float||value instanceof Double||value instanceof Character||value instanceof Enum<?>||value instanceof Rational||value instanceof NumberBond||value instanceof Review.Event||value instanceof KoreanTriangleLesson.Comparison;
     }
     private static Field[] fields(Class<?> type){
         List<Field> fields=new ArrayList<>();
