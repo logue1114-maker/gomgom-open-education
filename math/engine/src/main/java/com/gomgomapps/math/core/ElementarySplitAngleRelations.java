@@ -10,14 +10,21 @@ public final class ElementarySplitAngleRelations {
         return "el_proportional_split".equals(id) || "el_shape_angle".equals(id);
     }
     public static void attach(Question q) {
-        if(q == null || !supports(q.skillId) || q.prompt == null) return;
+        StudyGuide visible=guide(q);if(visible!=null)q.studyGuide=visible;
+    }
+    /** Rebuild the legacy numeric lesson from its public sentence, without touching the question. */
+    public static StudyGuide guide(Question q) {
+        if(q == null || !supports(q.skillId) || q.prompt == null) return null;
+        try{return publicGuide(q);}catch(RuntimeException invalidPublicNumber){return null;}
+    }
+    private static StudyGuide publicGuide(Question q) {
         StudyGuide guide = new StudyGuide().transfer(false);
         guide.teachingVersion = "elementary-split-angle-relations-v1";
         if(q.skillId.equals("el_proportional_split")) {
             Matcher m = Pattern.compile("전체 (\\d+)을 (\\d+):(\\d+)로 비례배분한 두 부분은\\?").matcher(q.prompt);
-            if(!m.matches()) return;
+            if(!m.matches()) return null;
             Rational total=Expression.number(m.group(1)), first=Expression.number(m.group(2)), second=Expression.number(m.group(3));
-            if(first.compareTo(Rational.ZERO)<=0 || second.compareTo(Rational.ZERO)<=0) return;
+            if(first.compareTo(Rational.ZERO)<=0 || second.compareTo(Rational.ZERO)<=0) return null;
             Rational sum=first.add(second), unit=total.div(sum);
             entry(guide,"문제에서 비의 첫째 항을 찾아 쓰세요.","비의 첫째 항 = ","",first);
             entry(guide,"문제에서 비의 둘째 항을 찾아 쓰세요.","비의 둘째 항 = ","",second);
@@ -39,9 +46,9 @@ public final class ElementarySplitAngleRelations {
                 entry(guide,"전체 각의 크기를 구하세요.","90 + 더 커진 각도 = "," 도",Rational.of(90).add(angle));
             } else if(q.prompt.equals("직사각형의 한 각은 몇 도인가요?")) {
                 entry(guide,"직사각형의 네 각은 직각입니다.","360 ÷ 4 = "," 도",Rational.of(90));
-            } else return;
+            } else return null;
         }
-        q.studyGuide=guide;
+        return guide;
     }
     private static void entry(StudyGuide g,String instruction,String before,String after,Rational expected) {
         g.step(instruction,before,after,expected.toString());

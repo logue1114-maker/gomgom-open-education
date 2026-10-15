@@ -12,6 +12,12 @@ public final class HelpPlan {
         public String teachingVersion;
         public int stage;
         public List<String> entries=new ArrayList<>();
+        /** Bound right-angle observation, separate from numeric entries and the original task. */
+        public String rightAngleScope;
+        public List<String> rightAngleActions=new ArrayList<>();
+        public List<String> oldAngleEntries=new ArrayList<>();
+        public int oldAngleStage;
+        public String oldAngleTeachingVersion;
         /** Real v1 COUNT entries are retained for reading, never reused as new teaching answers. */
         public List<String> oldCountEntries=new ArrayList<>();
         public int oldCountStage;
@@ -57,7 +63,7 @@ public final class HelpPlan {
         /** Optional comparison detour. The original wrong entry and answer remain in their own slots. */
         public int triangleRevisitReturnStage=-1;
         public KoreanTriangleLesson.Comparison triangleRevisitBefore;
-        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.oldCountEntries=oldCountEntries==null?new ArrayList<>():new ArrayList<>(oldCountEntries);d.oldCountStage=oldCountStage;d.oldCountTeachingVersion=oldCountTeachingVersion;d.countArithmeticOpen=countArithmeticOpen;d.countObjectsOpen=countObjectsOpen;d.countRemovalConfirmed=countRemovalConfirmed;d.countArithmeticLessons=new LinkedHashMap<>();if(countArithmeticLessons!=null)for(var entry:countArithmeticLessons.entrySet())if(entry.getValue()!=null)d.countArithmeticLessons.put(entry.getKey(),entry.getValue().copy());d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.movementActions=movementActions==null?new ArrayList<>():new ArrayList<>(movementActions);d.polygonRevisitScope=polygonRevisitScope;d.polygonRevisitOpen=polygonRevisitOpen;d.polygonRevisitActions=polygonRevisitActions==null?new ArrayList<>():new ArrayList<>(polygonRevisitActions);d.spatialPendingInput=spatialPendingInput;d.spatialOverlapScope=spatialOverlapScope;d.spatialOverlapOpen=spatialOverlapOpen;d.spatialOverlapActions=spatialOverlapActions==null?new ArrayList<>():new ArrayList<>(spatialOverlapActions);d.spatialOverlapPendingInput=spatialOverlapPendingInput;d.spatialScope=spatialScope;d.spatialActions=spatialActions==null?new ArrayList<>():new ArrayList<>(spatialActions);d.polygonScope=polygonScope;d.polygonActions=polygonActions==null?new ArrayList<>():new ArrayList<>(polygonActions);d.patternObjectsScope=patternObjectsScope;d.patternObjectsOpen=patternObjectsOpen;d.patternObjectActions=patternObjectActions==null?new ArrayList<>():new ArrayList<>(patternObjectActions);d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);d.triangleVisited=triangleVisited==null?new ArrayList<>():new ArrayList<>(triangleVisited);d.triangleVertex=triangleVertex;d.triangleVisitStage=triangleVisitStage;d.triangleFoldActions=triangleFoldActions==null?new ArrayList<>():new ArrayList<>(triangleFoldActions);d.oldTriangleEntries=oldTriangleEntries==null?new ArrayList<>():new ArrayList<>(oldTriangleEntries);d.oldTriangleStage=oldTriangleStage;d.oldTriangleTeachingVersion=oldTriangleTeachingVersion;d.triangleRevisitReturnStage=triangleRevisitReturnStage;d.triangleRevisitBefore=triangleRevisitBefore==null?null:triangleRevisitBefore.copy();return d;}
+        public Draft copy(){Draft d=new Draft();d.questionId=questionId;d.teachingVersion=teachingVersion;d.stage=stage;d.entries=new ArrayList<>(entries);d.rightAngleScope=rightAngleScope;d.rightAngleActions=rightAngleActions==null?new ArrayList<>():new ArrayList<>(rightAngleActions);d.oldAngleEntries=oldAngleEntries==null?new ArrayList<>():new ArrayList<>(oldAngleEntries);d.oldAngleStage=oldAngleStage;d.oldAngleTeachingVersion=oldAngleTeachingVersion;d.oldCountEntries=oldCountEntries==null?new ArrayList<>():new ArrayList<>(oldCountEntries);d.oldCountStage=oldCountStage;d.oldCountTeachingVersion=oldCountTeachingVersion;d.countArithmeticOpen=countArithmeticOpen;d.countObjectsOpen=countObjectsOpen;d.countRemovalConfirmed=countRemovalConfirmed;d.countArithmeticLessons=new LinkedHashMap<>();if(countArithmeticLessons!=null)for(var entry:countArithmeticLessons.entrySet())if(entry.getValue()!=null)d.countArithmeticLessons.put(entry.getKey(),entry.getValue().copy());d.foundationCounted=foundationCounted==null?new ArrayList<>():new ArrayList<>(foundationCounted);d.foundationRemoved=foundationRemoved==null?new ArrayList<>():new ArrayList<>(foundationRemoved);d.foundationCountedStage=foundationCountedStage;d.foundationChecked=foundationChecked;d.movementActions=movementActions==null?new ArrayList<>():new ArrayList<>(movementActions);d.polygonRevisitScope=polygonRevisitScope;d.polygonRevisitOpen=polygonRevisitOpen;d.polygonRevisitActions=polygonRevisitActions==null?new ArrayList<>():new ArrayList<>(polygonRevisitActions);d.spatialPendingInput=spatialPendingInput;d.spatialOverlapScope=spatialOverlapScope;d.spatialOverlapOpen=spatialOverlapOpen;d.spatialOverlapActions=spatialOverlapActions==null?new ArrayList<>():new ArrayList<>(spatialOverlapActions);d.spatialOverlapPendingInput=spatialOverlapPendingInput;d.spatialScope=spatialScope;d.spatialActions=spatialActions==null?new ArrayList<>():new ArrayList<>(spatialActions);d.polygonScope=polygonScope;d.polygonActions=polygonActions==null?new ArrayList<>():new ArrayList<>(polygonActions);d.patternObjectsScope=patternObjectsScope;d.patternObjectsOpen=patternObjectsOpen;d.patternObjectActions=patternObjectActions==null?new ArrayList<>():new ArrayList<>(patternObjectActions);d.planeVertex=planeVertex;d.planeVisitStage=planeVisitStage;d.planeVisited=planeVisited==null?new ArrayList<>():new ArrayList<>(planeVisited);d.triangleVisited=triangleVisited==null?new ArrayList<>():new ArrayList<>(triangleVisited);d.triangleVertex=triangleVertex;d.triangleVisitStage=triangleVisitStage;d.triangleFoldActions=triangleFoldActions==null?new ArrayList<>():new ArrayList<>(triangleFoldActions);d.oldTriangleEntries=oldTriangleEntries==null?new ArrayList<>():new ArrayList<>(oldTriangleEntries);d.oldTriangleStage=oldTriangleStage;d.oldTriangleTeachingVersion=oldTriangleTeachingVersion;d.triangleRevisitReturnStage=triangleRevisitReturnStage;d.triangleRevisitBefore=triangleRevisitBefore==null?null:triangleRevisitBefore.copy();return d;}
     }
     public static final class Step {
         public final String instruction,before,after;
@@ -78,6 +84,7 @@ public final class HelpPlan {
         Step(StudyGuide.Frame frame){instruction=frame.instruction;before=frame.before;after=frame.after;expected=frame.expected;filled=frame.pictureFilled==null?-1:frame.pictureFilled;extra=frame.pictureExtra==null?0:frame.pictureExtra;denominator=frame.pictureDenominator==null?0:frame.pictureDenominator;general=true;options=frame.options==null?Map.of():Map.copyOf(frame.options);requiredFormat=frame.inputFormat==null?"":frame.inputFormat;acceptedChoices=frame.acceptedChoices==null?null:Set.copyOf(frame.acceptedChoices);}
         public boolean accepts(String value){
             if(requiredFormat.equals(KoreanTriangleClassification.FOLD_FORMAT))return "ok".equals(value);
+            if(requiredFormat.equals(KoreanRightAngles.ACTION_FORMAT))return "ok".equals(value);
             if(requiredFormat.equals("polygonAction"))return "ok".equals(value);
             if(requiredFormat.equals(KoreanSpatialSolids.ACTION_FORMAT))return "ok".equals(value);
             if(requiredFormat.equals("planeMovementAction"))return "ok".equals(value);
@@ -109,6 +116,7 @@ public final class HelpPlan {
     private boolean conversionFraction;
     private boolean decimalQuotient;
     private boolean largeCountTeaching;
+    private boolean rightAngleTeaching;
     private String teachingVersion;
     private Integer resultNumeratorFrame,resultDenominatorFrame;
     private Integer resultCoefficientFrame,resultRadicandFrame;
@@ -147,6 +155,7 @@ public final class HelpPlan {
         plan.teachingVersion=guide.teachingVersion;plan.transfer=false;return plan;
     }
     public static HelpPlan forQuestion(Question q){
+        if(q!=null&&KoreanRightAngles.supports(q.skillId)){StudyGuide visible=KoreanRightAngles.guide(q);boolean illustrated=visible!=null;if(visible==null)visible=ElementarySplitAngleRelations.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.rightAngleTeaching=illustrated;plan.transfer=false;return plan;}
         if(q!=null&&KoreanSpatialSolids.supports(q.skillId)){StudyGuide visible=KoreanSpatialSolids.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&KoreanPolygons.supports(q.skillId)){StudyGuide visible=KoreanPolygons.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
         if(q!=null&&KoreanRulesRelations.supports(q.skillId)){StudyGuide visible=KoreanRulesRelations.guide(q);if(visible==null)return null;HelpPlan plan=new HelpPlan(0);for(StudyGuide.Frame frame:visible.frames)plan.steps.add(new Step(frame));plan.teachingVersion=visible.teachingVersion;plan.transfer=false;return plan;}
@@ -295,6 +304,12 @@ public final class HelpPlan {
     public Draft restore(Draft draft,String questionId){
         if(draft==null||!questionId.equals(draft.questionId)){draft=new Draft();draft.questionId=questionId;}
         if(!Objects.equals(teachingVersion,draft.teachingVersion)){
+            if(rightAngleTeaching&&KoreanRightAngles.VERSION.equals(teachingVersion)&&
+                (KoreanRightAngles.OLD_VERSION.equals(draft.teachingVersion)||draft.teachingVersion==null&&
+                    (draft.stage>0||draft.entries!=null&&draft.entries.stream().anyMatch(value->value!=null&&!value.isEmpty())))){
+                draft.oldAngleEntries=draft.entries==null?new ArrayList<>():new ArrayList<>(draft.entries);
+                draft.oldAngleStage=draft.stage;draft.oldAngleTeachingVersion=draft.teachingVersion;
+            }
             if(KoreanTriangleClassification.FOLD_VERSION.equals(teachingVersion)&&KoreanTriangleClassification.VERSION.equals(draft.teachingVersion)){
                 draft.oldTriangleEntries=draft.entries==null?new ArrayList<>():new ArrayList<>(draft.entries);
                 draft.oldTriangleStage=draft.stage;draft.oldTriangleTeachingVersion=draft.teachingVersion;
@@ -314,6 +329,7 @@ public final class HelpPlan {
             draft.planeVertex=-1;draft.planeVisitStage=-1;draft.planeVisited=new ArrayList<>();draft.movementActions=new ArrayList<>();
             draft.triangleVertex=-1;draft.triangleVisitStage=-1;draft.triangleVisited=new ArrayList<>();
             draft.triangleFoldActions=new ArrayList<>();
+            draft.rightAngleScope=null;draft.rightAngleActions=new ArrayList<>();
             draft.triangleRevisitReturnStage=-1;draft.triangleRevisitBefore=null;
         }
         if(draft.entries==null)draft.entries=new ArrayList<>();

@@ -23,7 +23,14 @@ public class ElementarySplitAngleRelationsTest {
             List<Rational> expected;
             if(m.find()) {Rational a=Expression.number(m.group(1));boolean smaller=q.prompt.startsWith("직각을");variants.add(smaller?1:2);expected=List.of(a,smaller?Rational.of(90).sub(a):Rational.of(90).add(a));}
             else {assertEquals("직사각형의 한 각은 몇 도인가요?",q.prompt);variants.add(0);expected=List.of(Rational.of(90));}
-            assertTrue(new Checker().check(q,List.of(),List.of(expected.get(expected.size()-1).toString())).correct());verify(q,expected);
+            assertTrue(new Checker().check(q,List.of(),List.of(expected.get(expected.size()-1).toString())).correct());
+            String signature=q.signature();Arrays.fill(q.answers,"999999");ElementarySplitAngleRelations.attach(q);
+            assertEquals(signature,q.signature());assertNotNull(q.studyGuide);assertFalse(q.studyGuide.transfer);
+            assertEquals("elementary-split-angle-relations-v1",q.studyGuide.teachingVersion);assertEquals(expected.size(),q.studyGuide.frames.size());
+            for(int frame=0;frame<expected.size();frame++){
+                HelpPlan.Step legacy=new HelpPlan.Step(q.studyGuide.frames.get(frame));
+                assertTrue(legacy.accepts(expected.get(frame).toString()));assertFalse(legacy.accepts(expected.get(frame).add(Rational.ONE).toString()));
+            }
         }
         assertEquals(Set.of(0,1,2),variants);
     }
